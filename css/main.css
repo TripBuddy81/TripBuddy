@@ -1,0 +1,265 @@
+/*
+809bce -> Main Buttons
+95b8d1 -> Button secondary
+b8e0d2 -> Background
+d6eadf -> Text / hover background
+
+https://coolors.co/palettes/popular/pastel*/
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #b8e0d2;
+    -webkit-overflow-scrolling: touch;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+h1 {
+    color: #809bce;
+}
+
+a:link, a:visited, a:active, a:hover, p {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #809bce;
+}
+
+a:link, a:visited, a:active, p, div, span {
+       user-select: none;
+}
+
+.btn {
+    background-color: #809bce;
+    color: black;
+    font-size: x-large;
+}
+
+.btn-lg {
+    font-size: xx-large;
+}
+
+.btn.videoFilterBtn {
+    background-color: #AAD0D2;
+}
+
+.btn.videoFilterBtn.filterActive {
+    background-color: #809bce;
+}
+
+.btn:hover {
+    color: black;
+    background-color: #d6eadf;
+}
+
+#mainMenu {
+    position: sticky;
+    top: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    background-color: #b8e0d2;
+    z-index: 10;
+}
+
+.videoTagFilters {
+    position: fixed;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    top: 75px;
+    width: 100%;
+    background-color: #b8e0d2;
+    z-index: 10;
+}
+
+#displayedVideos {
+    padding-top: 60px;
+}
+
+#timerMinutes {
+    font-size: 40px;
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+    color: #60d394;
+    -webkit-text-stroke: 1px black;
+}
+
+#progressGraphContainer {
+    width: 400px;
+    position: relative;
+}
+
+#progressGraph {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    max-width: var(--chart-width, 600px);
+}
+
+#progressGraph tbody {
+    width: 100%;
+    height: var(--chart-height, 50px);
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-direction: row;
+}
+
+#progressGraph tr {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+#progressGraph td {
+    position: absolute;
+    top: -16px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--color, rgba(240, 50, 50, 0.75));
+    clip-path: polygon(
+            0% calc(100% * (1 - var(--start))),
+            100% calc(100% * (1 - var(--end))),
+            100% 100%,
+            0% 100%
+    );
+}
+
+#progressGraph td:nth-of-type(1) {
+    --color: rgba(0, 0, 0, 0.2);
+}
+
+#toggleInfo, #enableFullscreen, #disableFullscreen {
+    height: 35px;
+    cursor: pointer;
+}
+
+.fullscreenImage {
+    width: 540px;
+    cursor: pointer;
+}
+
+.resetVideoFilterIcon {
+    height: 30px;
+}
+
+#particles-js {
+    position: relative;
+    height: 975px;
+    background-color: #6f42c1;
+    animation: strobo2 0ms steps(1, end) infinite;
+    cursor: none;
+}
+
+.particles-js-canvas-el {
+    height: 99.4% !important;
+}
+
+@keyframes strobo1 {
+    50% {
+        background: black
+    }
+}
+
+@keyframes strobo2 {
+    50% {
+        background: white
+    }
+}
+
+#discoSettingsContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    opacity: 0;
+    cursor: pointer !important;
+}
+
+#discoSettingsContainer:hover {
+    opacity: 1;
+}
+
+#discoSettings {
+    padding: 25px;
+}
+
+.discoSetBGColor, .discoToggleBWStrobo {
+    padding: 25px 25px 0px 25px;
+    display: inline;
+    cursor: pointer;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+}
+
+#discoBGColorPickerContainer {
+    display: inline;
+    cursor: pointer;
+}
+
+#discoBGColorPickerImage, #discoToggleBWStrobo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+#discoParticlesSwitchImage {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 30px;
+    margin-left:15px;
+    cursor: pointer;
+}
+
+input[type=range] {
+    height: 48px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 300px;
+}
+
+#discoStroboSpeed {
+    background: transparent;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 1px transparent;
+    background: #D8D8D8;
+    border-radius: 50px;
+    border: 0px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px transparent;
+    border: 0px solid #00001E;
+    height: 41px;
+    width: 41px;
+    border-radius: 50px;
+    background: #000000;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5.5px;
+}
+

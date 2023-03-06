@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Trip Buddy</title>
+    <script src="./libs/handlebars/handlebars.min-v4.7.7.js"></script>
+    <script src="./libs/jquery3/jquery-3.6.3.min.js"></script>
+    <script src="./libs/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+    <script src="./libs/particles.js-master/particles.js"></script>
+
+
+    <script src="./config/config.js"></script>
+    <script src="./config/optionalConfig.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/particles.js"></script>
+    <script src="./js/intense.js"></script>
+
+
+    <link rel="stylesheet" href="./libs/bootstrap-5.0.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <link rel="icon" type="image/png" href="assets/mushroom.png"/>
+</head>
+
+<body>
+<script id="mainTemplate" type="text/x-handlebars-template">
+    <div id="mainMenu" class="">
+        <!-- Left side-->
+        <div class="btn btn-primary btn-lg me-2" id="showVideoSection">
+            Videos
+        </div>
+        <div class="btn btn-primary btn-lg me-2" id="showImageSection">
+            Images
+        </div>
+        <div class="btn btn-primary btn-lg me-2" id="showDiscoSection">
+            Disco
+        </div>
+        <div class="btn btn-primary btn-lg me-2" id="showMiscSection">
+            Misc
+        </div>
+
+        <img id="enableFullscreen" class="toggleFullscreen float-end me-3 mt-3" src="./assets/enableFullscreen.png">
+        <img id="disableFullscreen" class="toggleFullscreen float-end me-3 mt-3" style="display: none;"
+             src="./assets/disableFullscreen.png">
+        <img id="toggleInfo" class="float-end me-3 mt-3" src="./assets/info.png">
+        <div id="timerMinutes" class="float-end me-5">00:00</div>
+
+        <div id="progressGraphContainer" class="float-end me-3 mt-3">
+            <table id="progressGraph">
+                <tbody>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="ignition" data-time=0
+                        style="--start:0.0; --end:0.1;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="onset" data-time=20
+                        style="--start:0.1; --end:0.6;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="peak" data-time=40
+                        style="--start:0.6; --end:1.0;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="peak" data-time=60
+                        style="--start:1.0; --end:1.0;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="peak" data-time=80
+                        style="--start:1.0; --end:1.0;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="chillout" data-time=100
+                        style="--start:1.0; --end:0.9;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="chillout" data-time=120
+                        style="--start:0.9; --end:0.8;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="chillout" data-time=140
+                        style="--start:0.8; --end:0.7;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="chillout" data-time=160
+                        style="--start:0.7; --end:0.6;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="chillout" data-time=180
+                        style="--start:0.6; --end:0.5;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="chillout" data-time=200
+                        style="--start:0.5; --end:0.3;"></td>
+                </tr>
+                <tr>
+                    <td class="progressGraphElement" data-progressGraphState="chillout" data-time=220
+                        style="--start:0.3; --end:0.0;"></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div id="videos" class="ms-3">
+        <div class="videoTagFilters">
+            <div class="resetVideoFilter btn btn-primary me-2">
+                <img class="resetVideoFilterIcon" src="./assets/x.png">
+            </div>
+            {{#selectableTags}}
+            <div class="{{selectableTag}}filter videoFilterBtn btn btn-primary me-2">{{selectableTag}}</div>
+            {{/selectableTags}}
+            <div class="resetVideoFilter btn btn-primary me-2">
+                <img class="resetVideoFilterIcon" src="./assets/x.png">
+            </div>
+        </div>
+
+        <div id="displayedVideos" class="mt-3">
+            {{#videosYoutube}}
+            <div style="display:inline-block" class="iFrameContainer {{tags}}">
+                <iframe width="554" height="315"
+                        src="{{videoLink}}?mute=1&rel=0"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                <div class="videoInfo text-center mb-2" style="display: none;">{{tags}}
+                    <div>({{videoLink}})</div>
+                </div>
+            </div>
+            {{/videosYoutube}}
+
+            {{#videosLocal}}
+            <div style="display:inline-block" class="iFrameContainer {{tags}}">
+                <video width="554" height="315" controls muted>
+                    <source src="{{videoLink}}" type="video/mp4">
+                </video>
+                <div class="videoInfo text-center mb-2" style="display: none;">{{tags}}
+                    <div>({{videoLink}})</div>
+                </div>
+            </div>
+            {{/videosLocal}}
+        </div>
+    </div>
+
+    <div id="images" class="mt-3 mb-3 ms-3">
+        {{#images}}
+        <img width="540" height="304" src="{{image}}" title="{{image}}" class="fullscreenImage me-2 mb-2"
+             data-image="{{image}}"></img>
+        {{/images}}
+    </div>
+
+    <div id="disco" class="">
+        <div id="particles-js">
+            <div id="discoSettingsContainer">
+                <div id="discoSettings">
+                    <label id="discoBGColorPickerContainer" for="discoBGColorPicker">
+                        <img id="discoBGColorPickerImage" src="./assets/colorpicker.png" title="colorpicker">
+                        <input type="color" id="discoBGColorPicker" style="display: none">
+                    </label>
+                    <div class="discoSetBGColor" style="background-color:#000000;">&nbsp;</div>
+                    <div class="discoSetBGColor" style="background-color:#B61924;">&nbsp;</div>
+                    <div class="discoSetBGColor" style="background-color:#0c4128;">&nbsp;</div>
+                    <div class="discoSetBGColor" style="background-color:#6f42c1;">&nbsp;</div>
+                    <div class="discoSetBGColor" style="background-color:#0d6efd;">&nbsp;</div>
+
+                    <label id="discoParticlesSwitchContainer" for="discoParticlesSwitch">
+                        <img id="discoParticlesSwitchImage" src="./assets/particle.png" title="particle">
+                        <input id="discoParticlesSwitch" style="display: none">
+                    </label>
+
+                    <label class="float-start me-3 " for="discoStroboSpeed">
+                        <img id="discoToggleBWStrobo" src="./assets/blackAndWhite.png" title="stroboBWChange">
+                    </label>
+                    <input type="range" id="discoStroboSpeed" name="discoStroboSpeed"
+                           min="0" max="100" value="0" step="5">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="misc" class="mt-3 mb-3 ms-3">
+        <div id="MiscLinks" class="mt-3 mb-3 ms-3">
+            <h1>misc Links</h1>
+            <ul>
+                {{#links}}
+                <li>
+                    <a href="{{link}}" target=_blank>{{name}}</a>
+                </li>
+                {{/links}}
+            </ul>
+        </div>
+
+        <div id="xxx" class="mt-3 mb-3 ms-3" style="display:none;">
+            <hr>
+            <h1>adult entertainment</h1>
+            <ul>
+                {{#adultLinks}}
+                <li>
+                    <a href="{{link}}" target=_blank>{{name}}</a>
+                </li>
+                {{/adultLinks}}
+            </ul>
+        </div>
+    </div>
+
+</script>
+</body>
+</html>
