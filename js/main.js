@@ -4,7 +4,7 @@ $( document ).ready( function () {
     var isFullScreen = false;
     var lastDisplayedImage = config['images'][0]['image'];
 
-    Object.assign(config, optionalConfig);
+    Object.assign( config, optionalConfig );
 
     // ***********************************
     // Handlebar renderer - takes config within config/config.js
