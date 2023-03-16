@@ -209,7 +209,6 @@ $( document ).ready( function () {
     }
 
     function clearSelection() {
-        $( '.videoLabel' ).hide();
         if ( document.selection && document.selection.empty ) {
             document.selection.empty();
         } else if ( window.getSelection ) {
@@ -264,6 +263,7 @@ $( document ).ready( function () {
     } );
 
     $( '.resetVideoFilter' ).click( function () {
+        $( '.videoLabel' ).hide();
         $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
         $( '.iFrameContainer' ).each( function () {
             $( this ).show();
@@ -272,6 +272,12 @@ $( document ).ready( function () {
             $( this ).toggleClass( 'filterActive' );
         } );
     } );
+
+    $( '.videoLabelLink' ).each( function () {
+        var newLink = $( this ).attr("href").replace("embed/videoseries", "playlist");
+        $( this ).attr("href", newLink)
+    } );
+
 
     // Detect if iframe has been targeted and deactivate fullscreen since it does not work with fullscreen exit of iframe itself
     var myConfObj = {
