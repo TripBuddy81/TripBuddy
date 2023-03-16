@@ -2,24 +2,24 @@ var config = {
     'timer':
             [
                 {
-                    'tag'    : 'ignition',
-                    'X': 20,
-                    'Y': 0.1
+                    'tag': 'ignition',
+                    'X'  : 20,
+                    'Y'  : 0.1
                 },
                 {
-                    'tag'    : 'onset',
-                    'X': 40,
-                    'Y': 0.6
+                    'tag': 'onset',
+                    'X'  : 40,
+                    'Y'  : 0.6
                 },
                 {
-                    'tag'    : 'peak',
-                    'X': 100,
-                    'Y': 1
+                    'tag': 'peak',
+                    'X'  : 100,
+                    'Y'  : 1
                 },
                 {
-                    'tag'    : 'chillout',
-                    'X': 220,
-                    'Y': 0
+                    'tag': 'chillout',
+                    'X'  : 220,
+                    'Y'  : 0
                 }
             ]
     ,
@@ -35,7 +35,7 @@ var config = {
         {'selectableTag': 'slideshow'},
         {'selectableTag': 'hiking'},
         {'selectableTag': 'festival'},
-        {'selectableTag': 'wisdom'}
+        {'selectableTag': 'playlist'}
     ],
     'videosYoutube' : [
         {
@@ -241,7 +241,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/R1CyKwtCDr8?mute=1',
             'tags'     : 'festival'
-        },
+        }*/,
         {
             'videoLink': 'https://www.youtube.com/embed/KtXphUrwQtA?mute=1',
             'tags'     : 'festival'
@@ -257,11 +257,24 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/rgZfmWXTqas?mute=1',
             'tags'     : 'slideshow'
-        }*/,
+        },
         {
             'videoLink': 'https://www.youtube.com/embed/videoseries?list=PLcrVuDwOKu1dfA01A27l6nmwuAaeVQ4h_',
-            'tags'     : 'wisdom'
+            'tags'     : 'playlist',
+            'label'    : 'Alan Watts Wisdom'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/videoseries?list=PLzG6tj8mWFmAaPAujl6CSQMob_sW6L4yx',
+            'tags'     : 'playlist',
+            'label'    : 'Psychedelic Short Films'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/videoseries?list=PL0DkyGTnL_T9PGRApBLu2iP9jMLSrFDYV',
+            'tags'     : 'playlist',
+            'label'    : 'Trippy Animations'
         }
+
+
     ],
     'images'        : [
         {'image': './media/images/41.jpg'},

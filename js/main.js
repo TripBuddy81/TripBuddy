@@ -29,7 +29,7 @@ $( document ).ready( function () {
         $( '#disco' ).hide();
         $( '#misc' ).hide();
         $( '#xxx' ).hide();
-        mainMenuToStatic( true );
+        mainMenuToStatic( false );
         enableFullscreen();
     } );
     $( '#showDiscoSection' ).click( function () {
@@ -54,9 +54,9 @@ $( document ).ready( function () {
 
     function mainMenuToStatic( setStatic ) {
         if ( setStatic ) {
-            $( '#mainMenu' ).addClass( 'videoTagFilters' );
+            $( '#mainMenu' ).addClass( 'sticky' );
         } else {
-            $( '#mainMenu' ).removeClass( 'videoTagFilters' );
+            $( '#mainMenu' ).removeClass( 'sticky' );
         }
     }
 
@@ -209,6 +209,7 @@ $( document ).ready( function () {
     }
 
     function clearSelection() {
+        $( '.videoLabel' ).hide();
         if ( document.selection && document.selection.empty ) {
             document.selection.empty();
         } else if ( window.getSelection ) {
@@ -242,6 +243,13 @@ $( document ).ready( function () {
         $( '.videoFilterBtn.filterActive' ).each( function () {
             totalCount++;
             tagList += '.' + $( this ).text().trim();
+
+            // Show labels only for Tag category "playlist"
+            if ( $( this ).text().trim() == 'playlist' ) {
+                $( '.videoLabel' ).show();
+            } else {
+                $( '.videoLabel' ).hide();
+            }
         } );
 
         $( tagList ).each( function () {

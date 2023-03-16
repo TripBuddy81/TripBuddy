@@ -103,7 +103,7 @@
     </div>
 
     <div id="videos" class="ms-3">
-        <div class="videoTagFilters">
+        <div class="sticky">
             <div class="resetVideoFilter btn btn-primary me-2">
                 <img class="resetVideoFilterIcon" src="./assets/x.png">
             </div>
@@ -123,9 +123,14 @@
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
-                <div class="videoInfo text-center mb-2" style="display: none;">{{tags}}
+                <div class="videoInfo text-center mb-2" style="display: none;">
+                    <div>{{tags}}</div>
                     <div>({{videoLink}})</div>
                 </div>
+                <div class="videoLabel text-center mb-2 fw-bold" style="display: none;">
+                    {{label}}
+                </div>
+
             </div>
             {{/videosYoutube}}
 
