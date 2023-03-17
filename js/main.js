@@ -20,6 +20,7 @@ $( document ).ready( function () {
         $( '#disco' ).hide();
         $( '#misc' ).hide();
         $( '#xxx' ).hide();
+        $( '#music' ).hide();
         mainMenuToStatic( false );
         enableFullscreen();
     } );
@@ -29,6 +30,7 @@ $( document ).ready( function () {
         $( '#disco' ).hide();
         $( '#misc' ).hide();
         $( '#xxx' ).hide();
+        $( '#music' ).hide();
         mainMenuToStatic( false );
         enableFullscreen();
     } );
@@ -38,6 +40,7 @@ $( document ).ready( function () {
         $( '#disco' ).show();
         $( '#misc' ).hide();
         $( '#xxx' ).hide();
+        $( '#music' ).hide();
         renderDiscoSection( showParticles );
         mainMenuToStatic( false );
         enableFullscreen();
@@ -48,6 +51,17 @@ $( document ).ready( function () {
         $( '#disco' ).hide();
         $( '#misc' ).show();
         $( '#xxx' ).hide();
+        $( '#music' ).hide();
+        mainMenuToStatic( false );
+        enableFullscreen();
+    } );
+    $( '#showMusicSection' ).click( function () {
+        $( '#videos' ).hide();
+        $( '#images' ).hide();
+        $( '#disco' ).hide();
+        $( '#misc' ).hide();
+        $( '#xxx' ).hide();
+        $( '#music' ).show();
         mainMenuToStatic( false );
         enableFullscreen();
     } );
@@ -376,14 +390,36 @@ $( document ).ready( function () {
         particlesInit( showParticles );
     }
 
+    // ******************************************
+    // Music section
+    window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
+        let element = document.getElementById( 'spotifyPlayer' );
+        let options = {
+            width : '480',
+            height: '200',
+            uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
+        };
+        let callback = ( EmbedController ) => {
+            document.querySelectorAll( 'ul#episodes > li > button' ).forEach(
+                    episode => {
+                        episode.addEventListener( 'click', () => {
+                            EmbedController.loadUri( episode.dataset.spotifyId )
+                            EmbedController.play();
+                        } );
+                    } )
+
+        };
+        IFrameAPI.createController( element, options, callback );
+    };
+
 
     // ******************************************
     // init initial view
-    $( '#videos' ).show();
+    $( '#videos' ).hide();
     $( '#images' ).hide();
     $( '#disco' ).hide();
     $( '#misc' ).hide();
-
+    $( '#music' ).show();
 
 } );
 

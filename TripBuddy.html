@@ -7,7 +7,7 @@
     <script src="./libs/jquery3/jquery-3.6.3.min.js"></script>
     <script src="./libs/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
     <script src="./libs/particles.js-master/particles.js"></script>
-
+    <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
 
     <script src="./config/config.js"></script>
     <script src="./config/optionalConfig.js"></script>
@@ -38,7 +38,12 @@
         <div class="btn btn-primary btn-lg me-2" id="showMiscSection">
             Misc
         </div>
-        <img id="turnScreenBlack" class="fullscreenImage me-3" src="./assets/monitor_off.png" data-image="./media/images/41.jpg">
+        <div class="btn btn-primary btn-lg me-2" id="showMusicSection">
+            Music
+        </div>
+
+        <img id="turnScreenBlack" class="fullscreenImage me-3" src="./assets/monitor_off.png"
+             data-image="./media/images/41.jpg">
 
         <img id="enableFullscreen" class="toggleFullscreen float-end me-3 mt-3" src="./assets/enableFullscreen.png">
         <img id="disableFullscreen" class="toggleFullscreen float-end me-3 mt-3" style="display: none;"
@@ -205,6 +210,29 @@
                 {{/adultLinks}}
             </ul>
         </div>
+    </div>
+
+    <div id="music" class="mt-3 mb-3 ms-3">
+        <div id="spotifyPlayer"></div>
+
+        <ul id="episodes">
+            <li>
+                <button data-spotify-id="spotify:playlist:4ILChY5F4Hn08ikt0rfHhW">
+                    Playlist
+                </button>
+            </li>
+            <li>
+                <button data-spotify-id="spotify:episode:43cbJh4ccRD7lzM2730YK3">
+                    What is Backstage?
+                </button>
+            </li>
+            <li>
+                <button data-spotify-id="spotify:episode:6I3ZzCxRhRkNqnQNo8AZPV">
+                    Introducing Nerd Out@Spotify
+                </button>
+            </li>
+        </ul>
+
     </div>
 
 </script>
