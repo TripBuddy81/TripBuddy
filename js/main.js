@@ -78,7 +78,6 @@ $( document ).ready( function () {
     var timer = setInterval( upTimer, 1000 );
     var start = new Date();
     var currentState = 'ignition';
-    var newState = true;
     var lastState = '';
 
     function upTimer() {
@@ -107,36 +106,32 @@ $( document ).ready( function () {
         } );
 
         if ( currentState != lastState ) {
-            newState = true;
             lastState = currentState;
         }
 
-        if ( currentState == 'ignition' && newState ) {
+        if ( currentState == 'ignition' ) {
             color = '#60d394';
             updateprogressGraphColor( color );
             $( '#timerMinutes' ).css( 'color', color );
-            newState = false;
-        } else if ( currentState == 'onset' && newState ) {
+        } else if ( currentState == 'onset' ) {
             color = '#ffd97d';
             updateprogressGraphColor( color );
             $( '#timerMinutes' ).css( 'color', color );
-            newState = false;
-        } else if ( currentState == 'peak' && newState ) {
+        } else if ( currentState == 'peak' ) {
             color = '#ee6055';
             updateprogressGraphColor( color );
             $( '#timerMinutes' ).css( 'color', color );
-            newState = false;
-        } else if ( newState ) {
+        } else {
             color = '#aaf683';
             updateprogressGraphColor( color );
             $( '#timerMinutes' ).css( 'color', color );
-            newState = false;
         }
     }
 
     function updateprogressGraphColor( color ) {
         $( '.activeprogressGraphElement' ).each( function () {
-            $( this ).attr( 'style', $( this ).attr( 'style' ) + ';--color: ' + color );
+            newStyle = $( this ).attr( 'style' ).replace( /;--color:.*/, '' );
+            $( this ).attr( 'style', newStyle + ';--color: ' + color );
         } );
     }
 
@@ -268,6 +263,7 @@ $( document ).ready( function () {
         } );
     } );
 
+    // Make Playlist labels clickable to actually point to the whole playlits itself
     $( '.videoLabelLink' ).each( function () {
         var newLink = $( this ).attr( 'href' ).replace( 'embed/videoseries', 'playlist' );
         $( this ).attr( 'href', newLink )
