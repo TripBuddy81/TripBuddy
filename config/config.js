@@ -29,25 +29,20 @@ var config = {
         {'selectableTag': 'trippy-slow'},
         {'selectableTag': 'trippy-fast'},
         {'selectableTag': 'meditative'},
-        {'selectableTag': 'infinite-zoom'},
         {'selectableTag': 'space'},
         {'selectableTag': 'nature'},
         {'selectableTag': 'slideshow'},
         {'selectableTag': 'hiking'},
         {'selectableTag': 'festival'},
-        {'selectableTag': 'playlist'}
+        {'selectableTag': 'wisdom'},
+        {'selectableTag': 'leftovers'},
+
+
     ],
     'videosYoutube' : [
-        {
-            'videoLink': 'https://www.youtube.com/embed/qUavbO3Y3gY?mute=1',
-            'tags'     : 'trippy-2D'
-        }/*,
+
         {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/s3Tp8ESiiM4?mute=1',
             'tags'     : 'trippy-slow trippy-3D'
         },
         {
@@ -152,19 +147,19 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/zowLNSKyfI0?mute=1',
-            'tags'     : 'infinite-zoom'
+            'tags'     : 'leftovers'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/Q-iZMkvHnFw?mute=1',
-            'tags'     : 'infinite-zoom'
+            'tags'     : 'leftovers'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
-            'tags'     : 'infinite-zoom'
+            'tags'     : 'leftovers'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/RpHnKaxt_OQ?mute=1',
-            'tags'     : 'infinite-zoom'
+            'tags'     : 'leftovers'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/t_S_cN2re4g?mute=1',
@@ -241,7 +236,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/R1CyKwtCDr8?mute=1',
             'tags'     : 'festival'
-        }*/,
+        },
         {
             'videoLink': 'https://www.youtube.com/embed/KtXphUrwQtA?mute=1',
             'tags'     : 'festival'
@@ -260,20 +255,17 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/videoseries?list=PLcrVuDwOKu1dfA01A27l6nmwuAaeVQ4h_',
-            'tags'     : 'playlist',
+            'tags'     : 'wisdom',
             'label'    : 'Alan Watts Wisdom'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/videoseries?list=PLzG6tj8mWFmAaPAujl6CSQMob_sW6L4yx',
-            'tags'     : 'playlist',
-            'label'    : 'Psychedelic Short Films'
+            'videoLink': 'https://www.youtube.com/embed/qUavbO3Y3gY?mute=1',
+            'tags'     : 'leftovers'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/videoseries?list=PL0DkyGTnL_T9PGRApBLu2iP9jMLSrFDYV',
-            'tags'     : 'playlist',
-            'label'    : 'Trippy Animations'
-        }
-
+            'videoLink': 'https://www.youtube.com/embed/s3Tp8ESiiM4?mute=1',
+            'tags'     : 'leftovers'
+        },
 
     ],
     'images'        : [
