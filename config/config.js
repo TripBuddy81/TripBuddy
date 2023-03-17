@@ -40,7 +40,7 @@ var config = {
 
     ],
     'videosYoutube' : [
-
+/*
         {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
             'tags'     : 'trippy-slow trippy-3D'
@@ -240,10 +240,11 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/KtXphUrwQtA?mute=1',
             'tags'     : 'festival'
-        },
+        },*/
         {
             'videoLink': 'https://www.youtube.com/embed/Am5DwwpKSRA?mute=1',
-            'tags'     : 'slideshow'
+            'tags'     : 'slideshow',
+            'label'    : 'TEST'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/5I69DCxYbBg?mute=1',
@@ -271,7 +272,6 @@ var config = {
     'images'        : [
         {'image': './media/images/41.jpg'},
         {'image': './media/images/40.jpg'},
-        {'image': './media/images/45.jpg'},
         {'image': './media/images/46.jpg'},
         {'image': './media/images/22.jpg'},
         {'image': './media/images/26.jpg'},

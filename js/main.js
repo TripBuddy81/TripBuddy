@@ -243,12 +243,7 @@ $( document ).ready( function () {
             totalCount++;
             tagList += '.' + $( this ).text().trim();
 
-            // Show labels only for Tag category "playlist"
-            if ( $( this ).text().trim() == 'playlist' ) {
-                $( '.videoLabel' ).show();
-            } else {
-                $( '.videoLabel' ).hide();
-            }
+            $( '.videoLabel' ).show();
         } );
 
         $( tagList ).each( function () {
@@ -274,8 +269,8 @@ $( document ).ready( function () {
     } );
 
     $( '.videoLabelLink' ).each( function () {
-        var newLink = $( this ).attr("href").replace("embed/videoseries", "playlist");
-        $( this ).attr("href", newLink)
+        var newLink = $( this ).attr( 'href' ).replace( 'embed/videoseries', 'playlist' );
+        $( this ).attr( 'href', newLink )
     } );
 
 
