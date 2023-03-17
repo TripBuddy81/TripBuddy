@@ -267,11 +267,38 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/s3Tp8ESiiM4?mute=1',
             'tags'     : 'leftovers'
         },
+        {
+            'videoLink': 'https://www.youtube.com/embed/N0rHxXC27BA?mute=1',
+            'tags'     : 'leftovers'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/T7Th3AFs7fw?mute=1',
+            'tags'     : 'leftovers'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/JloTUIpOlJk?mute=1',
+            'tags'     : 'leftovers'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/VBvVBFZMhKI?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
+            'tags'     : 'leftovers'
+        },
+
 
     ],
     'images'        : [
         {'image': './media/images/40.jpg'},
         {'image': './media/images/46.jpg'},
+        {'image': './media/images/13.jpg'},
+        {'image': './media/images/14.jpg'},
+        {'image': './media/images/15.jpg'},
+        {'image': './media/images/17.jpg'},
+        {'image': './media/images/21.jpg'},
+        {'image': './media/images/23.jpg'},
         {'image': './media/images/22.jpg'},
         {'image': './media/images/26.jpg'},
         {'image': './media/images/28.jpg'},
