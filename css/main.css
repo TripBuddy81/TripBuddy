@@ -151,6 +151,12 @@ a:link, a:visited, a:active, p, div, span {
     cursor: pointer;
 }
 
+#turnScreenBlack {
+    height: 70px;
+    cursor: pointer;
+    width: 70px !important;
+}
+
 .fullscreenImage {
     width: 540px;
     cursor: pointer;

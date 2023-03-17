@@ -270,7 +270,6 @@ var config = {
 
     ],
     'images'        : [
-        {'image': './media/images/41.jpg'},
         {'image': './media/images/40.jpg'},
         {'image': './media/images/46.jpg'},
         {'image': './media/images/22.jpg'},
