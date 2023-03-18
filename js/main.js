@@ -17,30 +17,33 @@ $( document ).ready( function () {
     $( '#showVideoSection' ).click( function () {
         $( '#videos' ).show();
         $( '#images' ).hide();
+        $( '#music' ).hide();
         $( '#disco' ).hide();
         $( '#misc' ).hide();
         $( '#xxx' ).hide();
-        $( '#music' ).hide();
+
         mainMenuToStatic( false );
         enableFullscreen();
     } );
     $( '#showImageSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).show();
+        $( '#music' ).hide();
         $( '#disco' ).hide();
         $( '#misc' ).hide();
         $( '#xxx' ).hide();
-        $( '#music' ).hide();
+
         mainMenuToStatic( false );
         enableFullscreen();
     } );
     $( '#showDiscoSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).hide();
+        $( '#music' ).hide();
         $( '#disco' ).show();
         $( '#misc' ).hide();
         $( '#xxx' ).hide();
-        $( '#music' ).hide();
+
         renderDiscoSection( showParticles );
         mainMenuToStatic( false );
         enableFullscreen();
@@ -48,20 +51,22 @@ $( document ).ready( function () {
     $( '#showMiscSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).hide();
+        $( '#music' ).hide();
         $( '#disco' ).hide();
         $( '#misc' ).show();
         $( '#xxx' ).hide();
-        $( '#music' ).hide();
+
         mainMenuToStatic( false );
         enableFullscreen();
     } );
     $( '#showMusicSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).hide();
+        $( '#music' ).show();
         $( '#disco' ).hide();
         $( '#misc' ).hide();
         $( '#xxx' ).hide();
-        $( '#music' ).show();
+
         mainMenuToStatic( false );
         enableFullscreen();
     } );
@@ -425,9 +430,9 @@ $( document ).ready( function () {
     // init initial view
     $( '#videos' ).hide();
     $( '#images' ).hide();
+    $( '#music' ).show();
     $( '#disco' ).hide();
     $( '#misc' ).hide();
-    $( '#music' ).show();
 
 } );
 

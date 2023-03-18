@@ -32,15 +32,16 @@
         <div class="btn btn-primary btn-lg me-2" id="showImageSection">
             Images
         </div>
+        <div class="btn btn-primary btn-lg me-2" id="showMusicSection">
+            Music
+        </div>
         <div class="btn btn-primary btn-lg me-2" id="showDiscoSection">
             Disco
         </div>
         <div class="btn btn-primary btn-lg me-2" id="showMiscSection">
             Misc
         </div>
-        <div class="btn btn-primary btn-lg me-2" id="showMusicSection">
-            Music
-        </div>
+
 
         <img id="turnScreenBlack" class="fullscreenImage me-3" src="./assets/monitor_off.png"
              data-image="./media/images/41.jpg">
@@ -157,6 +158,32 @@
         {{/images}}
     </div>
 
+    <div id="music" class="">
+        <div class="row">
+            <div class="col ms-3">
+                <div id="playlistContainer">
+                    {{#playlists}}
+                    <div class="playlistBtn btn btn-primary me-2" data-spotify-id="spotify:playlist:{{id}}">
+                        {{label}}
+                    </div>
+                    {{/playlists}}
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="col ms-3">
+                <div id="iFrameSpotifyPlayer"></div>
+            </div>
+            <div class="col me-3">
+                <div>Work in progress - oAuth Spotify Player - Needs credentials</div>
+                <div>If you know how to get client id and secret and also how to setup a debug user go for it (<a
+                        href="https://developer.spotify.com/dashboard/" style="font-size: medium;font-weight: normal">register
+                    here</a>). Otherwise use embedded player on left side.
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="disco" class="">
         <div id="particles-js">
             <div id="discoSettingsContainer">
@@ -212,31 +239,7 @@
         </div>
     </div>
 
-    <div id="music" class="">
-        <div class="row">
-            <div class="col ms-3">
-                <div id="playlistContainer">
-                    {{#playlists}}
-                    <div class="playlistBtn btn btn-primary me-2" data-spotify-id="spotify:playlist:{{id}}">
-                        {{label}}
-                    </div>
-                    {{/playlists}}
-                </div>
-            </div>
-        </div>
-        <div class="row mt-3 mb-3">
-            <div class="col ms-3">
-                <div id="iFrameSpotifyPlayer"></div>
-            </div>
-            <div class="col me-3">
-                <div>Work in progress - oAuth Spotify Player - Needs credentials</div>
-                <div>If you know how to get client id and secret and also how to setup a debug user go for it (<a
-                        href="https://developer.spotify.com/dashboard/" style="font-size: medium;font-weight: normal">register
-                    here</a>). Otherwise use embedded player on left side.
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 
 </script>
