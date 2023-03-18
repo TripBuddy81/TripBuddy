@@ -146,7 +146,7 @@ a:link, a:visited, a:active, p, div, span {
 
 #menu {
     position: absolute;
-    width: 300px;
+    width: 500px;
     margin: -100px 0 0 0;
     padding: 50px;
     padding-top: 125px;
@@ -162,6 +162,7 @@ a:link, a:visited, a:active, p, div, span {
 #menu li {
     padding: 10px 0;
     font-size: 22px;
+    cursor: pointer;
 }
 
 #menuToggle input:checked ~ ul {
@@ -247,7 +248,7 @@ a:link, a:visited, a:active, p, div, span {
     --color: rgba(0, 0, 0, 0.2);
 }
 
-#toggleInfo, #enableFullscreen, #disableFullscreen {
+#enableFullscreen, #disableFullscreen {
     height: 35px;
     cursor: pointer;
 }
