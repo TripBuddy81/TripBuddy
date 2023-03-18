@@ -74,9 +74,14 @@ $( document ).ready( function () {
         }
     }
 
+    $( '.menuItem' ).click( function () {
+        $( '#menuClose' ).trigger( 'click' );
+    } );
+
+
     // ******************************************
     // Enable hidden menue
-    $('.XXX').hide();
+    $( '.XXX' ).hide();
     var keyCache = {};
     $( document ).keydown( function ( e ) {
         keyCache[e.which] = true;
@@ -95,10 +100,10 @@ $( document ).ready( function () {
     } );
     $( '#liftOff' ).click( function ( e ) {
         start = new Date();
-        $('#preFlightChecklist').modal('hide');
-        $('#launchText').hide();
-        $('#timerMinutes').show();
-        $('#progressGraphContainer').show();
+        $( '#preFlightChecklist' ).modal( 'hide' );
+        $( '#launchText' ).hide();
+        $( '#timerMinutes' ).show();
+        $( '#progressGraphContainer' ).show();
     } );
 
     // ******************************************
@@ -441,6 +446,7 @@ $( document ).ready( function () {
         $( '.particles-js-canvas-el' ).remove();
         particlesInit( showParticles );
     }
+
     $( '#disco' ).mousemove( function ( event ) {
         if ( event.pageY < 20 ) {
             $( '#mainMenu' ).show();

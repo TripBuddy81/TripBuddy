@@ -37,24 +37,20 @@
         <div class="btn btn-primary btn-lg me-2" id="showDiscoSection">
             Disco
         </div>
-        <div class="btn btn-primary btn-lg me-5" id="showMiscSection">
-            Misc
-        </div>
         <img id="turnScreenBlack" class="me-3" src="./assets/monitor_off.png"
              data-image="./media/images/41.jpg">
 
         <!-- Right side-->
         <div id="burgerContainer" class="float-end me-3 mt-3">
             <div id="menuToggle">
-                <input type="checkbox"/>
+                <input id="menuClose" type="checkbox"/>
                 <span></span>
                 <span></span>
                 <span></span>
                 <ul id="menu">
-                    <li id="toggleInfo">Toggle video info</li>
-                    <!--                    <li>Help</li>
-                                        <li>Shortcuts</li>
-                                        <li>Contact</li>-->
+                    <li class="menuItem" id="toggleInfo">Toggle video info</li>
+                    <li class="menuItem" id="showMiscSection">Misc Links</li>
+
                 </ul>
             </div>
         </div>
