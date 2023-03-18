@@ -144,12 +144,14 @@ var Intense = (function () {
     }
 
     function createViewer( title, caption ) {
+        $('#images').hide();
+        $('#mainMenu').hide();
+        $( 'html' ).attr( 'style', 'background-color:black;cursor:none;' );
 
         /*
          *  Container
          */
         var containerProperties = {
-            'backgroundColor' : 'rgba(0,0,0,0.8)',
             'width'           : '100%',
             'height'          : '100%',
             'position'        : 'fixed',
@@ -240,10 +242,13 @@ var Intense = (function () {
     }
 
     function removeViewer() {
-
         unlockBody();
         unbindEvents();
         document.body.removeChild( container );
+
+        $('#images').show();
+        $('#mainMenu').show();
+        $( 'html' ).attr( 'style', 'cursor:auto;' );
     }
 
     function setDimensions() {
@@ -270,7 +275,6 @@ var Intense = (function () {
     }
 
     function init( element ) {
-
         var imageSource = element.getAttribute( 'data-image' ) || element.src;
         var title = element.getAttribute( 'data-title' );
         var caption = element.getAttribute( 'data-caption' );

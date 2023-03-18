@@ -97,21 +97,13 @@ $( document ).ready( function () {
     $( '#turnScreenBlack' ).click( function ( e ) {
         enableFullscreen();
         e.stopPropagation();
-        disableBackground();
-    } );
-    $( 'html' ).click( function () {
-        enableBackground();
-    } );
-
-    function disableBackground() {
         $( 'body' ).hide();
         $( 'html' ).attr( 'style', 'background-color:black;cursor:none;' );
-    }
-
-    function enableBackground() {
+    } );
+    $( 'html' ).click( function () {
         $( 'body' ).show();
         $( 'html' ).attr( 'style', 'cursor:auto;' );
-    }
+    } );
 
     // ******************************************
     // Timer && Graph
@@ -330,6 +322,7 @@ $( document ).ready( function () {
     // ******************************************
     // Image section
     Intense( document.querySelectorAll( '.fullscreenImage' ) );
+
     $( '.fullscreenImage' ).click( function ( event ) {
         var clickedImageSrc = $( this ).attr( 'src' );
         lastDisplayedImage = clickedImageSrc;
@@ -445,7 +438,6 @@ $( document ).ready( function () {
         $( '.particles-js-canvas-el' ).remove();
         particlesInit( showParticles );
     }
-
 
 
     // ******************************************
