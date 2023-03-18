@@ -288,7 +288,6 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/Am5DwwpKSRA?mute=1',
             'tags'     : 'slideshow',
-            'label'    : 'TEST'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/5I69DCxYbBg?mute=1',
