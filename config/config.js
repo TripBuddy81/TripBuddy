@@ -283,9 +283,34 @@ var config = {
             'tags'     : 'slideshow'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/kl1fytRAMRE?mute=1',
+            'tags'     : 'wisdom',
+            'label'    : 'Alan Watts - dont take life to seriously'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/4vv93azMkDE?mute=1',
+            'tags'     : 'wisdom',
+            'label'    : 'Alan Watts - How to play the game'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/DIChudNdFQ8?mute=1',
+            'tags'     : 'wisdom',
+            'label'    : 'Alan Watts - The mystery of falling in love'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/pFH804qrIOU?mute=1',
+            'tags'     : 'wisdom',
+            'label'    : 'Alan Watts - The path to nirvana'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/videoseries?list=PLcrVuDwOKu1dfA01A27l6nmwuAaeVQ4h_',
             'tags'     : 'wisdom',
-            'label'    : 'Alan Watts Wisdom'
+            'label'    : 'Alan Watts - unsorted playlist - to be checked'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/Jv79l1b-eoI?mute=1',
+            'tags'     : 'wisdom',
+            'label'    : 'Absurdism'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/qUavbO3Y3gY?mute=1',
@@ -315,8 +340,6 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
             'tags'     : 'leftovers'
         }
-
-
     ],
     'images'        : [
         {'image': './media/images/40.jpg'},
@@ -355,6 +378,5 @@ var config = {
         {'image': './media/images/12.png'},
         {'image': './media/images/18.png'},
         {'image': './media/images/19.png'}
-
     ]
 };
