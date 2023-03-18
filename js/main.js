@@ -396,12 +396,12 @@ $( document ).ready( function () {
     window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
         let element = document.getElementById( 'iFrameSpotifyPlayer' );
         let options = {
-            width : '480',
-            height: '200',
+            width : '580',
+            height: '500',
             uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
         };
         let callback = ( EmbedController ) => {
-            document.querySelectorAll( 'ul#episodes > li > button' ).forEach(
+            document.querySelectorAll( 'div#music > div' ).forEach(
                     episode => {
                         episode.addEventListener( 'click', () => {
                             EmbedController.loadUri( episode.dataset.spotifyId )
@@ -412,7 +412,12 @@ $( document ).ready( function () {
         };
         IFrameAPI.createController( element, options, callback );
     };
-
+    $( '.playlistBtn' ).click( function () {
+        $( '.playlistBtn.playlistActive' ).each( function () {
+            $( this ).toggleClass( 'playlistActive' );
+        } );
+        $( this ).toggleClass( 'playlistActive' );
+    } );
 
     // ******************************************
     // init initial view

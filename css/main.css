@@ -52,11 +52,11 @@ a:link, a:visited, a:active, p, div, span {
     font-size: xx-large;
 }
 
-.btn.videoFilterBtn {
+.btn.videoFilterBtn, .btn.playlistBtn {
     background-color: #AAD0D2;
 }
 
-.btn.videoFilterBtn.filterActive {
+.btn.videoFilterBtn.filterActive, .btn.playlistBtn.playlistActive {
     background-color: #809bce;
 }
 
@@ -270,14 +270,17 @@ input[type=range]::-webkit-slider-thumb {
     margin-top: -5.5px;
 }
 
+#iFrameSpotifyPlayer {
+/*    width : 480px;
+    height: 200px;*/
+}
 
 
 
 
 
 
-
-
+/*DELETE AFTER HERE*/
 
 
 #tokenSection{
