@@ -402,7 +402,7 @@ $( document ).ready( function () {
         let element = document.getElementById( 'iFrameSpotifyPlayer' );
         let options = {
             width : '580',
-            height: '500',
+            height: '600',
             uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
         };
         let callback = ( EmbedController ) => {
