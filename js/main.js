@@ -79,6 +79,7 @@ $( document ).ready( function () {
     } );
 
 
+
     // ******************************************
     // Enable hidden menue
     $( '.XXX' ).hide();
@@ -292,17 +293,6 @@ $( document ).ready( function () {
         }
     } );
 
-    $( '.resetVideoFilter' ).click( function () {
-        $( '.videoLabel' ).hide();
-        $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
-        $( '.iFrameContainer' ).each( function () {
-            $( this ).show();
-        } );
-        $( '.videoFilterBtn.filterActive' ).each( function () {
-            $( this ).toggleClass( 'filterActive' );
-        } );
-    } );
-
     // Make Playlist labels clickable to actually point to the whole playlits itself
     $( '.videoLabelLink' ).each( function () {
         var newLink = $( this ).attr( 'href' ).replace( 'embed/videoseries', 'playlist' );
@@ -461,5 +451,6 @@ $( document ).ready( function () {
     $( '#disco' ).hide();
     $( '#misc' ).hide();
 
+    $( '#meditativefilter' ).trigger( 'click' );
 } );
 
