@@ -1,5 +1,5 @@
 var config = {
-    'timer':
+/*    'timer':
             [
                 {
                     'tag': 'ignition',
@@ -22,7 +22,7 @@ var config = {
                     'Y'  : 0
                 }
             ]
-    ,
+    ,*/
     'preFlightChecklist': [
         {'checklistItem': 'Prepare everything else before preparing the Tek itself!'},
         {'checklistItem': 'Start easy listening music'},
