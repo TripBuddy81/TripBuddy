@@ -93,6 +93,27 @@ $( document ).ready( function () {
     } );
 
     // ******************************************
+    // enable/disable screen
+    $( '#turnScreenBlack' ).click( function ( e ) {
+        enableFullscreen();
+        e.stopPropagation();
+        disableBackground();
+    } );
+    $( 'html' ).click( function () {
+        enableBackground();
+    } );
+
+    function disableBackground() {
+        $( 'body' ).hide();
+        $( 'html' ).attr( 'style', 'background-color:black;cursor:none;' );
+    }
+
+    function enableBackground() {
+        $( 'body' ).show();
+        $( 'html' ).attr( 'style', 'cursor:auto;' );
+    }
+
+    // ******************************************
     // Timer && Graph
     var timer = setInterval( upTimer, 1000 );
     var start = new Date();
@@ -351,6 +372,36 @@ $( document ).ready( function () {
     }
 
     // ******************************************
+    // Music section
+    // Stand alone iFrame Spotify Player
+    window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
+        let element = document.getElementById( 'iFrameSpotifyPlayer' );
+        let options = {
+            width : '580',
+            height: '600',
+            uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
+        };
+        let callback = ( EmbedController ) => {
+            document.querySelectorAll( '#playlistContainer > div' ).forEach(
+                    episode => {
+                        episode.addEventListener( 'click', () => {
+                            EmbedController.loadUri( episode.dataset.spotifyId )
+                            EmbedController.play();
+                        } );
+                    } )
+
+        };
+        IFrameAPI.createController( element, options, callback );
+    };
+    $( '.playlistBtn' ).click( function () {
+        $( '.playlistBtn.playlistActive' ).each( function () {
+            $( this ).toggleClass( 'playlistActive' );
+        } );
+        $( this ).toggleClass( 'playlistActive' );
+    } );
+
+
+    // ******************************************
     // Disco section
     var showParticles = true;
     renderDiscoSection( showParticles );
@@ -394,35 +445,6 @@ $( document ).ready( function () {
         $( '.particles-js-canvas-el' ).remove();
         particlesInit( showParticles );
     }
-
-    // ******************************************
-    // Music section
-    // Stand alone iFrame Spotify Player
-    window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
-        let element = document.getElementById( 'iFrameSpotifyPlayer' );
-        let options = {
-            width : '580',
-            height: '600',
-            uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
-        };
-        let callback = ( EmbedController ) => {
-            document.querySelectorAll( '#playlistContainer > div' ).forEach(
-                    episode => {
-                        episode.addEventListener( 'click', () => {
-                            EmbedController.loadUri( episode.dataset.spotifyId )
-                            EmbedController.play();
-                        } );
-                    } )
-
-        };
-        IFrameAPI.createController( element, options, callback );
-    };
-    $( '.playlistBtn' ).click( function () {
-        $( '.playlistBtn.playlistActive' ).each( function () {
-            $( this ).toggleClass( 'playlistActive' );
-        } );
-        $( this ).toggleClass( 'playlistActive' );
-    } );
 
 
 
