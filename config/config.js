@@ -28,6 +28,7 @@ var config = {
         {'checklistItem': 'Start easy listening music'},
         {'checklistItem': 'Make Ginger Tea and starting drinking!'},
         {'checklistItem': 'Cozy clothing'},
+        {'checklistItem': 'Mouse is charged!'},
         {'checklistItem': 'Starlights on'},
         {'checklistItem': 'Toilette lights are on!'},
         {'checklistItem': 'Candles are lit'},
