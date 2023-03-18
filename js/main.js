@@ -20,7 +20,6 @@ $( document ).ready( function () {
         $( '#music' ).hide();
         $( '#disco' ).hide();
         $( '#misc' ).hide();
-        $( '#xxx' ).hide();
 
         mainMenuToStatic( false );
         enableFullscreen();
@@ -31,7 +30,6 @@ $( document ).ready( function () {
         $( '#music' ).hide();
         $( '#disco' ).hide();
         $( '#misc' ).hide();
-        $( '#xxx' ).hide();
 
         mainMenuToStatic( false );
         enableFullscreen();
@@ -42,7 +40,6 @@ $( document ).ready( function () {
         $( '#music' ).hide();
         $( '#disco' ).show();
         $( '#misc' ).hide();
-        $( '#xxx' ).hide();
 
         renderDiscoSection( showParticles );
         mainMenuToStatic( false );
@@ -54,7 +51,6 @@ $( document ).ready( function () {
         $( '#music' ).hide();
         $( '#disco' ).hide();
         $( '#misc' ).show();
-        $( '#xxx' ).hide();
 
         mainMenuToStatic( false );
         enableFullscreen();
@@ -65,7 +61,6 @@ $( document ).ready( function () {
         $( '#music' ).show();
         $( '#disco' ).hide();
         $( '#misc' ).hide();
-        $( '#xxx' ).hide();
 
         mainMenuToStatic( false );
         enableFullscreen();
@@ -81,11 +76,12 @@ $( document ).ready( function () {
 
     // ******************************************
     // Enable hidden menue
+    $('.XXX').hide();
     var keyCache = {};
     $( document ).keydown( function ( e ) {
         keyCache[e.which] = true;
         if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
-            $( '#xxx' ).toggle();
+            $( '.XXX' ).toggle();
         }
     } );
     $( document ).keyup( function ( e ) {
@@ -98,15 +94,12 @@ $( document ).ready( function () {
         enableFullscreen();
     } );
     $( '#liftOff' ).click( function ( e ) {
+        start = new Date();
         $('#preFlightChecklist').modal('hide');
         $('#launchText').hide();
         $('#timerMinutes').show();
         $('#progressGraphContainer').show();
-        start = new Date();
     } );
-
-
-
 
     // ******************************************
     // enable/disable screen
@@ -182,11 +175,6 @@ $( document ).ready( function () {
             $( this ).attr( 'style', newStyle + ';--color: ' + color );
         } );
     }
-
-    $( '#timerMinutes' ).click( function ( event ) {
-        start = new Date();
-        enableFullscreen();
-    } )
 
     // ******************************************
     // Fullscreen
@@ -461,8 +449,8 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    $( '#videos' ).hide();
-    $( '#images' ).show();
+    $( '#videos' ).show();
+    $( '#images' ).hide();
     $( '#music' ).hide();
     $( '#disco' ).hide();
     $( '#misc' ).hide();

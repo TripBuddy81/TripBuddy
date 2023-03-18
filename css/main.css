@@ -66,6 +66,11 @@ p {
     background-color: #809bce;
 }
 
+.iFrameContainer {
+    cursor: pointer;
+    z-index: 1;
+}
+
 .btn:hover {
     color: black;
     background-color: #d6eadf;
