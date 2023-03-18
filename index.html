@@ -62,14 +62,11 @@
         <img id="disableFullscreen" class="toggleFullscreen float-end me-3 mt-3" style="display: none;"
              src="./assets/disableFullscreen.png">
         <div id="timerMinutes" class="float-end me-3">00:00</div>
-      <!--  <div id="launchText" class="float-end me-3 mt-3">Start!</div>-->
-
         <div id="launchText" class="float-end me-3 mt-3" data-bs-toggle="modal" data-bs-target="#preFlightChecklist">
             Start!
         </div>
 
-        <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="LemonTek - onset till 00:40, peak till 01:40"
-             id="progressGraphContainer" class="float-end me-3 mt-3">
+        <div id="progressGraphContainer" class="float-end me-3 mt-3">
             <table id="progressGraph">
                 <tbody>
                 <tr>
@@ -128,7 +125,8 @@
     </div>
 
 
-    <div class="modal fade" id="preFlightChecklist" tabindex="-1" aria-labelledby="preFlightChecklistLabel" aria-hidden="true">
+    <div class="modal fade" id="preFlightChecklist" tabindex="-1" aria-labelledby="preFlightChecklistLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -136,7 +134,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Hitting Lift off will start the timer for a typical LemonTek Trip. Make sure you are prepared:</p>
+                    <p>Make sure you are prepared:</p>
                     <ul>
                         {{#preFlightChecklist}}
                         <li>
@@ -146,7 +144,10 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Lift off!</button>
+                    <div class="float-start">Hitting the button will start the timer for a typical LemonTek Trip. (Onset
+                        till 00:40 | Peak till 01:40 | Chillout till 03:40)
+                    </div>
+                    <div id="liftOff" type="button" class="btn btn-primary">Lift off!</div>
                 </div>
             </div>
         </div>

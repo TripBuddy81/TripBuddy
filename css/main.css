@@ -207,7 +207,6 @@ li {
     font-size: 40px;
     font-weight: bold;
     display: inline-block;
-    cursor: pointer;
     color: #60d394;
     -webkit-text-stroke: 1px black;
     display: none;
@@ -216,6 +215,7 @@ li {
 #progressGraphContainer {
     width: 400px;
     position: relative;
+    display: none;
 }
 
 #progressGraph {
@@ -285,8 +285,8 @@ li {
     font-size: 60px;
     position: relative;
     top:-30px;
+    right:160px;
     font-weight: bold;
-    color: red;
     height: 35px;
     cursor: pointer;
 }

@@ -95,8 +95,17 @@ $( document ).ready( function () {
     // ******************************************
     // Start button & preFlightChecklist
     $( '#launchText' ).click( function ( e ) {
-
+        enableFullscreen();
     } );
+    $( '#liftOff' ).click( function ( e ) {
+        $('#preFlightChecklist').modal('hide');
+        $('#launchText').hide();
+        $('#timerMinutes').show();
+        $('#progressGraphContainer').show();
+        start = new Date();
+    } );
+
+
 
 
     // ******************************************
