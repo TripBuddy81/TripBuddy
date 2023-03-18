@@ -23,6 +23,40 @@ var config = {
                 }
             ]
     ,
+    'playlists':
+            [
+                {
+                    'label': 'Soft/Peak',
+                    'id'   : '4ILChY5F4Hn08ikt0rfHhW'
+
+                },
+                {
+                    'label': 'Soft & chillig',
+                    'id'   : '0r09hQ2kqiLwjStS7xzRzh'
+
+                },
+                {
+                    'label': 'Tool',
+                    'id'   : '54c657PnbEgWUJt7biWHtO'
+
+                },
+                {
+                    'label': 'Rock',
+                    'id'   : '1J2Q32HV4PbVhlhNTensBV'
+
+                },
+                {
+                    'label': 'Electro',
+                    'id'   : '0ZigR4WogVGwftQA7GAMhu'
+
+                },
+                {
+                    'label': 'Force',
+                    'id'   : '6fB9PJQ7Hy8SDvcRmBeKwr'
+
+                }
+            ]
+    ,
     'selectableTags': [
         {'selectableTag': 'trippy-2D'},
         {'selectableTag': 'trippy-3D'},
@@ -35,212 +69,212 @@ var config = {
         {'selectableTag': 'hiking'},
         {'selectableTag': 'festival'},
         {'selectableTag': 'wisdom'},
-        {'selectableTag': 'leftovers'},
+        {'selectableTag': 'leftovers'}
 
 
     ],
     'videosYoutube' : [
-/*
-        {
-            'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/JKe0gryiCCw?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/ZqvhJhi8CF4?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/AmkZRNmLiGE?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/0NR8_r2FmFk?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/AITN4rs1Ev8?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/JTbWeMQnJUE?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/jRn3MDxESfw?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/7jv-1iSRuN4?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/M45c6WiZ2tc?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/TdU2Ab7y91w?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/fFyC68CIEio?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/LhZMr3jH7kI?mute=1',
-            'tags'     : 'trippy-fast trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/iaVmsp7dU1Y?mute=1',
-            'tags'     : 'trippy-fast trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/beW6KCQ90Qc?mute=1',
-            'tags'     : 'trippy-fast trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/z3ul9PkRvfY?mute=1',
-            'tags'     : 'trippy-fast trippy-2D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/vmGDO0eU1n0?mute=1',
-            'tags'     : 'meditative'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/5_Blq9W9cT8?mute=1',
-            'tags'     : 'meditative'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/XHprvRGY2aA?mute=1',
-            'tags'     : 'meditative'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/rY4O88vcTVg?mute=1',
-            'tags'     : 'meditative nature'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/tI2ucenn6hM?mute=1',
-            'tags'     : 'meditative nature'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/l6U2qXfdk6I?mute=1',
-            'tags'     : 'meditative space'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/B5unCXpegAw?mute=1',
-            'tags'     : 'meditative space'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/IWVJq-4zW24?mute=1',
-            'tags'     : 'meditative space'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/CrgYEbIQkac?mute=1',
-            'tags'     : 'meditative space'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/jNyvfvDFFPk?mute=1',
-            'tags'     : 'meditative space'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/zowLNSKyfI0?mute=1',
-            'tags'     : 'leftovers'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/Q-iZMkvHnFw?mute=1',
-            'tags'     : 'leftovers'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
-            'tags'     : 'leftovers'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/RpHnKaxt_OQ?mute=1',
-            'tags'     : 'leftovers'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/t_S_cN2re4g?mute=1',
-            'tags'     : 'nature'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/683p4Ubg2NU?mute=1',
-            'tags'     : 'nature'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/AKeUssuu3Is?mute=1',
-            'tags'     : 'nature'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/hld4uaO1MDE?mute=1',
-            'tags'     : 'nature hiking'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/PyFN_FYwqvc?mute=1',
-            'tags'     : 'nature hiking'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/hF-F559PTUg?mute=1',
-            'tags'     : 'nature hiking'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/kSVqPAN1nCM?mute=1',
-            'tags'     : 'nature hiking'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/RDiK058GjgI?mute=1',
-            'tags'     : 'nature hiking'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/U1j-eO3-aR8?mute=1',
-            'tags'     : 'nature hiking'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/e04zAMupq7E?mute=1',
-            'tags'     : 'nature hiking'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/RHycI27FelE?mute=1',
-            'tags'     : 'nature hiking'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/b4AVn8mTuJw?mute=1',
-            'tags'     : 'nature hiking'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/123Z5KLLiO8?mute=1',
-            'tags'     : 'festival'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/8eYEW4q42y8?mute=1',
-            'tags'     : 'festival'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/G59Tm7KqEnY?mute=1',
-            'tags'     : 'festival'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/mmA5fekq8yQ?mute=1',
-            'tags'     : 'festival'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/azfTB6oXhis?mute=1',
-            'tags'     : 'festival'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/R4LKjRJUGkk?mute=1',
-            'tags'     : 'festival'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/R1CyKwtCDr8?mute=1',
-            'tags'     : 'festival'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/KtXphUrwQtA?mute=1',
-            'tags'     : 'festival'
-        },*/
+        /*
+                {
+                    'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
+                    'tags'     : 'trippy-slow trippy-3D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/JKe0gryiCCw?mute=1',
+                    'tags'     : 'trippy-slow trippy-3D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/ZqvhJhi8CF4?mute=1',
+                    'tags'     : 'trippy-slow trippy-3D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/AmkZRNmLiGE?mute=1',
+                    'tags'     : 'trippy-slow trippy-2D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/0NR8_r2FmFk?mute=1',
+                    'tags'     : 'trippy-slow trippy-2D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/AITN4rs1Ev8?mute=1',
+                    'tags'     : 'trippy-slow trippy-2D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/JTbWeMQnJUE?mute=1',
+                    'tags'     : 'trippy-slow trippy-2D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/jRn3MDxESfw?mute=1',
+                    'tags'     : 'trippy-slow trippy-2D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/7jv-1iSRuN4?mute=1',
+                    'tags'     : 'trippy-slow trippy-3D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/M45c6WiZ2tc?mute=1',
+                    'tags'     : 'trippy-slow trippy-3D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/TdU2Ab7y91w?mute=1',
+                    'tags'     : 'trippy-slow trippy-3D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/fFyC68CIEio?mute=1',
+                    'tags'     : 'trippy-slow trippy-2D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/LhZMr3jH7kI?mute=1',
+                    'tags'     : 'trippy-fast trippy-3D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/iaVmsp7dU1Y?mute=1',
+                    'tags'     : 'trippy-fast trippy-3D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/beW6KCQ90Qc?mute=1',
+                    'tags'     : 'trippy-fast trippy-3D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/z3ul9PkRvfY?mute=1',
+                    'tags'     : 'trippy-fast trippy-2D'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/vmGDO0eU1n0?mute=1',
+                    'tags'     : 'meditative'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/5_Blq9W9cT8?mute=1',
+                    'tags'     : 'meditative'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/XHprvRGY2aA?mute=1',
+                    'tags'     : 'meditative'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/rY4O88vcTVg?mute=1',
+                    'tags'     : 'meditative nature'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/tI2ucenn6hM?mute=1',
+                    'tags'     : 'meditative nature'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/l6U2qXfdk6I?mute=1',
+                    'tags'     : 'meditative space'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/B5unCXpegAw?mute=1',
+                    'tags'     : 'meditative space'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/IWVJq-4zW24?mute=1',
+                    'tags'     : 'meditative space'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/CrgYEbIQkac?mute=1',
+                    'tags'     : 'meditative space'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/jNyvfvDFFPk?mute=1',
+                    'tags'     : 'meditative space'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/zowLNSKyfI0?mute=1',
+                    'tags'     : 'leftovers'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/Q-iZMkvHnFw?mute=1',
+                    'tags'     : 'leftovers'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
+                    'tags'     : 'leftovers'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/RpHnKaxt_OQ?mute=1',
+                    'tags'     : 'leftovers'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/t_S_cN2re4g?mute=1',
+                    'tags'     : 'nature'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/683p4Ubg2NU?mute=1',
+                    'tags'     : 'nature'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/AKeUssuu3Is?mute=1',
+                    'tags'     : 'nature'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/hld4uaO1MDE?mute=1',
+                    'tags'     : 'nature hiking'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/PyFN_FYwqvc?mute=1',
+                    'tags'     : 'nature hiking'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/hF-F559PTUg?mute=1',
+                    'tags'     : 'nature hiking'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/kSVqPAN1nCM?mute=1',
+                    'tags'     : 'nature hiking'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/RDiK058GjgI?mute=1',
+                    'tags'     : 'nature hiking'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/U1j-eO3-aR8?mute=1',
+                    'tags'     : 'nature hiking'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/e04zAMupq7E?mute=1',
+                    'tags'     : 'nature hiking'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/RHycI27FelE?mute=1',
+                    'tags'     : 'nature hiking'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/b4AVn8mTuJw?mute=1',
+                    'tags'     : 'nature hiking'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/123Z5KLLiO8?mute=1',
+                    'tags'     : 'festival'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/8eYEW4q42y8?mute=1',
+                    'tags'     : 'festival'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/G59Tm7KqEnY?mute=1',
+                    'tags'     : 'festival'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/mmA5fekq8yQ?mute=1',
+                    'tags'     : 'festival'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/azfTB6oXhis?mute=1',
+                    'tags'     : 'festival'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/R4LKjRJUGkk?mute=1',
+                    'tags'     : 'festival'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/R1CyKwtCDr8?mute=1',
+                    'tags'     : 'festival'
+                },
+                {
+                    'videoLink': 'https://www.youtube.com/embed/KtXphUrwQtA?mute=1',
+                    'tags'     : 'festival'
+                },*/
         {
             'videoLink': 'https://www.youtube.com/embed/Am5DwwpKSRA?mute=1',
             'tags'     : 'slideshow',
@@ -286,7 +320,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
             'tags'     : 'leftovers'
-        },
+        }
 
 
     ],

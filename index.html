@@ -215,24 +215,16 @@
     <div id="music" class="mt-3 mb-3 ms-3">
 
 
-        <div id="spotifyPlayer"></div>
+        <div id="iFrameSpotifyPlayer"></div>
 
         <ul id="episodes">
+            {{#playlists}}
             <li>
-                <button data-spotify-id="spotify:playlist:4ILChY5F4Hn08ikt0rfHhW">
-                    sads
+                <button data-spotify-id="spotify:playlist:{{id}}">
+                    {{label}}
                 </button>
             </li>
-            <li>
-                <button data-spotify-id="spotify:episode:43cbJh4ccRD7lzM2730YK3">
-                    What is Backstage?
-                </button>
-            </li>
-            <li>
-                <button data-spotify-id="spotify:episode:6I3ZzCxRhRkNqnQNo8AZPV">
-                    Introducing Nerd Out@Spotify
-                </button>
-            </li>
+            {{/playlists}}
         </ul>
 
     </div>

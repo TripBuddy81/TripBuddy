@@ -392,8 +392,9 @@ $( document ).ready( function () {
 
     // ******************************************
     // Music section
+    // Stand alone iFrame Spotify Player
     window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
-        let element = document.getElementById( 'spotifyPlayer' );
+        let element = document.getElementById( 'iFrameSpotifyPlayer' );
         let options = {
             width : '480',
             height: '200',
