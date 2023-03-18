@@ -93,6 +93,13 @@ $( document ).ready( function () {
     } );
 
     // ******************************************
+    // Start button & preFlightChecklist
+    $( '#launchText' ).click( function ( e ) {
+
+    } );
+
+
+    // ******************************************
     // enable/disable screen
     $( '#turnScreenBlack' ).click( function ( e ) {
         enableFullscreen();

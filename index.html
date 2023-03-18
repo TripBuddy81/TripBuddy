@@ -46,15 +46,15 @@
 
         <div id="burgerContainer" class="float-end me-3 mt-3">
             <div id="menuToggle">
-                <input type="checkbox" />
+                <input type="checkbox"/>
                 <span></span>
                 <span></span>
                 <span></span>
                 <ul id="menu">
                     <li id="toggleInfo">Toggle video info</li>
-<!--                    <li>Help</li>
-                    <li>Shortcuts</li>
-                    <li>Contact</li>-->
+                    <!--                    <li>Help</li>
+                                        <li>Shortcuts</li>
+                                        <li>Contact</li>-->
                 </ul>
             </div>
         </div>
@@ -62,6 +62,12 @@
         <img id="disableFullscreen" class="toggleFullscreen float-end me-3 mt-3" style="display: none;"
              src="./assets/disableFullscreen.png">
         <div id="timerMinutes" class="float-end me-3">00:00</div>
+      <!--  <div id="launchText" class="float-end me-3 mt-3">Start!</div>-->
+
+        <div id="launchText" class="float-end me-3 mt-3" data-bs-toggle="modal" data-bs-target="#preFlightChecklist">
+            Start!
+        </div>
+
         <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="LemonTek - onset till 00:40, peak till 01:40"
              id="progressGraphContainer" class="float-end me-3 mt-3">
             <table id="progressGraph">
@@ -119,6 +125,31 @@
 
         </div>
 
+    </div>
+
+
+    <div class="modal fade" id="preFlightChecklist" tabindex="-1" aria-labelledby="preFlightChecklistLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="preFlightChecklistLabel">Preflight checklist</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Hitting Lift off will start the timer for a typical LemonTek Trip. Make sure you are prepared:</p>
+                    <ul>
+                        {{#preFlightChecklist}}
+                        <li>
+                            {{checklistItem}}
+                        </li>
+                        {{/preFlightChecklist}}
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Lift off!</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="videos" class="ms-3">
@@ -186,11 +217,11 @@
                 <div id="iFrameSpotifyPlayer"></div>
             </div>
             <div class="col me-3">
-<!--                <div>Work in progress - oAuth Spotify Player - Needs credentials</div>
-                <div>If you know how to get client id and secret and also how to setup a debug user go for it (<a
-                        href="https://developer.spotify.com/dashboard/" style="font-size: medium;font-weight: normal">register
-                    here</a>). Otherwise use embedded player on left side.
-                </div>-->
+                <!--                <div>Work in progress - oAuth Spotify Player - Needs credentials</div>
+                                <div>If you know how to get client id and secret and also how to setup a debug user go for it (<a
+                                        href="https://developer.spotify.com/dashboard/" style="font-size: medium;font-weight: normal">register
+                                    here</a>). Otherwise use embedded player on left side.
+                                </div>-->
             </div>
         </div>
     </div>

@@ -23,6 +23,25 @@ var config = {
                 }
             ]
     ,
+    'preFlightChecklist': [
+        {'checklistItem': 'Prepare everything else before preparing the Tek itself!'},
+        {'checklistItem': 'Start easy listening music'},
+        {'checklistItem': 'Make Ginger Tea and starting drinking!'},
+        {'checklistItem': 'Cozy clothing'},
+        {'checklistItem': 'Starlights on'},
+        {'checklistItem': 'Toilette lights are on!'},
+        {'checklistItem': 'Candles are lit'},
+        {'checklistItem': 'Blanket at the ready'},
+        {'checklistItem': 'Emergency bucket'},
+        {'checklistItem': 'Towel and tissues'},
+        {'checklistItem': 'Headphones at the ready'},
+        {'checklistItem': 'Stroboscope at the ready ;-)'},
+        {'checklistItem': 'Water!'},
+        {'checklistItem': 'Ginger ale / Soda'},
+        {'checklistItem': 'Fruits! (Pineapple, Melon, Mango, Strawberries, Pears)'},
+        {'checklistItem': 'Cup of tea ready to be brewed'},
+        {'checklistItem': 'Something to eat set aside'},
+    ],
     'playlists':
             [
                 {
@@ -64,8 +83,6 @@ var config = {
         {'selectableTag': 'festival'},
         {'selectableTag': 'wisdom'},
         {'selectableTag': 'leftovers'}
-
-
     ],
     'videosYoutube' : [
         /*
