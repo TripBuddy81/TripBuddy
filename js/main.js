@@ -461,9 +461,9 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    $( '#videos' ).hide();
+    $( '#videos' ).show();
     $( '#images' ).hide();
-    $( '#music' ).show();
+    $( '#music' ).hide();
     $( '#disco' ).hide();
     $( '#misc' ).hide();
 
