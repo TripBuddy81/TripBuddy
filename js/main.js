@@ -445,12 +445,10 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    $( '#videos' ).show();
-    $( '#images' ).hide();
+    $( '#videos' ).hide();
+    $( '#images' ).show();
     $( '#music' ).hide();
     $( '#disco' ).hide();
     $( '#misc' ).hide();
-
-    $( '#meditativefilter' ).trigger( 'click' );
 } );
 
