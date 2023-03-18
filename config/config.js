@@ -28,32 +28,26 @@ var config = {
                 {
                     'label': 'Soft/Peak',
                     'id'   : '4ILChY5F4Hn08ikt0rfHhW'
-
                 },
                 {
                     'label': 'Soft & chillig',
                     'id'   : '0r09hQ2kqiLwjStS7xzRzh'
-
                 },
                 {
                     'label': 'Tool',
                     'id'   : '54c657PnbEgWUJt7biWHtO'
-
                 },
                 {
                     'label': 'Rock',
                     'id'   : '1J2Q32HV4PbVhlhNTensBV'
-
                 },
                 {
                     'label': 'Electro',
                     'id'   : '0ZigR4WogVGwftQA7GAMhu'
-
                 },
                 {
                     'label': 'Force',
                     'id'   : '6fB9PJQ7Hy8SDvcRmBeKwr'
-
                 }
             ]
     ,

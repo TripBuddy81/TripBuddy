@@ -401,7 +401,7 @@ $( document ).ready( function () {
             uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
         };
         let callback = ( EmbedController ) => {
-            document.querySelectorAll( 'div#music > div' ).forEach(
+            document.querySelectorAll( '#playlistContainer > div' ).forEach(
                     episode => {
                         episode.addEventListener( 'click', () => {
                             EmbedController.loadUri( episode.dataset.spotifyId )
@@ -418,6 +418,8 @@ $( document ).ready( function () {
         } );
         $( this ).toggleClass( 'playlistActive' );
     } );
+
+
 
     // ******************************************
     // init initial view
