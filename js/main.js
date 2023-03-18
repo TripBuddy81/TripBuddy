@@ -438,7 +438,7 @@ $( document ).ready( function () {
         particlesInit( showParticles );
     }
     $( '#disco' ).mousemove( function ( event ) {
-        if ( event.pageY == 0 ) {
+        if ( event.pageY < 20 ) {
             $( '#mainMenu' ).show();
         }
     } );
