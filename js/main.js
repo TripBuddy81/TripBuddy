@@ -197,7 +197,6 @@ $( document ).ready( function () {
             }
     );
 
-
     function toggleFullScreen( event ) {
         event.preventDefault();
         event.stopPropagation();
@@ -438,7 +437,11 @@ $( document ).ready( function () {
         $( '.particles-js-canvas-el' ).remove();
         particlesInit( showParticles );
     }
-
+    $( '#disco' ).mousemove( function ( event ) {
+        if ( event.pageY == 0 ) {
+            $( '#mainMenu' ).show();
+        }
+    } );
 
     // ******************************************
     // init initial view
