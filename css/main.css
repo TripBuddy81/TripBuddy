@@ -194,6 +194,7 @@ p {
     top: 75px;
     width: 100%;
     background-color: #b8e0d2;
+    z-index: 1;
 }
 
 .modal-dialog {
@@ -289,8 +290,8 @@ li {
 #launchText {
     font-size: 60px;
     position: relative;
-    top:-30px;
-    right:160px;
+    top: -30px;
+    right: 160px;
     font-weight: bold;
     height: 35px;
     cursor: pointer;
