@@ -44,15 +44,28 @@
         <img id="turnScreenBlack" class="me-3" src="./assets/monitor_off.png"
              data-image="./media/images/41.jpg">
 
-
-
+        <div id="burgerContainer" class="float-end me-3 mt-3">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a href="#"><li>Home</li></a>
+                    <a href="#"><li>About</li></a>
+                    <a href="#"><li>Info</li></a>
+                    <a href="#"><li>Contact</li></a>
+                </ul>
+            </div>
+        </div>
         <img id="enableFullscreen" class="toggleFullscreen float-end me-3 mt-3" src="./assets/enableFullscreen.png">
         <img id="disableFullscreen" class="toggleFullscreen float-end me-3 mt-3" style="display: none;"
              src="./assets/disableFullscreen.png">
         <img id="toggleInfo" class="float-end me-3 mt-3" src="./assets/info.png">
 
         <div id="timerMinutes" class="float-end me-3">00:00</div>
-        <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="LemonTek - onset till 00:40, peak till 01:40" id="progressGraphContainer" class="float-end me-3 mt-3">
+        <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="LemonTek - onset till 00:40, peak till 01:40"
+             id="progressGraphContainer" class="float-end me-3 mt-3">
             <table id="progressGraph">
                 <tbody>
                 <tr>
@@ -107,6 +120,7 @@
             </table>
 
         </div>
+
     </div>
 
     <div id="videos" class="ms-3">
