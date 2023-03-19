@@ -293,6 +293,8 @@ li {
 }
 
 #devices, #playlists {
+    position: relative;
+    top: 20px;
     width: 190px;
     cursor: pointer;
     background-color: transparent;
