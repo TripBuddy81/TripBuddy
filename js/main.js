@@ -364,26 +364,6 @@ $( document ).ready( function () {
 
     // ******************************************
     // Music section
-    // Stand alone iFrame Spotify Player
-    window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
-        let element = document.getElementById( 'iFrameSpotifyPlayer' );
-        let options = {
-            width : '580',
-            height: '600',
-            uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
-        };
-        let callback = ( EmbedController ) => {
-            document.querySelectorAll( '#playlistContainer > div' ).forEach(
-                    episode => {
-                        episode.addEventListener( 'click', () => {
-                            EmbedController.loadUri( episode.dataset.spotifyId )
-                            EmbedController.play();
-                        } );
-                    } )
-
-        };
-        IFrameAPI.createController( element, options, callback );
-    };
     $( '.playlistBtn' ).click( function () {
         $( '.playlistBtn.playlistActive' ).each( function () {
             $( this ).toggleClass( 'playlistActive' );
@@ -391,20 +371,40 @@ $( document ).ready( function () {
         $( this ).toggleClass( 'playlistActive' );
     } );
 
+    // if oAuth Spotify Info is not found in optional config, we hide all player functionality and show the simple embedded player instead
+    // Work in progress - oAuth Spotify Player - Needs credentials
+    // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
     // oAuth Spotify Player
-    if ( config['oAuthSpotify'][0]['client_id'] != '' ) {
+    if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
+        $( '#iFrameSpotifyPlayerContainer' ).remove();
+
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
         client_id = config['oAuthSpotify'][0]['client_id'];
         client_secret = config['oAuthSpotify'][0]['client_secret'];
 
-
-
         spotifyInitOnPageLoad();
-
-
-
     } else {
-        console.info( 'oAuth Spotify Info not found in optional config. Hiding all player functionality' )
+        $( '#oAuthSpotifyPlayerContainer' ).remove();
+
+        // Stand alone iFrame Spotify Player
+        window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
+            let element = document.getElementById( 'iFrameSpotifyPlayer' );
+            let options = {
+                width : '580',
+                height: '600',
+                uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
+            };
+            let callback = ( EmbedController ) => {
+                document.querySelectorAll( '#playlistContainer > div' ).forEach(
+                        episode => {
+                            episode.addEventListener( 'click', () => {
+                                EmbedController.loadUri( episode.dataset.spotifyId )
+                                EmbedController.play();
+                            } );
+                        } )
+            };
+            IFrameAPI.createController( element, options, callback );
+        };
     }
 
 

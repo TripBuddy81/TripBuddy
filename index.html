@@ -153,7 +153,9 @@
     <div id="videos" class="ms-3">
         <div class="sticky">
             {{#selectableTags}}
-            <div id="{{selectableTag}}filter" class="{{selectableTag}}filter videoFilterBtn btn btn-primary me-2">{{selectableTag}}</div>
+            <div id="{{selectableTag}}filter" class="{{selectableTag}}filter videoFilterBtn btn btn-primary me-2">
+                {{selectableTag}}
+            </div>
             {{/selectableTags}}
             <div class="XXX XXXfilter videoFilterBtn btn btn-primary me-2">XXX</div>
         </div>
@@ -209,15 +211,10 @@
             </div>
         </div>
         <div class="row mt-3 mb-3">
-            <div class="col ms-3">
+            <div id="iFrameSpotifyPlayerContainer" class="col ms-3">
                 <div id="iFrameSpotifyPlayer"></div>
             </div>
-            <div class="col me-3">
-                <!--                <div>Work in progress - oAuth Spotify Player - Needs credentials</div>
-                                <div>If you know how to get client id and secret and also how to setup a debug user go for it (<a
-                                        href="https://developer.spotify.com/dashboard/" style="font-size: medium;font-weight: normal">register
-                                    here</a>). Otherwise use embedded player on left side.
-                                </div>-->
+            <div id="oAuthSpotifyPlayerContainer" class="col ms-3">
 
 
                 <div id="deviceSection" class="row">
@@ -227,15 +224,18 @@
                             <label for="devices" class="form-label">Devices</label>
                             <select id="devices" class="form-control">
                             </select>
-                            <input class="btn btn-primary btn-sm mt-3" type="button" onclick="refreshDevices()" value="Refresh Devices">
-                            <input type="button" class="btn btn-dark btn-sm  mt-3" onclick="transfer()" value="Transfer">
+                            <input class="btn btn-primary btn-sm mt-3" type="button" onclick="refreshDevices()"
+                                   value="Refresh Devices">
+                            <input type="button" class="btn btn-dark btn-sm  mt-3" onclick="transfer()"
+                                   value="Transfer">
                         </div>
 
                         <div class="mb-3">
                             <label for="playlists" class="form-label">Playlists</label>
                             <select id="playlists" class="form-control">
                             </select>
-                            <input class="btn btn-primary btn-sm mt-3" type="button" onclick="refreshPlaylists()" value="Refresh Playlists">
+                            <input class="btn btn-primary btn-sm mt-3" type="button" onclick="refreshPlaylists()"
+                                   value="Refresh Playlists">
 
                         </div>
 
@@ -252,7 +252,8 @@
                         <div class="row  mt-3">
                             <div class="col">
                                 <h1> Currently Playing</h1>
-                                <input type="button" class="btn btn-primary btn-sm mt-3" onclick="currentlyPlaying()" value="Refresh Currently Playing">
+                                <input type="button" class="btn btn-primary btn-sm mt-3"
+                                       onclick="currentlyPlaying()" value="Refresh Currently Playing">
                                 <div>
                                     <img id="albumImage" src="">
                                     <div id="trackTitle"></div>
@@ -264,11 +265,6 @@
 
                     </div>
                 </div>
-
-
-
-
-
 
 
             </div>
