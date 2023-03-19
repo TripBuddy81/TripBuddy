@@ -1,6 +1,6 @@
-var redirect_uri = "";
-var client_id = "";
-var client_secret = "";
+var redirect_uri = '';
+var client_id = '';
+var client_secret = '';
 var access_token = null;
 var refresh_token = null;
 var currentPlaylist = '';
@@ -19,16 +19,13 @@ const TRACKS = 'https://api.spotify.com/v1/playlists/{{PlaylistId}}/tracks';
 const CURRENTLYPLAYING = 'https://api.spotify.com/v1/me/player/currently-playing';
 const SHUFFLE = 'https://api.spotify.com/v1/me/player/shuffle';
 
-function onPageLoad() {
-/*    client_id = localStorage.getItem( 'client_id' );
-    client_secret = localStorage.getItem( 'client_secret' );*/
+function spotifyInitOnPageLoad() {
     if ( window.location.search.length > 0 ) {
         handleRedirect();
     } else {
         access_token = localStorage.getItem( 'access_token' );
         if ( access_token == null ) {
-            // we don't have an access token so present token section
-            document.getElementById( 'tokenSection' ).style.display = 'block';
+            requestAuthorization();
         } else {
             // we have an access token so present device section
             document.getElementById( 'deviceSection' ).style.display = 'block';
@@ -37,7 +34,6 @@ function onPageLoad() {
             currentlyPlaying();
         }
     }
-    refreshRadioButtons();
 }
 
 function handleRedirect() {
@@ -57,9 +53,6 @@ function getCode() {
 }
 
 function requestAuthorization() {
-/*    localStorage.setItem( 'client_id', client_id );
-    localStorage.setItem( 'client_secret', client_secret ); // In a real app you should not expose your client_secret to the user*/
-
     let url = AUTHORIZE;
     url += '?client_id=' + client_id;
     url += '&response_type=code';
@@ -98,7 +91,7 @@ function callAuthorizationApi( body ) {
 function handleAuthorizationResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
-        console.log( data );
+        /* console.log( data );*/
         var data = JSON.parse( this.responseText );
         if ( data.access_token != undefined ) {
             access_token = data.access_token;
@@ -108,9 +101,9 @@ function handleAuthorizationResponse() {
             refresh_token = data.refresh_token;
             localStorage.setItem( 'refresh_token', refresh_token );
         }
-        onPageLoad();
+        spotifyInitOnPageLoad();
     } else {
-        console.log( this.responseText );
+        /*        console.log( this.responseText );*/
     }
 }
 
@@ -121,13 +114,13 @@ function refreshDevices() {
 function handleDevicesResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
-        console.log( data );
+        /*        console.log( data );*/
         removeAllItems( 'devices' );
         data.devices.forEach( item => addDevice( item ) );
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
-        console.log( this.responseText );
+        /*       console.log( this.responseText );*/
     }
 }
 
@@ -154,14 +147,14 @@ function refreshPlaylists() {
 function handlePlaylistsResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
-        console.log( data );
+        /*    console.log( data );*/
         removeAllItems( 'playlists' );
         data.items.forEach( item => addPlaylist( item ) );
         document.getElementById( 'playlists' ).value = currentPlaylist;
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
-        console.log( this.responseText );
+        /*        console.log( this.responseText );*/
     }
 }
 
@@ -181,8 +174,8 @@ function removeAllItems( elementId ) {
 
 function play() {
     let playlist_id = document.getElementById( 'playlists' ).value;
-    let trackindex = document.getElementById( 'tracks' ).value;
-    let album = document.getElementById( 'album' ).value;
+    let trackindex = 0;
+    let album = 0;
     let body = {};
     if ( album.length > 0 ) {
         body.context_uri = album;
@@ -221,14 +214,14 @@ function transfer() {
 
 function handleApiResponse() {
     if ( this.status == 200 ) {
-        console.log( this.responseText );
+        /*        console.log( this.responseText );*/
         setTimeout( currentlyPlaying, 2000 );
     } else if ( this.status == 204 ) {
         setTimeout( currentlyPlaying, 2000 );
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
-        console.log( this.responseText );
+        /*        console.log( this.responseText );*/
     }
 }
 
@@ -247,13 +240,13 @@ function fetchTracks() {
 function handleTracksResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
-        console.log( data );
+        /*        console.log( data );*/
         removeAllItems( 'tracks' );
         data.items.forEach( ( item, index ) => addTrack( item, index ) );
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
-        console.log( this.responseText );
+        /*     console.log( this.responseText );*/
     }
 }
 
@@ -271,13 +264,12 @@ function currentlyPlaying() {
 function handleCurrentlyPlayingResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
-        console.log( data );
+        /*        console.log( data );*/
         if ( data.item != null ) {
             document.getElementById( 'albumImage' ).src = data.item.album.images[0].url;
             document.getElementById( 'trackTitle' ).innerHTML = data.item.name;
             document.getElementById( 'trackArtist' ).innerHTML = data.item.artists[0].name;
         }
-
 
         if ( data.device != null ) {
             // select device
@@ -296,46 +288,6 @@ function handleCurrentlyPlayingResponse() {
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
-        console.log( this.responseText );
+        /*        console.log( this.responseText );*/
     }
-}
-
-function saveNewRadioButton() {
-    let item = {};
-    item.deviceId = deviceId();
-    item.playlistId = document.getElementById( 'playlists' ).value;
-    radioButtons.push( item );
-    localStorage.setItem( 'radio_button', JSON.stringify( radioButtons ) );
-    refreshRadioButtons();
-}
-
-function refreshRadioButtons() {
-    let data = localStorage.getItem( 'radio_button' );
-    if ( data != null ) {
-        radioButtons = JSON.parse( data );
-        if ( Array.isArray( radioButtons ) ) {
-            removeAllItems( 'radioButtons' );
-            radioButtons.forEach( ( item, index ) => addRadioButton( item, index ) );
-        }
-    }
-}
-
-function onRadioButton( deviceId, playlistId ) {
-    let body = {};
-    body.context_uri = 'spotify:playlist:' + playlistId;
-    body.offset = {};
-    body.offset.position = 0;
-    body.offset.position_ms = 0;
-    callApi( 'PUT', PLAY + '?device_id=' + deviceId, JSON.stringify( body ), handleApiResponse );
-    //callApi( "PUT", SHUFFLE + "?state=true&device_id=" + deviceId, null, handleApiResponse );
-}
-
-function addRadioButton( item, index ) {
-    let node = document.createElement( 'button' );
-    node.className = 'btn btn-primary m-2';
-    node.innerText = index;
-    node.onclick = function () {
-        onRadioButton( item.deviceId, item.playlistId )
-    };
-    document.getElementById( 'radioButtons' ).appendChild( node );
 }

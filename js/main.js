@@ -396,7 +396,13 @@ $( document ).ready( function () {
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
         client_id = config['oAuthSpotify'][0]['client_id'];
         client_secret = config['oAuthSpotify'][0]['client_secret'];
-        onPageLoad();
+
+
+
+        spotifyInitOnPageLoad();
+
+
+
     } else {
         console.info( 'oAuth Spotify Info not found in optional config. Hiding all player functionality' )
     }
