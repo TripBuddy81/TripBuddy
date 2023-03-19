@@ -435,6 +435,7 @@ $( document ).ready( function () {
         $( '#oAuthPlayerControl' ).remove();
         $( '#devices' ).remove();
         $( '#refresh' ).remove();
+        $( '#playlists' ).remove();
 
         window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
             let element = document.getElementById( 'iFrameSpotifyPlayer' );

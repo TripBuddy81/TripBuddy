@@ -39,8 +39,6 @@
         <div class="btn btn-primary btn-lg me-2" id="showDiscoSection">
             Disco
         </div>
-        <img id="turnScreenBlack" class="me-3" src="./assets/monitor_off.png"
-             data-image="./media/images/41.jpg">
 
 
         <!-- Right side-->
@@ -125,6 +123,7 @@
             </table>
         </div>
 
+
         <select id="playlists" class="float-end form-control">
             {{#playlists}}
             <option data-spotify-id="spotify:playlist:{{id}}" value="spotify:playlist:{{id}}">{{label}}</option>
@@ -132,10 +131,13 @@
         </select>
 
         <div id="oAuthPlayerControl" class="float-end me-3 mt-3">
-            <img id="pause" class="playerIcon me-5 mt-3" src="./assets/pause.png">
-            <img id="next" class="playerIcon me-5 mt-3" src="./assets/next.png">
-            <img id="transfer" class="playerIcon me-5 mt-3" src="./assets/transfer.png">
+            <img id="pause" class="playerIcon me-4 mt-3" src="./assets/pause.png">
+            <img id="next" class="playerIcon me-4 mt-3" src="./assets/next.png">
+            <img id="transfer" class="playerIcon me-4 mt-3" src="./assets/transfer.png">
         </div>
+
+        <img id="turnScreenBlack" class="float-end me-5" src="./assets/monitor_off.png"
+             data-image="./media/images/41.jpg">
     </div>
 
 
