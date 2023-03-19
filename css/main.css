@@ -292,7 +292,7 @@ li {
     top:-17px;
 }
 
-#devices {
+#devices, #playlists {
     width: 190px;
     cursor: pointer;
     background-color: transparent;

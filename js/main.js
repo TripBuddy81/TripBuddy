@@ -380,15 +380,16 @@ $( document ).ready( function () {
 
 
         $( '#iFrameSpotifyPlayerContainer' ).remove();
+        $( '#showMusicSection' ).remove();
 
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
         client_id = config['oAuthSpotify'][0]['client_id'];
         client_secret = config['oAuthSpotify'][0]['client_secret'];
         spotifyInitOnPageLoad();
 
-        $( '.playlistBtn' ).click( function () {
+        $( '#playlists' ).change( function () {
             shuffle();
-            play( $( this ).attr( 'data-spotify-id' ) );
+            play( $('#playlists').find(":selected").val() );
         } );
 
 /*        $( '#play' ).click( function () {
@@ -492,8 +493,8 @@ $( document ).ready( function () {
     // ******************************************
     // init initial view
     $( '#videos' ).hide();
-    $( '#images' ).hide();
-    $( '#music' ).show();
+    $( '#images' ).show();
+    $( '#music' ).hide();
     $( '#disco' ).hide();
     $( '#misc' ).hide();
 } );

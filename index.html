@@ -43,9 +43,6 @@
              data-image="./media/images/41.jpg">
 
 
-
-
-
         <!-- Right side-->
         <div id="burgerContainer" class="float-end me-3 mt-3">
             <div id="menuToggle">
@@ -124,7 +121,15 @@
             </table>
         </div>
         <div id="oAuthPlayerControl" class="float-end me-3 mt-3">
-             <select id="devices" class="form-control"></select>
+
+            <select id="playlists" class="form-control">
+                {{#playlists}}
+                <option data-spotify-id="spotify:playlist:{{id}}" value="spotify:playlist:{{id}}">{{label}}</option>
+                {{/playlists}}
+            </select>
+
+
+            <select id="devices" class="form-control"></select>
 
             <img id="pause" class="playerIcon me-3 mt-3" src="./assets/pause.png">
             <img id="next" class="playerIcon me-3 mt-3" src="./assets/play.png">
