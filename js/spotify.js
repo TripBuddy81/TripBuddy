@@ -108,6 +108,7 @@ function handleAuthorizationResponse() {
 
 function refreshDevices() {
     callApi( 'GET', DEVICES, null, handleDevicesResponse );
+    return true;
 }
 
 function handleDevicesResponse() {
@@ -137,6 +138,8 @@ function callApi( method, url, body, callback ) {
     xhr.setRequestHeader( 'Authorization', 'Bearer ' + access_token );
     xhr.send( body );
     xhr.onload = callback;
+
+    return true;
 }
 
 function refreshPlaylists() {
@@ -147,9 +150,9 @@ function handlePlaylistsResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
         /*    console.log( data );*/
-       /* removeAllItems( 'playlists' );*/
-/*        data.items.forEach( item => addPlaylist( item ) );
-        document.getElementById( 'playlists' ).value = currentPlaylist;*/
+        /* removeAllItems( 'playlists' );*/
+        /*        data.items.forEach( item => addPlaylist( item ) );
+                document.getElementById( 'playlists' ).value = currentPlaylist;*/
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
@@ -202,10 +205,10 @@ function previous() {
     callApi( 'POST', PREVIOUS + '?device_id=' + deviceId(), null, handleApiResponse );
 }
 
-function transfer() {
+function transfer( deviceId ) {
     let body = {};
     body.device_ids = [];
-    body.device_ids.push( deviceId() )
+    body.device_ids.push( deviceId )
     callApi( 'PUT', PLAYER, JSON.stringify( body ), handleApiResponse );
 }
 

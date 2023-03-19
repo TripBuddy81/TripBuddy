@@ -289,7 +289,7 @@ li {
 
 #oAuthPlayerControl {
     position: relative;
-    top:-17px;
+    top: -17px;
 }
 
 #devices, #playlists {
@@ -298,6 +298,7 @@ li {
     background-color: transparent;
     border: none;
     font-weight: bold;
+    padding: 0;
 }
 
 #launchText {

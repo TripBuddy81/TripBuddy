@@ -389,17 +389,17 @@ $( document ).ready( function () {
 
         $( '#playlists' ).change( function () {
             shuffle();
-            play( $('#playlists').find(":selected").val() );
+            play( $( '#playlists' ).find( ':selected' ).val() );
         } );
 
-/*        $( '#play' ).click( function () {
-            var playlistId = 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW';
-            if ( $( '.playlistActive' ).attr( 'data-spotify-id' ) != undefined ) {
-                playlistId = $( '.playlistActive' ).attr( 'data-spotify-id' );
-            }
-            console.info(playlistId);
-            play( playlistId );
-        } );*/
+        /*        $( '#play' ).click( function () {
+                    var playlistId = 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW';
+                    if ( $( '.playlistActive' ).attr( 'data-spotify-id' ) != undefined ) {
+                        playlistId = $( '.playlistActive' ).attr( 'data-spotify-id' );
+                    }
+                    console.info(playlistId);
+                    play( playlistId );
+                } );*/
 
         $( '#next' ).click( function () {
             next();
@@ -411,12 +411,30 @@ $( document ).ready( function () {
             refreshDevices();
         } );
         $( '#transfer' ).click( function () {
-            transfer();
+            var currentlyActiveDeviceId = $( '#devices' ).find( ':selected' ).val();
+            var currentlyActiveDeviceName = $( '#devices' ).find( ':selected' ).html().toLowerCase();
+            var currentlyInactivePreferedDeviceNumber = 'preferedDevice1';
+
+            if ( currentlyActiveDeviceName.includes( config['oAuthSpotify'][0]['preferedDevice1'].toLowerCase() ) ) {
+                currentlyInactivePreferedDeviceNumber = 'preferedDevice2';
+            } else {
+                currentlyInactivePreferedDeviceNumber = 'preferedDevice1';
+            }
+
+            $( '#devices>option' ).each( function () {
+                var deviceName = $( this ).text().toLowerCase();
+                var deviceId = $( this ).val();
+                if ( deviceName.includes( config['oAuthSpotify'][0][currentlyInactivePreferedDeviceNumber].toLowerCase() ) ) {
+                    transfer( deviceId );
+                }
+            } );
         } );
 
     } else {
         // Stand alone iFrame Spotify Player
         $( '#oAuthPlayerControl' ).remove();
+        $( '#devices' ).remove();
+        $( '#refresh' ).remove();
 
         window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
             let element = document.getElementById( 'iFrameSpotifyPlayer' );
