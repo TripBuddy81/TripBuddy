@@ -412,24 +412,9 @@ $( document ).ready( function () {
         $( '#refresh' ).click( function () {
             refreshDevices();
         } );
-        $( '#transfer' ).click( function () {
-            var currentlyActiveDeviceId = $( '#devices' ).find( ':selected' ).val();
-            var currentlyActiveDeviceName = $( '#devices' ).find( ':selected' ).html().toLowerCase();
-            var currentlyInactivePreferedDeviceNumber = 'preferedDevice1';
-
-            if ( currentlyActiveDeviceName.includes( config['oAuthSpotify'][0]['preferedDevice1'].toLowerCase() ) ) {
-                currentlyInactivePreferedDeviceNumber = 'preferedDevice2';
-            } else {
-                currentlyInactivePreferedDeviceNumber = 'preferedDevice1';
-            }
-
-            $( '#devices>option' ).each( function () {
-                var deviceName = $( this ).text().toLowerCase();
-                var deviceId = $( this ).val();
-                if ( deviceName.includes( config['oAuthSpotify'][0][currentlyInactivePreferedDeviceNumber].toLowerCase() ) ) {
-                    transfer( deviceId );
-                }
-            } );
+        $( '#devices' ).change( function () {
+            transfer($( '#devices' ).find( ':selected' ).val());
+            $( '#menuClose' ).trigger( 'click' );
         } );
 
     } else {

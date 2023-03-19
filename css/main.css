@@ -219,7 +219,7 @@ li {
 }
 
 #progressGraphContainer {
-    width: 400px;
+    width: 450px;
     position: relative;
     display: none;
 }
@@ -272,6 +272,12 @@ li {
     cursor: pointer;
 }
 
+.refreshIcon {
+    height: 35px;
+    cursor: pointer;
+    padding-right: 30px;
+}
+
 #turnScreenBlack {
     height: 70px;
     cursor: pointer;
@@ -295,7 +301,7 @@ li {
 #devices {
     position: relative;
     top: 9px;
-    width: 190px;
+    width: 300px;
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -308,7 +314,7 @@ li {
 #playlists {
     position: relative;
     top: 9px;
-    width: 210px;
+    width: 230px;
     cursor: pointer;
     background-color: transparent;
     border: none;
