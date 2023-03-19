@@ -315,7 +315,8 @@ li {
     font-size: 60px;
     position: relative;
     top: -30px;
-    right: 160px;
+    padding-left: 200px;
+    padding-right:200px;
     font-weight: bold;
     height: 35px;
     cursor: pointer;

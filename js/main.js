@@ -376,9 +376,6 @@ $( document ).ready( function () {
     // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
     // oAuth Spotify Player
     if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
-        $( '#liftOff' ).trigger( 'click' );
-
-
         $( '#iFrameSpotifyPlayerContainer' ).remove();
         $( '#showMusicSection' ).remove();
 
