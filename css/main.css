@@ -268,7 +268,7 @@ li {
 }
 
 #enableFullscreen, #disableFullscreen, .playerIcon {
-    height: 35px;
+    height: 45px;
     cursor: pointer;
 }
 
@@ -292,7 +292,7 @@ li {
     top: -17px;
 }
 
-#devices, #playlists {
+#devices {
     position: relative;
     top: 9px;
     width: 190px;
@@ -302,7 +302,22 @@ li {
     font-weight: bold;
     padding: 0;
     font-size: 30px;
-    color:black;
+    color: black;
+}
+
+#playlists {
+    position: relative;
+    top: 9px;
+    width: 210px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    padding: 0 0 0 5px;
+    font-size: 35px;
+    color: black;
+    margin-left: 20px;
+    margin-right: 0px;
 }
 
 .form-control:focus {
@@ -316,7 +331,7 @@ li {
     position: relative;
     top: -30px;
     padding-left: 200px;
-    padding-right:200px;
+    padding-right: 200px;
     font-weight: bold;
     height: 35px;
     cursor: pointer;

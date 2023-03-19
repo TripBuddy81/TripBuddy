@@ -122,18 +122,19 @@
                 </tbody>
             </table>
         </div>
-
-
-        <select id="playlists" class="float-end form-control">
-            {{#playlists}}
-            <option data-spotify-id="spotify:playlist:{{id}}" value="spotify:playlist:{{id}}">{{label}}</option>
-            {{/playlists}}
-        </select>
-
         <div id="oAuthPlayerControl" class="float-end me-3 mt-3">
-            <img id="pause" class="playerIcon me-4 mt-3" src="./assets/pause.png">
-            <img id="next" class="playerIcon me-4 mt-3" src="./assets/next.png">
-            <img id="transfer" class="playerIcon me-4 mt-3" src="./assets/transfer.png">
+
+
+            <select id="playlists" class="float-end form-control">
+                {{#playlists}}
+                <option data-spotify-id="spotify:playlist:{{id}}" value="spotify:playlist:{{id}}">{{label}}</option>
+                {{/playlists}}
+            </select>
+
+            <img id="transfer" class="float-end playerIcon me-4 mt-3" src="./assets/transfer.png">
+            <img id="next" class="float-end playerIcon me-4 mt-3" src="./assets/next.png">
+            <img id="startStop" class="float-end playerIcon me-4 mt-3" src="./assets/play.png">
+
         </div>
 
         <img id="turnScreenBlack" class="float-end me-5" src="./assets/monitor_off.png"

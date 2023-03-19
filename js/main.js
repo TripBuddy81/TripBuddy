@@ -384,25 +384,30 @@ $( document ).ready( function () {
         client_secret = config['oAuthSpotify'][0]['client_secret'];
         spotifyInitOnPageLoad();
 
+        var currentlyPlaying = false;
+        $( '#startStop' ).click( function () {
+            if ( currentlyPlaying ) {
+                pause();
+                currentlyPlaying = false;
+                $( this ).attr( 'src', './assets/play.png' );
+            } else {
+                next();
+                currentlyPlaying = true;
+                $( this ).attr( 'src', './assets/pause.png' );
+            }
+        } );
+
         $( '#playlists' ).change( function () {
             shuffle();
             play( $( '#playlists' ).find( ':selected' ).val() );
+            currentlyPlaying = true;
+            $( '#startStop' ).attr( 'src', './assets/pause.png' );
         } );
-
-        /*        $( '#play' ).click( function () {
-                    var playlistId = 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW';
-                    if ( $( '.playlistActive' ).attr( 'data-spotify-id' ) != undefined ) {
-                        playlistId = $( '.playlistActive' ).attr( 'data-spotify-id' );
-                    }
-                    console.info(playlistId);
-                    play( playlistId );
-                } );*/
 
         $( '#next' ).click( function () {
             next();
-        } );
-        $( '#pause' ).click( function () {
-            pause();
+            currentlyPlaying = true;
+            $( '#startStop' ).attr( 'src', './assets/pause.png' );
         } );
         $( '#refresh' ).click( function () {
             refreshDevices();
