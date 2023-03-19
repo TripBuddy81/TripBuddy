@@ -172,15 +172,14 @@ function removeAllItems( elementId ) {
     }
 }
 
-function play() {
-    let playlist_id = document.getElementById( 'playlists' ).value;
+function play( playlist_id ) {
     let trackindex = 0;
     let album = 0;
     let body = {};
     if ( album.length > 0 ) {
         body.context_uri = album;
     } else {
-        body.context_uri = 'spotify:playlist:' + playlist_id;
+        body.context_uri = playlist_id;
     }
     body.offset = {};
     body.offset.position = trackindex.length > 0 ? Number( trackindex ) : 0;
@@ -188,9 +187,8 @@ function play() {
     callApi( 'PUT', PLAY + '?device_id=' + deviceId(), JSON.stringify( body ), handleApiResponse );
 }
 
-function shuffle() {
+function shuffle( ) {
     callApi( 'PUT', SHUFFLE + '?state=true&device_id=' + deviceId(), null, handleApiResponse );
-    play();
 }
 
 function pause() {
