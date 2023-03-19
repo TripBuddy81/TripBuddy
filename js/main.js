@@ -376,7 +376,7 @@ $( document ).ready( function () {
     // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
     // oAuth Spotify Player
     if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
-       /* $( '#liftOff' ).trigger('click');*/
+        /* $( '#liftOff' ).trigger('click');*/
 
 
         $( '#iFrameSpotifyPlayerContainer' ).remove();
@@ -386,10 +386,12 @@ $( document ).ready( function () {
         client_secret = config['oAuthSpotify'][0]['client_secret'];
         spotifyInitOnPageLoad();
 
-        shuffle();
         $( '.playlistBtn' ).click( function () {
-            play($( this ).attr( 'data-spotify-id' ));
+            shuffle();
+            play( $( this ).attr( 'data-spotify-id' ) );
         } );
+
+
 
     } else {
         // Stand alone iFrame Spotify Player

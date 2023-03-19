@@ -148,9 +148,9 @@ function handlePlaylistsResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
         /*    console.log( data );*/
-        removeAllItems( 'playlists' );
-        data.items.forEach( item => addPlaylist( item ) );
-        document.getElementById( 'playlists' ).value = currentPlaylist;
+       /* removeAllItems( 'playlists' );*/
+/*        data.items.forEach( item => addPlaylist( item ) );
+        document.getElementById( 'playlists' ).value = currentPlaylist;*/
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
@@ -187,7 +187,7 @@ function play( playlist_id ) {
     callApi( 'PUT', PLAY + '?device_id=' + deviceId(), JSON.stringify( body ), handleApiResponse );
 }
 
-function shuffle( ) {
+function shuffle() {
     callApi( 'PUT', SHUFFLE + '?state=true&device_id=' + deviceId(), null, handleApiResponse );
 }
 
@@ -264,9 +264,9 @@ function handleCurrentlyPlayingResponse() {
         var data = JSON.parse( this.responseText );
         /*        console.log( data );*/
         if ( data.item != null ) {
-            document.getElementById( 'albumImage' ).src = data.item.album.images[0].url;
-            document.getElementById( 'trackTitle' ).innerHTML = data.item.name;
-            document.getElementById( 'trackArtist' ).innerHTML = data.item.artists[0].name;
+            /*            document.getElementById( 'albumImage' ).src = data.item.album.images[0].url;
+                        document.getElementById( 'trackTitle' ).innerHTML = data.item.name;
+                        document.getElementById( 'trackArtist' ).innerHTML = data.item.artists[0].name;*/
         }
 
         if ( data.device != null ) {
@@ -279,7 +279,7 @@ function handleCurrentlyPlayingResponse() {
             // select playlist
             currentPlaylist = data.context.uri;
             currentPlaylist = currentPlaylist.substring( currentPlaylist.lastIndexOf( ':' ) + 1, currentPlaylist.length );
-            document.getElementById( 'playlists' ).value = currentPlaylist;
+            /*document.getElementById( 'playlists' ).value = currentPlaylist;*/
         }
     } else if ( this.status == 204 ) {
 
