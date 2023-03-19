@@ -267,7 +267,7 @@ li {
     --color: rgba(0, 0, 0, 0.2);
 }
 
-#enableFullscreen, #disableFullscreen {
+#enableFullscreen, #disableFullscreen, .playerIcon {
     height: 35px;
     cursor: pointer;
 }
@@ -285,6 +285,19 @@ li {
 
 .resetVideoFilterIcon {
     height: 30px;
+}
+
+#oAuthPlayerControl {
+    position: relative;
+    top:-17px;
+}
+
+#devices {
+    width: 190px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
 }
 
 #launchText {

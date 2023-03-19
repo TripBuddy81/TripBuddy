@@ -376,7 +376,7 @@ $( document ).ready( function () {
     // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
     // oAuth Spotify Player
     if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
-        /* $( '#liftOff' ).trigger('click');*/
+        $( '#liftOff' ).trigger( 'click' );
 
 
         $( '#iFrameSpotifyPlayerContainer' ).remove();
@@ -391,11 +391,31 @@ $( document ).ready( function () {
             play( $( this ).attr( 'data-spotify-id' ) );
         } );
 
+/*        $( '#play' ).click( function () {
+            var playlistId = 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW';
+            if ( $( '.playlistActive' ).attr( 'data-spotify-id' ) != undefined ) {
+                playlistId = $( '.playlistActive' ).attr( 'data-spotify-id' );
+            }
+            console.info(playlistId);
+            play( playlistId );
+        } );*/
 
+        $( '#next' ).click( function () {
+            next();
+        } );
+        $( '#pause' ).click( function () {
+            pause();
+        } );
+        $( '#refresh' ).click( function () {
+            refreshDevices();
+        } );
+        $( '#transfer' ).click( function () {
+            transfer();
+        } );
 
     } else {
         // Stand alone iFrame Spotify Player
-        $( '#oAuthSpotifyPlayerContainer' ).remove();
+        $( '#oAuthPlayerControl' ).remove();
 
         window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
             let element = document.getElementById( 'iFrameSpotifyPlayer' );

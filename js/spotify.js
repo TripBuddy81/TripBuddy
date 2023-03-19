@@ -28,7 +28,6 @@ function spotifyInitOnPageLoad() {
             requestAuthorization();
         } else {
             // we have an access token so present device section
-            document.getElementById( 'deviceSection' ).style.display = 'block';
             refreshDevices();
             refreshPlaylists();
             currentlyPlaying();
