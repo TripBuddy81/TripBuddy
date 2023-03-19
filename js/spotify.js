@@ -1,10 +1,6 @@
-var redirect_uri = 'https://makeratplay.github.io/SpotifyWebAPI/'; // change this your value
-//var redirect_uri = "http://127.0.0.1:5500/index.html";
-
-
-var client_id = '';
-var client_secret = ''; // In a real app you should not expose your client_secret to the user
-
+var redirect_uri = "";
+var client_id = "";
+var client_secret = "";
 var access_token = null;
 var refresh_token = null;
 var currentPlaylist = '';
@@ -24,8 +20,8 @@ const CURRENTLYPLAYING = 'https://api.spotify.com/v1/me/player/currently-playing
 const SHUFFLE = 'https://api.spotify.com/v1/me/player/shuffle';
 
 function onPageLoad() {
-    client_id = localStorage.getItem( 'client_id' );
-    client_secret = localStorage.getItem( 'client_secret' );
+/*    client_id = localStorage.getItem( 'client_id' );
+    client_secret = localStorage.getItem( 'client_secret' );*/
     if ( window.location.search.length > 0 ) {
         handleRedirect();
     } else {
@@ -61,10 +57,8 @@ function getCode() {
 }
 
 function requestAuthorization() {
-    client_id = document.getElementById( 'clientId' ).value;
-    client_secret = document.getElementById( 'clientSecret' ).value;
-    localStorage.setItem( 'client_id', client_id );
-    localStorage.setItem( 'client_secret', client_secret ); // In a real app you should not expose your client_secret to the user
+/*    localStorage.setItem( 'client_id', client_id );
+    localStorage.setItem( 'client_secret', client_secret ); // In a real app you should not expose your client_secret to the user*/
 
     let url = AUTHORIZE;
     url += '?client_id=' + client_id;
@@ -117,7 +111,6 @@ function handleAuthorizationResponse() {
         onPageLoad();
     } else {
         console.log( this.responseText );
-        alert( this.responseText );
     }
 }
 
@@ -135,7 +128,6 @@ function handleDevicesResponse() {
         refreshAccessToken()
     } else {
         console.log( this.responseText );
-        alert( this.responseText );
     }
 }
 
@@ -170,7 +162,6 @@ function handlePlaylistsResponse() {
         refreshAccessToken()
     } else {
         console.log( this.responseText );
-        alert( this.responseText );
     }
 }
 
@@ -238,7 +229,6 @@ function handleApiResponse() {
         refreshAccessToken()
     } else {
         console.log( this.responseText );
-        alert( this.responseText );
     }
 }
 
@@ -264,7 +254,6 @@ function handleTracksResponse() {
         refreshAccessToken()
     } else {
         console.log( this.responseText );
-        alert( this.responseText );
     }
 }
 
@@ -308,7 +297,6 @@ function handleCurrentlyPlayingResponse() {
         refreshAccessToken()
     } else {
         console.log( this.responseText );
-        alert( this.responseText );
     }
 }
 

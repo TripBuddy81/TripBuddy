@@ -79,7 +79,6 @@ $( document ).ready( function () {
     } );
 
 
-
     // ******************************************
     // Enable hidden menue
     $( '.XXX' ).hide();
@@ -391,6 +390,16 @@ $( document ).ready( function () {
         $( this ).toggleClass( 'playlistActive' );
     } );
 
+    // oAuth Spotify Player
+    if ( config['oAuthSpotify'][0]['client_id'] != '' ) {
+        redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
+        client_id = config['oAuthSpotify'][0]['client_id'];
+        client_secret = config['oAuthSpotify'][0]['client_secret'];
+        onPageLoad();
+    } else {
+        console.info("oAuth Spotify Info not found in optional config. Hiding all player functionality")
+    }
+
 
     // ******************************************
     // Disco section
@@ -446,8 +455,8 @@ $( document ).ready( function () {
     // ******************************************
     // init initial view
     $( '#videos' ).hide();
-    $( '#images' ).show();
-    $( '#music' ).hide();
+    $( '#images' ).hide();
+    $( '#music' ).show();
     $( '#disco' ).hide();
     $( '#misc' ).hide();
 } );
