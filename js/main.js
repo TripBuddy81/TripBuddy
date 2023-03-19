@@ -99,6 +99,7 @@ $( document ).ready( function () {
         enableFullscreen();
     } );
     $( '#liftOff' ).click( function ( e ) {
+        timer = setInterval( upTimer, 1000 );
         start = new Date();
         $( '#preFlightChecklist' ).modal( 'hide' );
         $( '#launchText' ).hide();
@@ -121,8 +122,8 @@ $( document ).ready( function () {
 
     // ******************************************
     // Timer && Graph
-    var timer = setInterval( upTimer, 1000 );
-    var start = new Date();
+    var timer = '';
+    var start = '';
     var currentState = 'ignition';
     var lastState = '';
 
@@ -397,7 +398,7 @@ $( document ).ready( function () {
         client_secret = config['oAuthSpotify'][0]['client_secret'];
         onPageLoad();
     } else {
-        console.info("oAuth Spotify Info not found in optional config. Hiding all player functionality")
+        console.info( 'oAuth Spotify Info not found in optional config. Hiding all player functionality' )
     }
 
 
