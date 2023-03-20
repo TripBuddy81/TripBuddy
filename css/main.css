@@ -333,9 +333,9 @@ li {
 }
 
 #launchText {
-    font-size: 60px;
+    font-size: 50px;
     position: relative;
-    top: -30px;
+    top: -20px;
     padding-left: 200px;
     padding-right: 200px;
     font-weight: bold;

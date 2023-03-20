@@ -12,6 +12,14 @@ $( document ).ready( function () {
             Handlebars.compile( $( '#mainTemplate' ).html() )( config )
     );
 
+    // Check if loading is complete
+    document.onreadystatechange = function () {
+        if ( document.readyState !== 'complete' ) {
+        } else {
+            $( '#launchText' ).html( 'Start!' );
+        }
+    };
+
     // ***********************************
     // Main Menu
     $( '#showVideoSection' ).click( function () {
@@ -413,7 +421,7 @@ $( document ).ready( function () {
             refreshDevices();
         } );
         $( '#devices' ).change( function () {
-            transfer($( '#devices' ).find( ':selected' ).val());
+            transfer( $( '#devices' ).find( ':selected' ).val() );
             $( '#menuClose' ).trigger( 'click' );
         } );
 
@@ -498,10 +506,12 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    $( '#videos' ).hide();
-    $( '#images' ).show();
+    $( '#videos' ).show();
+    $( '#images' ).hide();
     $( '#music' ).hide();
     $( '#disco' ).hide();
     $( '#misc' ).hide();
+
+
 } );
 
