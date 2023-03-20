@@ -144,8 +144,8 @@ var Intense = (function () {
     }
 
     function createViewer( title, caption ) {
-        $('#images').hide();
-        $('#mainMenu').hide();
+        $('#images').css('visibility', 'hidden');
+        $('#mainMenu').css('visibility', 'hidden');
         $( 'html' ).attr( 'style', 'background-color:black;cursor:none;' );
 
         /*
@@ -246,8 +246,8 @@ var Intense = (function () {
         unbindEvents();
         document.body.removeChild( container );
 
-        $('#images').show();
-        $('#mainMenu').show();
+        $('#images').css('visibility', 'visible');
+        $('#mainMenu').css('visibility', 'visible');
         $( 'html' ).attr( 'style', 'cursor:auto;' );
     }
 
