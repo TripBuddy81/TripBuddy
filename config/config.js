@@ -24,22 +24,22 @@ var config = {
                 ]
         ,*/
     'preFlightChecklist': [
-        {'checklistItem': 'Prepare everything else before preparing the Tek itself!'},
+        {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
+        {'checklistItem': 'Mouse is charged?'},
         {'checklistItem': 'Start easy listening music'},
-        {'checklistItem': 'Make Ginger Tea and starting drinking!'},
+        {'checklistItem': 'Make ginger tea and starting drinking'},
         {'checklistItem': 'Cozy clothing'},
-        {'checklistItem': 'Mouse is charged!'},
         {'checklistItem': 'Starlights on'},
-        {'checklistItem': 'Toilette lights are on!'},
-        {'checklistItem': 'Candles are lit'},
-        {'checklistItem': 'Blanket at the ready'},
+        {'checklistItem': 'Toilette lights on'},
+        {'checklistItem': 'Candles lit'},
+        {'checklistItem': 'Blankets'},
         {'checklistItem': 'Emergency bucket'},
-        {'checklistItem': 'Towel and tissues'},
-        {'checklistItem': 'Headphones at the ready'},
-        {'checklistItem': 'Stroboscope at the ready ;-)'},
-        {'checklistItem': 'Water!'},
-        {'checklistItem': 'Ginger ale / Soda'},
-        {'checklistItem': 'Fruits! (Pineapple, Melon, Mango, Strawberries, Pears)'},
+        {'checklistItem': 'Towel & tissues'},
+        {'checklistItem': 'Headphones'},
+        {'checklistItem': 'Stroboscope ;-)'},
+        {'checklistItem': 'Water'},
+        {'checklistItem': 'Ginger ale'},
+        {'checklistItem': 'Fruits - Pineapple, Melon, Mango, Strawberries, Pears'},
         {'checklistItem': 'Cup of tea ready to be brewed'},
         {'checklistItem': 'Something to eat set aside'}
     ],
@@ -89,7 +89,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
             'tags'     : 'trippy-slow trippy-3D'
-        },
+        }/*,
         {
             'videoLink': 'https://www.youtube.com/embed/JKe0gryiCCw?mute=1',
             'tags'     : 'trippy-slow trippy-3D'
@@ -355,7 +355,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
             'tags'     : 'leftovers'
-        }
+        }*/
     ],
     'images'        : [
         {'image': './media/images/40.jpg'},

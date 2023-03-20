@@ -146,10 +146,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title" id="preFlightChecklistLabel">Preflight checklist</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div id="liftOff" type="button" class="btn btn-primary">Lift off!</div>
                 </div>
                 <div class="modal-body">
-                    <p>Make sure you are prepared:</p>
                     <ul>
                         {{#preFlightChecklist}}
                         <li>
@@ -162,7 +161,6 @@
                     <div class="float-start">Hitting the button will start the timer for a typical LemonTek Trip. (Onset
                         till 00:40 | Peak till 01:40 | Chillout till 03:40)
                     </div>
-                    <div id="liftOff" type="button" class="btn btn-primary">Lift off!</div>
                 </div>
             </div>
         </div>
