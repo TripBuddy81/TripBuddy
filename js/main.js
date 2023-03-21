@@ -114,7 +114,6 @@ $( document ).ready( function () {
         $( '#timerMinutes' ).show();
         $( '#progressGraphContainer' ).show();
     } );
-
     $( '#doseUpCheckbox' ).change( function () {
         if ( $( '#doseUpCheckbox' ).is( ':checked' ) ) {
             localStorage.setItem( 'doseUpReminderInMinutes', $( '#doseUpReminderInMinutes' ).val() );
@@ -194,9 +193,10 @@ $( document ).ready( function () {
             $( '#timerMinutes' ).css( 'color', color );
         }
 
-
         // Timed Recommendations
         if ( localStorage.getItem( 'doseUpReminderInMinutes' ) > 0 && diffMins == localStorage.getItem( 'doseUpReminderInMinutes' ) && recommendationsShown == false ) {
+            recommendationsShown = true;
+
             if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
                 disableFullscreen();
             }
@@ -207,12 +207,11 @@ $( document ).ready( function () {
 
             $( '#timedRecommendation' ).modal( 'show' );
             $( '#doseUpRecommendation' ).show();
-            recommendationsShown = true;
 
-            $( '#timedRecommendation' ).click( function ( event ) {
-                $( '#timedRecommendation' ).modal( 'hide' );
-            } );
         }
+        $( '#timedRecommendation' ).click( function ( event ) {
+            $( '#timedRecommendation' ).modal( 'hide' );
+        } );
     }
 
     function updateprogressGraphColor( color ) {
