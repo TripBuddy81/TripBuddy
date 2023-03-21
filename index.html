@@ -145,26 +145,51 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title" id="preFlightChecklistLabel">Preflight checklist</h1>
-                    <div id="liftOff" type="button" class="btn btn-primary">Lift off!</div>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        {{#preFlightChecklist}}
-                        <li>
-                            {{checklistItem}}
-                        </li>
-                        {{/preFlightChecklist}}
-                    </ul>
-                </div>
-                <div class="modal-footer">
                     <div class="float-start">Hitting the button will start the timer for a typical LemonTek Trip. (Onset
                         till 00:40 | Peak till 01:40 | Chillout till 03:40)
                     </div>
+                    <div id="liftOff" type="button" class="btn btn-primary">Lift off!</div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="modal-title" id="preFlightChecklistLabel">Preflight checklist</h1>
+                            <ul>
+                                {{#preFlightChecklist}}
+                                <li>
+                                    {{checklistItem}}
+                                </li>
+                                {{/preFlightChecklist}}
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h1>Reminders <br>(will show Popup after configured time)</h1>
+                            <div class="options form-check form-switch">
+                                <label class="form-check-label" for="doseUpCheckbox">Dose Up after </label>
+                                <input class="form-check-input" type="checkbox" id="doseUpCheckbox">
+                                <input type="number" id="doseUpReminderInMinutes" name="doseUpReminderInMinutes"
+                                       value="70">
+                                <span>minutes</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="timedRecommendation" tabindex="-1" aria-labelledby="timedRecommendationLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <h1 id="doseUpRecommendation" style="display:none;">Dose up now!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div id="videos" class="ms-3">
         <div class="sticky">
@@ -179,7 +204,7 @@
         <div id="displayedVideos" class="mt-3">
             {{#videosYoutube}}
             <div style="display:inline-block" class="iFrameContainer {{tags}}">
-                <iframe width="554" height="315"
+                <iframe class="videoFrame" width="554" height="315"
                         src="{{videoLink}}&rel=0"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -196,7 +221,7 @@
 
             {{#videosLocal}}
             <div style="display:inline-block" class="iFrameContainer {{tags}}">
-                <video width="554" height="315" controls muted>
+                <video class="videoFrame" width="554" height="315" controls muted>
                     <source src="{{videoLink}}" type="video/mp4">
                 </video>
                 <div class="videoInfo text-center mb-2" style="display: none;">{{tags}}

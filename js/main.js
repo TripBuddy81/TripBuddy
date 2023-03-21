@@ -102,7 +102,7 @@ $( document ).ready( function () {
     } );
 
     // ******************************************
-    // Start button & preFlightChecklist
+    // Start button & preFlightChecklist & Reminders
     $( '#launchText' ).click( function ( e ) {
         enableFullscreen();
     } );
@@ -113,6 +113,17 @@ $( document ).ready( function () {
         $( '#launchText' ).hide();
         $( '#timerMinutes' ).show();
         $( '#progressGraphContainer' ).show();
+    } );
+
+    $( '#doseUpCheckbox' ).change( function () {
+        if ( $( '#doseUpCheckbox' ).is( ':checked' ) ) {
+            localStorage.setItem( 'doseUpReminderInMinutes', $( '#doseUpReminderInMinutes' ).val() );
+        } else {
+            localStorage.setItem( 'doseUpReminderInMinutes', '' );
+        }
+    } );
+    $( '#doseUpReminderInMinutes' ).change( function () {
+        localStorage.setItem( 'doseUpReminderInMinutes', $( '#doseUpReminderInMinutes' ).val() );
     } );
 
     // ******************************************
@@ -134,6 +145,7 @@ $( document ).ready( function () {
     var start = '';
     var currentState = 'ignition';
     var lastState = '';
+    var recommendationsShown = false;
 
     function upTimer() {
         var now = new Date();
@@ -181,6 +193,21 @@ $( document ).ready( function () {
             updateprogressGraphColor( color );
             $( '#timerMinutes' ).css( 'color', color );
         }
+
+
+        // Timed Recommendations
+        if ( localStorage.getItem( 'doseUpReminderInMinutes' ) > 0 && diffMins == localStorage.getItem( 'doseUpReminderInMinutes' ) && recommendationsShown == false ) {
+            if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
+                disableFullscreen();
+            }
+            $( '#timedRecommendation' ).modal( 'show' );
+            $( '#doseUpRecommendation' ).show();
+            recommendationsShown = true;
+
+            $( '#timedRecommendation' ).click( function ( event ) {
+                $( '#timedRecommendation' ).modal( 'hide' );
+            } );
+        }
     }
 
     function updateprogressGraphColor( color ) {
@@ -194,7 +221,7 @@ $( document ).ready( function () {
     // Fullscreen
     $( '.toggleFullscreen' ).click( function ( event ) {
         toggleFullScreen( event );
-    } )
+    } );
 
     $( '#discoSettingsContainer' ).hover(
             function () {
@@ -513,5 +540,6 @@ $( document ).ready( function () {
     $( '#misc' ).hide();
 
 
-} );
+} )
+;
 
