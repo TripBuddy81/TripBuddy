@@ -200,6 +200,11 @@ $( document ).ready( function () {
             if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
                 disableFullscreen();
             }
+
+            if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
+                document.elementFromPoint( 0, 0 ).click();
+            }
+
             $( '#timedRecommendation' ).modal( 'show' );
             $( '#doseUpRecommendation' ).show();
             recommendationsShown = true;
