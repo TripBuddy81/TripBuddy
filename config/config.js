@@ -1,42 +1,18 @@
 var config = {
-    /*    'timer':
-                [
-                    {
-                        'tag': 'ignition',
-                        'X'  : 20,
-                        'Y'  : 0.1
-                    },
-                    {
-                        'tag': 'onset',
-                        'X'  : 40,
-                        'Y'  : 0.6
-                    },
-                    {
-                        'tag': 'peak',
-                        'X'  : 100,
-                        'Y'  : 1
-                    },
-                    {
-                        'tag': 'chillout',
-                        'X'  : 220,
-                        'Y'  : 0
-                    }
-                ]
-        ,*/
     'preFlightChecklist': [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
         {'checklistItem': 'Mouse is charged?'},
         {'checklistItem': 'Start easy listening music'},
         {'checklistItem': 'Make ginger tea and starting drinking'},
         {'checklistItem': 'Cozy clothing'},
-        {'checklistItem': 'Starlights on'},
+        {'checklistItem': 'Starlight on'},
         {'checklistItem': 'Toilette lights on'},
         {'checklistItem': 'Candles lit'},
         {'checklistItem': 'Blankets'},
         {'checklistItem': 'Emergency bucket'},
         {'checklistItem': 'Towel & tissues'},
         {'checklistItem': 'Headphones'},
-        {'checklistItem': 'Stroboscope ;-)'},
+        {'checklistItem': 'Stroboscope'},
         {'checklistItem': 'Water'},
         {'checklistItem': 'Ginger ale'},
         {'checklistItem': 'Fruits - Pineapple, Melon, Mango, Strawberries, Pears'},
@@ -89,7 +65,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
             'tags'     : 'trippy-slow trippy-3D'
-        }/*,
+        },
         {
             'videoLink': 'https://www.youtube.com/embed/JKe0gryiCCw?mute=1',
             'tags'     : 'trippy-slow trippy-3D'
@@ -329,12 +305,8 @@ var config = {
             'label'    : 'Absurdism'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/qUavbO3Y3gY?mute=1',
-            'tags'     : 'leftovers'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/s3Tp8ESiiM4?mute=1',
-            'tags'     : 'leftovers'
+            'tags'     : 'trippy-3D trippy-slow'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/N0rHxXC27BA?mute=1',
@@ -355,7 +327,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
             'tags'     : 'leftovers'
-        }*/
+        }
     ],
     'images'        : [
         {'image': './media/images/40.jpg'},
