@@ -30,6 +30,14 @@ var config = {
                     'id'   : '0r09hQ2kqiLwjStS7xzRzh'
                 },
                 {
+                    'label': 'Psybass',
+                    'id'   : '0O1C7wbOthIxBbai9pYvEH'
+                },
+                {
+                    'label': 'Sarod',
+                    'id'   : '6OrBBwnQnwVedLjyBh6Vx3'
+                },
+                {
                     'label': 'Tool',
                     'id'   : '54c657PnbEgWUJt7biWHtO'
                 },
