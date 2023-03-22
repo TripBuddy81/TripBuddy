@@ -518,14 +518,6 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 
-
-
-
-
-
-
-
-
 video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
@@ -544,14 +536,22 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #top-overlay {
-    position: absolute;
-    left: 100px;
-    top: 370px;
+    right: 22px;
+    bottom: 10px;
     z-index: 1000;
-    width: 100px;
-    height: 100px;
+    width: 25px;
+    height: 25px;
     background-color: red;
+    cursor: pointer;
 }
+
+.videoFrame {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
 
 #video-chat-container:-webkit-full-screen #top-overlay {
     position: fixed;
