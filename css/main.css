@@ -516,3 +516,47 @@ input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     margin-top: -5.5px;
 }
+
+
+
+
+
+
+
+
+
+
+video::-webkit-media-controls-fullscreen-button {
+    display: none;
+}
+
+#video-chat-container:-webkit-full-screen {
+    --bs-gutter-x: 0;
+}
+
+#video-chat-container:fullscreen {
+    --bs-gutter-x: 0;
+}
+
+#video-chat-container:fullscreen video {
+    height: 90vh;
+    width: 100vw;
+}
+
+#top-overlay {
+    position: absolute;
+    left: 100px;
+    top: 370px;
+    z-index: 1000;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+#video-chat-container:-webkit-full-screen #top-overlay {
+    position: fixed;
+}
+
+#video-chat-container:fullscreen #top-overlay {
+    position: fixed;
+}

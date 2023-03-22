@@ -359,20 +359,109 @@ $( document ).ready( function () {
 
 
     // Detect if iframe has been targeted and deactivate fullscreen since it does not work with fullscreen exit of iframe itself
-    var myConfObj = {
-        iframeMouseOver: false
-    }
-    window.addEventListener( 'blur', function () {
-        if ( myConfObj.iframeMouseOver ) {
-            disableFullscreen();
+    /*
+        var myConfObj = {
+            iframeMouseOver: false
+        }
+
+        var fullscreenDisbaledForVideo = false;
+        window.addEventListener( 'blur', function () {
+            if ( myConfObj.iframeMouseOver ) {
+                disableFullscreen();
+                fullscreenDisbaledForVideo = true;
+            }
+        } );
+        document.getElementById( 'displayedVideos' ).addEventListener( 'mouseover', function () {
+            myConfObj.iframeMouseOver = true;
+        } );
+        document.getElementById( 'displayedVideos' ).addEventListener( 'mouseout', function () {
+            myConfObj.iframeMouseOver = false;
+        } );
+
+    */
+
+    const toggleFullScreen2 = async () => {
+        console.info("test");
+        const container = document.getElementById('video-chat-container');
+        const fullscreenApi = container.requestFullscreen
+                || container.webkitRequestFullScreen
+                || container.mozRequestFullScreen
+                || container.msRequestFullscreen;
+        if (!document.fullscreenElement) {
+            fullscreenApi.call(container);
+        }
+        else {
+            document.exitFullscreen();
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('fullscreen-toggle-btn').addEventListener('click', toggleFullScreen2);
+
+    });
+
+
+    $( '.fullscreen-toggle-btn' ).click( function ( event ) {
+        console.info( 'test3' );
+        const container = document.getElementById( 'video-chat-container' );
+        const fullscreenApi = container.requestFullscreen
+                || container.webkitRequestFullScreen
+                || container.mozRequestFullScreen
+                || container.msRequestFullscreen;
+        if ( !document.fullscreenElement ) {
+            fullscreenApi.call( container );
+        } else {
+            document.exitFullscreen();
         }
     } );
-    document.getElementById( 'displayedVideos' ).addEventListener( 'mouseover', function () {
-        myConfObj.iframeMouseOver = true;
-    } );
-    document.getElementById( 'displayedVideos' ).addEventListener( 'mouseout', function () {
-        myConfObj.iframeMouseOver = false;
-    } );
+
+        $('body').click(function(event){
+/*            var el = document.elementFromPoint(event.pageX, event.pageY);
+            console.info(el.id);*/
+/*            if (el.id == 'fullscreen-toggle-btn') {
+                const container = document.getElementById( 'video-chat-container' );
+                const fullscreenApi = container.requestFullscreen
+                        || container.webkitRequestFullScreen
+                        || container.mozRequestFullScreen
+                        || container.msRequestFullscreen;
+                if ( !document.fullscreenElement ) {
+                    fullscreenApi.call( container );
+                } else {
+                    document.exitFullscreen();
+                }
+            }*/
+        });
+
+
+    /*    var fullscreencounter = 0;
+
+        document.addEventListener("fullscreenchange", function() {
+       /!*     console.info(fullscreencounter);*!/
+            if (document.fullscreenElement === null) {
+         /!*       console.info("test1");*!/
+
+                fullscreencounter -= 1;
+                if (fullscreencounter == 0 && !fullscreenDisbaledForVideo) {
+                    console.info("reengage fullscreen");
+                    enableFullscreen();
+                    console.info("test1.1");
+                } else if (fullscreencounter == 0) {
+                    fullscreenDisbaledForVideo = false;
+                    console.info("test1.2");
+                }
+            } else {
+                fullscreencounter += 1;
+
+                if (fullscreencounter == 2) {
+                    console.info("disengage fullscreen");
+               /!*      disableFullscreen();*!/
+                }
+
+
+             /!*   console.info("test2");*!/
+            }
+            console.info(fullscreencounter);
+        });*/
 
 
     // ******************************************
@@ -385,7 +474,7 @@ $( document ).ready( function () {
         if ( !isFullScreen ) {
             enableFullscreen();
         }
-    } )
+    } );
 
     // Image selection via mouse wheel
     if ( $( '#images' ).is( ':visible' ) ) {
