@@ -473,8 +473,6 @@ $( document ).ready( function () {
         window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
             let element = document.getElementById( 'iFrameSpotifyPlayer' );
             let options = {
-                width : '240',
-                height: '75',
                 uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
             };
             let callback = ( EmbedController ) => {

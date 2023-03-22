@@ -35,7 +35,8 @@
         <div class="btn btn-primary btn-lg me-2" id="showDiscoSection">
             Disco
         </div>
-
+        <img id="turnScreenBlack" class="ms-4" src="assets/monitorOff.png"
+             data-image="./media/images/41.jpg">
 
         <!-- Right side-->
         <div id="burgerContainer" class="float-end me-3 mt-3">
@@ -66,6 +67,7 @@
         <div id="launchText" class="float-end me-3 mt-3" data-bs-toggle="modal" data-bs-target="#preFlightChecklist">
             Loading...
         </div>
+
 
         <div id="progressGraphContainer" class="float-end me-3 mt-3">
             <table id="progressGraph">
@@ -122,6 +124,8 @@
             </table>
         </div>
 
+
+
         <select id="playlists" class="float-end me-3 mt-3 form-control">
             <option data-spotify-id="" value="" disabled selected value>Select Playlist</option>
             {{#playlists}}
@@ -129,17 +133,20 @@
             {{/playlists}}
         </select>
 
+
+
         <div id="iFrameSpotifyPlayerContainer" class="float-end ">
             <div id="iFrameSpotifyPlayer"></div>
         </div>
+
 
         <div id="oAuthPlayerControl" class="float-end mt-3">
             <img id="next" class="float-end playerIcon me-4 mt-3" src="./assets/next.png">
             <img id="startStop" class="float-end playerIcon me-4 mt-3" src="./assets/play.png">
         </div>
 
-        <img id="turnScreenBlack" class="float-end me-5" src="assets/monitorOff.png"
-             data-image="./media/images/41.jpg">
+
+
     </div>
 
 

@@ -368,8 +368,22 @@ li, .options {
 }
 
 #iFrameSpotifyPlayerContainer {
-    top: -3px;
-    position: relative;
+    position: fixed;
+    top: 2px;
+    left: 530px;
+}
+
+#iFrameSpotifyPlayerContainer iframe {
+    width: 250px;
+    height: 75px;
+}
+
+#iFrameSpotifyPlayerContainer iframe:hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 640px;
+    height: 600px;
 }
 
 .form-control:focus {
