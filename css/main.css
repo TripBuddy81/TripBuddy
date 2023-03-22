@@ -203,6 +203,10 @@ p {
     z-index: 1;
 }
 
+.modal {
+    overflow: hidden;
+}
+
 .modal-dialog {
     max-width: 1500px;
 }

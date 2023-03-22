@@ -2,6 +2,7 @@ var config = {
     'preFlightChecklist': [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
         {'checklistItem': 'Mouse is charged?'},
+        {'checklistItem': 'VPN is off (Spotify)?'},
         {'checklistItem': 'Start easy listening music'},
         {'checklistItem': 'Make ginger tea and starting drinking'},
         {'checklistItem': 'Cozy clothing'},
