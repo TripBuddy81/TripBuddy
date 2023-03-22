@@ -34,7 +34,6 @@ $( document ).ready( function () {
     $( '#showVideoSection' ).click( function () {
         $( '#videos' ).show();
         $( '#images' ).hide();
-        $( '#music' ).hide();
         $( '#disco' ).hide();
         $( '#misc' ).hide();
 
@@ -44,7 +43,6 @@ $( document ).ready( function () {
     $( '#showImageSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).show();
-        $( '#music' ).hide();
         $( '#disco' ).hide();
         $( '#misc' ).hide();
 
@@ -54,7 +52,6 @@ $( document ).ready( function () {
     $( '#showDiscoSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).hide();
-        $( '#music' ).hide();
         $( '#disco' ).show();
         $( '#misc' ).hide();
 
@@ -65,19 +62,8 @@ $( document ).ready( function () {
     $( '#showMiscSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).hide();
-        $( '#music' ).hide();
         $( '#disco' ).hide();
         $( '#misc' ).show();
-
-        mainMenuToStatic( false );
-        enableFullscreen();
-    } );
-    $( '#showMusicSection' ).click( function () {
-        $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#music' ).show();
-        $( '#disco' ).hide();
-        $( '#misc' ).hide();
 
         mainMenuToStatic( false );
         enableFullscreen();
@@ -433,20 +419,12 @@ $( document ).ready( function () {
 
     // ******************************************
     // Music section
-    $( '.playlistBtn' ).click( function () {
-        $( '.playlistBtn.playlistActive' ).each( function () {
-            $( this ).toggleClass( 'playlistActive' );
-        } );
-        $( this ).toggleClass( 'playlistActive' );
-    } );
-
     // if oAuth Spotify Info is not found in optional config, we hide all player functionality and show the simple embedded player instead
     // Work in progress - oAuth Spotify Player - Needs credentials
     // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
     // oAuth Spotify Player
     if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
         $( '#iFrameSpotifyPlayerContainer' ).remove();
-        $( '#showMusicSection' ).remove();
 
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
         client_id = config['oAuthSpotify'][0]['client_id'];
@@ -491,20 +469,19 @@ $( document ).ready( function () {
         $( '#oAuthPlayerControl' ).remove();
         $( '#devices' ).remove();
         $( '#refresh' ).remove();
-        $( '#playlists' ).remove();
 
         window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
             let element = document.getElementById( 'iFrameSpotifyPlayer' );
             let options = {
-                width : '580',
-                height: '600',
+                width : '240',
+                height: '75',
                 uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
             };
             let callback = ( EmbedController ) => {
-                document.querySelectorAll( '#playlistContainer > div' ).forEach(
+                document.querySelectorAll( '#playlists' ).forEach(
                         episode => {
-                            episode.addEventListener( 'click', () => {
-                                EmbedController.loadUri( episode.dataset.spotifyId )
+                            episode.addEventListener( 'change', () => {
+                                EmbedController.loadUri( episode.value )
                                 EmbedController.play();
                             } );
                         } )
@@ -569,7 +546,6 @@ $( document ).ready( function () {
     // init initial view
     $( '#videos' ).show();
     $( '#images' ).hide();
-    $( '#music' ).hide();
     $( '#disco' ).hide();
     $( '#misc' ).hide();
 

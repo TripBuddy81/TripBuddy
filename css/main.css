@@ -69,11 +69,11 @@ p {
     font-size: xx-large;
 }
 
-.btn.videoFilterBtn, .btn.playlistBtn {
+.btn.videoFilterBtn {
     background-color: #AAD0D2;
 }
 
-.btn.videoFilterBtn.filterActive, .btn.playlistBtn.playlistActive {
+.btn.videoFilterBtn.filterActive {
     background-color: #809bce;
 }
 
@@ -256,7 +256,7 @@ li, .options {
 }
 
 #progressGraphContainer {
-    width: 450px;
+    width: 380px;
     position: relative;
     display: none;
 }
@@ -330,7 +330,7 @@ li, .options {
     height: 30px;
 }
 
-#oAuthPlayerControl {
+#oAuthPlayerControl, #playlists {
     position: relative;
     top: -17px;
 }
@@ -350,7 +350,7 @@ li, .options {
 
 #playlists {
     position: relative;
-    top: 9px;
+    top: -7px;
     width: 230px;
     cursor: pointer;
     background-color: transparent;
@@ -363,6 +363,11 @@ li, .options {
     margin-right: 0px;
 }
 
+#iFrameSpotifyPlayerContainer {
+    top: -3px;
+    position: relative;
+}
+
 .form-control:focus {
     border-color: inherit;
     -webkit-box-shadow: none;
@@ -373,8 +378,8 @@ li, .options {
     font-size: 50px;
     position: relative;
     top: -20px;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 150px;
+    padding-right: 150px;
     font-weight: bold;
     height: 35px;
     cursor: pointer;

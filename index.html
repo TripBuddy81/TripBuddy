@@ -9,7 +9,6 @@
     <script src="./libs/particles.js-master/particles.js"></script>
     <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
 
-
     <script src="./config/config.js"></script>
     <script src="./config/optionalConfig.js"></script>
     <script src="./js/main.js"></script>
@@ -32,9 +31,6 @@
         </div>
         <div class="btn btn-primary btn-lg me-2" id="showImageSection">
             Images
-        </div>
-        <div class="btn btn-primary btn-lg me-2" id="showMusicSection">
-            Music
         </div>
         <div class="btn btn-primary btn-lg me-2" id="showDiscoSection">
             Disco
@@ -126,16 +122,20 @@
             </table>
         </div>
 
-        <div id="oAuthPlayerControl" class="float-end me-3 mt-3">
-            <select id="playlists" class="float-end form-control">
-                {{#playlists}}
-                <option data-spotify-id="spotify:playlist:{{id}}" value="spotify:playlist:{{id}}">{{label}}</option>
-                {{/playlists}}
-            </select>
+        <select id="playlists" class="float-end me-3 mt-3 form-control">
+            <option data-spotify-id="" value="" disabled selected value>Select Playlist</option>
+            {{#playlists}}
+            <option data-spotify-id="spotify:playlist:{{id}}" value="spotify:playlist:{{id}}">{{label}}</option>
+            {{/playlists}}
+        </select>
 
+        <div id="iFrameSpotifyPlayerContainer" class="float-end ">
+            <div id="iFrameSpotifyPlayer"></div>
+        </div>
+
+        <div id="oAuthPlayerControl" class="float-end mt-3">
             <img id="next" class="float-end playerIcon me-4 mt-3" src="./assets/next.png">
             <img id="startStop" class="float-end playerIcon me-4 mt-3" src="./assets/play.png">
-
         </div>
 
         <img id="turnScreenBlack" class="float-end me-5" src="assets/monitorOff.png"
@@ -238,27 +238,8 @@
     <div id="images" class="mt-3 mb-3 ms-3">
         {{#images}}
         <img width="540" height="304" src="{{image}}" class="fullscreenImage me-2 mb-2"
-             data-image="{{image}}"></img>
+             data-image="{{image}}">
         {{/images}}
-    </div>
-
-    <div id="music" class="ms-3">
-        <div class="row">
-            <div class="col">
-                <div id="playlistContainer">
-                    {{#playlists}}
-                    <div class="playlistBtn btn btn-primary me-2" data-spotify-id="spotify:playlist:{{id}}">
-                        {{label}}
-                    </div>
-                    {{/playlists}}
-                </div>
-            </div>
-        </div>
-        <div class="row mt-3 mb-3">
-            <div id="iFrameSpotifyPlayerContainer" class="col">
-                <div id="iFrameSpotifyPlayer"></div>
-            </div>
-        </div>
     </div>
 
     <div id="disco" class="">
