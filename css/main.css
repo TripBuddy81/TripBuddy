@@ -135,6 +135,15 @@ p {
     opacity 0.55s ease;
 }
 
+.menuItem a {
+    font-weight: normal;
+    font-size: 22px;
+}
+
+.menuItem a:hover {
+    color: black;
+}
+
 #menuToggle span:first-child {
     transform-origin: 0% 0%;
 }
@@ -350,6 +359,7 @@ li, .options {
     padding: 0;
     font-size: 30px;
     color: black;
+    margin-bottom: 20px;
 }
 
 #playlists {

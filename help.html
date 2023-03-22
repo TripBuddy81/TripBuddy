@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Trip Buddy</title>
+
+    <script src="./libs/jquery3/jquery-3.6.3.min.js"></script>
+    <script src="./libs/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="./libs/bootstrap-5.0.2-dist/css/bootstrap.css">
+    <link rel="icon" type="image/png" href="assets/mushroom.png"/>
+
+    <style>
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, .1), inset 0 0.125em 0.5em rgba(0, 0, 0, .15)
+        }
+
+        a {
+            color: black;
+            font-size: 25px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div class="px-4 py-5 my-5">
+    <h1 class="display-5 fw-bold">Download source code for your own purposes here:</h1>
+    <div class="col-lg-6">
+        <p class="lead mb-4"><a href="https://github.com/TripBuddy81/TripBuddy" target="_blank">Github</a></p>
+        <p></p>
+    </div>
+</div>
+
+<div class="b-example-divider"></div>
+
+<div class="px-4 py-5 my-5">
+    <h1 class="display-5 fw-bold">Use your own config</h1>
+    <div class="col-lg-6">
+        <p class="lead mb-4">You can overwrite any setting (e.g. displayed videos, playlists etc.) by duplicating the
+            setting within the <b>config/config.js</b> into the <b>config/optionalConfig.js</b> and changing it to your needs.</p>
+        <p>
+        <p>e.g. add the following to configure your own playlist selection:</p>
+        <pre>
+    'playlists'         :
+                [
+                    {
+                        'label': 'Playlist 1',
+                        'id'   : '4ILChY5F4Hn08ikt0rfHhW'
+                    },
+                    {
+                        'label': 'Playlist 2',
+                        'id'   : '0r09hQ2kqiLwjStS7xzRzh'
+                    }
+                ]
+        ,
+        </pre>
+        </p>
+    </div>
+</div>
+
+
+<div class="b-example-divider"></div>
+
+<div class="px-4 py-5 my-5">
+    <h1 class="display-5 fw-bold">Use Spotify oAuth API</h1>
+    <div class="col-lg-6">
+        <p class="lead mb-4">A little bit more trickier... Spotify won't allow my app to access their API outside of developer mode. So you will need to register your own developer account if you want to use it.
+        Go to <a href="https://developer.spotify.com/dashboard/">Spotify Dashboard</a> and create a simple App. Use the given id and secret to fill out the settings within the optionalConfig.js.
+            </p>
+        <pre>
+    'oAuthSpotify': [
+        {
+            'redirect_uri' : 'http://127.0.0.1:8080',
+            'client_id'    : 'YOUR CLIENT ID',
+            'client_secret': 'YOUR SECRET GOES HERE'
+        }
+    ],
+        </pre>
+        <p>Also, you need to tell spotify that your personal Spotify account is allowed to access it (same page within dashboard)</p>
+        <p>Last but not least you need to configure the return url under settings. This can be "http://127.0.0.1:8080" for example. However, to make this fully work you need a very simple webserver like <a href="https://simplewebserver.org/" target="_blank">Simple webserver</a> to handle the spotify return.</p>
+
+        <p>It is not needed for this page to run (you get the embedded spotify player instead), but allows to transfer music from your PC to other devices via the menu, which I like a lot (headphones ftw!)</p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -53,7 +53,7 @@
                             style=""></select>
 
                     <li class="menuItem" id="showMiscSection">Misc Links</li>
-                    <li></li>
+                    <li class="menuItem"><a href="help.html" target="_blank">Help/Info</a></li>
                     <li class="menuItem" id="toggleInfo">Toggle video info</li>
                     <li class="menuItem" id="debugMode">Debug mode <span id="debugModeSetting">(off)</span></li>
                 </ul>
@@ -125,14 +125,12 @@
         </div>
 
 
-
         <select id="playlists" class="float-end me-3 mt-3 form-control">
             <option data-spotify-id="" value="" disabled selected value>Select Playlist</option>
             {{#playlists}}
             <option data-spotify-id="spotify:playlist:{{id}}" value="spotify:playlist:{{id}}">{{label}}</option>
             {{/playlists}}
         </select>
-
 
 
         <div id="iFrameSpotifyPlayerContainer" class="float-end ">
@@ -144,7 +142,6 @@
             <img id="next" class="float-end playerIcon me-4 mt-3" src="./assets/next.png">
             <img id="startStop" class="float-end playerIcon me-4 mt-3" src="./assets/play.png">
         </div>
-
 
 
     </div>
