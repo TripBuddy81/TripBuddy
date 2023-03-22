@@ -99,6 +99,7 @@ $( document ).ready( function () {
     // ******************************************
     // Start button & preFlightChecklist & Reminders
     $( '#launchText' ).click( function ( e ) {
+        localStorage.setItem( 'doseUpReminderInMinutes', '' );
         enableFullscreen();
     } );
     $( '#liftOff' ).click( function ( e ) {
@@ -117,7 +118,9 @@ $( document ).ready( function () {
         }
     } );
     $( '#doseUpReminderInMinutes' ).change( function () {
-        localStorage.setItem( 'doseUpReminderInMinutes', $( '#doseUpReminderInMinutes' ).val() );
+        if ( $( '#doseUpCheckbox' ).is( ':checked' ) ) {
+            localStorage.setItem( 'doseUpReminderInMinutes', $( '#doseUpReminderInMinutes' ).val() );
+        }
     } );
 
     // ******************************************
@@ -473,7 +476,7 @@ $( document ).ready( function () {
         window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
             let element = document.getElementById( 'iFrameSpotifyPlayer' );
             let options = {
-                uri   : 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
+                uri: 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
             };
             let callback = ( EmbedController ) => {
                 document.querySelectorAll( '#playlists' ).forEach(

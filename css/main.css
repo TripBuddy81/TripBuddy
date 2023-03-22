@@ -370,7 +370,7 @@ li, .options {
 #iFrameSpotifyPlayerContainer {
     position: fixed;
     top: 2px;
-    left: 530px;
+    left: 525px;
 }
 
 #iFrameSpotifyPlayerContainer iframe {
