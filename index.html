@@ -45,17 +45,20 @@
         <div id="burgerContainer" class="float-end me-3 mt-3">
             <div id="menuToggle">
                 <input id="menuClose" type="checkbox"/>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="burgerMenu"></span>
+                <span class="burgerMenu"></span>
+                <span class="burgerMenu"></span>
                 <ul id="menu">
                     <img id="refresh" class="float-end refreshIcon me-3 mt-3"
                          src="./assets/refresh.png">
                     <select id="devices"
                             class="form-control"
                             style=""></select>
-                    <li class="menuItem" id="toggleInfo">Toggle video info</li>
+
                     <li class="menuItem" id="showMiscSection">Misc Links</li>
+                    <li></li>
+                    <li class="menuItem" id="toggleInfo">Toggle video info</li>
+                    <li class="menuItem" id="debugMode">Debug mode <span id="debugModeSetting">(off)</span></li>
                 </ul>
             </div>
         </div>
@@ -168,7 +171,7 @@
                                 <label class="form-check-label" for="doseUpCheckbox">Dose Up after </label>
                                 <input class="form-check-input" type="checkbox" id="doseUpCheckbox">
                                 <input type="number" id="doseUpReminderInMinutes" name="doseUpReminderInMinutes"
-                                       value="70">
+                                       value="60">
                                 <span>minutes</span>
                             </div>
                         </div>

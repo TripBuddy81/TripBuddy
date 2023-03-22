@@ -6,6 +6,15 @@ $( document ).ready( function () {
 
     Object.assign( config, optionalConfig );
 
+    // If debug mode is active, remove all but one video from youtube videos (speeds up load time)
+    if ( localStorage.getItem( 'debugModeSetting' ) == 'true' ) {
+        $.each( config['videosYoutube'], function ( key, value ) {
+            if ( key >= 1 ) {
+                delete config['videosYoutube'][key];
+            }
+        } );
+    }
+
     // ***********************************
     // Handlebar renderer - takes config within config/config.js
     $( 'body' ).html(
@@ -194,7 +203,7 @@ $( document ).ready( function () {
         }
 
         // Timed Recommendations
-        if ( localStorage.getItem( 'doseUpReminderInMinutes' ) > 0 && diffMins == localStorage.getItem( 'doseUpReminderInMinutes' ) && recommendationsShown == false ) {
+        if ( localStorage.getItem( 'doseUpReminderInMinutes' ) > 0 && totalMins >= localStorage.getItem( 'doseUpReminderInMinutes' ) && recommendationsShown == false ) {
             recommendationsShown = true;
 
             if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
@@ -208,6 +217,7 @@ $( document ).ready( function () {
             $( '#timedRecommendation' ).modal( 'show' );
             $( '#doseUpRecommendation' ).show();
 
+            console.info( 'Reminder shown' );
         }
         $( '#timedRecommendation' ).click( function ( event ) {
             $( '#timedRecommendation' ).modal( 'hide' );
@@ -297,6 +307,26 @@ $( document ).ready( function () {
     $( '#toggleInfo' ).click( function ( event ) {
         $( '.videoInfo' ).toggle();
     } )
+
+    // ******************************************
+    // debugMode toggle
+    if ( localStorage.getItem( 'debugModeSetting' ) == undefined || localStorage.getItem( 'debugModeSetting' ) == 'false' ) {
+        localStorage.setItem( 'debugModeSetting', 'false' );
+        $( '#debugModeSetting' ).html( '(off)' );
+    } else {
+        localStorage.setItem( 'debugModeSetting', 'true' );
+        $( '#debugModeSetting' ).html( '(on)' );
+    }
+    $( '#debugMode' ).click( function ( event ) {
+        if ( localStorage.getItem( 'debugModeSetting' ) == 'false' ) {
+            localStorage.setItem( 'debugModeSetting', 'true' );
+            $( '#debugModeSetting' ).html( '(on)' );
+        } else {
+            localStorage.setItem( 'debugModeSetting', 'false' );
+            $( '#debugModeSetting' ).html( '(off)' );
+        }
+    } )
+
 
     // ***********************************
     // Video section

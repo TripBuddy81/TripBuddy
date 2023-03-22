@@ -121,7 +121,7 @@ p {
     -webkit-touch-callout: none;
 }
 
-#menuToggle span {
+#menuToggle .burgerMenu {
     display: block;
     width: 33px;
     height: 4px;

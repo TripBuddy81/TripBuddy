@@ -73,7 +73,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
             'tags'     : 'trippy-slow trippy-3D'
-        }/*,
+        },
         {
             'videoLink': 'https://www.youtube.com/embed/JKe0gryiCCw?mute=1',
             'tags'     : 'trippy-slow trippy-3D'
@@ -335,7 +335,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
             'tags'     : 'leftovers'
-        }*/
+        }
     ],
     'images'        : [
         {'image': './media/images/40.jpg'},
