@@ -1,4 +1,11 @@
 var optionalConfig = {
+     'oAuthSpotify': [
+        {
+            'redirect_uri' : 'http://127.0.0.1:8080/', // change to your actual value
+            'client_id'    : '',
+            'client_secret': ''
+        }
+    ],
     'videosLocal': [
         {
             'videoLink': './media/videos/...',
