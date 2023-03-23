@@ -9,7 +9,7 @@ $( document ).ready( function () {
     // If debug mode is active, remove all but one video from youtube videos (speeds up load time)
     if ( localStorage.getItem( 'debugModeSetting' ) == 'true' ) {
         $.each( config['videosYoutube'], function ( key, value ) {
-            if ( key >= 1 ) {
+            if ( key >= 2 ) {
                 delete config['videosYoutube'][key];
             }
         } );
@@ -360,33 +360,21 @@ $( document ).ready( function () {
 
     // Detect if iframe has been targeted and deactivate fullscreen since it does not work with fullscreen exit of iframe itself
     $( '.enableVideoInFullScreen' ).click( function ( event ) {
-        const container = document.getElementById( 'video-chat-container' );
+        const container = $(this).closest(".videoContainer")[ 0 ];
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
                 || container.mozRequestFullScreen
                 || container.msRequestFullscreen;
         fullscreenApi.call( container );
-
-/*        if ( !document.fullscreenElement ) {
-            fullscreenApi.call( container );
-        } else {
-            document.exitFullscreen();
-        }*/
     } );
 
     $( '.disableVideoInFullScreen' ).click( function ( event ) {
-        const container = document.getElementById( 'video-chat-container' );
+        const container = $(this).closest(".videoContainer")[ 0 ];
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
                 || container.mozRequestFullScreen
                 || container.msRequestFullscreen;
         fullscreenApi.call( container );
-        /*        if ( !document.fullscreenElement ) {
-                    fullscreenApi.call( container );
-                } else {
-                    document.exitFullscreen();
-                }*/
-
         document.exitFullscreen();
     } );
 

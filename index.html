@@ -209,7 +209,7 @@
         </div>
 
         <div id="displayedVideos" class="mt-3">
-            <div id="video-chat-container">
+            <div class="videoContainer">
                 <div class="position-relative" style="width: 100%;height: 100%;">
 
                     <iframe class="videoFrame"
@@ -229,26 +229,24 @@
             </div>
 
 
-
-
-
-            <!--{{#videosYoutube}}
-            <div id="iFrameContainer" style="display:inline-block" class="iFrameContainer {{tags}}">
-                <iframe class="videoFrame" width="554" height="315"
-                        src="{{videoLink}}&rel=0"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                <div class="videoInfo text-center mb-2" style="display: none;">
-                    <div>{{tags}}</div>
-                    <div>({{videoLink}})</div>
-                </div>
-                <div class="videoLabel text-center mb-2" style="display: none;">
-                    <a class="videoLabelLink" href="{{videoLink}}" target=_blank>{{label}}</a>
+<!--            {{#videosYoutube}}
+            <div class="videoContainer">
+                <div id="iFrameContainer" style="display:inline-block" class="iFrameContainer {{tags}}">
+                    <iframe class="videoFrame" src="{{videoLink}}&rel=0"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                    <div class="videoInfo text-center mb-2" style="display: none;">
+                        <div>{{tags}}</div>
+                        <div>({{videoLink}})</div>
+                    </div>
+                    <div class="videoLabel text-center mb-2" style="display: none;">
+                        <a class="videoLabelLink" href="{{videoLink}}" target=_blank>{{label}}</a>
+                    </div>
                 </div>
             </div>
-            {{/videosYoutube}}
+            {{/videosYoutube}}-->
 
-            {{#videosLocal}}
+            <!--{{#videosLocal}}
             <div style="display:inline-block" class="iFrameContainer {{tags}}">
                 <video class="videoFrame" width="554" height="315" controls muted>
                     <source src="{{videoLink}}" type="video/mp4">
