@@ -21,6 +21,7 @@ $( document ).ready( function () {
             Handlebars.compile( $( '#mainTemplate' ).html() )( config )
     );
 
+
     // Check if loading is complete
     document.onreadystatechange = function () {
         if ( document.readyState !== 'complete' ) {
@@ -28,6 +29,13 @@ $( document ).ready( function () {
             $( '#launchText' ).html( 'Start!' );
         }
     };
+
+    // Firefox does not want to play along
+    userAgentString = navigator.userAgent;
+    if (userAgentString.indexOf("Firefox") > -1) {
+        $( '#launchText' ).html( 'Start!' );
+    }
+
 
     // ***********************************
     // Main Menu
