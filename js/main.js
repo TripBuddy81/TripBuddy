@@ -394,6 +394,15 @@ $( document ).ready( function () {
         $( '.videoMenuOverlayFullscreen' ).hide();
     } );
 
+    // Reset settings if user disengaged fullscreen via ESC or other means...
+    var intervalId = window.setInterval(function(){
+        if ( window.innerHeight != screen.height ) {
+            $( '.videoMenuOverlayMinimized' ).show();
+        } else {
+        }
+    }, 1000);
+
+
 
 
     // ******************************************
