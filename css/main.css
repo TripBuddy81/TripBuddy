@@ -318,7 +318,7 @@ li, .options {
     --color: rgba(0, 0, 0, 0.2);
 }
 
-#enableFullscreen, #disableFullscreen, .playerIcon {
+#fullscreenIcon, .playerIcon {
     height: 45px;
     cursor: pointer;
 }

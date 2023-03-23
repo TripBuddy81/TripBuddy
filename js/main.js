@@ -197,8 +197,8 @@ $( document ).ready( function () {
 
             if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
                 disableFullscreen();
-                $( '.enableVideoInFullScreen' ).show();
-                $( '.disableVideoInFullScreen' ).hide();
+                $( '.videoMenuOverlayMinimized' ).show();
+                $( '.videoMenuOverlayFullscreen' ).hide();
             }
 
             if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
@@ -207,8 +207,6 @@ $( document ).ready( function () {
 
             $( '#timedRecommendation' ).modal( 'show' );
             $( '#doseUpRecommendation' ).show();
-
-            console.info( 'Reminder shown' );
         }
         $( '#timedRecommendation' ).click( function ( event ) {
             $( '#timedRecommendation' ).modal( 'hide' );
@@ -260,8 +258,6 @@ $( document ).ready( function () {
 
     function enableFullscreen() {
         isFullScreen = true;
-        $( '#enableFullscreen' ).hide();
-        $( '#disableFullscreen' ).show();
         if ( document.documentElement.requestFullscreen ) {
             document.documentElement.requestFullscreen();
         } else if ( document.documentElement.webkitRequestFullscreen ) { /* Safari */
@@ -273,8 +269,6 @@ $( document ).ready( function () {
 
     function disableFullscreen() {
         isFullScreen = false;
-        $( '#enableFullscreen' ).show();
-        $( '#disableFullscreen' ).hide();
         if ( document.exitFullscreen ) {
             document.exitFullscreen();
         } else if ( document.webkitExitFullscreen ) { /* Safari */
