@@ -543,30 +543,36 @@ input[type=range]::-webkit-slider-thumb {
     overflow: hidden;
 }
 
-
 .enableVideoInFullScreen {
     right: 22px;
     bottom: 10px;
     z-index: 1;
     width: 25px;
     height: 25px;
-    background-color: red;
+    background-color: black;
     cursor: pointer;
     position: absolute;
 }
 
 .disableVideoInFullScreen {
     right: 22px;
-    bottom: 70px;
+    bottom: 10px;
     z-index: 1;
     width: 25px;
     height: 25px;
-    background-color: blue;
+    background-color: black;
     cursor: pointer;
     position: absolute;
     display: none;
 }
 
+.enableVideoFullscreenIcon, .disableVideoFullscreenIcon {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: -12px;
+    left: -13px;
+}
 
 
 
