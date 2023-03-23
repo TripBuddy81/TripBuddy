@@ -326,7 +326,7 @@ $( document ).ready( function () {
         } );
 
         $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
-        $( '.iFrameContainer' ).each( function () {
+        $( '.videoContainer' ).each( function () {
             $( this ).hide();
         } );
         $( this ).toggleClass( 'filterActive' );
@@ -345,7 +345,7 @@ $( document ).ready( function () {
         } );
 
         if ( totalCount == 0 ) {
-            $( '.iFrameContainer' ).each( function () {
+            $( '.videoContainer' ).each( function () {
                 $( this ).show();
             } );
         }
