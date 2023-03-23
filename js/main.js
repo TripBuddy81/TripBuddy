@@ -197,6 +197,8 @@ $( document ).ready( function () {
 
             if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
                 disableFullscreen();
+                $( '.enableVideoInFullScreen' ).show();
+                $( '.disableVideoInFullScreen' ).hide();
             }
 
             if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
@@ -366,6 +368,8 @@ $( document ).ready( function () {
                 || container.mozRequestFullScreen
                 || container.msRequestFullscreen;
         fullscreenApi.call( container );
+        $( '.enableVideoInFullScreen' ).hide();
+        $( '.disableVideoInFullScreen' ).show();
     } );
 
     $( '.disableVideoInFullScreen' ).click( function ( event ) {
@@ -376,6 +380,9 @@ $( document ).ready( function () {
                 || container.msRequestFullscreen;
         fullscreenApi.call( container );
         document.exitFullscreen();
+
+        $( '.enableVideoInFullScreen' ).show();
+        $( '.disableVideoInFullScreen' ).hide();
     } );
 
 

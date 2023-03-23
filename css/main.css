@@ -210,7 +210,7 @@ p {
     top: 75px;
     width: 100%;
     background-color: #b8e0d2;
-    z-index: 1;
+    z-index: 2;
 }
 
 .modal {
@@ -547,7 +547,7 @@ input[type=range]::-webkit-slider-thumb {
 .enableVideoInFullScreen {
     right: 22px;
     bottom: 10px;
-    z-index: 1000;
+    z-index: 1;
     width: 25px;
     height: 25px;
     background-color: red;
@@ -558,12 +558,13 @@ input[type=range]::-webkit-slider-thumb {
 .disableVideoInFullScreen {
     right: 22px;
     bottom: 70px;
-    z-index: 1000;
+    z-index: 1;
     width: 25px;
     height: 25px;
     background-color: blue;
     cursor: pointer;
     position: absolute;
+    display: none;
 }
 
 
