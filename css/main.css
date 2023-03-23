@@ -518,22 +518,11 @@ input[type=range]::-webkit-slider-thumb {
     margin-top: -5.5px;
 }
 
-
-
-
-
-
-
 .videoContainer {
     width: 554px;
     height: 315px;
     display: inline-block;
     position: relative;
-}
-
-#videoContainer:fullscreen video {
-    height: 90vh;
-    width: 100vw;
 }
 
 .videoFrame {
@@ -575,6 +564,10 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 
+/*#videoContainer:fullscreen video {
+    height: 100vh;
+    width: 100vw;
+}*/
 
 /*video::-webkit-media-controls-fullscreen-button {
     display: none;
