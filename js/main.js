@@ -136,7 +136,7 @@ $( document ).ready( function () {
         enableFullscreen();
         e.stopPropagation();
         $( 'body' ).hide();
-        $( 'html' ).attr( 'style', 'background-color:black;cursor:none;' );
+        $( 'html' ).attr( 'style', 'background-color:black;cursor:none !important;' );
     } );
     $( 'html' ).click( function () {
         $( 'body' ).show();
