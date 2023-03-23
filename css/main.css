@@ -560,31 +560,6 @@ input[type=range]::-webkit-slider-thumb {
     height: 200px;
     width: 200px;
     position: absolute;
+    cursor: pointer;
     display: none;
 }
-
-/*#videoContainer:fullscreen video {
-    height: 100vh;
-    width: 100vw;
-}*/
-
-/*video::-webkit-media-controls-fullscreen-button {
-    display: none;
-}
-
-#videoContainer:-webkit-full-screen {
-    --bs-gutter-x: 0;
-}
-
-#videoContainer:fullscreen {
-    --bs-gutter-x: 0;
-}*/
-
-/*
-#videoContainer:-webkit-full-screen .enableVideoInFullScreen {
-    position: fixed;
-}
-
-#videoContainer:fullscreen .enableVideoInFullScreen {
-    position: fixed;
-}*/
