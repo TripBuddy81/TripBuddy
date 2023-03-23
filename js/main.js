@@ -9,7 +9,7 @@ $( document ).ready( function () {
     // If debug mode is active, remove all but one video from youtube videos (speeds up load time)
     if ( localStorage.getItem( 'debugModeSetting' ) == 'true' ) {
         $.each( config['videosYoutube'], function ( key, value ) {
-            if ( key >= 10 ) {
+            if ( key >= 2 ) {
                 delete config['videosYoutube'][key];
             }
         } );
@@ -20,7 +20,6 @@ $( document ).ready( function () {
     $( 'body' ).html(
             Handlebars.compile( $( '#mainTemplate' ).html() )( config )
     );
-
 
     // Check if loading is complete
     document.onreadystatechange = function () {
