@@ -538,9 +538,21 @@ input[type=range]::-webkit-slider-thumb {
     z-index: 1;
     width: 554px;
     height: 270px;
-    background-color: transparent;
+    background-color: red;
     cursor: pointer;
     position: absolute;
+}
+
+.videoMenuOverlayFullscreen {
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 554px;
+    height: 270px;
+    background-color: blue;
+    cursor: pointer;
+    position: absolute;
+    display: none;
 }
 
 .enableVideoFullscreenIcon {

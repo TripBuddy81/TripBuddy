@@ -359,33 +359,24 @@ $( document ).ready( function () {
         $( this ).attr( 'href', newLink )
     } );
 
-    var videoInFullscreen = false;
     $('.videoMenuOverlayMinimized').hover(function(event) {
-        if (videoInFullscreen) {
-            $( '.disableVideoFullscreenIcon' ).show();
-            $( '.videoMenuOverlayMinimized' ).hide();
-        } else {
-            $( '.enableVideoFullscreenIcon' ).show();
-        }
+        $( event.target ).find( '.enableVideoFullscreenIcon' ).show();
     }, function(){
         $( '.enableVideoFullscreenIcon' ).hide();
-        $( '.disableVideoFullscreenIcon' ).hide();
     });
 
-    $( '.enableVideoFullscreenIcon' ).click( function ( event ) {
-        videoInFullscreen = true;
+    $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
         const container = $(this).closest(".videoContainer")[ 0 ];
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
                 || container.mozRequestFullScreen
                 || container.msRequestFullscreen;
         fullscreenApi.call( container );
-        $( '.enableVideoFullscreenIcon' ).hide();
-        $( '.disableVideoFullscreenIcon' ).show();
+        $( '.videoMenuOverlayMinimized' ).hide();
+        $( '.videoMenuOverlayFullscreen' ).show();
     } );
 
-    $( '.disableVideoFullscreenIcon' ).click( function ( event ) {
-        videoInFullscreen = false;
+    $( '.videoMenuOverlayFullscreen' ).click( function ( event ) {
         const container = $(this).closest(".videoContainer")[ 0 ];
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
@@ -394,8 +385,8 @@ $( document ).ready( function () {
         fullscreenApi.call( container );
         document.exitFullscreen();
 
-        $( '.enableVideoFullscreenIcon' ).show();
-        $( '.disableVideoFullscreenIcon' ).hide();
+        $( '.videoMenuOverlayMinimized' ).show();
+        $( '.videoMenuOverlayFullscreen' ).hide();
     } );
 
 
