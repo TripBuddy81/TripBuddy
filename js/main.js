@@ -359,18 +359,34 @@ $( document ).ready( function () {
 
 
     // Detect if iframe has been targeted and deactivate fullscreen since it does not work with fullscreen exit of iframe itself
-    $( '.fullscreen-toggle-btn' ).click( function ( event ) {
-        console.info( 'fucking button clicked!' );
+    $( '.enableVideoInFullScreen' ).click( function ( event ) {
         const container = document.getElementById( 'video-chat-container' );
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
                 || container.mozRequestFullScreen
                 || container.msRequestFullscreen;
-        if ( !document.fullscreenElement ) {
+        fullscreenApi.call( container );
+/*        if ( !document.fullscreenElement ) {
             fullscreenApi.call( container );
         } else {
             document.exitFullscreen();
-        }
+        }*/
+    } );
+
+    $( '.disableVideoInFullScreen' ).click( function ( event ) {
+        const container = document.getElementById( 'video-chat-container' );
+        const fullscreenApi = container.requestFullscreen
+                || container.webkitRequestFullScreen
+                || container.mozRequestFullScreen
+                || container.msRequestFullscreen;
+        fullscreenApi.call( container );
+        /*        if ( !document.fullscreenElement ) {
+                    fullscreenApi.call( container );
+                } else {
+                    document.exitFullscreen();
+                }*/
+
+        document.exitFullscreen();
     } );
 
 

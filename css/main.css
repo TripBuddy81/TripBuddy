@@ -518,6 +518,15 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 
+
+
+#video-chat-container {
+    width: 554px;
+    height: 315px;
+}
+
+
+
 video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
@@ -535,7 +544,7 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100vw;
 }
 
-#top-overlay {
+.enableVideoInFullScreen {
     right: 22px;
     bottom: 10px;
     z-index: 1000;
@@ -543,6 +552,18 @@ video::-webkit-media-controls-fullscreen-button {
     height: 25px;
     background-color: red;
     cursor: pointer;
+    position: absolute;
+}
+
+.disableVideoInFullScreen {
+    right: 22px;
+    bottom: 70px;
+    z-index: 1000;
+    width: 25px;
+    height: 25px;
+    background-color: blue;
+    cursor: pointer;
+    position: absolute;
 }
 
 .videoFrame {
@@ -553,10 +574,11 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 
-#video-chat-container:-webkit-full-screen #top-overlay {
+/*
+#video-chat-container:-webkit-full-screen .enableVideoInFullScreen {
     position: fixed;
 }
 
-#video-chat-container:fullscreen #top-overlay {
+#video-chat-container:fullscreen .enableVideoInFullScreen {
     position: fixed;
-}
+}*/

@@ -212,20 +212,27 @@
             <div id="video-chat-container">
                 <div class="position-relative" style="width: 100%;height: 100%;">
 
-                    <iframe id="testFrame" class="videoFrame"
+                    <iframe class="videoFrame"
                             src="https://www.youtube.com/embed/bx-0YlFprqc"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
-                    <div id="top-overlay" class="fullscreen-toggle-btn">
-                        <i id="fullscreen-toggle-btn" role="button" class="bi bi-fullscreen text-white text-outline">
+                    <div class="enableVideoInFullScreen">
+                        <i role="button" class="bi bi-fullscreen text-white text-outline">
+                        </i>
+                    </div>
+                    <div class="disableVideoInFullScreen">
+                        <i role="button" class="bi bi-fullscreen text-white text-outline">
                         </i>
                     </div>
                 </div>
             </div>
 
 
-            {{#videosYoutube}}
+
+
+
+            <!--{{#videosYoutube}}
             <div id="iFrameContainer" style="display:inline-block" class="iFrameContainer {{tags}}">
                 <iframe class="videoFrame" width="554" height="315"
                         src="{{videoLink}}&rel=0"
@@ -251,7 +258,7 @@
                     <div>({{videoLink}})</div>
                 </div>
             </div>
-            {{/videosLocal}}
+            {{/videosLocal}}-->
         </div>
     </div>
 
