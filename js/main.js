@@ -366,6 +366,7 @@ $( document ).ready( function () {
                 || container.mozRequestFullScreen
                 || container.msRequestFullscreen;
         fullscreenApi.call( container );
+
 /*        if ( !document.fullscreenElement ) {
             fullscreenApi.call( container );
         } else {
@@ -391,52 +392,11 @@ $( document ).ready( function () {
 
 
     $( 'body' ).click( function ( event ) {
-        /*            var el = document.elementFromPoint(event.pageX, event.pageY);
-                    console.info(el.id);*/
-        /*            if (el.id == 'fullscreen-toggle-btn') {
-                        const container = document.getElementById( 'video-chat-container' );
-                        const fullscreenApi = container.requestFullscreen
-                                || container.webkitRequestFullScreen
-                                || container.mozRequestFullScreen
-                                || container.msRequestFullscreen;
-                        if ( !document.fullscreenElement ) {
-                            fullscreenApi.call( container );
-                        } else {
-                            document.exitFullscreen();
-                        }
-                    }*/
+
     } );
 
 
-    /*    var fullscreencounter = 0;
 
-        document.addEventListener("fullscreenchange", function() {
-       /!*     console.info(fullscreencounter);*!/
-            if (document.fullscreenElement === null) {
-         /!*       console.info("test1");*!/
-
-                fullscreencounter -= 1;
-                if (fullscreencounter == 0 && !fullscreenDisbaledForVideo) {
-                    console.info("reengage fullscreen");
-                    enableFullscreen();
-                    console.info("test1.1");
-                } else if (fullscreencounter == 0) {
-                    fullscreenDisbaledForVideo = false;
-                    console.info("test1.2");
-                }
-            } else {
-                fullscreencounter += 1;
-
-                if (fullscreencounter == 2) {
-                    console.info("disengage fullscreen");
-               /!*      disableFullscreen();*!/
-                }
-
-
-             /!*   console.info("test2");*!/
-            }
-            console.info(fullscreencounter);
-        });*/
 
 
     // ******************************************

@@ -520,29 +520,26 @@ input[type=range]::-webkit-slider-thumb {
 
 
 
+
+
+
 #video-chat-container {
     width: 554px;
     height: 315px;
-}
-
-
-
-video::-webkit-media-controls-fullscreen-button {
-    display: none;
-}
-
-#video-chat-container:-webkit-full-screen {
-    --bs-gutter-x: 0;
-}
-
-#video-chat-container:fullscreen {
-    --bs-gutter-x: 0;
 }
 
 #video-chat-container:fullscreen video {
     height: 90vh;
     width: 100vw;
 }
+
+.videoFrame {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
 
 .enableVideoInFullScreen {
     right: 22px;
@@ -566,13 +563,20 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
 }
 
-.videoFrame {
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+
+
+
+/*video::-webkit-media-controls-fullscreen-button {
+    display: none;
 }
 
+#video-chat-container:-webkit-full-screen {
+    --bs-gutter-x: 0;
+}
+
+#video-chat-container:fullscreen {
+    --bs-gutter-x: 0;
+}*/
 
 /*
 #video-chat-container:-webkit-full-screen .enableVideoInFullScreen {
