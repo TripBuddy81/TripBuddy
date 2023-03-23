@@ -204,8 +204,8 @@ $( document ).ready( function () {
 
             if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
                 disableFullscreen();
-                $( '.videoMenuOverlayMinimized' ).show();
-                $( '.videoMenuOverlayFullscreen' ).hide();
+                $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
             }
 
             if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
@@ -362,27 +362,27 @@ $( document ).ready( function () {
 
 
     // Youtube iFrame fullscreen button overlay
-    $('.videoMenuOverlayMinimized').hover(function(event) {
+    $('.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2').hover(function(event) {
         $( event.target ).find( '.enableVideoFullscreenIcon' ).show();
     }, function(){
         $( '.enableVideoFullscreenIcon' ).hide();
     });
-    $('.videoMenuOverlayFullscreen').hover(function(event) {
+    $('.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2').hover(function(event) {
         $( event.target ).find( '.disableVideoFullscreenIcon' ).show();
     }, function(){
         $( '.disableVideoFullscreenIcon' ).hide();
     });
-    $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
+    $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).click( function ( event ) {
         const container = $(this).closest(".videoContainer")[ 0 ];
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
                 || container.mozRequestFullScreen
                 || container.msRequestFullscreen;
         fullscreenApi.call( container );
-        $( '.videoMenuOverlayMinimized' ).hide();
-        $( '.videoMenuOverlayFullscreen' ).show();
+        $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).hide();
+        $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
     } );
-    $( '.videoMenuOverlayFullscreen' ).click( function ( event ) {
+    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
         const container = $(this).closest(".videoContainer")[ 0 ];
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
@@ -391,14 +391,14 @@ $( document ).ready( function () {
         fullscreenApi.call( container );
         document.exitFullscreen();
 
-        $( '.videoMenuOverlayMinimized' ).show();
-        $( '.videoMenuOverlayFullscreen' ).hide();
+        $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
+        $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
     } );
 
     // Reset settings if user disengaged fullscreen via ESC or other means...
     var intervalId = window.setInterval(function(){
         if ( window.innerHeight != screen.height ) {
-            $( '.videoMenuOverlayMinimized' ).show();
+            $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
         } else {
         }
     }, 1000);

@@ -546,6 +546,17 @@ input[type=range]::-webkit-slider-thumb {
     position: absolute;
 }
 
+.videoMenuOverlayMinimized2 {
+    left: 505px;
+    top: 280px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png) , pointer!important;
+    position: absolute;
+}
+
+
 .videoMenuOverlayFullscreen {
     left: 750px;
     top: 375px;
@@ -553,6 +564,17 @@ input[type=range]::-webkit-slider-thumb {
     width: 200px;
     height: 200px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
+    position: absolute;
+    display: none;
+}
+
+.videoMenuOverlayFullscreen2 {
+    left: 1655px;
+    top: 925px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png) , pointer!important;
     position: absolute;
     display: none;
 }
