@@ -533,43 +533,32 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .videoMenuOverlayMinimized {
-    left: 0;
-    top: 0;
+    left: 175px;
+    top: 60px;
     z-index: 1;
-    width: 554px;
-    height: 270px;
-    background-color: red;
+    width: 200px;
+    height: 200px;
+    /* background-color: red; */
     cursor: pointer;
     position: absolute;
 }
 
 .videoMenuOverlayFullscreen {
-    left: 0;
-    top: 0;
+    left: 750px;
+    top: 375px;
     z-index: 1;
-    width: 554px;
-    height: 270px;
-    background-color: blue;
+    width: 200px;
+    height: 200px;
+    /* background-color: blue; */
     cursor: pointer;
     position: absolute;
     display: none;
 }
 
-.enableVideoFullscreenIcon {
+.enableVideoFullscreenIcon, .disableVideoFullscreenIcon {
     height: 200px;
     width: 200px;
     position: absolute;
-    top: 40px;
-    left: 175px;
-    display: none;
-}
-
-.disableVideoFullscreenIcon {
-    height: 110px;
-    width: 110px;
-    position: absolute;
-    top: 380px;
-    left: 0px;
     display: none;
 }
 

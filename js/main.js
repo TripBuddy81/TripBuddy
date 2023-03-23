@@ -359,12 +359,18 @@ $( document ).ready( function () {
         $( this ).attr( 'href', newLink )
     } );
 
+
+    // Youtube iFrame fullscreen button overlay
     $('.videoMenuOverlayMinimized').hover(function(event) {
         $( event.target ).find( '.enableVideoFullscreenIcon' ).show();
     }, function(){
         $( '.enableVideoFullscreenIcon' ).hide();
     });
-
+    $('.videoMenuOverlayFullscreen').hover(function(event) {
+        $( event.target ).find( '.disableVideoFullscreenIcon' ).show();
+    }, function(){
+        $( '.disableVideoFullscreenIcon' ).hide();
+    });
     $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
         const container = $(this).closest(".videoContainer")[ 0 ];
         const fullscreenApi = container.requestFullscreen
@@ -375,7 +381,6 @@ $( document ).ready( function () {
         $( '.videoMenuOverlayMinimized' ).hide();
         $( '.videoMenuOverlayFullscreen' ).show();
     } );
-
     $( '.videoMenuOverlayFullscreen' ).click( function ( event ) {
         const container = $(this).closest(".videoContainer")[ 0 ];
         const fullscreenApi = container.requestFullscreen
