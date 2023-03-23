@@ -9,7 +9,7 @@ $( document ).ready( function () {
     // If debug mode is active, remove all but one video from youtube videos (speeds up load time)
     if ( localStorage.getItem( 'debugModeSetting' ) == 'true' ) {
         $.each( config['videosYoutube'], function ( key, value ) {
-            if ( key >= 2 ) {
+            if ( key >= 10 ) {
                 delete config['videosYoutube'][key];
             }
         } );

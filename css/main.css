@@ -80,6 +80,7 @@ p {
 .iFrameContainer {
     cursor: pointer;
     z-index: 1;
+    height:100%;
 }
 
 #mainMenu {
@@ -523,9 +524,10 @@ input[type=range]::-webkit-slider-thumb {
 
 
 
-#videoContainer {
+.videoContainer {
     width: 554px;
     height: 315px;
+    display: inline-block;
 }
 
 #videoContainer:fullscreen video {
@@ -534,7 +536,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .videoFrame {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     position: relative;
     overflow: hidden;
