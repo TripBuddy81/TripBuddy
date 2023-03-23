@@ -532,37 +532,34 @@ input[type=range]::-webkit-slider-thumb {
     overflow: hidden;
 }
 
-.enableVideoInFullScreen {
-    right: 22px;
-    bottom: 10px;
+.videoMenuOverlayMinimized {
+    left: 0;
+    top: 0;
     z-index: 1;
-    width: 25px;
-    height: 25px;
-    background-color: black;
+    width: 554px;
+    height: 270px;
+    background-color: transparent;
     cursor: pointer;
     position: absolute;
 }
 
-.disableVideoInFullScreen {
-    right: 22px;
-    bottom: 10px;
-    z-index: 1;
-    width: 25px;
-    height: 25px;
-    background-color: black;
-    cursor: pointer;
+.enableVideoFullscreenIcon {
+    height: 200px;
+    width: 200px;
     position: absolute;
+    top: 40px;
+    left: 175px;
     display: none;
 }
 
-.enableVideoFullscreenIcon, .disableVideoFullscreenIcon {
-    height: 50px;
-    width: 50px;
+.disableVideoFullscreenIcon {
+    height: 110px;
+    width: 110px;
     position: absolute;
-    top: -12px;
-    left: -13px;
+    top: 380px;
+    left: 0px;
+    display: none;
 }
-
 
 /*#videoContainer:fullscreen video {
     height: 100vh;

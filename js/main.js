@@ -359,20 +359,33 @@ $( document ).ready( function () {
         $( this ).attr( 'href', newLink )
     } );
 
+    var videoInFullscreen = false;
+    $('.videoMenuOverlayMinimized').hover(function(event) {
+        if (videoInFullscreen) {
+            $( '.disableVideoFullscreenIcon' ).show();
+            $( '.videoMenuOverlayMinimized' ).hide();
+        } else {
+            $( '.enableVideoFullscreenIcon' ).show();
+        }
+    }, function(){
+        $( '.enableVideoFullscreenIcon' ).hide();
+        $( '.disableVideoFullscreenIcon' ).hide();
+    });
 
-    // Detect if iframe has been targeted and deactivate fullscreen since it does not work with fullscreen exit of iframe itself
-    $( '.enableVideoInFullScreen' ).click( function ( event ) {
+    $( '.enableVideoFullscreenIcon' ).click( function ( event ) {
+        videoInFullscreen = true;
         const container = $(this).closest(".videoContainer")[ 0 ];
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
                 || container.mozRequestFullScreen
                 || container.msRequestFullscreen;
         fullscreenApi.call( container );
-        $( '.enableVideoInFullScreen' ).hide();
-        $( '.disableVideoInFullScreen' ).show();
+        $( '.enableVideoFullscreenIcon' ).hide();
+        $( '.disableVideoFullscreenIcon' ).show();
     } );
 
-    $( '.disableVideoInFullScreen' ).click( function ( event ) {
+    $( '.disableVideoFullscreenIcon' ).click( function ( event ) {
+        videoInFullscreen = false;
         const container = $(this).closest(".videoContainer")[ 0 ];
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
@@ -381,16 +394,9 @@ $( document ).ready( function () {
         fullscreenApi.call( container );
         document.exitFullscreen();
 
-        $( '.enableVideoInFullScreen' ).show();
-        $( '.disableVideoInFullScreen' ).hide();
+        $( '.enableVideoFullscreenIcon' ).show();
+        $( '.disableVideoFullscreenIcon' ).hide();
     } );
-
-
-    $( 'body' ).click( function ( event ) {
-
-    } );
-
-
 
 
 
