@@ -17,6 +17,9 @@ html, body {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     scrollbar-width: none;
+
+
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png') , pointer!important;
 }
 
 body::-webkit-scrollbar {
@@ -24,7 +27,7 @@ body::-webkit-scrollbar {
 }
 
 input {
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 h1, h2, h3 {
@@ -39,7 +42,7 @@ a:link, a:visited, a:active, a:hover, p {
     text-decoration: none;
     font-weight: bold;
     font-size: 25px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 a:hover {
@@ -58,7 +61,7 @@ p {
     background-color: #809bce;
     color: black;
     font-size: x-large;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 .btn:hover {
@@ -79,7 +82,7 @@ p {
 }
 
 .iFrameContainer {
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     z-index: 1;
     height:100%;
 }
@@ -116,7 +119,7 @@ p {
     position: absolute;
     top: -7px;
     left: -5px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     opacity: 0;
     z-index: 2;
     -webkit-touch-callout: none;
@@ -188,7 +191,7 @@ p {
 #menu li {
     padding: 10px 0;
     font-size: 22px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 #menuToggle input:checked ~ ul {
@@ -230,7 +233,7 @@ p {
 #timedRecommendation .modal-body {
     height: 550px;
     font-size: 150px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 #timedRecommendation .modal-dialog {
@@ -321,24 +324,24 @@ li, .options {
 
 #fullscreenIcon, .playerIcon {
     height: 45px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 .refreshIcon {
     height: 35px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     padding-right: 30px;
 }
 
 #turnScreenBlack {
     height: 70px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     width: 70px !important;
 }
 
 .fullscreenImage {
     width: 540px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 .resetVideoFilterIcon {
@@ -354,7 +357,7 @@ li, .options {
     position: relative;
     top: 9px;
     width: 300px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     background-color: transparent;
     border: none;
     font-weight: bold;
@@ -368,7 +371,7 @@ li, .options {
     position: relative;
     top: -7px;
     width: 230px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     background-color: transparent;
     border: none;
     font-weight: bold;
@@ -412,7 +415,7 @@ li, .options {
     padding-right: 150px;
     font-weight: bold;
     height: 35px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 #particles-js {
@@ -445,7 +448,7 @@ li, .options {
     left: 0;
     width: 500px;
     opacity: 0;
-    cursor: pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 #discoSettingsContainer:hover {
@@ -459,7 +462,7 @@ li, .options {
 .discoSetBGColor, .discoToggleBWStrobo {
     padding: 25px 25px 0px 25px;
     display: inline;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     border-color: black;
     border-width: 3px;
     border-style: solid;
@@ -467,14 +470,14 @@ li, .options {
 
 #discoBGColorPickerContainer {
     display: inline;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 #discoBGColorPickerImage, #discoToggleBWStrobo {
     width: 60px;
     height: 60px;
     margin-bottom: 30px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 #discoParticlesSwitchImage {
@@ -482,7 +485,7 @@ li, .options {
     height: 50px;
     margin-bottom: 30px;
     margin-left: 15px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
 }
 
 input[type=range] {
@@ -499,7 +502,7 @@ input[type=range] {
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 30px;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     animate: 0.2s;
     box-shadow: 0px 0px 1px transparent;
     background: #D8D8D8;
@@ -514,7 +517,7 @@ input[type=range]::-webkit-slider-thumb {
     width: 41px;
     border-radius: 50px;
     background: #000000;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     -webkit-appearance: none;
     margin-top: -5.5px;
 }
@@ -539,8 +542,7 @@ input[type=range]::-webkit-slider-thumb {
     z-index: 1;
     width: 200px;
     height: 200px;
-    /* background-color: red; */
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     position: absolute;
 }
 
@@ -550,8 +552,7 @@ input[type=range]::-webkit-slider-thumb {
     z-index: 1;
     width: 200px;
     height: 200px;
-    /* background-color: blue; */
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     position: absolute;
     display: none;
 }
@@ -560,6 +561,6 @@ input[type=range]::-webkit-slider-thumb {
     height: 200px;
     width: 200px;
     position: absolute;
-    cursor: pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png') , pointer!important;
     display: none;
 }
