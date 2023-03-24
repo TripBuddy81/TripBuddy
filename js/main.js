@@ -464,6 +464,7 @@ $( document ).ready( function () {
             }
             // autostart youtube video
             if ( $( this ).siblings( 'iframe' )[0] != undefined ) {
+                $( this ).siblings( 'iframe' )[0].src = $( this ).siblings( 'iframe' )[0].src.replace( /&autoplay=1/g, '' );
                 $( this ).siblings( 'iframe' )[0].src += '&autoplay=1';
             }
         }
@@ -487,7 +488,7 @@ $( document ).ready( function () {
             }
             // autostop youtube video
             if ( $( this ).siblings( 'iframe' )[0] != undefined ) {
-                $( this ).siblings( 'iframe' )[0].src = $( this ).siblings( 'iframe' )[0].src.replace( /&autoplay=1/, '' );
+                $( this ).siblings( 'iframe' )[0].src = $( this ).siblings( 'iframe' )[0].src.replace( /&autoplay=1/g, '' );
             }
         }
     } );
