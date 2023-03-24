@@ -114,6 +114,7 @@ $( document ).ready( function () {
     $( '#liftOff' ).click( function ( e ) {
         timer = setInterval( upTimer, 1000 );
         start = new Date();
+        minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
         $( '#preFlightChecklist' ).modal( 'hide' );
         $( '#launchText' ).hide();
         $( '#timerMinutes' ).show();
@@ -170,7 +171,7 @@ $( document ).ready( function () {
     var currentState = 'ignition';
     var lastState = '';
     var recommendationsShown = false;
-    var minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) ); // guided thought intervall till next displayed thought
+    var minutesTillNextThought = 0;
     var minutesCountAtLastDisplayedThought = 0;
 
     function upTimer() {
@@ -251,6 +252,11 @@ $( document ).ready( function () {
             $( '.guidedThoughtsContainer' ).show();
             minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
         }
+        // hide after seconds
+        // select thought from stored
+        // randomite Thought?!
+        // make thoughts deactivatable!?
+
     }
 
     function randomIntFromInterval( min, max ) {
