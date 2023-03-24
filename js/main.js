@@ -44,6 +44,7 @@ $( document ).ready( function () {
         $( '#disco' ).hide();
         $( '#misc' ).hide();
 
+
         mainMenuToStatic( false );
         enableFullscreen();
     } );
@@ -52,6 +53,7 @@ $( document ).ready( function () {
         $( '#images' ).show();
         $( '#disco' ).hide();
         $( '#misc' ).hide();
+
 
         mainMenuToStatic( false );
         enableFullscreen();
@@ -144,7 +146,13 @@ $( document ).ready( function () {
     } );
 
     // ******************************************
-    // Timer && Graph
+    // Guided Thoughts Display
+    $( '.guidedThoughtsContainer' ).click( function () {
+        $( '.guidedThoughtsContainer' ).hide();
+    } );
+
+    // ******************************************
+    // Timer && Graph && Time dependent actions
     var timer = '';
     var start = '';
     var currentState = 'ignition';
@@ -198,7 +206,7 @@ $( document ).ready( function () {
             $( '#timerMinutes' ).css( 'color', color );
         }
 
-        // Timed Recommendations
+        // Reminder Display (Dose Up)
         if ( localStorage.getItem( 'doseUpReminderInMinutes' ) > 0 && totalMins >= localStorage.getItem( 'doseUpReminderInMinutes' ) && recommendationsShown == false ) {
             recommendationsShown = true;
 
@@ -226,7 +234,7 @@ $( document ).ready( function () {
     }
 
     // TEMP
-    $( '.guidedThoughtsText' ).html( 'Mach dir mal Gedanken dazu!' );
+    /*    $( '.guidedThoughtsText' ).html( 'Mach dir mal Gedanken dazu!' );*/
 
 
     function updateprogressGraphColor( color ) {
