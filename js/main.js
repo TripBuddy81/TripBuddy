@@ -407,8 +407,6 @@ $( document ).ready( function () {
         $( '.videoFilterBtn.filterActive' ).each( function () {
             totalCount++;
             tagList += '.' + $( this ).text().trim();
-
-            $( '.videoLabel' ).show();
         } );
 
         $( tagList ).each( function () {
@@ -421,13 +419,6 @@ $( document ).ready( function () {
             } );
         }
     } );
-
-    // Make Playlist labels clickable to actually point to the whole playlits itself
-    $( '.videoLabelLink' ).each( function () {
-        var newLink = $( this ).attr( 'href' ).replace( 'embed/videoseries', 'playlist' );
-        $( this ).attr( 'href', newLink )
-    } );
-
 
     // Youtube iFrame fullscreen button overlay
     $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).hover( function ( event ) {

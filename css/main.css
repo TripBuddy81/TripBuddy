@@ -55,13 +55,22 @@ p {
     font-size: medium;
 }
 
+.videoInfo {
+    text-align: center;
+    display: none;
+}
+
 .videoInfo > div {
     user-select: text;
 }
 
 .videoLabel {
+    position: relative;
+    top: -33px;
     text-align: center;
-
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 3.5;
 }
 
 .btn {
