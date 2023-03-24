@@ -103,11 +103,9 @@ $( document ).ready( function () {
         $( '#menuClose' ).trigger( 'click' );
     } );
 
-
     // ******************************************
     // Enable hidden menue
     $( '.XXX' ).hide();
-
     $( document ).keydown( function ( e ) {
         keyCache[e.which] = true;
         if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
@@ -602,8 +600,8 @@ $( document ).ready( function () {
     } else {
         // Stand alone iFrame Spotify Player
         $( '#oAuthPlayerControl' ).remove();
-        $( '#devices' ).remove();
-        $( '#refresh' ).remove();
+        $( '#devices' ).css("visibility", "hidden");
+        $( '#refresh' ).css("visibility", "hidden");
 
         window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
             let element = document.getElementById( 'iFrameSpotifyPlayer' );

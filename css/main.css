@@ -4,6 +4,7 @@
 b8e0d2 -> Background
 d6eadf -> Text / hover background
 
+#E04006 -> red of fullscreen icon and settings in menu
 https://coolors.co/palettes/popular/pastel*/
 
 * {
@@ -161,12 +162,12 @@ p {
     opacity 0.55s ease;
 }
 
-.menuItem a {
+.menuItem > a {
     font-weight: normal;
-    font-size: 22px;
+    font-size: 25px;
 }
 
-.menuItem a:hover {
+.menuItem > a:hover {
     color: black;
 }
 
@@ -196,10 +197,10 @@ p {
 
 #menu {
     position: absolute;
-    width: 600px;
+    width: 650px;
     margin: -100px 0 0 0;
-    padding: 50px;
-    padding-top: 125px;
+    padding: 25px;
+    padding-top: 48px;
     right: -100px;
     background: #ffffff;
     list-style-type: none;
@@ -211,7 +212,7 @@ p {
 
 #menu li {
     padding: 10px 0;
-    font-size: 22px;
+    font-size: 25px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
@@ -274,11 +275,14 @@ p {
     display: none;
 }
 
-.deactivateGuidedThoughts {
-    color: crimson;
+.deactivateGuidedThoughts, #fullscreenAutoplay {
+    color: #E04006;
     font-size: 30px;
     font-weight: bold;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+}
+
+.deactivateGuidedThoughts {
     display: none;
 }
 
@@ -393,7 +397,7 @@ li, .options, .form-check-label {
 .refreshIcon {
     height: 35px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    padding-right: 30px;
+    padding-right: 220px;
 }
 
 #turnScreenBlack {
