@@ -31,7 +31,7 @@ $( document ).ready( function () {
 
     // Firefox does not want to play along
     userAgentString = navigator.userAgent;
-    if (userAgentString.indexOf("Firefox") > -1) {
+    if ( userAgentString.indexOf( 'Firefox' ) > -1 ) {
         $( '#launchText' ).html( 'Start!' );
     }
 
@@ -218,7 +218,16 @@ $( document ).ready( function () {
         $( '#timedRecommendation' ).click( function ( event ) {
             $( '#timedRecommendation' ).modal( 'hide' );
         } );
+
+        // Guided Thoughts
+
+        /*guidedThoughtsContainer*/
+
     }
+
+    // TEMP
+    $( '.guidedThoughtsText' ).html( 'Mach dir mal Gedanken dazu!' );
+
 
     function updateprogressGraphColor( color ) {
         $( '.activeprogressGraphElement' ).each( function () {
@@ -362,18 +371,18 @@ $( document ).ready( function () {
 
 
     // Youtube iFrame fullscreen button overlay
-    $('.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2').hover(function(event) {
+    $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).hover( function ( event ) {
         $( event.target ).find( '.enableVideoFullscreenIcon' ).show();
-    }, function(){
+    }, function () {
         $( '.enableVideoFullscreenIcon' ).hide();
-    });
-    $('.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2').hover(function(event) {
+    } );
+    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
         $( event.target ).find( '.disableVideoFullscreenIcon' ).show();
-    }, function(){
+    }, function () {
         $( '.disableVideoFullscreenIcon' ).hide();
-    });
+    } );
     $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).click( function ( event ) {
-        const container = $(this).closest(".videoContainer")[ 0 ];
+        const container = $( this ).closest( '.videoContainer' )[0];
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
                 || container.mozRequestFullScreen
@@ -383,7 +392,7 @@ $( document ).ready( function () {
         $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
     } );
     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
-        const container = $(this).closest(".videoContainer")[ 0 ];
+        const container = $( this ).closest( '.videoContainer' )[0];
         const fullscreenApi = container.requestFullscreen
                 || container.webkitRequestFullScreen
                 || container.mozRequestFullScreen
@@ -396,14 +405,12 @@ $( document ).ready( function () {
     } );
 
     // Reset settings if user disengaged fullscreen via ESC or other means...
-    var intervalId = window.setInterval(function(){
+    var intervalId = window.setInterval( function () {
         if ( window.innerHeight != screen.height ) {
             $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
         } else {
         }
-    }, 1000);
-
-
+    }, 1000 );
 
 
     // ******************************************

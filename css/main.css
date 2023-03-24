@@ -242,6 +242,31 @@ p {
     margin-top: 75px;
 }
 
+.guidedThoughtsContainer {
+    position: fixed;
+    top: 135px;
+    left: 0px;
+    height: 80px;
+    width: 100%;
+    z-index: 20;
+    text-align: center;
+    background-color: black;
+    background-color:rgba(0, 0, 0, 0.6);
+
+}
+
+.guidedThoughtsText {
+    position: relative;
+    top:-20px;
+    font-size: 80px;
+    font-family: sans-serif;
+    z-index: 25;
+    background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
 li, .options {
     font-size: 25px;
 }
