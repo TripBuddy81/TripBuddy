@@ -4,6 +4,19 @@ $( document ).ready( function () {
     var isFullScreen = false;
     var lastDisplayedImage = config['images'][0]['image'];
 
+    var minutesTillNextThought = 0;
+    var minutesCountAtLastDisplayedThought = 0;
+    var allGuidedThoughts = [];
+    var guidedThoughtsNext = 0;
+
+    var keyCache = {};
+
+    var timer = '';
+    var start = '';
+    var currentState = 'ignition';
+    var lastState = '';
+    var recommendationsShown = false;
+
     Object.assign( config, optionalConfig );
 
     // If debug mode is active, remove all but one video from youtube videos (speeds up load time)
@@ -94,7 +107,7 @@ $( document ).ready( function () {
     // ******************************************
     // Enable hidden menue
     $( '.XXX' ).hide();
-    var keyCache = {};
+
     $( document ).keydown( function ( e ) {
         keyCache[e.which] = true;
         if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
@@ -114,11 +127,24 @@ $( document ).ready( function () {
     $( '#liftOff' ).click( function ( e ) {
         timer = setInterval( upTimer, 1000 );
         start = new Date();
+
         minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
+
         $( '#preFlightChecklist' ).modal( 'hide' );
         $( '#launchText' ).hide();
         $( '#timerMinutes' ).show();
         $( '#progressGraphContainer' ).show();
+
+        if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
+            allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
+        }
+        if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
+            allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
+        }
+        if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
+            allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
+        }
+
     } );
     // Dose up Reminder
     $( '#doseUpCheckbox' ).change( function () {
@@ -142,6 +168,13 @@ $( document ).ready( function () {
     $( '.guidedThoughtsContainer' ).click( function () {
         $( '.guidedThoughtsContainer' ).hide();
     } );
+    $( '.deactivateGuidedThoughts' ).click( function () {
+        while ( allGuidedThoughts.length ) {
+            allGuidedThoughts.pop();
+        }
+    } )
+
+
     $( '.guidedThoughtsTextInput' ).change( function () {
         localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
     } );
@@ -166,14 +199,6 @@ $( document ).ready( function () {
 
     // ******************************************
     // Timer && Graph && Time dependent actions
-    var timer = '';
-    var start = '';
-    var currentState = 'ignition';
-    var lastState = '';
-    var recommendationsShown = false;
-    var minutesTillNextThought = 0;
-    var minutesCountAtLastDisplayedThought = 0;
-
     function upTimer() {
         var now = new Date();
         var diffMs = (now - start);
@@ -243,20 +268,15 @@ $( document ).ready( function () {
         } );
 
         // Guided Thoughts
-        console.log( minutesTillNextThought );
-        console.log( minutesCountAtLastDisplayedThought );
-        console.log( totalMins );
-
-        if ( totalMins == minutesTillNextThought + minutesCountAtLastDisplayedThought ) {
+        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + minutesCountAtLastDisplayedThought ) {
             minutesCountAtLastDisplayedThought = totalMins;
-            $( '.guidedThoughtsContainer' ).show();
             minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
+            $( '.guidedThoughtsText' ).html( allGuidedThoughts[guidedThoughtsNext] );
+            $( '.guidedThoughtsContainer' ).show();
+            $( '.guidedThoughtsContainer' ).delay( 20000 ).fadeOut( 'slow' );
+            guidedThoughtsNext += 1;
+            guidedThoughtsNext = guidedThoughtsNext % allGuidedThoughts.length;
         }
-        // hide after seconds
-        // select thought from stored
-        // randomite Thought?!
-        // make thoughts deactivatable!?
-
     }
 
     function randomIntFromInterval( min, max ) {
