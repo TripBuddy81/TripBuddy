@@ -462,6 +462,10 @@ $( document ).ready( function () {
         }
     }, 1000 );
 
+    $( '.videoFrame' ).click( function ( event ) {
+        this.paused ? this.play() : this.pause();
+    } );
+
 
     // ******************************************
     // Image section

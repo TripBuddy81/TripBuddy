@@ -597,8 +597,10 @@ input[type=range]::-webkit-slider-thumb {
     width: 100%;
     position: relative;
     overflow: hidden;
+}
 
-
+video::-webkit-media-controls-fullscreen-button {
+    display: none;
 }
 
 .videoMenuOverlayMinimized {
