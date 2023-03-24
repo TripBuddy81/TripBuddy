@@ -538,7 +538,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .videoMenuOverlayMinimized {
     left: 175px;
-    top: 60px;
+    top: 57px;
     z-index: 1;
     width: 200px;
     height: 200px;
@@ -558,8 +558,8 @@ input[type=range]::-webkit-slider-thumb {
 
 
 .videoMenuOverlayFullscreen {
-    left: 750px;
-    top: 375px;
+    left: 753px;
+    top: 380px;
     z-index: 1;
     width: 200px;
     height: 200px;

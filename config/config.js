@@ -1,4 +1,11 @@
 var config = {
+    'oAuthSpotify': [
+        {
+            'redirect_uri' : 'http://127.0.0.1:8080',
+            'client_id'    : '',
+            'client_secret': ''
+        }
+    ],
     'preFlightChecklist': [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
         {'checklistItem': 'Mouse charged/VPN off?'},
