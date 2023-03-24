@@ -17,8 +17,6 @@ html, body {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     scrollbar-width: none;
-
-
     cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png') , pointer!important;
 }
 
@@ -55,6 +53,10 @@ a:link, a:visited, a:active, p, div, span {
 
 p {
     font-size: medium;
+}
+
+.videoInfo > div {
+    user-select: text;
 }
 
 .btn {
