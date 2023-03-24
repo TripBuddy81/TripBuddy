@@ -119,6 +119,7 @@ $( document ).ready( function () {
         $( '#timerMinutes' ).show();
         $( '#progressGraphContainer' ).show();
     } );
+    // Dose up Reminder
     $( '#doseUpCheckbox' ).change( function () {
         if ( $( '#doseUpCheckbox' ).is( ':checked' ) ) {
             localStorage.setItem( 'doseUpReminderInMinutes', $( '#doseUpReminderInMinutes' ).val() );
@@ -131,6 +132,22 @@ $( document ).ready( function () {
             localStorage.setItem( 'doseUpReminderInMinutes', $( '#doseUpReminderInMinutes' ).val() );
         }
     } );
+    // Guided Thoughts Display
+    localStorage.setItem( 'guidedThought1', '' );
+    localStorage.setItem( 'guidedThought2', '' );
+    localStorage.setItem( 'guidedThought3', '' );
+    localStorage.setItem( 'guidedThoughtMinMinutes', $( '#guidedThoughtMinMinutes' ).val() );
+    localStorage.setItem( 'guidedThoughtMaxMinutes', $( '#guidedThoughtMaxMinutes' ).val() );
+    $( '.guidedThoughtsContainer' ).click( function () {
+        $( '.guidedThoughtsContainer' ).hide();
+    } );
+    $( '.guidedThoughtsTextInput' ).change( function () {
+        localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
+    } );
+    $( '.guidedThoughtMinutes' ).change( function () {
+        localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
+    } );
+
 
     // ******************************************
     // enable/disable screen
@@ -145,11 +162,6 @@ $( document ).ready( function () {
         $( 'html' ).attr( 'style', 'cursor:auto;' );
     } );
 
-    // ******************************************
-    // Guided Thoughts Display
-    $( '.guidedThoughtsContainer' ).click( function () {
-        $( '.guidedThoughtsContainer' ).hide();
-    } );
 
     // ******************************************
     // Timer && Graph && Time dependent actions
@@ -158,6 +170,8 @@ $( document ).ready( function () {
     var currentState = 'ignition';
     var lastState = '';
     var recommendationsShown = false;
+    var minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) ); // guided thought intervall till next displayed thought
+    var minutesCountAtLastDisplayedThought = 0;
 
     function upTimer() {
         var now = new Date();
@@ -228,13 +242,20 @@ $( document ).ready( function () {
         } );
 
         // Guided Thoughts
+        console.log( minutesTillNextThought );
+        console.log( minutesCountAtLastDisplayedThought );
+        console.log( totalMins );
 
-        /*guidedThoughtsContainer*/
-
+        if ( totalMins == minutesTillNextThought + minutesCountAtLastDisplayedThought ) {
+            minutesCountAtLastDisplayedThought = totalMins;
+            $( '.guidedThoughtsContainer' ).show();
+            minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
+        }
     }
 
-    // TEMP
-    /*    $( '.guidedThoughtsText' ).html( 'Mach dir mal Gedanken dazu!' );*/
+    function randomIntFromInterval( min, max ) {
+        return Math.floor( Math.random() * (parseInt( max ) - parseInt( min ) + 1) + parseInt( min ) )
+    }
 
 
     function updateprogressGraphColor( color ) {

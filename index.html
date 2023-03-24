@@ -167,14 +167,48 @@
                             </ul>
                         </div>
                         <div class="col">
-                            <h1>Reminders <br>(will show Popup after configured time)</h1>
-                            <div class="options form-check form-switch">
-                                <label class="form-check-label" for="doseUpCheckbox">Dose Up after </label>
-                                <input class="form-check-input" type="checkbox" id="doseUpCheckbox">
-                                <input type="number" id="doseUpReminderInMinutes" name="doseUpReminderInMinutes"
-                                       value="60" min="1" max="600">
-                                <span>minutes</span>
+                            <div class="row">
+                                <div class="col">
+                                    <h1>Reminders</h1>
+                                    <h2>Display Popup as reminder after configured time</h2>
+                                    <div class="options form-check form-switch">
+                                        <label class="form-check-label" for="doseUpCheckbox">Dose Up after </label>
+                                        <input class="form-check-input" type="checkbox" id="doseUpCheckbox">
+                                        <input type="number" id="doseUpReminderInMinutes" name="doseUpReminderInMinutes"
+                                               value="60" min="1" max="600">
+                                        <span>minutes</span>
+                                    </div>
+                                </div>
                             </div>
+
+                            <div class="row mt-5">
+                                <div class="col">
+                                    <h1>Guided thoughts</h1>
+                                    <h2>Will display given texts from time to time</h2>
+                                    <label class="form-check-label me-2" for="guidedThought1">#1</label>
+                                    <input class="guidedThoughtsTextInput" type="text" id="guidedThought1" name="guidedThought1"
+                                           value="some Text to think about!"> </br>
+
+                                    <label class="form-check-label me-2" for="guidedThought1">#2</label>
+                                    <input class="guidedThoughtsTextInput" type="text" id="guidedThought2" name="guidedThought2"
+                                           value="more to think about!"> </br>
+
+                                    <label class="form-check-label me-2" for="guidedThought1">#3</label>
+                                    <input class="guidedThoughtsTextInput" type="text" id="guidedThought3" name="guidedThought3"
+                                           value="even more to think about!"> </br>
+
+                                    <label class="form-check-label me-2" for="guidedThoughtMinMinutes">Min time till thought</label>
+                                    <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMinMinutes" name="guidedThoughtMinMinutes"
+                                           value="10" min="5" max="60"> </br>
+
+                                    <label class="form-check-label me-2" for="guidedThoughtMaxMinutes">Max time till thought</label>
+                                    <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMaxMinutes" name="guidedThoughtMaxMinutes"
+                                           value="20" min="5" max="60">
+                                </div>
+                            </div>
+
+
+
                         </div>
                     </div>
 
@@ -195,7 +229,6 @@
     </div>
 
     <div class="guidedThoughtsContainer"><span class="guidedThoughtsText">GENERIC</span></div>
-
 
     <div id="videos" class="ms-3">
         <div class="sticky">
