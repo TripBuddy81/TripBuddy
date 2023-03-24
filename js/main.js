@@ -144,6 +144,9 @@ $( document ).ready( function () {
         if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
             allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
         }
+        if ( allGuidedThoughts.length > 0 ) {
+            $( '.deactivateGuidedThoughts' ).show();
+        }
 
     } );
     // Dose up Reminder
@@ -169,6 +172,7 @@ $( document ).ready( function () {
         $( '.guidedThoughtsContainer' ).hide();
     } );
     $( '.deactivateGuidedThoughts' ).click( function () {
+        $( '.deactivateGuidedThoughts' ).hide();
         while ( allGuidedThoughts.length ) {
             allGuidedThoughts.pop();
         }

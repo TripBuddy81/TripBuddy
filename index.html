@@ -51,7 +51,7 @@
                     <select id="devices"
                             class="form-control"
                             style=""></select>
-
+                    <li class="menuItem deactivateGuidedThoughts">Stop guided thoughts</li>
                     <li class="menuItem" id="showMiscSection">Misc Links</li>
                     <li class="menuItem"><a href="help.html" target="_blank">Help/Info</a></li>
                     <li class="menuItem" id="toggleInfo">Toggle video info</li>
@@ -187,15 +187,15 @@
                                     <h2>Will display given texts from time to time</h2>
                                     <label class="form-check-label me-2" for="guidedThought1">#1</label>
                                     <input class="guidedThoughtsTextInput" type="text" id="guidedThought1" name="guidedThought1"
-                                           value="" maxlength="30"> </br>
+                                           value="" maxlength="40"> </br>
 
                                     <label class="form-check-label me-2" for="guidedThought1">#2</label>
                                     <input class="guidedThoughtsTextInput" type="text" id="guidedThought2" name="guidedThought2"
-                                           value="" maxlength="30"> </br>
+                                           value="" maxlength="40"> </br>
 
                                     <label class="form-check-label me-2" for="guidedThought1">#3</label>
                                     <input class="guidedThoughtsTextInput" type="text" id="guidedThought3" name="guidedThought3"
-                                           value="" maxlength="30"> </br>
+                                           value="" maxlength="40"> </br>
 
                                     <label class="guidedThoughtMinutesLabel form-check-label me-2" for="guidedThoughtMinMinutes">Min time till thought</label>
                                     <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMinMinutes" name="guidedThoughtMinMinutes"
@@ -225,7 +225,7 @@
         </div>
     </div>
 
-    <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span><span class="deactivateGuidedThoughts">STOP</span></div>
+    <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
 
     <div id="videos" class="ms-3">
         <div class="sticky">
@@ -248,7 +248,7 @@
                         <div>{{tags}}</div>
                         <div>({{videoLink}})</div>
                     </div>
-                    <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span><span class="deactivateGuidedThoughts">STOP</span></div>
+                    <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
                     <div class="videoLabel text-center mb-2" style="display: none;">
                         <a class="videoLabelLink" href="{{videoLink}}" target=_blank>{{label}}</a>
                     </div>
@@ -274,7 +274,7 @@
                         <div class="videoInfo text-center mb-2" style="display: none;">{{tags}}
                             <div>({{videoLink}})</div>
                         </div>
-                        <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span><span class="deactivateGuidedThoughts">STOP</span></div>
+                        <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
                         <div class="videoLabel text-center mb-2" style="display: none;">
                             <a class="videoLabelLink" href="{{videoLink}}" target=_blank>{{label}}</a>
                         </div>

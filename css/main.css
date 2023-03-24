@@ -59,6 +59,11 @@ p {
     user-select: text;
 }
 
+.videoLabel {
+    text-align: center;
+
+}
+
 .btn {
     background-color: #809bce;
     color: black;
@@ -77,6 +82,11 @@ p {
 
 .btn.videoFilterBtn {
     background-color: #AAD0D2;
+}
+
+.btn.videoFilterBtn:hover {
+
+    background-color: #d6eadf;
 }
 
 .btn.videoFilterBtn.filterActive {
@@ -257,12 +267,10 @@ p {
 
 .deactivateGuidedThoughts {
     color: crimson;
-    position: absolute;
-    right: 25px;
-    top: 75px;
     font-size: 30px;
     font-weight: bold;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    display: none;
 }
 
 .guidedThoughtsText {
@@ -285,7 +293,7 @@ li, .options, .form-check-label {
 }
 
 .guidedThoughtsTextInput {
-    width: 530px;
+    width: 450px;
     font-size: 25px;
     font-family: sans-serif;
 }
