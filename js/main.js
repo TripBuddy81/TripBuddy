@@ -387,6 +387,24 @@ $( document ).ready( function () {
         }
     } )
 
+    // ******************************************
+    // Toggling fullscreen autoplay toggle
+    if ( localStorage.getItem( 'fullscreenAutoplay' ) == undefined || localStorage.getItem( 'fullscreenAutoplay' ) == 'false' ) {
+        localStorage.setItem( 'fullscreenAutoplay', 'false' );
+        $( '#fullscreenAutoplaySetting' ).html( '(off)' );
+    } else {
+        localStorage.setItem( 'fullscreenAutoplay', 'true' );
+        $( '#fullscreenAutoplaySetting' ).html( '(on)' );
+    }
+    $( '#fullscreenAutoplay' ).click( function ( event ) {
+        if ( localStorage.getItem( 'fullscreenAutoplay' ) == 'false' ) {
+            localStorage.setItem( 'fullscreenAutoplay', 'true' );
+            $( '#fullscreenAutoplaySetting' ).html( '(on)' );
+        } else {
+            localStorage.setItem( 'fullscreenAutoplay', 'false' );
+            $( '#fullscreenAutoplaySetting' ).html( '(off)' );
+        }
+    } )
 
     // ***********************************
     // Video section
@@ -440,6 +458,17 @@ $( document ).ready( function () {
         fullscreenApi.call( container );
         $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).hide();
         $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+
+        if ( localStorage.getItem( 'fullscreenAutoplay' ) == 'true' ) {
+            // autostart local video
+            if ( $( this ).siblings( 'video' )[0] != undefined ) {
+                $( this ).siblings( 'video' )[0].play();
+            }
+            // autostart youtube video
+            if ( $( this ).siblings( 'iframe' )[0] != undefined ) {
+                $( this ).siblings( 'iframe' )[0].src += '&autoplay=1';
+            }
+        }
     } );
     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
         const container = $( this ).closest( '.videoContainer' )[0];
@@ -452,6 +481,17 @@ $( document ).ready( function () {
 
         $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
         $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+
+        if ( localStorage.getItem( 'fullscreenAutoplay' ) == 'true' ) {
+            // autostop local video
+            if ( $( this ).siblings( 'video' )[0] != undefined ) {
+                $( this ).siblings( 'video' )[0].pause();
+            }
+            // autostop youtube video
+            if ( $( this ).siblings( 'iframe' )[0] != undefined ) {
+                $( this ).siblings( 'iframe' )[0].src = $( this ).siblings( 'iframe' )[0].src.replace( /&autoplay=1/, '' );
+            }
+        }
     } );
 
     // Reset settings if user disengaged fullscreen via ESC or other means...

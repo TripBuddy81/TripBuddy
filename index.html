@@ -52,6 +52,7 @@
                             class="form-control"
                             style=""></select>
                     <li class="menuItem deactivateGuidedThoughts">Stop guided thoughts</li>
+                    <li class="menuItem" id="fullscreenAutoplay">Toggling fullscreen triggers play/stop <span id="fullscreenAutoplaySetting">(off)</span></li>
                     <li class="menuItem" id="showMiscSection">Misc Links</li>
                     <li class="menuItem"><a href="help.html" target="_blank">Help/Info</a></li>
                     <li class="menuItem" id="toggleInfo">Toggle video info</li>
@@ -274,23 +275,21 @@
             {{#videosLocal}}
             <div class="videoContainer {{tags}}">
                 <div class="iFrameContainer">
-                    <div class="iFrameContainer">
-                        <video class="videoFrame" controls muted controlsList="nofullscreen">
-                            <source src="{{videoLink}}" type="video/mp4">
-                        </video>
-                        <div class="videoInfo mb-2">{{tags}}
-                            <div>({{videoLink}})</div>
-                        </div>
-                        <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
-                        <div class="videoLabel">
-                            {{label}}
-                        </div>
-                        <div class="videoMenuOverlayMinimized">
-                            <img class="enableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
-                        </div>
-                        <div class="videoMenuOverlayFullscreen">
-                            <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
-                        </div>
+                    <video class="videoFrame" controls muted controlsList="nofullscreen">
+                        <source src="{{videoLink}}" type="video/mp4">
+                    </video>
+                    <div class="videoInfo mb-2">{{tags}}
+                        <div>({{videoLink}})</div>
+                    </div>
+                    <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                    <div class="videoLabel">
+                        {{label}}
+                    </div>
+                    <div class="videoMenuOverlayMinimized">
+                        <img class="enableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
+                    </div>
+                    <div class="videoMenuOverlayFullscreen">
+                        <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
                     </div>
                 </div>
             </div>
