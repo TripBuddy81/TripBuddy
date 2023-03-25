@@ -243,6 +243,10 @@ p {
     overflow: hidden;
 }
 
+.modal-header {
+    padding: 15px 30px 15px 30px;
+}
+
 .modal-dialog {
     max-width: 1500px;
 }
@@ -250,6 +254,10 @@ p {
 .modal-content {
     background-color: black;
     color: white;
+}
+
+#preFlightChecklistLabel {
+    padding-left: 10px;
 }
 
 #timedRecommendation .modal-body {
@@ -260,6 +268,10 @@ p {
 
 #timedRecommendation .modal-dialog {
     margin-top: 75px;
+}
+
+#guidedThoughtsSettings {
+    padding-top: 80px;
 }
 
 .guidedThoughtsContainer {
