@@ -323,10 +323,14 @@ li, .options, .form-check-label {
     font-family: sans-serif;
 }
 
-#doseUpReminderInMinutes, #guidedThoughtMinMinutes, #guidedThoughtMaxMinutes {
+#topupReminderInMinutes, #guidedThoughtMinMinutes, #guidedThoughtMaxMinutes {
     width: 50px;
     border: none;
     font-weight: bold;
+}
+
+#topupRecommendation {
+    font-size: 160px;
 }
 
 #liftOff {

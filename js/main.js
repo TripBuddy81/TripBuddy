@@ -119,7 +119,7 @@ $( document ).ready( function () {
     // ******************************************
     // Start button & preFlightChecklist & Reminders
     $( '#launchText' ).click( function ( e ) {
-        localStorage.setItem( 'doseUpReminderInMinutes', '' );
+        localStorage.setItem( 'topupReminderInMinutes', '' );
         enableFullscreen();
     } );
     $( '#liftOff' ).click( function ( e ) {
@@ -147,17 +147,17 @@ $( document ).ready( function () {
         }
 
     } );
-    // Dose up Reminder
-    $( '#doseUpCheckbox' ).change( function () {
-        if ( $( '#doseUpCheckbox' ).is( ':checked' ) ) {
-            localStorage.setItem( 'doseUpReminderInMinutes', $( '#doseUpReminderInMinutes' ).val() );
+    // Top up Reminder
+    $( '#topupCheckbox' ).change( function () {
+        if ( $( '#topupCheckbox' ).is( ':checked' ) ) {
+            localStorage.setItem( 'topupReminderInMinutes', $( '#topupReminderInMinutes' ).val() );
         } else {
-            localStorage.setItem( 'doseUpReminderInMinutes', '' );
+            localStorage.setItem( 'topupReminderInMinutes', '' );
         }
     } );
-    $( '#doseUpReminderInMinutes' ).change( function () {
-        if ( $( '#doseUpCheckbox' ).is( ':checked' ) ) {
-            localStorage.setItem( 'doseUpReminderInMinutes', $( '#doseUpReminderInMinutes' ).val() );
+    $( '#topupReminderInMinutes' ).change( function () {
+        if ( $( '#topupCheckbox' ).is( ':checked' ) ) {
+            localStorage.setItem( 'topupReminderInMinutes', $( '#topupReminderInMinutes' ).val() );
         }
     } );
     // Guided Thoughts Display
@@ -248,8 +248,8 @@ $( document ).ready( function () {
             $( '#timerMinutes' ).css( 'color', color );
         }
 
-        // Reminder Display (Dose Up)
-        if ( localStorage.getItem( 'doseUpReminderInMinutes' ) > 0 && totalMins >= localStorage.getItem( 'doseUpReminderInMinutes' ) && recommendationsShown == false ) {
+        // Reminder Display (Top up)
+        if ( localStorage.getItem( 'topupReminderInMinutes' ) > 0 && totalMins >= localStorage.getItem( 'topupReminderInMinutes' ) && recommendationsShown == false ) {
             recommendationsShown = true;
 
             if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
@@ -263,7 +263,7 @@ $( document ).ready( function () {
             }
 
             $( '#timedRecommendation' ).modal( 'show' );
-            $( '#doseUpRecommendation' ).show();
+            $( '#topupRecommendation' ).show();
         }
         $( '#timedRecommendation' ).click( function ( event ) {
             $( '#timedRecommendation' ).modal( 'hide' );
