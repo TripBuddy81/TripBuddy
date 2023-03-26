@@ -65,8 +65,8 @@ var config = {
     'selectableVideoTags': [
         {'selectableTag': 'trippy-2D'},
         {'selectableTag': 'trippy-3D'},
-        {'selectableTag': 'trippy-slow'},
-        {'selectableTag': 'trippy-fast'},
+/*        {'selectableTag': 'trippy-slow'},
+        {'selectableTag': 'trippy-fast'},*/
         {'selectableTag': 'meditative'},
         {'selectableTag': 'space'},
         {'selectableTag': 'nature'},
@@ -143,6 +143,18 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/vmGDO0eU1n0?mute=1',
+            'tags'     : 'meditative'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/Ck-h9YGKyOc?mute=1',
+            'tags'     : 'meditative'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
+            'tags'     : 'meditative'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/RhlQvbvMg-0?mute=1',
             'tags'     : 'meditative'
         },
         {
@@ -494,10 +506,6 @@ var config = {
             'tags' : 'trippy'
         },
         {
-            'image': './media/images/25.jpg',
-            'tags' : 'trippy'
-        },
-        {
             'image': './media/images/14.jpg',
             'tags' : 'trippy'
         },
@@ -514,10 +522,6 @@ var config = {
             'tags' : 'trippy'
         },
         {
-            'image': './media/images/21.jpg',
-            'tags' : 'trippy'
-        },
-        {
             'image': './media/images/23.jpg',
             'tags' : 'trippy'
         },
@@ -527,6 +531,10 @@ var config = {
         },
         {
             'image': './media/images/45.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/25.jpg',
             'tags' : 'trippy'
         },
         {
