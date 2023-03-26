@@ -90,16 +90,16 @@ p {
     font-size: xx-large;
 }
 
-.btn.videoFilterBtn {
+.btn.videoFilterBtn, .btn.imageFilterBtn {
     background-color: #AAD0D2;
 }
 
-.btn.videoFilterBtn:hover {
+.btn.videoFilterBtn:hover, .btn.imageFilterBtn:hover  {
 
     background-color: #d6eadf;
 }
 
-.btn.videoFilterBtn.filterActive {
+.btn.videoFilterBtn.filterActive, .btn.imageFilterBtn.filterActive {
     background-color: #809bce;
 }
 
@@ -345,6 +345,10 @@ li, .options, .form-check-label {
 
 #displayedVideos {
     padding-top: 60px;
+}
+
+#displayedImages {
+    padding-top: 45px;
 }
 
 #timerMinutes {

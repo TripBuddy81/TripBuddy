@@ -1,5 +1,5 @@
 var config = {
-    'oAuthSpotify': [
+    'oAuthSpotify'      : [
         {
             'redirect_uri' : 'http://127.0.0.1:8080',
             'client_id'    : '',
@@ -62,7 +62,7 @@ var config = {
                 }
             ]
     ,
-    'selectableTags': [
+    'selectableVideoTags': [
         {'selectableTag': 'trippy-2D'},
         {'selectableTag': 'trippy-3D'},
         {'selectableTag': 'trippy-slow'},
@@ -279,7 +279,7 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/Am5DwwpKSRA?mute=1',
-            'tags'     : 'slideshow',
+            'tags'     : 'slideshow'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/5I69DCxYbBg?mute=1',
@@ -479,46 +479,171 @@ var config = {
             'tags'     : 'leftovers'
         }
     ],
+    'selectableImageTags': [
+        {'selectableTag': 'trippy'},
+        {'selectableTag': 'nature'},
+        {'selectableTag': 'space'}
+    ],
     'images'        : [
-        {'image': './media/images/40.jpg'},
-        {'image': './media/images/27.jpg'},
-        {'image': './media/images/25.jpg'},
-        {'image': './media/images/14.jpg'},
-        {'image': './media/images/29.jpg'},
-        {'image': './media/images/24.jpg'},
-        {'image': './media/images/17.jpg'},
-        {'image': './media/images/21.jpg'},
-        {'image': './media/images/23.jpg'},
-        {'image': './media/images/46.jpg'},
-        {'image': './media/images/45.jpg'},
-        {'image': './media/images/22.jpg'},
-        {'image': './media/images/28.jpg'},
-        {'image': './media/images/30.jpg'},
-        {'image': './media/images/31.jpg'},
-        {'image': './media/images/32.jpg'},
-        {'image': './media/images/33.jpg'},
-        {'image': './media/images/35.jpg'},
-        {'image': './media/images/36.jpg'},
-        {'image': './media/images/37.jpg'},
-        {'image': './media/images/38.jpg'},
-        {'image': './media/images/39.jpg'},
-        {'image': './media/images/34.jpg'},
-        {'image': './media/images/44.jpg'},
-        {'image': './media/images/47.jpg'},
-        {'image': './media/images/48.jpg'},
-        {'image': './media/images/1.jpg'},
-        {'image': './media/images/2.jpg'},
-        {'image': './media/images/3.jpg'},
-        {'image': './media/images/4.jpg'},
-        {'image': './media/images/5.jpg'},
-        {'image': './media/images/6.jpg'},
-        {'image': './media/images/7.jpg'},
-        {'image': './media/images/8.jpg'},
-        {'image': './media/images/9.jpg'},
-        {'image': './media/images/10.jpg'},
-        {'image': './media/images/11.jpg'},
-        {'image': './media/images/12.jpg'},
-        {'image': './media/images/18.jpg'},
-        {'image': './media/images/19.jpg'}
+        {
+            'image': './media/images/40.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/27.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/25.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/14.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/29.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/24.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/17.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/21.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/23.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/46.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/45.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/22.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/28.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/30.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/31.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/32.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/33.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/35.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/36.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/37.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/38.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/39.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/34.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/44.jpg',
+            'tags' : 'nature'
+        },
+        {
+            'image': './media/images/47.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/48.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/1.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/2.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/3.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/4.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/5.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/6.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/7.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/8.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/9.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/10.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/11.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/12.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/18.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/19.jpg',
+            'tags' : 'space'
+        }
     ]
 };

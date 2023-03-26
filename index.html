@@ -240,15 +240,15 @@
 
     <div id="videos" class="ms-3">
         <div class="sticky">
-            {{#selectableTags}}
+            {{#selectableVideoTags}}
             <div id="{{selectableTag}}filter" class="{{selectableTag}}filter videoFilterBtn btn btn-primary me-2">
                 {{selectableTag}}
             </div>
-            {{/selectableTags}}
+            {{/selectableVideoTags}}
             <div class="XXX XXXfilter videoFilterBtn btn btn-primary me-2">XXX</div>
         </div>
 
-        <div id="displayedVideos" class="mt-3">
+        <div id="displayedVideos">
             {{#videosYoutube}}
             <div class="videoContainer {{tags}}">
                 <div class="iFrameContainer">
@@ -301,10 +301,21 @@
     </div>
 
     <div id="images" class="mt-3 mb-3 ms-3">
-        {{#images}}
-        <img width="540" height="304" src="{{image}}" class="fullscreenImage me-2 mb-2"
-             data-image="{{image}}">
-        {{/images}}
+        <div class="sticky">
+            {{#selectableImageTags}}
+            <div id="{{selectableTag}}filter" class="{{selectableTag}}filter imageFilterBtn btn btn-primary me-2">
+                {{selectableTag}}
+            </div>
+            {{/selectableImageTags}}
+            <div class="XXX XXXfilter imageFilterBtn btn btn-primary me-2">XXX</div>
+        </div>
+
+        <div id="displayedImages">
+            {{#images}}
+            <img width="540" height="304" src="{{image}}" class="fullscreenImage {{tags}} me-2 mb-2"
+                 data-image="{{image}}">
+            {{/images}}
+        </div>
     </div>
 
     <div id="disco" class="">

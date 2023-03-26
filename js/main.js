@@ -508,6 +508,35 @@ $( document ).ready( function () {
 
     // ******************************************
     // Image section
+    $( '.imageFilterBtn' ).click( function () {
+        // Remove this block to reenable multi tag select!
+        $( '.imageFilterBtn.filterActive' ).each( function () {
+            $( this ).toggleClass( 'filterActive' );
+        } );
+
+        $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
+        $( '.fullscreenImage' ).each( function () {
+            $( this ).hide();
+        } );
+        $( this ).toggleClass( 'filterActive' );
+
+        var tagList = '';
+        var totalCount = 0;
+        $( '.imageFilterBtn.filterActive' ).each( function () {
+            totalCount++;
+            tagList += '.' + $( this ).text().trim();
+        } );
+
+        $( tagList ).each( function () {
+            $( this ).show();
+        } );
+
+        if ( totalCount == 0 ) {
+            $( '.fullscreenImage' ).each( function () {
+                $( this ).show();
+            } );
+        }
+    } );
     Intense( document.querySelectorAll( '.fullscreenImage' ) );
 
     $( '.fullscreenImage' ).click( function ( event ) {
