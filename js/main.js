@@ -166,16 +166,13 @@ $( document ).ready( function () {
     localStorage.setItem( 'guidedThought3', '' );
     localStorage.setItem( 'guidedThoughtMinMinutes', $( '#guidedThoughtMinMinutes' ).val() );
     localStorage.setItem( 'guidedThoughtMaxMinutes', $( '#guidedThoughtMaxMinutes' ).val() );
-    $( '.guidedThoughtsContainer' ).click( function () {
+    $( '.guidedThoughtsContainer, .deactivateGuidedThoughts' ).click( function () {
         $( '.guidedThoughtsContainer' ).hide();
-    } );
-    $( '.deactivateGuidedThoughts' ).click( function () {
         $( '.deactivateGuidedThoughts' ).hide();
         while ( allGuidedThoughts.length ) {
             allGuidedThoughts.pop();
         }
-    } )
-
+    } );
 
     $( '.guidedThoughtsTextInput' ).change( function () {
         localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
