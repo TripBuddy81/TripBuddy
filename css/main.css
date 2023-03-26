@@ -72,6 +72,7 @@ p {
     font-size: 25px;
     font-weight: bold;
     line-height: 3.5;
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
 }
 
 .btn {
@@ -621,6 +622,7 @@ input[type=range]::-webkit-slider-thumb {
     width: 100%;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 video::-webkit-media-controls-fullscreen-button {

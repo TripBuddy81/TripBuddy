@@ -17,6 +17,8 @@ $( document ).ready( function () {
     var lastState = '';
     var recommendationsShown = false;
 
+    var imageSectionShown = false;
+
     Object.assign( config, optionalConfig );
 
     // If debug mode is active, remove all but one video from youtube videos (speeds up load time)
@@ -67,6 +69,13 @@ $( document ).ready( function () {
         $( '#disco' ).hide();
         $( '#misc' ).hide();
 
+        if ( !imageSectionShown ) {
+            $( '.imageFilterBtn' ).each( function () {
+                $( this ).trigger( 'click' );
+                return false;
+            } );
+            imageSectionShown = true;
+        }
 
         mainMenuToStatic( false );
         enableFullscreen();
@@ -506,11 +515,6 @@ $( document ).ready( function () {
     // ******************************************
     // Image section
     var imageTagList = '';
-    $( '.imageFilterBtn' ).each( function () {
-        $( this ).addClass( 'filterActive' );
-        imageTagList += '.' + $( this ).text().trim();
-        return false;
-    } );
     $( '.imageFilterBtn' ).click( function () {
         imageTagList = '';
         // Remove this block to reenable multi tag select!

@@ -11,6 +11,7 @@ var config = {
         {'checklistItem': 'Mouse charged/VPN off?'},
         {'checklistItem': 'Start easy listening music'},
         {'checklistItem': 'Make ginger tea and starting drinking'},
+        {'checklistItem': 'Phone on Do Not Disturb!!!'},
         {'checklistItem': 'Cozy clothing'},
         {'checklistItem': 'Starlight on'},
         {'checklistItem': 'Toilette lights on'},
@@ -538,10 +539,6 @@ var config = {
             'tags' : 'trippy'
         },
         {
-            'image': './media/images/22.jpg',
-            'tags' : 'nature'
-        },
-        {
             'image': './media/images/28.jpg',
             'tags' : 'nature'
         },
@@ -588,10 +585,6 @@ var config = {
         {
             'image': './media/images/44.jpg',
             'tags' : 'nature'
-        },
-        {
-            'image': './media/images/47.jpg',
-            'tags' : 'space'
         },
         {
             'image': './media/images/48.jpg',
