@@ -406,7 +406,9 @@ $( document ).ready( function () {
 
     // ***********************************
     // Video section
+    var videoTagList = '';
     $( '.videoFilterBtn' ).click( function () {
+        videoTagList = '';
         // Remove this block to reenable multi tag select!
         $( '.videoFilterBtn.filterActive' ).each( function () {
             $( this ).toggleClass( 'filterActive' );
@@ -418,18 +420,16 @@ $( document ).ready( function () {
         } );
         $( this ).toggleClass( 'filterActive' );
 
-        var tagList = '';
-        var totalCount = 0;
+
         $( '.videoFilterBtn.filterActive' ).each( function () {
-            totalCount++;
-            tagList += '.' + $( this ).text().trim();
+            videoTagList += '.' + $( this ).text().trim();
         } );
 
-        $( tagList ).each( function () {
+        $( videoTagList ).each( function () {
             $( this ).show();
         } );
 
-        if ( totalCount == 0 ) {
+        if ( videoTagList == '' ) {
             $( '.videoContainer' ).each( function () {
                 $( this ).show();
             } );
@@ -508,7 +508,9 @@ $( document ).ready( function () {
 
     // ******************************************
     // Image section
+    var imageTagList = '';
     $( '.imageFilterBtn' ).click( function () {
+        imageTagList = '';
         // Remove this block to reenable multi tag select!
         $( '.imageFilterBtn.filterActive' ).each( function () {
             $( this ).toggleClass( 'filterActive' );
@@ -520,18 +522,15 @@ $( document ).ready( function () {
         } );
         $( this ).toggleClass( 'filterActive' );
 
-        var tagList = '';
-        var totalCount = 0;
         $( '.imageFilterBtn.filterActive' ).each( function () {
-            totalCount++;
-            tagList += '.' + $( this ).text().trim();
+            imageTagList += '.' + $( this ).text().trim();
         } );
 
-        $( tagList ).each( function () {
+        $( imageTagList ).each( function () {
             $( this ).show();
         } );
 
-        if ( totalCount == 0 ) {
+        if ( imageTagList == '' ) {
             $( '.fullscreenImage' ).each( function () {
                 $( this ).show();
             } );
@@ -561,13 +560,33 @@ $( document ).ready( function () {
                     if ( config['images'][i]['image'] == lastDisplayedImage ) {
                         if ( event.originalEvent.deltaY > 0 ) { // going down
                             nextImageIndex = parseInt( i, 10 ) + 1;
+
                             if ( nextImageIndex > config['images'].length - 1 ) {
                                 nextImageIndex = 0;
                             }
+
+                            if ( imageTagList != '' ) {
+                                while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
+                                    nextImageIndex += 1;
+                                    if ( nextImageIndex > config['images'].length - 1 ) {
+                                        nextImageIndex = 0;
+                                    }
+                                }
+                            }
                         } else { // going up
                             nextImageIndex = parseInt( i, 10 ) - 1;
+
                             if ( nextImageIndex < 0 ) {
                                 nextImageIndex = config['images'].length - 1;
+                            }
+
+                            if ( imageTagList != '' ) {
+                                while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
+                                    nextImageIndex -= 1;
+                                    if ( nextImageIndex < 0 ) {
+                                        nextImageIndex = config['images'].length - 1;
+                                    }
+                                }
                             }
                         }
                         break;
@@ -630,8 +649,8 @@ $( document ).ready( function () {
     } else {
         // Stand alone iFrame Spotify Player
         $( '#oAuthPlayerControl' ).remove();
-        $( '#devices' ).css("visibility", "hidden");
-        $( '#refresh' ).css("visibility", "hidden");
+        $( '#devices' ).css( 'visibility', 'hidden' );
+        $( '#refresh' ).css( 'visibility', 'hidden' );
 
         window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
             let element = document.getElementById( 'iFrameSpotifyPlayer' );
