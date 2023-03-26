@@ -506,6 +506,11 @@ $( document ).ready( function () {
     // ******************************************
     // Image section
     var imageTagList = '';
+    $( '.imageFilterBtn' ).each( function () {
+        $( this ).addClass( 'filterActive' );
+        imageTagList += '.' + $( this ).text().trim();
+        return false;
+    } );
     $( '.imageFilterBtn' ).click( function () {
         imageTagList = '';
         // Remove this block to reenable multi tag select!
@@ -544,57 +549,56 @@ $( document ).ready( function () {
     } );
 
     // Image selection via mouse wheel
-    if ( $( '#images' ).is( ':visible' ) ) {
-        $( window ).on( 'wheel', function ( event ) {
-            if ( $( 'body figure' ).length == 1 ) {
-                event.preventDefault();
-                event.stopPropagation();
+    $( window ).on( 'wheel', function ( event ) {
+        if ( $( 'body figure' ).length == 1 ) {
+            event.preventDefault();
+            event.stopPropagation();
 
-                document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto';
 
-                for ( var i in config['images'] ) {
-                    nextImageIndex = 1;
-                    if ( config['images'][i]['image'] == lastDisplayedImage ) {
-                        if ( event.originalEvent.deltaY > 0 ) { // going down
-                            nextImageIndex = parseInt( i, 10 ) + 1;
+            for ( var i in config['images'] ) {
+                nextImageIndex = 1;
+                if ( config['images'][i]['image'] == lastDisplayedImage ) {
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        nextImageIndex = parseInt( i, 10 ) + 1;
 
-                            if ( nextImageIndex > config['images'].length - 1 ) {
-                                nextImageIndex = 0;
-                            }
+                        if ( nextImageIndex > config['images'].length - 1 ) {
+                            nextImageIndex = 0;
+                        }
 
-                            if ( imageTagList != '' ) {
-                                while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
-                                    nextImageIndex += 1;
-                                    if ( nextImageIndex > config['images'].length - 1 ) {
-                                        nextImageIndex = 0;
-                                    }
-                                }
-                            }
-                        } else { // going up
-                            nextImageIndex = parseInt( i, 10 ) - 1;
-
-                            if ( nextImageIndex < 0 ) {
-                                nextImageIndex = config['images'].length - 1;
-                            }
-
-                            if ( imageTagList != '' ) {
-                                while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
-                                    nextImageIndex -= 1;
-                                    if ( nextImageIndex < 0 ) {
-                                        nextImageIndex = config['images'].length - 1;
-                                    }
+                        if ( imageTagList != '' ) {
+                            while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
+                                nextImageIndex += 1;
+                                if ( nextImageIndex > config['images'].length - 1 ) {
+                                    nextImageIndex = 0;
                                 }
                             }
                         }
-                        break;
+                    } else { // going up
+                        nextImageIndex = parseInt( i, 10 ) - 1;
+
+                        if ( nextImageIndex < 0 ) {
+                            nextImageIndex = config['images'].length - 1;
+                        }
+
+                        if ( imageTagList != '' ) {
+                            while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
+                                nextImageIndex -= 1;
+                                if ( nextImageIndex < 0 ) {
+                                    nextImageIndex = config['images'].length - 1;
+                                }
+                            }
+                        }
                     }
+                    break;
                 }
-                lastDisplayedImage = config['images'][nextImageIndex]['image'];
-                $( 'img[src$=\'' + lastDisplayedImage + '\']' ).trigger( 'click' )
-                $( 'body figure' ).remove();
             }
-        } );
-    }
+            lastDisplayedImage = config['images'][nextImageIndex]['image'];
+            $( 'img[src$=\'' + lastDisplayedImage + '\']' ).trigger( 'click' )
+            $( 'body figure' ).remove();
+        }
+    } );
+
 
     // ******************************************
     // Music section
