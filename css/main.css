@@ -39,7 +39,6 @@ h1, h2, h3 {
 a:link, a:visited, a:active, a:hover, p {
     color: #000000;
     text-decoration: none;
-    font-weight: bold;
     font-size: 25px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
@@ -213,10 +212,15 @@ p {
 }
 
 #menu li {
-    padding: 10px 0;
+    padding: 3px 0;
     font-size: 25px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
+
+#menu li:hover {
+    color: #809bce;
+}
+
 
 #menuToggle input:checked ~ ul {
     transform: none;

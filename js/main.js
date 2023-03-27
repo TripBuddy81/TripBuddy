@@ -61,8 +61,6 @@ $( document ).ready( function () {
         $( '#videos' ).show();
         $( '#images' ).hide();
         $( '#disco' ).hide();
-        $( '#misc' ).hide();
-
 
         mainMenuToStatic( false );
         enableFullscreen();
@@ -71,7 +69,6 @@ $( document ).ready( function () {
         $( '#videos' ).hide();
         $( '#images' ).show();
         $( '#disco' ).hide();
-        $( '#misc' ).hide();
 
         if ( !imageSectionShown ) {
             $( '.imageFilterBtn' ).each( function () {
@@ -88,18 +85,8 @@ $( document ).ready( function () {
         $( '#videos' ).hide();
         $( '#images' ).hide();
         $( '#disco' ).show();
-        $( '#misc' ).hide();
 
         renderDiscoSection( showParticles );
-        mainMenuToStatic( false );
-        enableFullscreen();
-    } );
-    $( '#showMiscSection' ).click( function () {
-        $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#disco' ).hide();
-        $( '#misc' ).show();
-
         mainMenuToStatic( false );
         enableFullscreen();
     } );
@@ -760,8 +747,6 @@ $( document ).ready( function () {
     $( '#videos' ).show();
     $( '#images' ).hide();
     $( '#disco' ).hide();
-    $( '#misc' ).hide();
-
 
 } )
 ;
