@@ -231,7 +231,9 @@ $( document ).ready( function () {
         if ( diffHrs <= 9 ) {
             displayHour = '0' + diffHrs;
         }
+
         document.getElementById( 'timerMinutes' ).innerHTML = displayHour + ':' + displayMinute;
+        $( '.videoMenuOverlayFullscreenTime' ).html( displayHour + ':' + displayMinute );
 
         // Update progressGraph
         $( '.progressGraphElement' ).each( function () {
@@ -470,8 +472,10 @@ $( document ).ready( function () {
     } );
     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
         $( event.target ).find( '.disableVideoFullscreenIcon' ).show();
+        $( '.videoMenuOverlayFullscreenTime' ).show();
     }, function () {
         $( '.disableVideoFullscreenIcon' ).hide();
+        $( '.videoMenuOverlayFullscreenTime' ).hide();
     } );
     $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).click( function ( event ) {
         const container = $( this ).closest( '.videoContainer' )[0];
