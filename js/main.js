@@ -26,7 +26,7 @@ $( document ).ready( function () {
 
     Object.assign( config, optionalConfig );
 
-    // If debug mode is active, remove all but one video from youtube videos (speeds up load time)
+    // If debug mode is active, remove all but some videos (speeds up load time)
     if ( localStorage.getItem( 'debugModeSetting' ) == 'true' ) {
         $.each( config['videosYoutube'], function ( key, value ) {
             if ( key >= 2 ) {
@@ -63,7 +63,6 @@ $( document ).ready( function () {
         $( '#images' ).hide();
         $( '#disco' ).hide();
 
-        mainMenuToStatic( false );
         enableFullscreen();
     } );
     $( '#showImageSection' ).click( function () {
@@ -79,7 +78,6 @@ $( document ).ready( function () {
             imageSectionShown = true;
         }
 
-        mainMenuToStatic( false );
         enableFullscreen();
     } );
     $( '#showDiscoSection' ).click( function () {
@@ -88,17 +86,8 @@ $( document ).ready( function () {
         $( '#disco' ).show();
 
         renderDiscoSection( showParticles );
-        mainMenuToStatic( false );
         enableFullscreen();
     } );
-
-    function mainMenuToStatic( setStatic ) {
-        if ( setStatic ) {
-            $( '#mainMenu' ).addClass( 'sticky' );
-        } else {
-            $( '#mainMenu' ).removeClass( 'sticky' );
-        }
-    }
 
     $( '.menuItem' ).click( function () {
         $( '#menuClose' ).trigger( 'click' );
@@ -123,6 +112,8 @@ $( document ).ready( function () {
         localStorage.setItem( 'topupReminderInMinutes', '' );
         enableFullscreen();
     } );
+
+    // Lift off - initialize a lot of stuff
     $( '#liftOff' ).click( function ( e ) {
         timer = setInterval( upTimer, 1000 );
         start = new Date();
@@ -148,9 +139,9 @@ $( document ).ready( function () {
         if ( allGuidedThoughts.length > 0 ) {
             $( '.deactivateGuidedThoughts' ).show();
         }
-
     } );
-    // Top up Reminder
+
+    // Top up Reminder Config
     $( '#topupCheckbox' ).change( function () {
         if ( $( '#topupCheckbox' ).is( ':checked' ) ) {
             localStorage.setItem( 'topupReminderInMinutes', $( '#topupReminderInMinutes' ).val() );
@@ -163,7 +154,8 @@ $( document ).ready( function () {
             localStorage.setItem( 'topupReminderInMinutes', $( '#topupReminderInMinutes' ).val() );
         }
     } );
-    // Guided Thoughts Display
+
+    // Guided Thoughts Config
     localStorage.setItem( 'guidedThought1', '' );
     localStorage.setItem( 'guidedThought2', '' );
     localStorage.setItem( 'guidedThought3', '' );
@@ -176,7 +168,6 @@ $( document ).ready( function () {
             allGuidedThoughts.pop();
         }
     } );
-
     $( '.guidedThoughtsTextInput' ).change( function () {
         localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
     } );
@@ -188,6 +179,7 @@ $( document ).ready( function () {
     // Pizza timer
     $( '#startPizzaTimer' ).click( function ( e ) {
         localStorage.setItem( 'pizzaTimerStartMinutes', totalMins );
+        $( '#startPizzaTimer' ).html('Pizza Timer is set!');
     } );
 
     // ******************************************
@@ -269,22 +261,6 @@ $( document ).ready( function () {
             $( '#timedRecommendation' ).modal( 'hide' );
         } );
 
-        function showTimedRecommendation( recommendationText ) {
-            if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
-                disableFullscreen();
-                $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
-                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
-            }
-
-            if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
-                document.elementFromPoint( 0, 0 ).click();
-            }
-
-            $( '#timedRecommendation' ).modal( 'show' );
-            $( '#topupRecommendation' ).html( recommendationText );
-            $( '#topupRecommendation' ).show();
-        }
-
         // Guided Thoughts
         if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + minutesCountAtLastDisplayedThought && totalMins > guidedThoughtsStartMinute ) {
             minutesCountAtLastDisplayedThought = totalMins;
@@ -295,6 +271,22 @@ $( document ).ready( function () {
             guidedThoughtsNext += 1;
             guidedThoughtsNext = guidedThoughtsNext % allGuidedThoughts.length;
         }
+    }
+
+    function showTimedRecommendation( recommendationText ) {
+        if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
+            disableFullscreen();
+            $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
+            $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+        }
+
+        if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
+            document.elementFromPoint( 0, 0 ).click();
+        }
+
+        $( '#timedRecommendation' ).modal( 'show' );
+        $( '#topupRecommendation' ).html( recommendationText );
+        $( '#topupRecommendation' ).show();
     }
 
     function randomIntFromInterval( min, max ) {
@@ -309,29 +301,10 @@ $( document ).ready( function () {
     }
 
     // ******************************************
-    // Fullscreen
+    // Toggle Fullscreen button
     $( '.toggleFullscreen' ).click( function ( event ) {
         toggleFullScreen( event );
     } );
-
-    $( '#discoSettingsContainer' ).hover(
-            function () {
-                $( '#mainMenu' ).show();
-            }, function () {
-                if ( $( '#disco' ).is( ':visible' ) ) {
-                    $( '#mainMenu' ).hide();
-                }
-            }
-    );
-    $( '#mainMenu' ).hover(
-            function () {
-                $( '#mainMenu' ).show();
-            }, function () {
-                if ( $( '#disco' ).is( ':visible' ) ) {
-                    $( '#mainMenu' ).hide();
-                }
-            }
-    );
 
     function toggleFullScreen( event ) {
         event.preventDefault();
@@ -348,9 +321,9 @@ $( document ).ready( function () {
         isFullScreen = true;
         if ( document.documentElement.requestFullscreen ) {
             document.documentElement.requestFullscreen();
-        } else if ( document.documentElement.webkitRequestFullscreen ) { /* Safari */
+        } else if ( document.documentElement.webkitRequestFullscreen ) {
             document.documentElement.webkitRequestFullscreen();
-        } else if ( document.documentElement.msRequestFullscreen ) { /* IE11 */
+        } else if ( document.documentElement.msRequestFullscreen ) {
             document.documentElement.msRequestFullscreen();
         }
     }
@@ -359,9 +332,9 @@ $( document ).ready( function () {
         isFullScreen = false;
         if ( document.exitFullscreen ) {
             document.exitFullscreen();
-        } else if ( document.webkitExitFullscreen ) { /* Safari */
+        } else if ( document.webkitExitFullscreen ) {
             document.webkitExitFullscreen();
-        } else if ( document.msExitFullscreen ) { /* IE11 */
+        } else if ( document.msExitFullscreen ) {
             document.msExitFullscreen();
         }
     }
@@ -376,13 +349,13 @@ $( document ).ready( function () {
     }
 
     // ******************************************
-    // Info Tag toggle
+    // Info Tag toggle setting
     $( '#toggleInfo' ).click( function ( event ) {
         $( '.videoInfo' ).toggle();
     } )
 
     // ******************************************
-    // debugMode toggle
+    // debugMode toggle setting
     if ( localStorage.getItem( 'debugModeSetting' ) == undefined || localStorage.getItem( 'debugModeSetting' ) == 'false' ) {
         localStorage.setItem( 'debugModeSetting', 'false' );
         $( '#debugModeSetting' ).html( '(off)' );
@@ -401,7 +374,7 @@ $( document ).ready( function () {
     } )
 
     // ******************************************
-    // Toggling fullscreen autoplay toggle
+    // Toggling fullscreen autoplay toggle setting
     if ( localStorage.getItem( 'fullscreenAutoplay' ) == undefined || localStorage.getItem( 'fullscreenAutoplay' ) == 'false' ) {
         localStorage.setItem( 'fullscreenAutoplay', 'false' );
         $( '#fullscreenAutoplaySetting' ).html( '(off)' );
@@ -418,6 +391,7 @@ $( document ).ready( function () {
             $( '#fullscreenAutoplaySetting' ).html( '(off)' );
         }
     } )
+
 
     // ***********************************
     // Video section
@@ -522,7 +496,8 @@ $( document ).ready( function () {
     $( '.videoFrame' ).click( function ( event ) {
         this.paused ? this.play() : this.pause();
     } );
-
+    // END Video section
+    // ******************************************
 
     // ******************************************
     // Image section
@@ -578,13 +553,11 @@ $( document ).ready( function () {
         } );
     } );
 
-
     // Image selection via mouse wheel
     $( window ).on( 'wheel', function ( event ) {
         if ( $( 'body figure' ).length == 1 ) {
             event.preventDefault();
             event.stopPropagation();
-
             document.body.style.overflow = 'auto';
 
             for ( var i in config['images'] ) {
@@ -592,11 +565,9 @@ $( document ).ready( function () {
                 if ( config['images'][i]['image'] == lastDisplayedImage ) {
                     if ( event.originalEvent.deltaY > 0 ) { // going down
                         nextImageIndex = parseInt( i, 10 ) + 1;
-
                         if ( nextImageIndex > config['images'].length - 1 ) {
                             nextImageIndex = 0;
                         }
-
                         if ( imageTagList != '' ) {
                             while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
                                 nextImageIndex += 1;
@@ -607,11 +578,9 @@ $( document ).ready( function () {
                         }
                     } else { // going up
                         nextImageIndex = parseInt( i, 10 ) - 1;
-
                         if ( nextImageIndex < 0 ) {
                             nextImageIndex = config['images'].length - 1;
                         }
-
                         if ( imageTagList != '' ) {
                             while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
                                 nextImageIndex -= 1;
@@ -629,7 +598,8 @@ $( document ).ready( function () {
             $( 'body figure' ).remove();
         }
     } );
-
+    // END Image section
+    // ******************************************
 
     // ******************************************
     // Music section
@@ -689,7 +659,8 @@ $( document ).ready( function () {
             IFrameAPI.createController( element, options, callback );
         };
     }
-
+    // END Music section
+    // ******************************************
 
     // ******************************************
     // Disco section
@@ -727,6 +698,30 @@ $( document ).ready( function () {
         }
     } );
 
+    $( '#disco' ).mousemove( function ( event ) {
+        if ( event.pageY < 20 ) {
+            $( '#mainMenu' ).show();
+        }
+    } );
+    $( '#discoSettingsContainer' ).hover(
+            function () {
+                $( '#mainMenu' ).show();
+            }, function () {
+                if ( $( '#disco' ).is( ':visible' ) ) {
+                    $( '#mainMenu' ).hide();
+                }
+            }
+    );
+    $( '#mainMenu' ).hover(
+            function () {
+                $( '#mainMenu' ).show();
+            }, function () {
+                if ( $( '#disco' ).is( ':visible' ) ) {
+                    $( '#mainMenu' ).hide();
+                }
+            }
+    );
+
     function renderDiscoSection( showParticles ) {
         // reset strobo to default
         stroboBGWhite = true;
@@ -735,12 +730,9 @@ $( document ).ready( function () {
         $( '.particles-js-canvas-el' ).remove();
         particlesInit( showParticles );
     }
+    // END Disco section
+    // ******************************************
 
-    $( '#disco' ).mousemove( function ( event ) {
-        if ( event.pageY < 20 ) {
-            $( '#mainMenu' ).show();
-        }
-    } );
 
     // ******************************************
     // init initial view
