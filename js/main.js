@@ -5,7 +5,7 @@ $( document ).ready( function () {
     var lastDisplayedImage = config['images'][0]['image'];
 
     var minutesTillNextThought = 0;
-    var minutesCountAtLastDisplayedThought = 0;
+    var minutesCountAtLastDisplayedThought = 2; // This is the minute the first time a reminder is displayed at all
     var allGuidedThoughts = [];
     var guidedThoughtsNext = 0;
 
@@ -22,7 +22,7 @@ $( document ).ready( function () {
 
     var totalMins = 0;
     var pizzaTimerMinutesTillReady = 18;
-    var guidedThoughtsStartMinute = 80;
+
 
     Object.assign( config, optionalConfig );
 
@@ -179,7 +179,7 @@ $( document ).ready( function () {
     // Pizza timer
     $( '#startPizzaTimer' ).click( function ( e ) {
         localStorage.setItem( 'pizzaTimerStartMinutes', totalMins );
-        $( '#startPizzaTimer' ).html('Pizza Timer is set!');
+        $( '#startPizzaTimer' ).html( 'Pizza Timer is set!' );
     } );
 
     // ******************************************
@@ -262,7 +262,7 @@ $( document ).ready( function () {
         } );
 
         // Guided Thoughts
-        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + minutesCountAtLastDisplayedThought && totalMins > guidedThoughtsStartMinute ) {
+        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + minutesCountAtLastDisplayedThought ) {
             minutesCountAtLastDisplayedThought = totalMins;
             minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
             $( '.guidedThoughtsText' ).html( allGuidedThoughts[guidedThoughtsNext] );
@@ -730,6 +730,7 @@ $( document ).ready( function () {
         $( '.particles-js-canvas-el' ).remove();
         particlesInit( showParticles );
     }
+
     // END Disco section
     // ******************************************
 
