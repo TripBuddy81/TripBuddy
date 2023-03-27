@@ -578,6 +578,20 @@ $( document ).ready( function () {
         }
     } );
 
+    // Show time in image when moving mouse
+    var moveTimer;
+    $( document ).mousemove( function () {
+        if ( $( 'body figure' ).length == 1 ) {
+            $( 'figure' ).on( 'mousemove', function () {
+                clearTimeout( moveTimer );
+                moveTimer = setTimeout( function () {
+                    $( '.videoMenuOverlayFullscreenTime' ).hide();
+                }, 1500 );
+                $( '.videoMenuOverlayFullscreenTime' ).show();
+            } );
+        }
+    } );
+
     // Image selection via mouse wheel
     $( window ).on( 'wheel', function ( event ) {
         if ( $( 'body figure' ).length == 1 ) {
