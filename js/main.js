@@ -262,7 +262,7 @@ $( document ).ready( function () {
             updateprogressGraphColor( color );
             $( '#timerMinutes' ).css( 'color', color );
         } else {
-            color = '#aaf683';
+            color = '#67ff19';
             updateprogressGraphColor( color );
             $( '#timerMinutes' ).css( 'color', color );
         }
