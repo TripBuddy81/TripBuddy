@@ -682,7 +682,7 @@ video::-webkit-media-controls-fullscreen-button {
     top: -14px;
     width: 200px;
     height: 100px;
-    position: absolute;
+    position: fixed;
      display: none;
     font-size: 80px;
     font-family: sans-serif;

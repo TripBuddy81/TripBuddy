@@ -295,6 +295,7 @@ var Intense = (function () {
         }
 
         img.src = imageSource;
+        img.classList = 'displayedFullscreenImage';
     }
 
     function bindEvents() {

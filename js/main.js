@@ -22,6 +22,7 @@ $( document ).ready( function () {
 
     var totalMins = 0;
     var pizzaTimerMinutesTillReady = 18;
+    var guidedThoughtsStartMinute = 80;
 
     Object.assign( config, optionalConfig );
 
@@ -285,7 +286,7 @@ $( document ).ready( function () {
         }
 
         // Guided Thoughts
-        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + minutesCountAtLastDisplayedThought ) {
+        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + minutesCountAtLastDisplayedThought && totalMins > guidedThoughtsStartMinute ) {
             minutesCountAtLastDisplayedThought = totalMins;
             minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
             $( '.guidedThoughtsText' ).html( allGuidedThoughts[guidedThoughtsNext] );
@@ -568,16 +569,15 @@ $( document ).ready( function () {
     // Show time in image when moving mouse
     var moveTimer;
     $( document ).mousemove( function () {
-        if ( $( 'body figure' ).length == 1 ) {
-            $( 'figure' ).on( 'mousemove', function () {
-                clearTimeout( moveTimer );
-                moveTimer = setTimeout( function () {
-                    $( '.videoMenuOverlayFullscreenTime' ).hide();
-                }, 1500 );
-                $( '.videoMenuOverlayFullscreenTime' ).show();
-            } );
-        }
+        $( '.displayedFullscreenImage' ).on( 'mousemove', function () {
+            clearTimeout( moveTimer );
+            moveTimer = setTimeout( function () {
+                $( '.videoMenuOverlayFullscreenTime' ).hide();
+            }, 1500 );
+            $( '.videoMenuOverlayFullscreenTime' ).show();
+        } );
     } );
+
 
     // Image selection via mouse wheel
     $( window ).on( 'wheel', function ( event ) {
