@@ -183,10 +183,6 @@ var config = {
             'tags'     : 'meditative space'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/IWVJq-4zW24?mute=1',
-            'tags'     : 'meditative space'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/CrgYEbIQkac?mute=1',
             'tags'     : 'meditative space'
         },

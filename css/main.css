@@ -100,7 +100,8 @@ p {
     background-color: #d6eadf;
 }
 
-.btn.videoFilterBtn.filterActive, .btn.imageFilterBtn.filterActive {
+.btn.videoFilterBtn.videoFilterActive, .btn.imageFilterBtn.videoFilterActive,
+.btn.videoFilterBtn.imageFilterActive, .btn.imageFilterBtn.imageFilterActive{
     background-color: #809bce;
 }
 

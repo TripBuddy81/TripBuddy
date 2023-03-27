@@ -266,7 +266,7 @@ $( document ).ready( function () {
         }
 
         // Reminder Display - Pizza Timer
-        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != ''  && totalMins >= localStorage.getItem( 'pizzaTimerStartMinutes' ) + pizzaTimerMinutesTillReady && pizzaTimerShown == false ) {
+        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' && totalMins >= localStorage.getItem( 'pizzaTimerStartMinutes' ) + pizzaTimerMinutesTillReady && pizzaTimerShown == false ) {
             pizzaTimerShown = true;
             showTimedRecommendation( 'Pizza!!!' );
         }
@@ -310,7 +310,6 @@ $( document ).ready( function () {
     function randomIntFromInterval( min, max ) {
         return Math.floor( Math.random() * (parseInt( max ) - parseInt( min ) + 1) + parseInt( min ) )
     }
-
 
     function updateprogressGraphColor( color ) {
         $( '.activeprogressGraphElement' ).each( function () {
@@ -436,23 +435,24 @@ $( document ).ready( function () {
     $( '.videoFilterBtn' ).click( function () {
         videoTagList = '';
         // Remove this block to reenable multi tag select!
-        $( '.videoFilterBtn.filterActive' ).each( function () {
-            $( this ).toggleClass( 'filterActive' );
+        $( '.videoFilterBtn.videoFilterActive' ).each( function () {
+            $( this ).toggleClass( 'videoFilterActive' );
         } );
 
         $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
         $( '.videoContainer' ).each( function () {
             $( this ).hide();
         } );
-        $( this ).toggleClass( 'filterActive' );
+        $( this ).toggleClass( 'videoFilterActive' );
 
-
-        $( '.videoFilterBtn.filterActive' ).each( function () {
+        $( '.videoFilterBtn.videoFilterActive' ).each( function () {
             videoTagList += '.' + $( this ).text().trim();
         } );
 
         $( videoTagList ).each( function () {
-            $( this ).show();
+            if ( $( this ).hasClass( 'videoContainer' ) ) {
+                $( this ).show();
+            }
         } );
 
         if ( videoTagList == '' ) {
@@ -538,22 +538,24 @@ $( document ).ready( function () {
     $( '.imageFilterBtn' ).click( function () {
         imageTagList = '';
         // Remove this block to reenable multi tag select!
-        $( '.imageFilterBtn.filterActive' ).each( function () {
-            $( this ).toggleClass( 'filterActive' );
+        $( '.imageFilterBtn.imageFilterActive' ).each( function () {
+            $( this ).toggleClass( 'imageFilterActive' );
         } );
 
         $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
         $( '.fullscreenImage' ).each( function () {
             $( this ).hide();
         } );
-        $( this ).toggleClass( 'filterActive' );
+        $( this ).toggleClass( 'imageFilterActive' );
 
-        $( '.imageFilterBtn.filterActive' ).each( function () {
+        $( '.imageFilterBtn.imageFilterActive' ).each( function () {
             imageTagList += '.' + $( this ).text().trim();
         } );
 
         $( imageTagList ).each( function () {
-            $( this ).show();
+            if ( $( this ).hasClass( 'fullscreenImage' ) ) {
+                $( this ).show();
+            }
         } );
 
         if ( imageTagList == '' ) {
