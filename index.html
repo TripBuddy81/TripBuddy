@@ -53,12 +53,13 @@
                             style=""></select>
                     <span>---------------------------------------------------------------------------------</span>
                     <li class="menuItem deactivateGuidedThoughts">Stop guided thoughts</li>
-                    <li class="menuItem" id="fullscreenAutoplay">Toggling fullscreen triggers play/stop <span id="fullscreenAutoplaySetting">(off)</span></li>
+                    <li class="menuItem" id="startPizzaTimer">Start Pizza Timer (18 min)</li>
                     <span>---------------------------------------------------------------------------------</span>
                     <li class="menuItem"><a href="help.html" target="_blank">Help/Info</a></li>
                     <li class="menuItem" id="showMiscSection">Misc Links</li>
                     <span>---------------------------------------------------------------------------------</span>
                     <li class="menuItem" id="toggleInfo">Toggle video info</li>
+                    <li class="menuItem" id="fullscreenAutoplay">Toggling fullscreen triggers play/stop <span id="fullscreenAutoplaySetting">(off)</span></li>
                     <li class="menuItem" id="debugMode">Debug mode - less videos <span id="debugModeSetting">(off)</span></li>
                 </ul>
             </div>
@@ -125,7 +126,6 @@
             </table>
         </div>
 
-
         <select id="playlists" class="float-end me-3 mt-3 form-control">
             <option data-spotify-id="" value="" disabled selected value>Select Playlist</option>
             {{#playlists}}
@@ -133,18 +133,14 @@
             {{/playlists}}
         </select>
 
-
         <div id="iFrameSpotifyPlayerContainer" class="float-end ">
             <div id="iFrameSpotifyPlayer"></div>
         </div>
 
-
         <div id="oAuthPlayerControl" class="float-end mt-3">
             <img id="next" class="float-end playerIcon me-4 mt-3" src="./assets/next.png">
-            <img id="startStop" class="float-end playerIcon me-4 mt-3" src="./assets/play.png">
+            <img id="stopMusic" class="float-end playerIcon me-4 mt-3" src="./assets/pause.png">
         </div>
-
-
     </div>
 
 

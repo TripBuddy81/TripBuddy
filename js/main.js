@@ -15,9 +15,13 @@ $( document ).ready( function () {
     var start = '';
     var currentState = 'ignition';
     var lastState = '';
-    var recommendationsShown = false;
+    var topUpReminderShown = false;
+    var pizzaTimerShown = false;
 
     var imageSectionShown = false;
+
+    var totalMins = 0;
+    var pizzaTimerMinutesTillReady = 18;
 
     Object.assign( config, optionalConfig );
 
@@ -135,6 +139,8 @@ $( document ).ready( function () {
         timer = setInterval( upTimer, 1000 );
         start = new Date();
 
+        localStorage.setItem( 'pizzaTimerStartMinutes', '' );
+
         minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
 
         $( '#preFlightChecklist' ).modal( 'hide' );
@@ -190,6 +196,11 @@ $( document ).ready( function () {
         localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
     } );
 
+    // ******************************************
+    // Pizza timer
+    $( '#startPizzaTimer' ).click( function ( e ) {
+        localStorage.setItem( 'pizzaTimerStartMinutes', totalMins );
+    } );
 
     // ******************************************
     // enable/disable screen
@@ -212,7 +223,7 @@ $( document ).ready( function () {
         var diffMs = (now - start);
         var diffHrs = displayHour = Math.floor( diffMs / 3600000 );
         var diffMins = displayMinute = Math.floor( diffMs / 60000 ) % 60;
-        var totalMins = Math.floor( diffMs / 60000 );
+        totalMins = Math.floor( diffMs / 60000 );
 
         if ( diffMins <= 9 ) {
             displayMinute = '0' + diffMins;
@@ -254,10 +265,21 @@ $( document ).ready( function () {
             $( '#timerMinutes' ).css( 'color', color );
         }
 
-        // Reminder Display (Top up)
-        if ( localStorage.getItem( 'topupReminderInMinutes' ) > 0 && totalMins >= localStorage.getItem( 'topupReminderInMinutes' ) && recommendationsShown == false ) {
-            recommendationsShown = true;
+        // Reminder Display - Pizza Timer
+        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != ''  && totalMins >= localStorage.getItem( 'pizzaTimerStartMinutes' ) + pizzaTimerMinutesTillReady && pizzaTimerShown == false ) {
+            pizzaTimerShown = true;
+            showTimedRecommendation( 'Pizza!!!' );
+        }
+        // Reminder Display - Top up
+        if ( localStorage.getItem( 'topupReminderInMinutes' ) > 0 && totalMins >= localStorage.getItem( 'topupReminderInMinutes' ) && topUpReminderShown == false ) {
+            topUpReminderShown = true;
+            showTimedRecommendation( 'Top up now!' );
+        }
+        $( '#timedRecommendation' ).click( function ( event ) {
+            $( '#timedRecommendation' ).modal( 'hide' );
+        } );
 
+        function showTimedRecommendation( recommendationText ) {
             if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
                 disableFullscreen();
                 $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
@@ -269,11 +291,9 @@ $( document ).ready( function () {
             }
 
             $( '#timedRecommendation' ).modal( 'show' );
+            $( '#topupRecommendation' ).html( recommendationText );
             $( '#topupRecommendation' ).show();
         }
-        $( '#timedRecommendation' ).click( function ( event ) {
-            $( '#timedRecommendation' ).modal( 'hide' );
-        } );
 
         // Guided Thoughts
         if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + minutesCountAtLastDisplayedThought ) {
@@ -618,30 +638,18 @@ $( document ).ready( function () {
         client_secret = config['oAuthSpotify'][0]['client_secret'];
         spotifyInitOnPageLoad();
 
-        var currentlyPlaying = false;
-        $( '#startStop' ).click( function () {
-            if ( currentlyPlaying ) {
-                pause();
-                currentlyPlaying = false;
-                $( this ).attr( 'src', './assets/play.png' );
-            } else {
-                next();
-                currentlyPlaying = true;
-                $( this ).attr( 'src', './assets/pause.png' );
-            }
+        $( '#stopMusic' ).click( function () {
+            pause();
+            $( this ).attr( 'src', './assets/pause.png' );
         } );
 
         $( '#playlists' ).change( function () {
             shuffle();
             play( $( '#playlists' ).find( ':selected' ).val() );
-            currentlyPlaying = true;
-            $( '#startStop' ).attr( 'src', './assets/pause.png' );
         } );
 
         $( '#next' ).click( function () {
             next();
-            currentlyPlaying = true;
-            $( '#startStop' ).attr( 'src', './assets/pause.png' );
         } );
         $( '#refresh' ).click( function () {
             refreshDevices();
