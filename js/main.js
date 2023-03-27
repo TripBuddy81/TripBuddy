@@ -1,28 +1,23 @@
 $( document ).ready( function () {
     // ***********************************
     // Globals
+    var pizzaTimerMinutesTillReady = 18;
+    var minutesCountAtLastDisplayedThought = 80; // This is the minute the first time a reminder is displayed at all
+
     var isFullScreen = false;
     var lastDisplayedImage = config['images'][0]['image'];
-
     var minutesTillNextThought = 0;
-    var minutesCountAtLastDisplayedThought = 2; // This is the minute the first time a reminder is displayed at all
     var allGuidedThoughts = [];
     var guidedThoughtsNext = 0;
-
     var keyCache = {};
-
     var timer = '';
     var start = '';
     var currentState = 'ignition';
     var lastState = '';
     var topUpReminderShown = false;
     var pizzaTimerShown = false;
-
     var imageSectionShown = false;
-
     var totalMins = 0;
-    var pizzaTimerMinutesTillReady = 18;
-
 
     Object.assign( config, optionalConfig );
 
