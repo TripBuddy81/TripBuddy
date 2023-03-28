@@ -524,15 +524,35 @@ var config = {
             'tags' : 'trippy'
         },
         {
-            'image': './media/images/23.jpg',
-            'tags' : 'trippy'
-        },
-        {
             'image': './media/images/46.jpg',
             'tags' : 'trippy'
         },
         {
             'image': './media/images/45.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/49.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/50.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/51.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/52.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/53.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/54.jpg',
             'tags' : 'trippy'
         },
         {
