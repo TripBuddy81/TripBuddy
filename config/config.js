@@ -147,11 +147,16 @@ var config = {
             'tags'     : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/Ck-h9YGKyOc?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/Y_plhk1FUQA?mute=1',
+            'tags'     : 'meditative space'
+        },
+
+        {
+            'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
             'tags'     : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/Ck-h9YGKyOc?mute=1',
             'tags'     : 'meditative'
         },
         {
@@ -180,10 +185,6 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/B5unCXpegAw?mute=1',
-            'tags'     : 'meditative space'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/Y_plhk1FUQA?mute=1',
             'tags'     : 'meditative space'
         },
         {
