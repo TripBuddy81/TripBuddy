@@ -66,8 +66,8 @@ var config = {
     'selectableVideoTags': [
         {'selectableTag': 'trippy-2D'},
         {'selectableTag': 'trippy-3D'},
-/*        {'selectableTag': 'trippy-slow'},
-        {'selectableTag': 'trippy-fast'},*/
+        /*        {'selectableTag': 'trippy-slow'},
+                {'selectableTag': 'trippy-fast'},*/
         {'selectableTag': 'meditative'},
         {'selectableTag': 'space'},
         {'selectableTag': 'nature'},
@@ -77,7 +77,7 @@ var config = {
         {'selectableTag': 'wisdom'},
         {'selectableTag': 'leftovers'}
     ],
-    'videosYoutube' : [
+    'videosYoutube'      : [
         {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
             'tags'     : 'trippy-slow trippy-3D'
@@ -498,7 +498,7 @@ var config = {
         {'selectableTag': 'nature'},
         {'selectableTag': 'space'}
     ],
-    'images'        : [
+    'images'             : [
         {
             'image': './media/images/40.jpg',
             'tags' : 'trippy'
@@ -667,5 +667,14 @@ var config = {
             'image': './media/images/19.jpg',
             'tags' : 'space'
         }
+    ],
+    'ReminderSelection'  : [
+        {'reminder': 'Dance!'},
+        {'reminder': 'Listen to Alans wisdom!'},
+        {'reminder': 'Drink Tea'},
+        {'reminder': 'Deeptalk with plant'},
+        {'reminder': 'Inspect atomic structure of table'},
+        {'reminder': 'Cuddle your friends!'},
+        {'reminder': 'Eat some fruits'}
     ]
 };

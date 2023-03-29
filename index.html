@@ -185,7 +185,7 @@
                             <div class="row">
                                 <div class="col">
                                     <h1>Reminders</h1>
-                                    <h2>Display Popup as reminder after configured time</h2>
+                                    <h3>Display Popup as reminder after configured time</h3>
                                     <div class="options form-check form-switch">
                                         <label class="form-check-label" for="topupCheckbox">Top Up after </label>
                                         <input class="form-check-input" type="checkbox" id="topupCheckbox">
@@ -196,10 +196,10 @@
                                 </div>
                             </div>
 
-                            <div id="guidedThoughtsSettings" class="row mt-5">
+                            <div id="guidedThoughtsSettings" class="row mt-3">
                                 <div class="col">
                                     <h1>Guided thoughts</h1>
-                                    <h2>Will display given texts from time to time</h2>
+                                    <h3>Will display given texts from time to time</h3>
                                     <label class="form-check-label me-2" for="guidedThought1">#1</label>
                                     <input class="guidedThoughtsTextInput" type="text" id="guidedThought1"
                                            name="guidedThought1"
@@ -216,21 +216,30 @@
                                            value="" maxlength="40"> </br>
 
                                     <label class="guidedThoughtMinutesLabel form-check-label me-2"
-                                           for="guidedThoughtMinMinutes">Min minutes of random timespan between display</label>
+                                           for="guidedThoughtMinMinutes">Min minutes of random timespan between
+                                        display</label>
                                     <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMinMinutes"
                                            name="guidedThoughtMinMinutes"
                                            value="15" min="1" max="60"> </br>
 
                                     <label class="guidedThoughtMinutesLabel form-check-label me-2"
-                                           for="guidedThoughtMaxMinutes">Max minutes of random timespan between display</label>
+                                           for="guidedThoughtMaxMinutes">Max minutes of random timespan between
+                                        display</label>
                                     <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMaxMinutes"
                                            name="guidedThoughtMaxMinutes"
-                                           value="25" min="1" max="60">
+                                           value="20" min="1" max="60">
 
                                     </br>
-                                    <label class="firstGuidedThoughtMinLabel form-check-label me-2" for="firstGuidedThoughtMin">Minutes till first thought appears earliest</label>
+                                    <label class="firstGuidedThoughtMinLabel form-check-label me-2"
+                                           for="firstGuidedThoughtMin">Minutes till first thought appears
+                                        earliest</label>
                                     <input type="number" id="firstGuidedThoughtMin" name="firstGuidedThoughtMin"
-                                           value="70" min="0" max="600">
+                                           value="60" min="0" max="600">
+
+                                    <h3 class="mt-3">Reminder suggestions <span id="clearReminders">(clear all)</span></h3>
+                                    {{#ReminderSelection}}
+                                        <span class="reminderSuggestion">{{reminder}}</span>
+                                    {{/ReminderSelection}}
 
                                 </div>
                             </div>

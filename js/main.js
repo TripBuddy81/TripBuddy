@@ -181,6 +181,27 @@ $( document ).ready( function () {
         localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( $( this ).val() ) );
     } );
 
+    guidedThoughtPrefilTarget = 1;
+    $( '.reminderSuggestion' ).click( function () {
+        $( '#guidedThought' + guidedThoughtPrefilTarget ).val( $( this ).html() );
+        $( '#guidedThought' + guidedThoughtPrefilTarget ).trigger( 'change' );
+        guidedThoughtPrefilTarget += 1;
+
+        if ( guidedThoughtPrefilTarget == 4 ) {
+            guidedThoughtPrefilTarget = 1;
+        }
+    } );
+    $( '#clearReminders' ).click( function () {
+        $( '#guidedThought1' ).val( '' );
+        $( '#guidedThought1' ).trigger( 'change' );
+        $( '#guidedThought2' ).val( '' );
+        $( '#guidedThought2' ).trigger( 'change' );
+        $( '#guidedThought3' ).val( '' );
+        $( '#guidedThought3' ).trigger( 'change' );
+        guidedThoughtPrefilTarget = 1;
+    } );
+
+
     // ******************************************
     // Pizza timer
     $( '#startPizzaTimer' ).click( function ( e ) {
