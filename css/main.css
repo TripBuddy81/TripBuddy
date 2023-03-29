@@ -315,6 +315,10 @@ p {
     -webkit-text-fill-color: transparent;
 }
 
+.reminderLabel {
+    width: 190px;
+}
+
 .reminderSuggestion {
     float: left;
     padding-right: 25px;
@@ -341,8 +345,8 @@ li, .options, .form-check-label {
     font-family: sans-serif;
 }
 
-#topupReminderInMinutes, #guidedThoughtMinMinutes, #guidedThoughtMaxMinutes, #firstGuidedThoughtMin {
-    width: 50px;
+#topupReminderInMinutes, #guidedThoughtMinMinutes, #guidedThoughtMaxMinutes, #firstGuidedThoughtMin, #orderPizzaReminderInMinutes {
+    width: 65px;
     border: none;
     font-weight: bold;
 }

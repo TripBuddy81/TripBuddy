@@ -15,6 +15,7 @@ $( document ).ready( function () {
     var currentState = 'ignition';
     var lastState = '';
     var topUpReminderShown = false;
+    var orderPizzaReminderShown = false;
     var pizzaTimerShown = false;
     var imageSectionShown = false;
     var totalMins = 0;
@@ -111,6 +112,7 @@ $( document ).ready( function () {
     // Start button & preFlightChecklist & Reminders
     $( '#launchText' ).click( function ( e ) {
         localStorage.setItem( 'topupReminderInMinutes', '' );
+        localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
         enableFullscreen();
     } );
 
@@ -155,6 +157,21 @@ $( document ).ready( function () {
             localStorage.setItem( 'topupReminderInMinutes', $( '#topupReminderInMinutes' ).val() );
         }
     } );
+
+    // Order Pizza Reminder Config
+    $( '#orderPizzaCheckbox' ).change( function () {
+        if ( $( '#orderPizzaCheckbox' ).is( ':checked' ) ) {
+            localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
+        } else {
+            localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
+        }
+    } );
+    $( '#orderPizzaReminderInMinutes' ).change( function () {
+        if ( $( '#orderPizzaCheckbox' ).is( ':checked' ) ) {
+            localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
+        }
+    } );
+
 
     // Guided Thoughts Config
     localStorage.setItem( 'guidedThought1', '' );
@@ -283,6 +300,11 @@ $( document ).ready( function () {
         if ( localStorage.getItem( 'topupReminderInMinutes' ) > 0 && totalMins >= localStorage.getItem( 'topupReminderInMinutes' ) && topUpReminderShown == false ) {
             topUpReminderShown = true;
             showTimedRecommendation( 'Top up now!' );
+        }
+        // Reminder Display - Order Pizza
+        if ( localStorage.getItem( 'orderPizzaReminderInMinutes' ) > 0 && totalMins >= localStorage.getItem( 'orderPizzaReminderInMinutes' ) && orderPizzaReminderShown == false ) {
+            orderPizzaReminderShown = true;
+            showTimedRecommendation( 'Order Pizza!' );
         }
         $( '#timedRecommendation' ).click( function ( event ) {
             $( '#timedRecommendation' ).modal( 'hide' );
