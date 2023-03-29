@@ -200,7 +200,6 @@
                                 <div class="col">
                                     <h1>Guided thoughts</h1>
                                     <h2>Will display given texts from time to time</h2>
-                                    <h3>(starts after 80 min)</h3>
                                     <label class="form-check-label me-2" for="guidedThought1">#1</label>
                                     <input class="guidedThoughtsTextInput" type="text" id="guidedThought1"
                                            name="guidedThought1"
@@ -217,16 +216,22 @@
                                            value="" maxlength="40"> </br>
 
                                     <label class="guidedThoughtMinutesLabel form-check-label me-2"
-                                           for="guidedThoughtMinMinutes">Min minutes till display</label>
+                                           for="guidedThoughtMinMinutes">Min minutes of random timespan between display</label>
                                     <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMinMinutes"
                                            name="guidedThoughtMinMinutes"
                                            value="15" min="1" max="60"> </br>
 
                                     <label class="guidedThoughtMinutesLabel form-check-label me-2"
-                                           for="guidedThoughtMaxMinutes">Max minutes till display</label>
+                                           for="guidedThoughtMaxMinutes">Max minutes of random timespan between display</label>
                                     <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMaxMinutes"
                                            name="guidedThoughtMaxMinutes"
                                            value="25" min="1" max="60">
+
+                                    </br>
+                                    <label class="firstGuidedThoughtMinLabel form-check-label me-2" for="firstGuidedThoughtMin">Minutes till first thought appears earliest</label>
+                                    <input type="number" id="firstGuidedThoughtMin" name="firstGuidedThoughtMin"
+                                           value="70" min="0" max="600">
+
                                 </div>
                             </div>
 

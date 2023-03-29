@@ -2,8 +2,8 @@ $( document ).ready( function () {
     // ***********************************
     // Globals
     var pizzaTimerMinutesTillReady = 18;
-    var minutesCountAtLastDisplayedThought = 80; // This is the minute the first time a reminder is displayed at all
 
+    var minutesCountAtLastDisplayedThought = 0; // This is the minute the first time a reminder is displayed at all
     var isFullScreen = false;
     var lastDisplayedImage = config['images'][0]['image'];
     var minutesTillNextThought = 0;
@@ -162,6 +162,7 @@ $( document ).ready( function () {
     localStorage.setItem( 'guidedThought3', '' );
     localStorage.setItem( 'guidedThoughtMinMinutes', $( '#guidedThoughtMinMinutes' ).val() );
     localStorage.setItem( 'guidedThoughtMaxMinutes', $( '#guidedThoughtMaxMinutes' ).val() );
+    localStorage.setItem( 'minutesCountAtLastDisplayedThought', $( '#firstGuidedThoughtMin' ).val() );
     $( '.guidedThoughtsContainer, .deactivateGuidedThoughts' ).click( function () {
         $( '.guidedThoughtsContainer' ).hide();
         $( '.deactivateGuidedThoughts' ).hide();
@@ -174,6 +175,10 @@ $( document ).ready( function () {
     } );
     $( '.guidedThoughtMinutes' ).change( function () {
         localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
+    } );
+
+    $( '#firstGuidedThoughtMin' ).change( function () {
+        localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( $( this ).val() ) );
     } );
 
     // ******************************************
@@ -263,7 +268,7 @@ $( document ).ready( function () {
         } );
 
         // Guided Thoughts
-        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + minutesCountAtLastDisplayedThought ) {
+        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'minutesCountAtLastDisplayedThought' )) ) {
             minutesCountAtLastDisplayedThought = totalMins;
             minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
             $( '.guidedThoughtsText' ).html( allGuidedThoughts[guidedThoughtsNext] );

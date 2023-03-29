@@ -316,7 +316,7 @@ p {
 }
 
 .guidedThoughtMinutesLabel {
-    width: 260px;
+    width: 560px;
 }
 
 li, .options, .form-check-label {
@@ -329,7 +329,7 @@ li, .options, .form-check-label {
     font-family: sans-serif;
 }
 
-#topupReminderInMinutes, #guidedThoughtMinMinutes, #guidedThoughtMaxMinutes {
+#topupReminderInMinutes, #guidedThoughtMinMinutes, #guidedThoughtMaxMinutes, #firstGuidedThoughtMin {
     width: 50px;
     border: none;
     font-weight: bold;
