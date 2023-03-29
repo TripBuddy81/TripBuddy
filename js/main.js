@@ -268,8 +268,8 @@ $( document ).ready( function () {
         } );
 
         // Guided Thoughts
-        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'minutesCountAtLastDisplayedThought' )) ) {
-            minutesCountAtLastDisplayedThought = totalMins;
+        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'minutesCountAtLastDisplayedThought' ) ) ) {
+            localStorage.setItem( 'minutesCountAtLastDisplayedThought', totalMins );
             minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
             $( '.guidedThoughtsText' ).html( allGuidedThoughts[guidedThoughtsNext] );
             $( '.guidedThoughtsContainer' ).show();
