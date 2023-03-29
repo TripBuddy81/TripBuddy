@@ -95,6 +95,12 @@ $( document ).ready( function () {
         keyCache[e.which] = true;
         if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
             $( '.XXX' ).toggle();
+            $( '.videoFilterBtn.videoFilterActive' ).each( function () {
+                $( this ).trigger( 'click' );
+            } );
+            $( '.imageFilterBtn.imageFilterActive' ).each( function () {
+                $( this ).trigger( 'click' );
+            } );
         }
     } );
     $( document ).keyup( function ( e ) {
