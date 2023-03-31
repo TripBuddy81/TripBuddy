@@ -19,6 +19,7 @@ $( document ).ready( function () {
     var pizzaTimerShown = false;
     var imageSectionShown = false;
     var totalMins = 0;
+    var veryFirstThoughtDisplayed = false;
 
     Object.assign( config, optionalConfig );
 
@@ -311,12 +312,13 @@ $( document ).ready( function () {
         } );
 
         // Guided Thoughts
-        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'minutesCountAtLastDisplayedThought' ) ) ) {
+        if ( allGuidedThoughts[guidedThoughtsNext] != undefined && ((totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'minutesCountAtLastDisplayedThought' ) )) || (totalMins == parseInt( localStorage.getItem( 'minutesCountAtLastDisplayedThought' ) ) && veryFirstThoughtDisplayed != true)) ) {
+            veryFirstThoughtDisplayed = true;
             localStorage.setItem( 'minutesCountAtLastDisplayedThought', totalMins );
             minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
             $( '.guidedThoughtsText' ).html( allGuidedThoughts[guidedThoughtsNext] );
             $( '.guidedThoughtsContainer' ).show();
-            $( '.guidedThoughtsContainer' ).delay( 20000 ).fadeOut( 'slow' );
+            $( '.guidedThoughtsContainer' ).delay( 15000 ).fadeOut( 'slow' );
             guidedThoughtsNext += 1;
             guidedThoughtsNext = guidedThoughtsNext % allGuidedThoughts.length;
         }
