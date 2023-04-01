@@ -520,15 +520,7 @@ var config = {
             'tags' : 'trippy'
         },
         {
-            'image': './media/images/17.jpg',
-            'tags' : 'trippy'
-        },
-        {
             'image': './media/images/46.jpg',
-            'tags' : 'trippy'
-        },
-        {
-            'image': './media/images/45.jpg',
             'tags' : 'trippy'
         },
         {
@@ -537,6 +529,18 @@ var config = {
         },
         {
             'image': './media/images/50.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/55.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/57.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/58.jpg',
             'tags' : 'trippy'
         },
         {
@@ -557,22 +561,6 @@ var config = {
         },
         {
             'image': './media/images/25.jpg',
-            'tags' : 'trippy'
-        },
-        {
-            'image': './media/images/55.jpg',
-            'tags' : 'trippy'
-        },
-        {
-            'image': './media/images/56.jpg',
-            'tags' : 'trippy'
-        },
-        {
-            'image': './media/images/57.jpg',
-            'tags' : 'trippy'
-        },
-        {
-            'image': './media/images/58.jpg',
             'tags' : 'trippy'
         },
         {
