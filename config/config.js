@@ -560,6 +560,22 @@ var config = {
             'tags' : 'trippy'
         },
         {
+            'image': './media/images/55.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/56.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/57.jpg',
+            'tags' : 'trippy'
+        },
+        {
+            'image': './media/images/58.jpg',
+            'tags' : 'trippy'
+        },
+        {
             'image': './media/images/28.jpg',
             'tags' : 'nature'
         },
