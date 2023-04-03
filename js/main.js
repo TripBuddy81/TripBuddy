@@ -143,6 +143,7 @@ $( document ).ready( function () {
         if ( allGuidedThoughts.length > 0 ) {
             $( '.deactivateGuidedThoughts' ).show();
         }
+        $( '.menuvisibleAfterStarted' ).show();
     } );
 
     // Top up Reminder Config
@@ -225,6 +226,7 @@ $( document ).ready( function () {
     $( '#startPizzaTimer' ).click( function ( e ) {
         localStorage.setItem( 'pizzaTimerStartMinutes', totalMins );
         $( '#startPizzaTimer' ).html( 'Pizza Timer is set!' );
+        $( '#startPizzaTimer' ).removeAttr( 'id' );
     } );
 
     // ******************************************

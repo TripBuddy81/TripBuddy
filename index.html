@@ -51,10 +51,10 @@
                     <select id="devices"
                             class="form-control"
                             style=""></select>
-                    <span>---------------------------------------------------------------------------------</span>
-                    <li class="menuItem deactivateGuidedThoughts">Stop guided thoughts</li>
-                    <li class="menuItem" id="startPizzaTimer">Start Pizza Timer (18 min)</li>
-                    <span>---------------------------------------------------------------------------------</span>
+                    <span class="menuvisibleAfterStarted">---------------------------------------------------------------------------------</span>
+                    <li class="menuItem deactivateGuidedThoughts menuvisibleAfterStarted">Stop guided thoughts</li>
+                    <li class="menuItem menuvisibleAfterStarted" id="startPizzaTimer">Start Pizza Timer (18 min)</li>
+                    <span class="">---------------------------------------------------------------------------------</span>
                     {{#links}}
                     <li>
                         <a class="menuItem" href="{{link}}" target=_blank>{{name}}</a>

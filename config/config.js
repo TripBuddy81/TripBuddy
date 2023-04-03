@@ -80,7 +80,7 @@ var config = {
     'videosYoutube'      : [
         {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
+            'tags'     : 'trippy-slow trippy-2D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/JKe0gryiCCw?mute=1',
