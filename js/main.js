@@ -295,17 +295,17 @@ $( document ).ready( function () {
         }
 
         // Reminder Display - Pizza Timer
-        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' && totalMins >= localStorage.getItem( 'pizzaTimerStartMinutes' ) + pizzaTimerMinutesTillReady && pizzaTimerShown == false ) {
+        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' && totalMins >= ( parseInt( localStorage.getItem( 'pizzaTimerStartMinutes' ) ) + pizzaTimerMinutesTillReady ) && pizzaTimerShown == false ) {
             pizzaTimerShown = true;
-            showTimedRecommendation( 'Pizza!!!' );
+            showTimedRecommendation( 'Pizza is ready!!!' );
         }
         // Reminder Display - Top up
-        if ( localStorage.getItem( 'topupReminderInMinutes' ) > 0 && totalMins >= localStorage.getItem( 'topupReminderInMinutes' ) && topUpReminderShown == false ) {
+        if ( localStorage.getItem( 'topupReminderInMinutes' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes' ) ) && topUpReminderShown == false ) {
             topUpReminderShown = true;
             showTimedRecommendation( 'Top up now!' );
         }
         // Reminder Display - Order Pizza
-        if ( localStorage.getItem( 'orderPizzaReminderInMinutes' ) > 0 && totalMins >= localStorage.getItem( 'orderPizzaReminderInMinutes' ) && orderPizzaReminderShown == false ) {
+        if ( localStorage.getItem( 'orderPizzaReminderInMinutes' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'orderPizzaReminderInMinutes' ) ) && orderPizzaReminderShown == false ) {
             orderPizzaReminderShown = true;
             showTimedRecommendation( 'Order Pizza!' );
         }
