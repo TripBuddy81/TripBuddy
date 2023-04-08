@@ -30,6 +30,14 @@ var config = {
     'playlists'         :
             [
                 {
+                    'label': 'Lofi favorites',
+                    'id'   : '31FWVQBp3WQydWLNhO0ACi'
+                },
+                {
+                    'label': 'Lofi Radio',
+                    'id'   : '0vvXsWCC9xrXsKd4FyS8kM'
+                },
+                {
                     'label': 'Soft/Peak',
                     'id'   : '4ILChY5F4Hn08ikt0rfHhW'
                 },
@@ -549,14 +557,6 @@ var config = {
         },
         {
             'image': './media/images/52.jpg',
-            'tags' : 'trippy'
-        },
-        {
-            'image': './media/images/53.jpg',
-            'tags' : 'trippy'
-        },
-        {
-            'image': './media/images/54.jpg',
             'tags' : 'trippy'
         },
         {
