@@ -310,7 +310,7 @@ $( document ).ready( function () {
         }
 
         // Reminder Display - Pizza Timer
-        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' && totalMins >= ( parseInt( localStorage.getItem( 'pizzaTimerStartMinutes' ) ) + pizzaTimerMinutesTillReady ) && pizzaTimerShown == false ) {
+        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' && totalMins >= (parseInt( localStorage.getItem( 'pizzaTimerStartMinutes' ) ) + pizzaTimerMinutesTillReady) && pizzaTimerShown == false ) {
             pizzaTimerShown = true;
             showTimedRecommendation( 'Pizza is ready!!!' );
         }
@@ -701,6 +701,9 @@ $( document ).ready( function () {
             next();
         } );
         $( '#refresh' ).click( function () {
+            refreshDevices();
+        } );
+        $( '#menuClose' ).click( function () {
             refreshDevices();
         } );
         $( '#devices' ).change( function () {

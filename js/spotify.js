@@ -114,8 +114,14 @@ function refreshDevices() {
 function handleDevicesResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
-        /*        console.log( data );*/
         removeAllItems( 'devices' );
+
+        dummyItem = {
+            'id'  : 'undefined',
+            'name': 'Select Spotify device'
+        };
+
+        addDevice( dummyItem );
         data.devices.forEach( item => addDevice( item ) );
     } else if ( this.status == 401 ) {
         refreshAccessToken()
