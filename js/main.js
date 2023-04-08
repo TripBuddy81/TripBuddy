@@ -14,7 +14,8 @@ $( document ).ready( function () {
     var start = '';
     var currentState = 'ignition';
     var lastState = '';
-    var topUpReminderShown = false;
+    var topUpReminderShown1 = false;
+    var topUpReminderShown2 = false;
     var orderPizzaReminderShown = false;
     var pizzaTimerShown = false;
     var imageSectionShown = false;
@@ -112,7 +113,8 @@ $( document ).ready( function () {
     // ******************************************
     // Start button & preFlightChecklist & Reminders
     $( '#launchText' ).click( function ( e ) {
-        localStorage.setItem( 'topupReminderInMinutes', '' );
+        localStorage.setItem( 'topupReminderInMinutes1', '' );
+        localStorage.setItem( 'topupReminderInMinutes2', '' );
         localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
         enableFullscreen();
     } );
@@ -147,16 +149,29 @@ $( document ).ready( function () {
     } );
 
     // Top up Reminder Config
-    $( '#topupCheckbox' ).change( function () {
-        if ( $( '#topupCheckbox' ).is( ':checked' ) ) {
-            localStorage.setItem( 'topupReminderInMinutes', $( '#topupReminderInMinutes' ).val() );
+    $( '#topupCheckbox1' ).change( function () {
+        if ( $( '#topupCheckbox1' ).is( ':checked' ) ) {
+            localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
         } else {
-            localStorage.setItem( 'topupReminderInMinutes', '' );
+            localStorage.setItem( 'topupReminderInMinutes1', '' );
         }
     } );
-    $( '#topupReminderInMinutes' ).change( function () {
-        if ( $( '#topupCheckbox' ).is( ':checked' ) ) {
-            localStorage.setItem( 'topupReminderInMinutes', $( '#topupReminderInMinutes' ).val() );
+    $( '#topupReminderInMinutes1' ).change( function () {
+        if ( $( '#topupCheckbox1' ).is( ':checked' ) ) {
+            localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
+        }
+    } );
+
+    $( '#topupCheckbox2' ).change( function () {
+        if ( $( '#topupCheckbox2' ).is( ':checked' ) ) {
+            localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
+        } else {
+            localStorage.setItem( 'topupReminderInMinutes2', '' );
+        }
+    } );
+    $( '#topupReminderInMinutes2' ).change( function () {
+        if ( $( '#topupCheckbox2' ).is( ':checked' ) ) {
+            localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
         }
     } );
 
@@ -300,9 +315,13 @@ $( document ).ready( function () {
             showTimedRecommendation( 'Pizza is ready!!!' );
         }
         // Reminder Display - Top up
-        if ( localStorage.getItem( 'topupReminderInMinutes' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes' ) ) && topUpReminderShown == false ) {
-            topUpReminderShown = true;
-            showTimedRecommendation( 'Top up now!' );
+        if ( localStorage.getItem( 'topupReminderInMinutes1' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes1' ) ) && topUpReminderShown1 == false ) {
+            topUpReminderShown1 = true;
+            showTimedRecommendation( '#1: Top up now!' );
+        }
+        if ( localStorage.getItem( 'topupReminderInMinutes2' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes2' ) ) && topUpReminderShown2 == false ) {
+            topUpReminderShown2 = true;
+            showTimedRecommendation( '#2: Top up now!' );
         }
         // Reminder Display - Order Pizza
         if ( localStorage.getItem( 'orderPizzaReminderInMinutes' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'orderPizzaReminderInMinutes' ) ) && orderPizzaReminderShown == false ) {
