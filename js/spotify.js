@@ -192,23 +192,24 @@ function play( playlist_id ) {
     body.offset = {};
     body.offset.position = trackindex.length > 0 ? Number( trackindex ) : 0;
     body.offset.position_ms = 0;
-    callApi( 'PUT', PLAY + '?device_id=' + deviceId(), JSON.stringify( body ), handleApiResponse );
+/*    callApi( 'PUT', PLAY + '?device_id=' + deviceId(), JSON.stringify( body ), handleApiResponse );*/
+    callApi( 'PUT', PLAY, JSON.stringify( body ), handleApiResponse );
 }
 
 function shuffle() {
-    callApi( 'PUT', SHUFFLE + '?state=true&device_id=' + deviceId(), null, handleApiResponse );
+    callApi( 'PUT', SHUFFLE + '?state=true', null, handleApiResponse );
 }
 
 function pause() {
-    callApi( 'PUT', PAUSE + '?device_id=' + deviceId(), null, handleApiResponse );
+    callApi( 'PUT', PAUSE, null, handleApiResponse );
 }
 
 function next() {
-    callApi( 'POST', NEXT + '?device_id=' + deviceId(), null, handleApiResponse );
+    callApi( 'POST', NEXT, null, handleApiResponse );
 }
 
 function previous() {
-    callApi( 'POST', PREVIOUS + '?device_id=' + deviceId(), null, handleApiResponse );
+    callApi( 'POST', PREVIOUS, null, handleApiResponse );
 }
 
 function transfer( deviceId ) {
