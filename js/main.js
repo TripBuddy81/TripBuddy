@@ -24,6 +24,11 @@ $( document ).ready( function () {
 
     Object.assign( config, optionalConfig );
 
+    // Disable right click context menu
+    $( document ).bind( 'contextmenu', function ( e ) {
+        return false;
+    } );
+
     // If debug mode is active, remove all but some videos (speeds up load time)
     if ( localStorage.getItem( 'debugModeSetting' ) == 'true' ) {
         $.each( config['videosYoutube'], function ( key, value ) {
@@ -697,6 +702,14 @@ $( document ).ready( function () {
             play( $( '#playlists' ).find( ':selected' ).val() );
         } );
 
+
+        $( document ).on( 'mousedown', document, function ( e ) {
+            // on middle mouse button play next track
+            if ( e.which == 2 ) {
+                e.preventDefault();
+                next();
+            }
+        } );
         $( '#next' ).click( function () {
             next();
         } );
