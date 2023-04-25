@@ -22,10 +22,11 @@ var config = {
         {'checklistItem': 'Headphones'},
         {'checklistItem': 'Stroboscope'},
         {'checklistItem': 'Water'},
-        {'checklistItem': 'Ginger ale'},
-        {'checklistItem': 'Fruits - Pineapple, Melon, Mango, Strawberries, Pears'},
+        {'checklistItem': 'Soda'},
+        {'checklistItem': 'Fruits - Avocado, Melon, Mango, Strawberries, Pears'},
         {'checklistItem': 'Cup of tea ready to be brewed'},
-        {'checklistItem': 'Something to eat set aside'}
+        {'checklistItem': 'Something to eat set aside'},
+        {'checklistItem': 'Backpack for outside? (Water, Tissues, something to eat)'}
     ],
     'playlists'         :
             [
