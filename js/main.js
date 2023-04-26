@@ -705,7 +705,7 @@ $( document ).ready( function () {
 
         $( document ).on( 'mousedown', document, function ( e ) {
             // on middle mouse button play next track
-            if ( e.which == 2 && $( event.target ).attr( 'class' ) != 'xxxLink' ) {
+            if ( e.which == 2 && $( event.target ).attr( 'class' ) != 'xxxLink' && $( event.target ).attr( 'class' ) != 'externalVideoPreview me-2 mb-2' ) {
                 e.preventDefault();
                 next();
             }
