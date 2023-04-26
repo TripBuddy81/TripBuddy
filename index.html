@@ -61,14 +61,6 @@
                     </li>
                     {{/links}}
 
-                    <div class="XXX" style="display:none;">
-                        <span class="">---------------------------------------------------------------------------------</span>
-                        {{#adultLinks}}
-                        <li>
-                            <a class="menuItem" href="{{link}}" target=_blank>{{name}}</a>
-                        </li>
-                        {{/adultLinks}}
-                    </div>
                     <span>---------------------------------------------------------------------------------</span>
                     <li class="menuItem" id="toggleInfo">Toggle video info</li>
                     <li class="menuItem" id="fullscreenAutoplay">Toggling fullscreen triggers play/stop <span
@@ -345,6 +337,14 @@
             </div>
             {{/videosLocal}}
         </div>
+
+        <div class="videoContainer XXX mt-4 mb-4" style="display:none;width: 100% !important;">
+            {{#adultLinks}}
+            <a class="xxxLink" href="{{link}}" target=_blank>{{name}}</a>
+            <br/>
+            {{/adultLinks}}
+        </div>
+        <div class="videoContainer XXX" style="display:none;min-height: 300px !important;"></div>
     </div>
 
     <div id="images" class="mt-3 mb-3 ms-3">
