@@ -25,6 +25,10 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.cursorNormal {
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
+}
+
 input {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }

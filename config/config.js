@@ -268,14 +268,14 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/b4AVn8mTuJw?mute=1',
             'tags'     : 'nature hiking'
         },
-/*        {
-            'videoLink': 'https://www.youtube.com/embed/123Z5KLLiO8?mute=1',
-            'tags'     : 'festival'
-        },*/
-/*        {
-            'videoLink': 'https://www.youtube.com/embed/8eYEW4q42y8?mute=1',
-            'tags'     : 'festival'
-        },*/
+        /*        {
+                    'videoLink': 'https://www.youtube.com/embed/123Z5KLLiO8?mute=1',
+                    'tags'     : 'festival'
+                },*/
+        /*        {
+                    'videoLink': 'https://www.youtube.com/embed/8eYEW4q42y8?mute=1',
+                    'tags'     : 'festival'
+                },*/
         {
             'videoLink': 'https://www.youtube.com/embed/G59Tm7KqEnY?mute=1',
             'tags'     : 'festival'
@@ -672,6 +672,10 @@ var config = {
             'image': './media/images/19.jpg',
             'tags' : 'space'
         }
+    ],
+    'externalVideoLinks' : [
+    ],
+    'externalPicLinks'   : [
     ],
     'ReminderSelection'  : [
         {'reminder': 'Dance!'},
