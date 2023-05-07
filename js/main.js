@@ -631,6 +631,11 @@ $( document ).ready( function () {
             }, 1500 );
             $( '.videoMenuOverlay' ).show();
         } );
+
+        $( '.imageSlideshowControls' ).on( 'mousemove', function () {
+            clearTimeout( moveTimer );
+        } );
+
     } );
 
     // Image selection via mouse wheel
@@ -681,16 +686,25 @@ $( document ).ready( function () {
     } );
 
     // Start slideshow
-    $( '#startSlideshow' ).click( function ( event ) {
-        event.preventDefault();
-        event.stopPropagation();
+    if (localStorage.getItem( 'imageSlideshowIntervalLength' ) != undefined ) {
+        $( '#slideshowInterval' ).val( localStorage.getItem( 'imageSlideshowIntervalLength' ) / 1000 );
+    } else {
+        localStorage.setItem( 'imageSlideshowIntervalLength', $( '#slideshowInterval' ).val() * 1000 );
+    }
 
+    $( '#startSlideshow' ).click( function ( event ) {
+        $( '.videoMenuOverlay' ).hide();
         imageSlideshowInterval = window.setInterval( function () {
             startImageSlideShow()
-        }, imageSlideshowIntervalLength );
+        }, localStorage.getItem( 'imageSlideshowIntervalLength' ) );
     } );
 
-
+    $( '#slideshowInterval' ).keypress( function ( event ) {
+        event.preventDefault();
+    } );
+    $( '#slideshowInterval' ).change( function ( event ) {
+        localStorage.setItem( 'imageSlideshowIntervalLength', $( '#slideshowInterval' ).val() * 1000 );
+    } );
 
     function startImageSlideShow() {
         for ( var i in config['images'] ) {
