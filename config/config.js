@@ -561,10 +561,6 @@ var config = {
             'tags' : 'trippy'
         },
         {
-            'image': './media/images/25.jpg',
-            'tags' : 'trippy'
-        },
-        {
             'image': './media/images/28.jpg',
             'tags' : 'nature'
         },
