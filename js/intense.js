@@ -249,7 +249,7 @@ var Intense = (function () {
         $('#images').css('visibility', 'visible');
         $('#mainMenu').css('visibility', 'visible');
         $( 'html' ).attr( 'style', 'cursor:auto;' );
-        $( '.videoMenuOverlayFullscreenTime' ).hide();
+        $( '.videoMenuOverlay' ).hide();
     }
 
     function setDimensions() {

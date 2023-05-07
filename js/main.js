@@ -11,6 +11,8 @@ $( document ).ready( function () {
     var guidedThoughtsNext = 0;
     var keyCache = {};
     var timer = '';
+    var imageSlideshowInterval;
+    var imageSlideshowIntervalLength = 1000;
     var start = '';
     var currentState = 'ignition';
     var lastState = '';
@@ -511,10 +513,10 @@ $( document ).ready( function () {
     } );
     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
         $( event.target ).find( '.disableVideoFullscreenIcon' ).show();
-        $( '.videoMenuOverlayFullscreenTime' ).show();
+        $( '.videoMenuOverlay' ).show();
     }, function () {
         $( '.disableVideoFullscreenIcon' ).hide();
-        $( '.videoMenuOverlayFullscreenTime' ).hide();
+        $( '.videoMenuOverlay' ).hide();
     } );
     $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).click( function ( event ) {
         const container = $( this ).closest( '.videoContainer' )[0];
@@ -623,15 +625,17 @@ $( document ).ready( function () {
     $( document ).mousemove( function () {
         $( '.displayedFullscreenImage' ).on( 'mousemove', function () {
             clearTimeout( moveTimer );
+            clearInterval( imageSlideshowInterval );
             moveTimer = setTimeout( function () {
-                $( '.videoMenuOverlayFullscreenTime' ).hide();
+                $( '.videoMenuOverlay' ).hide();
             }, 1500 );
-            $( '.videoMenuOverlayFullscreenTime' ).show();
+            $( '.videoMenuOverlay' ).show();
         } );
     } );
 
     // Image selection via mouse wheel
     $( window ).on( 'wheel', function ( event ) {
+        clearInterval( imageSlideshowInterval );
         if ( $( 'body figure' ).length == 1 ) {
             event.preventDefault();
             event.stopPropagation();
@@ -675,6 +679,44 @@ $( document ).ready( function () {
             $( 'body figure' ).remove();
         }
     } );
+
+    // Start slideshow
+    $( '#startSlideshow' ).click( function ( event ) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        imageSlideshowInterval = window.setInterval( function () {
+            startImageSlideShow()
+        }, imageSlideshowIntervalLength );
+    } );
+
+
+
+    function startImageSlideShow() {
+        for ( var i in config['images'] ) {
+            nextImageIndex = 1;
+            if ( config['images'][i]['image'] == lastDisplayedImage ) {
+                nextImageIndex = parseInt( i, 10 ) + 1;
+                if ( nextImageIndex > config['images'].length - 1 ) {
+                    nextImageIndex = 0;
+                }
+                if ( imageTagList != '' ) {
+                    while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
+                        nextImageIndex += 1;
+                        if ( nextImageIndex > config['images'].length - 1 ) {
+                            nextImageIndex = 0;
+                        }
+                    }
+                }
+                break;
+            }
+        }
+        lastDisplayedImage = config['images'][nextImageIndex]['image'];
+        $( 'img[src$=\'' + lastDisplayedImage + '\']' ).trigger( 'click' )
+        $( 'body figure' ).remove();
+    }
+
+
     // END Image section
     // ******************************************
 
@@ -825,8 +867,8 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    $( '#videos' ).show();
-    $( '#images' ).hide();
+    $( '#videos' ).hide();
+    $( '#images' ).show();
     $( '#disco' ).hide();
 
 } )

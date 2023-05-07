@@ -103,13 +103,13 @@ p {
     background-color: #AAD0D2;
 }
 
-.btn.videoFilterBtn:hover, .btn.imageFilterBtn:hover  {
+.btn.videoFilterBtn:hover, .btn.imageFilterBtn:hover {
 
     background-color: #d6eadf;
 }
 
 .btn.videoFilterBtn.videoFilterActive, .btn.imageFilterBtn.videoFilterActive,
-.btn.videoFilterBtn.imageFilterActive, .btn.imageFilterBtn.imageFilterActive{
+.btn.videoFilterBtn.imageFilterActive, .btn.imageFilterBtn.imageFilterActive {
     background-color: #809bce;
 }
 
@@ -256,7 +256,7 @@ p {
 
 .modal {
     overflow: hidden;
-    top:-10px;
+    top: -10px;
 }
 
 .modal-header {
@@ -710,7 +710,7 @@ video::-webkit-media-controls-fullscreen-button {
     width: 200px;
     height: 100px;
     position: fixed;
-     display: none;
+    display: none;
     font-size: 80px;
     font-family: sans-serif;
     background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
@@ -726,4 +726,26 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     display: none;
+}
+
+.imageSlideshowControls {
+    left: 0px;
+    bottom: 0px;
+    width: 300px;
+    height: 120px;
+    position: fixed;
+    display: none;
+    font-size: 80px;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 15;
+    visibility: visible !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+#startSlideshow {
+    height: 80px;
+    width: 80px;
 }
