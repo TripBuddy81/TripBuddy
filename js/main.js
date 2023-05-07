@@ -149,10 +149,10 @@ $( document ).ready( function () {
         if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
             allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
         }
-        if ( allGuidedThoughts.length > 0 ) {
-            $( '.deactivateGuidedThoughts' ).show();
-        }
         $( '.menuvisibleAfterStarted' ).show();
+        if ( allGuidedThoughts.length == 0 ) {
+            $( '.deactivateGuidedThoughts' ).hide();
+        }
     } );
 
     // Top up Reminder Config
