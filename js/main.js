@@ -640,10 +640,10 @@ $( document ).ready( function () {
 
     // Image selection via mouse wheel
     $( window ).on( 'wheel', function ( event ) {
-        clearInterval( imageSlideshowInterval );
         if ( $( 'body figure' ).length == 1 ) {
             event.preventDefault();
             event.stopPropagation();
+            clearInterval( imageSlideshowInterval );
             document.body.style.overflow = 'auto';
 
             for ( var i in config['images'] ) {
@@ -686,7 +686,7 @@ $( document ).ready( function () {
     } );
 
     // Start slideshow
-    if (localStorage.getItem( 'imageSlideshowIntervalLength' ) != undefined ) {
+    if ( localStorage.getItem( 'imageSlideshowIntervalLength' ) != undefined ) {
         $( '#slideshowInterval' ).val( localStorage.getItem( 'imageSlideshowIntervalLength' ) / 1000 );
     } else {
         localStorage.setItem( 'imageSlideshowIntervalLength', $( '#slideshowInterval' ).val() * 1000 );
@@ -695,7 +695,7 @@ $( document ).ready( function () {
     $( '#startSlideshow' ).click( function ( event ) {
         $( '.videoMenuOverlay' ).hide();
         imageSlideshowInterval = window.setInterval( function () {
-            startImageSlideShow()
+            nextRandomImageInSlideshow()
         }, localStorage.getItem( 'imageSlideshowIntervalLength' ) );
     } );
 
@@ -706,26 +706,21 @@ $( document ).ready( function () {
         localStorage.setItem( 'imageSlideshowIntervalLength', $( '#slideshowInterval' ).val() * 1000 );
     } );
 
-    function startImageSlideShow() {
+    function nextRandomImageInSlideshow() {
+        currentImageIndex = 0;
         for ( var i in config['images'] ) {
-            nextImageIndex = 1;
             if ( config['images'][i]['image'] == lastDisplayedImage ) {
-                nextImageIndex = parseInt( i, 10 ) + 1;
-                if ( nextImageIndex > config['images'].length - 1 ) {
-                    nextImageIndex = 0;
-                }
-                if ( imageTagList != '' ) {
-                    while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
-                        nextImageIndex += 1;
-                        if ( nextImageIndex > config['images'].length - 1 ) {
-                            nextImageIndex = 0;
-                        }
-                    }
-                }
+                currentImageIndex = i;
                 break;
             }
         }
-        lastDisplayedImage = config['images'][nextImageIndex]['image'];
+
+        potentialNextImageIndex = Math.floor( (Math.random() * config['images'].length) );
+        while ( potentialNextImageIndex == currentImageIndex || '.' + config['images'][potentialNextImageIndex]['tags'] != imageTagList ) {
+            potentialNextImageIndex = Math.floor( (Math.random() * config['images'].length) );
+        }
+
+        lastDisplayedImage = config['images'][potentialNextImageIndex]['image'];
         $( 'img[src$=\'' + lastDisplayedImage + '\']' ).trigger( 'click' )
         $( 'body figure' ).remove();
     }
@@ -881,8 +876,8 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    $( '#videos' ).hide();
-    $( '#images' ).show();
+    $( '#videos' ).show();
+    $( '#images' ).hide();
     $( '#disco' ).hide();
 
 } )

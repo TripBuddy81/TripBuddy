@@ -31,7 +31,11 @@ var config = {
     'playlists'         :
             [
                 {
-                    'label': 'Lofi favorites',
+                    'label': 'Soft/Peak',
+                    'id'   : '4ILChY5F4Hn08ikt0rfHhW'
+                },
+                {
+                    'label': 'Lofi Favorites',
                     'id'   : '31FWVQBp3WQydWLNhO0ACi'
                 },
                 {
@@ -39,12 +43,8 @@ var config = {
                     'id'   : '0vvXsWCC9xrXsKd4FyS8kM'
                 },
                 {
-                    'label': 'Soft/Peak',
-                    'id'   : '4ILChY5F4Hn08ikt0rfHhW'
-                },
-                {
-                    'label': 'Soft & chillig',
-                    'id'   : '0r09hQ2kqiLwjStS7xzRzh'
+                    'label': 'Lofi Sleep',
+                    'id'   : '37i9dQZF1DX2PQDq3PdrHQ'
                 },
                 {
                     'label': 'Psybass',
