@@ -541,7 +541,7 @@ li, .options, .form-check-label {
 #particles-js {
     position: relative;
     height: 975px;
-    background-color: #6f42c1;
+    background-color: #24FFAB;
     animation: strobo2 0ms steps(1, end) infinite;
     cursor: none;
 }
