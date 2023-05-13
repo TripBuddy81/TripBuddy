@@ -725,6 +725,17 @@ $( document ).ready( function () {
         $( 'body figure' ).remove();
     }
 
+    $( '#MageAIExternalPage' ).mousemove( function ( event ) {
+        $( '#imageTags' ).hide();
+        $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+    } );
+    $( '#mainMenu' ).hover(
+            function () {
+                $( '#mainMenu' ).attr( 'style', 'opacity:1' );
+                $( '#imageTags' ).show();
+            }, function () {
+            }
+    );
 
     // END Image section
     // ******************************************

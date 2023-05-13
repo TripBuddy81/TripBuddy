@@ -759,10 +759,10 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: auto !important;
 }
 
-#MageExternalPage {
+#MageAIExternalPage {
     height: 1080px;
     margin-left: -16px;
     width: 1710px;
-    top: -55px;
+    top: -195px;
     position: relative;
 }
