@@ -246,12 +246,14 @@ p {
 
 .sticky {
     position: fixed;
-    padding-top: 5px;
-    padding-bottom: 10px;
     top: 75px;
+    left: 0;
     width: 100%;
     background-color: #b8e0d2;
     z-index: 2;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 15px;
 }
 
 .modal {
@@ -755,4 +757,12 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     bottom: 12px;
     cursor: auto !important;
+}
+
+#MageExternalPage {
+    height: 1080px;
+    margin-left: -16px;
+    width: 1710px;
+    top: -55px;
+    position: relative;
 }
