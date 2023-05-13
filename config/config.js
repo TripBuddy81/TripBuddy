@@ -681,5 +681,39 @@ var config = {
         {'reminder': 'Inspect atomic structure of table'},
         {'reminder': 'Cuddle your friends!'},
         {'reminder': 'Eat some fruits'}
-    ]
+    ],
+    'links'             : [
+        {
+            'link': 'https://poki.com/en/g/sushi-party-io#',
+            'name': 'Game - Sushi Party'
+        },
+        {
+            'link': 'https://poki.com/en/g/pop-it-master',
+            'name': 'Game - Pop it master'
+        },
+        {
+            'link': 'https://www.youtube.com/watch?v=SNBVeR6m_Xk&list=PLzG6tj8mWFmAaPAujl6CSQMob_sW6L4yx',
+            'name': 'Psychedelic Short Films'
+        },
+        {
+            'link': 'https://www.youtube.com/watch?list=PL0DkyGTnL_T9PGRApBLu2iP9jMLSrFDYV&v=vlUR09yRHZU',
+            'name': 'Trippy Animations'
+        },
+        {
+            'link': 'https://www.youtube.com/@JacksonTyler/videos',
+            'name': 'Homemade Documentaries - Space'
+        },
+        {
+            'link': 'https://www.youtube.com/watch?v=M6M9-oFEKpk&list=PLl6BRvEJ-auZ5aYPHj1B3pKJ_pLjg9qNU',
+            'name': 'Luetin - Warhammer 40K Lore'
+        },
+        {
+            'link': 'https://www.youtube.com/watch?v=ZKvW-YBG-Kk&list=PLRPHKhrYjYFtDefxNqjIJGf8WkOh1U-Ur',
+            'name': 'Celebrity Deathmatch'
+        },
+        {
+            'link': 'https://www.youtube.com/watch?v=6KDgDYdug6M&list=PLLhOnau-tupTeyt7V4BOZzc63yqllmDby',
+            'name': 'Wile E. Coyote & Roadrunner'
+        }
+    ],
 };
