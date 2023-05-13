@@ -736,6 +736,15 @@ $( document ).ready( function () {
             }, function () {
             }
     );
+    var MageAIExternalPageFirstLoad = true
+    $( '.MageAIfilter' ).click( function () {
+        if ( !MageAIExternalPageFirstLoad ) {
+            $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) );
+        } else {
+            MageAIExternalPageFirstLoad = false;
+        }
+    } );
+
 
     // END Image section
     // ******************************************
