@@ -582,7 +582,17 @@ $( document ).ready( function () {
 
     // ******************************************
     // Image section
+    var numberOfImagesWithTag = {};
+    $.each( config['images'], function ( index, val ) {
+        if ( numberOfImagesWithTag[val['tags']] == undefined ) {
+            numberOfImagesWithTag[val['tags']] = 1;
+        } else {
+            numberOfImagesWithTag[val['tags']]++;
+        }
+    } );
+
     var imageTagList = '';
+    var lastActiveTag = '';
     $( '.imageFilterBtn' ).click( function () {
         imageTagList = '';
         // Remove this block to reenable multi tag select!
@@ -598,6 +608,7 @@ $( document ).ready( function () {
 
         $( '.imageFilterBtn.imageFilterActive' ).each( function () {
             imageTagList += '.' + $( this ).text().trim();
+            lastActiveTag = $( this ).text().trim();
         } );
 
         $( imageTagList ).each( function () {
@@ -694,8 +705,10 @@ $( document ).ready( function () {
         localStorage.setItem( 'imageSlideshowIntervalLength', $( '#slideshowInterval' ).val() * 1000 );
     }
 
+    var shownImages = [];
     $( '#startSlideshow' ).click( function ( event ) {
         $( '.videoMenuOverlay' ).hide();
+        shownImages = [];
         imageSlideshowInterval = window.setInterval( function () {
             nextRandomImageInSlideshow()
         }, localStorage.getItem( 'imageSlideshowIntervalLength' ) );
@@ -717,11 +730,18 @@ $( document ).ready( function () {
             }
         }
 
+        if ( numberOfImagesWithTag[lastActiveTag] == shownImages.length ) {
+            shownImages = [];
+        }
+
         potentialNextImageIndex = Math.floor( (Math.random() * config['images'].length) );
-        while ( potentialNextImageIndex == currentImageIndex || '.' + config['images'][potentialNextImageIndex]['tags'] != imageTagList ) {
+        while ( potentialNextImageIndex == currentImageIndex
+        || '.' + config['images'][potentialNextImageIndex]['tags'] != imageTagList
+        || jQuery.inArray( potentialNextImageIndex, shownImages ) !== -1 ) {
             potentialNextImageIndex = Math.floor( (Math.random() * config['images'].length) );
         }
 
+        shownImages.push( potentialNextImageIndex );
         lastDisplayedImage = config['images'][potentialNextImageIndex]['image'];
         $( 'img[src$=\'' + lastDisplayedImage + '\']' ).trigger( 'click' )
         $( 'body figure' ).remove();
