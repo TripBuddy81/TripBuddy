@@ -111,6 +111,8 @@ $( document ).ready( function () {
             $( '.imageFilterBtn.imageFilterActive' ).each( function () {
                 $( this ).trigger( 'click' );
             } );
+
+            $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) + '&nsfw=t' );
         }
     } );
     $( document ).keyup( function ( e ) {
