@@ -355,7 +355,16 @@
             </div>
             {{/selectableImageTags}}
             <div class="XXX XXXfilter imageFilterBtn btn btn-primary me-2">XXX</div>
-            <div class="MageAI MageAIfilter imageFilterBtn btn btn-primary me-2">MageAI</div>
+
+            <span class="MageAIContainer">
+                <span class="MageAI MageAIfilter imageFilterBtn btn btn-primary me-2">MageAI</span>
+                <span class="MageAISearchableLabels XXX">
+                    {{#searchableLabels}}
+                    <div class="MageAISearchableLabel btn btn-primary me-2">{{searchableLabel}}</div>
+                    {{/searchableLabels}}
+                </span>
+            </span>
+
         </div>
 
         <div id="displayedImages">
@@ -364,7 +373,8 @@
                  data-image="{{image}}">
             {{/images}}
 
-            <iframe id="MageAIExternalPage" class="MageAI fullscreenImage" src="https://www.mage.space/explore?q=rainbow&t=cyberpunk"></iframe>
+            <iframe id="MageAIExternalPage" class="MageAI fullscreenImage"
+                    src="https://www.mage.space/explore?q=rainbow"></iframe>
         </div>
         <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
         </div>

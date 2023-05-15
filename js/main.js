@@ -23,6 +23,7 @@ $( document ).ready( function () {
     var imageSectionShown = false;
     var totalMins = 0;
     var veryFirstThoughtDisplayed = false;
+    var xxxVisible = false;
 
     Object.assign( config, optionalConfig );
 
@@ -105,14 +106,19 @@ $( document ).ready( function () {
         keyCache[e.which] = true;
         if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
             $( '.XXX' ).toggle();
+            xxxVisible = !xxxVisible;
             $( '.videoFilterBtn.videoFilterActive' ).each( function () {
                 $( this ).trigger( 'click' );
             } );
             $( '.imageFilterBtn.imageFilterActive' ).each( function () {
                 $( this ).trigger( 'click' );
             } );
-
-            $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) + '&nsfw=t' );
+            if ( xxxVisible ) {
+                $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) + '&nsfw=t' );
+            } else {
+                newTarget = $( '#MageAIExternalPage' ).attr( 'src' ).replace( /&nsfw=t/, '' );
+                $( '#MageAIExternalPage' ).attr( 'src', newTarget );
+            }
         }
     } );
     $( document ).keyup( function ( e ) {
@@ -752,19 +758,29 @@ $( document ).ready( function () {
         $( '#mainMenu' ).attr( 'style', 'opacity:0' );
     } );
     $( '#mainMenu' ).hover(
-            function () {
+            function ( event ) {
                 $( '#mainMenu' ).attr( 'style', 'opacity:1' );
                 $( '#imageTags' ).show();
             }, function () {
             }
     );
-    var MageAIExternalPageFirstLoad = true
+    $( '.MageAIContainer' ).hover(
+            function () {
+                if ( xxxVisible ) {
+                    $( '.MageAISearchableLabels' ).show();
+                }
+            }, function () {
+                $( '.MageAISearchableLabels' ).hide();
+            }
+    );
+    $( '.MageAISearchableLabel' ).click( function () {
+        $( this ).parent().prev().trigger( 'click' );
+
+        newTarget = $( '#MageAIExternalPage' ).attr( 'src' ).replace( /(q)=[^?&]+/, 'q=' + $( this ).html() );
+        $( '#MageAIExternalPage' ).attr( 'src', newTarget );
+    } );
     $( '.MageAIfilter' ).click( function () {
-        if ( !MageAIExternalPageFirstLoad ) {
-            $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) );
-        } else {
-            MageAIExternalPageFirstLoad = false;
-        }
+        $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) );
     } );
 
 

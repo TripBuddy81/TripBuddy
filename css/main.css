@@ -765,4 +765,17 @@ video::-webkit-media-controls-fullscreen-button {
     width: 1725px;
     top: -195px;
     position: relative;
+    margin-bottom: -220px;
+}
+
+.MageAIContainer {
+    position: absolute;
+}
+
+.MageAISearchableLabels {
+    position: absolute;
+    top: 49px;
+    left: 0px;
+    display: none;
+    width: 300px;
 }
