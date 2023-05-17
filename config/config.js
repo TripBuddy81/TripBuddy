@@ -75,8 +75,6 @@ var config = {
     'selectableVideoTags': [
         {'selectableTag': 'trippy-2D'},
         {'selectableTag': 'trippy-3D'},
-        /*        {'selectableTag': 'trippy-slow'},
-                {'selectableTag': 'trippy-fast'},*/
         {'selectableTag': 'meditative'},
         {'selectableTag': 'space'},
         {'selectableTag': 'nature'},
@@ -159,7 +157,6 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/Y_plhk1FUQA?mute=1',
             'tags'     : 'meditative space'
         },
-
         {
             'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
             'tags'     : 'meditative'
@@ -673,7 +670,7 @@ var config = {
     ],
     'externalPicLinks'   : [
     ],
-    'ReminderSelection'  : [
+    'reminderSelection'  : [
         {'reminder': 'Dance!'},
         {'reminder': 'Listen to Alans wisdom!'},
         {'reminder': 'Drink Tea'},
@@ -716,4 +713,5 @@ var config = {
             'name': 'Wile E. Coyote & Roadrunner'
         }
     ],
+    'mageAIFavoritesLink' : 'https://www.mage.space/u/d1dwlsYczlUw2Z9lmQP6zTNW4T33'
 };
