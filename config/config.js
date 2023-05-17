@@ -83,7 +83,7 @@ var config = {
         {'selectableTag': 'wisdom'},
         {'selectableTag': 'leftovers'}
     ],
-    'videosYoutube'      : [
+    'videosYoutube'     : [
         {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
             'tags'     : 'trippy-slow trippy-2D'
@@ -121,8 +121,16 @@ var config = {
             'tags'     : 'trippy-slow trippy-3D'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
+            'tags'     : 'trippy-3D meditative'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/M45c6WiZ2tc?mute=1',
             'tags'     : 'trippy-slow trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/s3Tp8ESiiM4?mute=1',
+            'tags'     : 'trippy-3D trippy-slow'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/TdU2Ab7y91w?mute=1',
@@ -131,14 +139,6 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/fFyC68CIEio?mute=1',
             'tags'     : 'trippy-slow trippy-2D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/LhZMr3jH7kI?mute=1',
-            'tags'     : 'trippy-fast trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/iaVmsp7dU1Y?mute=1',
-            'tags'     : 'trippy-fast trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/beW6KCQ90Qc?mute=1',
@@ -154,8 +154,9 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/Y_plhk1FUQA?mute=1',
-            'tags'     : 'meditative space'
+            'tags'     : 'space'
         },
+
         {
             'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
             'tags'     : 'meditative'
@@ -169,7 +170,7 @@ var config = {
             'tags'     : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/5_Blq9W9cT8?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
             'tags'     : 'meditative'
         },
         {
@@ -199,22 +200,6 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/jNyvfvDFFPk?mute=1',
             'tags'     : 'meditative space'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/zowLNSKyfI0?mute=1',
-            'tags'     : 'leftovers'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/Q-iZMkvHnFw?mute=1',
-            'tags'     : 'leftovers'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
-            'tags'     : 'leftovers'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/RpHnKaxt_OQ?mute=1',
-            'tags'     : 'leftovers'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/t_S_cN2re4g?mute=1',
@@ -474,28 +459,12 @@ var config = {
             'label'    : 'AW - unsorted playlist - to be checked'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/s3Tp8ESiiM4?mute=1',
-            'tags'     : 'trippy-3D trippy-slow'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/N0rHxXC27BA?mute=1',
-            'tags'     : 'leftovers'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/T7Th3AFs7fw?mute=1',
-            'tags'     : 'leftovers'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/JloTUIpOlJk?mute=1',
             'tags'     : 'leftovers'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/VBvVBFZMhKI?mute=1',
             'tags'     : 'trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
-            'tags'     : 'leftovers'
         }
     ],
     'selectableImageTags': [
