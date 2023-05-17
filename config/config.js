@@ -10,7 +10,6 @@ var config = {
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
         {'checklistItem': 'Mouse charged/VPN off?'},
         {'checklistItem': 'Start easy listening music'},
-        {'checklistItem': 'Make ginger tea and starting drinking'},
         {'checklistItem': 'Phone on Do Not Disturb!!!'},
         {'checklistItem': 'Cozy clothing'},
         {'checklistItem': 'Starlight on'},
