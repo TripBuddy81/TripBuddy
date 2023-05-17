@@ -764,23 +764,25 @@ $( document ).ready( function () {
             }, function () {
             }
     );
+    $( '.MageAIFavorites' ).click( function () {
+        $( this ).parent().prev().trigger( 'click' );
+        $( '#MageAIExternalPage' ).attr( 'src', config['mageAIFavoritesLink'] );
+    } );
     $( '.MageAIContainer' ).hover(
             function () {
                 if ( xxxVisible ) {
-                    $( '.MageAISearchableLabels' ).show();
+                    $( '.MageAIExtraLabels' ).show();
                 }
             }, function () {
-                $( '.MageAISearchableLabels' ).hide();
+                $( '.MageAIExtraLabels' ).hide();
             }
     );
-    $( '.MageAISearchableLabel' ).click( function () {
-        $( this ).parent().prev().trigger( 'click' );
-
-        newTarget = $( '#MageAIExternalPage' ).attr( 'src' ).replace( /(q)=[^?&]+/, 'q=' + $( this ).html() );
-        $( '#MageAIExternalPage' ).attr( 'src', newTarget );
-    } );
     $( '.MageAIfilter' ).click( function () {
-        $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) );
+        defaultTarget = 'https://www.mage.space/explore?q=psychedelic';
+        if ( xxxVisible ) {
+            defaultTarget = defaultTarget + '&nsfw=t';
+        }
+        $( '#MageAIExternalPage' ).attr( 'src', defaultTarget );
     } );
 
 

@@ -762,7 +762,7 @@ video::-webkit-media-controls-fullscreen-button {
 #MageAIExternalPage {
     height: 1080px;
     margin-left: -16px;
-    width: 1725px;
+    width: 1715px;
     top: -195px;
     position: relative;
     margin-bottom: -220px;
@@ -772,7 +772,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
 }
 
-.MageAISearchableLabels {
+.MageAIExtraLabels {
     position: absolute;
     top: 49px;
     left: 0px;
