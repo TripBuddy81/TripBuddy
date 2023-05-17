@@ -156,7 +156,6 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/Y_plhk1FUQA?mute=1',
             'tags'     : 'space'
         },
-
         {
             'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
             'tags'     : 'meditative'

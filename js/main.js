@@ -2,7 +2,6 @@ $( document ).ready( function () {
     // ***********************************
     // Globals
     var pizzaTimerMinutesTillReady = 18;
-
     var minutesCountAtLastDisplayedThought = 0; // This is the minute the first time a reminder is displayed at all
     var isFullScreen = false;
     var lastDisplayedImage = config['images'][0]['image'];
@@ -60,7 +59,6 @@ $( document ).ready( function () {
     if ( userAgentString.indexOf( 'Firefox' ) > -1 ) {
         $( '#launchText' ).html( 'Start!' );
     }
-
 
     // ***********************************
     // Main Menu
@@ -176,7 +174,6 @@ $( document ).ready( function () {
             localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
         }
     } );
-
     $( '#topupCheckbox2' ).change( function () {
         if ( $( '#topupCheckbox2' ).is( ':checked' ) ) {
             localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
@@ -203,7 +200,6 @@ $( document ).ready( function () {
             localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
         }
     } );
-
 
     // Guided Thoughts Config
     localStorage.setItem( 'guidedThought1', '' );
@@ -250,7 +246,6 @@ $( document ).ready( function () {
         guidedThoughtPrefilTarget = 1;
     } );
 
-
     // ******************************************
     // Pizza timer
     $( '#startPizzaTimer' ).click( function ( e ) {
@@ -271,7 +266,6 @@ $( document ).ready( function () {
         $( 'body' ).show();
         $( 'html' ).attr( 'style', 'cursor:auto;' );
     } );
-
 
     // ******************************************
     // Timer && Graph && Time dependent actions
@@ -478,7 +472,6 @@ $( document ).ready( function () {
             $( '#fullscreenAutoplaySetting' ).html( '(off)' );
         }
     } )
-
 
     // ***********************************
     // Video section
@@ -785,7 +778,6 @@ $( document ).ready( function () {
         $( '#MageAIExternalPage' ).attr( 'src', defaultTarget );
     } );
 
-
     // END Image section
     // ******************************************
 
@@ -812,7 +804,6 @@ $( document ).ready( function () {
             shuffle();
             play( $( '#playlists' ).find( ':selected' ).val() );
         } );
-
 
         $( document ).on( 'mousedown', document, function ( e ) {
             // on middle mouse button play next track
@@ -858,6 +849,7 @@ $( document ).ready( function () {
             IFrameAPI.createController( element, options, callback );
         };
     }
+
     // END Music section
     // ******************************************
 
@@ -933,13 +925,11 @@ $( document ).ready( function () {
     // END Disco section
     // ******************************************
 
-
     // ******************************************
     // init initial view
     $( '#videos' ).show();
     $( '#images' ).hide();
     $( '#disco' ).hide();
-
 } )
 ;
 
