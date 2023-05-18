@@ -325,7 +325,7 @@ p {
 }
 
 .reminderLabel {
-    width: 190px;
+    width: 250px;
 }
 
 .reminderSuggestion {
@@ -361,7 +361,7 @@ li, .options, .form-check-label {
 }
 
 #topupRecommendation {
-    font-size: 160px;
+    font-size: 130px;
 }
 
 #liftOff {

@@ -326,11 +326,11 @@ $( document ).ready( function () {
         // Reminder Display - Top up
         if ( localStorage.getItem( 'topupReminderInMinutes1' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes1' ) ) && topUpReminderShown1 == false ) {
             topUpReminderShown1 = true;
-            showTimedRecommendation( '??? Top up ???' );
+            showTimedRecommendation( '??? Top up Shrooms ???' );
         }
         if ( localStorage.getItem( 'topupReminderInMinutes2' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes2' ) ) && topUpReminderShown2 == false ) {
             topUpReminderShown2 = true;
-            showTimedRecommendation( '??? Top up ???' );
+            showTimedRecommendation( '??? Take Weed ???' );
         }
         // Reminder Display - Order Pizza
         if ( localStorage.getItem( 'orderPizzaReminderInMinutes' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'orderPizzaReminderInMinutes' ) ) && orderPizzaReminderShown == false ) {
