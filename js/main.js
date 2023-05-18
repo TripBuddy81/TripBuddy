@@ -253,6 +253,9 @@ $( document ).ready( function () {
         $( '#startPizzaTimer' ).html( 'Pizza Timer is set!' );
         $( '#startPizzaTimer' ).removeAttr( 'id' );
     } );
+    $( '#pizzaTimerContainer' ).click( function ( e ) {
+        $( '#pizzaTimerContainer' ).hide();
+    } );
 
     // ******************************************
     // enable/disable screen
@@ -319,6 +322,14 @@ $( document ).ready( function () {
         }
 
         // Reminder Display - Pizza Timer
+        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' && pizzaTimerShown == false ) {
+            minutesPassed = totalMins - parseInt( localStorage.getItem( 'pizzaTimerStartMinutes' ) );
+            if ( minutesPassed <= 9 ) {
+                minutesPassed = '0' + minutesPassed;
+            }
+            $( '#pizzaTimerProgress' ).html( minutesPassed );
+            $( '#pizzaTimerContainer' ).show();
+        }
         if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' && totalMins >= (parseInt( localStorage.getItem( 'pizzaTimerStartMinutes' ) ) + pizzaTimerMinutesTillReady) && pizzaTimerShown == false ) {
             pizzaTimerShown = true;
             showTimedRecommendation( 'Pizza is ready!!!' );
@@ -831,6 +842,7 @@ $( document ).ready( function () {
         $( '#oAuthPlayerControl' ).remove();
         $( '#devices' ).css( 'visibility', 'hidden' );
         $( '#refresh' ).css( 'visibility', 'hidden' );
+        $( '#pizzaTimerContainer' ).remove();
 
         window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
             let element = document.getElementById( 'iFrameSpotifyPlayer' );
