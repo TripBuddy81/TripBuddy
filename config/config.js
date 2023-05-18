@@ -85,7 +85,7 @@ var config = {
     ],
     'videosYoutube'     : [
         {
-            'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/AITN4rs1Ev8?mute=1',
             'tags'     : 'trippy-slow trippy-2D'
         },
         {
@@ -105,7 +105,7 @@ var config = {
             'tags'     : 'trippy-slow trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/AITN4rs1Ev8?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
             'tags'     : 'trippy-slow trippy-2D'
         },
         {
@@ -157,7 +157,7 @@ var config = {
             'tags'     : 'space'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
             'tags'     : 'meditative'
         },
         {
@@ -169,7 +169,7 @@ var config = {
             'tags'     : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
             'tags'     : 'meditative'
         },
         {
@@ -190,10 +190,6 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/B5unCXpegAw?mute=1',
-            'tags'     : 'meditative space'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/CrgYEbIQkac?mute=1',
             'tags'     : 'meditative space'
         },
         {
@@ -458,7 +454,7 @@ var config = {
             'label'    : 'AW - unsorted playlist - to be checked'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/N0rHxXC27BA?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/N0rHxXC27BA?mute=1&loop=1&playlist=N0rHxXC27BA',
             'tags'     : 'leftovers'
         },
         {
