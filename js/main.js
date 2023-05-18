@@ -250,8 +250,7 @@ $( document ).ready( function () {
     // Pizza timer
     $( '#startPizzaTimer' ).click( function ( e ) {
         localStorage.setItem( 'pizzaTimerStartMinutes', totalMins );
-        $( '#startPizzaTimer' ).html( 'Pizza Timer is set!' );
-        $( '#startPizzaTimer' ).removeAttr( 'id' );
+        $( '#pizzaTimerContainer' ).show();
     } );
     $( '#pizzaTimerContainer' ).click( function ( e ) {
         $( '#pizzaTimerContainer' ).hide();
@@ -322,13 +321,12 @@ $( document ).ready( function () {
         }
 
         // Reminder Display - Pizza Timer
-        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' && pizzaTimerShown == false ) {
+        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' ) {
             minutesPassed = totalMins - parseInt( localStorage.getItem( 'pizzaTimerStartMinutes' ) );
             if ( minutesPassed <= 9 ) {
                 minutesPassed = '0' + minutesPassed;
             }
             $( '#pizzaTimerProgress' ).html( minutesPassed );
-            $( '#pizzaTimerContainer' ).show();
         }
         if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' && totalMins >= (parseInt( localStorage.getItem( 'pizzaTimerStartMinutes' ) ) + pizzaTimerMinutesTillReady) && pizzaTimerShown == false ) {
             pizzaTimerShown = true;
