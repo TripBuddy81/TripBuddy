@@ -472,7 +472,6 @@ $( document ).ready( function () {
                         $( this ).trigger( 'click' );
                     }
                 } );
-                console.info( this );
             }, delay += 1000 );
         } );
     }
