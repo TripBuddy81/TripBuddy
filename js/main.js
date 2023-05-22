@@ -62,6 +62,14 @@ $( document ).ready( function () {
 
     // ***********************************
     // Main Menu
+    $( '#mainMenu' ).hover(
+            function ( event ) {
+                $( '#mainMenu' ).attr( 'style', 'opacity:1' );
+                $( '#imageTags' ).show();
+            }, function () {
+            }
+    );
+
     $( '#showVideoSection' ).click( function () {
         $( '#videos' ).show();
         $( '#images' ).hide();
@@ -800,13 +808,6 @@ $( document ).ready( function () {
         $( '#imageTags' ).hide();
         $( '#mainMenu' ).attr( 'style', 'opacity:0' );
     } );
-    $( '#mainMenu' ).hover(
-            function ( event ) {
-                $( '#mainMenu' ).attr( 'style', 'opacity:1' );
-                $( '#imageTags' ).show();
-            }, function () {
-            }
-    );
     $( '.MageAIFavorites' ).click( function () {
         $( this ).parent().prev().trigger( 'click' );
         $( '#MageAIExternalPage' ).attr( 'src', config['mageAIFavoritesLink'] );
@@ -978,7 +979,6 @@ $( document ).ready( function () {
 
     // ******************************************
     // Game section
-
     $( '#gamesFrame' ).mousemove( function ( event ) {
         $( '#mainMenu' ).attr( 'style', 'opacity:0' );
     } );
@@ -994,7 +994,6 @@ $( document ).ready( function () {
         enableFullscreen();
         $('#gamesFrame').attr('src', $(this).attr('href') );
     } );
-
 
     // END Disco section
     // ******************************************
