@@ -51,7 +51,6 @@ $( document ).ready( function () {
         if ( document.readyState !== 'complete' ) {
         } else {
             $( '#launchText' ).html( 'Start!' );
-            activateAllSectionsOnce();
         }
     };
 
@@ -132,7 +131,7 @@ $( document ).ready( function () {
         localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
         enableFullscreen();
 
-
+       /* activateAllSectionsOnce();*/
     } );
 
     // Lift off - initialize a lot of stuff
@@ -469,7 +468,7 @@ $( document ).ready( function () {
                         $( this ).trigger( 'click' );
                     }
                 } );
-            }, delay += 1000 );
+            }, delay += 1500 );
         } );
     }
 
