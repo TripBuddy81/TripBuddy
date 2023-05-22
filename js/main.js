@@ -808,19 +808,14 @@ $( document ).ready( function () {
         $( '#imageTags' ).hide();
         $( '#mainMenu' ).attr( 'style', 'opacity:0' );
     } );
+
     $( '.MageAIFavorites' ).click( function () {
-        $( this ).parent().prev().trigger( 'click' );
+        $( '.MageAIfilter' ).trigger( 'click' );
+        $( '.MageAIfilter' ).removeClass( 'imageFilterActive' );
+        $( this ).addClass( 'imageFilterActive' );
         $( '#MageAIExternalPage' ).attr( 'src', config['mageAIFavoritesLink'] );
     } );
-    $( '.MageAIContainer' ).hover(
-            function () {
-                if ( xxxVisible ) {
-                    $( '.MageAIExtraLabels' ).show();
-                }
-            }, function () {
-                $( '.MageAIExtraLabels' ).hide();
-            }
-    );
+
     $( '.MageAIfilter' ).click( function () {
         defaultTarget = 'https://www.mage.space/explore?q=psychedelic';
         if ( xxxVisible ) {

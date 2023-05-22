@@ -764,18 +764,6 @@ video::-webkit-media-controls-fullscreen-button {
     margin-bottom: -220px;
 }
 
-.MageAIContainer {
-    position: absolute;
-}
-
-.MageAIExtraLabels {
-    position: absolute;
-    top: 49px;
-    left: 0px;
-    display: none;
-    width: 300px;
-}
-
 #pizzaTimerContainer {
     position: relative;
     display: none;
