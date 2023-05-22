@@ -131,7 +131,7 @@ $( document ).ready( function () {
         localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
         enableFullscreen();
 
-       /* activateAllSectionsOnce();*/
+        activateAllSectionsOnce();
     } );
 
     // Lift off - initialize a lot of stuff
@@ -444,17 +444,21 @@ $( document ).ready( function () {
     function activateAllSectionsOnce() {
         mediaObjects = [];
         $( $( '.imageFilterBtn' ).get().reverse() ).each( function () {
-            mediaObjects.push( $( this ).attr( 'class' ) );
+            if ( !(/XXX/i.test( $( this ).attr( 'class' ) )) ) {
+                mediaObjects.push( $( this ).attr( 'class' ) );
+            }
         } );
         $( $( '.videoFilterBtn' ).get().reverse() ).each( function () {
-            mediaObjects.push( $( this ).attr( 'class' ) );
+            if ( !(/XXX/i.test( $( this ).attr( 'class' ) )) ) {
+                mediaObjects.push( $( this ).attr( 'class' ) );
+            }
         } );
 
         var delay = 0;
         $.each( mediaObjects, function ( x ) {
             setTimeout( function () {
                 $( $( '.imageFilterBtn' ).get().reverse() ).each( function () {
-                    if ( $( this ).attr( 'class' ) == mediaObjects[x] && !(/XXX/i.test( mediaObjects[x] )) ) {
+                    if ( $( this ).attr( 'class' ) == mediaObjects[x] ) {
                         $( '#videos' ).hide();
                         $( '#images' ).show();
                         $( this ).trigger( 'click' );
@@ -462,13 +466,14 @@ $( document ).ready( function () {
                 } );
 
                 $( $( '.videoFilterBtn' ).get().reverse() ).each( function () {
-                    if ( $( this ).attr( 'class' ) == mediaObjects[x] && !(/XXX/i.test( mediaObjects[x] )) ) {
+                    if ( $( this ).attr( 'class' ) == mediaObjects[x] ) {
                         $( '#videos' ).show();
                         $( '#images' ).hide();
                         $( this ).trigger( 'click' );
                     }
                 } );
-            }, delay += 1500 );
+                console.info( this );
+            }, delay += 1000 );
         } );
     }
 
