@@ -142,7 +142,7 @@ $( document ).ready( function () {
         localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
         enableFullscreen();
 
-        /*activateAllSectionsOnce();*/ /* DOES NOT REALLY WORK AS INTENDED ...*/
+        activateAllSectionsOnce(); /* DOES NOT REALLY WORK AS INTENDED ...*/
     } );
 
     // Lift off - initialize a lot of stuff
