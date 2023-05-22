@@ -698,15 +698,21 @@ var config = {
         {'reminder': 'Cuddle your friends!'},
         {'reminder': 'Eat some fruits'}
     ],
-    'links'             : [
+    'gameLinks'          : [
         {
-            'link': 'https://poki.com/en/g/sushi-party-io#',
+            'link': 'https://games.poki.com/458768/74b97156-f40b-11e9-859c-c6053849a814?tag=pg-v3.90.1&site_id=3&iso_lang=en&country=SE&poki_url=https://poki.com/en/g/sushi-party-io&categories=4,9,53,64,96,750,929,1120,1140,1143,1147,1156,1159&special_condition=landing',
             'name': 'Game - Sushi Party'
         },
         {
-            'link': 'https://poki.com/en/g/pop-it-master',
-            'name': 'Game - Pop it master'
+            'link': 'https://v6p9d9t4.ssl.hwcdn.net/html/2732624/index.html',
+            'name': 'Game - Shooter'
         },
+        {
+            'link': 'https://ad9d08c0-89f7-49fe-84d7-dd334d9445f7.poki-gdn.com/68845c5b-6f8c-4658-82ff-8a903c8d1b2a/index.html?country=SE&ccpaApplies=0&url_referrer=https%3A%2F%2Fpoki.com%2F&tag=pg-v3.90.1&site_id=3&iso_lang=en&poki_url=https%3A%2F%2Fpoki.com%2Fen%2Fg%2Fpop-it-master&categories=4%2C37%2C72%2C102%2C929%2C1109%2C1140%2C1141%2C1165%2C1175&special_condition=landing&game_id=ad9d08c0-89f7-49fe-84d7-dd334d9445f7&game_version_id=68845c5b-6f8c-4658-82ff-8a903c8d1b2a',
+            'name': 'Game - Pop it master'
+        }
+    ],
+    'links'             : [
         {
             'link': 'https://www.youtube.com/watch?v=SNBVeR6m_Xk&list=PLzG6tj8mWFmAaPAujl6CSQMob_sW6L4yx',
             'name': 'Psychedelic Short Films'
