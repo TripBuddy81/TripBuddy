@@ -51,6 +51,7 @@ $( document ).ready( function () {
         if ( document.readyState !== 'complete' ) {
         } else {
             $( '#launchText' ).html( 'Start!' );
+            activateAllSectionsOnce();
         }
     };
 
@@ -130,6 +131,8 @@ $( document ).ready( function () {
         localStorage.setItem( 'topupReminderInMinutes2', '' );
         localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
         enableFullscreen();
+
+
     } );
 
     // Lift off - initialize a lot of stuff
@@ -437,6 +440,37 @@ $( document ).ready( function () {
             var sel = window.getSelection();
             sel.removeAllRanges();
         }
+    }
+
+    function activateAllSectionsOnce() {
+        mediaObjects = [];
+        $( $( '.imageFilterBtn' ).get().reverse() ).each( function () {
+            mediaObjects.push( $( this ).attr( 'class' ) );
+        } );
+        $( $( '.videoFilterBtn' ).get().reverse() ).each( function () {
+            mediaObjects.push( $( this ).attr( 'class' ) );
+        } );
+
+        var delay = 0;
+        $.each( mediaObjects, function ( x ) {
+            setTimeout( function () {
+                $( $( '.imageFilterBtn' ).get().reverse() ).each( function () {
+                    if ( $( this ).attr( 'class' ) == mediaObjects[x] && !(/XXX/i.test( mediaObjects[x] )) ) {
+                        $( '#videos' ).hide();
+                        $( '#images' ).show();
+                        $( this ).trigger( 'click' );
+                    }
+                } );
+
+                $( $( '.videoFilterBtn' ).get().reverse() ).each( function () {
+                    if ( $( this ).attr( 'class' ) == mediaObjects[x] && !(/XXX/i.test( mediaObjects[x] )) ) {
+                        $( '#videos' ).show();
+                        $( '#images' ).hide();
+                        $( this ).trigger( 'click' );
+                    }
+                } );
+            }, delay += 1000 );
+        } );
     }
 
     // ******************************************
