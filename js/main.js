@@ -66,6 +66,7 @@ $( document ).ready( function () {
         $( '#videos' ).show();
         $( '#images' ).hide();
         $( '#disco' ).hide();
+        $( '#games' ).hide();
 
         enableFullscreen();
     } );
@@ -73,6 +74,7 @@ $( document ).ready( function () {
         $( '#videos' ).hide();
         $( '#images' ).show();
         $( '#disco' ).hide();
+        $( '#games' ).hide();
 
         if ( !imageSectionShown ) {
             $( '.imageFilterBtn' ).each( function () {
@@ -88,6 +90,7 @@ $( document ).ready( function () {
         $( '#videos' ).hide();
         $( '#images' ).hide();
         $( '#disco' ).show();
+        $( '#games' ).hide();
 
         renderDiscoSection( showParticles );
         enableFullscreen();
@@ -974,10 +977,34 @@ $( document ).ready( function () {
     // ******************************************
 
     // ******************************************
+    // Game section
+
+    $( '#gamesFrame' ).mousemove( function ( event ) {
+        $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+    } );
+
+    $( '.gameLink' ).click( function ( event ) {
+        event.preventDefault();
+        event.stopPropagation();
+        $( '#videos' ).hide();
+        $( '#images' ).hide();
+        $( '#disco' ).hide();
+        $( '#games' ).show();
+
+        enableFullscreen();
+        $('#gamesFrame').attr('src', $(this).attr('href') );
+    } );
+
+
+    // END Disco section
+    // ******************************************
+
+    // ******************************************
     // init initial view
     $( '#videos' ).show();
     $( '#images' ).hide();
     $( '#disco' ).hide();
+    $( '#games' ).hide();
 } )
 ;
 

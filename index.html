@@ -62,6 +62,11 @@
                     <li class="menuItem deactivateGuidedThoughts menuvisibleAfterStarted">Stop guided thoughts</li>
                     <li class="menuItem menuvisibleAfterStarted" id="startPizzaTimer">Start Pizza Timer (18 min)</li>
                     <span class="">---------------------------------------------------------------------------------</span>
+                    {{#gameLinks}}
+                    <li>
+                        <a class="menuItem gameLink" href="{{link}}" target=_blank>{{name}}</a>
+                    </li>
+                    {{/gameLinks}}
                     {{#links}}
                     <li>
                         <a class="menuItem" href="{{link}}" target=_blank>{{name}}</a>
@@ -184,14 +189,16 @@
                                     <h1>Reminders</h1>
                                     <h3>Display Popup as reminder after configured time</h3>
                                     <div class="options form-check form-switch">
-                                        <label class="form-check-label reminderLabel" for="topupCheckbox1">Top Up Shrooms after </label>
+                                        <label class="form-check-label reminderLabel" for="topupCheckbox1">Top Up
+                                            Shrooms after </label>
                                         <input class="form-check-input" type="checkbox" id="topupCheckbox1">
                                         <input type="number" id="topupReminderInMinutes1" name="topupReminderInMinutes1"
                                                value="60" min="1" max="600">
                                         <span>minutes</span>
                                     </div>
                                     <div class="options form-check form-switch">
-                                        <label class="form-check-label reminderLabel" for="topupCheckbox2">Take Weed after </label>
+                                        <label class="form-check-label reminderLabel" for="topupCheckbox2">Take Weed
+                                            after </label>
                                         <input class="form-check-input" type="checkbox" id="topupCheckbox2">
                                         <input type="number" id="topupReminderInMinutes2" name="topupReminderInMinutes2"
                                                value="150" min="1" max="600">
@@ -421,9 +428,12 @@
                     <input type="range" id="discoStroboSpeed" name="discoStroboSpeed"
                            min="0" max="100" value="0" step="5">
                 </div>
-
             </div>
         </div>
+    </div>
+
+    <div id="games" class="">
+        <iframe id="gamesFrame" class="" src=""></iframe>
     </div>
 
 </script>
