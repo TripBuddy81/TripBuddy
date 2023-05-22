@@ -250,6 +250,7 @@ $( document ).ready( function () {
     // Pizza timer
     $( '#startPizzaTimer' ).click( function ( e ) {
         localStorage.setItem( 'pizzaTimerStartMinutes', totalMins );
+        pizzaTimerShown = false;
         $( '#pizzaTimerContainer' ).show();
     } );
     $( '#pizzaTimerContainer' ).click( function ( e ) {
