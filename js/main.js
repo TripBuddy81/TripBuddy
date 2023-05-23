@@ -65,7 +65,6 @@ $( document ).ready( function () {
     $( '#mainMenu' ).hover(
             function ( event ) {
                 $( '#mainMenu' ).attr( 'style', 'opacity:1' );
-                $( '#gamesLinks' ).attr( 'style', 'opacity:1' );
                 $( '#imageTags' ).show();
                 $( '#gamesLinks' ).show();
             }, function () {
@@ -816,8 +815,8 @@ $( document ).ready( function () {
     }
 
     $( '#MageAIExternalPage' ).mousemove( function ( event ) {
-        $( '#imageTags' ).hide();
         $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+        $( '#imageTags' ).hide();
     } );
 
     $( '.MageAIFavorites' ).click( function () {
@@ -987,7 +986,7 @@ $( document ).ready( function () {
     // Game section
     $( '#gamesFrame' ).mousemove( function ( event ) {
         $( '#mainMenu' ).attr( 'style', 'opacity:0' );
-        $( '#gamesLinks' ).attr( 'style', 'opacity:0' );
+        $( '#gamesLinks' ).hide();
     } );
 
     $( '.gameLink' ).click( function ( event ) {
