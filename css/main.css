@@ -460,7 +460,7 @@ li, .options, .form-check-label {
 }
 
 .fullscreenImage, .externalVideoPreview {
-    width: 540px;
+    width: 550px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
@@ -783,7 +783,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
     display: inline;
     left: 20px;
-    top: 80px;
+    top: -9px;
     font-size: 50px;
     font-weight: bold;
     font-family: sans-serif;
