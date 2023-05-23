@@ -750,7 +750,7 @@ video::-webkit-media-controls-fullscreen-button {
 #slideshowInterval {
     font-size: 70px;
     width: 140px;
-    height:80px;
+    height: 80px;
     background-color: transparent;
     position: fixed;
     bottom: 12px;
@@ -767,19 +767,23 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #pizzaTimerContainer {
-    position: relative;
+    position: fixed;
+    right: 118px;
+    top: 73px;
     display: none;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
+
 #pizzaTimerSymbol {
     width: 100px;
     position: absolute;
 }
+
 #pizzaTimerProgress {
     position: absolute;
     display: inline;
     left: 20px;
-    top: -30px;
+    top: 80px;
     font-size: 50px;
     font-weight: bold;
     font-family: sans-serif;
