@@ -99,17 +99,20 @@ p {
     font-size: xx-large;
 }
 
-.btn.videoFilterBtn, .btn.imageFilterBtn, .btn.gameLink {
+.btn.videoFilterBtn, .btn.imageFilterBtn, .btn.gameLink,
+.btn#showVideoSection, .btn#showImageSection, .btn#showDiscoSection, .btn#showGamesSection {
     background-color: #AAD0D2;
 }
 
-.btn.videoFilterBtn:hover, .btn.imageFilterBtn:hover, .btn.gameLink:hover  {
+.btn.videoFilterBtn:hover, .btn.imageFilterBtn:hover, .btn.gameLink:hover,
+.btn#showVideoSection:hover, .btn#showImageSection:hover, .btn#showDiscoSection:hover, .btn#showGamesSection:hover {
     background-color: #d6eadf;
 }
 
 .btn.videoFilterBtn.videoFilterActive,
 .btn.imageFilterBtn.imageFilterActive,
-.btn.gameLink.gameLinkActive {
+.btn.gameLink.gameLinkActive,
+.btn#showVideoSection.mainSectionActive, .btn#showImageSection.mainSectionActive, .btn#showDiscoSection.mainSectionActive, .btn#showGamesSection.mainSectionActive {
     background-color: #809bce;
 }
 

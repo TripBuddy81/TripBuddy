@@ -78,6 +78,11 @@ $( document ).ready( function () {
         $( '#disco' ).hide();
         $( '#games' ).hide();
 
+        $( '.mainSectionActive' ).each( function () {
+            $( this ).toggleClass( 'mainSectionActive' );
+        } );
+        $( this ).toggleClass( 'mainSectionActive' );
+
         enableFullscreen();
     } );
     $( '#showImageSection' ).click( function () {
@@ -85,6 +90,11 @@ $( document ).ready( function () {
         $( '#images' ).show();
         $( '#disco' ).hide();
         $( '#games' ).hide();
+
+        $( '.mainSectionActive' ).each( function () {
+            $( this ).toggleClass( 'mainSectionActive' );
+        } );
+        $( this ).toggleClass( 'mainSectionActive' );
 
         if ( !imageSectionShown ) {
             $( '.imageFilterBtn' ).each( function () {
@@ -102,6 +112,11 @@ $( document ).ready( function () {
         $( '#disco' ).show();
         $( '#games' ).hide();
 
+        $( '.mainSectionActive' ).each( function () {
+            $( this ).toggleClass( 'mainSectionActive' );
+        } );
+        $( this ).toggleClass( 'mainSectionActive' );
+
         renderDiscoSection( showParticles );
         enableFullscreen();
     } );
@@ -110,6 +125,11 @@ $( document ).ready( function () {
         $( '#images' ).hide();
         $( '#disco' ).hide();
         $( '#games' ).show();
+
+        $( '.mainSectionActive' ).each( function () {
+            $( this ).toggleClass( 'mainSectionActive' );
+        } );
+        $( this ).toggleClass( 'mainSectionActive' );
 
         if ( !gameSectionShown ) {
             $( '.gameLink' ).each( function () {
