@@ -160,7 +160,9 @@ $( document ).ready( function () {
         localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
         enableFullscreen();
 
-        activateAllSectionsOnce(); /* DOES NOT REALLY WORK AS INTENDED ...*/
+        if ( localStorage.getItem( 'activateAllSectionsOnce' ) == 'true' ) {
+            activateAllSectionsOnce(); /* DOES NOT REALLY WORK AS INTENDED ...*/
+        }
     } );
 
     // Lift off - initialize a lot of stuff
@@ -548,6 +550,26 @@ $( document ).ready( function () {
             $( '#fullscreenAutoplaySetting' ).html( '(off)' );
         }
     } )
+
+    // ******************************************
+    // activate all sections once on start on/off
+    if ( localStorage.getItem( 'activateAllSectionsOnce' ) == undefined || localStorage.getItem( 'activateAllSectionsOnce' ) == 'false' ) {
+        localStorage.setItem( 'activateAllSectionsOnce', 'false' );
+        $( '#activateAllSectionsOnceSetting' ).html( '(off)' );
+    } else {
+        localStorage.setItem( 'activateAllSectionsOnce', 'true' );
+        $( '#activateAllSectionsOnceSetting' ).html( '(on)' );
+    }
+    $( '#activateAllSectionsOnce' ).click( function ( event ) {
+        if ( localStorage.getItem( 'activateAllSectionsOnce' ) == 'false' ) {
+            localStorage.setItem( 'activateAllSectionsOnce', 'true' );
+            $( '#activateAllSectionsOnceSetting' ).html( '(on)' );
+        } else {
+            localStorage.setItem( 'activateAllSectionsOnce', 'false' );
+            $( '#activateAllSectionsOnceSetting' ).html( '(off)' );
+        }
+    } )
+
 
     // ***********************************
     // Video section
