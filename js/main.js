@@ -991,7 +991,13 @@ $( document ).ready( function () {
 
     $( '.gameLink' ).click( function ( event ) {
         enableFullscreen();
-        $('#gamesFrame').attr('src', $(this).attr('data') );
+        $( '#gamesFrame' ).attr( 'src', $( this ).attr( 'data' ) );
+
+        $( '.gameLink.gameLinkActive' ).each( function () {
+            $( this ).toggleClass( 'gameLinkActive' );
+        } );
+
+        $( this ).addClass( 'gameLinkActive' );
     } );
 
     // END Disco section

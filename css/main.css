@@ -99,7 +99,7 @@ p {
     font-size: xx-large;
 }
 
-.btn.videoFilterBtn, .btn.imageFilterBtn {
+.btn.videoFilterBtn, .btn.imageFilterBtn, .btn.gameLink {
     background-color: #AAD0D2;
 }
 
@@ -109,7 +109,8 @@ p {
 }
 
 .btn.videoFilterBtn.videoFilterActive, .btn.imageFilterBtn.videoFilterActive,
-.btn.videoFilterBtn.imageFilterActive, .btn.imageFilterBtn.imageFilterActive {
+.btn.videoFilterBtn.imageFilterActive, .btn.imageFilterBtn.imageFilterActive,
+.btn.gameLinkActive {
     background-color: #809bce;
 }
 
