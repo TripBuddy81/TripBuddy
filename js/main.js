@@ -65,7 +65,9 @@ $( document ).ready( function () {
     $( '#mainMenu' ).hover(
             function ( event ) {
                 $( '#mainMenu' ).attr( 'style', 'opacity:1' );
+                $( '#gamesLinks' ).attr( 'style', 'opacity:1' );
                 $( '#imageTags' ).show();
+                $( '#gamesLinks' ).show();
             }, function () {
             }
     );
@@ -103,6 +105,15 @@ $( document ).ready( function () {
         renderDiscoSection( showParticles );
         enableFullscreen();
     } );
+    $( '#showGamesSection' ).click( function () {
+        $( '#videos' ).hide();
+        $( '#images' ).hide();
+        $( '#disco' ).hide();
+        $( '#games' ).show();
+
+        enableFullscreen();
+    } );
+
 
     $( '.menuItem' ).click( function () {
         $( '#menuClose' ).trigger( 'click' );
@@ -976,18 +987,12 @@ $( document ).ready( function () {
     // Game section
     $( '#gamesFrame' ).mousemove( function ( event ) {
         $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+        $( '#gamesLinks' ).attr( 'style', 'opacity:0' );
     } );
 
     $( '.gameLink' ).click( function ( event ) {
-        event.preventDefault();
-        event.stopPropagation();
-        $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#disco' ).hide();
-        $( '#games' ).show();
-
         enableFullscreen();
-        $('#gamesFrame').attr('src', $(this).attr('href') );
+        $('#gamesFrame').attr('src', $(this).attr('data') );
     } );
 
     // END Disco section
