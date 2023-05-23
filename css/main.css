@@ -107,9 +107,9 @@ p {
     background-color: #d6eadf;
 }
 
-.btn.videoFilterBtn.videoFilterActive, .btn.imageFilterBtn.videoFilterActive,
-.btn.videoFilterBtn.imageFilterActive, .btn.imageFilterBtn.imageFilterActive,
-.btn.gameLinkActive {
+.btn.videoFilterBtn.videoFilterActive,
+.btn.imageFilterBtn.imageFilterActive,
+.btn.gameLink.gameLinkActive {
     background-color: #809bce;
 }
 
@@ -229,7 +229,6 @@ p {
 #menu li:hover {
     color: #809bce;
 }
-
 
 #menuToggle input:checked ~ ul {
     transform: none;
