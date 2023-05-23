@@ -20,6 +20,7 @@ $( document ).ready( function () {
     var orderPizzaReminderShown = false;
     var pizzaTimerShown = false;
     var imageSectionShown = false;
+    var gameSectionShown = false;
     var totalMins = 0;
     var veryFirstThoughtDisplayed = false;
     var xxxVisible = false;
@@ -110,9 +111,16 @@ $( document ).ready( function () {
         $( '#disco' ).hide();
         $( '#games' ).show();
 
+        if ( !gameSectionShown ) {
+            $( '.gameLink' ).each( function () {
+                $( this ).trigger( 'click' );
+                return false;
+            } );
+            gameSectionShown = true;
+        }
+
         enableFullscreen();
     } );
-
 
     $( '.menuItem' ).click( function () {
         $( '#menuClose' ).trigger( 'click' );
