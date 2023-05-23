@@ -52,6 +52,11 @@ $( document ).ready( function () {
         if ( document.readyState !== 'complete' ) {
         } else {
             $( '#launchText' ).html( 'Start!' );
+
+            $( '.videoFilterBtn' ).each( function () {
+                $( this ).trigger( 'click' );
+                return false;
+            } );
         }
     };
 
