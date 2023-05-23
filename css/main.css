@@ -503,7 +503,7 @@ li, .options, .form-check-label {
 #iFrameSpotifyPlayerContainer {
     position: fixed;
     top: 2px;
-    left: 525px;
+    left: 565px;
 }
 
 #iFrameSpotifyPlayerContainer iframe {
