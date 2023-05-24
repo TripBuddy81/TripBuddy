@@ -79,6 +79,10 @@ a:hover {
     color: #809bce;
 }
 
+.xxxLink:hover {
+    color: #ffffff;
+}
+
 a:link, a:visited, a:active, p, div, span {
     user-select: none;
 }
