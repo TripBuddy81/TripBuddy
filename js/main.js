@@ -364,19 +364,15 @@ $( document ).ready( function () {
         if ( currentState == 'ignition' ) {
             color = '#60d394';
             updateprogressGraphColor( color );
-            /*$( '#timerMinutes' ).css( 'color', color );*/
         } else if ( currentState == 'onset' ) {
             color = '#ffd97d';
             updateprogressGraphColor( color );
-           /* $( '#timerMinutes' ).css( 'color', color );*/
         } else if ( currentState == 'peak' ) {
             color = '#ee6055';
             updateprogressGraphColor( color );
-            /*$( '#timerMinutes' ).css( 'color', color );*/
         } else {
             color = '#60d394';
             updateprogressGraphColor( color );
-            /*$( '#timerMinutes' ).css( 'color', color );*/
         }
 
         // Reminder Display - Pizza Timer

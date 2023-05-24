@@ -388,12 +388,12 @@ li, .options, .form-check-label {
     font-size: 50px;
     font-weight: bold;
     display: inline-block;
-    color: #FFFFFF;
+    color: #000000;
     position: absolute;
     top: 0px;
     right: 290px;
-    -webkit-text-stroke: 1px black;
     display: none;
+    z-index: 2;
 }
 
 #progressGraphContainer {
