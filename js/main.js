@@ -67,6 +67,12 @@ $( document ).ready( function () {
         $( '#launchText' ).html( 'Start!' );
     }
 
+    // Init gradient background
+    var multiple = new Multiple( {
+        selector  : '.sharedBackground',
+        background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient1 10s ease infinite;'
+    } );
+
     // ***********************************
     // Main Menu
     $( '#mainMenu' ).hover(
@@ -90,6 +96,14 @@ $( document ).ready( function () {
         $( this ).toggleClass( 'mainSectionActive' );
 
         enableFullscreen();
+
+        if ( multiple != undefined ) {
+            multiple.destroy();
+        }
+        multiple = new Multiple( {
+            selector  : '.sharedBackground',
+            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient1 10s ease infinite;'
+        } );
     } );
     $( '#showImageSection' ).click( function () {
         $( '#videos' ).hide();
@@ -111,6 +125,14 @@ $( document ).ready( function () {
         }
 
         enableFullscreen();
+
+        if ( multiple != undefined ) {
+            multiple.destroy();
+        }
+        multiple = new Multiple( {
+            selector  : '.sharedBackground',
+            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient2 10s ease infinite;'
+        } );
     } );
     $( '#showDiscoSection' ).click( function () {
         $( '#videos' ).hide();
@@ -125,6 +147,14 @@ $( document ).ready( function () {
 
         renderDiscoSection( showParticles );
         enableFullscreen();
+
+        if ( multiple != undefined ) {
+            multiple.destroy();
+        }
+        multiple = new Multiple( {
+            selector  : '.sharedBackground',
+            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient3 10s ease infinite;'
+        } );
     } );
     $( '#showGamesSection' ).click( function () {
         $( '#videos' ).hide();
@@ -146,6 +176,14 @@ $( document ).ready( function () {
         }
 
         enableFullscreen();
+
+        if ( multiple != undefined ) {
+            multiple.destroy();
+        }
+        multiple = new Multiple( {
+            selector  : '.sharedBackground',
+            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient4 10s ease infinite;'
+        } );
     } );
 
     $( '.menuItem' ).click( function () {
