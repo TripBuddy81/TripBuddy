@@ -25,6 +25,7 @@ $( document ).ready( function () {
     var veryFirstThoughtDisplayed = false;
     var xxxVisible = false;
     var slideshowJustStarted = false;
+    var lastActiveBackgroundGradientKeyFrame = 1;
 
     Object.assign( config, optionalConfig );
 
@@ -70,16 +71,29 @@ $( document ).ready( function () {
     // Init gradient background
     var multiple = new Multiple( {
         selector  : '.sharedBackground',
-        background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient1 10s ease infinite;'
+        background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
     } );
 
     // ***********************************
     // Main Menu
     $( '#mainMenu' ).hover(
             function ( event ) {
+                refreshBackground = false;
+                if ( $( '#mainMenu' ).attr( 'style' ) == 'opacity:0' ) {
+                    refreshBackground = true;
+                }
+
                 $( '#mainMenu' ).attr( 'style', 'opacity:1' );
                 $( '#imageTags' ).show();
                 $( '#gamesLinks' ).show();
+
+                if ( refreshBackground ) {
+                    lastActiveBackgroundGradientKeyFrame = (lastActiveBackgroundGradientKeyFrame + 1) % 2;
+                    multiple = new Multiple( {
+                        selector  : '.sharedBackground',
+                        background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
+                    } );
+                }
             }, function () {
             }
     );
@@ -97,12 +111,10 @@ $( document ).ready( function () {
 
         enableFullscreen();
 
-        if ( multiple != undefined ) {
-            multiple.destroy();
-        }
+        lastActiveBackgroundGradientKeyFrame = (lastActiveBackgroundGradientKeyFrame + 1) % 2;
         multiple = new Multiple( {
             selector  : '.sharedBackground',
-            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient1 10s ease infinite;'
+            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
         } );
     } );
     $( '#showImageSection' ).click( function () {
@@ -126,12 +138,10 @@ $( document ).ready( function () {
 
         enableFullscreen();
 
-        if ( multiple != undefined ) {
-            multiple.destroy();
-        }
+        lastActiveBackgroundGradientKeyFrame = (lastActiveBackgroundGradientKeyFrame + 1) % 2;
         multiple = new Multiple( {
             selector  : '.sharedBackground',
-            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient2 10s ease infinite;'
+            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
         } );
     } );
     $( '#showDiscoSection' ).click( function () {
@@ -148,12 +158,10 @@ $( document ).ready( function () {
         renderDiscoSection( showParticles );
         enableFullscreen();
 
-        if ( multiple != undefined ) {
-            multiple.destroy();
-        }
+        lastActiveBackgroundGradientKeyFrame = (lastActiveBackgroundGradientKeyFrame + 1) % 2;
         multiple = new Multiple( {
             selector  : '.sharedBackground',
-            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient3 10s ease infinite;'
+            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
         } );
     } );
     $( '#showGamesSection' ).click( function () {
@@ -177,12 +185,10 @@ $( document ).ready( function () {
 
         enableFullscreen();
 
-        if ( multiple != undefined ) {
-            multiple.destroy();
-        }
+        lastActiveBackgroundGradientKeyFrame = (lastActiveBackgroundGradientKeyFrame + 1) % 2;
         multiple = new Multiple( {
             selector  : '.sharedBackground',
-            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient4 10s ease infinite;'
+            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
         } );
     } );
 
