@@ -809,11 +809,12 @@ video::-webkit-media-controls-fullscreen-button {
 #pizzaTimerProgress {
     position: absolute;
     display: inline;
-    left: 20px;
-    top: -9px;
+    left: 18px;
+    top: -8px;
     font-size: 50px;
     font-weight: bold;
     font-family: sans-serif;
+    color: black;
 }
 
 #gamesFrame {
