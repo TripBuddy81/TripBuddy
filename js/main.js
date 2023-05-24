@@ -222,7 +222,6 @@ $( document ).ready( function () {
 
         $( '#preFlightChecklist' ).modal( 'hide' );
         $( '#launchText' ).hide();
-        $( '#timerMinutes' ).show();
         $( '#progressGraphContainer' ).show();
 
         if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
@@ -365,7 +364,9 @@ $( document ).ready( function () {
             displayHour = '0' + diffHrs;
         }
 
-        document.getElementById( 'timerMinutes' ).innerHTML = displayHour + ':' + displayMinute;
+        $( '#timerMinutes' ).show();
+        document.getElementById( 'displayHour' ).innerHTML = displayHour;
+        document.getElementById( 'displayMinute' ).innerHTML = displayMinute;
         $( '.videoMenuOverlayFullscreenTime' ).html( displayHour + ':' + displayMinute );
 
         // Update progressGraph

@@ -415,10 +415,17 @@ li, .options, .form-check-label {
     display: inline-block;
     color: #000000;
     position: absolute;
-    top: -7px;
+    top: -2px;
     right: 270px;
     display: none;
     z-index: 2;
+    line-height: 80px;
+}
+
+#displayHour::after {
+    content: ":";
+    position: relative;
+    top: -.1em;
 }
 
 #progressGraphContainer {
