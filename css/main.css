@@ -406,11 +406,11 @@ li, .options, .form-check-label {
 }
 
 #displayedVideos {
-    padding-top: 135px;
+    padding-top: 150px;
 }
 
 #displayedImages {
-    padding-top: 120px;
+    padding-top: 135px;
 }
 
 #timerMinutes {
@@ -499,8 +499,10 @@ li, .options, .form-check-label {
 }
 
 .fullscreenImage, .externalVideoPreview {
-    width: 550px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    width: 538px;
+    margin-right: 22px;
+    margin-bottom: 25px;
 }
 
 .resetVideoFilterIcon {
@@ -682,10 +684,12 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .videoContainer {
-    width: 554px;
-    height: 315px;
+    width: 538px;
+    height: 300px;
     display: inline-block;
     position: relative;
+    margin-right: 22px;
+    margin-bottom: 25px;
 }
 
 .videoFrame {
@@ -800,7 +804,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 1080px;
     margin-left: -16px;
     width: 1715px;
-    top: -195px;
+    top: -200px;
     position: relative;
     margin-bottom: -220px;
 }
