@@ -832,3 +832,8 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100%;
     height: 100vh;
 }
+
+#games, #disco {
+    overflow-y: hidden;
+    height: 100vh;
+}
