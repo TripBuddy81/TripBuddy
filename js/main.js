@@ -164,6 +164,8 @@ $( document ).ready( function () {
             gameSectionShown = true;
         }
 
+        $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
+
         enableFullscreen();
         refreshGradientBackground();
     } );
