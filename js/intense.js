@@ -250,6 +250,7 @@ var Intense = (function () {
         $('#mainMenu').css('visibility', 'visible');
         $( 'html' ).attr( 'style', 'cursor:auto;' );
         $( '.videoMenuOverlay' ).hide();
+        document.body.style.overflow = 'auto';
     }
 
     function setDimensions() {

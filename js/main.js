@@ -10,7 +10,7 @@ $( document ).ready( function () {
     var guidedThoughtsNext = 0;
     var keyCache = {};
     var timer = '';
-    var imageSlideshowInterval;
+    var imageSlideshowInterval = undefined;
     var imageSlideshowIntervalLength = 1000;
     var start = '';
     var currentState = 'ignition';
