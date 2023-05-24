@@ -385,13 +385,13 @@ li, .options, .form-check-label {
 }
 
 #timerMinutes {
-    font-size: 50px;
+    font-size: 60px;
     font-weight: bold;
     display: inline-block;
     color: #000000;
     position: absolute;
-    top: 0px;
-    right: 290px;
+    top: -7px;
+    right: 270px;
     display: none;
     z-index: 2;
 }
