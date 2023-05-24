@@ -24,6 +24,7 @@ $( document ).ready( function () {
     var totalMins = 0;
     var veryFirstThoughtDisplayed = false;
     var xxxVisible = false;
+    var slideshowJustStarted = false;
 
     Object.assign( config, optionalConfig );
 
@@ -755,12 +756,14 @@ $( document ).ready( function () {
     var moveTimer;
     $( document ).mousemove( function () {
         $( '.displayedFullscreenImage' ).on( 'mousemove', function () {
-            clearTimeout( moveTimer );
-            clearInterval( imageSlideshowInterval );
-            moveTimer = setTimeout( function () {
-                $( '.videoMenuOverlay' ).hide();
-            }, 1500 );
-            $( '.videoMenuOverlay' ).show();
+            if ( !slideshowJustStarted ) {
+                clearTimeout( moveTimer );
+                clearInterval( imageSlideshowInterval );
+                moveTimer = setTimeout( function () {
+                    $( '.videoMenuOverlay' ).hide();
+                }, 1500 );
+                $( '.videoMenuOverlay' ).show();
+            }
         } );
 
         $( '.imageSlideshowControls' ).on( 'mousemove', function () {
@@ -825,6 +828,11 @@ $( document ).ready( function () {
 
     var shownImages = [];
     $( '#startSlideshow' ).click( function ( event ) {
+        slideshowJustStarted = true;
+        setTimeout( function () {
+            slideshowJustStarted = false;
+        }, 2000 );
+
         $( '.videoMenuOverlay' ).hide();
         shownImages = [];
         imageSlideshowInterval = window.setInterval( function () {
