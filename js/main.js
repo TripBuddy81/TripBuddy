@@ -554,7 +554,7 @@ $( document ).ready( function () {
 
     // ******************************************
     // Info Tag toggle setting
-    $( '#toggleInfo' ).click( function ( event ) {
+    $( '#toggleInfo' ).click( function () {
         $( '.videoInfo' ).toggle();
     } )
 
@@ -575,6 +575,7 @@ $( document ).ready( function () {
             localStorage.setItem( 'debugModeSetting', 'false' );
             $( '#debugModeSetting' ).html( '(off)' );
         }
+        location.reload();
     } )
 
     // ******************************************
@@ -621,7 +622,6 @@ $( document ).ready( function () {
     var videoTagList = '';
     $( '.videoFilterBtn' ).click( function () {
         videoTagList = '';
-        // Remove this block to reenable multi tag select!
         $( '.videoFilterBtn.videoFilterActive' ).each( function () {
             $( this ).toggleClass( 'videoFilterActive' );
         } );
@@ -737,7 +737,6 @@ $( document ).ready( function () {
     var lastActiveTag = '';
     $( '.imageFilterBtn' ).click( function () {
         imageTagList = '';
-        // Remove this block to reenable multi tag select!
         $( '.imageFilterBtn.imageFilterActive' ).each( function () {
             $( this ).toggleClass( 'imageFilterActive' );
         } );
@@ -792,7 +791,6 @@ $( document ).ready( function () {
         $( '.imageSlideshowControls' ).on( 'mousemove', function () {
             clearTimeout( moveTimer );
         } );
-
     } );
 
     // Image selection via mouse wheel
@@ -1093,4 +1091,3 @@ $( document ).ready( function () {
     $( '#games' ).hide();
 } )
 ;
-
