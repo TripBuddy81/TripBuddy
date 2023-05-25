@@ -696,7 +696,7 @@ $( document ).ready( function () {
         $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
         $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
 
-        if ( localStorage.getItem( 'fullscreenAutoplay' ) == 'true' ) {
+/*        if ( localStorage.getItem( 'fullscreenAutoplay' ) == 'true' ) {
             // autostop local video
             if ( $( this ).siblings( 'video' )[0] != undefined ) {
                 $( this ).siblings( 'video' )[0].pause();
@@ -705,7 +705,7 @@ $( document ).ready( function () {
             if ( $( this ).siblings( 'iframe' )[0] != undefined ) {
                 $( this ).siblings( 'iframe' )[0].src = $( this ).siblings( 'iframe' )[0].src.replace( /&autoplay=1/g, '' );
             }
-        }
+        }*/
     } );
 
     // Reset settings if user disengaged fullscreen via ESC or other means...
