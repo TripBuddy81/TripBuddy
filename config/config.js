@@ -197,6 +197,10 @@ var config = {
             'tags'     : 'meditative space'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/lkUuCgNkSsk?mute=1',
+            'tags'     : 'meditative'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/t_S_cN2re4g?mute=1',
             'tags'     : 'nature'
         },

@@ -960,6 +960,7 @@ $( document ).ready( function () {
         $( '#devices' ).change( function () {
             transfer( $( '#devices' ).find( ':selected' ).val() );
             $( '#menuClose' ).trigger( 'click' );
+            next();
         } );
 
     } else {
