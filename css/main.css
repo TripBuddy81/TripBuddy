@@ -105,7 +105,7 @@ p {
     position: relative;
     top: -33px;
     text-align: center;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: bold;
     line-height: 3.5;
     cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
@@ -705,8 +705,8 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videoMenuOverlayMinimized {
-    left: 175px;
-    top: 57px;
+    left: 165px;
+    top: 52px;
     z-index: 1;
     width: 200px;
     height: 200px;

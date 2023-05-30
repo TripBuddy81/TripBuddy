@@ -194,7 +194,7 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/jNyvfvDFFPk?mute=1',
-            'tags'     : 'meditative space'
+            'tags'     : 'space'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/lkUuCgNkSsk?mute=1',
