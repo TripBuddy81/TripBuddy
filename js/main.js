@@ -621,8 +621,6 @@ $( document ).ready( function () {
     // Video section
     var videoTagList = '';
     $( '.videoFilterBtn' ).click( function () {
-        clickedFilter = $( this ).attr( 'id' );
-        activeFilter = '';
         videoTagList = '';
         $( '.videoFilterBtn.videoFilterActive' ).each( function () {
             activeFilter = $( this ).attr( 'id' );
@@ -642,11 +640,6 @@ $( document ).ready( function () {
         $( videoTagList ).each( function () {
             if ( $( this ).hasClass( 'videoContainer' ) ) {
                 $( this ).show();
-
-                // if tag is clicked while already beeing active, we reload all visible videos
-                if ( activeFilter == clickedFilter ) {
-                    $( this ).find( '.videoFrame' ).attr( 'src', $( this ).find( '.videoFrame' ).attr( 'src' ) );
-                }
             }
         } );
 
@@ -655,6 +648,13 @@ $( document ).ready( function () {
                 $( this ).show();
             } );
         }
+    } );
+
+    // reload videos in double click on video tags
+    $( '.videoFilterBtn' ).dblclick( function () {
+        $( videoTagList ).each( function () {
+            $( this ).find( '.videoFrame' ).attr( 'src', $( this ).find( '.videoFrame' ).attr( 'src' ) );
+        } );
     } );
 
     // Youtube iFrame fullscreen button overlay
