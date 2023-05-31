@@ -621,8 +621,11 @@ $( document ).ready( function () {
     // Video section
     var videoTagList = '';
     $( '.videoFilterBtn' ).click( function () {
+        clickedFilter = $( this ).attr( 'id' );
+        activeFilter = '';
         videoTagList = '';
         $( '.videoFilterBtn.videoFilterActive' ).each( function () {
+            activeFilter = $( this ).attr( 'id' );
             $( this ).toggleClass( 'videoFilterActive' );
         } );
 
@@ -639,6 +642,11 @@ $( document ).ready( function () {
         $( videoTagList ).each( function () {
             if ( $( this ).hasClass( 'videoContainer' ) ) {
                 $( this ).show();
+
+                // if tag is clicked while already beeing active, we reload all visible videos
+                if ( activeFilter == clickedFilter ) {
+                    $( this ).find( '.videoFrame' ).attr( 'src', $( this ).find( '.videoFrame' ).attr( 'src' ) );
+                }
             }
         } );
 
@@ -696,16 +704,16 @@ $( document ).ready( function () {
         $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
         $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
 
-/*        if ( localStorage.getItem( 'fullscreenAutoplay' ) == 'true' ) {
-            // autostop local video
-            if ( $( this ).siblings( 'video' )[0] != undefined ) {
-                $( this ).siblings( 'video' )[0].pause();
-            }
-            // autostop youtube video
-            if ( $( this ).siblings( 'iframe' )[0] != undefined ) {
-                $( this ).siblings( 'iframe' )[0].src = $( this ).siblings( 'iframe' )[0].src.replace( /&autoplay=1/g, '' );
-            }
-        }*/
+        /*        if ( localStorage.getItem( 'fullscreenAutoplay' ) == 'true' ) {
+                    // autostop local video
+                    if ( $( this ).siblings( 'video' )[0] != undefined ) {
+                        $( this ).siblings( 'video' )[0].pause();
+                    }
+                    // autostop youtube video
+                    if ( $( this ).siblings( 'iframe' )[0] != undefined ) {
+                        $( this ).siblings( 'iframe' )[0].src = $( this ).siblings( 'iframe' )[0].src.replace( /&autoplay=1/g, '' );
+                    }
+                }*/
     } );
 
     // Reset settings if user disengaged fullscreen via ESC or other means...
