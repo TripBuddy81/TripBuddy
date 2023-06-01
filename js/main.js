@@ -947,6 +947,9 @@ $( document ).ready( function () {
         $( '#playlists' ).change( function () {
             shuffle();
             play( $( '#playlists' ).find( ':selected' ).val() );
+            setTimeout( function () {
+                next();
+            }, 20 );
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
@@ -968,7 +971,9 @@ $( document ).ready( function () {
         $( '#devices' ).change( function () {
             transfer( $( '#devices' ).find( ':selected' ).val() );
             $( '#menuClose' ).trigger( 'click' );
-            next();
+            setTimeout( function () {
+                next();
+            }, 20 );
         } );
 
     } else {
