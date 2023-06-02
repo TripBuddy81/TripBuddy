@@ -73,10 +73,20 @@ $( document ).ready( function () {
 
     function refreshGradientBackground() {
         lastActiveBackgroundGradientKeyFrame = (lastActiveBackgroundGradientKeyFrame + 1) % 2;
-        multiple = new Multiple( {
-            selector  : '.sharedBackground',
-            background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
-        } );
+
+        /*https://cssgradient.io/*/
+
+        if ( lastActiveBackgroundGradientKeyFrame == 0 ) {
+            multiple = new Multiple( {
+                selector  : '.sharedBackground',
+                background: 'linear-gradient(-45deg, rgba(245,255,115,1) 0%, rgba(155,255,107,1) 26%, rgba(72,205,255,1) 71%, rgba(144,107,255,1) 100%);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
+            } );
+        } else {
+            multiple = new Multiple( {
+                selector  : '.sharedBackground',
+                background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
+            } );
+        }
     }
 
     // ***********************************
