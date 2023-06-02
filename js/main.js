@@ -945,6 +945,7 @@ $( document ).ready( function () {
         } );
 
         $( '#playlists' ).change( function () {
+            setDefaultOutputDevice();
             shuffle();
             play( $( '#playlists' ).find( ':selected' ).val() );
             setTimeout( function () {
@@ -960,7 +961,10 @@ $( document ).ready( function () {
             }
         } );
         $( '#next' ).click( function () {
-            next();
+            setDefaultOutputDevice();
+            setTimeout( function () {
+                next();
+            }, 20 );
         } );
         $( '#refresh' ).click( function () {
             refreshDevices();
@@ -975,6 +979,12 @@ $( document ).ready( function () {
                 next();
             }, 20 );
         } );
+
+        function setDefaultOutputDevice() {
+            if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
+                transfer( $( '#devices option:contains("DESKTOP")' ).val() );
+            }
+        }
 
     } else {
         // Stand alone iFrame Spotify Player
