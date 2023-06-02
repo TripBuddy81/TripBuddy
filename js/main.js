@@ -946,8 +946,12 @@ $( document ).ready( function () {
 
         $( '#playlists' ).change( function () {
             setDefaultOutputDevice();
-            shuffle();
-            play( $( '#playlists' ).find( ':selected' ).val() );
+            setTimeout( function () {
+                shuffle();
+            }, 20 );
+            setTimeout( function () {
+                play( $( '#playlists' ).find( ':selected' ).val() );
+            }, 20 );
             setTimeout( function () {
                 next();
             }, 20 );
@@ -957,7 +961,10 @@ $( document ).ready( function () {
             // on middle mouse button play next track
             if ( e.which == 2 && $( event.target ).attr( 'class' ) != 'xxxLink' && $( event.target ).attr( 'class' ) != 'externalVideoPreview me-2 mb-2' ) {
                 e.preventDefault();
-                next();
+                setDefaultOutputDevice();
+                setTimeout( function () {
+                    next();
+                }, 20 );
             }
         } );
         $( '#next' ).click( function () {
@@ -977,7 +984,7 @@ $( document ).ready( function () {
             $( '#menuClose' ).trigger( 'click' );
             setTimeout( function () {
                 next();
-            }, 20 );
+            }, 200 );
         } );
 
         function setDefaultOutputDevice() {
