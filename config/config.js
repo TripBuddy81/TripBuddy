@@ -472,7 +472,12 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/tlMk1jeOI50?mute=1',
             'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/DpnNw2nIIdQ?mute=1',
+            'tags'     : 'trippy-3D'
         }
+
     ],
     'selectableImageTags': [
         {'selectableTag': 'trippy'},

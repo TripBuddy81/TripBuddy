@@ -208,6 +208,7 @@ p {
 .menuItem > a {
     font-weight: normal;
     font-size: 25px;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
 .menuItem > a:hover {
@@ -256,7 +257,6 @@ p {
 #menu li {
     padding: 3px 0;
     font-size: 25px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
 #menu li:hover {
