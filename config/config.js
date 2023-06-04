@@ -81,7 +81,7 @@ var config = {
         {'selectableTag': 'hiking'},
         {'selectableTag': 'festival'},
         {'selectableTag': 'wisdom'},
-        {'selectableTag': 'leftovers'}
+        {'selectableTag': 'nsfw'}
     ],
     'videosYoutube'     : [
         {
@@ -198,6 +198,18 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/lkUuCgNkSsk?mute=1',
+            'tags'     : 'meditative'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/JbJ0sYt9Nyk?mute=0',
+            'tags'     : 'meditative'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/J2kFChP2O2k?mute=0',
+            'tags'     : 'meditative'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/W5KJsQMKbwM?mute=0',
             'tags'     : 'meditative'
         },
         {
@@ -459,7 +471,7 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/N0rHxXC27BA?mute=1&loop=1&playlist=N0rHxXC27BA',
-            'tags'     : 'leftovers'
+            'tags'     : 'nsfw'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/VBvVBFZMhKI?mute=1',
