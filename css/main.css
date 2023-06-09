@@ -716,8 +716,8 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videoMenuOverlayMinimized2 {
-    left: 505px;
-    top: 280px;
+    left: 493px;
+    top: 265px;
     z-index: 1;
     width: 30px;
     height: 30px;
