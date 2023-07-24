@@ -943,11 +943,13 @@ $( document ).ready( function () {
         spotifyInitOnPageLoad();
 
         $( '#stopMusic' ).click( function () {
+            refreshAccessToken();
             pause();
             $( this ).attr( 'src', './assets/pause.png' );
         } );
 
         $( '#playlists' ).change( function () {
+            refreshAccessToken();
             setDefaultOutputDevice();
             setTimeout( function () {
                 shuffle();
@@ -971,18 +973,21 @@ $( document ).ready( function () {
             }
         } );
         $( '#next' ).click( function () {
+            refreshAccessToken();
             setDefaultOutputDevice();
             setTimeout( function () {
                 next();
             }, 20 );
         } );
         $( '#refresh' ).click( function () {
+            refreshAccessToken();
             refreshDevices();
         } );
         $( '#menuClose' ).click( function () {
             refreshDevices();
         } );
         $( '#devices' ).change( function () {
+            refreshAccessToken();
             transfer( $( '#devices' ).find( ':selected' ).val() );
             $( '#menuClose' ).trigger( 'click' );
             setTimeout( function () {
