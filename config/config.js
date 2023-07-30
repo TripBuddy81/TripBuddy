@@ -185,10 +185,6 @@ var config = {
             'tags'     : 'meditative nature'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/l6U2qXfdk6I?mute=1',
-            'tags'     : 'meditative space'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/B5unCXpegAw?mute=1',
             'tags'     : 'meditative space'
         },
@@ -260,20 +256,16 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/b4AVn8mTuJw?mute=1',
             'tags'     : 'nature hiking'
         },
-        /*        {
-                    'videoLink': 'https://www.youtube.com/embed/123Z5KLLiO8?mute=1',
-                    'tags'     : 'festival'
-                },*/
-        /*        {
-                    'videoLink': 'https://www.youtube.com/embed/8eYEW4q42y8?mute=1',
-                    'tags'     : 'festival'
-                },*/
         {
-            'videoLink': 'https://www.youtube.com/embed/G59Tm7KqEnY?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/123Z5KLLiO8?mute=1',
             'tags'     : 'festival'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/mmA5fekq8yQ?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/8eYEW4q42y8?mute=1',
+            'tags'     : 'festival'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/G59Tm7KqEnY?mute=1',
             'tags'     : 'festival'
         },
         {
@@ -291,10 +283,6 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/KtXphUrwQtA?mute=1',
             'tags'     : 'festival'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/Am5DwwpKSRA?mute=1',
-            'tags'     : 'slideshow'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/5I69DCxYbBg?mute=1',
@@ -469,10 +457,10 @@ var config = {
             'tags'     : 'wisdom',
             'label'    : 'AW - unsorted playlist - to be checked'
         },
-        {
-            'videoLink': 'https://www.youtube.com/embed/N0rHxXC27BA?mute=1&loop=1&playlist=N0rHxXC27BA',
-            'tags'     : 'nsfw'
-        },
+        /*        {
+                    'videoLink': 'https://www.youtube.com/embed/N0rHxXC27BA?mute=1&loop=1&playlist=N0rHxXC27BA',
+                    'tags'     : 'nsfw'
+                },*/
         {
             'videoLink': 'https://www.youtube.com/embed/VBvVBFZMhKI?mute=1',
             'tags'     : 'trippy-3D'
@@ -489,7 +477,6 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/DpnNw2nIIdQ?mute=1',
             'tags'     : 'trippy-3D'
         }
-
     ],
     'selectableImageTags': [
         {'selectableTag': 'trippy'},
