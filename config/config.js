@@ -85,6 +85,10 @@ var config = {
     ],
     'videosYoutube'     : [
         {
+            'videoLink': 'https://www.youtube.com/embed/BEdAaSWiY_8?mute=1',
+            'tags'     : 'trippy-slow trippy-3D'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/AITN4rs1Ev8?mute=1',
             'tags'     : 'trippy-slow trippy-2D'
         },
