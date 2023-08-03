@@ -66,14 +66,18 @@
                     <li class="menuItem deactivateGuidedThoughts menuvisibleAfterStarted">Stop guided thoughts</li>
                     <li class="menuItem menuvisibleAfterStarted" id="startPizzaTimer">Start Pizza Timer (18 min)</li>
 
-                    <div class="mt-3">-- <b>LINKS</b> ----------------------------------------------------------------------</div>
+                    <div class="mt-3">-- <b>LINKS</b>
+                        ----------------------------------------------------------------------
+                    </div>
                     {{#links}}
                     <li>
                         <a class="menuItem" href="{{link}}" target=_blank>{{name}}</a>
                     </li>
                     {{/links}}
 
-                    <div class="mt-3">-- <b>SETTINGS</b> -----------------------------------------------------------------</div>
+                    <div class="mt-3">-- <b>SETTINGS</b>
+                        -----------------------------------------------------------------
+                    </div>
                     <li class="menuItem" id="toggleInfo">Toggle video info</li>
                     <li class="menuItem" id="activateAllSectionsOnce">Activate all sections once on start <span
                             id="activateAllSectionsOnceSetting">(off)</span></li>
@@ -87,7 +91,8 @@
             </div>
         </div>
         <img id="fullscreenIcon" class="toggleFullscreen float-end me-3 mt-3" src="./assets/disableFullscreen.png">
-        <div id="timerMinutes" class="float-end me-3"><span id="displayHour"></span><span id="displayMinute"></span></div>
+        <div id="timerMinutes" class="float-end me-3"><span id="displayHour"></span><span id="displayMinute"></span>
+        </div>
         <div id="launchText" class="float-end me-3 mt-3" data-bs-toggle="modal" data-bs-target="#preFlightChecklist">
             Loading...
         </div>
@@ -381,7 +386,7 @@
                  data-image="{{image}}">
             {{/images}}
 
-            <iframe id="MageAIExternalPage" class="MageAI fullscreenImage" 
+            <iframe id="MageAIExternalPage" class="MageAI fullscreenImage"
                     src="https://www.mage.space/explore?q=psychedelic"></iframe>
         </div>
         <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
@@ -431,6 +436,10 @@
 
     <div id="games" class="">
         <div id="gamesLinks" class="sticky sharedBackground">
+            <div data="{{link}}" class="VRGamesBtn gameLink btn btn-primary me-2">
+                VR Games
+            </div>
+
             {{#gameLinks}}
             <div data="{{link}}" class="gameLink btn btn-primary me-2">
                 {{name}}
@@ -439,6 +448,18 @@
         </div>
 
         <iframe id="gamesFrame" class="" src=""></iframe>
+
+        <div class="VRGames sharedBackground">
+            {{#VRGames}}
+            <span class="vrGameLinkContainer">
+                <a href="{{link}}">
+                    <img class="VRGameImage" src="{{image}}">
+                    <div class="VRGameName">{{name}}</div>
+                </a>
+
+            </span>
+            {{/VRGames}}
+        </div>
     </div>
 
 </script>

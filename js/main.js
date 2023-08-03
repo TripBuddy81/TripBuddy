@@ -68,6 +68,11 @@ $( document ).ready( function () {
         $( '#launchText' ).html( 'Start!' );
     }
 
+    if ( config['VRGames'] ) {
+        $( '.VRGamesBtn' ).attr( 'style', 'display:inline-block' );
+        $( '.VRGamesBtn' ).show();
+    }
+
     // Init gradient background
     refreshGradientBackground();
 
@@ -1109,6 +1114,15 @@ $( document ).ready( function () {
     } );
 
     $( '.gameLink' ).click( function ( event ) {
+        if ( $( this ).hasClass( 'VRGamesBtn' ) ) {
+            $( '.VRGames' ).show();
+            $( '#gamesFrame' ).hide();
+            refreshGradientBackground();
+        } else {
+            $( '.VRGames' ).hide();
+            $( '#gamesFrame' ).show();
+        }
+
         enableFullscreen();
         $( '#gamesFrame' ).attr( 'src', $( this ).attr( 'data' ) );
 

@@ -842,3 +842,38 @@ video::-webkit-media-controls-fullscreen-button {
     overflow-y: hidden;
     height: 100vh;
 }
+
+.VRGamesBtn {
+    display: none;
+}
+
+.VRGames {
+    position: absolute;
+    top: 150px;
+    font-size: larger;
+}
+
+.vrGameLinkContainer {
+    width: 538px;
+    height: 300px;
+    display: inline-block;
+    position: relative;
+    margin-left: 15px;
+    margin-bottom: 25px;
+}
+
+.VRGameImage {
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    width: 538px;
+    margin-bottom: 5px;
+}
+
+.VRGameName {
+    position: relative;
+    top: -33px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 3.5;
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
+}
