@@ -496,12 +496,12 @@ $( document ).ready( function () {
 
     function enableFullscreen() {
         isFullScreen = true;
-        if ( document.documentElement.requestFullscreen ) {
-            document.documentElement.requestFullscreen();
-        } else if ( document.documentElement.webkitRequestFullscreen ) {
+        if ( document.documentElement.webkitRequestFullscreen ) {
             document.documentElement.webkitRequestFullscreen();
         } else if ( document.documentElement.msRequestFullscreen ) {
             document.documentElement.msRequestFullscreen();
+        } else if ( document.documentElement.msRequestFullscreen ) {
+            document.documentElement.requestFullscreen();
         }
     }
 
