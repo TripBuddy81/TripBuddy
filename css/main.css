@@ -854,6 +854,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .VRGameLinkContainer {
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     width: 538px;
     height: 300px;
     display: inline-block;
@@ -863,7 +864,6 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .VRGameImage {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     width: 525px;
     height: 300px;
     margin-bottom: 5px;
@@ -876,5 +876,4 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 24px;
     font-weight: bold;
     line-height: 3.5;
-    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
 }
