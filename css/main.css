@@ -853,7 +853,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: larger;
 }
 
-.vrGameLinkContainer {
+.VRGameLinkContainer {
     width: 538px;
     height: 300px;
     display: inline-block;
