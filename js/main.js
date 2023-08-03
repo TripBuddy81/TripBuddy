@@ -1133,6 +1133,11 @@ $( document ).ready( function () {
         $( this ).addClass( 'gameLinkActive' );
     } );
 
+    $( '.VRGameLink' ).click( function ( event ) {
+        disableFullscreen();
+    } );
+
+
     // END Disco section
     // ******************************************
 
