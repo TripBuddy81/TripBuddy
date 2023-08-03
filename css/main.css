@@ -864,7 +864,8 @@ video::-webkit-media-controls-fullscreen-button {
 
 .VRGameImage {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    width: 538px;
+    width: 525px;
+    height: 300px;
     margin-bottom: 5px;
 }
 
