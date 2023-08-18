@@ -50,8 +50,8 @@ var config = {
                     'id'   : '0O1C7wbOthIxBbai9pYvEH'
                 },
                 {
-                    'label': 'Sarod',
-                    'id'   : '6OrBBwnQnwVedLjyBh6Vx3'
+                    'label': 'Meditation',
+                    'id'   : '3ogKJHz0eQMVe9rouV12Zj'
                 },
                 {
                     'label': 'Tool',
@@ -68,6 +68,10 @@ var config = {
                 {
                     'label': 'Force',
                     'id'   : '6fB9PJQ7Hy8SDvcRmBeKwr'
+                },
+                {
+                    'label': 'Wonderland',
+                    'id'   : '4IXAhGiDhuzPz2VQjTDTSy'
                 }
             ]
     ,
@@ -80,49 +84,58 @@ var config = {
         {'selectableTag': 'slideshow'},
         {'selectableTag': 'hiking'},
         {'selectableTag': 'festival'},
+        {'selectableTag': 'spiritual'},
         {'selectableTag': 'wisdom'},
         {'selectableTag': 'nsfw'}
     ],
     'videosYoutube'     : [
         {
             'videoLink': 'https://www.youtube.com/embed/BEdAaSWiY_8?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
+            'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/AITN4rs1Ev8?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
+            'tags'     : 'trippy-2D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/JKe0gryiCCw?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
+            'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/ZqvhJhi8CF4?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/1Of7tzR9be8?mute=1',
+            'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/AmkZRNmLiGE?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
+            'tags'     : 'trippy-2D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/0NR8_r2FmFk?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
+            'tags'     : 'trippy-2D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
+            'tags'     : 'trippy-2D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/JTbWeMQnJUE?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
+            'tags'     : 'trippy-2D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/jRn3MDxESfw?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
+            'tags'     : 'trippy-2D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/7jv-1iSRuN4?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/jaXuqScMt68?mute=1',
+            'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
@@ -130,27 +143,31 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/M45c6WiZ2tc?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
+            'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/s3Tp8ESiiM4?mute=1',
-            'tags'     : 'trippy-3D trippy-slow'
+            'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/TdU2Ab7y91w?mute=1',
-            'tags'     : 'trippy-slow trippy-3D'
+            'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/fFyC68CIEio?mute=1',
-            'tags'     : 'trippy-slow trippy-2D'
+            'tags'     : 'trippy-2D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/beW6KCQ90Qc?mute=1',
-            'tags'     : 'trippy-fast trippy-3D'
+            'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/z3ul9PkRvfY?mute=1',
-            'tags'     : 'trippy-fast trippy-2D'
+            'tags'     : 'trippy-2D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/k7Fvg0zkrQo?mute=0',
+            'tags'     : 'trippy-2D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/vmGDO0eU1n0?mute=1',
@@ -174,6 +191,10 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
+            'tags'     : 'meditative'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/ICmWwxaTmB8?mute=1',
             'tags'     : 'meditative'
         },
         {
@@ -211,6 +232,26 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/W5KJsQMKbwM?mute=0',
             'tags'     : 'meditative'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/z5JdoygbFCE?mute=1',
+            'tags'     : 'spiritual'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/HZ4p5qaLKec?mute=0',
+            'tags'     : 'spiritual'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/hZiCBWrwiRw?mute=0',
+            'tags'     : 'spiritual'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/4GaGnU8Ij2Y?mute=0',
+            'tags'     : 'spiritual'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/j_Z6uNOc428?mute=0',
+            'tags'     : 'spiritual'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/t_S_cN2re4g?mute=1',
@@ -461,10 +502,6 @@ var config = {
             'tags'     : 'wisdom',
             'label'    : 'AW - unsorted playlist - to be checked'
         },
-        /*        {
-                    'videoLink': 'https://www.youtube.com/embed/N0rHxXC27BA?mute=1&loop=1&playlist=N0rHxXC27BA',
-                    'tags'     : 'nsfw'
-                },*/
         {
             'videoLink': 'https://www.youtube.com/embed/VBvVBFZMhKI?mute=1',
             'tags'     : 'trippy-3D'
@@ -480,7 +517,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/DpnNw2nIIdQ?mute=1',
             'tags'     : 'trippy-3D'
-        }
+        },
     ],
     'selectableImageTags': [
         {'selectableTag': 'trippy'},
