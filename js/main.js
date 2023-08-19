@@ -46,7 +46,7 @@ $( document ).ready( function () {
     }
 
     $(document).keyboard({
-        language: 'us',
+        language: 'german',
         keyboardPosition: 'bottom',
         acceptColor: '#809bce',
         acceptTextColor: '#000000',
