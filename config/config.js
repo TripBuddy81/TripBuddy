@@ -88,7 +88,7 @@ var config = {
         {'selectableTag': 'wisdom'},
         {'selectableTag': 'nsfw'}
     ],
-    'videosYoutube'     : [
+    'videosYoutube'      : [
         {
             'videoLink': 'https://www.youtube.com/embed/BEdAaSWiY_8?mute=1',
             'tags'     : 'trippy-3D'
@@ -135,6 +135,10 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/jaXuqScMt68?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/oCi2JpkEZbo?mute=1',
             'tags'     : 'trippy-3D'
         },
         {
@@ -505,19 +509,7 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/VBvVBFZMhKI?mute=1',
             'tags'     : 'trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/d8jFMKNy9EI?mute=1',
-            'tags'     : 'trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/tlMk1jeOI50?mute=1',
-            'tags'     : 'trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/DpnNw2nIIdQ?mute=1',
-            'tags'     : 'trippy-3D'
-        },
+        }
     ],
     'selectableImageTags': [
         {'selectableTag': 'trippy'},
