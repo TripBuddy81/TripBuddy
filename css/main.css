@@ -80,7 +80,7 @@ a:hover {
     color: #809bce;
 }
 
-.xxxLink:hover {
+.xxxLink:hover, .searchLink:hover {
     color: #ffffff;
 }
 

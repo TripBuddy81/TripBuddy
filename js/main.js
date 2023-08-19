@@ -735,6 +735,27 @@ $( document ).ready( function () {
     $( '.videoFrame' ).click( function ( event ) {
         this.paused ? this.play() : this.pause();
     } );
+
+    // XXX section within video
+    if ( localStorage.getItem( 'searchInput' ) != '' ) {
+        $('#searchInput').val(localStorage.getItem( 'searchInput' ) )
+    }
+    if ( localStorage.getItem( 'textNotes' ) != '' ) {
+        $('#textNotes').val(localStorage.getItem( 'textNotes' ) )
+    }
+    $( '#searchInput' ).change( function () {
+        localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
+    } );
+    $( '#textNotes' ).change( function () {
+        localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
+    } );
+
+    $('.searchLink').click( function ( event ) {
+        event.preventDefault();
+        event.stopPropagation();
+        var win = window.open($( this ).attr('href') + $('#searchInput').val(), '_blank');
+    } );
+
     // END Video section
     // ******************************************
 
