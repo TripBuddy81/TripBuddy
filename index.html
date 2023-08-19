@@ -11,6 +11,7 @@
     <script src="./libs/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
     <script src="./libs/particles.js-master/particles.js"></script>
     <script src="./libs/multiple/multiple.min.js"></script>
+    <script src="./libs/keyboard/main.js"></script>
     <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
 
     <script src="./config/config.js"></script>
@@ -22,9 +23,10 @@
 
     <link rel="stylesheet" href="./libs/bootstrap-5.0.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./css/main.css">
-    <link href="./libs/multiple/multiple.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="./libs/multiple/multiple.css" >
+    <link rel="stylesheet" href="./libs/keyboard/styles.css">
     <link rel="icon" type="image/png" href="assets/mushroom.png"/>
+
 </head>
 
 <body class="sharedBackground">
@@ -369,8 +371,6 @@
 
             <a class="searchLink" href="https://www.google.de/search?q=" target=_blank>Google</a>
             <a class="searchLink" href="http://biqle.ru/video/" target=_blank> | Biqle</a>
-            <br>
-            <textarea class="mt-1" id="textNotes" name="textNotes" rows="4" cols="50"></textarea>
             <br>
             {{#externalVideoLinks}}
             <a class="xxxLink" href="{{link}}" target=_blank>{{name}}<img class="externalVideoPreview" src="{{thumb}}"></a>

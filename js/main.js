@@ -31,7 +31,9 @@ $( document ).ready( function () {
 
     // Disable right click context menu
     $( document ).bind( 'contextmenu', function ( e ) {
-        return false;
+        if ($(e.target).attr("type") != "text") {
+            return false;
+        }
     } );
 
     // If debug mode is active, remove all but some videos (speeds up load time)
@@ -42,6 +44,15 @@ $( document ).ready( function () {
             }
         } );
     }
+
+    $(document).keyboard({
+        language: 'us',
+        keyboardPosition: 'bottom',
+        acceptColor: '#809bce',
+        acceptTextColor: '#000000',
+        inputType: 'text',
+        blackoutColor: '25, 25, 25, 0.5'
+    });
 
     // ***********************************
     // Handlebar renderer - takes config within config/config.js
@@ -737,19 +748,6 @@ $( document ).ready( function () {
     } );
 
     // XXX section within video
-    if ( localStorage.getItem( 'searchInput' ) != '' ) {
-        $('#searchInput').val(localStorage.getItem( 'searchInput' ) )
-    }
-    if ( localStorage.getItem( 'textNotes' ) != '' ) {
-        $('#textNotes').val(localStorage.getItem( 'textNotes' ) )
-    }
-    $( '#searchInput' ).change( function () {
-        localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
-    } );
-    $( '#textNotes' ).change( function () {
-        localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
-    } );
-
     $('.searchLink').click( function ( event ) {
         event.preventDefault();
         event.stopPropagation();
