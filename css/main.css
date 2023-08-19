@@ -53,7 +53,7 @@ body::-webkit-scrollbar {
     cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
 }
 
-input {
+input, .form-check-label, .menuItem {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
@@ -876,4 +876,14 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 24px;
     font-weight: bold;
     line-height: 3.5;
+}
+
+#searchBar {
+    width: auto;
+    height: auto;
+    display: inline-block;;
+}
+
+.keyboard-action-button, .keyboard-key {
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }

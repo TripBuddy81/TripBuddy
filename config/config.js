@@ -732,7 +732,7 @@ var config = {
             'tags' : 'space'
         }
     ],
-    'searchEngines' : [
+    'searchEngines'      : [
         {
             'link': 'https://www.google.de/search?q=',
             'name': 'Google',

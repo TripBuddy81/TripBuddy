@@ -305,6 +305,16 @@
         </div>
 
         <div id="displayedVideos">
+            <div class="videoContainer XXX" id="searchBar">
+                <label id="searchLabel" class="form-check-label me-2" for="searchInput">Search</label>
+                <input type="text" class="me-2" id="searchInput" name="searchInput" value="">
+
+                {{#searchEngines}}
+                <a class="searchLink {{tag}}" href="{{link}}" target=_blank>{{name}}</a>
+                {{/searchEngines}}
+                <br>
+            </div>
+
             {{#videosYoutube}}
             <div class="videoContainer {{tags}}">
                 <div class="iFrameContainer">
@@ -364,14 +374,6 @@
 
         <div class="videoContainer XXX mt-4 mb-4" style="display:none;width: 100% !important;">
             <h1>External Videos</h1>
-            <label id="searchLabel" class="form-check-label me-2" for="searchInput">Search</label>
-            <input type="text" class="me-2" id="searchInput" name="searchInput" value="">
-
-            {{#searchEngines}}
-            <a class="searchLink {{tag}}" href="{{link}}" target=_blank>{{name}}</a>
-            {{/searchEngines}}
-            <br>
-
             {{#externalVideoLinks}}
             <a class="xxxLink mt-4 mb-4" href="{{link}}" target=_blank>{{name}}<img class="externalVideoPreview" src="{{thumb}}"></a>
             {{/externalVideoLinks}}

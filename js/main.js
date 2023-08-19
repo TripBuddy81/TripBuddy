@@ -51,7 +51,7 @@ $( document ).ready( function () {
         acceptColor: '#809bce',
         acceptTextColor: '#000000',
         inputType: 'text',
-        blackoutColor: '25, 25, 25, 0.5'
+        blackoutColor: '25, 25, 25, 0.75'
     });
 
     // ***********************************
