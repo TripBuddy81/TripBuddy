@@ -1,12 +1,12 @@
 var config = {
-    'oAuthSpotify'      : [
+    'oAuthSpotify'       : [
         {
             'redirect_uri' : 'http://127.0.0.1:8080',
             'client_id'    : '',
             'client_secret': ''
         }
     ],
-    'preFlightChecklist': [
+    'preFlightChecklist' : [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
         {'checklistItem': 'Mouse charged/VPN off?'},
         {'checklistItem': 'Start easy listening music'},
@@ -27,8 +27,7 @@ var config = {
         {'checklistItem': 'Something to eat set aside'},
         {'checklistItem': 'Backpack for outside? (Water, Tissues, something to eat)'}
     ],
-    'playlists'         :
-            [
+    'playlists'          : [
                 {
                     'label': 'Soft/Peak',
                     'id'   : '4ILChY5F4Hn08ikt0rfHhW'
@@ -73,8 +72,7 @@ var config = {
                     'label': 'Wonderland',
                     'id'   : '4IXAhGiDhuzPz2VQjTDTSy'
                 }
-            ]
-    ,
+            ],
     'selectableVideoTags': [
         {'selectableTag': 'trippy-2D'},
         {'selectableTag': 'trippy-3D'},
@@ -734,10 +732,8 @@ var config = {
             'tags' : 'space'
         }
     ],
-    'externalVideoLinks' : [
-    ],
-    'externalPicLinks'   : [
-    ],
+    'externalVideoLinks' : [],
+    'externalPicLinks'   : [],
     'reminderSelection'  : [
         {'reminder': 'Dance!'},
         {'reminder': 'Listen to Alans wisdom!'},
@@ -757,7 +753,7 @@ var config = {
             'name': 'Shooter'
         }
     ],
-    'links'             : [
+    'links'              : [
         {
             'link': 'https://www.youtube.com/watch?v=SNBVeR6m_Xk&list=PLzG6tj8mWFmAaPAujl6CSQMob_sW6L4yx',
             'name': 'Psychedelic Short Films'
@@ -783,5 +779,5 @@ var config = {
             'name': 'Wile E. Coyote & Roadrunner'
         }
     ],
-    'mageAIFavoritesLink' : 'https://www.mage.space/u/d1dwlsYczlUw2Z9lmQP6zTNW4T33'
+    'mageAIFavoritesLink': 'https://www.mage.space/u/d1dwlsYczlUw2Z9lmQP6zTNW4T33'
 };
