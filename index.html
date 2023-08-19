@@ -364,16 +364,16 @@
 
         <div class="videoContainer XXX mt-4 mb-4" style="display:none;width: 100% !important;">
             <h1>External Videos</h1>
-            <label class="form-check-label me-2" for="searchInput">Search</label>
-            <input type="text" id="searchInput"
-                   name="searchInput"
-                   value="">
+            <label id="searchLabel" class="form-check-label me-2" for="searchInput">Search</label>
+            <input type="text" class="me-2" id="searchInput" name="searchInput" value="">
 
-            <a class="searchLink" href="https://www.google.de/search?q=" target=_blank>Google</a>
-            <a class="searchLink" href="http://biqle.ru/video/" target=_blank> | Biqle</a>
+            {{#searchEngines}}
+            <a class="searchLink {{tag}}" href="{{link}}" target=_blank>{{name}}</a>
+            {{/searchEngines}}
             <br>
+
             {{#externalVideoLinks}}
-            <a class="xxxLink" href="{{link}}" target=_blank>{{name}}<img class="externalVideoPreview" src="{{thumb}}"></a>
+            <a class="xxxLink mt-4 mb-4" href="{{link}}" target=_blank>{{name}}<img class="externalVideoPreview" src="{{thumb}}"></a>
             {{/externalVideoLinks}}
         </div>
     </div>

@@ -71,7 +71,7 @@ a:link, a:visited, a:active, a:hover, p {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
-.xxxLink {
+.xxxLink, .searchLink, #searchInput, #searchLabel {
     font-weight: bold;
     font-size: 35px !important;
 }

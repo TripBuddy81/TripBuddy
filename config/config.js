@@ -732,6 +732,13 @@ var config = {
             'tags' : 'space'
         }
     ],
+    'searchEngines' : [
+        {
+            'link': 'https://www.google.de/search?q=',
+            'name': 'Google',
+            'tag': ''
+        }
+    ],
     'externalVideoLinks' : [],
     'externalPicLinks'   : [],
     'reminderSelection'  : [
