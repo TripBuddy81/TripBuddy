@@ -84,7 +84,7 @@ var config = {
         {'selectableTag': 'festival'},
         {'selectableTag': 'spiritual'},
         {'selectableTag': 'wisdom'},
-        {'selectableTag': 'nsfw'}
+/*        {'selectableTag': 'nsfw'}*/
     ],
     'videosYoutube'      : [
         {
