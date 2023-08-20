@@ -45,16 +45,6 @@ $( document ).ready( function () {
         } );
     }
 
-    $(document).keyboard({
-        language: 'german',
-        keyboardPosition: 'middle',
-        acceptColor: '#809bce',
-        acceptTextColor: '#000000',
-        inputType: 'text',
-        blackoutColor: '25, 25, 25, 0.75',
-        specifiedFieldsOnly: true
-    });
-
     // ***********************************
     // Handlebar renderer - takes config within config/config.js
     $( 'body' ).html(
@@ -85,6 +75,12 @@ $( document ).ready( function () {
         $( '.VRGamesBtn' ).show();
     }
 
+    // Init keyboard
+    refreshKeyboard();
+    $( '#searchInput' ).click( function () {
+        refreshKeyboard();
+    } );
+
     // Init gradient background
     refreshGradientBackground();
 
@@ -98,6 +94,21 @@ $( document ).ready( function () {
             background: 'linear-gradient(-45deg, rgba(245,255,115,1) 0%, rgba(155,255,107,1) 26%, rgba(72,205,255,1) 71%, rgba(144,107,255,1) 100%);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
         } );
     }
+
+    function refreshKeyboard() {
+        $(document).keyboard({
+            language: 'german',
+            keyboardPosition: 'middle',
+            acceptColor: '#809bce',
+            acceptTextColor: '#000000',
+            inputType: 'text',
+            blackoutColor: '25, 25, 25, 0.75',
+            specifiedFieldsOnly: true
+        });
+
+        $(window).trigger("resize");
+    }
+
 
     // ***********************************
     // Main Menu
