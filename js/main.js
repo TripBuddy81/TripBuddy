@@ -219,12 +219,12 @@ $( document ).ready( function () {
             $( '.imageFilterBtn.imageFilterActive' ).each( function () {
                 $( this ).trigger( 'click' );
             } );
-            if ( xxxVisible ) {
+            /*if ( xxxVisible ) {*/
                 $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) + '&nsfw=t' );
-            } else {
+/*            } else {
                 newTarget = $( '#MageAIExternalPage' ).attr( 'src' ).replace( /&nsfw=t/, '' );
                 $( '#MageAIExternalPage' ).attr( 'src', newTarget );
-            }
+            }*/
         }
     } );
     $( document ).keyup( function ( e ) {
@@ -955,9 +955,9 @@ $( document ).ready( function () {
 
     $( '.MageAIfilter' ).click( function () {
         defaultTarget = 'https://www.mage.space/explore?q=psychedelic';
-        if ( xxxVisible ) {
+/*        if ( xxxVisible ) {*/
             defaultTarget = defaultTarget + '&nsfw=t';
-        }
+/*        }*/
         $( '#MageAIExternalPage' ).attr( 'src', defaultTarget );
     } );
 
