@@ -765,7 +765,7 @@ var config = {
             'link': 'https://www.youtube.com/playlist?list=PLcrVuDwOKu1eoYdyQxZAW7zA1gzO1GTEk',
             'name': 'Psychedelic Knowledge'
         },
-/*        {
+        {
             'link': 'https://www.youtube.com/watch?v=SNBVeR6m_Xk&list=PLzG6tj8mWFmAaPAujl6CSQMob_sW6L4yx',
             'name': 'Psychedelic Short Films'
         },
@@ -788,7 +788,7 @@ var config = {
         {
             'link': 'https://www.youtube.com/watch?v=6KDgDYdug6M&list=PLLhOnau-tupTeyt7V4BOZzc63yqllmDby',
             'name': 'Wile E. Coyote & Roadrunner'
-        }*/
+        }
     ],
     'mageAIFavoritesLink': ''
 };
