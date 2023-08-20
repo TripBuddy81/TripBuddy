@@ -762,6 +762,10 @@ var config = {
     ],
     'links'              : [
         {
+            'link': ' https://www.youtube.com/playlist?list=PLcrVuDwOKu1eoYdyQxZAW7zA1gzO1GTEk',
+            'name': 'Psychedelic Knowledge'
+        },
+        {
             'link': 'https://www.youtube.com/watch?v=SNBVeR6m_Xk&list=PLzG6tj8mWFmAaPAujl6CSQMob_sW6L4yx',
             'name': 'Psychedelic Short Films'
         },
