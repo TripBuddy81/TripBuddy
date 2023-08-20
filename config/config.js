@@ -762,7 +762,7 @@ var config = {
     ],
     'links'              : [
         {
-            'link': ' https://www.youtube.com/playlist?list=PLcrVuDwOKu1eoYdyQxZAW7zA1gzO1GTEk',
+            'link': 'https://www.youtube.com/playlist?list=PLcrVuDwOKu1eoYdyQxZAW7zA1gzO1GTEk',
             'name': 'Psychedelic Knowledge'
         },
         {
@@ -790,5 +790,5 @@ var config = {
             'name': 'Wile E. Coyote & Roadrunner'
         }
     ],
-    'mageAIFavoritesLink': 'https://www.mage.space/u/d1dwlsYczlUw2Z9lmQP6zTNW4T33'
+    'mageAIFavoritesLink': ''
 };
