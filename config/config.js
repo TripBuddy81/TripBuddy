@@ -615,6 +615,14 @@ var config = {
             'name': 'Wile E. Coyote & Roadrunner'
         },
         {
+            'link': 'https://www.youtube.com/watch?v=SNBVeR6m_Xk&list=PLzG6tj8mWFmAaPAujl6CSQMob_sW6L4yx',
+            'name': 'Psychedelic Short Films'
+        },
+        {
+            'link': 'https://www.youtube.com/watch?list=PL0DkyGTnL_T9PGRApBLu2iP9jMLSrFDYV&v=vlUR09yRHZU',
+            'name': 'Trippy Animations'
+        },
+        {
             'link': 'https://www.youtube.com/@JacksonTyler/videos',
             'name': 'Homemade Documentaries - Space'
         },
