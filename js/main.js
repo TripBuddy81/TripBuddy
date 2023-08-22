@@ -183,8 +183,10 @@ $( document ).ready( function () {
 
         if ( !gameSectionShown ) {
             $( '.gameLink' ).each( function () {
-                $( this ).trigger( 'click' );
-                return false;
+                if ( $( this ).is( ':visible' ) ) {
+                    $( this ).trigger( 'click' );
+                    return false;
+                }
             } );
             gameSectionShown = true;
         }
