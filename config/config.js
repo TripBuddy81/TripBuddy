@@ -83,7 +83,6 @@ var config = {
         {'selectableTag': 'hiking'},
         {'selectableTag': 'festival'},
         {'selectableTag': 'spiritual'},
-        {'selectableTag': 'wisdom'},
 /*        {'selectableTag': 'nsfw'}*/
     ],
     'videosYoutube'      : [
@@ -344,171 +343,6 @@ var config = {
             'tags'     : 'slideshow'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/kl1fytRAMRE?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - dont take life to seriously'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/4vv93azMkDE?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - How to play the game'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/DIChudNdFQ8?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - The mystery of falling in love'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/pFH804qrIOU?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - The path to nirvana'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/upYvO1STYgo?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Who Do You Think The Devil is'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/Ud7HVn2_k2Y?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Embrace Anxiety'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/sddCXVvoGd0?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Secrets of Solitude'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/Ybts_gl4ptA?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Just Let it Be'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/v6GqRAuEmhQ?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Finding Clarity'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/GNAXar0TejI?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Why Silence matters in a Noisy World'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/dbE3xB3k3co?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Why You Really Need To Quiet Your Mind'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/k3gCW0h_1HE?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Your True Power Lies in the Present'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/tcLVy0Q_yVk?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - How creativity happens'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/02jH3hhZkzU?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - What is in Your Heart'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/N_ecYdIa9K8?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - The Taoist Sage Essential Teachings'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/PGSXC5ivHq0?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - How to Find Creative Freedom'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/-gg9vmEpqeY?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - You Don\'t Really Know Yourself'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/ghQl77-tiXM?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - The Truth about Nothingness'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/GSlWJTXgCwE?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - The Basic Secret of Yin and Yang'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/MS9M75U9PX0?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Real Wealth is Not About Money'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/bz53y8BJ2XI?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - The Psychology Behind True Love'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/iAE9QxBBOzE?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - How to Cope with Anxiety'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/DK2E99BkHYk?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - The Unseen Reality'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/sQuiM7zj8Vo?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Wisdom\'s From Tao Te Ching'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/4pFTqiMHrgA?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Compassion is the Key'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/Cpfxy8X6xSs?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - The Humorist Mystic'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/16mlFGfMr9w?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Awakened Individuals'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/o7Y7SotJqF4?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Wake Up From the Trap'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/DIChudNdFQ8?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - The Mystery of Falling in Love'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/pFH804qrIOU?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - What is Nirvana'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/Ybts_gl4ptA?',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - Never force anything'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/Jv79l1b-eoI?',
-            'tags'     : 'wisdom',
-            'label'    : 'Absurdism'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/videoseries?list=PLcrVuDwOKu1dfA01A27l6nmwuAaeVQ4h_',
-            'tags'     : 'wisdom',
-            'label'    : 'AW - unsorted playlist - to be checked'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/VBvVBFZMhKI?mute=1',
             'tags'     : 'trippy-3D'
         }
@@ -747,7 +581,6 @@ var config = {
     'externalPicLinks'   : [],
     'reminderSelection'  : [
         {'reminder': 'Dance!'},
-        {'reminder': 'Listen to Alans wisdom!'},
         {'reminder': 'Drink Tea'},
         {'reminder': 'Deeptalk with plant'},
         {'reminder': 'Inspect atomic structure of table'},
