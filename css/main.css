@@ -78,6 +78,10 @@ a:link, a:visited, a:active, a:hover, p {
     border: none;
 }
 
+#searchInput {
+    width: 380px;
+}
+
 a:hover {
     color: #809bce;
 }
