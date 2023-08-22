@@ -31,7 +31,7 @@ $( document ).ready( function () {
 
     // Disable right click context menu
     $( document ).bind( 'contextmenu', function ( e ) {
-        if ($(e.target).attr("type") != "text") {
+        if ( $( e.target ).attr( 'type' ) != 'text' ) {
             return false;
         }
     } );
@@ -76,17 +76,18 @@ $( document ).ready( function () {
     }
 
     // Init keyboard
-    $(document).keyboard({
-        language: 'german',
-        keyboardPosition: 'middle',
-        acceptColor: '#809bce',
-        acceptTextColor: '#000000',
-        inputType: 'text',
-        blackoutColor: '25, 25, 25, 0.75',
+    $( document ).keyboard( {
+        language           : 'german',
+        keyboardPosition   : 'middle',
+        acceptColor        : '#809bce',
+        acceptTextColor    : '#000000',
+        inputType          : 'text',
+        blackoutColor      : '25, 25, 25, 0.75',
         specifiedFieldsOnly: true
-    });
+    } );
     $( '*[data-trigger-keyboard]' ).click( function () {
-        $(window).trigger("resize");
+        $( window ).trigger( 'resize' );
+        $( this ).val( '' );
     } );
 
     // Init gradient background
@@ -213,11 +214,11 @@ $( document ).ready( function () {
                 $( this ).trigger( 'click' );
             } );
             /*if ( xxxVisible ) {*/
-                $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) + '&nsfw=t' );
-/*            } else {
-                newTarget = $( '#MageAIExternalPage' ).attr( 'src' ).replace( /&nsfw=t/, '' );
-                $( '#MageAIExternalPage' ).attr( 'src', newTarget );
-            }*/
+            $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) + '&nsfw=t' );
+            /*            } else {
+                            newTarget = $( '#MageAIExternalPage' ).attr( 'src' ).replace( /&nsfw=t/, '' );
+                            $( '#MageAIExternalPage' ).attr( 'src', newTarget );
+                        }*/
         }
     } );
     $( document ).keyup( function ( e ) {
@@ -753,10 +754,10 @@ $( document ).ready( function () {
     } );
 
     // XXX section within video
-    $('.searchLink').click( function ( event ) {
+    $( '.searchLink' ).click( function ( event ) {
         event.preventDefault();
         event.stopPropagation();
-        var win = window.open($( this ).attr('href') + $('#searchInput').val(), '_blank');
+        var win = window.open( $( this ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
     } );
 
     // END Video section
@@ -948,9 +949,9 @@ $( document ).ready( function () {
 
     $( '.MageAIfilter' ).click( function () {
         defaultTarget = 'https://www.mage.space/explore?q=psychedelic';
-/*        if ( xxxVisible ) {*/
-            defaultTarget = defaultTarget + '&nsfw=t';
-/*        }*/
+        /*        if ( xxxVisible ) {*/
+        defaultTarget = defaultTarget + '&nsfw=t';
+        /*        }*/
         $( '#MageAIExternalPage' ).attr( 'src', defaultTarget );
     } );
 

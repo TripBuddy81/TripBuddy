@@ -764,7 +764,7 @@ var config = {
             'name': 'Shooter'
         }
     ],
-    'links'              : [
+    'menuLinks'              : [
         {
             'link': 'https://www.youtube.com/playlist?list=PLcrVuDwOKu1eoYdyQxZAW7zA1gzO1GTEk',
             'name': 'Psychedelic Knowledge'
