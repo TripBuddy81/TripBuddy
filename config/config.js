@@ -256,6 +256,10 @@ var config = {
             'tags'     : 'spiritual'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/Wm9MfQMuoIY?mute=1',
+            'tags'     : 'spiritual'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/t_S_cN2re4g?mute=1',
             'tags'     : 'nature'
         },
@@ -766,20 +770,8 @@ var config = {
             'name': 'Psychedelic Knowledge'
         },
         {
-            'link': 'https://www.youtube.com/watch?v=SNBVeR6m_Xk&list=PLzG6tj8mWFmAaPAujl6CSQMob_sW6L4yx',
-            'name': 'Psychedelic Short Films'
-        },
-        {
-            'link': 'https://www.youtube.com/watch?list=PL0DkyGTnL_T9PGRApBLu2iP9jMLSrFDYV&v=vlUR09yRHZU',
-            'name': 'Trippy Animations'
-        },
-        {
-            'link': 'https://www.youtube.com/@JacksonTyler/videos',
-            'name': 'Homemade Documentaries - Space'
-        },
-        {
-            'link': 'https://www.youtube.com/watch?v=M6M9-oFEKpk&list=PLl6BRvEJ-auZ5aYPHj1B3pKJ_pLjg9qNU',
-            'name': 'Luetin - Warhammer 40K Lore'
+            'link': 'https://www.youtube.com/watch?v=kl1fytRAMRE&list=PLcrVuDwOKu1d-ncntC6Hicakm2T1VBgHC&index=2',
+            'name': 'Psychedelic Wisdom'
         },
         {
             'link': 'https://www.youtube.com/watch?v=ZKvW-YBG-Kk&list=PLRPHKhrYjYFtDefxNqjIJGf8WkOh1U-Ur',
@@ -788,6 +780,14 @@ var config = {
         {
             'link': 'https://www.youtube.com/watch?v=6KDgDYdug6M&list=PLLhOnau-tupTeyt7V4BOZzc63yqllmDby',
             'name': 'Wile E. Coyote & Roadrunner'
+        },
+        {
+            'link': 'https://www.youtube.com/@JacksonTyler/videos',
+            'name': 'Homemade Documentaries - Space'
+        },
+        {
+            'link': 'https://www.youtube.com/watch?v=M6M9-oFEKpk&list=PLl6BRvEJ-auZ5aYPHj1B3pKJ_pLjg9qNU',
+            'name': 'Luetin - Warhammer 40K Lore'
         }
     ],
     'mageAIFavoritesLink': ''
