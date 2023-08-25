@@ -239,15 +239,15 @@ var config = {
             'tags'     : 'spiritual'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/HZ4p5qaLKec?mute=0',
+            'videoLink': 'https://www.youtube.com/embed/lZ62b5JjO6Q?mute=0',
             'tags'     : 'spiritual'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/hZiCBWrwiRw?mute=0',
+            'videoLink': 'https://www.youtube.com/embed/HZ4p5qaLKec?mute=1',
             'tags'     : 'spiritual'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4GaGnU8Ij2Y?mute=0',
+            'videoLink': 'https://www.youtube.com/embed/hZiCBWrwiRw?mute=1',
             'tags'     : 'spiritual'
         },
         {
@@ -256,6 +256,10 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/Wm9MfQMuoIY?mute=1',
+            'tags'     : 'spiritual'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/4GaGnU8Ij2Y?mute=0',
             'tags'     : 'spiritual'
         },
         {

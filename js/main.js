@@ -57,10 +57,10 @@ $( document ).ready( function () {
         } else {
             $( '#launchText' ).html( 'Start!' );
 
-            $( '.videoFilterBtn' ).each( function () {
+/*            $( '.videoFilterBtn' ).each( function () {
                 $( this ).trigger( 'click' );
                 return false;
-            } );
+            } );*/
         }
     };
 
