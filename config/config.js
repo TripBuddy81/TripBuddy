@@ -251,7 +251,7 @@ var config = {
             'tags'     : 'spiritual'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/j_Z6uNOc428?mute=0',
+            'videoLink': 'https://www.youtube.com/embed/afLcexC5dsk?mute=1',
             'tags'     : 'spiritual'
         },
         {
