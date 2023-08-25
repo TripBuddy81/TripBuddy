@@ -259,10 +259,6 @@ var config = {
             'tags'     : 'spiritual'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4GaGnU8Ij2Y?mute=0',
-            'tags'     : 'spiritual'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/t_S_cN2re4g?mute=1',
             'tags'     : 'nature'
         },
