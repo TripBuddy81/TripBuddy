@@ -635,5 +635,6 @@ var config = {
             'name': 'Luetin - Warhammer 40K Lore'
         }
     ],
-    'mageAIFavoritesLink': ''
+    'mageAIFavoritesLink': '',
+    'absoluteTruths'     : []
 };

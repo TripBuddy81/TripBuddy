@@ -242,7 +242,7 @@ $( document ).ready( function () {
 
     // Lift off - initialize a lot of stuff
     $( '#liftOff' ).click( function ( e ) {
-        timer = setInterval( upTimer, 1000 );
+        timer = setInterval( tripTimer, 1000 );
         start = new Date();
 
         localStorage.setItem( 'pizzaTimerStartMinutes', '' );
@@ -383,17 +383,20 @@ $( document ).ready( function () {
     // absoluteTruthOverlay
     $( '#yinYangSymbol' ).click( function ( e ) {
         enableFullscreen();
-        e.stopPropagation();
-        $( '#absoluteTruthOverlay' ).show();
+        $( '#absoluteTruthsOverlay' ).show();
+    } );
+    $( '#absoluteTruthsOverlay' ).click( function () {
+        $( '#absoluteTruthsOverlay' ).hide();
+    } );
 
-    } );
-    $( '#absoluteTruthOverlay' ).click( function () {
-        $( '#absoluteTruthOverlay' ).hide();
-    } );
+    setInterval( absoluteTruthsUpdate, 10000 );
+    function absoluteTruthsUpdate() {
+        $('#absoluteTruthsOverlayText').html(config['absoluteTruths'][Math.floor(Math.random()*config['absoluteTruths'].length)]);
+    }
 
     // ******************************************
     // Timer && Graph && Time dependent actions
-    function upTimer() {
+    function tripTimer() {
         var now = new Date();
         var diffMs = (now - start);
         var diffHrs = displayHour = Math.floor( diffMs / 3600000 );
@@ -481,10 +484,6 @@ $( document ).ready( function () {
             guidedThoughtsNext += 1;
             guidedThoughtsNext = guidedThoughtsNext % allGuidedThoughts.length;
         }
-
-        // Absolute Truths
-
-
     }
 
     function showTimedRecommendation( recommendationText ) {

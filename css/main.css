@@ -862,7 +862,7 @@ video::-webkit-media-controls-fullscreen-button {
     cursor:none;
 }
 
-.absoluteTruthsOverlayContainer {
+#absoluteTruthsOverlayContainer {
     position: fixed;
     top: 135px;
     left: 0px;
@@ -872,7 +872,7 @@ video::-webkit-media-controls-fullscreen-button {
     text-align: center;
 }
 
-.absoluteTruthsOverlayText {
+#absoluteTruthsOverlayText {
     position: relative;
     top: 20px;
     font-size: 100px;
