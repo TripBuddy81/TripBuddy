@@ -358,10 +358,12 @@ $( document ).ready( function () {
     $( '#startPizzaTimer' ).click( function ( e ) {
         localStorage.setItem( 'pizzaTimerStartMinutes', totalMins );
         pizzaTimerShown = false;
+        $( '#yinYangContainer' ).hide();
         $( '#pizzaTimerContainer' ).show();
     } );
     $( '#pizzaTimerContainer' ).click( function ( e ) {
         $( '#pizzaTimerContainer' ).hide();
+        $( '#yinYangContainer' ).show();
     } );
 
     // ******************************************
@@ -375,6 +377,18 @@ $( document ).ready( function () {
     $( 'html' ).click( function () {
         $( 'body' ).show();
         $( 'html' ).attr( 'style', 'cursor:auto;' );
+    } );
+
+    // ******************************************
+    // absoluteTruthOverlay
+    $( '#yinYangSymbol' ).click( function ( e ) {
+        enableFullscreen();
+        e.stopPropagation();
+        $( '#absoluteTruthOverlay' ).show();
+
+    } );
+    $( '#absoluteTruthOverlay' ).click( function () {
+        $( '#absoluteTruthOverlay' ).hide();
     } );
 
     // ******************************************
@@ -467,6 +481,10 @@ $( document ).ready( function () {
             guidedThoughtsNext += 1;
             guidedThoughtsNext = guidedThoughtsNext % allGuidedThoughts.length;
         }
+
+        // Absolute Truths
+
+
     }
 
     function showTimedRecommendation( recommendationText ) {
