@@ -139,6 +139,10 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/oCi2JpkEZbo?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
             'tags'     : 'trippy-3D meditative'
         },
