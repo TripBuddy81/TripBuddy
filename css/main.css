@@ -78,6 +78,14 @@ a:link, a:visited, a:active, a:hover, p {
     border: none;
 }
 
+#acticateHiddenMenue {
+    width: 15px;
+    height: 130px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 #searchInput {
     width: 380px;
 }

@@ -57,10 +57,10 @@ $( document ).ready( function () {
         } else {
             $( '#launchText' ).html( 'Start!' );
 
-/*            $( '.videoFilterBtn' ).each( function () {
-                $( this ).trigger( 'click' );
-                return false;
-            } );*/
+            /*            $( '.videoFilterBtn' ).each( function () {
+                            $( this ).trigger( 'click' );
+                            return false;
+                        } );*/
         }
     };
 
@@ -209,22 +209,30 @@ $( document ).ready( function () {
         if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
             $( '.XXX' ).toggle();
             xxxVisible = !xxxVisible;
-            $( '.videoFilterBtn.videoFilterActive' ).each( function () {
-                $( this ).trigger( 'click' );
-            } );
-            $( '.imageFilterBtn.imageFilterActive' ).each( function () {
-                $( this ).trigger( 'click' );
-            } );
-            /*if ( xxxVisible ) {*/
             $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) + '&nsfw=t' );
-            /*            } else {
-                            newTarget = $( '#MageAIExternalPage' ).attr( 'src' ).replace( /&nsfw=t/, '' );
-                            $( '#MageAIExternalPage' ).attr( 'src', newTarget );
-                        }*/
         }
     } );
     $( document ).keyup( function ( e ) {
         delete keyCache[e.which];
+    } );
+
+    rightMouseClicked = false;
+    $( '#acticateHiddenMenue' ).mousedown( function ( event ) {
+        switch ( event.which ) {
+            case 1:
+                if ( rightMouseClicked ) {
+                    $( '.XXX' ).toggle();
+                    xxxVisible = !xxxVisible;
+                    rightMouseClicked = false;
+                }
+                break;
+            case 3:
+                rightMouseClicked = true;
+                break;
+        }
+    } );
+    $( '#acticateHiddenMenue' ).mouseout( function ( event ) {
+        rightMouseClicked = false;
     } );
 
     // ******************************************
@@ -390,8 +398,9 @@ $( document ).ready( function () {
     } );
 
     setInterval( absoluteTruthsUpdate, 10000 );
+
     function absoluteTruthsUpdate() {
-        $('#absoluteTruthsOverlayText').html(config['absoluteTruths'][Math.floor(Math.random()*config['absoluteTruths'].length)]);
+        $( '#absoluteTruthsOverlayText' ).html( config['absoluteTruths'][Math.floor( Math.random() * config['absoluteTruths'].length )] );
     }
 
     // ******************************************
