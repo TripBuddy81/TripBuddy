@@ -851,6 +851,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
     top: 20px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    margin-left: 35px;
 }
 
 #yinYangSymbol {

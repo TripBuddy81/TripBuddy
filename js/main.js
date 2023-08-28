@@ -209,14 +209,17 @@ $( document ).ready( function () {
         if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
             $( '.XXX' ).toggle();
             xxxVisible = !xxxVisible;
-            $( '#MageAIExternalPage' ).attr( 'src', $( '#MageAIExternalPage' ).attr( 'src' ) + '&nsfw=t' );
+            $( '.videoFilterBtn' ).each( function () {
+                $( this ).trigger( 'click' );
+                return false;
+            } );
         }
     } );
     $( document ).keyup( function ( e ) {
         delete keyCache[e.which];
     } );
 
-    rightMouseClicked = false;
+    var rightMouseClicked = false;
     $( '#acticateHiddenMenue' ).mousedown( function ( event ) {
         switch ( event.which ) {
             case 1:
@@ -224,6 +227,10 @@ $( document ).ready( function () {
                     $( '.XXX' ).toggle();
                     xxxVisible = !xxxVisible;
                     rightMouseClicked = false;
+                    $( '.videoFilterBtn' ).each( function () {
+                        $( this ).trigger( 'click' );
+                        return false;
+                    } );
                 }
                 break;
             case 3:
@@ -570,41 +577,6 @@ $( document ).ready( function () {
         }
     }
 
-    function activateAllSectionsOnce() {
-        mediaObjects = [];
-        $( $( '.imageFilterBtn' ).get().reverse() ).each( function () {
-            if ( !(/XXX/i.test( $( this ).attr( 'class' ) )) ) {
-                mediaObjects.push( $( this ).attr( 'class' ) );
-            }
-        } );
-        $( $( '.videoFilterBtn' ).get().reverse() ).each( function () {
-            if ( !(/XXX/i.test( $( this ).attr( 'class' ) )) ) {
-                mediaObjects.push( $( this ).attr( 'class' ) );
-            }
-        } );
-
-        var delay = 0;
-        $.each( mediaObjects, function ( x ) {
-            setTimeout( function () {
-                $( $( '.imageFilterBtn' ).get().reverse() ).each( function () {
-                    if ( $( this ).attr( 'class' ) == mediaObjects[x] ) {
-                        $( '#videos' ).hide();
-                        $( '#images' ).show();
-                        $( this ).trigger( 'click' );
-                    }
-                } );
-
-                $( $( '.videoFilterBtn' ).get().reverse() ).each( function () {
-                    if ( $( this ).attr( 'class' ) == mediaObjects[x] ) {
-                        $( '#videos' ).show();
-                        $( '#images' ).hide();
-                        $( this ).trigger( 'click' );
-                    }
-                } );
-            }, delay += 1000 );
-        } );
-    }
-
     // ******************************************
     // Info Tag toggle setting
     $( '#toggleInfo' ).click( function () {
@@ -669,6 +641,40 @@ $( document ).ready( function () {
         }
     } )
 
+    function activateAllSectionsOnce() {
+        mediaObjects = [];
+        $( $( '.imageFilterBtn' ).get().reverse() ).each( function () {
+            if ( !(/XXX/i.test( $( this ).attr( 'class' ) )) ) {
+                mediaObjects.push( $( this ).attr( 'class' ) );
+            }
+        } );
+        $( $( '.videoFilterBtn' ).get().reverse() ).each( function () {
+            if ( !(/XXX/i.test( $( this ).attr( 'class' ) )) ) {
+                mediaObjects.push( $( this ).attr( 'class' ) );
+            }
+        } );
+
+        var delay = 0;
+        $.each( mediaObjects, function ( x ) {
+            setTimeout( function () {
+                $( $( '.imageFilterBtn' ).get().reverse() ).each( function () {
+                    if ( $( this ).attr( 'class' ) == mediaObjects[x] ) {
+                        $( '#videos' ).hide();
+                        $( '#images' ).show();
+                        $( this ).trigger( 'click' );
+                    }
+                } );
+
+                $( $( '.videoFilterBtn' ).get().reverse() ).each( function () {
+                    if ( $( this ).attr( 'class' ) == mediaObjects[x] ) {
+                        $( '#videos' ).show();
+                        $( '#images' ).hide();
+                        $( this ).trigger( 'click' );
+                    }
+                } );
+            }, delay += 1000 );
+        } );
+    }
 
     // ***********************************
     // Video section
@@ -703,7 +709,7 @@ $( document ).ready( function () {
         }
     } );
 
-    // reload videos in double click on video tags
+    // reload videos if double click on video tags
     $( '.videoFilterBtn' ).dblclick( function () {
         $( videoTagList ).each( function () {
             $( this ).find( '.videoFrame' ).attr( 'src', $( this ).find( '.videoFrame' ).attr( 'src' ) );
@@ -843,7 +849,7 @@ $( document ).ready( function () {
         }
     } );
 
-    // Show time in image when moving mouse
+    // Show timer in image when moving mouse
     var moveTimer;
     $( document ).mousemove( function () {
         $( '.displayedFullscreenImage' ).on( 'mousemove', function () {
@@ -1200,5 +1206,4 @@ $( document ).ready( function () {
     $( '#images' ).hide();
     $( '#disco' ).hide();
     $( '#games' ).hide();
-} )
-;
+} );
