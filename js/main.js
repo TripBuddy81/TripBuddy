@@ -1013,10 +1013,11 @@ $( document ).ready( function () {
         client_secret = config['oAuthSpotify'][0]['client_secret'];
         spotifyInitOnPageLoad();
 
+        setInterval( refreshAccessToken(), 60000 );
+
         $( '#stopMusic' ).click( function () {
             refreshAccessToken();
             pause();
-            $( this ).attr( 'src', './assets/pause.png' );
         } );
 
         $( '#playlists' ).change( function () {
