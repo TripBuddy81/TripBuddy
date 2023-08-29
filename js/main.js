@@ -1021,7 +1021,7 @@ $( document ).ready( function () {
 
         $( '#playlists' ).change( function () {
             refreshAccessToken();
-            setDefaultOutputDevice();
+            /*setDefaultOutputDevice();*/
             setTimeout( function () {
                 shuffle();
             }, 20 );
@@ -1042,18 +1042,15 @@ $( document ).ready( function () {
                     !$( event.target ).hasClass( 'externalVideoPreview' )
             ) {
                 e.preventDefault();
-                setDefaultOutputDevice();
-                setTimeout( function () {
-                    next();
-                }, 20 );
+                refreshAccessToken();
+                /*setDefaultOutputDevice();*/
+                next();
             }
         } );
         $( '#next' ).click( function () {
             refreshAccessToken();
-            setDefaultOutputDevice();
-            setTimeout( function () {
-                next();
-            }, 20 );
+            /*setDefaultOutputDevice();*/
+            next();
         } );
         $( '#refresh' ).click( function () {
             refreshAccessToken();
