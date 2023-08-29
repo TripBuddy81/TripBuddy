@@ -793,6 +793,13 @@ $( document ).ready( function () {
         event.stopPropagation();
         var win = window.open( $( this ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
     } );
+    $( '.searchLink' ).on( 'mousedown', document, function ( e ) {
+        if ( $( e.target ).hasClass( 'searchLink' ) ) {
+            e.preventDefault();
+            e.stopPropagation();
+            var win = window.open( $( e.target ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
+        }
+    } );
 
     // END Video section
     // ******************************************
@@ -1039,10 +1046,6 @@ $( document ).ready( function () {
                 setTimeout( function () {
                     next();
                 }, 20 );
-            } else if ( $( e.target ).hasClass( 'searchLink' ) ) {
-                e.preventDefault();
-                e.stopPropagation();
-                var win = window.open( $( e.target ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
             }
         } );
         $( '#next' ).click( function () {
