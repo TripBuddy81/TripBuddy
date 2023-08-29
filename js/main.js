@@ -1028,12 +1028,21 @@ $( document ).ready( function () {
 
         $( document ).on( 'mousedown', document, function ( e ) {
             // on middle mouse button play next track
-            if ( e.which == 2 && $( event.target ).attr( 'class' ) != 'xxxLink' && $( event.target ).attr( 'class' ) != 'externalVideoPreview me-2 mb-2' ) {
+            if (
+                    e.which == 2 &&
+                    !$( event.target ).hasClass( 'xxxLink' ) &&
+                    !$( event.target ).hasClass( 'searchLink' ) &&
+                    !$( event.target ).hasClass( 'externalVideoPreview' )
+            ) {
                 e.preventDefault();
                 setDefaultOutputDevice();
                 setTimeout( function () {
                     next();
                 }, 20 );
+            } else if ( $( e.target ).hasClass( 'searchLink' ) ) {
+                e.preventDefault();
+                e.stopPropagation();
+                var win = window.open( $( e.target ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
             }
         } );
         $( '#next' ).click( function () {
