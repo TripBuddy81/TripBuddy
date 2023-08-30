@@ -1012,9 +1012,8 @@ $( document ).ready( function () {
         client_id = config['oAuthSpotify'][0]['client_id'];
         client_secret = config['oAuthSpotify'][0]['client_secret'];
         spotifyInitOnPageLoad();
-
         refreshAccessToken();
-        setInterval( refreshAccessToken(), 60000 );
+        setInterval( refreshAccessToken, 60000 );
 
         $( '#stopMusic' ).click( function () {
             refreshAccessToken();
@@ -1084,22 +1083,26 @@ $( document ).ready( function () {
         $( '#refresh' ).css( 'visibility', 'hidden' );
         $( '#pizzaTimerContainer' ).remove();
 
-        window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
-            let element = document.getElementById( 'iFrameSpotifyPlayer' );
-            let options = {
-                uri: 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
+        $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
+            window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
+                let element = document.getElementById( 'iFrameSpotifyPlayer' );
+                let options = {
+                    uri: 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
+                };
+                let callback = ( EmbedController ) => {
+                    document.querySelectorAll( '#playlists' ).forEach(
+                            episode => {
+                                episode.addEventListener( 'change', () => {
+                                    EmbedController.loadUri( episode.value )
+                                    EmbedController.play();
+                                } );
+                            } )
+                };
+                IFrameAPI.createController( element, options, callback );
             };
-            let callback = ( EmbedController ) => {
-                document.querySelectorAll( '#playlists' ).forEach(
-                        episode => {
-                            episode.addEventListener( 'change', () => {
-                                EmbedController.loadUri( episode.value )
-                                EmbedController.play();
-                            } );
-                        } )
-            };
-            IFrameAPI.createController( element, options, callback );
-        };
+        } );
+
+
     }
 
     // END Music section
