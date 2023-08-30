@@ -1013,6 +1013,7 @@ $( document ).ready( function () {
         client_secret = config['oAuthSpotify'][0]['client_secret'];
         spotifyInitOnPageLoad();
 
+        refreshAccessToken();
         setInterval( refreshAccessToken(), 60000 );
 
         $( '#stopMusic' ).click( function () {
@@ -1022,7 +1023,7 @@ $( document ).ready( function () {
 
         $( '#playlists' ).change( function () {
             refreshAccessToken();
-            /*setDefaultOutputDevice();*/
+            setDefaultOutputDevice();
             setTimeout( function () {
                 shuffle();
             }, 20 );
@@ -1038,19 +1039,20 @@ $( document ).ready( function () {
             // on middle mouse button play next track
             if (
                     e.which == 2 &&
+                    !$( event.target ).hasClass( 'menuItem' ) &&
                     !$( event.target ).hasClass( 'xxxLink' ) &&
                     !$( event.target ).hasClass( 'searchLink' ) &&
                     !$( event.target ).hasClass( 'externalVideoPreview' )
             ) {
                 e.preventDefault();
                 refreshAccessToken();
-                /*setDefaultOutputDevice();*/
+                setDefaultOutputDevice();
                 next();
             }
         } );
         $( '#next' ).click( function () {
             refreshAccessToken();
-            /*setDefaultOutputDevice();*/
+            setDefaultOutputDevice();
             next();
         } );
         $( '#refresh' ).click( function () {
