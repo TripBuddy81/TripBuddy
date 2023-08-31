@@ -1052,7 +1052,9 @@ $( document ).ready( function () {
         $( '#next' ).click( function () {
             refreshAccessToken();
             setDefaultOutputDevice();
-            next();
+            setTimeout( function () {
+                next();
+            }, 200 );
         } );
         $( '#refresh' ).click( function () {
             refreshAccessToken();
@@ -1073,6 +1075,8 @@ $( document ).ready( function () {
         function setDefaultOutputDevice() {
             if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
                 transfer( $( '#devices option:contains("DESKTOP")' ).val() );
+            } else {
+                transfer( $( '#devices' ).find( ':selected' ).val() );
             }
         }
 
