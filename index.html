@@ -6,14 +6,6 @@
 
     <title>Trip Buddy</title>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJHJG2CZF8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-FJHJG2CZF8');
-    </script>
-
     <script src="./libs/handlebars/handlebars.min-v4.7.7.js"></script>
     <script src="./libs/jquery3/jquery-3.6.3.min.js"></script>
     <script src="./libs/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
@@ -30,7 +22,7 @@
 
     <link rel="stylesheet" href="./libs/bootstrap-5.0.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./libs/multiple/multiple.css" >
+    <link rel="stylesheet" href="./libs/multiple/multiple.css">
     <link rel="stylesheet" href="./libs/keyboard/styles.css">
     <link rel="icon" type="image/png" href="assets/mushroom.png"/>
 
@@ -38,7 +30,10 @@
 
 <body class="sharedBackground">
 <script id="mainTemplate" type="text/x-handlebars-template">
-    <div id="absoluteTruthsOverlay"><div id="absoluteTruthsOverlayContainer"><span id="absoluteTruthsOverlayText">Things I know to be true!</span></div></div>
+    <div id="absoluteTruthsOverlay">
+        <div id="absoluteTruthsOverlayContainer"><span id="absoluteTruthsOverlayText">Things I know to be true!</span>
+        </div>
+    </div>
 
     <div id="mainMenu" class="sharedBackground">
         <span id="acticateHiddenMenue"></span>
@@ -80,7 +75,8 @@
                             style=""></select>
                     <span class="menuvisibleAfterStarted">-- <b>Actions</b> --------------------------------------------------------------------</span>
                     <li class="menuItem deactivateGuidedThoughts menuvisibleAfterStarted">Stop guided thoughts</li>
-                    <li class="menuItem menuvisibleAfterStarted" id="startPizzaTimer">Start/Reset Pizza Timer (18 min)</li>
+                    <li class="menuItem menuvisibleAfterStarted" id="startPizzaTimer">Start/Reset Pizza Timer (18 min)
+                    </li>
 
                     <div class="mt-3">-- <b>LINKS</b>
                         ----------------------------------------------------------------------
@@ -321,7 +317,8 @@
         <div id="displayedVideos">
             <div class="videoContainer XXX" id="searchBar">
                 <label class="searchLabel form-check-label me-2" for="searchInput">Search: </label>
-                <input type="text" class="me-2" id="searchInput" name="searchInput" value="" placeholder="enter search text here!" data-trigger-keyboard="true">
+                <input type="text" class="me-2" id="searchInput" name="searchInput" value=""
+                       placeholder="enter search text here!" data-trigger-keyboard="true">
                 <label class="searchLabel form-check-label me-2" for="searchInput">--></label>
 
                 {{#searchEngines}}
@@ -390,7 +387,8 @@
         <div class="videoContainer XXX mt-4 mb-4" style="display:none;width: 100% !important;">
             <h1>External Videos</h1>
             {{#externalVideoLinks}}
-            <a class="xxxLink mt-4 mb-4" href="{{link}}" target=_blank>{{name}}<img class="externalVideoPreview" src="{{thumb}}"></a>
+            <a class="xxxLink mt-4 mb-4" href="{{link}}" target=_blank>{{name}}<img class="externalVideoPreview"
+                                                                                    src="{{thumb}}"></a>
             {{/externalVideoLinks}}
         </div>
     </div>
