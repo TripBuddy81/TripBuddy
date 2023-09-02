@@ -596,7 +596,7 @@ li, .options, .form-check-label {
 #particles-js {
     position: relative;
     height: 975px;
-    background-color: #24FFAB;
+    background-color: #B61924;
     animation: strobo2 0ms steps(1, end) infinite;
     cursor: none;
 }
@@ -900,6 +900,18 @@ video::-webkit-media-controls-fullscreen-button {
 #games, #disco {
     overflow-y: hidden;
     height: 100vh;
+}
+
+#ensoImageDisco {
+    position: absolute;
+    top: 25px;
+    height: 95%;
+    z-index: 1;
+    pointer-events: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 405px;
 }
 
 .VRGamesBtn {
