@@ -401,7 +401,7 @@ $( document ).ready( function () {
         $( '#absoluteTruthsOverlay' ).toggle();
     } );
 
-    setInterval( absoluteTruthsUpdate, 10000 );
+    setInterval( absoluteTruthsUpdate, 12000 );
 
     function absoluteTruthsUpdate() {
         random = Math.floor( Math.random() * config['absoluteTruths'].length );
