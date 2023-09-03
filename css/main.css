@@ -628,6 +628,7 @@ li, .options, .form-check-label {
     width: 500px;
     opacity: 0;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    z-index: 4;
 }
 
 #discoSettingsContainer:hover {
