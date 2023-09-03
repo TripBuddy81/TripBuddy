@@ -398,10 +398,7 @@ $( document ).ready( function () {
     // absoluteTruthOverlay
     $( '#particles-js' ).click( function ( e ) {
         enableFullscreen();
-        $( '#absoluteTruthsOverlay' ).show();
-    } );
-    $( '#absoluteTruthsOverlay' ).click( function () {
-        $( '#absoluteTruthsOverlay' ).hide();
+        $( '#absoluteTruthsOverlay' ).toggle();
     } );
 
     setInterval( absoluteTruthsUpdate, 10000 );
