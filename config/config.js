@@ -636,5 +636,10 @@ var config = {
         }
     ],
     'mageAIFavoritesLink': '',
-    'absoluteTruths'     : []
+    'absoluteTruths'     : [
+        {
+            'text': 'Depression is the past, Anxiety is the future & Peace is the present',
+            'tag': ''
+        }
+    ]
 };
