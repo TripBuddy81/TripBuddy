@@ -396,7 +396,7 @@ $( document ).ready( function () {
 
     // ******************************************
     // absoluteTruthOverlay
-    $( '#yinYangSymbol' ).click( function ( e ) {
+    $( '#particles-js' ).click( function ( e ) {
         enableFullscreen();
         $( '#absoluteTruthsOverlay' ).show();
     } );
