@@ -1123,10 +1123,10 @@ $( document ).ready( function () {
     } );
 
     $( '.discoSetBGColor' ).click( function ( event ) {
-        $( '#particles-js' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
+        $( '#disco' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
     } );
     document.getElementById( 'discoBGColorPicker' ).addEventListener( 'input', function () {
-        $( '#particles-js' ).css( 'background-color', $( '#discoBGColorPicker' ).val() );
+        $( '#disco' ).css( 'background-color', $( '#discoBGColorPicker' ).val() );
     } );
 
     var stroboBGWhite = true;

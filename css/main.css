@@ -596,9 +596,9 @@ li, .options, .form-check-label {
 #particles-js {
     position: relative;
     height: 975px;
-    background-color: #B61924;
     animation: strobo2 0ms steps(1, end) infinite;
     cursor: none;
+    z-index: 3;
 }
 
 .particles-js-canvas-el {
@@ -615,6 +615,10 @@ li, .options, .form-check-label {
     50% {
         background: white
     }
+}
+
+#disco {
+    background-color: #B61924;
 }
 
 #discoSettingsContainer {

@@ -59,7 +59,7 @@ function particlesInit( showParticles = true ) {
                         },
                         'move'       : {
                             'enable'   : true,
-                            'speed'    : 6,
+                            'speed'    : 4,
                             'direction': 'none',
                             'random'   : false,
                             'straight' : false,
@@ -109,15 +109,7 @@ function particlesInit( showParticles = true ) {
                             }
                         }
                     },
-                    'retina_detect': true,
-                    'config_demo'  : {
-                        'hide_card'          : true,
-                        'background_color'   : '#b61924',
-                        'background_image'   : '',
-                        'background_position': '50% 50%',
-                        'background_repeat'  : 'no-repeat',
-                        'background_size'    : 'cover'
-                    }
+                    'retina_detect': true
                 }
         );
     }
