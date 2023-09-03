@@ -407,7 +407,13 @@ $( document ).ready( function () {
     setInterval( absoluteTruthsUpdate, 10000 );
 
     function absoluteTruthsUpdate() {
-        $( '#absoluteTruthsOverlayText' ).html( config['absoluteTruths'][Math.floor( Math.random() * config['absoluteTruths'].length )] );
+        random = Math.floor( Math.random() * config['absoluteTruths'].length );
+        if ( !xxxVisible ) {
+            if ( config['absoluteTruths'][random]['tag'] == 'XXX' ) {
+                absoluteTruthsUpdate();
+            }
+        }
+        $( '#absoluteTruthsOverlayText' ).html( config['absoluteTruths'][random]['text'] );
     }
 
     // ******************************************
@@ -990,9 +996,7 @@ $( document ).ready( function () {
 
     $( '.MageAIfilter' ).click( function () {
         defaultTarget = 'https://www.mage.space/explore?q=psychedelic';
-        /*        if ( xxxVisible ) {*/
         defaultTarget = defaultTarget + '&nsfw=t';
-        /*        }*/
         $( '#MageAIExternalPage' ).attr( 'src', defaultTarget );
     } );
 
