@@ -1024,9 +1024,8 @@ $( document ).ready( function () {
         $( '#playlists' ).change( function () {
             refreshAccessToken();
             setDefaultOutputDevice();
-            setTimeout( function () {
-                shuffle();
-            }, 20 );
+
+            shuffle();
             setTimeout( function () {
                 play( $( '#playlists' ).find( ':selected' ).val() );
             }, 20 );
@@ -1053,6 +1052,7 @@ $( document ).ready( function () {
         $( '#next' ).click( function () {
             refreshAccessToken();
             setDefaultOutputDevice();
+            shuffle();
             setTimeout( function () {
                 next();
             }, 200 );

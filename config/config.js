@@ -633,6 +633,10 @@ var config = {
         {
             'link': 'https://www.youtube.com/watch?v=M6M9-oFEKpk&list=PLl6BRvEJ-auZ5aYPHj1B3pKJ_pLjg9qNU',
             'name': 'Luetin - Warhammer 40K Lore'
+        },
+        {
+            'link': 'https://symbolsage.com/enso-symbol-and-its-meaning/',
+            'name': 'The meaning of Enso'
         }
     ],
     'mageAIFavoritesLink': '',
