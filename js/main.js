@@ -1024,14 +1024,13 @@ $( document ).ready( function () {
         $( '#playlists' ).change( function () {
             refreshAccessToken();
             setDefaultOutputDevice();
-
-            shuffle();
             setTimeout( function () {
                 play( $( '#playlists' ).find( ':selected' ).val() );
             }, 20 );
             setTimeout( function () {
                 next();
             }, 20 );
+            shuffle();
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
@@ -1052,10 +1051,10 @@ $( document ).ready( function () {
         $( '#next' ).click( function () {
             refreshAccessToken();
             setDefaultOutputDevice();
-            shuffle();
             setTimeout( function () {
                 next();
             }, 200 );
+            shuffle();
         } );
         $( '#refresh' ).click( function () {
             refreshAccessToken();
