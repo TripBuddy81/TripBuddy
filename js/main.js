@@ -794,13 +794,13 @@ $( document ).ready( function () {
     $( '.searchLink' ).click( function ( event ) {
         event.preventDefault();
         event.stopPropagation();
-        var win = window.open( $( this ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
+        window.open( $( this ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
     } );
     $( '.searchLink' ).on( 'mousedown', document, function ( e ) {
         if ( $( e.target ).hasClass( 'searchLink' ) ) {
             e.preventDefault();
             e.stopPropagation();
-            var win = window.open( $( e.target ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
+            window.open( $( e.target ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
         }
     } );
 
@@ -1060,6 +1060,14 @@ $( document ).ready( function () {
             refreshAccessToken();
             transfer( $( '#devices' ).find( ':selected' ).val() );
             $( '#menuClose' ).trigger( 'click' );
+        } );
+
+        $( '#spotifyIcon' ).click( function ( e ) {
+            if ( $( '#playlists' ).find( ':selected' ).val() != '' ) {
+                window.open( $( '#playlists' ).find( ':selected' ).val(), '_blank' );
+            } else {
+                window.open( 'spotify:playlist:0O1C7wbOthIxBbai9pYvEH', '_blank' );
+            }
         } );
 
         function setDefaultOutputDevice() {
