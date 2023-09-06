@@ -1031,9 +1031,9 @@ $( document ).ready( function () {
         $( '#playlists' ).change( function () {
             refreshAccessToken();
             lastSelectedPlaylist = $( '#playlists' ).find( ':selected' ).val();
-            $('#playlists > option:first-child').text($( '#playlists' ).find( ':selected' ).text());
+            $( '#playlists > option:first-child' ).text( $( '#playlists' ).find( ':selected' ).text() );
             play( lastSelectedPlaylist );
-            $( '#playlists' ).prop( 'selectedIndex', 0 )
+            $( '#playlists' ).prop( 'selectedIndex', 0 );
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
