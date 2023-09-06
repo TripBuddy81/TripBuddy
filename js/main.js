@@ -1052,6 +1052,7 @@ $( document ).ready( function () {
             refreshDevices();
         } );
         $( '#menuClose' ).click( function () {
+            refreshAccessToken();
             refreshDevices();
         } );
         $( '#devices' ).change( function () {
