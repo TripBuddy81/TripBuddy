@@ -109,25 +109,16 @@ function handleAuthorizationResponse() {
 
 function refreshDevices() {
     callApi( 'GET', DEVICES, null, handleDevicesResponse );
-    return true;
 }
 
 function handleDevicesResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
         removeAllItems( 'devices' );
-
-        dummyItem = {
-            'id'  : 'undefined',
-            'name': 'Select Spotify device'
-        };
-
-        addDevice( dummyItem );
         data.devices.forEach( item => addDevice( item ) );
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
-        /*       console.log( this.responseText );*/
     }
 }
 
@@ -135,6 +126,12 @@ function addDevice( item ) {
     let node = document.createElement( 'option' );
     node.value = item.id;
     node.innerHTML = item.name;
+
+    if ( item.is_active ) {
+        node.selected = 'selected';
+        node.setAttribute( 'selected', 'selected' );
+    }
+
     document.getElementById( 'devices' ).appendChild( node );
 }
 
@@ -269,11 +266,15 @@ function getPlaylist( playlistID ) {
 }
 
 function handleCurrentlyPlayingResponse() {
-    var data = JSON.parse( this.responseText );
-    var playlistID = data['context']['external_urls']['spotify'];
-    playlistID = playlistID.replace( 'https://open.spotify.com/playlist/', '' );
-    lastSelectedPlaylist = 'spotify:playlist:' + playlistID;
-    getPlaylist( playlistID );
+    try {
+        var data = JSON.parse( this.responseText );
+        var playlistID = data['context']['external_urls']['spotify'];
+        playlistID = playlistID.replace( 'https://open.spotify.com/playlist/', '' );
+        lastSelectedPlaylist = 'spotify:playlist:' + playlistID;
+        getPlaylist( playlistID );
+    } catch ( e ) {
+        return false;
+    }
 }
 
 function handleCurrentPlaylistResponse() {

@@ -1033,6 +1033,7 @@ $( document ).ready( function () {
             lastSelectedPlaylist = $( '#playlists' ).find( ':selected' ).val();
             $( '#playlists > option:first-child' ).text( '...' );
             $( '#playlists' ).prop( 'selectedIndex', 0 );
+            setDefaultOutputDevice();
             play( lastSelectedPlaylist );
         } );
 
@@ -1047,11 +1048,13 @@ $( document ).ready( function () {
             ) {
                 e.preventDefault();
                 refreshAccessToken();
+                setDefaultOutputDevice();
                 next();
             }
         } );
         $( '#next' ).click( function () {
             refreshAccessToken();
+            setDefaultOutputDevice();
             next( lastSelectedPlaylist );
         } );
         $( '#refresh' ).click( function () {
@@ -1064,6 +1067,7 @@ $( document ).ready( function () {
         } );
         $( '#devices' ).change( function () {
             refreshAccessToken();
+            setDefaultOutputDevice();
             transfer( $( '#devices' ).find( ':selected' ).val() );
             $( '#menuClose' ).trigger( 'click' );
         } );
@@ -1073,10 +1077,19 @@ $( document ).ready( function () {
         } );
 
         function setDefaultOutputDevice() {
-            if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
-                transfer( $( '#devices option:contains("DESKTOP")' ).val() );
+            console.info( $( '#devices' ).find( ':selected' ).val() );
+            if ( $( '#devices' ).find( ':selected' ).val() == null ) {
+                console.info( 'tes2' );
+                if ( $( '#devices option:contains("DESKTOP")' ).val() != null ) {
+                    transfer( $( '#devices option:contains("DESKTOP")' ).val() );
+                    console.info( 'tes3' );
+                } else {
+                    window.open( lastSelectedPlaylist, '_blank' );
+                    console.info( 'test' );
+                    next();
+                }
             } else {
-                transfer( $( '#devices' ).find( ':selected' ).val() );
+                console.info( $( '#devices' ).find( ':selected' ).val() );
             }
         }
 
