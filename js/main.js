@@ -259,6 +259,9 @@ $( document ).ready( function () {
     $( '#liftOff' ).click( function ( e ) {
         timer = setInterval( tripTimer, 1000 );
         start = new Date();
+        setTimeout( function () {
+            $( '#timerMinutes' ).show();
+        }, 1000 );
 
         localStorage.setItem( 'pizzaTimerStartMinutes', '' );
 
@@ -373,12 +376,12 @@ $( document ).ready( function () {
     $( '#startPizzaTimer' ).click( function ( e ) {
         localStorage.setItem( 'pizzaTimerStartMinutes', totalMins );
         pizzaTimerShown = false;
-        $( '#yinYangContainer' ).hide();
+        $( '#timerMinutes' ).hide();
         $( '#pizzaTimerContainer' ).show();
     } );
     $( '#pizzaTimerContainer' ).click( function ( e ) {
         $( '#pizzaTimerContainer' ).hide();
-        $( '#yinYangContainer' ).show();
+        $( '#timerMinutes' ).show();
     } );
 
     // ******************************************
@@ -429,7 +432,6 @@ $( document ).ready( function () {
             displayHour = '0' + diffHrs;
         }
 
-        $( '#timerMinutes' ).show();
         document.getElementById( 'displayHour' ).innerHTML = displayHour;
         document.getElementById( 'displayMinute' ).innerHTML = displayMinute;
         $( '.videoMenuOverlayFullscreenTime' ).html( displayHour + ':' + displayMinute );
@@ -1083,7 +1085,6 @@ $( document ).ready( function () {
         $( '#oAuthPlayerControl' ).remove();
         $( '#devices' ).css( 'visibility', 'hidden' );
         $( '#refresh' ).css( 'visibility', 'hidden' );
-        $( '#pizzaTimerContainer' ).remove();
 
         $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
             window.onSpotifyIframeApiReady = ( IFrameAPI ) => {

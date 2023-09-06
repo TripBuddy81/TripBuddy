@@ -833,9 +833,11 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #pizzaTimerContainer {
-    position: absolute;
-    top: 7px;
     display: none;
+    position: absolute;
+    top: 5px;
+    right: 460px;
+    z-index: 10;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
@@ -853,13 +855,6 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: bold;
     font-family: sans-serif;
     color: black;
-}
-
-#yinYangContainer {
-    position: absolute;
-    top: 20px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    margin-left: 35px;
 }
 
 #yinYangSymbol {
