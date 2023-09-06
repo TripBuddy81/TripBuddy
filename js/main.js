@@ -220,7 +220,7 @@ $( document ).ready( function () {
     } );
 
     var rightMouseClicked = false;
-    $( '#acticateHiddenMenue' ).mousedown( function ( event ) {
+    $( '#activateHiddenMenue' ).mousedown( function ( event ) {
         switch ( event.which ) {
             case 1:
                 if ( rightMouseClicked ) {
@@ -238,7 +238,7 @@ $( document ).ready( function () {
                 break;
         }
     } );
-    $( '#acticateHiddenMenue' ).mouseout( function ( event ) {
+    $( '#activateHiddenMenue' ).mouseout( function ( event ) {
         rightMouseClicked = false;
     } );
 
