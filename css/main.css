@@ -629,7 +629,7 @@ li, .options, .form-check-label {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 450px;
+    width: 420px;
     opacity: 0;
     z-index: 4;
 }
@@ -639,7 +639,8 @@ li, .options, .form-check-label {
 }
 
 #discoSettings {
-    padding: 25px;
+    padding-top: 25px;
+    padding-left: 15px;
 }
 
 .discoSetBGColor, .discoToggleBWStrobo {
@@ -680,6 +681,14 @@ input[type=range] {
 
 #discoStroboSpeed {
     background: transparent;
+}
+
+#discoStroboSpeedContainer {
+    height: 60px;
+}
+
+#discoParticlesSwitchContainer {
+    height: 50px;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
