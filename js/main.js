@@ -26,6 +26,7 @@ $( document ).ready( function () {
     var xxxVisible = false;
     var slideshowJustStarted = false;
     var lastActiveBackgroundGradientKeyFrame = 1;
+    var spotifyOpened = false;
 
     Object.assign( config, optionalConfig );
 
@@ -1018,7 +1019,6 @@ $( document ).ready( function () {
         refreshAccessToken();
         setInterval( refreshAccessToken, 60000 );
         refreshDevices();
-        setDefaultOutputDevice();
         shuffle();
         repeat();
         setInterval( currentlyPlaying, 3000 );
@@ -1033,7 +1033,7 @@ $( document ).ready( function () {
             lastSelectedPlaylist = $( '#playlists' ).find( ':selected' ).val();
             $( '#playlists > option:first-child' ).text( '...' );
             $( '#playlists' ).prop( 'selectedIndex', 0 );
-            setDefaultOutputDevice();
+            openDesktopApp();
             play( lastSelectedPlaylist );
         } );
 
@@ -1048,13 +1048,13 @@ $( document ).ready( function () {
             ) {
                 e.preventDefault();
                 refreshAccessToken();
-                setDefaultOutputDevice();
+                openDesktopApp();
                 next();
             }
         } );
         $( '#next' ).click( function () {
             refreshAccessToken();
-            setDefaultOutputDevice();
+            openDesktopApp();
             next( lastSelectedPlaylist );
         } );
         $( '#refresh' ).click( function () {
@@ -1067,7 +1067,6 @@ $( document ).ready( function () {
         } );
         $( '#devices' ).change( function () {
             refreshAccessToken();
-            setDefaultOutputDevice();
             transfer( $( '#devices' ).find( ':selected' ).val() );
             $( '#menuClose' ).trigger( 'click' );
         } );
@@ -1076,20 +1075,10 @@ $( document ).ready( function () {
             window.open( lastSelectedPlaylist, '_blank' );
         } );
 
-        function setDefaultOutputDevice() {
-            console.info( $( '#devices' ).find( ':selected' ).val() );
-            if ( $( '#devices' ).find( ':selected' ).val() == null ) {
-                console.info( 'tes2' );
-                if ( $( '#devices option:contains("DESKTOP")' ).val() != null ) {
-                    transfer( $( '#devices option:contains("DESKTOP")' ).val() );
-                    console.info( 'tes3' );
-                } else {
-                    window.open( lastSelectedPlaylist, '_blank' );
-                    console.info( 'test' );
-                    next();
-                }
-            } else {
-                console.info( $( '#devices' ).find( ':selected' ).val() );
+        function openDesktopApp() {
+            if ( typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
+                window.open( lastSelectedPlaylist, '_blank' );
+                spotifyOpened = true;
             }
         }
 
