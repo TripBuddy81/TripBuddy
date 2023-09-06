@@ -603,6 +603,8 @@ li, .options, .form-check-label {
 
 .particles-js-canvas-el {
     height: 99.4% !important;
+    position: absolute;
+    top: 0;
 }
 
 @keyframes strobo1 {
@@ -871,7 +873,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100%;
     z-index: 5;
     text-align: center;
-    cursor:none;
+    cursor: none;
     pointer-events: none;
 }
 
@@ -909,7 +911,6 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #ensoImageDisco {
-    position: absolute;
     top: 25px;
     height: 95%;
     z-index: 1;
@@ -917,8 +918,8 @@ video::-webkit-media-controls-fullscreen-button {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    left: 405px;
     opacity: 0.8;
+    padding-top: 25px;
 }
 
 .VRGamesBtn {
