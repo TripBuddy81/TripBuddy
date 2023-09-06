@@ -193,7 +193,6 @@ function play( playlist_id ) {
     body.offset = {};
     body.offset.position = trackindex.length > 0 ? Number( trackindex ) : 0;
     body.offset.position_ms = 0;
-/*    callApi( 'PUT', PLAY + '?device_id=' + deviceId(), JSON.stringify( body ), handleApiResponse );*/
     callApi( 'PUT', PLAY, JSON.stringify( body ), handleApiResponse );
 }
 

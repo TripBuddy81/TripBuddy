@@ -1015,6 +1015,9 @@ $( document ).ready( function () {
         spotifyInitOnPageLoad();
         refreshAccessToken();
         setInterval( refreshAccessToken, 60000 );
+        refreshDevices();
+        setDefaultOutputDevice();
+        shuffle();
 
         $( '#stopMusic' ).click( function () {
             refreshAccessToken();
@@ -1023,14 +1026,7 @@ $( document ).ready( function () {
 
         $( '#playlists' ).change( function () {
             refreshAccessToken();
-            setDefaultOutputDevice();
-
             play( $( '#playlists' ).find( ':selected' ).val() );
-
-/*            setTimeout( function () {
-                next();
-            }, 20 );*/
-   /*         shuffle();*/
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
@@ -1044,17 +1040,12 @@ $( document ).ready( function () {
             ) {
                 e.preventDefault();
                 refreshAccessToken();
-               /* setDefaultOutputDevice();*/
                 next();
             }
         } );
         $( '#next' ).click( function () {
             refreshAccessToken();
-           /* setDefaultOutputDevice();*/
-            setTimeout( function () {
-                next();
-            }, 200 );
-            /*shuffle();*/
+            next();
         } );
         $( '#refresh' ).click( function () {
             refreshAccessToken();
@@ -1067,9 +1058,6 @@ $( document ).ready( function () {
             refreshAccessToken();
             transfer( $( '#devices' ).find( ':selected' ).val() );
             $( '#menuClose' ).trigger( 'click' );
-            setTimeout( function () {
-                next();
-            }, 200 );
         } );
 
         function setDefaultOutputDevice() {
@@ -1105,8 +1093,6 @@ $( document ).ready( function () {
                 IFrameAPI.createController( element, options, callback );
             };
         } );
-
-
     }
 
     // END Music section
