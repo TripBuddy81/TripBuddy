@@ -561,6 +561,7 @@ li, .options, .form-check-label {
     position: fixed;
     top: 2px;
     left: 665px;
+    z-index: 11;
 }
 
 #iFrameSpotifyPlayerContainer iframe {
