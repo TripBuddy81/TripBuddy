@@ -1031,6 +1031,7 @@ $( document ).ready( function () {
         $( '#playlists' ).change( function () {
             refreshAccessToken();
             lastSelectedPlaylist = $( '#playlists' ).find( ':selected' ).val();
+            $('#playlists > option:first-child').text($( '#playlists' ).find( ':selected' ).text());
             play( lastSelectedPlaylist );
             $( '#playlists' ).prop( 'selectedIndex', 0 )
         } );
