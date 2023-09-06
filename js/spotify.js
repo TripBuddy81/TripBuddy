@@ -32,7 +32,6 @@ function spotifyInitOnPageLoad() {
             // we have an access token so present device section
             refreshDevices();
             refreshPlaylists();
-            currentlyPlaying();
         }
     }
 }
@@ -157,10 +156,6 @@ function refreshPlaylists() {
 function handlePlaylistsResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
-        /*    console.log( data );*/
-        /* removeAllItems( 'playlists' );*/
-        /*        data.items.forEach( item => addPlaylist( item ) );
-                document.getElementById( 'playlists' ).value = currentPlaylist;*/
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
@@ -183,17 +178,8 @@ function removeAllItems( elementId ) {
 }
 
 function play( playlist_id ) {
-    let trackindex = 0;
-    let album = 0;
     let body = {};
-    if ( album.length > 0 ) {
-        body.context_uri = album;
-    } else {
-        body.context_uri = playlist_id;
-    }
-    body.offset = {};
-    body.offset.position = trackindex.length > 0 ? Number( trackindex ) : 0;
-    body.offset.position_ms = 0;
+    body.context_uri = playlist_id;
 
     if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
         callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
@@ -237,9 +223,7 @@ function transfer( deviceId ) {
 
 function handleApiResponse() {
     if ( this.status == 200 ) {
-        currentlyPlaying();
     } else if ( this.status == 204 ) {
-        currentlyPlaying();
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
