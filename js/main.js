@@ -1052,7 +1052,7 @@ $( document ).ready( function () {
         } );
         $( '#next' ).click( function () {
             refreshAccessToken();
-            next();
+            next( lastSelectedPlaylist );
         } );
         $( '#refresh' ).click( function () {
             refreshAccessToken();
