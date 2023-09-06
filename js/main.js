@@ -1018,6 +1018,7 @@ $( document ).ready( function () {
         refreshDevices();
         setDefaultOutputDevice();
         shuffle();
+        repeat();
 
         $( '#stopMusic' ).click( function () {
             refreshAccessToken();

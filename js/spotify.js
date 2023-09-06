@@ -18,6 +18,7 @@ const PLAYER = 'https://api.spotify.com/v1/me/player';
 const TRACKS = 'https://api.spotify.com/v1/playlists/{{PlaylistId}}/tracks';
 const CURRENTLYPLAYING = 'https://api.spotify.com/v1/me/player/currently-playing';
 const SHUFFLE = 'https://api.spotify.com/v1/me/player/shuffle';
+const REPEAT = 'https://api.spotify.com/v1/me/player/repeat';
 
 function spotifyInitOnPageLoad() {
     if ( window.location.search.length > 0 ) {
@@ -202,6 +203,10 @@ function play( playlist_id ) {
 
 function shuffle() {
     callApi( 'PUT', SHUFFLE + '?state=true', null, handleApiResponse );
+}
+
+function repeat() {
+    callApi( 'PUT', REPEAT + '?state=context', null, handleApiResponse );
 }
 
 function pause() {
