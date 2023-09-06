@@ -434,7 +434,7 @@ li, .options, .form-check-label {
     color: #000000;
     position: absolute;
     top: -2px;
-    right: 270px;
+    right: 305px;
     display: none;
     z-index: 2;
     line-height: 80px;
@@ -447,7 +447,7 @@ li, .options, .form-check-label {
 }
 
 #progressGraphContainer {
-    width: 380px;
+    width: 430px;
     position: relative;
     display: none;
 }
@@ -590,6 +590,7 @@ li, .options, .form-check-label {
     padding-right: 150px;
     font-weight: bold;
     height: 35px;
+    width: 430px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
