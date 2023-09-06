@@ -26,6 +26,7 @@ $( document ).ready( function () {
     var xxxVisible = false;
     var slideshowJustStarted = false;
     var lastActiveBackgroundGradientKeyFrame = 1;
+    var lastSelectedPlaylist = 'spotify:playlist:0O1C7wbOthIxBbai9pYvEH';
 
     Object.assign( config, optionalConfig );
 
@@ -1029,7 +1030,9 @@ $( document ).ready( function () {
 
         $( '#playlists' ).change( function () {
             refreshAccessToken();
-            play( $( '#playlists' ).find( ':selected' ).val() );
+            lastSelectedPlaylist = $( '#playlists' ).find( ':selected' ).val();
+            play( lastSelectedPlaylist );
+            $( '#playlists' ).prop( 'selectedIndex', 0 )
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
@@ -1065,11 +1068,7 @@ $( document ).ready( function () {
         } );
 
         $( '#spotifyIcon' ).click( function ( e ) {
-            if ( $( '#playlists' ).find( ':selected' ).val() != '' ) {
-                window.open( $( '#playlists' ).find( ':selected' ).val(), '_blank' );
-            } else {
-                window.open( 'spotify:playlist:0O1C7wbOthIxBbai9pYvEH', '_blank' );
-            }
+            window.open( lastSelectedPlaylist, '_blank' );
         } );
 
         function setDefaultOutputDevice() {
