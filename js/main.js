@@ -1024,13 +1024,13 @@ $( document ).ready( function () {
         $( '#playlists' ).change( function () {
             refreshAccessToken();
             setDefaultOutputDevice();
-            setTimeout( function () {
-                play( $( '#playlists' ).find( ':selected' ).val() );
-            }, 20 );
-            setTimeout( function () {
+
+            play( $( '#playlists' ).find( ':selected' ).val() );
+
+/*            setTimeout( function () {
                 next();
-            }, 20 );
-            shuffle();
+            }, 20 );*/
+   /*         shuffle();*/
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
@@ -1044,17 +1044,17 @@ $( document ).ready( function () {
             ) {
                 e.preventDefault();
                 refreshAccessToken();
-                setDefaultOutputDevice();
+               /* setDefaultOutputDevice();*/
                 next();
             }
         } );
         $( '#next' ).click( function () {
             refreshAccessToken();
-            setDefaultOutputDevice();
+           /* setDefaultOutputDevice();*/
             setTimeout( function () {
                 next();
             }, 200 );
-            shuffle();
+            /*shuffle();*/
         } );
         $( '#refresh' ).click( function () {
             refreshAccessToken();
