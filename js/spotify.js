@@ -71,7 +71,6 @@ function fetchAccessToken( code ) {
 }
 
 function refreshAccessToken() {
-    console.info("Spotify refresh token called");
     refresh_token = localStorage.getItem( 'refresh_token' );
     let body = 'grant_type=refresh_token';
     body += '&refresh_token=' + refresh_token;
@@ -193,7 +192,12 @@ function play( playlist_id ) {
     body.offset = {};
     body.offset.position = trackindex.length > 0 ? Number( trackindex ) : 0;
     body.offset.position_ms = 0;
-    callApi( 'PUT', PLAY, JSON.stringify( body ), handleApiResponse );
+
+    if ( $( '#devices option:contains("DESKTOP")' ).val() != undefined ) {
+        callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
+    } else {
+        callApi( 'PUT', PLAY, JSON.stringify( body ), handleApiResponse );
+    }
 }
 
 function shuffle() {
