@@ -5,6 +5,7 @@ var access_token = null;
 var refresh_token = null;
 var currentPlaylist = '';
 var radioButtons = [];
+var lastSelectedPlaylist = 'spotify:playlist:0O1C7wbOthIxBbai9pYvEH';
 
 const AUTHORIZE = 'https://accounts.spotify.com/authorize'
 const TOKEN = 'https://accounts.spotify.com/api/token';
@@ -218,10 +219,8 @@ function next( lastSelectedPlaylist ) {
         let body = {};
         body.context_uri = lastSelectedPlaylist;
         callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
-        console.info( 'play' );
     } else {
         callApi( 'POST', NEXT, null, handleApiResponse );
-        console.info( 'next' );
     }
 }
 
@@ -238,14 +237,12 @@ function transfer( deviceId ) {
 
 function handleApiResponse() {
     if ( this.status == 200 ) {
-        /*        console.log( this.responseText );*/
-        setTimeout( currentlyPlaying, 2000 );
+        currentlyPlaying();
     } else if ( this.status == 204 ) {
-        setTimeout( currentlyPlaying, 2000 );
+        currentlyPlaying();
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
-        /*        console.log( this.responseText );*/
     }
 }
 
@@ -264,13 +261,11 @@ function fetchTracks() {
 function handleTracksResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
-        /*        console.log( data );*/
         removeAllItems( 'tracks' );
         data.items.forEach( ( item, index ) => addTrack( item, index ) );
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
-        /*     console.log( this.responseText );*/
     }
 }
 
@@ -285,33 +280,19 @@ function currentlyPlaying() {
     callApi( 'GET', PLAYER + '?market=US', null, handleCurrentlyPlayingResponse );
 }
 
+function getPlaylist( playlistID ) {
+    callApi( 'GET', 'https://api.spotify.com/v1/playlists/' + playlistID, null, handleCurrentPlaylistResponse );
+}
+
 function handleCurrentlyPlayingResponse() {
-    if ( this.status == 200 ) {
-        var data = JSON.parse( this.responseText );
-        /*        console.log( data );*/
-        if ( data.item != null ) {
-            /*            document.getElementById( 'albumImage' ).src = data.item.album.images[0].url;
-                        document.getElementById( 'trackTitle' ).innerHTML = data.item.name;
-                        document.getElementById( 'trackArtist' ).innerHTML = data.item.artists[0].name;*/
-        }
+    var data = JSON.parse( this.responseText );
+    var playlistID = data['context']['external_urls']['spotify'];
+    playlistID = playlistID.replace( 'https://open.spotify.com/playlist/', '' );
+    lastSelectedPlaylist = 'spotify:playlist:' + playlistID;
+    getPlaylist( playlistID );
+}
 
-        if ( data.device != null ) {
-            // select device
-            currentDevice = data.device.id;
-            document.getElementById( 'devices' ).value = currentDevice;
-        }
-
-        if ( data.context != null ) {
-            // select playlist
-            currentPlaylist = data.context.uri;
-            currentPlaylist = currentPlaylist.substring( currentPlaylist.lastIndexOf( ':' ) + 1, currentPlaylist.length );
-            /*document.getElementById( 'playlists' ).value = currentPlaylist;*/
-        }
-    } else if ( this.status == 204 ) {
-
-    } else if ( this.status == 401 ) {
-        refreshAccessToken()
-    } else {
-        /*        console.log( this.responseText );*/
-    }
+function handleCurrentPlaylistResponse() {
+    var data = JSON.parse( this.responseText );
+    $( '#playlists > option:first-child' ).text( data['name'] );
 }

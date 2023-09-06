@@ -26,7 +26,6 @@ $( document ).ready( function () {
     var xxxVisible = false;
     var slideshowJustStarted = false;
     var lastActiveBackgroundGradientKeyFrame = 1;
-    var lastSelectedPlaylist = 'spotify:playlist:0O1C7wbOthIxBbai9pYvEH';
 
     Object.assign( config, optionalConfig );
 
@@ -1022,6 +1021,7 @@ $( document ).ready( function () {
         setDefaultOutputDevice();
         shuffle();
         repeat();
+        setInterval( currentlyPlaying, 3000 );
 
         $( '#stopMusic' ).click( function () {
             refreshAccessToken();
@@ -1031,9 +1031,8 @@ $( document ).ready( function () {
         $( '#playlists' ).change( function () {
             refreshAccessToken();
             lastSelectedPlaylist = $( '#playlists' ).find( ':selected' ).val();
-            $( '#playlists > option:first-child' ).text( $( '#playlists' ).find( ':selected' ).text() );
-            play( lastSelectedPlaylist );
             $( '#playlists' ).prop( 'selectedIndex', 0 );
+            play( lastSelectedPlaylist );
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
