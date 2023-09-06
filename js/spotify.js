@@ -193,10 +193,10 @@ function play( playlist_id ) {
     body.offset.position = trackindex.length > 0 ? Number( trackindex ) : 0;
     body.offset.position_ms = 0;
 
-    if ( $( '#devices option:contains("DESKTOP")' ).val() != undefined ) {
+    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
         callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
     } else {
-        callApi( 'PUT', PLAY, JSON.stringify( body ), handleApiResponse );
+        callApi( 'PUT', PLAY + '?device_id=' + $( '#devices' ).find( ':selected' ).val() , JSON.stringify( body ), handleApiResponse );
     }
 }
 
