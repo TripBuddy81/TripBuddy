@@ -61,13 +61,13 @@ function particlesInit( showParticles = true ) {
                             'enable'   : true,
                             'speed'    : 4,
                             'direction': 'none',
-                            'random'   : false,
+                            'random'   : true,
                             'straight' : false,
                             'out_mode' : 'out',
                             'attract'  : {
-                                'enable' : false,
-                                'rotateX': 600,
-                                'rotateY': 1200
+                                'enable' : true,
+                                'rotateX': 3000,
+                                'rotateY': 3000
                             }
                         }
                     },
@@ -79,7 +79,7 @@ function particlesInit( showParticles = true ) {
                                 'mode'  : 'repulse'
                             },
                             'onclick': {
-                                'enable': true,
+                                'enable': false,
                                 'mode'  : 'push'
                             },
                             'resize' : true
