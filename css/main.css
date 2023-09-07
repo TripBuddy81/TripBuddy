@@ -500,6 +500,12 @@ li, .options, .form-check-label {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
+#spotifyIcon {
+    height: 53px;
+    top: -8px;
+    position: inherit;
+}
+
 .refreshIcon {
     height: 35px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;

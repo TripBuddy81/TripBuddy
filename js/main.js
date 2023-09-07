@@ -214,6 +214,11 @@ $( document ).ready( function () {
                 $( this ).trigger( 'click' );
                 return false;
             } );
+            if ( xxxVisible ) {
+                $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' )
+            } else {
+                $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' )
+            }
         }
     } );
     $( document ).keyup( function ( e ) {
@@ -232,6 +237,11 @@ $( document ).ready( function () {
                         $( this ).trigger( 'click' );
                         return false;
                     } );
+                    if ( xxxVisible ) {
+                        $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' )
+                    } else {
+                        $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' )
+                    }
                 }
                 break;
             case 3:
@@ -239,6 +249,7 @@ $( document ).ready( function () {
                 break;
         }
     } );
+
     $( '#activateHiddenMenue' ).mouseout( function ( event ) {
         rightMouseClicked = false;
     } );
