@@ -208,17 +208,7 @@ $( document ).ready( function () {
     $( document ).keydown( function ( e ) {
         keyCache[e.which] = true;
         if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
-            $( '.XXX' ).toggle();
-            xxxVisible = !xxxVisible;
-            $( '.videoFilterBtn' ).each( function () {
-                $( this ).trigger( 'click' );
-                return false;
-            } );
-            if ( xxxVisible ) {
-                $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' )
-            } else {
-                $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' )
-            }
+            toggleXXXVisible();
         }
     } );
     $( document ).keyup( function ( e ) {
@@ -230,18 +220,7 @@ $( document ).ready( function () {
         switch ( event.which ) {
             case 1:
                 if ( rightMouseClicked ) {
-                    $( '.XXX' ).toggle();
-                    xxxVisible = !xxxVisible;
-                    rightMouseClicked = false;
-                    $( '.videoFilterBtn' ).each( function () {
-                        $( this ).trigger( 'click' );
-                        return false;
-                    } );
-                    if ( xxxVisible ) {
-                        $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' )
-                    } else {
-                        $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' )
-                    }
+                    toggleXXXVisible();
                 }
                 break;
             case 3:
@@ -253,6 +232,20 @@ $( document ).ready( function () {
     $( '#activateHiddenMenue' ).mouseout( function ( event ) {
         rightMouseClicked = false;
     } );
+
+    function toggleXXXVisible() {
+        xxxVisible = !xxxVisible;
+        $( '.XXX' ).toggle();
+        $( '.videoFilterBtn' ).each( function () {
+            $( this ).trigger( 'click' );
+            return false;
+        } );
+        if ( xxxVisible ) {
+            $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' )
+        } else {
+            $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' )
+        }
+    }
 
     // ******************************************
     // Start button & preFlightChecklist & Reminders
