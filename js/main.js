@@ -1038,6 +1038,8 @@ $( document ).ready( function () {
             $( '#playlists > option:first-child' ).text( '...' );
             $( '#playlists' ).prop( 'selectedIndex', 0 );
             openDesktopApp();
+            shuffle();
+            repeat();
             play( lastSelectedPlaylist );
         } );
 
@@ -1053,12 +1055,16 @@ $( document ).ready( function () {
                 e.preventDefault();
                 refreshAccessToken();
                 openDesktopApp();
+                shuffle();
+                repeat();
                 next();
             }
         } );
         $( '#next' ).click( function () {
             refreshAccessToken();
             openDesktopApp();
+            shuffle();
+            repeat();
             next( lastSelectedPlaylist );
         } );
         $( '#refresh' ).click( function () {
