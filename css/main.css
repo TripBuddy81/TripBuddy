@@ -565,14 +565,14 @@ li, .options, .form-check-label {
 
 #iFrameSpotifyPlayerContainer {
     position: fixed;
-    top: 2px;
+    top: -2px;
     left: 665px;
     z-index: 11;
 }
 
 #iFrameSpotifyPlayerContainer iframe {
     width: 240px;
-    height: 75px;
+    height: 80px;
 }
 
 #iFrameSpotifyPlayerContainer iframe:hover {
