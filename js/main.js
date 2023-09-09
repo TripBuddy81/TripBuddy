@@ -1015,15 +1015,14 @@ $( document ).ready( function () {
     // oAuth Spotify Player
     if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
         $( '#iFrameSpotifyPlayerContainer' ).remove();
-
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
         client_id = config['oAuthSpotify'][0]['client_id'];
         client_secret = config['oAuthSpotify'][0]['client_secret'];
         spotifyInitOnPageLoad();
         refreshAccessToken();
-        setInterval( refreshAccessToken, 60000 );
         shuffle();
         repeat();
+        setInterval( refreshAccessToken, 60000 );
         setInterval( currentlyPlaying, 3000 );
         setInterval( refreshDevices, 3000 );
 
