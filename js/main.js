@@ -1022,7 +1022,6 @@ $( document ).ready( function () {
         spotifyInitOnPageLoad();
         refreshAccessToken();
         setInterval( refreshAccessToken, 60000 );
-        refreshDevices();
         shuffle();
         repeat();
         setInterval( currentlyPlaying, 3000 );
@@ -1067,9 +1066,24 @@ $( document ).ready( function () {
             repeat();
             next( lastSelectedPlaylist );
         } );
-        $( '#refresh' ).click( function () {
-            refreshAccessToken();
-            refreshDevices();
+        $( '#switchDesktopPhone' ).click( function () {
+            phoneConnected = false;
+            desktopSelected = false;
+
+            if ( typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
+                phoneConnected = true;
+            }
+            if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
+                desktopSelected = true;
+            }
+
+            if ( desktopSelected && phoneConnected ) {
+                transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
+            } else if ( !desktopSelected ) {
+                transfer( $( '#devices option:contains("DESKTOP")' ).val() );
+            } else {
+                refreshDevices();
+            }
         } );
         $( '#menuClose' ).click( function () {
             refreshAccessToken();

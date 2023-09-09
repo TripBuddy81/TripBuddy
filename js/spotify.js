@@ -215,14 +215,17 @@ function transfer( deviceId ) {
     let body = {};
     body.device_ids = [];
     body.device_ids.push( deviceId )
-    callApi( 'PUT', PLAYER, JSON.stringify( body ), handleApiResponse );
+    callApi( 'PUT', PLAYER, JSON.stringify( body ), handleTransferApiResponse );
+}
+
+function handleTransferApiResponse() {
+    refreshAccessToken();
 }
 
 function handleApiResponse() {
     if ( this.status == 200 ) {
     } else if ( this.status == 204 ) {
     } else if ( this.status == 401 ) {
-        refreshAccessToken()
     } else {
     }
 }

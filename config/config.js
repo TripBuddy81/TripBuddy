@@ -6,6 +6,7 @@ var config = {
             'client_secret': ''
         }
     ],
+    'spotifyPhoneName' : 'Pixel',
     'preFlightChecklist' : [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
         {'checklistItem': 'Mouse charged/VPN off?'},

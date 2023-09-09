@@ -506,7 +506,7 @@ li, .options, .form-check-label {
     position: inherit;
 }
 
-.refreshIcon {
+#switchDesktopPhone {
     height: 35px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     padding-right: 220px;
