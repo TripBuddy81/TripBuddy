@@ -200,7 +200,7 @@ function play( playlist_id = '' ) {
     }
 }
 
-function next( lastSelectedPlaylist = '' ) {
+function next( playlist_id = '' ) {
     if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
         let body = {};
         if ( playlist_id != '' ) {
