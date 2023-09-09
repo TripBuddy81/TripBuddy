@@ -241,9 +241,9 @@ $( document ).ready( function () {
             return false;
         } );
         if ( xxxVisible ) {
-            $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' )
+            $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
         } else {
-            $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' )
+            $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
         }
     }
 
@@ -1025,6 +1025,7 @@ $( document ).ready( function () {
         shuffle();
         repeat();
         setInterval( currentlyPlaying, 3000 );
+        setInterval( refreshDevices, 3000 );
 
         $( '#stopMusic' ).click( function () {
             refreshAccessToken();
@@ -1067,22 +1068,10 @@ $( document ).ready( function () {
             next( lastSelectedPlaylist );
         } );
         $( '#switchDesktopPhone' ).click( function () {
-            phoneConnected = false;
-            desktopSelected = false;
-
-            if ( typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
-                phoneConnected = true;
-            }
-            if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
-                desktopSelected = true;
-            }
-
-            if ( desktopSelected && phoneConnected ) {
+            if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
                 transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
-            } else if ( !desktopSelected ) {
+            } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
                 transfer( $( '#devices option:contains("DESKTOP")' ).val() );
-            } else {
-                refreshDevices();
             }
         } );
         $( '#menuClose' ).click( function () {

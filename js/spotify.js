@@ -116,6 +116,17 @@ function handleDevicesResponse() {
         var data = JSON.parse( this.responseText );
         removeAllItems( 'devices' );
         data.devices.forEach( item => addDevice( item ) );
+
+        if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
+            $( '#switchDesktopPhone' ).attr( 'src', './assets/phone.png' );
+            $( '#switchDesktopPhone' ).show();
+        } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
+            $( '#switchDesktopPhone' ).attr( 'src', './assets/desktop.png' );
+            $( '#switchDesktopPhone' ).show();
+        } else {
+            $( '#switchDesktopPhone' ).hide();
+        }
+
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {

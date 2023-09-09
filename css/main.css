@@ -434,7 +434,7 @@ li, .options, .form-check-label {
     color: #000000;
     position: absolute;
     top: -2px;
-    right: 305px;
+    right: 275px;
     display: none;
     z-index: 2;
     line-height: 80px;
@@ -447,7 +447,7 @@ li, .options, .form-check-label {
 }
 
 #progressGraphContainer {
-    width: 430px;
+    width: 390px;
     position: relative;
     display: none;
 }
@@ -507,9 +507,10 @@ li, .options, .form-check-label {
 }
 
 #switchDesktopPhone {
-    height: 35px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    padding-right: 220px;
+    height: 45px;
+    top: 0px;
+    position: inherit;
+    display: none;
 }
 
 #turnScreenBlack {
@@ -597,7 +598,7 @@ li, .options, .form-check-label {
     padding-right: 150px;
     font-weight: bold;
     height: 35px;
-    width: 430px;
+    width: 390px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
@@ -851,7 +852,7 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
     position: absolute;
     top: 5px;
-    right: 460px;
+    right: 440px;
     z-index: 10;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
