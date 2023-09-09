@@ -1147,6 +1147,11 @@ $( document ).ready( function () {
         } else {
             $( '#particles-js' ).css( 'animation', 'strobo1 ' + $( '#discoStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
         }
+        if ( $( '#discoStroboSpeed' ).val() > 0 ) {
+            $( '#ensoImageDisco' ).css( 'animation', 'stroboEnso 20ms steps(1,end) infinite' );
+        } else {
+            $( '#ensoImageDisco' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
+        }
     } );
 
     $( '#discoToggleBWStrobo' ).click( function ( event ) {
@@ -1187,6 +1192,7 @@ $( document ).ready( function () {
         // reset strobo to default
         stroboBGWhite = true;
         $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
+        $( '#ensoImageDisco' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
         $( '#discoStroboSpeed' ).val( 0 );
         $( '.particles-js-canvas-el' ).remove();
         particlesInit( showParticles );

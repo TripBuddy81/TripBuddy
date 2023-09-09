@@ -628,6 +628,13 @@ li, .options, .form-check-label {
     }
 }
 
+@keyframes stroboEnso {
+    50% {
+        display: none;
+    }
+}
+
+
 #disco {
     background-color: #363636;
 }
