@@ -1056,7 +1056,11 @@ $( document ).ready( function () {
                 openDesktopApp();
                 shuffle();
                 repeat();
-                next();
+                if ( playingTrack ) {
+                    next( lastSelectedPlaylist );
+                } else {
+                    play();
+                }
             }
         } );
         $( '#next' ).click( function () {
@@ -1064,12 +1068,18 @@ $( document ).ready( function () {
             openDesktopApp();
             shuffle();
             repeat();
-            next( lastSelectedPlaylist );
+            if ( playingTrack ) {
+                next( lastSelectedPlaylist );
+            } else {
+                play();
+            }
+
         } );
         $( '#switchDesktopPhone' ).click( function () {
             if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
                 transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
             } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
+                openDesktopApp();
                 transfer( $( '#devices option:contains("DESKTOP")' ).val() );
             }
         } );

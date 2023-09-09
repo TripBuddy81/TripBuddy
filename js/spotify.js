@@ -6,6 +6,8 @@ var refresh_token = null;
 var currentPlaylist = '';
 var radioButtons = [];
 var lastSelectedPlaylist = 'spotify:playlist:0O1C7wbOthIxBbai9pYvEH';
+var playingTrack = false;
+
 
 const AUTHORIZE = 'https://accounts.spotify.com/authorize'
 const TOKEN = 'https://accounts.spotify.com/api/token';
@@ -185,14 +187,28 @@ function removeAllItems( elementId ) {
     }
 }
 
-function play( playlist_id ) {
+function play( playlist_id = '' ) {
     let body = {};
-    body.context_uri = playlist_id;
+    if ( playlist_id != '' ) {
+        body.context_uri = playlist_id;
+    }
 
     if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
         callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
     } else {
         callApi( 'PUT', PLAY + '?device_id=' + $( '#devices' ).find( ':selected' ).val(), JSON.stringify( body ), handleApiResponse );
+    }
+}
+
+function next( lastSelectedPlaylist = '' ) {
+    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
+        let body = {};
+        if ( playlist_id != '' ) {
+            body.context_uri = playlist_id;
+        }
+        callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
+    } else {
+        callApi( 'POST', NEXT, null, handleApiResponse );
     }
 }
 
@@ -206,16 +222,6 @@ function repeat() {
 
 function pause() {
     callApi( 'PUT', PAUSE, null, handleApiResponse );
-}
-
-function next( lastSelectedPlaylist ) {
-    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
-        let body = {};
-        body.context_uri = lastSelectedPlaylist;
-        callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
-    } else {
-        callApi( 'POST', NEXT, null, handleApiResponse );
-    }
 }
 
 function previous() {
@@ -286,6 +292,12 @@ function handleCurrentlyPlayingResponse() {
         playlistID = playlistID.replace( 'https://open.spotify.com/playlist/', '' );
         lastSelectedPlaylist = 'spotify:playlist:' + playlistID;
         getPlaylist( playlistID );
+
+        if ( data['is_playing'] ) {
+            playingTrack = true;
+        } else {
+            playingTrack = false;
+        }
     } catch ( e ) {
         return false;
     }
