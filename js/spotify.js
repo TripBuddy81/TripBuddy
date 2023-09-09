@@ -193,7 +193,7 @@ function play( playlist_id = '' ) {
         body.context_uri = playlist_id;
     }
 
-    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
+    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' || $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'überall' ) ) {
         callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
     } else {
         callApi( 'PUT', PLAY + '?device_id=' + $( '#devices' ).find( ':selected' ).val(), JSON.stringify( body ), handleApiResponse );
@@ -201,7 +201,7 @@ function play( playlist_id = '' ) {
 }
 
 function next( playlist_id = '' ) {
-    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' ) {
+    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' || $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'überall' )) {
         let body = {};
         if ( playlist_id != '' ) {
             body.context_uri = playlist_id;

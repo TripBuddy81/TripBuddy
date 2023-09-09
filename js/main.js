@@ -1057,7 +1057,7 @@ $( document ).ready( function () {
                 shuffle();
                 repeat();
                 if ( playingTrack ) {
-                    next( lastSelectedPlaylist );
+                    next();
                 } else {
                     play();
                 }
@@ -1069,7 +1069,7 @@ $( document ).ready( function () {
             shuffle();
             repeat();
             if ( playingTrack ) {
-                next( lastSelectedPlaylist );
+                next();
             } else {
                 play();
             }
