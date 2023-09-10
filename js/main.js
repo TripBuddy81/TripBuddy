@@ -1027,12 +1027,10 @@ $( document ).ready( function () {
         setInterval( refreshDevices, 3000 );
 
         $( '#stopMusic' ).click( function () {
-            refreshAccessToken();
             pause();
         } );
 
         $( '#playlists' ).change( function () {
-            refreshAccessToken();
             lastSelectedPlaylist = $( '#playlists' ).find( ':selected' ).val();
             $( '#playlists > option:first-child' ).text( '...' );
             $( '#playlists' ).prop( 'selectedIndex', 0 );
@@ -1052,7 +1050,6 @@ $( document ).ready( function () {
                     !$( event.target ).hasClass( 'externalVideoPreview' )
             ) {
                 e.preventDefault();
-                refreshAccessToken();
                 openDesktopApp();
                 shuffle();
                 repeat();
@@ -1064,7 +1061,6 @@ $( document ).ready( function () {
             }
         } );
         $( '#next' ).click( function () {
-            refreshAccessToken();
             openDesktopApp();
             shuffle();
             repeat();
@@ -1073,7 +1069,6 @@ $( document ).ready( function () {
             } else {
                 play();
             }
-
         } );
         $( '#switchDesktopPhone' ).click( function () {
             if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
@@ -1088,7 +1083,6 @@ $( document ).ready( function () {
             refreshDevices();
         } );
         $( '#devices' ).change( function () {
-            refreshAccessToken();
             transfer( $( '#devices' ).find( ':selected' ).val() );
             $( '#menuClose' ).trigger( 'click' );
         } );
