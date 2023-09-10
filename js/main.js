@@ -403,25 +403,6 @@ $( document ).ready( function () {
     } );
 
     // ******************************************
-    // absoluteTruthOverlay
-    $( '#particles-js' ).click( function ( e ) {
-        enableFullscreen();
-        $( '#absoluteTruthsOverlay' ).toggle();
-    } );
-
-    setInterval( absoluteTruthsUpdate, 12000 );
-
-    function absoluteTruthsUpdate() {
-        random = Math.floor( Math.random() * config['absoluteTruths'].length );
-        if ( !xxxVisible ) {
-            if ( config['absoluteTruths'][random]['tag'] == 'XXX' ) {
-                absoluteTruthsUpdate();
-            }
-        }
-        $( '#absoluteTruthsOverlayText' ).html( config['absoluteTruths'][random]['text'] );
-    }
-
-    // ******************************************
     // Timer && Graph && Time dependent actions
     function tripTimer() {
         var now = new Date();
@@ -1131,6 +1112,7 @@ $( document ).ready( function () {
     // Disco section
     var showParticles = true;
     renderDiscoSection( showParticles );
+    setInterval( absoluteTruthsUpdate, 15000 );
 
     $( '#discoParticlesSwitch' ).click( function ( event ) {
         showParticles = !showParticles;
@@ -1191,6 +1173,10 @@ $( document ).ready( function () {
                 }
             }
     );
+    $( '#particles-js' ).click( function ( e ) {
+        enableFullscreen();
+        $( '#absoluteTruthsOverlay' ).toggle();
+    } );
 
     function renderDiscoSection( showParticles ) {
         // reset strobo to default
@@ -1200,6 +1186,25 @@ $( document ).ready( function () {
         $( '#discoStroboSpeed' ).val( 0 );
         $( '.particles-js-canvas-el' ).remove();
         particlesInit( showParticles );
+    }
+
+    function absoluteTruthsUpdate() {
+        random = Math.floor( Math.random() * config['absoluteTruths'].length );
+        if ( !xxxVisible ) {
+            if ( config['absoluteTruths'][random]['tag'] == 'XXX' ) {
+                absoluteTruthsUpdate();
+            }
+        }
+        $( '#absoluteTruthsOverlayText' ).html( config['absoluteTruths'][random]['text'] );
+
+        length = config['absoluteTruths'][random]['text'].length;
+        if ( length < 100 ) {
+            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
+        } else if ( length < 200 ) {
+            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '90px';
+        } else {
+            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '50px';
+        }
     }
 
     // END Disco section
