@@ -909,7 +909,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #absoluteTruthsOverlayText {
     position: relative;
-    font-size: 100px;
+    font-size: 110px;
     font-family: sans-serif;
     background: linear-gradient(to right, #2196f3, #26c6da, #93a947, #eeff41, #f9a825, #ff5722);
     -webkit-background-clip: text;
