@@ -1200,6 +1200,8 @@ $( document ).ready( function () {
         length = config['absoluteTruths'][random]['text'].length;
         if ( length < 100 ) {
             document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
+        } else if ( length < 150 ) {
+            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '100px';
         } else if ( length < 200 ) {
             document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '90px';
         } else {
