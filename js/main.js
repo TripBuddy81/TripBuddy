@@ -1121,9 +1121,14 @@ $( document ).ready( function () {
 
     $( '.discoSetBGColor' ).click( function ( event ) {
         $( '#disco' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
+        $( '#disco' ).removeClass('discoColorfulBackground');
     } );
     document.getElementById( 'discoBGColorPicker' ).addEventListener( 'input', function () {
         $( '#disco' ).css( 'background-color', $( '#discoBGColorPicker' ).val() );
+        $( '#disco' ).removeClass('discoColorfulBackground');
+    } );
+    $( '.discoSetBGColorful' ).click( function ( event ) {
+        $( '#disco' ).addClass('discoColorfulBackground');
     } );
 
     var stroboBGWhite = true;

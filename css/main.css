@@ -635,9 +635,12 @@ li, .options, .form-check-label {
     }
 }
 
-
 #disco {
     background-color: #363636;
+}
+
+.discoColorfulBackground {
+    background: radial-gradient(rgba(144, 107, 255, 1), rgba(72, 205, 255, 1), rgba(155, 255, 107, 1), rgba(245, 255, 115, 1)) !important;
 }
 
 #discoSettingsContainer {
@@ -658,7 +661,7 @@ li, .options, .form-check-label {
     padding-left: 15px;
 }
 
-.discoSetBGColor, .discoToggleBWStrobo {
+.discoSetBGColor, .discoSetBGColorful, .discoToggleBWStrobo {
     padding: 25px 25px 0px 25px;
     display: inline;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
