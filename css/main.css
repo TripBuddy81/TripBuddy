@@ -630,7 +630,7 @@ li, .options, .form-check-label {
 }
 
 @keyframes stroboEnso {
-    50% {
+    70% {
         display: none;
     }
 }
