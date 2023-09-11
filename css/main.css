@@ -552,7 +552,7 @@ li, .options, .form-check-label {
 #playlists {
     position: relative;
     top: -7px;
-    width: 230px;
+    width: 260px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     background-color: transparent;
     border: none;
@@ -562,6 +562,7 @@ li, .options, .form-check-label {
     color: black;
     margin-left: 10px;
     margin-right: 0px;
+    text-align-last: center;
 }
 
 #iFrameSpotifyPlayerContainer {
