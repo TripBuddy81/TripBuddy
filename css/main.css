@@ -900,7 +900,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #notesTextarea {
     width: 100%;
-    height: 740px;
+    height: 790px;
     font-size: 50px;
     background-color: black;
     color: white;
@@ -912,6 +912,7 @@ video::-webkit-media-controls-fullscreen-button {
     box-shadow: none;
     resize: none;
     caret-color: #EF5553;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
 #absoluteTruthsOverlay {
