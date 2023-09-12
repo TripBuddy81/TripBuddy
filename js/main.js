@@ -275,6 +275,7 @@ $( document ).ready( function () {
         $( '#preFlightChecklist' ).modal( 'hide' );
         $( '#launchText' ).hide();
         $( '#progressGraphContainer' ).show();
+        $( '#notesSymbol' ).show();
 
         if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
             allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
@@ -582,6 +583,19 @@ $( document ).ready( function () {
             sel.removeAllRanges();
         }
     }
+
+    // ******************************************
+    // Show notes overlay
+    $( '#notesTextarea' ).html( localStorage.getItem( 'notes' ) );
+    $( '#notesSymbol' ).click( function () {
+        enableFullscreen();
+        $( '#notesOverlay' ).modal( 'show' );
+        $( '#notesTextarea' ).html( localStorage.getItem( 'notes' ) );
+    } )
+    $( '#notesTextarea' ).on( 'blur', function () {
+        localStorage.setItem( 'notes', $( '#notesTextarea' ).val() );
+    } );
+
 
     // ******************************************
     // Info Tag toggle setting

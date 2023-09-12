@@ -108,6 +108,7 @@
             <img id="pizzaTimerSymbol" src="assets/pizza.png">
             <span id="pizzaTimerProgress">00</span>
         </span>
+        <img id="notesSymbol" src="assets/notes.png">
         <div id="launchText" class="float-end me-3 mt-3" data-bs-toggle="modal" data-bs-target="#preFlightChecklist">
             Loading...
         </div>
@@ -189,6 +190,26 @@
             <img id="switchDesktopPhone" class="float-end playerIcon me-3 mt-3" src="./assets/transfer.png">
         </div>
 
+    </div>
+
+    <div class="modal fade" id="notesOverlay" tabindex="-1" aria-labelledby="notesOverlayLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1 class="modal-title" id="notesOverlayLabel">Notes</h1>
+                    <div class="row">
+                        <div class="col">
+                            <textarea id="notesTextarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-close btn btn-info btn-lg" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="modal fade" id="preFlightChecklist" tabindex="-1" aria-labelledby="preFlightChecklistLabel"
