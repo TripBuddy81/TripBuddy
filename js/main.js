@@ -586,7 +586,6 @@ $( document ).ready( function () {
 
     // ******************************************
     // Show notes overlay
-    $( '#notesTextarea' ).html( localStorage.getItem( 'notes' ) );
     $( '#notesSymbol' ).click( function () {
         enableFullscreen();
         $( '#notesOverlay' ).modal( 'show' );
@@ -600,7 +599,6 @@ $( document ).ready( function () {
             textarea.scrollTop = textarea.scrollHeight;
         }, 500 );
     } );
-
 
     $( '#notesTextarea' ).on( 'blur', function () {
         localStorage.setItem( 'notes', $( '#notesTextarea' ).val() );
