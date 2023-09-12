@@ -266,6 +266,9 @@ $( document ).ready( function () {
         start = new Date();
         setTimeout( function () {
             $( '#timerMinutes' ).show();
+            $( '#notesSymbol' ).show();
+            $( '#launchText' ).hide();
+            $( '#progressGraphContainer' ).show();
         }, 1000 );
 
         localStorage.setItem( 'pizzaTimerStartMinutes', '' );
@@ -273,9 +276,6 @@ $( document ).ready( function () {
         minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
 
         $( '#preFlightChecklist' ).modal( 'hide' );
-        $( '#launchText' ).hide();
-        $( '#progressGraphContainer' ).show();
-        $( '#notesSymbol' ).show();
 
         if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
             allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
