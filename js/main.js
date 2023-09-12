@@ -286,8 +286,9 @@ $( document ).ready( function () {
             allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
         }
         $( '.menuvisibleAfterStarted' ).show();
-        if ( allGuidedThoughts.length == 0 ) {
-            $( '.deactivateGuidedThoughts' ).hide();
+
+        if ( allGuidedThoughts.length == 0 && localStorage.getItem( 'topupReminderInMinutes1' ) == '' && localStorage.getItem( 'topupReminderInMinutes2' ) == '' && localStorage.getItem( 'orderPizzaReminderInMinutes' ) == '' ) {
+            $( '#disableAllReminders' ).hide();
         }
     } );
 
@@ -338,9 +339,8 @@ $( document ).ready( function () {
     localStorage.setItem( 'guidedThoughtMinMinutes', $( '#guidedThoughtMinMinutes' ).val() );
     localStorage.setItem( 'guidedThoughtMaxMinutes', $( '#guidedThoughtMaxMinutes' ).val() );
     localStorage.setItem( 'minutesCountAtLastDisplayedThought', $( '#firstGuidedThoughtMin' ).val() );
-    $( '.guidedThoughtsContainer, .deactivateGuidedThoughts' ).click( function () {
+    $( '.guidedThoughtsContainer' ).click( function () {
         $( '.guidedThoughtsContainer' ).hide();
-        $( '.deactivateGuidedThoughts' ).hide();
         while ( allGuidedThoughts.length ) {
             allGuidedThoughts.pop();
         }
@@ -400,6 +400,21 @@ $( document ).ready( function () {
     $( 'html' ).click( function () {
         $( 'body' ).show();
         $( 'html' ).attr( 'style', 'cursor:auto;' );
+    } );
+
+    // ******************************************
+    // Disable all future reminders and guided thoughts
+    $( '#disableAllReminders' ).click( function ( e ) {
+        $( '#disableAllReminders' ).hide();
+        $( '.guidedThoughtsContainer' ).hide();
+
+        localStorage.setItem( 'topupReminderInMinutes1', '' );
+        localStorage.setItem( 'topupReminderInMinutes2', '' );
+        localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
+
+        while ( allGuidedThoughts.length ) {
+            allGuidedThoughts.pop();
+        }
     } );
 
     // ******************************************
@@ -1121,14 +1136,14 @@ $( document ).ready( function () {
 
     $( '.discoSetBGColor' ).click( function ( event ) {
         $( '#disco' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
-        $( '#disco' ).removeClass('discoColorfulBackground');
+        $( '#disco' ).removeClass( 'discoColorfulBackground' );
     } );
     document.getElementById( 'discoBGColorPicker' ).addEventListener( 'input', function () {
         $( '#disco' ).css( 'background-color', $( '#discoBGColorPicker' ).val() );
-        $( '#disco' ).removeClass('discoColorfulBackground');
+        $( '#disco' ).removeClass( 'discoColorfulBackground' );
     } );
     $( '.discoSetBGColorful' ).click( function ( event ) {
-        $( '#disco' ).addClass('discoColorfulBackground');
+        $( '#disco' ).addClass( 'discoColorfulBackground' );
     } );
 
     var stroboBGWhite = true;

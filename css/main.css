@@ -350,7 +350,7 @@ p {
     display: none;
 }
 
-.deactivateGuidedThoughts, #startPizzaTimer {
+#startPizzaTimer, #disableAllReminders {
     color: #E04006;
     font-size: 30px;
     font-weight: bold;
