@@ -158,6 +158,10 @@ p {
     background-color: #809bce;
 }
 
+.btn-close {
+    opacity: 1;
+}
+
 .iFrameContainer {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     z-index: 1;
@@ -889,8 +893,8 @@ video::-webkit-media-controls-fullscreen-button {
     height: 45px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     position: absolute;
-    right: 230px;
-    top: 20px;
+    right: 125px;
+    top: 21px;
     z-index: 11;
 }
 
@@ -907,6 +911,7 @@ video::-webkit-media-controls-fullscreen-button {
     -moz-box-shadow: none;
     box-shadow: none;
     resize: none;
+    caret-color: #EF5553;
 }
 
 #absoluteTruthsOverlay {
