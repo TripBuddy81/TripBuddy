@@ -592,33 +592,19 @@ $( document ).ready( function () {
         $( '#notesOverlay' ).modal( 'show' );
 
         setTimeout( function () {
-            $( '#notesTextarea' ).focus();
             $( '#notesTextarea' ).focus().val( '' ).val( localStorage.getItem( 'notes' ) );
         }, 500 );
-    } )
+
+        var textarea = document.getElementById( 'notesTextarea' );
+        setTimeout( function () {
+            textarea.scrollTop = textarea.scrollHeight;
+        }, 500 );
+    } );
+
+
     $( '#notesTextarea' ).on( 'blur', function () {
         localStorage.setItem( 'notes', $( '#notesTextarea' ).val() );
     } );
-
-    $( '#notesTextarea' ).keypress( function ( event ) {
-        /*event.preventDefault();*/
-        console.info( event.which );
-
-        if ( event.key === 'Escape' ) {
-
-            event.preventDefault();
-            event.stopPropagation();
-            console.info( "test" );
-            $( '#notesOverlay' ).modal( 'hide' );
-        }
-
-        /*
-                keyCache[e.which] = true;
-                if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
-                    toggleXXXVisible();
-                }*/
-    } );
-
 
     // ******************************************
     // Info Tag toggle setting
