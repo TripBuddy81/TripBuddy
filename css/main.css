@@ -659,8 +659,27 @@ li, .options, .form-check-label {
     background-color: #363636;
 }
 
+@property --p {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 40%;
+}
+
 .discoColorfulBackground {
-    background: radial-gradient(rgba(144, 107, 255, 1), rgba(72, 205, 255, 1), rgba(155, 255, 107, 1), rgba(245, 255, 115, 1)) !important;
+    background: radial-gradient(rgba(144, 107, 255, 1), rgba(72, 205, 255, 1), rgba(155, 255, 107, 1) var(--p), rgba(245, 255, 115, 1));
+    animation: discoBackground 13s infinite linear;
+}
+
+@keyframes discoBackground {
+    0% {
+        --p: 40%;
+    }
+    50% {
+        --p: 140%;
+    }
+    100% {
+        --p: 40%;
+    }
 }
 
 #discoSettingsContainer {
