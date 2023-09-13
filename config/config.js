@@ -435,7 +435,7 @@ var config = {
             'tags' : 'trippy'
         },
         {
-            'image': './media/images/63.jpg',
+            'image': './media/images/74.jpg',
             'tags' : 'trippy'
         },
         {
