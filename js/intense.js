@@ -87,10 +87,6 @@ var Intense = (function () {
         }
     }
 
-    /* -------------------------
-    /*          APP
-    /* -------------------------*/
-
     function startTracking( passedElements ) {
 
         var i;
@@ -133,7 +129,6 @@ var Intense = (function () {
 
     // Lock scroll on the document body.
     function lockBody() {
-
         overflowValue = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
     }
@@ -148,9 +143,6 @@ var Intense = (function () {
         $('#mainMenu').css('visibility', 'hidden');
         $( 'html' ).attr( 'style', 'background-color:black;cursor:none;' );
 
-        /*
-         *  Container
-         */
         var containerProperties = {
             'width'           : '100%',
             'height'          : '100%',
@@ -173,9 +165,6 @@ var Intense = (function () {
         }
         applyProperties( target, imageProperties );
 
-        /*
-         *  Caption Container
-         */
         var captionContainerProperties = {
             'fontFamily'         : 'Georgia, Times, "Times New Roman", serif',
             'position'           : 'fixed',
@@ -190,9 +179,6 @@ var Intense = (function () {
         var captionContainer = document.createElement( 'figcaption' );
         applyProperties( captionContainer, captionContainerProperties );
 
-        /*
-         *  Caption Title
-         */
         if ( title ) {
             var captionTitleProperties = {
                 'margin'       : '0px',
@@ -235,10 +221,7 @@ var Intense = (function () {
         mouse.yCurr = mouse.yDest = window.innerHeight / 2;
 
         document.body.appendChild( container );
-        setTimeout( function () {
-            container.style['opacity'] = '1';
-            container.style['cursor'] = 'none';
-        }, 10 );
+        container.style['opacity'] = '1';
     }
 
     function removeViewer() {
@@ -248,7 +231,7 @@ var Intense = (function () {
 
         $('#images').css('visibility', 'visible');
         $('#mainMenu').css('visibility', 'visible');
-        $( 'html' ).attr( 'style', 'cursor:auto;' );
+        $( 'html' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer !important' );
         $( '.videoMenuOverlay' ).hide();
         document.body.style.overflow = 'auto';
     }
