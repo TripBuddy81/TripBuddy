@@ -413,6 +413,15 @@ li, .options, .form-check-label {
     font-size: 25px;
 }
 
+option {
+    background-color: #363636;
+    color: white;
+}
+
+option:first-child {
+    display: none;
+}
+
 .guidedThoughtsTextInput {
     width: 450px;
     font-size: 25px;

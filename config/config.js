@@ -82,7 +82,7 @@ var config = {
             'id'   : '6fB9PJQ7Hy8SDvcRmBeKwr'
         },
         {
-            'label': 'Elektrolastig',
+            'label': 'Main',
             'id'   : '57JGgX4bq54IIJePFNU8M0'
         },
         {
