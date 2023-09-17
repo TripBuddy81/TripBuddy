@@ -180,8 +180,8 @@ var config = {
             'tags'     : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/beW6KCQ90Qc?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoLink': 'https://www.youtube.com/embed/zqXohGL36cw?mute=1',
+            'tags'     : 'trippy-3D meditative'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/z3ul9PkRvfY?mute=1',
@@ -201,10 +201,6 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
-            'tags'     : 'meditative'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/Ck-h9YGKyOc?mute=1',
             'tags'     : 'meditative'
         },
         {
