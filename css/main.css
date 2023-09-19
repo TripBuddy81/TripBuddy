@@ -642,6 +642,7 @@ option:first-child {
     animation: strobo2 0ms steps(1, end) infinite;
     cursor: none;
     z-index: 3;
+    overflow: hidden;
 }
 
 .particles-js-canvas-el {
@@ -665,6 +666,13 @@ option:first-child {
 @keyframes stroboEnso {
     70% {
         display: none;
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
     }
 }
 
@@ -1009,8 +1017,9 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100vh;
 }
 
-#ensoImageDisco {
-    top: 25px;
+#ensoImageDiscoContainer {
+    position: relative;
+    top: 15px;
     height: 95%;
     z-index: 1;
     pointer-events: none;
@@ -1018,7 +1027,18 @@ video::-webkit-media-controls-fullscreen-button {
     margin-left: auto;
     margin-right: auto;
     opacity: 1;
-    padding-top: 25px;
+    padding: 35px;
+
+    -webkit-animation: spin 120s linear infinite;
+    -moz-animation: spin 120s linear infinite;
+    animation: spin 120s linear infinite;
+}
+
+#ensoImageDisco {
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .VRGamesBtn {
