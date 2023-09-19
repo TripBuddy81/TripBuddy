@@ -27,6 +27,7 @@ $( document ).ready( function () {
     var slideshowJustStarted = false;
     var lastActiveBackgroundGradientKeyFrame = 1;
     var spotifyOpened = false;
+    var lastDisplayedAbsoluteTruthIndex = 0;
 
     Object.assign( config, optionalConfig );
 
@@ -1234,22 +1235,29 @@ $( document ).ready( function () {
 
     function absoluteTruthsUpdate() {
         random = Math.floor( Math.random() * config['absoluteTruths'].length );
-        if ( !xxxVisible ) {
-            if ( config['absoluteTruths'][random]['tag'] == 'XXX' ) {
-                absoluteTruthsUpdate();
-            }
-        }
-        $( '#absoluteTruthsOverlayText' ).html( config['absoluteTruths'][random]['text'] );
 
-        length = config['absoluteTruths'][random]['text'].length;
-        if ( length < 100 ) {
-            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
-        } else if ( length < 150 ) {
-            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '100px';
-        } else if ( length < 200 ) {
-            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '90px';
+        if ( config['absoluteTruths'][random]['text'] == config['absoluteTruths'][lastDisplayedAbsoluteTruthIndex]['text'] ) {
+            absoluteTruthsUpdate();
+        } else if ( config['absoluteTruths'][random]['tag'] == 'XXX' && !xxxVisible ) {
+            absoluteTruthsUpdate();
         } else {
-            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '50px';
+            lastDisplayedAbsoluteTruthIndex = random;
+
+            $( '#absoluteTruthsOverlayText' ).fadeOut( 1500, function () {
+                $( '#absoluteTruthsOverlayText' ).html( config['absoluteTruths'][random]['text'] );
+                $( '#absoluteTruthsOverlayText' ).fadeIn( 1500 );
+            } );
+
+            length = config['absoluteTruths'][random]['text'].length;
+            if ( length < 100 ) {
+                document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
+            } else if ( length < 150 ) {
+                document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '100px';
+            } else if ( length < 200 ) {
+                document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '90px';
+            } else {
+                document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '50px';
+            }
         }
     }
 
