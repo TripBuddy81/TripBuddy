@@ -1149,7 +1149,7 @@ $( document ).ready( function () {
     // Disco section
     var showParticles = true;
     renderDiscoSection( showParticles );
-    setInterval( absoluteTruthsUpdate, 15000 );
+    setInterval( absoluteTruthsUpdate, 14000 );
 
     $( '#discoParticlesSwitch' ).click( function ( event ) {
         showParticles = !showParticles;
