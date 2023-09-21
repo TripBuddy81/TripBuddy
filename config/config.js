@@ -657,6 +657,14 @@ var config = {
         {
             'text': 'Depression is the past, Anxiety is the future & Peace is the present',
             'tag': ''
-        }
+        },
+        {
+            'text': 'We are only passing through',
+            'tag': ''
+        },
+        {
+            'text': 'You shouldn\'t be alive, but yet you are!',
+            'tag': ''
+        },
     ]
 };
