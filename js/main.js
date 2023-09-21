@@ -26,6 +26,7 @@ $( document ).ready( function () {
     var xxxVisible = false;
     var slideshowJustStarted = false;
     var lastActiveBackgroundGradientKeyFrame = 1;
+    var textShrinkFrameSeed = 1;
     var spotifyOpened = false;
     var lastDisplayedAbsoluteTruthIndex = 0;
 
@@ -1149,6 +1150,7 @@ $( document ).ready( function () {
     // Disco section
     var showParticles = true;
     renderDiscoSection( showParticles );
+    absoluteTruthsUpdate();
     setInterval( absoluteTruthsUpdate, 14000 );
 
     $( '#discoParticlesSwitch' ).click( function ( event ) {
@@ -1245,19 +1247,22 @@ $( document ).ready( function () {
 
             $( '#absoluteTruthsOverlayText' ).fadeOut( 1500, function () {
                 $( '#absoluteTruthsOverlayText' ).html( config['absoluteTruths'][random]['text'] );
-                $( '#absoluteTruthsOverlayText' ).fadeIn( 1500 );
-            } );
 
-            length = config['absoluteTruths'][random]['text'].length;
-            if ( length < 100 ) {
-                document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
-            } else if ( length < 150 ) {
-                document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '100px';
-            } else if ( length < 200 ) {
-                document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '90px';
-            } else {
-                document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '50px';
-            }
+                length = config['absoluteTruths'][random]['text'].length;
+                if ( length < 100 ) {
+                    document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
+                } else if ( length < 150 ) {
+                    document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '100px';
+                } else if ( length < 200 ) {
+                    document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '90px';
+                } else {
+                    document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '50px';
+                }
+
+                $( '#absoluteTruthsOverlayText' ).fadeIn( 1500 );
+                $( '#absoluteTruthsOverlayContainer' ).css( 'animation', 'textShrink' + textShrinkFrameSeed + ' 15s linear infinite' );
+                textShrinkFrameSeed = (textShrinkFrameSeed + 1) % 2;
+            } );
         }
     }
 
