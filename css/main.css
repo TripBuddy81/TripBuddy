@@ -600,7 +600,7 @@ option {
 
 #iFrameSpotifyPlayerContainer {
     position: fixed;
-    top: -2px;
+    top: -5px;
     left: 665px;
     z-index: 11;
 }
