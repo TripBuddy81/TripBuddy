@@ -29,6 +29,7 @@ $( document ).ready( function () {
     var textShrinkFrameSeed = 1;
     var spotifyOpened = false;
     var lastDisplayedAbsoluteTruthIndex = 0;
+    var stroboBGWhite = false;
 
     Object.assign( config, optionalConfig );
 
@@ -1170,7 +1171,6 @@ $( document ).ready( function () {
         $( '#disco' ).addClass( 'discoColorfulBackground' );
     } );
 
-    var stroboBGWhite = true;
     document.getElementById( 'discoStroboSpeed' ).addEventListener( 'input', function () {
         if ( stroboBGWhite ) {
             $( '#particles-js' ).css( 'animation', 'strobo2 ' + $( '#discoStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
@@ -1226,7 +1226,7 @@ $( document ).ready( function () {
 
     function renderDiscoSection( showParticles ) {
         // reset strobo to default
-        stroboBGWhite = true;
+        stroboBGWhite = false;
         $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
         $( '#ensoImageDisco' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
         $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
