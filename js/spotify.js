@@ -117,7 +117,12 @@ function handleDevicesResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
         removeAllItems( 'devices' );
-        data.devices.forEach( item => addDevice( item ) );
+
+        data.devices.sort( function ( a, b ) {
+            var textA = a.name.toUpperCase();
+            var textB = b.name.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        } ).forEach( item => addDevice( item ) );
 
         if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
             $( '#switchDesktopPhone' ).attr( 'src', './assets/phone.png' );
@@ -201,7 +206,7 @@ function play( playlist_id = '' ) {
 }
 
 function next( playlist_id = '' ) {
-    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' || $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'überall' )) {
+    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' || $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'überall' ) ) {
         let body = {};
         if ( playlist_id != '' ) {
             body.context_uri = playlist_id;

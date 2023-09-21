@@ -413,12 +413,12 @@ li, .options, .form-check-label {
     font-size: 25px;
 }
 
-option {
+#playlists > option {
     background-color: #363636;
     color: white;
 }
 
-option:first-child {
+#playlists > option:first-child {
     display: none;
 }
 
