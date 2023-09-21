@@ -413,7 +413,7 @@ li, .options, .form-check-label {
     font-size: 25px;
 }
 
-#playlists > option {
+option {
     background-color: #363636;
     color: white;
 }
