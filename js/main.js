@@ -765,6 +765,13 @@ $( document ).ready( function () {
 
     // If double clicking videos main button, load all videos if still in debug/fast mode
     $( '#showVideoSection' ).dblclick( function () {
+        $( '.videoContainer' ).each( function () {
+            $( this ).show();
+        } );
+        if ( !xxxVisible ) {
+            $( '.XXX' ).hide();
+        }
+
         $( '.videoSource' ).each( function () {
             if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
                 $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
