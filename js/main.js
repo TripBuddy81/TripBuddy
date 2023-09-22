@@ -57,16 +57,6 @@ $( document ).ready( function () {
         } );
     }
 
-    // If double clicking videos, load all videos if still in debug mode
-    $( '#showVideoSection' ).dblclick( function () {
-        $( '.videoSource' ).each( function () {
-            $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
-        } );
-        $( '.localVideo' ).each( function () {
-            this.load();
-        } );
-    } );
-
     // Check if loading is complete
     document.onreadystatechange = function () {
         if ( document.readyState !== 'complete' ) {
@@ -758,10 +748,27 @@ $( document ).ready( function () {
         }
     } );
 
-    // reload videos if double click on video tags
+    // If double clicking videos main button, load all videos if still in debug/fast mode
+    $( '#showVideoSection' ).dblclick( function () {
+        $( '.videoSource' ).each( function () {
+            if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
+                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+            }
+        } );
+        $( '.localVideo' ).each( function () {
+            this.load();
+        } );
+    } );
+
+    // reload videos of given tag if double clicking on video tag
     $( '.videoFilterBtn' ).dblclick( function () {
         $( videoTagList ).each( function () {
-            $( this ).find( '.videoFrame' ).attr( 'src', $( this ).find( '.videoFrame' ).attr( 'src' ) );
+            if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                $( this ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+            }
+        } );
+        $( '.localVideo' ).each( function () {
+            this.load();
         } );
     } );
 
@@ -1338,6 +1345,6 @@ $( document ).ready( function () {
         $( '#images' ).hide();
         $( '#disco' ).show();
         $( '#games' ).hide();
-        $( '#showDiscoSection' ).trigger('click');
+        $( '#showDiscoSection' ).trigger( 'click' );
     }
 } );
