@@ -51,6 +51,9 @@ $( document ).ready( function () {
         $( '.videoSource' ).each( function () {
             $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
         } );
+        $( '.localVideo' ).each( function () {
+            this.load();
+        } );
     }
 
     // If double clicking videos, load all videos if still in debug mode
@@ -181,6 +184,12 @@ $( document ).ready( function () {
         renderDiscoSection( showParticles );
         enableFullscreen();
         refreshGradientBackground();
+
+        if ( typeof absoluteTruthsTimer !== 'undefined' ) {
+            clearInterval( absoluteTruthsTimer );
+        }
+        absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, 14000 );
+
         absoluteTruthsUpdate( true );
     } );
     $( '#showGamesSection' ).click( function () {
@@ -1160,7 +1169,6 @@ $( document ).ready( function () {
     // Disco section
     var showParticles = true;
     renderDiscoSection( showParticles );
-    setInterval( absoluteTruthsUpdate, 14000 );
 
     $( '#discoParticlesSwitch' ).click( function ( event ) {
         showParticles = !showParticles;
