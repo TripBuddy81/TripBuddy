@@ -181,7 +181,7 @@ $( document ).ready( function () {
         renderDiscoSection( showParticles );
         enableFullscreen();
         refreshGradientBackground();
-        absoluteTruthsUpdate();
+        absoluteTruthsUpdate( true );
     } );
     $( '#showGamesSection' ).click( function () {
         $( '#videos' ).hide();
@@ -1243,7 +1243,11 @@ $( document ).ready( function () {
         particlesInit( showParticles );
     }
 
-    function absoluteTruthsUpdate() {
+    function absoluteTruthsUpdate( quickSwap = false ) {
+        if ( quickSwap ) {
+            $( '#absoluteTruthsOverlayText' ).html( '' );
+        }
+
         random = Math.floor( Math.random() * config['absoluteTruths'].length );
 
         if ( config['absoluteTruths'][random]['text'] == config['absoluteTruths'][lastDisplayedAbsoluteTruthIndex]['text'] ) {
