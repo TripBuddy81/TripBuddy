@@ -30,6 +30,7 @@ $( document ).ready( function () {
     var spotifyOpened = false;
     var lastDisplayedAbsoluteTruthIndex = 0;
     var stroboBGWhite = false;
+    var absoluteTruthsTimer = undefined;
 
     Object.assign( config, optionalConfig );
 
@@ -1169,6 +1170,7 @@ $( document ).ready( function () {
     // Disco section
     var showParticles = true;
     renderDiscoSection( showParticles );
+    absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, 14000 );
 
     $( '#discoParticlesSwitch' ).click( function ( event ) {
         showParticles = !showParticles;
@@ -1326,8 +1328,16 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    $( '#videos' ).show();
-    $( '#images' ).hide();
-    $( '#disco' ).hide();
-    $( '#games' ).hide();
+    if ( localStorage.getItem( 'debugModeSetting' ) != 'true' ) {
+        $( '#videos' ).show();
+        $( '#images' ).hide();
+        $( '#disco' ).hide();
+        $( '#games' ).hide();
+    } else {
+        $( '#videos' ).hide();
+        $( '#images' ).hide();
+        $( '#disco' ).show();
+        $( '#games' ).hide();
+        $( '#showDiscoSection' ).trigger('click');
+    }
 } );
