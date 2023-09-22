@@ -31,6 +31,7 @@ $( document ).ready( function () {
     var lastDisplayedAbsoluteTruthIndex = 0;
     var stroboBGWhite = false;
     var absoluteTruthsTimer = undefined;
+    var videoTagList = '';
 
     Object.assign( config, optionalConfig );
 
@@ -62,11 +63,6 @@ $( document ).ready( function () {
         if ( document.readyState !== 'complete' ) {
         } else {
             $( '#launchText' ).html( 'Start!' );
-
-            /*            $( '.videoFilterBtn' ).each( function () {
-                            $( this ).trigger( 'click' );
-                            return false;
-                        } );*/
         }
     };
 
@@ -248,10 +244,17 @@ $( document ).ready( function () {
     function toggleXXXVisible() {
         xxxVisible = !xxxVisible;
         $( '.XXX' ).toggle();
-        $( '.videoFilterBtn' ).each( function () {
-            $( this ).trigger( 'click' );
-            return false;
-        } );
+
+        if ( videoTagList == '' ) {
+            $( '.videoContainer' ).each( function () {
+                $( this ).hide();
+            } );
+        } else if ( videoTagList != '.XXX' ) {
+            $( '.videoFilterBtn.videoFilterActive' ).each( function () {
+                $( this ).trigger( 'click' );
+            } );
+        }
+
         if ( xxxVisible ) {
             $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
         } else {
@@ -717,7 +720,6 @@ $( document ).ready( function () {
 
     // ***********************************
     // Video section
-    var videoTagList = '';
     $( '.videoFilterBtn' ).click( function () {
         videoTagList = '';
         $( '.videoFilterBtn.videoFilterActive' ).each( function () {
@@ -1353,11 +1355,14 @@ $( document ).ready( function () {
         $( '#images' ).hide();
         $( '#disco' ).hide();
         $( '#games' ).hide();
-    } else {
+    } else { // FAST MODE - loads videos later on demand
         $( '#videos' ).hide();
         $( '#images' ).hide();
         $( '#disco' ).show();
         $( '#games' ).hide();
         $( '#showDiscoSection' ).trigger( 'click' );
+        $( '.videoContainer' ).each( function () {
+            $( this ).hide();
+        } );
     }
 } );
