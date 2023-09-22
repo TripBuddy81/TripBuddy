@@ -746,6 +746,19 @@ $( document ).ready( function () {
                 $( this ).show();
             } );
         }
+
+        var refreshLocalVideos = false;
+        $( videoTagList ).each( function () {
+            if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' && $( this ).find( '.videoSource' ).attr( 'src' ).includes( 'NOLOAD' ) ) {
+                $( this ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+                refreshLocalVideos = true;
+            }
+        } );
+        if ( refreshLocalVideos ) {
+            $( '.localVideo' ).each( function () {
+                this.load();
+            } );
+        }
     } );
 
     // If double clicking videos main button, load all videos if still in debug/fast mode
