@@ -40,20 +40,28 @@ $( document ).ready( function () {
         }
     } );
 
-    // If debug mode is active, remove all but some videos (speeds up load time)
-    if ( localStorage.getItem( 'debugModeSetting' ) == 'true' ) {
-        $.each( config['videosYoutube'], function ( key, value ) {
-            if ( key >= 2 ) {
-                delete config['videosYoutube'][key];
-            }
-        } );
-    }
-
     // ***********************************
     // Handlebar renderer - takes config within config/config.js
     $( 'body' ).html(
             Handlebars.compile( $( '#mainTemplate' ).html() )( config )
     );
+
+    // If debug mode is inactive, enable all vidoes
+    if ( localStorage.getItem( 'debugModeSetting' ) != 'true' ) {
+        $( '.videoSource' ).each( function () {
+            $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+        } );
+    }
+
+    // If double clicking videos, load all videos if still in debug mode
+    $( '#showVideoSection' ).dblclick( function () {
+        $( '.videoSource' ).each( function () {
+            $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+        } );
+        $( '.localVideo' ).each( function () {
+            this.load();
+        } );
+    } );
 
     // Check if loading is complete
     document.onreadystatechange = function () {
@@ -173,6 +181,7 @@ $( document ).ready( function () {
         renderDiscoSection( showParticles );
         enableFullscreen();
         refreshGradientBackground();
+        absoluteTruthsUpdate();
     } );
     $( '#showGamesSection' ).click( function () {
         $( '#videos' ).hide();
@@ -1151,7 +1160,6 @@ $( document ).ready( function () {
     // Disco section
     var showParticles = true;
     renderDiscoSection( showParticles );
-    absoluteTruthsUpdate();
     setInterval( absoluteTruthsUpdate, 14000 );
 
     $( '#discoParticlesSwitch' ).click( function ( event ) {

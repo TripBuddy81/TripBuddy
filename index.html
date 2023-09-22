@@ -355,7 +355,7 @@
             {{#videosYoutube}}
             <div class="videoContainer {{tags}}">
                 <div class="iFrameContainer">
-                    <iframe width="554" height="315" class="videoFrame" src="{{videoLink}}&rel=0&cc_load_policy=0"
+                    <iframe width="554" height="315" class="videoFrame videoSource" src="NOLOAD{{videoLink}}&rel=0&cc_load_policy=0"
                             frameborder="0"
                             allow=""
                             scrolling="no"
@@ -386,8 +386,8 @@
             {{#videosLocal}}
             <div class="videoContainer {{tags}}">
                 <div class="iFrameContainer">
-                    <video class="videoFrame" controls muted loop controlsList="nofullscreen">
-                        <source src="{{videoLink}}" type="video/mp4">
+                    <video class="videoFrame localVideo" controls muted loop controlsList="nofullscreen">
+                        <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">
                     </video>
                     <div class="videoInfo mb-2">{{tags}}
                         <div>({{videoLink}})</div>
