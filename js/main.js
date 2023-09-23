@@ -2,7 +2,7 @@ $( document ).ready( function () {
     // ***********************************
     // Globals
     var pizzaTimerMinutesTillReady = 18;
-    var minutesCountAtLastDisplayedThought = 0; // This is the minute the first time a reminder is displayed at all
+    var minutesCountAtLastDisplayedThought = 0;
     var isFullScreen = false;
     var lastDisplayedImage = config['images'][0]['image'];
     var minutesTillNextThought = 0;
@@ -1153,7 +1153,7 @@ $( document ).ready( function () {
                 }
 
                 $( '#absoluteTruthsOverlayText' ).fadeIn( 1500 );
-                $( '#absoluteTruthsOverlayContainer' ).css( 'animation', 'textShrink' + textShrinkFrameSeed + ' ' + (absoluteTruthsTimerDuration + 1000) + 'ms linear infinite' );
+                $( '#absoluteTruthsOverlayContainer' ).css( 'animation', 'textShrink' + textShrinkFrameSeed + ' ' + absoluteTruthsTimerDuration + 'ms linear infinite' );
                 textShrinkFrameSeed = (textShrinkFrameSeed + 1) % 2;
             } );
         }
