@@ -126,7 +126,7 @@ $( document ).ready( function () {
     $( '#showVideoSection' ).click( function () {
         $( '#videos' ).show();
         $( '#images' ).hide();
-        $( '#disco' ).hide();
+        $( '#shrine' ).hide();
         $( '#games' ).hide();
 
         $( '.mainSectionActive' ).each( function () {
@@ -140,7 +140,7 @@ $( document ).ready( function () {
     $( '#showImageSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).show();
-        $( '#disco' ).hide();
+        $( '#shrine' ).hide();
         $( '#games' ).hide();
 
         $( '.mainSectionActive' ).each( function () {
@@ -159,10 +159,10 @@ $( document ).ready( function () {
         enableFullscreen();
         refreshGradientBackground();
     } );
-    $( '#showDiscoSection' ).click( function () {
+    $( '#showShrineSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).hide();
-        $( '#disco' ).show();
+        $( '#shrine' ).show();
         $( '#games' ).hide();
 
         $( '.mainSectionActive' ).each( function () {
@@ -170,7 +170,7 @@ $( document ).ready( function () {
         } );
         $( this ).toggleClass( 'mainSectionActive' );
 
-        renderDiscoSection( showParticles );
+        renderShrineSection( showParticles );
         enableFullscreen();
         refreshGradientBackground();
 
@@ -184,7 +184,7 @@ $( document ).ready( function () {
     $( '#showGamesSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).hide();
-        $( '#disco' ).hide();
+        $( '#shrine' ).hide();
         $( '#games' ).show();
 
         $( '.mainSectionActive' ).each( function () {
@@ -1034,63 +1034,64 @@ $( document ).ready( function () {
     // ******************************************
 
     // ******************************************
-    // Disco section
+    // Shrine section
     var showParticles = true;
-    renderDiscoSection( showParticles );
+    renderShrineSection( showParticles );
     absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
 
-    $( '#discoParticlesSwitch' ).click( function ( event ) {
+    $( '#shrineParticlesSwitch' ).click( function ( event ) {
         showParticles = !showParticles;
-        renderDiscoSection( showParticles );
+        $( '.particles-js-canvas-el' ).remove();
+        particlesInit( showParticles );
     } );
 
-    $( '.discoSetBGColor' ).click( function ( event ) {
-        $( '#disco' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
-        $( '#disco' ).removeClass( 'discoColorfulBackground' );
+    $( '.shrineSetBGColor' ).click( function ( event ) {
+        $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
+        $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
     } );
-    document.getElementById( 'discoBGColorPicker' ).addEventListener( 'input', function () {
-        $( '#disco' ).css( 'background-color', $( '#discoBGColorPicker' ).val() );
-        $( '#disco' ).removeClass( 'discoColorfulBackground' );
+    document.getElementById( 'shrineBGColorPicker' ).addEventListener( 'input', function () {
+        $( '#shrine' ).css( 'background-color', $( '#shrineBGColorPicker' ).val() );
+        $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
     } );
-    $( '.discoSetBGColorful' ).click( function ( event ) {
-        $( '#disco' ).addClass( 'discoColorfulBackground' );
+    $( '.shrineSetBGColorful' ).click( function ( event ) {
+        $( '#shrine' ).addClass( 'shrineColorfulBackground' );
     } );
 
-    document.getElementById( 'discoStroboSpeed' ).addEventListener( 'input', function () {
+    document.getElementById( 'shrineStroboSpeed' ).addEventListener( 'input', function () {
         if ( stroboBGWhite ) {
-            $( '#particles-js' ).css( 'animation', 'strobo2 ' + $( '#discoStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
+            $( '#particles-js' ).css( 'animation', 'strobo2 ' + $( '#shrineStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
         } else {
-            $( '#particles-js' ).css( 'animation', 'strobo1 ' + $( '#discoStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
+            $( '#particles-js' ).css( 'animation', 'strobo1 ' + $( '#shrineStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
         }
-        if ( $( '#discoStroboSpeed' ).val() > 0 ) {
-            $( '#ensoImageDisco' ).css( 'animation', 'stroboEnso 20ms steps(1,end) infinite' );
+        if ( $( '#shrineStroboSpeed' ).val() > 0 ) {
+            $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 20ms steps(1,end) infinite' );
             $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 55ms steps(1,end) infinite' );
         } else {
-            $( '#ensoImageDisco' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
+            $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
             $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
         }
     } );
 
-    $( '#discoToggleBWStrobo' ).click( function ( event ) {
+    $( '#shrineToggleBWStrobo' ).click( function ( event ) {
         if ( stroboBGWhite ) {
             stroboBGWhite = false;
-            $( '#particles-js' ).css( 'animation', 'strobo1 ' + $( '#discoStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
+            $( '#particles-js' ).css( 'animation', 'strobo1 ' + $( '#shrineStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
         } else {
             stroboBGWhite = true;
-            $( '#particles-js' ).css( 'animation', 'strobo2 ' + $( '#discoStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
+            $( '#particles-js' ).css( 'animation', 'strobo2 ' + $( '#shrineStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
         }
     } );
 
-    $( '#disco' ).mousemove( function ( event ) {
+    $( '#shrine' ).mousemove( function ( event ) {
         if ( event.pageY < 20 ) {
             $( '#mainMenu' ).show();
         }
     } );
-    $( '#discoSettingsContainer' ).hover(
+    $( '#shrineSettingsContainer' ).hover(
             function () {
                 $( '#mainMenu' ).show();
             }, function () {
-                if ( $( '#disco' ).is( ':visible' ) ) {
+                if ( $( '#shrine' ).is( ':visible' ) ) {
                     $( '#mainMenu' ).hide();
                 }
             }
@@ -1099,7 +1100,7 @@ $( document ).ready( function () {
             function () {
                 $( '#mainMenu' ).show();
             }, function () {
-                if ( $( '#disco' ).is( ':visible' ) ) {
+                if ( $( '#shrine' ).is( ':visible' ) ) {
                     $( '#mainMenu' ).hide();
                 }
             }
@@ -1111,13 +1112,13 @@ $( document ).ready( function () {
         enableFullscreen();
     } );
 
-    function renderDiscoSection( showParticles ) {
+    function renderShrineSection( showParticles ) {
         // reset strobo to default
         stroboBGWhite = false;
         $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
-        $( '#ensoImageDisco' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
+        $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
         $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
-        $( '#discoStroboSpeed' ).val( 0 );
+        $( '#shrineStroboSpeed' ).val( 0 );
         $( '.particles-js-canvas-el' ).remove();
         particlesInit( showParticles );
     }
@@ -1158,7 +1159,7 @@ $( document ).ready( function () {
         }
     }
 
-    // END Disco section
+    // END Shrine section
     // ******************************************
 
     // ******************************************
@@ -1320,15 +1321,15 @@ $( document ).ready( function () {
     if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
         $( '#videos' ).show();
         $( '#images' ).hide();
-        $( '#disco' ).hide();
+        $( '#shrine' ).hide();
         $( '#games' ).hide();
         isFullScreen = false;
     } else { // FAST MODE - loads videos later on demand
         $( '#videos' ).hide();
         $( '#images' ).hide();
-        $( '#disco' ).show();
+        $( '#shrine' ).show();
         $( '#games' ).hide();
-        $( '#showDiscoSection' ).trigger( 'click' );
+        $( '#showShrineSection' ).trigger( 'click' );
         $( '.videoContainer' ).each( function () {
             $( this ).hide();
         } );
