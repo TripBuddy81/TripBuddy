@@ -273,6 +273,8 @@ $( document ).ready( function () {
         if ( localStorage.getItem( 'activateAllSectionsOnce' ) == 'true' ) {
             activateAllSectionsOnce(); /* DOES NOT REALLY WORK AS INTENDED ...*/
         }
+
+        loadAllVideos();
     } );
 
     // Lift off - initialize a lot of stuff
@@ -763,24 +765,30 @@ $( document ).ready( function () {
         }
     } );
 
-    // If double clicking videos main button, load all videos if still in fast mode
+    // Double clicking videos main button loads all videos if still in fast mode
     $( '#showVideoSection' ).dblclick( function () {
-        $( '.videoContainer' ).each( function () {
-            $( this ).show();
-        } );
-        if ( !xxxVisible ) {
-            $( '.XXX' ).hide();
-        }
-
-        $( '.videoSource' ).each( function () {
-            if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
-                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
-            }
-        } );
-        $( '.localVideo' ).each( function () {
-            this.load();
-        } );
+        loadAllVideos();
     } );
+
+    function loadAllVideos() {
+        if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
+            $( '.videoContainer' ).each( function () {
+                $( this ).show();
+            } );
+            if ( !xxxVisible ) {
+                $( '.XXX' ).hide();
+            }
+
+            $( '.videoSource' ).each( function () {
+                if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
+                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+                }
+            } );
+            $( '.localVideo' ).each( function () {
+                this.load();
+            } );
+        }
+    }
 
     // reload videos of given tag if double clicking on video tag
     $( '.videoFilterBtn' ).dblclick( function () {
