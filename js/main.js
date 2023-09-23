@@ -270,10 +270,6 @@ $( document ).ready( function () {
         localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
         enableFullscreen();
 
-        if ( localStorage.getItem( 'activateAllSectionsOnce' ) == 'true' ) {
-            activateAllSectionsOnce(); /* DOES NOT REALLY WORK AS INTENDED ...*/
-        }
-
         loadAllVideos();
     } );
 
@@ -665,60 +661,6 @@ $( document ).ready( function () {
             $( '#fullscreenAutoplaySetting' ).html( '(off)' );
         }
     } )
-
-    // ******************************************
-    // activate all sections once on start on/off
-    if ( localStorage.getItem( 'activateAllSectionsOnce' ) == undefined || localStorage.getItem( 'activateAllSectionsOnce' ) == 'false' ) {
-        localStorage.setItem( 'activateAllSectionsOnce', 'false' );
-        $( '#activateAllSectionsOnceSetting' ).html( '(off)' );
-    } else {
-        localStorage.setItem( 'activateAllSectionsOnce', 'true' );
-        $( '#activateAllSectionsOnceSetting' ).html( '(on)' );
-    }
-    $( '#activateAllSectionsOnce' ).click( function ( event ) {
-        if ( localStorage.getItem( 'activateAllSectionsOnce' ) == 'false' ) {
-            localStorage.setItem( 'activateAllSectionsOnce', 'true' );
-            $( '#activateAllSectionsOnceSetting' ).html( '(on)' );
-        } else {
-            localStorage.setItem( 'activateAllSectionsOnce', 'false' );
-            $( '#activateAllSectionsOnceSetting' ).html( '(off)' );
-        }
-    } )
-
-    function activateAllSectionsOnce() {
-        mediaObjects = [];
-        $( $( '.imageFilterBtn' ).get().reverse() ).each( function () {
-            if ( !(/XXX/i.test( $( this ).attr( 'class' ) )) ) {
-                mediaObjects.push( $( this ).attr( 'class' ) );
-            }
-        } );
-        $( $( '.videoFilterBtn' ).get().reverse() ).each( function () {
-            if ( !(/XXX/i.test( $( this ).attr( 'class' ) )) ) {
-                mediaObjects.push( $( this ).attr( 'class' ) );
-            }
-        } );
-
-        var delay = 0;
-        $.each( mediaObjects, function ( x ) {
-            setTimeout( function () {
-                $( $( '.imageFilterBtn' ).get().reverse() ).each( function () {
-                    if ( $( this ).attr( 'class' ) == mediaObjects[x] ) {
-                        $( '#videos' ).hide();
-                        $( '#images' ).show();
-                        $( this ).trigger( 'click' );
-                    }
-                } );
-
-                $( $( '.videoFilterBtn' ).get().reverse() ).each( function () {
-                    if ( $( this ).attr( 'class' ) == mediaObjects[x] ) {
-                        $( '#videos' ).show();
-                        $( '#images' ).hide();
-                        $( this ).trigger( 'click' );
-                    }
-                } );
-            }, delay += 1000 );
-        } );
-    }
 
     // ***********************************
     // Video section
