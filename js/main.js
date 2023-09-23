@@ -1123,6 +1123,7 @@ $( document ).ready( function () {
     }
 
     function absoluteTruthsUpdate( quickSwap = false ) {
+        fadeoutDuration = 1500;
         if ( quickSwap ) {
             $( '#absoluteTruthsOverlayText' ).html( '' );
         }
@@ -1130,13 +1131,13 @@ $( document ).ready( function () {
         random = Math.floor( Math.random() * config['absoluteTruths'].length );
 
         if ( config['absoluteTruths'][random]['text'] == config['absoluteTruths'][lastDisplayedAbsoluteTruthIndex]['text'] ) {
-            absoluteTruthsUpdate();
+            absoluteTruthsUpdate( quickSwap );
         } else if ( config['absoluteTruths'][random]['tag'] == 'XXX' && !xxxVisible ) {
-            absoluteTruthsUpdate();
+            absoluteTruthsUpdate( quickSwap );
         } else {
             lastDisplayedAbsoluteTruthIndex = random;
 
-            $( '#absoluteTruthsOverlayText' ).fadeOut( 1500, function () {
+            $( '#absoluteTruthsOverlayText' ).fadeOut( fadeoutDuration, function () {
                 $( '#absoluteTruthsOverlayText' ).html( config['absoluteTruths'][random]['text'] );
 
                 length = config['absoluteTruths'][random]['text'].length;
