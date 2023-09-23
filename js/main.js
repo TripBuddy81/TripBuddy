@@ -714,6 +714,10 @@ $( document ).ready( function () {
 
     function loadAllVideos() {
         if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
+            $( '.videoFilterBtn.videoFilterActive' ).each( function () {
+                $( this ).toggleClass( 'videoFilterActive' );
+            } );
+
             $( '.videoContainer' ).each( function () {
                 $( this ).show();
             } );
