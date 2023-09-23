@@ -1333,7 +1333,7 @@ $( document ).ready( function () {
         $( '.videoContainer' ).each( function () {
             $( this ).hide();
         } );
-        $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+        $( '#mainMenu' ).hide();
         isFullScreen = false;
     }
 } );
