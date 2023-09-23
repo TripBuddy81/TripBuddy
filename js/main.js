@@ -1221,8 +1221,10 @@ $( document ).ready( function () {
             }
     );
     $( '#particles-js' ).click( function ( e ) {
+        if ( isFullScreen ) {
+            $( '#absoluteTruthsOverlay' ).toggle();
+        }
         enableFullscreen();
-        $( '#absoluteTruthsOverlay' ).toggle();
     } );
 
     function renderDiscoSection( showParticles ) {
@@ -1316,6 +1318,7 @@ $( document ).ready( function () {
         $( '#images' ).hide();
         $( '#disco' ).hide();
         $( '#games' ).hide();
+        isFullScreen = false;
     } else { // FAST MODE - loads videos later on demand
         $( '#videos' ).hide();
         $( '#images' ).hide();
@@ -1325,5 +1328,6 @@ $( document ).ready( function () {
         $( '.videoContainer' ).each( function () {
             $( this ).hide();
         } );
+        isFullScreen = false;
     }
 } );
