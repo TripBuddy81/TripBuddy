@@ -31,6 +31,7 @@ $( document ).ready( function () {
     var lastDisplayedAbsoluteTruthIndex = 0;
     var stroboBGWhite = false;
     var absoluteTruthsTimer = undefined;
+    var absoluteTruthsTimerDuration = 14000;
     var videoTagList = '';
 
     Object.assign( config, optionalConfig );
@@ -72,6 +73,7 @@ $( document ).ready( function () {
         $( '#launchText' ).html( 'Start!' );
     }
 
+    // Show VRGames Tag if configured
     if ( config['VRGames'] ) {
         $( '.VRGamesBtn' ).attr( 'style', 'display:inline-block' );
         $( '.VRGamesBtn' ).show();
@@ -175,7 +177,7 @@ $( document ).ready( function () {
         if ( typeof absoluteTruthsTimer !== 'undefined' ) {
             clearInterval( absoluteTruthsTimer );
         }
-        absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, 14000 );
+        absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
 
         absoluteTruthsUpdate( true );
     } );
@@ -707,7 +709,7 @@ $( document ).ready( function () {
         }
     } );
 
-    // Double clicking videos main button loads all videos if still in fast mode
+    // Double clicking videos main button loads all videos if in fast mode
     $( '#showVideoSection' ).dblclick( function () {
         loadAllVideos();
     } );
@@ -795,6 +797,7 @@ $( document ).ready( function () {
         $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
         $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
 
+        // Code disabled - allows for automatically stopping videos if leaving fullscreen of video
         /*        if ( localStorage.getItem( 'fullscreenAutoplay' ) == 'true' ) {
                     // autostop local video
                     if ( $( this ).siblings( 'video' )[0] != undefined ) {
@@ -811,6 +814,7 @@ $( document ).ready( function () {
     var intervalId = window.setInterval( function () {
         if ( window.innerHeight != screen.height ) {
             $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
+            isFullScreen = false;
         } else {
         }
     }, 1000 );
@@ -1033,7 +1037,7 @@ $( document ).ready( function () {
     // Disco section
     var showParticles = true;
     renderDiscoSection( showParticles );
-    absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, 14000 );
+    absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
 
     $( '#discoParticlesSwitch' ).click( function ( event ) {
         showParticles = !showParticles;
@@ -1147,7 +1151,7 @@ $( document ).ready( function () {
                 }
 
                 $( '#absoluteTruthsOverlayText' ).fadeIn( 1500 );
-                $( '#absoluteTruthsOverlayContainer' ).css( 'animation', 'textShrink' + textShrinkFrameSeed + ' 15s linear infinite' );
+                $( '#absoluteTruthsOverlayContainer' ).css( 'animation', 'textShrink' + textShrinkFrameSeed + ' ' + (absoluteTruthsTimerDuration + 1000) + 'ms linear infinite' );
                 textShrinkFrameSeed = (textShrinkFrameSeed + 1) % 2;
             } );
         }
@@ -1327,6 +1331,7 @@ $( document ).ready( function () {
         $( '.videoContainer' ).each( function () {
             $( this ).hide();
         } );
+        $( '#mainMenu' ).attr( 'style', 'opacity:0' );
         isFullScreen = false;
     }
 } );
