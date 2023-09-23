@@ -1030,126 +1030,6 @@ $( document ).ready( function () {
     // ******************************************
 
     // ******************************************
-    // Music section
-    // if oAuth Spotify Info is not found in optional config, we hide all player functionality and show the simple embedded player instead
-    // Work in progress - oAuth Spotify Player - Needs credentials
-    // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
-    // oAuth Spotify Player
-    if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
-        $( '#iFrameSpotifyPlayerContainer' ).remove();
-        redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
-        client_id = config['oAuthSpotify'][0]['client_id'];
-        client_secret = config['oAuthSpotify'][0]['client_secret'];
-        spotifyInitOnPageLoad();
-        refreshAccessToken();
-        shuffle();
-        repeat();
-        setInterval( refreshAccessToken, 60000 );
-        setInterval( currentlyPlaying, 3000 );
-        setInterval( refreshDevices, 3000 );
-
-        $( '#stopMusic' ).click( function () {
-            pause();
-        } );
-
-        $( '#playlists' ).change( function () {
-            lastSelectedPlaylist = $( '#playlists' ).find( ':selected' ).val();
-            $( '#playlists > option:first-child' ).text( '...' );
-            $( '#playlists' ).prop( 'selectedIndex', 0 );
-            openDesktopApp();
-            shuffle();
-            repeat();
-            play( lastSelectedPlaylist );
-        } );
-
-        $( document ).on( 'mousedown', document, function ( e ) {
-            // on middle mouse button play next track
-            if (
-                    e.which == 2 &&
-                    !$( event.target ).hasClass( 'menuItem' ) &&
-                    !$( event.target ).hasClass( 'xxxLink' ) &&
-                    !$( event.target ).hasClass( 'searchLink' ) &&
-                    !$( event.target ).hasClass( 'externalVideoPreview' )
-            ) {
-                e.preventDefault();
-                openDesktopApp();
-                shuffle();
-                repeat();
-                if ( playingTrack ) {
-                    next();
-                } else {
-                    play();
-                }
-            }
-        } );
-        $( '#next' ).click( function () {
-            openDesktopApp();
-            shuffle();
-            repeat();
-            if ( playingTrack ) {
-                next();
-            } else {
-                play();
-            }
-        } );
-        $( '#switchDesktopPhone' ).click( function () {
-            if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
-                transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
-            } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
-                openDesktopApp();
-                transfer( $( '#devices option:contains("DESKTOP")' ).val() );
-            }
-        } );
-        $( '#menuClose' ).click( function () {
-            refreshAccessToken();
-            refreshDevices();
-        } );
-        $( '#devices' ).change( function () {
-            transfer( $( '#devices' ).find( ':selected' ).val() );
-            $( '#menuClose' ).trigger( 'click' );
-        } );
-
-        $( '#spotifyIcon' ).click( function ( e ) {
-            window.open( lastSelectedPlaylist, '_blank' );
-        } );
-
-        function openDesktopApp() {
-            if ( typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
-                window.open( lastSelectedPlaylist, '_blank' );
-                spotifyOpened = true;
-            }
-        }
-
-    } else {
-        // Stand alone iFrame Spotify Player
-        $( '#oAuthPlayerControl' ).remove();
-        $( '#devices' ).css( 'visibility', 'hidden' );
-        $( '#refresh' ).css( 'visibility', 'hidden' );
-
-        $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
-            window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
-                let element = document.getElementById( 'iFrameSpotifyPlayer' );
-                let options = {
-                    uri: 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
-                };
-                let callback = ( EmbedController ) => {
-                    document.querySelectorAll( '#playlists' ).forEach(
-                            episode => {
-                                episode.addEventListener( 'change', () => {
-                                    EmbedController.loadUri( episode.value )
-                                    EmbedController.play();
-                                } );
-                            } )
-                };
-                IFrameAPI.createController( element, options, callback );
-            };
-        } );
-    }
-
-    // END Music section
-    // ******************************************
-
-    // ******************************************
     // Disco section
     var showParticles = true;
     renderDiscoSection( showParticles );
@@ -1307,8 +1187,127 @@ $( document ).ready( function () {
         disableFullscreen();
     } );
 
+    // END Game section
+    // ******************************************
 
-    // END Disco section
+    // ******************************************
+    // Music section
+    // if oAuth Spotify Info is not found in optional config, we hide all player functionality and show the simple embedded player instead
+    // Work in progress - oAuth Spotify Player - Needs credentials
+    // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
+    // oAuth Spotify Player
+    if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
+        $( '#iFrameSpotifyPlayerContainer' ).remove();
+        redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
+        client_id = config['oAuthSpotify'][0]['client_id'];
+        client_secret = config['oAuthSpotify'][0]['client_secret'];
+        spotifyInitOnPageLoad();
+        refreshAccessToken();
+        shuffle();
+        repeat();
+        setInterval( refreshAccessToken, 60000 );
+        setInterval( currentlyPlaying, 3000 );
+        setInterval( refreshDevices, 3000 );
+
+        $( '#stopMusic' ).click( function () {
+            pause();
+        } );
+
+        $( '#playlists' ).change( function () {
+            lastSelectedPlaylist = $( '#playlists' ).find( ':selected' ).val();
+            $( '#playlists > option:first-child' ).text( '...' );
+            $( '#playlists' ).prop( 'selectedIndex', 0 );
+            openDesktopApp();
+            shuffle();
+            repeat();
+            play( lastSelectedPlaylist );
+        } );
+
+        $( document ).on( 'mousedown', document, function ( e ) {
+            // on middle mouse button play next track
+            if (
+                    e.which == 2 &&
+                    !$( event.target ).hasClass( 'menuItem' ) &&
+                    !$( event.target ).hasClass( 'xxxLink' ) &&
+                    !$( event.target ).hasClass( 'searchLink' ) &&
+                    !$( event.target ).hasClass( 'externalVideoPreview' )
+            ) {
+                e.preventDefault();
+                openDesktopApp();
+                shuffle();
+                repeat();
+                if ( playingTrack ) {
+                    next();
+                } else {
+                    play();
+                }
+            }
+        } );
+        $( '#next' ).click( function () {
+            openDesktopApp();
+            shuffle();
+            repeat();
+            if ( playingTrack ) {
+                next();
+            } else {
+                play();
+            }
+        } );
+        $( '#switchDesktopPhone' ).click( function () {
+            if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
+                transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
+            } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
+                openDesktopApp();
+                transfer( $( '#devices option:contains("DESKTOP")' ).val() );
+            }
+        } );
+        $( '#menuClose' ).click( function () {
+            refreshAccessToken();
+            refreshDevices();
+        } );
+        $( '#devices' ).change( function () {
+            transfer( $( '#devices' ).find( ':selected' ).val() );
+            $( '#menuClose' ).trigger( 'click' );
+        } );
+
+        $( '#spotifyIcon' ).click( function ( e ) {
+            window.open( lastSelectedPlaylist, '_blank' );
+        } );
+
+        function openDesktopApp() {
+            if ( typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
+                window.open( lastSelectedPlaylist, '_blank' );
+                spotifyOpened = true;
+            }
+        }
+
+    } else {
+        // Stand alone iFrame Spotify Player
+        $( '#oAuthPlayerControl' ).remove();
+        $( '#devices' ).css( 'visibility', 'hidden' );
+        $( '#refresh' ).css( 'visibility', 'hidden' );
+
+        $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
+            window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
+                let element = document.getElementById( 'iFrameSpotifyPlayer' );
+                let options = {
+                    uri: 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
+                };
+                let callback = ( EmbedController ) => {
+                    document.querySelectorAll( '#playlists' ).forEach(
+                            episode => {
+                                episode.addEventListener( 'change', () => {
+                                    EmbedController.loadUri( episode.value )
+                                    EmbedController.play();
+                                } );
+                            } )
+                };
+                IFrameAPI.createController( element, options, callback );
+            };
+        } );
+    }
+
+    // END Music section
     // ******************************************
 
     // ******************************************
