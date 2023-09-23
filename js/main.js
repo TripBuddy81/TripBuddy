@@ -48,8 +48,8 @@ $( document ).ready( function () {
             Handlebars.compile( $( '#mainTemplate' ).html() )( config )
     );
 
-    // If debug mode is inactive, enable all vidoes
-    if ( localStorage.getItem( 'debugModeSetting' ) != 'true' ) {
+    // If fast mode is inactive, enable all vidoes
+    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
         $( '.videoSource' ).each( function () {
             $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
         } );
@@ -626,21 +626,21 @@ $( document ).ready( function () {
     } )
 
     // ******************************************
-    // debugMode toggle setting
-    if ( localStorage.getItem( 'debugModeSetting' ) == undefined || localStorage.getItem( 'debugModeSetting' ) == 'false' ) {
-        localStorage.setItem( 'debugModeSetting', 'false' );
-        $( '#debugModeSetting' ).html( '(off)' );
+    // fastMode toggle setting
+    if ( localStorage.getItem( 'fastModeSetting' ) == undefined || localStorage.getItem( 'fastModeSetting' ) == 'false' ) {
+        localStorage.setItem( 'fastModeSetting', 'false' );
+        $( '#fastModeSetting' ).html( '(off)' );
     } else {
-        localStorage.setItem( 'debugModeSetting', 'true' );
-        $( '#debugModeSetting' ).html( '(on)' );
+        localStorage.setItem( 'fastModeSetting', 'true' );
+        $( '#fastModeSetting' ).html( '(on)' );
     }
-    $( '#debugMode' ).click( function ( event ) {
-        if ( localStorage.getItem( 'debugModeSetting' ) == 'false' ) {
-            localStorage.setItem( 'debugModeSetting', 'true' );
-            $( '#debugModeSetting' ).html( '(on)' );
+    $( '#fastMode' ).click( function ( event ) {
+        if ( localStorage.getItem( 'fastModeSetting' ) == 'false' ) {
+            localStorage.setItem( 'fastModeSetting', 'true' );
+            $( '#fastModeSetting' ).html( '(on)' );
         } else {
-            localStorage.setItem( 'debugModeSetting', 'false' );
-            $( '#debugModeSetting' ).html( '(off)' );
+            localStorage.setItem( 'fastModeSetting', 'false' );
+            $( '#fastModeSetting' ).html( '(off)' );
         }
         location.reload();
     } )
@@ -763,7 +763,7 @@ $( document ).ready( function () {
         }
     } );
 
-    // If double clicking videos main button, load all videos if still in debug/fast mode
+    // If double clicking videos main button, load all videos if still in fast mode
     $( '#showVideoSection' ).dblclick( function () {
         $( '.videoContainer' ).each( function () {
             $( this ).show();
@@ -1357,7 +1357,7 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    if ( localStorage.getItem( 'debugModeSetting' ) != 'true' ) {
+    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
         $( '#videos' ).show();
         $( '#images' ).hide();
         $( '#disco' ).hide();
