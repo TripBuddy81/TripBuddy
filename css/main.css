@@ -1161,3 +1161,7 @@ video::-webkit-media-controls-fullscreen-button {
     overflow: hidden;
     width: 235px;
 }
+
+#mainSearchInput {
+    padding-left: 10px;
+}

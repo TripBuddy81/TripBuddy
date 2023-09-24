@@ -1359,6 +1359,12 @@ $( document ).ready( function () {
         } );
     } );
 
+    $( '#mainSearchInput' ).keyup( function ( event ) {
+        if ( event.keyCode === 13 ) {
+            $( '#mainSearchInput' ).trigger( 'change' );
+        }
+    } );
+
     $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
         $( '#mainSearchResultYoutubeIframe' ).attr( 'src', 'https://www.youtube.com/embed/' + $( this ).closest( '.youtubeResult' ).attr( 'id' ) + '?mute=0&rel=0&cc_load_policy=0&autoplay=1' );
     } );
