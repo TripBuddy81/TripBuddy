@@ -1323,11 +1323,11 @@ $( document ).ready( function () {
             type   : 'GET',
             url    : 'https://www.googleapis.com/youtube/v3/search',
             data   : {
-                key            : config['youtubeApiKey'],
+                key: config['youtubeApiKey'],
                 /*q              : $( this ).val(),*/
-                q              : 'test',
+                q              : 'combichrist',
                 part           : 'snippet',
-                maxResults     : 3,
+                maxResults     : 2,
                 type           : 'video',
                 videoEmbeddable: true
             },
@@ -1335,28 +1335,33 @@ $( document ).ready( function () {
                 displayYoutubeSearchResults( data );
             },
             error  : function ( response ) {
-                console.log( 'Request Failed' );
+                console.log( 'Youtube API Request Failed' );
             }
         } );
     } );
 
+    $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
+        $( '#mainSearchResultYoutubeIframe' ).attr( 'src', 'https://www.youtube.com/embed/' + $( this ).closest( '.youtubeResult' ).attr( 'id' ) + '?mute=0&rel=0&cc_load_policy=0&autoplay=1' );
+    } );
+
     function displayYoutubeSearchResults( data ) {
-/*        console.info(data);*/
+        $( '#youtubeResults' ).empty();
 
         data.items.forEach( function ( item ) {
-            let youtubeResult = document.createElement( 'div' );
+            let youtubeResult = document.createElement( 'span' );
             youtubeResult.id = item.id.videoId;
+            youtubeResult.classList.add( 'youtubeResult' );
             document.getElementById( 'youtubeResults' ).appendChild( youtubeResult );
 
             let youtubeResultImage = document.createElement( 'img' );
             youtubeResultImage.src = item.snippet.thumbnails.high.url;
-            youtubeResultImage.classList.add("youtubeResultImage");
-            document.getElementById( item.id.videoId ).appendChild( youtubeResultImage );
+            youtubeResultImage.classList.add( 'youtubeResultImage' );
+            youtubeResult.appendChild( youtubeResultImage );
 
             let youtubeResultDescription = document.createElement( 'span' );
-            youtubeResultDescription.innerHTML = item.snippet.description;
-            youtubeResultDescription.classList.add("youtubeResultDescription");
-            document.getElementById( item.id.videoId ).appendChild( youtubeResultDescription );
+            youtubeResultDescription.innerHTML = item.snippet.title;
+            youtubeResultDescription.classList.add( 'youtubeResultDescription' );
+            youtubeResult.appendChild( youtubeResultDescription );
         } );
     }
 

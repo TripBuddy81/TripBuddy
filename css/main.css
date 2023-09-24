@@ -1104,10 +1104,52 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #search {
+    padding-top: 100px;
+    padding-left: 15px;
+}
+
+#mainSearchResultYoutubeContainer {
     position: fixed;
     top: 100px;
+    left: 580px;
+}
+
+#mainSearchBar {
+    position: fixed;
+    left: 670px;
+    height: 100px;
+    font-size: 30px;
+    top: 410px;
+}
+
+#youtubeResults {
+    position: fixed;
+    top: 100px;
+    height: 100%;
+    overflow: auto;
+    width: 550px;
+    left: 1135px;
+}
+
+.youtubeResult {
+    display: inline-block;
+    position: relative;
+    margin-right: 22px;
+    margin-bottom: 25px;
+    height: 250px;
 }
 
 .youtubeResultImage {
-    width: 200px;
+    height: 180px;
+    display: block;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+.youtubeResultDescription {
+    display: table;
+    position: relative;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    height: 70px;
+    overflow: hidden;
+    width: 235px;
 }

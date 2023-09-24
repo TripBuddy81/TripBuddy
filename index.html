@@ -268,17 +268,17 @@
                                     <label class="form-check-label me-2" for="guidedThought1">#1</label>
                                     <input class="guidedThoughtsTextInput" type="text" id="guidedThought1"
                                            name="guidedThought1"
-                                           value="" maxlength="40"> </br>
+                                           value="" maxlength="40" autocomplete="off"> </br>
 
                                     <label class="form-check-label me-2" for="guidedThought1">#2</label>
                                     <input class="guidedThoughtsTextInput" type="text" id="guidedThought2"
                                            name="guidedThought2"
-                                           value="" maxlength="40"> </br>
+                                           value="" maxlength="40" autocomplete="off"> </br>
 
                                     <label class="form-check-label me-2" for="guidedThought1">#3</label>
                                     <input class="guidedThoughtsTextInput" type="text" id="guidedThought3"
                                            name="guidedThought3"
-                                           value="" maxlength="40"> </br>
+                                           value="" maxlength="40" autocomplete="off"> </br>
 
                                     <label class="firstGuidedThoughtMinLabel form-check-label me-2"
                                            for="firstGuidedThoughtMin">Minutes till first thought appears at all</label>
@@ -343,7 +343,7 @@
             <div class="videoContainer XXX" id="searchBar">
                 <label class="searchLabel form-check-label me-2" for="searchInput">Search: </label>
                 <input type="text" class="me-2" id="searchInput" name="searchInput" value=""
-                       placeholder="enter search text here!" data-trigger-keyboard="true">
+                       placeholder="enter search text here!" data-trigger-keyboard="true" autocomplete="off">
                 <label class="searchLabel form-check-label me-2" for="searchInput">--></label>
 
                 {{#searchEngines}}
@@ -518,15 +518,38 @@
     </div>
 
     <div id="search" class="">
+        <div id="mainSearchResultYoutubeContainer" class="videoContainer">
+            <div class="iFrameContainer">
+                <iframe id="mainSearchResultYoutubeIframe" width="554" height="315" class="videoFrame videoSource"
+                        src="https://www.youtube.com/embed/vmGDO0eU1n0?mute=0&rel=0&cc_load_policy=0"
+                        frameborder="0"
+                        allow=""
+                        scrolling="no"
+                        loop
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+                <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                <div class="videoMenuOverlayMinimized">
+                    <img class="enableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
+                </div>
+                <div class="videoMenuOverlayMinimized2"></div>
+                <div class="videoMenuOverlayFullscreen">
+                    <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
+                </div>
+                <div class="videoMenuOverlayFullscreen2"></div>
+                <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                </div>
+            </div>
+        </div>
 
         <span id="mainSearchBar">
             <input type="text" class="me-2" id="mainSearchInput" name="mainSearchInput"
-                   placeholder="enter search text here!">
+                   placeholder="enter search text here!" autocomplete="off">
             <label class="mainSearchLabel form-check-label me-2" for="mainSearchInput"></label>
         </span>
 
         <span id="youtubeResults">
         </span>
+
 
 
     </div>
