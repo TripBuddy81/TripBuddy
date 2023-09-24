@@ -6,6 +6,7 @@ var config = {
             'client_secret': ''
         }
     ],
+    'youtubeApiKey'       : 'AIzaSyAK5YQCGsCzgzgINwO_LC26mGki7Q-QQ6w',
     'spotifyPhoneName' : 'Pixel',
     'preFlightChecklist' : [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},

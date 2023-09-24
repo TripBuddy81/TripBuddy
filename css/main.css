@@ -1102,3 +1102,12 @@ video::-webkit-media-controls-fullscreen-button {
 .keyboard-action-button, .keyboard-key {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
+
+#search {
+    position: fixed;
+    top: 100px;
+}
+
+.youtubeResultImage {
+    width: 200px;
+}

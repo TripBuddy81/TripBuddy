@@ -1317,23 +1317,80 @@ $( document ).ready( function () {
     // ******************************************
 
     // ******************************************
-    // init initial view
-    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-        $( '#videos' ).show();
-        $( '#images' ).hide();
-        $( '#shrine' ).hide();
-        $( '#games' ).hide();
-        isFullScreen = false;
-    } else { // FAST MODE - loads videos later on demand
-        $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#shrine' ).show();
-        $( '#games' ).hide();
-        $( '#showShrineSection' ).trigger( 'click' );
-        $( '.videoContainer' ).each( function () {
-            $( this ).hide();
+    // Search section
+    $( '#mainSearchInput' ).change( function ( e ) {
+        $.ajax( {
+            type   : 'GET',
+            url    : 'https://www.googleapis.com/youtube/v3/search',
+            data   : {
+                key            : config['youtubeApiKey'],
+                /*q              : $( this ).val(),*/
+                q              : 'test',
+                part           : 'snippet',
+                maxResults     : 3,
+                type           : 'video',
+                videoEmbeddable: true
+            },
+            success: function ( data ) {
+                displayYoutubeSearchResults( data );
+            },
+            error  : function ( response ) {
+                console.log( 'Request Failed' );
+            }
         } );
-        $( '#mainMenu' ).hide();
-        isFullScreen = false;
+    } );
+
+    function displayYoutubeSearchResults( data ) {
+/*        console.info(data);*/
+
+        data.items.forEach( function ( item ) {
+            let youtubeResult = document.createElement( 'div' );
+            youtubeResult.id = item.id.videoId;
+            document.getElementById( 'youtubeResults' ).appendChild( youtubeResult );
+
+            let youtubeResultImage = document.createElement( 'img' );
+            youtubeResultImage.src = item.snippet.thumbnails.high.url;
+            youtubeResultImage.classList.add("youtubeResultImage");
+            document.getElementById( item.id.videoId ).appendChild( youtubeResultImage );
+
+            let youtubeResultDescription = document.createElement( 'span' );
+            youtubeResultDescription.innerHTML = item.snippet.description;
+            youtubeResultDescription.classList.add("youtubeResultDescription");
+            document.getElementById( item.id.videoId ).appendChild( youtubeResultDescription );
+        } );
     }
+
+    // END Search section
+    // ******************************************
+
+
+    // ******************************************
+    // init initial view
+    /*    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+            $( '#videos' ).show();
+            $( '#images' ).hide();
+            $( '#shrine' ).hide();
+            $( '#games' ).hide();
+            isFullScreen = false;
+        } else { // FAST MODE - loads videos later on demand
+            $( '#videos' ).hide();
+            $( '#images' ).hide();
+            $( '#shrine' ).show();
+            $( '#games' ).hide();
+            $( '#showShrineSection' ).trigger( 'click' );
+            $( '.videoContainer' ).each( function () {
+                $( this ).hide();
+            } );
+            $( '#mainMenu' ).hide();
+            isFullScreen = false;
+        }*/
+
+    $( '#videos' ).hide();
+    $( '#images' ).hide();
+    $( '#shrine' ).hide();
+    $( '#games' ).hide();
+    $( '#search' ).show();
+    $( '#mainMenu' ).show();
+    $( '#mainSearchInput' ).trigger( 'change' );
+
 } );

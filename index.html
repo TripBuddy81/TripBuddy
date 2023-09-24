@@ -91,8 +91,12 @@
                     </div>
                     <li><a class="menuItem" href="help.html" target="_blank">Help/Info</a></li>
                     <li class="menuItem" id="toggleInfo">Toggle video info</li>
-                    <li class="menuItem" id="fastMode"><span id="fastModeSetting">(off)</span> Fast mode - load videos on demand</li>
-                    <li class="menuItem" id="fullscreenAutoplay"><span id="fullscreenAutoplaySetting">(off)</span> Switching video into fullscreen triggers play </li>
+                    <li class="menuItem" id="fastMode"><span id="fastModeSetting">(off)</span> Fast mode - load videos
+                        on demand
+                    </li>
+                    <li class="menuItem" id="fullscreenAutoplay"><span id="fullscreenAutoplaySetting">(off)</span>
+                        Switching video into fullscreen triggers play
+                    </li>
                 </ul>
             </div>
         </div>
@@ -351,7 +355,8 @@
             {{#videosYoutube}}
             <div class="videoContainer {{tags}}">
                 <div class="iFrameContainer">
-                    <iframe width="554" height="315" class="videoFrame videoSource" src="NOLOAD{{videoLink}}&rel=0&cc_load_policy=0"
+                    <iframe width="554" height="315" class="videoFrame videoSource"
+                            src="NOLOAD{{videoLink}}&rel=0&cc_load_policy=0"
                             frameborder="0"
                             allow=""
                             scrolling="no"
@@ -510,6 +515,20 @@
             </span>
             {{/VRGames}}
         </div>
+    </div>
+
+    <div id="search" class="">
+
+        <span id="mainSearchBar">
+            <input type="text" class="me-2" id="mainSearchInput" name="mainSearchInput"
+                   placeholder="enter search text here!">
+            <label class="mainSearchLabel form-check-label me-2" for="mainSearchInput"></label>
+        </span>
+
+        <span id="youtubeResults">
+        </span>
+
+
     </div>
 
 </script>
