@@ -535,6 +535,13 @@ option {
     position: inherit;
 }
 
+#searchSymbol {
+    height: 60px;
+    top: -8px;
+    position: inherit;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
 #switchDesktopPhone {
     height: 45px;
     top: 0px;
@@ -1112,6 +1119,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     top: 100px;
     left: 580px;
+    display: block !important;
 }
 
 #mainSearchBar {

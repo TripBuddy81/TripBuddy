@@ -128,6 +128,7 @@ $( document ).ready( function () {
         $( '#images' ).hide();
         $( '#shrine' ).hide();
         $( '#games' ).hide();
+        $( '#search' ).hide();
 
         $( '.mainSectionActive' ).each( function () {
             $( this ).toggleClass( 'mainSectionActive' );
@@ -142,6 +143,7 @@ $( document ).ready( function () {
         $( '#images' ).show();
         $( '#shrine' ).hide();
         $( '#games' ).hide();
+        $( '#search' ).hide();
 
         $( '.mainSectionActive' ).each( function () {
             $( this ).toggleClass( 'mainSectionActive' );
@@ -164,6 +166,7 @@ $( document ).ready( function () {
         $( '#images' ).hide();
         $( '#shrine' ).show();
         $( '#games' ).hide();
+        $( '#search' ).hide();
 
         $( '.mainSectionActive' ).each( function () {
             $( this ).toggleClass( 'mainSectionActive' );
@@ -186,6 +189,7 @@ $( document ).ready( function () {
         $( '#images' ).hide();
         $( '#shrine' ).hide();
         $( '#games' ).show();
+        $( '#search' ).hide();
 
         $( '.mainSectionActive' ).each( function () {
             $( this ).toggleClass( 'mainSectionActive' );
@@ -203,6 +207,19 @@ $( document ).ready( function () {
         }
 
         $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
+
+        enableFullscreen();
+        refreshGradientBackground();
+    } );
+    $( '#searchSymbol' ).click( function () {
+        $( '#videos' ).hide();
+        $( '#images' ).hide();
+        $( '#shrine' ).hide();
+        $( '#games' ).hide();
+        $( '#search' ).show();
+
+        $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
+        $( '#mainSearchInput' ).focus().val( '' );
 
         enableFullscreen();
         refreshGradientBackground();
@@ -716,6 +733,8 @@ $( document ).ready( function () {
 
     function loadAllVideos() {
         if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
+            $( '#showVideoSection' ).trigger( 'click' );
+
             $( '.videoFilterBtn.videoFilterActive' ).each( function () {
                 $( this ).toggleClass( 'videoFilterActive' );
             } );
@@ -1362,7 +1381,25 @@ $( document ).ready( function () {
             youtubeResultDescription.innerHTML = item.snippet.title;
             youtubeResultDescription.classList.add( 'youtubeResultDescription' );
             youtubeResult.appendChild( youtubeResultDescription );
+
+            checkVideoAvailability( item.id.videoId );
         } );
+    }
+
+
+    function checkVideoAvailability( videoId ) {
+        $.ajax( {
+            type   : 'GET',
+            url    : 'https://www.youtube.com/embed/sOd7SOZTMsU?mute=0&rel=0&cc_load_policy=0&autoplay=1',
+            data   : '',
+            success: function ( response ) {
+                console.info( response, 1 );
+            },
+            error  : function ( response ) {
+                console.info( response, 2 );
+            }
+        } );
+
     }
 
     // END Search section
@@ -1371,31 +1408,31 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    /*    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-            $( '#videos' ).show();
-            $( '#images' ).hide();
-            $( '#shrine' ).hide();
-            $( '#games' ).hide();
-            isFullScreen = false;
-        } else { // FAST MODE - loads videos later on demand
-            $( '#videos' ).hide();
-            $( '#images' ).hide();
-            $( '#shrine' ).show();
-            $( '#games' ).hide();
-            $( '#showShrineSection' ).trigger( 'click' );
-            $( '.videoContainer' ).each( function () {
-                $( this ).hide();
-            } );
-            $( '#mainMenu' ).hide();
-            isFullScreen = false;
-        }*/
+    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+        $( '#videos' ).show();
+        $( '#images' ).hide();
+        $( '#shrine' ).hide();
+        $( '#games' ).hide();
+        isFullScreen = false;
+    } else { // FAST MODE - loads videos later on demand
+        $( '#videos' ).hide();
+        $( '#images' ).hide();
+        $( '#shrine' ).show();
+        $( '#games' ).hide();
+        $( '#showShrineSection' ).trigger( 'click' );
+        $( '.videoContainer' ).each( function () {
+            $( this ).hide();
+        } );
+        $( '#mainMenu' ).hide();
+        isFullScreen = false;
+    }
 
-    $( '#videos' ).hide();
-    $( '#images' ).hide();
-    $( '#shrine' ).hide();
-    $( '#games' ).hide();
-    $( '#search' ).show();
-    $( '#mainMenu' ).show();
-    $( '#mainSearchInput' ).trigger( 'change' );
+    /*    $( '#videos' ).hide();
+        $( '#images' ).hide();
+        $( '#shrine' ).hide();
+        $( '#games' ).hide();
+        $( '#search' ).show();
+        $( '#mainMenu' ).show();
+        $( '#mainSearchInput' ).trigger( 'change' );*/
 
 } );
