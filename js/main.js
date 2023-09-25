@@ -33,6 +33,7 @@ $( document ).ready( function () {
     var absoluteTruthsTimer = undefined;
     var absoluteTruthsTimerDuration = 14000;
     var videoTagList = '';
+    var maxYoutubeSearchResults = 10;
 
     Object.assign( config, optionalConfig );
 
@@ -1342,11 +1343,10 @@ $( document ).ready( function () {
             type   : 'GET',
             url    : 'https://www.googleapis.com/youtube/v3/search',
             data   : {
-                key: config['youtubeApiKey'],
-                /*q              : $( this ).val(),*/
-                q              : 'combichrist',
+                key            : config['youtubeApiKey'],
+                q              : $( this ).val(),
                 part           : 'snippet',
-                maxResults     : 2,
+                maxResults     : maxYoutubeSearchResults,
                 type           : 'video',
                 videoEmbeddable: true
             },
@@ -1388,10 +1388,9 @@ $( document ).ready( function () {
             youtubeResultDescription.classList.add( 'youtubeResultDescription' );
             youtubeResult.appendChild( youtubeResultDescription );
 
-            checkVideoAvailability( item.id.videoId );
+            /*checkVideoAvailability( item.id.videoId );*/
         } );
     }
-
 
     function checkVideoAvailability( videoId ) {
         $.ajax( {

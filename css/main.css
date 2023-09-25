@@ -1124,7 +1124,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #mainSearchBar {
     position: fixed;
-    left: 670px;
+    left: 650px;
     height: 100px;
     font-size: 30px;
     top: 410px;
@@ -1160,8 +1160,13 @@ video::-webkit-media-controls-fullscreen-button {
     height: 70px;
     overflow: hidden;
     width: 235px;
+    font-size: 20px;
 }
 
-#mainSearchInput {
+#mainSearchInput, #mainSearchInput:focus, #mainSearchInput:active {
     padding-left: 10px;
+    font-weight: bold;
+    font-size: 35px !important;
+    background: none;
+    width: 400px;
 }

@@ -7,7 +7,7 @@ var currentPlaylist = '';
 var radioButtons = [];
 var lastSelectedPlaylist = 'spotify:playlist:0O1C7wbOthIxBbai9pYvEH';
 var playingTrack = false;
-
+var lastPlaylistId = '';
 
 const AUTHORIZE = 'https://accounts.spotify.com/authorize'
 const TOKEN = 'https://accounts.spotify.com/api/token';
@@ -296,7 +296,11 @@ function handleCurrentlyPlayingResponse() {
         var playlistID = data['context']['external_urls']['spotify'];
         playlistID = playlistID.replace( 'https://open.spotify.com/playlist/', '' );
         lastSelectedPlaylist = 'spotify:playlist:' + playlistID;
-        getPlaylist( playlistID );
+
+        if ( lastPlaylistId != playlistID ) {
+            getPlaylist( playlistID );
+        }
+        lastPlaylistId = playlistID;
 
         if ( data['is_playing'] ) {
             playingTrack = true;
@@ -311,4 +315,5 @@ function handleCurrentlyPlayingResponse() {
 function handleCurrentPlaylistResponse() {
     var data = JSON.parse( this.responseText );
     $( '#playlists > option:first-child' ).text( data['name'] );
+
 }
