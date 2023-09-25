@@ -537,7 +537,7 @@ option {
 
 #searchSymbol {
     height: 60px;
-    top: -8px;
+    top: -6px;
     position: inherit;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }

@@ -187,8 +187,9 @@
             <img id="stopMusic" class="float-end playerIcon me-3 mt-3" src="./assets/pause.png">
             <img id="spotifyIcon" class="float-end playerIcon me-3 mt-3" src="./assets/spotify.png">
             <img id="switchDesktopPhone" class="float-end playerIcon me-3 mt-3" src="./assets/transfer.png">
-            <img id="searchSymbol" class="float-end playerIcon me-3 mt-3" src="assets/search.png">
         </div>
+
+        <img id="searchSymbol" class="playerIcon ms-3 mt-3" src="assets/search.png">
 
     </div>
 
@@ -522,37 +523,23 @@
         <div id="mainSearchResultSpotifyContainer" class="">
             <div id="mainSearchResultTracks">
 
-
             </div>
         </div>
+
+        <div id="playVideo" class="btn btn-primary">Play</div>
+        <div id="nextVideo" class="btn btn-primary">Next</div>
+        <div id="addVideo" class="btn btn-primary">Add Video</div>
 
 
         <div id="mainSearchResultYoutubeContainer" class="videoContainer">
             <div class="iFrameContainer">
-                <iframe id="mainSearchResultYoutubeIframe" width="554" height="315" class="videoFrame videoSource"
-                        src="https://www.youtube.com/embed/vmGDO0eU1n0?mute=0&rel=0&cc_load_policy=0"
-                        frameborder="0"
-                        allow="fullscreen"
-                        scrolling="no"
-                        loop
-                        sandbox="allow-scripts allow-same-origin"></iframe>
+                <div id="mainSearchResultYoutubeIframe" width="554" height="315" class="videoFrame videoSource"></div>
                 <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
-                <!--<div class="videoMenuOverlayMinimized">
-                    <img class="enableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
-                </div>
-                <div class="videoMenuOverlayMinimized2"></div>
-                <div class="videoMenuOverlayFullscreen">
-                    <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
-                </div>
-                <div class="videoMenuOverlayFullscreen2"></div>
-                <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
-                </div>-->
             </div>
         </div>
 
         <span id="mainSearchBar">
            <!-- <img id="openVideoOnYouTube" src="./assets/external_link.png" data-youtubeId="vmGDO0eU1n0">-->
-
             <input type="text" class="me-2" id="mainSearchInput" name="mainSearchInput"
                    placeholder="search... " autocomplete="off">
             <label class="mainSearchLabel form-check-label me-2" for="mainSearchInput"></label>

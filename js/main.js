@@ -1314,6 +1314,8 @@ $( document ).ready( function () {
         $( '#devices' ).css( 'visibility', 'hidden' );
         $( '#refresh' ).css( 'visibility', 'hidden' );
 
+        $( '#searchSymbol' ).css( 'visibility', 'hidden' );
+
         $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
             window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
                 let element = document.getElementById( 'iFrameSpotifyPlayer' );
@@ -1339,6 +1341,71 @@ $( document ).ready( function () {
 
     // ******************************************
     // Search section
+    // Youtube API
+    var tag = document.createElement( 'script' );
+    tag.src = 'https://www.youtube.com/iframe_api';
+    var firstScriptTag = document.getElementsByTagName( 'script' )[0];
+    firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
+    var youtubePlayer;
+    window.onYouTubePlayerAPIReady = function () {
+        youtubePlayer = new YT.Player( 'mainSearchResultYoutubeIframe', {
+            videoId   : 'vmGDO0eU1n0',
+            playerVars: {
+                autoplay: 0,
+                rel: 0,
+                theme: "light",
+                controls: 1,
+                showinfo: 0,
+                modestbranding: 1
+            },
+            events    : {
+                'onReady'      : onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        } );
+    }
+
+    function onPlayerStateChange( event ) {
+        var state = "undefiend";
+        switch (event.data) {
+            case YT.PlayerState.UNSTARTED:
+                state= "unstarted";
+                break;
+            case YT.PlayerState.ENDED:
+                state = "ended";
+                break;
+            case YT.PlayerState.PLAYING:
+                state = "playing";
+                break;
+            case YT.PlayerState.PAUSED:
+                state = "paused";
+                break;
+            case YT.PlayerState.BUFFERING:
+                state = "buffering";
+                break;
+            case YT.PlayerState.CUED:
+                state = "video cued";
+                break;
+            default:
+                state = "unknown (" + event.data + ")";
+        }
+        console.info(state);
+    }
+
+    var youtubeCurrentQueue = ["bXG3SLUdpHg","y0sF5xhGreA"];
+
+    $( '#playVideo' ).click( function ( e ) {
+        youtubePlayer.playVideo();
+    } );
+    $( '#nextVideo' ).click( function ( e ) {
+        youtubePlayer.nextVideo();
+    } );
+    $( '#addVideo' ).click( function ( e ) {
+        console.info( 'added' );
+        youtubePlayer.cueVideoById({videoId: "y0sF5xhGreA"});
+    } );
+
+
     $( '#mainSearchInput' ).blur( function ( e ) {
         searchYoutube( $( this ).val() );
         searchSpotify( $( this ).val(), 'track' );
@@ -1382,7 +1449,7 @@ $( document ).ready( function () {
     }
 
     $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
-        $( '#mainSearchResultYoutubeIframe' ).attr( 'src', 'https://www.youtube.com/embed/' + $( this ).closest( '.youtubeResult' ).attr( 'id' ) + '?mute=0&rel=0&cc_load_policy=0&autoplay=1' );
+        $( '#mainSearchResultYoutubeIframe' ).attr( 'src', 'https://www.youtube.com/embed/' + $( this ).closest( '.youtubeResult' ).attr( 'id' ) + '?mute=0&rel=0&cc_load_policy=0&autoplay=1&enablejsapi=1' );
         $( '#openVideoOnYouTube' ).attr( 'data-youtubeId', $( this ).closest( '.youtubeResult' ).attr( 'id' ) );
     } );
 
