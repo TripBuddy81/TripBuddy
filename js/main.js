@@ -33,7 +33,7 @@ $( document ).ready( function () {
     var absoluteTruthsTimer = undefined;
     var absoluteTruthsTimerDuration = 14000;
     var videoTagList = '';
-    var maxYoutubeSearchResults = 10;
+    var maxYoutubeSearchResults = 20;
 
     Object.assign( config, optionalConfig );
 
@@ -1339,11 +1339,13 @@ $( document ).ready( function () {
     // ******************************************
     // Search section
     $( '#mainSearchInput' ).change( function ( e ) {
+
+
         $.ajax( {
             type   : 'GET',
             url    : 'https://www.googleapis.com/youtube/v3/search',
             data   : {
-                key            : config['youtubeApiKey'],
+                key            : config['youtubeApiKey1'],
                 q              : $( this ).val(),
                 part           : 'snippet',
                 maxResults     : maxYoutubeSearchResults,
@@ -1367,6 +1369,12 @@ $( document ).ready( function () {
 
     $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
         $( '#mainSearchResultYoutubeIframe' ).attr( 'src', 'https://www.youtube.com/embed/' + $( this ).closest( '.youtubeResult' ).attr( 'id' ) + '?mute=0&rel=0&cc_load_policy=0&autoplay=1' );
+        $( '#openVideoOnYouTube' ).attr( 'data-youtubeId', $( this ).closest( '.youtubeResult' ).attr( 'id' ) );
+    } );
+
+    $( '#openVideoOnYouTube' ).click( function ( e ) {
+        windowObjectReference = window.open( 'https://www.youtube.com/watch?v=' + $( '#openVideoOnYouTube' ).attr( 'data-youtubeId' ) , 'youtubeExternalTab' );
+        e.preventDefault();
     } );
 
     function displayYoutubeSearchResults( data ) {
@@ -1387,57 +1395,39 @@ $( document ).ready( function () {
             youtubeResultDescription.innerHTML = item.snippet.title;
             youtubeResultDescription.classList.add( 'youtubeResultDescription' );
             youtubeResult.appendChild( youtubeResultDescription );
-
-            /*checkVideoAvailability( item.id.videoId );*/
         } );
-    }
-
-    function checkVideoAvailability( videoId ) {
-        $.ajax( {
-            type   : 'GET',
-            url    : 'https://www.youtube.com/embed/sOd7SOZTMsU?mute=0&rel=0&cc_load_policy=0&autoplay=1',
-            data   : '',
-            success: function ( response ) {
-                console.info( response, 1 );
-            },
-            error  : function ( response ) {
-                console.info( response, 2 );
-            }
-        } );
-
     }
 
     // END Search section
     // ******************************************
 
-
     // ******************************************
     // init initial view
-    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-        $( '#videos' ).show();
-        $( '#images' ).hide();
-        $( '#shrine' ).hide();
-        $( '#games' ).hide();
-        isFullScreen = false;
-    } else { // FAST MODE - loads videos later on demand
-        $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#shrine' ).show();
-        $( '#games' ).hide();
-        $( '#showShrineSection' ).trigger( 'click' );
-        $( '.videoContainer' ).each( function () {
-            $( this ).hide();
-        } );
-        $( '#mainMenu' ).hide();
-        isFullScreen = false;
-    }
+    /*  if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+          $( '#videos' ).show();
+          $( '#images' ).hide();
+          $( '#shrine' ).hide();
+          $( '#games' ).hide();
+          isFullScreen = false;
+      } else { // FAST MODE - loads videos later on demand
+          $( '#videos' ).hide();
+          $( '#images' ).hide();
+          $( '#shrine' ).show();
+          $( '#games' ).hide();
+          $( '#showShrineSection' ).trigger( 'click' );
+          $( '.videoContainer' ).each( function () {
+              $( this ).hide();
+          } );
+          $( '#mainMenu' ).hide();
+          isFullScreen = false;
+      }*/
 
-    /*    $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#shrine' ).hide();
-        $( '#games' ).hide();
-        $( '#search' ).show();
-        $( '#mainMenu' ).show();
-        $( '#mainSearchInput' ).trigger( 'change' );*/
+    $( '#videos' ).hide();
+    $( '#images' ).hide();
+    $( '#shrine' ).hide();
+    $( '#games' ).hide();
+    $( '#search' ).show();
+    $( '#mainMenu' ).show();
+    $( '#mainSearchInput' ).trigger( 'change' );
 
 } );

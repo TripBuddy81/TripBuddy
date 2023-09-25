@@ -1133,7 +1133,7 @@ video::-webkit-media-controls-fullscreen-button {
 #youtubeResults {
     position: fixed;
     top: 100px;
-    height: 100%;
+    height: 88%;
     overflow: auto;
     width: 550px;
     left: 1135px;
@@ -1157,10 +1157,9 @@ video::-webkit-media-controls-fullscreen-button {
     display: table;
     position: relative;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
-    height: 70px;
-    overflow: hidden;
-    width: 235px;
-    font-size: 20px;
+    min-height: 50px;
+    width: 240px;
+    font-size: 17px;
 }
 
 #mainSearchInput, #mainSearchInput:focus, #mainSearchInput:active {
@@ -1169,4 +1168,11 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 35px !important;
     background: none;
     width: 400px;
+}
+
+#openVideoOnYouTube {
+    position: fixed;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    height: 50px;
+    left: 1065px;
 }
