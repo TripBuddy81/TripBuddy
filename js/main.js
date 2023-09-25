@@ -1359,7 +1359,6 @@ $( document ).ready( function () {
                 modestbranding: 1
             },
             events    : {
-                'onReady'      : onPlayerReady,
                 'onStateChange': onPlayerStateChange
             }
         } );
