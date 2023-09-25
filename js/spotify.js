@@ -320,7 +320,7 @@ function handleCurrentPlaylistResponse() {
 
 }
 
-function search( searchTerm, type = 'track' ) {
+function searchSpotify( searchTerm, type = 'track' ) {
     callApi( 'GET', SEARCH + '?q=' + searchTerm + '&type=' + type, null, handleSearchResponse );
 }
 

@@ -34,8 +34,7 @@ $( document ).ready( function () {
     var absoluteTruthsTimerDuration = 14000;
     var videoTagList = '';
     var maxYoutubeSearchResults = 20;
-    var youtubeApiKeyInUse = 'youtubeApiKey1';
-
+    var youtubeApiKeyInUse = 1;
 
     Object.assign( config, optionalConfig );
 
@@ -1340,15 +1339,31 @@ $( document ).ready( function () {
 
     // ******************************************
     // Search section
-    $( '#mainSearchInput' ).change( function ( e ) {
-        searchTerm = $( this ).val();
+    $( '#mainSearchInput' ).blur( function ( e ) {
+        searchYoutube( $( this ).val() );
+        searchSpotify( $( this ).val(), 'track' );
+    } );
 
-        // Search youtube
+    $( '#mainSearchInput' ).keyup( function ( event ) {
+        if ( event.keyCode === 13 ) {
+            searchYoutube( $( this ).val() );
+            searchSpotify( $( this ).val(), 'track' );
+        }
+    } );
+
+    function searchYoutube( searchTerm, increaseApiKey = false ) {
+        if ( increaseApiKey ) {
+            youtubeApiKeyInUse += youtubeApiKeyInUse;
+            if ( youtubeApiKeyInUse > 3 ) {
+                return false;
+            }
+        }
+
         $.ajax( {
             type   : 'GET',
             url    : 'https://www.googleapis.com/youtube/v3/search',
             data   : {
-                key            : config[youtubeApiKeyInUse],
+                key            : config['youtubeApiKey' + youtubeApiKeyInUse],
                 q              : searchTerm,
                 part           : 'snippet',
                 maxResults     : maxYoutubeSearchResults,
@@ -1360,41 +1375,11 @@ $( document ).ready( function () {
             },
             error  : function ( response ) {
                 if ( response.responseJSON.error.errors[0].reason == 'quotaExceeded' ) {
-                    if ( youtubeApiKeyInUse == 'youtubeApiKey1' ) {
-                        youtubeApiKeyInUse = 'youtubeApiKey2';
-
-                        $.ajax( {
-                            type   : 'GET',
-                            url    : 'https://www.googleapis.com/youtube/v3/search',
-                            data   : {
-                                key            : config[youtubeApiKeyInUse],
-                                q              : searchTerm,
-                                part           : 'snippet',
-                                maxResults     : maxYoutubeSearchResults,
-                                type           : 'video',
-                                videoEmbeddable: true
-                            },
-                            success: function ( data ) {
-                                displayYoutubeSearchResults( data );
-                            },
-                            error  : function ( response ) {
-                            }
-                        } );
-
-                    }
+                    searchYoutube( searchTerm, true );
                 }
             }
         } );
-
-        // Search Spotify
-        search( $( this ).val(), 'track' );
-    } );
-
-    $( '#mainSearchInput' ).keyup( function ( event ) {
-        if ( event.keyCode === 13 ) {
-            $( '#mainSearchInput' ).trigger( 'change' );
-        }
-    } );
+    }
 
     $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
         $( '#mainSearchResultYoutubeIframe' ).attr( 'src', 'https://www.youtube.com/embed/' + $( this ).closest( '.youtubeResult' ).attr( 'id' ) + '?mute=0&rel=0&cc_load_policy=0&autoplay=1' );
@@ -1432,24 +1417,24 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-/*     if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-         $( '#videos' ).show();
-         $( '#images' ).hide();
-         $( '#shrine' ).hide();
-         $( '#games' ).hide();
-         isFullScreen = false;
-     } else { // FAST MODE - loads videos later on demand
-         $( '#videos' ).hide();
-         $( '#images' ).hide();
-         $( '#shrine' ).show();
-         $( '#games' ).hide();
-         $( '#showShrineSection' ).trigger( 'click' );
-         $( '.videoContainer' ).each( function () {
-             $( this ).hide();
-         } );
-         $( '#mainMenu' ).hide();
-         isFullScreen = false;
-     }*/
+    /*     if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+             $( '#videos' ).show();
+             $( '#images' ).hide();
+             $( '#shrine' ).hide();
+             $( '#games' ).hide();
+             isFullScreen = false;
+         } else { // FAST MODE - loads videos later on demand
+             $( '#videos' ).hide();
+             $( '#images' ).hide();
+             $( '#shrine' ).show();
+             $( '#games' ).hide();
+             $( '#showShrineSection' ).trigger( 'click' );
+             $( '.videoContainer' ).each( function () {
+                 $( this ).hide();
+             } );
+             $( '#mainMenu' ).hide();
+             isFullScreen = false;
+         }*/
 
     $( '#videos' ).hide();
     $( '#images' ).hide();
@@ -1457,6 +1442,6 @@ $( document ).ready( function () {
     $( '#games' ).hide();
     $( '#search' ).show();
     $( '#mainMenu' ).show();
-   /* $( '#mainSearchInput' ).trigger( 'change' );*/
+    /* $( '#mainSearchInput' ).trigger( 'change' );*/
 
 } );
