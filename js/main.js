@@ -34,6 +34,8 @@ $( document ).ready( function () {
     var absoluteTruthsTimerDuration = 14000;
     var videoTagList = '';
     var maxYoutubeSearchResults = 20;
+    var youtubeApiKeyInUse = 'youtubeApiKey1';
+
 
     Object.assign( config, optionalConfig );
 
@@ -1339,14 +1341,15 @@ $( document ).ready( function () {
     // ******************************************
     // Search section
     $( '#mainSearchInput' ).change( function ( e ) {
+        searchTerm = $( this ).val();
 
-
+        // Search youtube
         $.ajax( {
             type   : 'GET',
             url    : 'https://www.googleapis.com/youtube/v3/search',
             data   : {
-                key            : config['youtubeApiKey1'],
-                q              : $( this ).val(),
+                key            : config[youtubeApiKeyInUse],
+                q              : searchTerm,
                 part           : 'snippet',
                 maxResults     : maxYoutubeSearchResults,
                 type           : 'video',
@@ -1356,9 +1359,35 @@ $( document ).ready( function () {
                 displayYoutubeSearchResults( data );
             },
             error  : function ( response ) {
-                console.log( 'Youtube API Request Failed' );
+                if ( response.responseJSON.error.errors[0].reason == 'quotaExceeded' ) {
+                    if ( youtubeApiKeyInUse == 'youtubeApiKey1' ) {
+                        youtubeApiKeyInUse = 'youtubeApiKey2';
+
+                        $.ajax( {
+                            type   : 'GET',
+                            url    : 'https://www.googleapis.com/youtube/v3/search',
+                            data   : {
+                                key            : config[youtubeApiKeyInUse],
+                                q              : searchTerm,
+                                part           : 'snippet',
+                                maxResults     : maxYoutubeSearchResults,
+                                type           : 'video',
+                                videoEmbeddable: true
+                            },
+                            success: function ( data ) {
+                                displayYoutubeSearchResults( data );
+                            },
+                            error  : function ( response ) {
+                            }
+                        } );
+
+                    }
+                }
             }
         } );
+
+        // Search Spotify
+        search( $( this ).val(), 'track' );
     } );
 
     $( '#mainSearchInput' ).keyup( function ( event ) {
@@ -1373,7 +1402,7 @@ $( document ).ready( function () {
     } );
 
     $( '#openVideoOnYouTube' ).click( function ( e ) {
-        windowObjectReference = window.open( 'https://www.youtube.com/watch?v=' + $( '#openVideoOnYouTube' ).attr( 'data-youtubeId' ) , 'youtubeExternalTab' );
+        windowObjectReference = window.open( 'https://www.youtube.com/watch?v=' + $( '#openVideoOnYouTube' ).attr( 'data-youtubeId' ), 'youtubeExternalTab' );
         e.preventDefault();
     } );
 
@@ -1403,24 +1432,24 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    /*  if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-          $( '#videos' ).show();
-          $( '#images' ).hide();
-          $( '#shrine' ).hide();
-          $( '#games' ).hide();
-          isFullScreen = false;
-      } else { // FAST MODE - loads videos later on demand
-          $( '#videos' ).hide();
-          $( '#images' ).hide();
-          $( '#shrine' ).show();
-          $( '#games' ).hide();
-          $( '#showShrineSection' ).trigger( 'click' );
-          $( '.videoContainer' ).each( function () {
-              $( this ).hide();
-          } );
-          $( '#mainMenu' ).hide();
-          isFullScreen = false;
-      }*/
+    /* if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+         $( '#videos' ).show();
+         $( '#images' ).hide();
+         $( '#shrine' ).hide();
+         $( '#games' ).hide();
+         isFullScreen = false;
+     } else { // FAST MODE - loads videos later on demand
+         $( '#videos' ).hide();
+         $( '#images' ).hide();
+         $( '#shrine' ).show();
+         $( '#games' ).hide();
+         $( '#showShrineSection' ).trigger( 'click' );
+         $( '.videoContainer' ).each( function () {
+             $( this ).hide();
+         } );
+         $( '#mainMenu' ).hide();
+         isFullScreen = false;
+     }*/
 
     $( '#videos' ).hide();
     $( '#images' ).hide();
@@ -1428,6 +1457,6 @@ $( document ).ready( function () {
     $( '#games' ).hide();
     $( '#search' ).show();
     $( '#mainMenu' ).show();
-    $( '#mainSearchInput' ).trigger( 'change' );
+   /* $( '#mainSearchInput' ).trigger( 'change' );*/
 
 } );

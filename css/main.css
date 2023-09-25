@@ -1115,6 +1115,13 @@ video::-webkit-media-controls-fullscreen-button {
     padding-left: 15px;
 }
 
+#mainSearchResultSpotifyContainer {
+    position: fixed;
+    top: 100px;
+    left: 15px;
+    display: block !important;
+}
+
 #mainSearchResultYoutubeContainer {
     position: fixed;
     top: 100px;
@@ -1175,4 +1182,5 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
     height: 50px;
     left: 1065px;
+    top: 413px;
 }

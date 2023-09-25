@@ -22,6 +22,8 @@ const TRACKS = 'https://api.spotify.com/v1/playlists/{{PlaylistId}}/tracks';
 const CURRENTLYPLAYING = 'https://api.spotify.com/v1/me/player/currently-playing';
 const SHUFFLE = 'https://api.spotify.com/v1/me/player/shuffle';
 const REPEAT = 'https://api.spotify.com/v1/me/player/repeat';
+const SEARCH = 'https://api.spotify.com/v1/search';
+
 
 function spotifyInitOnPageLoad() {
     if ( window.location.search.length > 0 ) {
@@ -315,5 +317,15 @@ function handleCurrentlyPlayingResponse() {
 function handleCurrentPlaylistResponse() {
     var data = JSON.parse( this.responseText );
     $( '#playlists > option:first-child' ).text( data['name'] );
+
+}
+
+function search( searchTerm, type = 'track' ) {
+    callApi( 'GET', SEARCH + '?q=' + searchTerm + '&type=' + type, null, handleSearchResponse );
+}
+
+function handleSearchResponse() {
+    var data = JSON.parse( this.responseText );
+    /*console.info( data );*/
 
 }
