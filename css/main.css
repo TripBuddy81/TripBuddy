@@ -1186,3 +1186,27 @@ video::-webkit-media-controls-fullscreen-button {
     left: 1065px;
     top: 413px;
 }
+
+#currentYoutubeQueue {
+    position: fixed;
+    top: 480px;
+    left: 580px;
+    display: inline-table;
+    width: 540px;
+}
+
+.youtubeQueueItem {
+    margin-right: 15px;
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+#nextVideo {
+    height: 50px;
+    position: fixed;
+    top: 413px;
+    left: 580px;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+}
+
+

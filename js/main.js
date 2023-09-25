@@ -35,6 +35,7 @@ $( document ).ready( function () {
     var videoTagList = '';
     var maxYoutubeSearchResults = 20;
     var youtubeApiKeyInUse = 1;
+    var youtubeCurrentQueue = [];
 
     Object.assign( config, optionalConfig );
 
@@ -1341,7 +1342,7 @@ $( document ).ready( function () {
 
     // ******************************************
     // Search section
-    // Youtube API
+    // Youtube Player API init
     var tag = document.createElement( 'script' );
     tag.src = 'https://www.youtube.com/iframe_api';
     var firstScriptTag = document.getElementsByTagName( 'script' )[0];
@@ -1351,12 +1352,13 @@ $( document ).ready( function () {
         youtubePlayer = new YT.Player( 'mainSearchResultYoutubeIframe', {
             videoId   : 'vmGDO0eU1n0',
             playerVars: {
-                autoplay: 0,
-                rel: 0,
-                theme: "light",
-                controls: 1,
-                showinfo: 0,
-                modestbranding: 1
+                autoplay      : 0,
+                rel           : 0,
+                theme         : 'light',
+                controls      : 1,
+                showinfo      : 0,
+                modestbranding: 1,
+                iv_load_policy: 3
             },
             events    : {
                 'onStateChange': onPlayerStateChange
@@ -1365,49 +1367,37 @@ $( document ).ready( function () {
     }
 
     function onPlayerStateChange( event ) {
-        var state = "undefiend";
-        switch (event.data) {
+        var state = 'undefiend';
+        switch ( event.data ) {
             case YT.PlayerState.UNSTARTED:
-                state= "unstarted";
+                state = 'unstarted';
                 break;
             case YT.PlayerState.ENDED:
-                state = "ended";
+                state = 'ended';
+                playNextYoutubeVideo();
                 break;
             case YT.PlayerState.PLAYING:
-                state = "playing";
+                state = 'playing';
                 break;
             case YT.PlayerState.PAUSED:
-                state = "paused";
+                state = 'paused';
                 break;
             case YT.PlayerState.BUFFERING:
-                state = "buffering";
+                state = 'buffering';
                 break;
             case YT.PlayerState.CUED:
-                state = "video cued";
+                state = 'video cued';
                 break;
             default:
-                state = "unknown (" + event.data + ")";
+                state = 'unknown (' + event.data + ')';
         }
-        console.info(state);
     }
-
-    var youtubeCurrentQueue = ["bXG3SLUdpHg","y0sF5xhGreA"];
 
     $( '#playVideo' ).click( function ( e ) {
         youtubePlayer.playVideo();
     } );
     $( '#nextVideo' ).click( function ( e ) {
-        youtubePlayer.nextVideo();
-    } );
-    $( '#addVideo' ).click( function ( e ) {
-        console.info( 'added' );
-        youtubePlayer.cueVideoById({videoId: "y0sF5xhGreA"});
-    } );
-
-
-    $( '#mainSearchInput' ).blur( function ( e ) {
-        searchYoutube( $( this ).val() );
-        searchSpotify( $( this ).val(), 'track' );
+        playNextYoutubeVideo();
     } );
 
     $( '#mainSearchInput' ).keyup( function ( event ) {
@@ -1417,9 +1407,19 @@ $( document ).ready( function () {
         }
     } );
 
+    $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
+        videoToQueue = {
+            'id' : $( this ).closest( '.youtubeResult' ).attr( 'id' ),
+            'img': $( this ).closest( '.youtubeResult' ).find( '.youtubeResultImage' ).attr( 'src' )
+        };
+
+        youtubeCurrentQueue.push( videoToQueue );
+        refreshYoutubeQueueDisplay();
+    } );
+
     function searchYoutube( searchTerm, increaseApiKey = false ) {
         if ( increaseApiKey ) {
-            youtubeApiKeyInUse += youtubeApiKeyInUse;
+            youtubeApiKeyInUse += 1;
             if ( youtubeApiKeyInUse > 3 ) {
                 return false;
             }
@@ -1447,15 +1447,19 @@ $( document ).ready( function () {
         } );
     }
 
-    $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
-        $( '#mainSearchResultYoutubeIframe' ).attr( 'src', 'https://www.youtube.com/embed/' + $( this ).closest( '.youtubeResult' ).attr( 'id' ) + '?mute=0&rel=0&cc_load_policy=0&autoplay=1&enablejsapi=1' );
-        $( '#openVideoOnYouTube' ).attr( 'data-youtubeId', $( this ).closest( '.youtubeResult' ).attr( 'id' ) );
-    } );
 
-    $( '#openVideoOnYouTube' ).click( function ( e ) {
-        windowObjectReference = window.open( 'https://www.youtube.com/watch?v=' + $( '#openVideoOnYouTube' ).attr( 'data-youtubeId' ), 'youtubeExternalTab' );
-        e.preventDefault();
-    } );
+    function refreshYoutubeQueueDisplay() {
+        $( '#currentYoutubeQueue' ).empty();
+
+        youtubeCurrentQueue.forEach( function ( item ) {
+            let youtubeQueueItem = document.createElement( 'img' );
+            youtubeQueueItem.id = item.id;
+            youtubeQueueItem.src = item.img;
+            youtubeQueueItem.classList.add( 'youtubeQueueItem' );
+            document.getElementById( 'currentYoutubeQueue' ).appendChild( youtubeQueueItem );
+
+        } );
+    }
 
     function displayYoutubeSearchResults( data ) {
         $( '#youtubeResults' ).empty();
@@ -1478,29 +1482,34 @@ $( document ).ready( function () {
         } );
     }
 
+    function playNextYoutubeVideo() {
+        youtubePlayer.loadVideoById( youtubeCurrentQueue.shift().id );
+        refreshYoutubeQueueDisplay();
+    }
+
     // END Search section
     // ******************************************
 
     // ******************************************
     // init initial view
-    /*     if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-             $( '#videos' ).show();
-             $( '#images' ).hide();
-             $( '#shrine' ).hide();
-             $( '#games' ).hide();
-             isFullScreen = false;
-         } else { // FAST MODE - loads videos later on demand
-             $( '#videos' ).hide();
-             $( '#images' ).hide();
-             $( '#shrine' ).show();
-             $( '#games' ).hide();
-             $( '#showShrineSection' ).trigger( 'click' );
-             $( '.videoContainer' ).each( function () {
-                 $( this ).hide();
-             } );
-             $( '#mainMenu' ).hide();
-             isFullScreen = false;
-         }*/
+/*    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+        $( '#videos' ).show();
+        $( '#images' ).hide();
+        $( '#shrine' ).hide();
+        $( '#games' ).hide();
+        isFullScreen = false;
+    } else { // FAST MODE - loads videos later on demand
+        $( '#videos' ).hide();
+        $( '#images' ).hide();
+        $( '#shrine' ).show();
+        $( '#games' ).hide();
+        $( '#showShrineSection' ).trigger( 'click' );
+        $( '.videoContainer' ).each( function () {
+            $( this ).hide();
+        } );
+        $( '#mainMenu' ).hide();
+        isFullScreen = false;
+    }*/
 
     $( '#videos' ).hide();
     $( '#images' ).hide();
@@ -1508,6 +1517,6 @@ $( document ).ready( function () {
     $( '#games' ).hide();
     $( '#search' ).show();
     $( '#mainMenu' ).show();
-    /* $( '#mainSearchInput' ).trigger( 'change' );*/
+
 
 } );

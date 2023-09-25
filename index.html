@@ -526,11 +526,6 @@
             </div>
         </div>
 
-        <div id="playVideo" class="btn btn-primary">Play</div>
-        <div id="nextVideo" class="btn btn-primary">Next</div>
-        <div id="addVideo" class="btn btn-primary">Add Video</div>
-
-
         <div id="mainSearchResultYoutubeContainer" class="videoContainer">
             <div class="iFrameContainer">
                 <div id="mainSearchResultYoutubeIframe" width="554" height="315" class="videoFrame videoSource"></div>
@@ -538,12 +533,14 @@
             </div>
         </div>
 
+        <img id="nextVideo" class="" src="./assets/next.png">
         <span id="mainSearchBar">
-           <!-- <img id="openVideoOnYouTube" src="./assets/external_link.png" data-youtubeId="vmGDO0eU1n0">-->
             <input type="text" class="me-2" id="mainSearchInput" name="mainSearchInput"
                    placeholder="search... " autocomplete="off">
             <label class="mainSearchLabel form-check-label me-2" for="mainSearchInput"></label>
         </span>
+
+        <span id="currentYoutubeQueue"></span>
 
         <span id="youtubeResults">
         </span>
