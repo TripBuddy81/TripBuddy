@@ -1353,15 +1353,15 @@ $( document ).ready( function () {
     var youtubePlayer;
     window.onYouTubePlayerAPIReady = function () {
         youtubePlayer = new YT.Player( 'mainSearchResultYoutubeIframe', {
-            videoId   : 'vmGDO0eU1n0',
+            videoId   : 'TdU2Ab7y91w',
             playerVars: {
                 autoplay      : 0,
                 rel           : 0,
-                theme         : 'light',
                 controls      : 1,
                 showinfo      : 0,
                 modestbranding: 1,
-                iv_load_policy: 3
+                iv_load_policy: 3,
+                fs            : 0
             },
             events    : {
                 'onStateChange': onPlayerStateChange
@@ -1490,8 +1490,12 @@ $( document ).ready( function () {
     }
 
     function playNextYoutubeVideo() {
-        youtubePlayer.loadVideoById( youtubeCurrentQueue.shift().id );
-        refreshYoutubeQueueDisplay();
+        if ( youtubeCurrentQueue.length == 0 ) {
+            console.info( 'queue is empty' );
+        } else {
+            youtubePlayer.loadVideoById( youtubeCurrentQueue.shift().id );
+            refreshYoutubeQueueDisplay();
+        }
     }
 
     function playSpecificYoutubeVideo( videoId ) {
