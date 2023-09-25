@@ -1175,6 +1175,8 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 35px !important;
     background: none;
     width: 400px;
+    border-radius: 5px;
+    border-color: black;
 }
 
 #openVideoOnYouTube {

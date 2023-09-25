@@ -1432,7 +1432,7 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    /* if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+/*     if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
          $( '#videos' ).show();
          $( '#images' ).hide();
          $( '#shrine' ).hide();
