@@ -1527,31 +1527,33 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    /*    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-            $( '#videos' ).show();
-            $( '#images' ).hide();
-            $( '#shrine' ).hide();
-            $( '#games' ).hide();
-            isFullScreen = false;
-        } else { // FAST MODE - loads videos later on demand
-            $( '#videos' ).hide();
-            $( '#images' ).hide();
-            $( '#shrine' ).show();
-            $( '#games' ).hide();
-            $( '#showShrineSection' ).trigger( 'click' );
-            $( '.videoContainer' ).each( function () {
-                $( this ).hide();
-            } );
-            $( '#mainMenu' ).hide();
-            isFullScreen = false;
-        }*/
+    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+        $( '#videos' ).show();
+        $( '#images' ).hide();
+        $( '#shrine' ).hide();
+        $( '#games' ).hide();
+        isFullScreen = false;
+    } else { // FAST MODE - loads videos later on demand
+        $( '#videos' ).hide();
+        $( '#images' ).hide();
+        $( '#shrine' ).show();
+        $( '#games' ).hide();
+        $( '#showShrineSection' ).trigger( 'click' );
+        $( '.videoContainer' ).each( function () {
+            $( this ).hide();
+        } );
+        $( '#mainMenu' ).hide();
+        isFullScreen = false;
+    }
 
+/*
     $( '#videos' ).hide();
     $( '#images' ).hide();
     $( '#shrine' ).hide();
     $( '#games' ).hide();
     $( '#search' ).show();
     $( '#mainMenu' ).show();
+*/
 
 
 } );
