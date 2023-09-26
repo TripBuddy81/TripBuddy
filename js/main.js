@@ -1235,12 +1235,13 @@ $( document ).ready( function () {
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
         client_id = config['oAuthSpotify'][0]['client_id'];
         client_secret = config['oAuthSpotify'][0]['client_secret'];
-
         refreshAccessToken();
         shuffle();
         repeat();
         setInterval( refreshAccessToken, 60000 );
+        currentlyPlaying();
         setInterval( currentlyPlaying, 3000 );
+        refreshDevices();
         setInterval( refreshDevices, 3000 );
 
         $( '#stopMusic' ).click( function () {
@@ -1528,7 +1529,11 @@ $( document ).ready( function () {
 
     function playNextYoutubeVideoOrSpotifyTrack() {
         if ( youtubeCurrentQueue.length == 0 ) {
-            youtubePlayer.stopVideo();
+            try {
+                youtubePlayer.stopVideo();
+            } catch ( e ) {
+            }
+
             if ( playingTrack ) {
                 spotifyNext();
             } else {
@@ -1618,12 +1623,12 @@ $( document ).ready( function () {
         isFullScreen = false;
     }
 
-/*    $( '#videos' ).hide();
-    $( '#images' ).hide();
-    $( '#shrine' ).hide();
-    $( '#games' ).hide();
-    $( '#search' ).show();
-    $( '#mainMenu' ).show();*/
+    /*    $( '#videos' ).hide();
+        $( '#images' ).hide();
+        $( '#shrine' ).hide();
+        $( '#games' ).hide();
+        $( '#search' ).show();
+        $( '#mainMenu' ).show();*/
 
 
 } );

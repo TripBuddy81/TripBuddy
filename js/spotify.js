@@ -33,9 +33,6 @@ function spotifyInitOnPageLoad() {
         if ( access_token == null ) {
             requestAuthorization();
         } else {
-            // we have an access token so present device section
-            refreshDevices();
-            refreshPlaylists();
         }
     }
 }
