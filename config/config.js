@@ -1,7 +1,7 @@
 var config = {
     'oAuthSpotify'       : [
         {
-            'redirect_uri' : 'http://www.tripbuddy.test',
+            'redirect_uri' : 'https://psychictripbuddy.netlify.app',
             'client_id'    : '0b24d45f4c4e42b3832bbe69f9ab70f4',
             'client_secret': 'f8264dee44854a8db43f297156d33668'
         }
@@ -651,6 +651,10 @@ var config = {
         {
             'link': 'https://www.youtube.com/watch?v=M6M9-oFEKpk&list=PLl6BRvEJ-auZ5aYPHj1B3pKJ_pLjg9qNU',
             'name': 'Luetin - Warhammer 40K Lore'
+        },
+        {
+            'link': 'https://www.youtube.com/watch?v=ClVqVohatEk&list=PLa5pIh4vGRBt9oMGlYWTW2wT8P5ZQfHao',
+            'name': 'Post America'
         },
         {
             'link': 'https://symbolsage.com/enso-symbol-and-its-meaning/',
