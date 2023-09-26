@@ -227,7 +227,7 @@ function repeat() {
     callApi( 'PUT', REPEAT + '?state=context', null, handleApiResponse );
 }
 
-function pause() {
+function spotifyPause() {
     callApi( 'PUT', PAUSE, null, handleApiResponse );
 }
 

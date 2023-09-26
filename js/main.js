@@ -1241,7 +1241,8 @@ $( document ).ready( function () {
         setInterval( refreshDevices, 3000 );
 
         $( '#stopMusic' ).click( function () {
-            pause();
+            spotifyPause();
+            youtubePlayer.stopVideo();
         } );
 
         $( '#playlists' ).change( function () {
@@ -1267,22 +1268,14 @@ $( document ).ready( function () {
                 openDesktopApp();
                 shuffle();
                 repeat();
-                if ( playingTrack ) {
-                    spotifyNext();
-                } else {
-                    spotifyPlay();
-                }
+                playNextYoutubeVideoOrSpotifyTrack();
             }
         } );
         $( '#next' ).click( function () {
             openDesktopApp();
             shuffle();
             repeat();
-            if ( playingTrack ) {
-                spotifyNext();
-            } else {
-                spotifyPlay();
-            }
+            playNextYoutubeVideoOrSpotifyTrack();
         } );
         $( '#switchDesktopPhone' ).click( function () {
             if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
@@ -1395,14 +1388,6 @@ $( document ).ready( function () {
         }
     }
 
-    $( '#playVideo' ).click( function ( e ) {
-        youtubePlayer.playVideo();
-    } );
-    $( '#nextVideo' ).click( function ( e ) {
-        playNextYoutubeVideo();
-        enableFullscreen();
-    } );
-
     $( '#mainSearchInput' ).click( function ( event ) {
         enableFullscreen();
     } );
@@ -1495,12 +1480,16 @@ $( document ).ready( function () {
         } );
     }
 
-    function playNextYoutubeVideo() {
+    function playNextYoutubeVideoOrSpotifyTrack() {
         if ( youtubeCurrentQueue.length == 0 ) {
             youtubePlayer.stopVideo();
-            spotifyPlay();
+            if ( playingTrack ) {
+                spotifyNext();
+            } else {
+                spotifyPlay();
+            }
         } else {
-            pause();
+            spotifyPause();
             youtubePlayer.loadVideoById( youtubeCurrentQueue.shift().id );
             refreshYoutubeQueueDisplay();
         }
