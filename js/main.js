@@ -1401,6 +1401,11 @@ $( document ).ready( function () {
     } );
     $( '#nextVideo' ).click( function ( e ) {
         playNextYoutubeVideo();
+        enableFullscreen();
+    } );
+
+    $( '#mainSearchInput' ).click( function ( event ) {
+        enableFullscreen();
     } );
 
     $( '#mainSearchInput' ).keyup( function ( event ) {
@@ -1408,11 +1413,13 @@ $( document ).ready( function () {
             searchYoutube( $( this ).val() );
             searchSpotify( $( this ).val(), 'track' );
         }
+        enableFullscreen();
     } );
 
     $( document ).on( 'click', '.youtubeQueueItem', function () {
         selectedVideo = $( this ).attr( 'id' );
         playSpecificYoutubeVideo( selectedVideo );
+        enableFullscreen();
     } );
 
     $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
@@ -1422,6 +1429,7 @@ $( document ).ready( function () {
         };
         youtubeCurrentQueue.push( videoToQueue );
         refreshYoutubeQueueDisplay();
+        enableFullscreen();
     } );
 
     function searchYoutube( searchTerm, increaseApiKey = false ) {
@@ -1453,7 +1461,6 @@ $( document ).ready( function () {
             }
         } );
     }
-
 
     function refreshYoutubeQueueDisplay() {
         $( '#currentYoutubeQueue' ).empty();
@@ -1491,8 +1498,10 @@ $( document ).ready( function () {
 
     function playNextYoutubeVideo() {
         if ( youtubeCurrentQueue.length == 0 ) {
-            console.info( 'queue is empty' );
+            youtubePlayer.stopVideo();
+            play();
         } else {
+            pause();
             youtubePlayer.loadVideoById( youtubeCurrentQueue.shift().id );
             refreshYoutubeQueueDisplay();
         }
