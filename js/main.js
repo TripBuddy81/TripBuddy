@@ -1368,30 +1368,30 @@ $( document ).ready( function () {
         } );
     }
 
+    var youtubePlayerState = 'undefiend';
     function onPlayerStateChange( event ) {
-        var state = 'undefiend';
         switch ( event.data ) {
             case YT.PlayerState.UNSTARTED:
-                state = 'unstarted';
+                youtubePlayerState = 'unstarted';
                 break;
             case YT.PlayerState.ENDED:
-                state = 'ended';
+                youtubePlayerState = 'ended';
                 playNextYoutubeVideo();
                 break;
             case YT.PlayerState.PLAYING:
-                state = 'playing';
+                youtubePlayerState = 'playing';
                 break;
             case YT.PlayerState.PAUSED:
-                state = 'paused';
+                youtubePlayerState = 'paused';
                 break;
             case YT.PlayerState.BUFFERING:
-                state = 'buffering';
+                youtubePlayerState = 'buffering';
                 break;
             case YT.PlayerState.CUED:
-                state = 'video cued';
+                youtubePlayerState = 'video cued';
                 break;
             default:
-                state = 'unknown (' + event.data + ')';
+                youtubePlayerState = 'unknown (' + event.data + ')';
         }
     }
 
