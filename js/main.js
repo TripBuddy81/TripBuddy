@@ -1251,7 +1251,7 @@ $( document ).ready( function () {
             openDesktopApp();
             shuffle();
             repeat();
-            play( lastSelectedPlaylist );
+            spotifyPlay( lastSelectedPlaylist );
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
@@ -1268,9 +1268,9 @@ $( document ).ready( function () {
                 shuffle();
                 repeat();
                 if ( playingTrack ) {
-                    next();
+                    spotifyNext();
                 } else {
-                    play();
+                    spotifyPlay();
                 }
             }
         } );
@@ -1279,9 +1279,9 @@ $( document ).ready( function () {
             shuffle();
             repeat();
             if ( playingTrack ) {
-                next();
+                spotifyNext();
             } else {
-                play();
+                spotifyPlay();
             }
         } );
         $( '#switchDesktopPhone' ).click( function () {
@@ -1499,7 +1499,7 @@ $( document ).ready( function () {
     function playNextYoutubeVideo() {
         if ( youtubeCurrentQueue.length == 0 ) {
             youtubePlayer.stopVideo();
-            play();
+            spotifyPlay();
         } else {
             pause();
             youtubePlayer.loadVideoById( youtubeCurrentQueue.shift().id );

@@ -194,7 +194,7 @@ function removeAllItems( elementId ) {
     }
 }
 
-function play( playlist_id = '' ) {
+function spotifyPlay( playlist_id = '' ) {
     let body = {};
     if ( playlist_id != '' ) {
         body.context_uri = playlist_id;
@@ -207,7 +207,7 @@ function play( playlist_id = '' ) {
     }
 }
 
-function next( playlist_id = '' ) {
+function spotifyNext( playlist_id = '' ) {
     if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' || $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'überall' ) ) {
         let body = {};
         if ( playlist_id != '' ) {
