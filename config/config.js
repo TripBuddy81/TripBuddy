@@ -6,8 +6,11 @@ var config = {
             'client_secret': 'f8264dee44854a8db43f297156d33668'
         }
     ],
-    'youtubeApiKey1'       : '',
-    'youtubeApiKey2'       : '',
+    'youtubeApiKey1'       : 'AIzaSyCmE1ZP5k5e5B7SxgHhZ0B84S22gLtd5Qc',
+    'youtubeApiKey2'       : 'AIzaSyBPa1mJdcHURF1iXQnoXQbAmP4KJBV-99E',
+    'youtubeApiKey3'       : 'AIzaSyDQ-b7pUMihSfd-9axAJrvIJdpSkeocvB0',
+    'youtubeApiKey4'       : 'AIzaSyDzTfNL056PFCwHr8LCN28M2sxtqFhVcrk',
+    'youtubeApiKey5'       : 'AIzaSyDYbNZadsnrc3RdwxL9nPhKrg3oa8EbNoA',
     'spotifyPhoneName' : 'Pixel',
     'preFlightChecklist' : [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
