@@ -58,7 +58,6 @@ $( document ).ready( function () {
         config['oAuthSpotify'][0]['client_id'] = '0b24d45f4c4e42b3832bbe69f9ab70f4';
         config['oAuthSpotify'][0]['client_secret'] = 'f8264dee44854a8db43f297156d33668';
     }
-    console.info(config);
 
     // Init fastmode to true if not specifid otherwise
     if ( localStorage.getItem( 'fastModeSetting' ) == undefined ) {
@@ -1614,7 +1613,7 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+/*    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
         $( '#videos' ).show();
         $( '#images' ).hide();
         $( '#shrine' ).hide();
@@ -1633,14 +1632,14 @@ $( document ).ready( function () {
         } );
         $( '#mainMenu' ).hide();
         isFullScreen = false;
-    }
+    }*/
 
-    /*    $( '#videos' ).hide();
+        $( '#videos' ).hide();
         $( '#images' ).hide();
         $( '#shrine' ).hide();
         $( '#games' ).hide();
         $( '#search' ).show();
-        $( '#mainMenu' ).show();*/
+        $( '#mainMenu' ).show();
 
 
 } );
