@@ -536,10 +536,10 @@ option {
 }
 
 #searchSymbol {
-    height: 60px;
+    height: 58px;
     top: -6px;
     position: inherit;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
 }
 
 #switchDesktopPhone {
@@ -1131,7 +1131,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #mainSearchBar {
     position: fixed;
-    left: 650px;
+    left: 579px;
     height: 100px;
     font-size: 30px;
     top: 410px;
@@ -1174,7 +1174,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: bold;
     font-size: 35px !important;
     background: none;
-    width: 468px;
+    width: 540px;
     border-radius: 5px;
     border-color: black;
 }

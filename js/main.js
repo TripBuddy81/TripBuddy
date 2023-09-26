@@ -1253,6 +1253,7 @@ $( document ).ready( function () {
             shuffle();
             repeat();
             spotifyPlay( lastSelectedPlaylist );
+            youtubePlayer.stopVideo();
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
@@ -1311,8 +1312,6 @@ $( document ).ready( function () {
         $( '#devices' ).css( 'visibility', 'hidden' );
         $( '#refresh' ).css( 'visibility', 'hidden' );
 
-        $( '#searchSymbol' ).css( 'visibility', 'hidden' );
-
         $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
             window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
                 let element = document.getElementById( 'iFrameSpotifyPlayer' );
@@ -1362,6 +1361,7 @@ $( document ).ready( function () {
     }
 
     var youtubePlayerState = 'undefiend';
+
     function onPlayerStateChange( event ) {
         switch ( event.data ) {
             case YT.PlayerState.UNSTARTED:
@@ -1419,7 +1419,7 @@ $( document ).ready( function () {
     function searchYoutube( searchTerm, increaseApiKey = false ) {
         if ( increaseApiKey ) {
             youtubeApiKeyInUse += 1;
-            if ( youtubeApiKeyInUse > 3 ) {
+            if ( youtubeApiKeyInUse > 10 ) {
                 return false;
             }
         }
