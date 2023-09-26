@@ -1241,6 +1241,7 @@ $( document ).ready( function () {
     // Work in progress - oAuth Spotify Player - Needs credentials
     // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
     // oAuth Spotify Player
+    console.info(config);
     if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
         $( '#iFrameSpotifyPlayerContainer' ).remove();
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
