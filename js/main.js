@@ -1246,6 +1246,7 @@ $( document ).ready( function () {
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
         client_id = config['oAuthSpotify'][0]['client_id'];
         client_secret = config['oAuthSpotify'][0]['client_secret'];
+        spotifyInitOnPageLoad();
         shuffle();
         repeat();
         refreshAccessToken();
@@ -1288,8 +1289,6 @@ $( document ).ready( function () {
             }
         } );
         $( '#next' ).click( function () {
-            spotifyInitOnPageLoad(); // TO DO - better handling of Spotify authorize
-
             openDesktopApp();
             shuffle();
             repeat();
