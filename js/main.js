@@ -1230,7 +1230,7 @@ $( document ).ready( function () {
     // Work in progress - oAuth Spotify Player - Needs credentials
     // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
     // oAuth Spotify Player
-    if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
+/*    if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {*/
         $( '#iFrameSpotifyPlayerContainer' ).remove();
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
         client_id = config['oAuthSpotify'][0]['client_id'];
@@ -1312,7 +1312,7 @@ $( document ).ready( function () {
             }
         }
 
-    } else {
+/*    } else {
         // Stand alone iFrame Spotify Player
         $( '#oAuthPlayerControl' ).remove();
         $( '#devices' ).css( 'visibility', 'hidden' );
@@ -1336,7 +1336,7 @@ $( document ).ready( function () {
                 IFrameAPI.createController( element, options, callback );
             };
         } );
-    }
+    }*/
 
     // END Music section
     // ******************************************
