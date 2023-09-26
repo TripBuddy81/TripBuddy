@@ -1417,9 +1417,12 @@ $( document ).ready( function () {
     } );
 
     $( document ).on( 'click', '.youtubeQueueItem', function () {
-        selectedVideo = $( this ).attr( 'id' );
-        playSpecificYoutubeVideo( selectedVideo );
+        playSpecificYoutubeVideo( $( this ).attr( 'id' ) );
         enableFullscreen();
+    } );
+
+    $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function () {
+        removeSpecificYoutubeVideo( $( this ).closest( '.youtubeQueueItemContainer' ).find( '.youtubeQueueItem' ).attr( 'id' ) );
     } );
 
     $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
@@ -1496,11 +1499,19 @@ $( document ).ready( function () {
             document.getElementById( 'currentYoutubeQueue' ).appendChild( youtubeQueueItem );
         } else {
             youtubeCurrentQueue.forEach( function ( item ) {
+                let youtubeQueueItemContainer = document.createElement( 'span' );
+                youtubeQueueItemContainer.classList.add( 'youtubeQueueItemContainer' );
+                document.getElementById( 'currentYoutubeQueue' ).appendChild( youtubeQueueItemContainer );
+
                 let youtubeQueueItem = document.createElement( 'img' );
                 youtubeQueueItem.id = item.id;
                 youtubeQueueItem.src = item.img;
                 youtubeQueueItem.classList.add( 'youtubeQueueItem' );
-                document.getElementById( 'currentYoutubeQueue' ).appendChild( youtubeQueueItem );
+                youtubeQueueItemContainer.appendChild( youtubeQueueItem );
+
+                let youtubeQueueItemDeleteSymbol = document.createElement( 'span' );
+                youtubeQueueItemDeleteSymbol.classList.add( 'youtubeQueueItemDeleteSymbol' );
+                youtubeQueueItemContainer.appendChild( youtubeQueueItemDeleteSymbol );
             } );
         }
     }
@@ -1563,6 +1574,11 @@ $( document ).ready( function () {
         refreshYoutubeQueueDisplay();
     }
 
+    function removeSpecificYoutubeVideo( videoId ) {
+        removeIdFromYoutubeQueue( videoId );
+        refreshYoutubeQueueDisplay();
+    }
+
     function removeIdFromYoutubeQueue( videoId ) {
         tempYoutubeCurrentQueue = [];
         $.each( youtubeCurrentQueue, function ( key, value ) {
@@ -1612,33 +1628,33 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-/*    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-        $( '#videos' ).show();
-        $( '#images' ).hide();
-        $( '#shrine' ).hide();
-        $( '#games' ).hide();
-        $( '#search' ).hide();
-        isFullScreen = false;
-    } else { // FAST MODE - loads videos later on demand
-        $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#shrine' ).show();
-        $( '#games' ).hide();
-        $( '#search' ).hide();
-        $( '#showShrineSection' ).trigger( 'click' );
-        $( '.videoContainer' ).each( function () {
-            $( this ).hide();
-        } );
-        $( '#mainMenu' ).hide();
-        isFullScreen = false;
-    }*/
+    /*    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+            $( '#videos' ).show();
+            $( '#images' ).hide();
+            $( '#shrine' ).hide();
+            $( '#games' ).hide();
+            $( '#search' ).hide();
+            isFullScreen = false;
+        } else { // FAST MODE - loads videos later on demand
+            $( '#videos' ).hide();
+            $( '#images' ).hide();
+            $( '#shrine' ).show();
+            $( '#games' ).hide();
+            $( '#search' ).hide();
+            $( '#showShrineSection' ).trigger( 'click' );
+            $( '.videoContainer' ).each( function () {
+                $( this ).hide();
+            } );
+            $( '#mainMenu' ).hide();
+            isFullScreen = false;
+        }*/
 
-        $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#shrine' ).hide();
-        $( '#games' ).hide();
-        $( '#search' ).show();
-        $( '#mainMenu' ).show();
+    $( '#videos' ).hide();
+    $( '#images' ).hide();
+    $( '#shrine' ).hide();
+    $( '#games' ).hide();
+    $( '#search' ).show();
+    $( '#mainMenu' ).show();
 
 
 } );
