@@ -53,13 +53,12 @@ $( document ).ready( function () {
     );
 
     // provide credentials for prod enviroment -  yes... hacky... I know... needs some love in the future
-    console.info(window.location.origin);
-    if ( window.location.origin == 'https://psychictripbuddy.netlify.app' ) {
-        console.info("test");
+    if ( window.location.origin == 'http://psychictripbuddy.netlify.app' ) {
         config['oAuthSpotify'][0]['redirect_uri'] = 'https://psychictripbuddy.netlify.app';
         config['oAuthSpotify'][0]['client_id'] = '0b24d45f4c4e42b3832bbe69f9ab70f4';
         config['oAuthSpotify'][0]['client_secret'] = 'f8264dee44854a8db43f297156d33668';
     }
+    console.info(config);
 
     // Init fastmode to true if not specifid otherwise
     if ( localStorage.getItem( 'fastModeSetting' ) == undefined ) {
@@ -1243,7 +1242,6 @@ $( document ).ready( function () {
     // Work in progress - oAuth Spotify Player - Needs credentials
     // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
     // oAuth Spotify Player
-    console.info(config);
     if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
         $( '#iFrameSpotifyPlayerContainer' ).remove();
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];

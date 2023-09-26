@@ -92,8 +92,6 @@ function callAuthorizationApi( body ) {
 function handleAuthorizationResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
-        /* console.log( data );*/
-        var data = JSON.parse( this.responseText );
         if ( data.access_token != undefined ) {
             access_token = data.access_token;
             localStorage.setItem( 'access_token', access_token );
