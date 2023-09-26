@@ -56,7 +56,9 @@ $( document ).ready( function () {
     // If fast mode is inactive, enable all vidoes
     if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
         $( '.videoSource' ).each( function () {
-            $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+            if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
+                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+            }
         } );
         $( '.localVideo' ).each( function () {
             this.load();
@@ -1233,7 +1235,7 @@ $( document ).ready( function () {
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
         client_id = config['oAuthSpotify'][0]['client_id'];
         client_secret = config['oAuthSpotify'][0]['client_secret'];
-        spotifyInitOnPageLoad();
+
         refreshAccessToken();
         shuffle();
         repeat();
@@ -1274,6 +1276,8 @@ $( document ).ready( function () {
             }
         } );
         $( '#next' ).click( function () {
+            spotifyInitOnPageLoad();
+
             openDesktopApp();
             shuffle();
             repeat();
@@ -1593,31 +1597,33 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    /*if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
         $( '#videos' ).show();
         $( '#images' ).hide();
         $( '#shrine' ).hide();
         $( '#games' ).hide();
+        $( '#search' ).hide();
         isFullScreen = false;
     } else { // FAST MODE - loads videos later on demand
         $( '#videos' ).hide();
         $( '#images' ).hide();
         $( '#shrine' ).show();
         $( '#games' ).hide();
+        $( '#search' ).hide();
         $( '#showShrineSection' ).trigger( 'click' );
         $( '.videoContainer' ).each( function () {
             $( this ).hide();
         } );
         $( '#mainMenu' ).hide();
         isFullScreen = false;
-    }*/
+    }
 
-    $( '#videos' ).hide();
+/*    $( '#videos' ).hide();
     $( '#images' ).hide();
     $( '#shrine' ).hide();
     $( '#games' ).hide();
     $( '#search' ).show();
-    $( '#mainMenu' ).show();
+    $( '#mainMenu' ).show();*/
 
 
 } );

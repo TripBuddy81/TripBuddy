@@ -1,9 +1,9 @@
 var config = {
     'oAuthSpotify'       : [
         {
-            'redirect_uri' : 'http://127.0.0.1:8080',
-            'client_id'    : '',
-            'client_secret': ''
+            'redirect_uri' : 'http://www.tripbuddy.test',
+            'client_id'    : '0b24d45f4c4e42b3832bbe69f9ab70f4',
+            'client_secret': 'f8264dee44854a8db43f297156d33668'
         }
     ],
     'youtubeApiKey1'       : '',
