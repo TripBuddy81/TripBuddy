@@ -36,6 +36,7 @@ $( document ).ready( function () {
     var maxYoutubeSearchResults = 20;
     var youtubeApiKeyInUse = 1;
     var youtubeCurrentQueue = [];
+    var youtubePlayerState = 'undefiend';
 
     Object.assign( config, optionalConfig );
 
@@ -1337,6 +1338,8 @@ $( document ).ready( function () {
 
     // ******************************************
     // Search section
+    refreshYoutubeQueueDisplay();
+
     // Youtube Player API init
     var tag = document.createElement( 'script' );
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -1360,8 +1363,6 @@ $( document ).ready( function () {
         } );
     }
 
-    var youtubePlayerState = 'undefiend';
-
     function onPlayerStateChange( event ) {
         switch ( event.data ) {
             case YT.PlayerState.UNSTARTED:
@@ -1369,7 +1370,7 @@ $( document ).ready( function () {
                 break;
             case YT.PlayerState.ENDED:
                 youtubePlayerState = 'ended';
-                playNextYoutubeVideo();
+                playNextYoutubeVideoOrSpotifyTrack();
                 break;
             case YT.PlayerState.PLAYING:
                 youtubePlayerState = 'playing';
@@ -1449,14 +1450,20 @@ $( document ).ready( function () {
     function refreshYoutubeQueueDisplay() {
         $( '#currentYoutubeQueue' ).empty();
 
-        youtubeCurrentQueue.forEach( function ( item ) {
-            let youtubeQueueItem = document.createElement( 'img' );
-            youtubeQueueItem.id = item.id;
-            youtubeQueueItem.src = item.img;
-            youtubeQueueItem.classList.add( 'youtubeQueueItem' );
+        if ( youtubeCurrentQueue.length == 0 ) {
+            let youtubeQueueItem = document.createElement( 'div' );
+            youtubeQueueItem.classList.add( 'youtubeQueueEmpty' );
+            youtubeQueueItem.innerHTML = 'Queue is empty... will play Spotify instead';
             document.getElementById( 'currentYoutubeQueue' ).appendChild( youtubeQueueItem );
-
-        } );
+        } else {
+            youtubeCurrentQueue.forEach( function ( item ) {
+                let youtubeQueueItem = document.createElement( 'img' );
+                youtubeQueueItem.id = item.id;
+                youtubeQueueItem.src = item.img;
+                youtubeQueueItem.classList.add( 'youtubeQueueItem' );
+                document.getElementById( 'currentYoutubeQueue' ).appendChild( youtubeQueueItem );
+            } );
+        }
     }
 
     function displayYoutubeSearchResults( data ) {
@@ -1496,8 +1503,9 @@ $( document ).ready( function () {
     }
 
     function playSpecificYoutubeVideo( videoId ) {
-        removeIdFromYoutubeQueue( videoId );
+        spotifyPause();
         youtubePlayer.loadVideoById( videoId );
+        removeIdFromYoutubeQueue( videoId );
         refreshYoutubeQueueDisplay();
     }
 
