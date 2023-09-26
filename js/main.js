@@ -1436,13 +1436,37 @@ $( document ).ready( function () {
                 type           : 'video',
                 videoEmbeddable: true
             },
-            success: function ( data ) {
-                displayYoutubeSearchResults( data );
+            success: function ( searchYoutubeResult ) {
+                getVideoDurationsFromYoutube( searchYoutubeResult );
             },
             error  : function ( response ) {
                 if ( response.responseJSON.error.errors[0].reason == 'quotaExceeded' ) {
                     searchYoutube( searchTerm, true );
                 }
+            }
+        } );
+    }
+
+    function getVideoDurationsFromYoutube( searchYoutubeResult ) {
+        listOfVideoIds = [];
+        searchYoutubeResult.items.forEach( function ( item ) {
+            listOfVideoIds.push( item.id.videoId );
+        } );
+        listOfVideoIds = listOfVideoIds.join( ',' );
+
+        $.ajax( {
+            type   : 'GET',
+            url    : 'https://www.googleapis.com/youtube/v3/videos',
+            data   : {
+                key : config['youtubeApiKey' + youtubeApiKeyInUse],
+                part: 'contentDetails',
+                id  : listOfVideoIds
+            },
+            success: function ( getVideoDurationsFromYoutubeResult ) {
+                displayYoutubeSearchResults( searchYoutubeResult, getVideoDurationsFromYoutubeResult );
+            },
+            error  : function ( response ) {
+                displayYoutubeSearchResults( searchYoutubeResult );
             }
         } );
     }
@@ -1466,10 +1490,10 @@ $( document ).ready( function () {
         }
     }
 
-    function displayYoutubeSearchResults( data ) {
+    function displayYoutubeSearchResults( searchYoutubeResult, getVideoDurationsFromYoutubeResult = '' ) {
         $( '#youtubeResults' ).empty();
 
-        data.items.forEach( function ( item ) {
+        searchYoutubeResult.items.forEach( function ( item ) {
             let youtubeResult = document.createElement( 'span' );
             youtubeResult.id = item.id.videoId;
             youtubeResult.classList.add( 'youtubeResult' );
@@ -1485,6 +1509,17 @@ $( document ).ready( function () {
             youtubeResultDescription.classList.add( 'youtubeResultDescription' );
             youtubeResult.appendChild( youtubeResultDescription );
         } );
+
+        if ( getVideoDurationsFromYoutubeResult != '' ) {
+            getVideoDurationsFromYoutubeResult.items.forEach( function ( item ) {
+                duration = convertYoutubeTime( item.contentDetails.duration );
+                let videoDuration = document.createElement( 'span' );
+                videoDuration.innerHTML = duration;
+                videoDuration.classList.add( 'youtubeResultDuration' );
+                document.getElementById( item.id ).appendChild( videoDuration );
+            } );
+        }
+
     }
 
     function playNextYoutubeVideoOrSpotifyTrack() {
@@ -1522,12 +1557,43 @@ $( document ).ready( function () {
         youtubeCurrentQueue = tempYoutubeCurrentQueue;
     }
 
+    function convertYoutubeTime( duration ) {
+        var a = duration.match( /\d+/g );
+        if ( duration.indexOf( 'M' ) >= 0 && duration.indexOf( 'H' ) == -1 && duration.indexOf( 'S' ) == -1 ) {
+            a = [0, a[0], 0];
+        }
+        if ( duration.indexOf( 'H' ) >= 0 && duration.indexOf( 'M' ) == -1 ) {
+            a = [a[0], 0, a[1]];
+        }
+        if ( duration.indexOf( 'H' ) >= 0 && duration.indexOf( 'M' ) == -1 && duration.indexOf( 'S' ) == -1 ) {
+            a = [a[0], 0, 0];
+        }
+
+        duration = 0;
+        if ( a.length == 3 ) {
+            duration = duration + parseInt( a[0] ) * 3600;
+            duration = duration + parseInt( a[1] ) * 60;
+            duration = duration + parseInt( a[2] );
+        }
+        if ( a.length == 2 ) {
+            duration = duration + parseInt( a[0] ) * 60;
+            duration = duration + parseInt( a[1] );
+        }
+        if ( a.length == 1 ) {
+            duration = duration + parseInt( a[0] );
+        }
+        var h = Math.floor( duration / 3600 );
+        var m = Math.floor( duration % 3600 / 60 );
+        var s = Math.floor( duration % 3600 % 60 );
+        return ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
+    }
+
     // END Search section
     // ******************************************
 
     // ******************************************
     // init initial view
-    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+    /*if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
         $( '#videos' ).show();
         $( '#images' ).hide();
         $( '#shrine' ).hide();
@@ -1544,16 +1610,14 @@ $( document ).ready( function () {
         } );
         $( '#mainMenu' ).hide();
         isFullScreen = false;
-    }
+    }*/
 
-/*
     $( '#videos' ).hide();
     $( '#images' ).hide();
     $( '#shrine' ).hide();
     $( '#games' ).hide();
     $( '#search' ).show();
     $( '#mainMenu' ).show();
-*/
 
 
 } );
