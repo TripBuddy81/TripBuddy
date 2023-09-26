@@ -1196,9 +1196,9 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .youtubeQueueItem {
-    margin-right: 15px;
-    width: 120px;
-    margin-bottom: 15px;
+    margin-right: 0px;
+    width: 144px;
+    margin-bottom: 25px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
 }
 
@@ -1234,7 +1234,7 @@ video::-webkit-media-controls-fullscreen-button {
     color: darkred;
     position: relative;
     font-weight: 800;
-    top: 47px;
-    left: -33px;
+    top: 56px;
+    left: -18px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
 }
