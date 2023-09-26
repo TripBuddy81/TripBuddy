@@ -54,7 +54,7 @@ $( document ).ready( function () {
 
     // provide credentials for prod enviroment -  yes... hacky... I know... needs some love in the future
     console.info(window.location.origin);
-    if ( window.location.origin == 'https://psychictripbuddy.netlify.app/' ) {
+    if ( window.location.origin == 'https://psychictripbuddy.netlify.app' ) {
         console.info("test");
         config['oAuthSpotify'][0]['redirect_uri'] = 'https://psychictripbuddy.netlify.app';
         config['oAuthSpotify'][0]['client_id'] = '0b24d45f4c4e42b3832bbe69f9ab70f4';
