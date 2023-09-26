@@ -47,11 +47,15 @@ $( document ).ready( function () {
         }
     } );
 
-    // ***********************************
     // Handlebar renderer - takes config within config/config.js
     $( 'body' ).html(
             Handlebars.compile( $( '#mainTemplate' ).html() )( config )
     );
+
+    // Init fastmode to true if not specifid otherwise
+    if ( localStorage.getItem( 'fastModeSetting' ) == undefined ) {
+        localStorage.setItem( 'fastModeSetting', 'true' );
+    }
 
     // If fast mode is inactive, enable all vidoes
     if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
