@@ -528,8 +528,22 @@
 
         <div id="mainSearchResultYoutubeContainer" class="videoContainer">
             <div class="iFrameContainer">
-                <div id="mainSearchResultYoutubeIframe" width="554" height="315" class="videoFrame videoSource"></div>
+                <div id="mainSearchResultYoutubeIframe" width="554" height="315" class="videoFrame videoSource" allowfullscreen=false></div>
                 <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                <div class="videoLabel">
+                    {{label}}
+                </div>
+                <div class="videoMenuOverlayMinimized">
+                    <img class="enableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
+                </div>
+                <div class="videoMenuOverlayMinimized2"></div>
+                <div class="videoMenuOverlayFullscreen">
+                    <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
+                </div>
+                <div class="videoMenuOverlayFullscreen2"></div>
+                <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                </div>
             </div>
         </div>
 

@@ -1360,8 +1360,7 @@ $( document ).ready( function () {
                 controls      : 1,
                 showinfo      : 0,
                 modestbranding: 1,
-                iv_load_policy: 3,
-                fs            : 0
+                iv_load_policy: 3
             },
             events    : {
                 'onStateChange': onPlayerStateChange
