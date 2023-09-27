@@ -36,7 +36,8 @@ $( document ).ready( function () {
     var maxYoutubeSearchResults = 50;
     var youtubeApiKeyInUse = 1;
     var youtubeCurrentQueue = [];
-    var youtubePlayerState = 'undefiend';
+    var youtubePlayerState = 'undefined';
+    var youtubeIntitalSearchTerm = 'Psybass';
 
     Object.assign( config, optionalConfig );
 
@@ -1358,6 +1359,7 @@ $( document ).ready( function () {
     // ******************************************
     // Search section
     displayYoutubeQueue();
+    searchYoutube( youtubeIntitalSearchTerm );
 
     // Youtube Player API init
     var tag = document.createElement( 'script' );
@@ -1393,9 +1395,19 @@ $( document ).ready( function () {
                 break;
             case YT.PlayerState.PLAYING:
                 youtubePlayerState = 'playing';
+                spotifyPause();
                 break;
             case YT.PlayerState.PAUSED:
                 youtubePlayerState = 'paused';
+                setTimeout( function () {
+                    if ( youtubePlayerState == 'paused' ) {
+                        if ( playingTrack ) {
+                            spotifyNext();
+                        } else {
+                            spotifyPlay();
+                        }
+                    }
+                }, 1000 );
                 break;
             case YT.PlayerState.BUFFERING:
                 youtubePlayerState = 'buffering';
@@ -1431,12 +1443,15 @@ $( document ).ready( function () {
 
     $( document ).on( 'click', '.youtubeResultItemImage,.youtubeResultItemDescription', function () {
         videoToQueue = {
-            'id' : $( this ).closest( '.youtubeResult' ).attr( 'id' ),
-            'img': $( this ).closest( '.youtubeResult' ).find( '.youtubeResultItemImage' ).attr( 'src' ),
+            'id'         : $( this ).closest( '.youtubeResult' ).attr( 'id' ),
+            'img'        : $( this ).closest( '.youtubeResult' ).find( '.youtubeResultItemImage' ).attr( 'src' ),
             'description': $( this ).closest( '.youtubeResult' ).find( '.youtubeResultItemDescription' ).text(),
-            'duration': $( this ).closest( '.youtubeResult' ).find( '.youtubeItemDuration' ).text()
+            'duration'   : $( this ).closest( '.youtubeResult' ).find( '.youtubeItemDuration' ).text()
         };
         youtubeCurrentQueue.push( videoToQueue );
+        if ( youtubePlayerState == 'video cued' || youtubePlayerState == 'undefined' ) {
+            playNextYoutubeVideoOrSpotifyTrack();
+        }
         displayYoutubeQueue();
         enableFullscreen();
     } );
@@ -1561,7 +1576,6 @@ $( document ).ready( function () {
                 document.getElementById( item.id ).appendChild( videoDuration );
             } );
         }
-
     }
 
     function playNextYoutubeVideoOrSpotifyTrack() {
@@ -1595,10 +1609,10 @@ $( document ).ready( function () {
         $.each( youtubeCurrentQueue, function ( key, value ) {
             if ( value.id != videoId ) {
                 tempYoutubeCurrentQueue.push( {
-                    'id' : value.id,
-                    'img': value.img,
+                    'id'         : value.id,
+                    'img'        : value.img,
                     'description': value.description,
-                    'duration': value.duration
+                    'duration'   : value.duration
                 } );
             }
         } );
@@ -1662,12 +1676,12 @@ $( document ).ready( function () {
           isFullScreen = false;
       }*/
 
-        $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#shrine' ).hide();
-        $( '#games' ).hide();
-        $( '#search' ).show();
-        $( '#mainMenu' ).show();
+    $( '#videos' ).hide();
+    $( '#images' ).hide();
+    $( '#shrine' ).hide();
+    $( '#games' ).hide();
+    $( '#search' ).show();
+    $( '#mainMenu' ).show();
 
 
 } );
