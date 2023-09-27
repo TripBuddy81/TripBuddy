@@ -33,7 +33,7 @@ $( document ).ready( function () {
     var absoluteTruthsTimer = undefined;
     var absoluteTruthsTimerDuration = 14000;
     var videoTagList = '';
-    var maxYoutubeSearchResults = 20;
+    var maxYoutubeSearchResults = 50;
     var youtubeApiKeyInUse = 1;
     var youtubeCurrentQueue = [];
     var youtubePlayerState = 'undefiend';
