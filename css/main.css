@@ -1141,27 +1141,27 @@ video::-webkit-media-controls-fullscreen-button {
     top: 100px;
     left: 320px;
     display: block !important;
-    width: 1030px;
-    height: 575px;
+    width: 1061px;
+    height: 597px;
 }
 
 #mainSearchResultYoutubeContainer .videoMenuOverlayMinimized {
-    left: 415px;
-    top: 185px;
+    left: 430px;
+    top: 197px;
 }
 
 #mainSearchResultYoutubeContainer .videoMenuOverlayMinimized2 {
-    left: 980px;
-    top: 525px;
+    left: 1011px;
+    top: 547px;
     width: 50px;
     height: 50px;
 }
 
 #mainSearchBar {
     position: fixed;
-    left: 580px;
+    left: 590px;
     height: 55px;
-    top: 690px;
+    top: 720px;
 }
 
 #mainSearchInput, #mainSearchInput:focus, #mainSearchInput:active {
@@ -1225,17 +1225,18 @@ video::-webkit-media-controls-fullscreen-button {
     top: 100px;
     height: 860px;
     overflow: auto;
-    width: 300px;
-    left: 0px;
+    width: 285px;
+    left: 15px;
+    direction: rtl;
 }
 
 .youtubeResult, .youtubeQueueItem {
     display: inline-table;
     position: relative;
-    margin-left: 15px;
     margin-bottom: 15px;
     height: 255px;
     width: 245px;
+    direction: ltr;
 }
 
 .youtubeResultItemImage, .youtubeQueueItemImage {
@@ -1267,8 +1268,8 @@ video::-webkit-media-controls-fullscreen-button {
     top: 100px;
     height: 860px;
     overflow: auto;
-    width: 300px;
-    left: 1390px;
+    width: 282px;
+    left: 1406px;
 }
 
 #nextVideo {
