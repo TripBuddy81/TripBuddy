@@ -1411,7 +1411,6 @@ $( document ).ready( function () {
     $( '#mainSearchInput' ).keyup( function ( event ) {
         if ( event.keyCode === 13 ) {
             searchYoutube( $( this ).val() );
-            searchSpotify( $( this ).val(), 'track' );
         }
         enableFullscreen();
     } );

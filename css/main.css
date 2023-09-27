@@ -834,7 +834,7 @@ video::-webkit-media-controls-fullscreen-button {
 .videoMenuOverlayMinimized2 {
     left: 493px;
     top: 265px;
-    z-index: 1;
+    z-index: 10;
     width: 30px;
     height: 30px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
@@ -1132,15 +1132,15 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #mainSearchResultYoutubeContainer .videoMenuOverlayMinimized {
-    left: 300px;
-    top: 110px;
+    left: 415px;
+    top: 185px;
 }
 
 #mainSearchResultYoutubeContainer .videoMenuOverlayMinimized2 {
-    left: 760px;
-    top: 374px;
-    width: 40px;
-    height: 40px;
+    left: 980px;
+    top: 525px;
+    width: 50px;
+    height: 50px;
 }
 
 #mainSearchBar {
