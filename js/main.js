@@ -1371,8 +1371,8 @@ $( document ).ready( function () {
         youtubePlayer = new YT.Player( 'mainSearchResultYoutubeIframe', {
             videoId   : 'TdU2Ab7y91w',
             playerVars: {
-                autoplay      : 0,
                 rel           : 0,
+                autoplay      : 0,
                 controls      : 1,
                 showinfo      : 0,
                 modestbranding: 1,
