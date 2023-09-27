@@ -1125,13 +1125,13 @@ video::-webkit-media-controls-fullscreen-button {
 #mainSearchResultYoutubeContainer {
     position: fixed;
     top: 100px;
-    left: 566px;
+    left: 567px;
     display: block !important;
 }
 
 #mainSearchBar {
     position: fixed;
-    left: 566px;
+    left: 567px;
     height: 100px;
     font-size: 30px;
     top: 410px;
@@ -1155,7 +1155,7 @@ video::-webkit-media-controls-fullscreen-button {
     width: 245px;
 }
 
-.youtubeResultImage, .youtubeQueueItemImage {
+.youtubeResultItemImage, .youtubeQueueItemImage {
     height: 180px;
     display: block;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
@@ -1231,5 +1231,5 @@ video::-webkit-media-controls-fullscreen-button {
     top: 138px;
     right: -13px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
-}
+    z-index: 10;
 }

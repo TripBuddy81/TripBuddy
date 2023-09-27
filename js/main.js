@@ -1416,20 +1416,20 @@ $( document ).ready( function () {
         enableFullscreen();
     } );
 
+    $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function ( e ) {
+        removeIdFromYoutubeQueue( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
+        displayYoutubeQueue();
+    } );
+
     $( document ).on( 'click', '.youtubeQueueItemImage,.youtubeQueueItemDescription', function () {
         playSpecificYoutubeVideo( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
         enableFullscreen();
     } );
 
-    $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function () {
-        removeIdFromYoutubeQueue( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
-        displayYoutubeQueue();
-    } );
-
-    $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
+    $( document ).on( 'click', '.youtubeResultItemImage,.youtubeResultItemDescription', function () {
         videoToQueue = {
             'id' : $( this ).closest( '.youtubeResult' ).attr( 'id' ),
-            'img': $( this ).closest( '.youtubeResult' ).find( '.youtubeResultImage' ).attr( 'src' ),
+            'img': $( this ).closest( '.youtubeResult' ).find( '.youtubeResultItemImage' ).attr( 'src' ),
             'description': $( this ).closest( '.youtubeResult' ).find( '.youtubeResultItemDescription' ).text(),
             'duration': $( this ).closest( '.youtubeResult' ).find( '.youtubeItemDuration' ).text()
         };
@@ -1538,10 +1538,10 @@ $( document ).ready( function () {
             youtubeResult.classList.add( 'youtubeResult' );
             document.getElementById( 'youtubeResults' ).appendChild( youtubeResult );
 
-            let youtubeResultImage = document.createElement( 'img' );
-            youtubeResultImage.src = item.snippet.thumbnails.high.url;
-            youtubeResultImage.classList.add( 'youtubeResultImage' );
-            youtubeResult.appendChild( youtubeResultImage );
+            let youtubeResultItemImage = document.createElement( 'img' );
+            youtubeResultItemImage.src = item.snippet.thumbnails.high.url;
+            youtubeResultItemImage.classList.add( 'youtubeResultItemImage' );
+            youtubeResult.appendChild( youtubeResultItemImage );
 
             let youtubeResultDescription = document.createElement( 'span' );
             youtubeResultDescription.innerHTML = item.snippet.title;
