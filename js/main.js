@@ -1353,7 +1353,7 @@ $( document ).ready( function () {
 
     // ******************************************
     // Search section
-    refreshYoutubeQueueDisplay();
+    displayYoutubeQueue();
 
     // Youtube Player API init
     var tag = document.createElement( 'script' );
@@ -1416,22 +1416,25 @@ $( document ).ready( function () {
         enableFullscreen();
     } );
 
-    $( document ).on( 'click', '.youtubeQueueItem', function () {
-        playSpecificYoutubeVideo( $( this ).attr( 'id' ) );
+    $( document ).on( 'click', '.youtubeQueueItemImage,.youtubeQueueItemDescription', function () {
+        playSpecificYoutubeVideo( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
         enableFullscreen();
     } );
 
     $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function () {
-        removeSpecificYoutubeVideo( $( this ).closest( '.youtubeQueueItemContainer' ).find( '.youtubeQueueItem' ).attr( 'id' ) );
+        removeIdFromYoutubeQueue( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
+        displayYoutubeQueue();
     } );
 
     $( document ).on( 'click', '.youtubeResultImage,.youtubeResultDescription', function () {
         videoToQueue = {
             'id' : $( this ).closest( '.youtubeResult' ).attr( 'id' ),
-            'img': $( this ).closest( '.youtubeResult' ).find( '.youtubeResultImage' ).attr( 'src' )
+            'img': $( this ).closest( '.youtubeResult' ).find( '.youtubeResultImage' ).attr( 'src' ),
+            'description': $( this ).closest( '.youtubeResult' ).find( '.youtubeResultItemDescription' ).text(),
+            'duration': $( this ).closest( '.youtubeResult' ).find( '.youtubeItemDuration' ).text()
         };
         youtubeCurrentQueue.push( videoToQueue );
-        refreshYoutubeQueueDisplay();
+        displayYoutubeQueue();
         enableFullscreen();
     } );
 
@@ -1489,7 +1492,7 @@ $( document ).ready( function () {
         } );
     }
 
-    function refreshYoutubeQueueDisplay() {
+    function displayYoutubeQueue() {
         $( '#currentYoutubeQueue' ).empty();
 
         if ( youtubeCurrentQueue.length == 0 ) {
@@ -1500,18 +1503,28 @@ $( document ).ready( function () {
         } else {
             youtubeCurrentQueue.forEach( function ( item ) {
                 let youtubeQueueItemContainer = document.createElement( 'span' );
-                youtubeQueueItemContainer.classList.add( 'youtubeQueueItemContainer' );
+                youtubeQueueItemContainer.classList.add( 'youtubeQueueItem' );
                 document.getElementById( 'currentYoutubeQueue' ).appendChild( youtubeQueueItemContainer );
 
                 let youtubeQueueItem = document.createElement( 'img' );
                 youtubeQueueItem.id = item.id;
                 youtubeQueueItem.src = item.img;
-                youtubeQueueItem.classList.add( 'youtubeQueueItem' );
+                youtubeQueueItem.classList.add( 'youtubeQueueItemImage' );
                 youtubeQueueItemContainer.appendChild( youtubeQueueItem );
 
                 let youtubeQueueItemDeleteSymbol = document.createElement( 'span' );
                 youtubeQueueItemDeleteSymbol.classList.add( 'youtubeQueueItemDeleteSymbol' );
                 youtubeQueueItemContainer.appendChild( youtubeQueueItemDeleteSymbol );
+
+                let youtubeQueueItemDescription = document.createElement( 'span' );
+                youtubeQueueItemDescription.innerHTML = item.description;
+                youtubeQueueItemDescription.classList.add( 'youtubeQueueItemDescription' );
+                youtubeQueueItemContainer.appendChild( youtubeQueueItemDescription );
+
+                let youtubeVideoDuration = document.createElement( 'span' );
+                youtubeVideoDuration.innerHTML = item.duration;
+                youtubeVideoDuration.classList.add( 'youtubeItemDuration' );
+                youtubeQueueItemContainer.appendChild( youtubeVideoDuration );
             } );
         }
     }
@@ -1532,7 +1545,7 @@ $( document ).ready( function () {
 
             let youtubeResultDescription = document.createElement( 'span' );
             youtubeResultDescription.innerHTML = item.snippet.title;
-            youtubeResultDescription.classList.add( 'youtubeResultDescription' );
+            youtubeResultDescription.classList.add( 'youtubeResultItemDescription' );
             youtubeResult.appendChild( youtubeResultDescription );
         } );
 
@@ -1541,7 +1554,7 @@ $( document ).ready( function () {
                 duration = convertYoutubeTime( item.contentDetails.duration );
                 let videoDuration = document.createElement( 'span' );
                 videoDuration.innerHTML = duration;
-                videoDuration.classList.add( 'youtubeResultDuration' );
+                videoDuration.classList.add( 'youtubeItemDuration' );
                 document.getElementById( item.id ).appendChild( videoDuration );
             } );
         }
@@ -1563,7 +1576,7 @@ $( document ).ready( function () {
         } else {
             spotifyPause();
             youtubePlayer.loadVideoById( youtubeCurrentQueue.shift().id );
-            refreshYoutubeQueueDisplay();
+            displayYoutubeQueue();
         }
     }
 
@@ -1571,12 +1584,7 @@ $( document ).ready( function () {
         spotifyPause();
         youtubePlayer.loadVideoById( videoId );
         removeIdFromYoutubeQueue( videoId );
-        refreshYoutubeQueueDisplay();
-    }
-
-    function removeSpecificYoutubeVideo( videoId ) {
-        removeIdFromYoutubeQueue( videoId );
-        refreshYoutubeQueueDisplay();
+        displayYoutubeQueue();
     }
 
     function removeIdFromYoutubeQueue( videoId ) {
@@ -1585,7 +1593,9 @@ $( document ).ready( function () {
             if ( value.id != videoId ) {
                 tempYoutubeCurrentQueue.push( {
                     'id' : value.id,
-                    'img': value.img
+                    'img': value.img,
+                    'description': value.description,
+                    'duration': value.duration
                 } );
             }
         } );
@@ -1628,33 +1638,33 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-        $( '#videos' ).show();
-        $( '#images' ).hide();
-        $( '#shrine' ).hide();
-        $( '#games' ).hide();
-        $( '#search' ).hide();
-        isFullScreen = false;
-    } else { // FAST MODE - loads videos later on demand
-        $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#shrine' ).show();
-        $( '#games' ).hide();
-        $( '#search' ).hide();
-        $( '#showShrineSection' ).trigger( 'click' );
-        $( '.videoContainer' ).each( function () {
-            $( this ).hide();
-        } );
-        $( '#mainMenu' ).hide();
-        isFullScreen = false;
-    }
+    /*  if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+          $( '#videos' ).show();
+          $( '#images' ).hide();
+          $( '#shrine' ).hide();
+          $( '#games' ).hide();
+          $( '#search' ).hide();
+          isFullScreen = false;
+      } else { // FAST MODE - loads videos later on demand
+          $( '#videos' ).hide();
+          $( '#images' ).hide();
+          $( '#shrine' ).show();
+          $( '#games' ).hide();
+          $( '#search' ).hide();
+          $( '#showShrineSection' ).trigger( 'click' );
+          $( '.videoContainer' ).each( function () {
+              $( this ).hide();
+          } );
+          $( '#mainMenu' ).hide();
+          isFullScreen = false;
+      }*/
 
-    /*    $( '#videos' ).hide();
+        $( '#videos' ).hide();
         $( '#images' ).hide();
         $( '#shrine' ).hide();
         $( '#games' ).hide();
         $( '#search' ).show();
-        $( '#mainMenu' ).show();*/
+        $( '#mainMenu' ).show();
 
 
 } );
