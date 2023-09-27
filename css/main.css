@@ -1179,6 +1179,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 30px;
     right: 10px;
     top: 13px;
+    opacity: 0.5;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
@@ -1222,7 +1223,7 @@ video::-webkit-media-controls-fullscreen-button {
 #youtubeResults {
     position: fixed;
     top: 100px;
-    height: 88%;
+    height: 860px;
     overflow: auto;
     width: 300px;
     left: 0px;
@@ -1264,7 +1265,7 @@ video::-webkit-media-controls-fullscreen-button {
 #currentYoutubeQueue {
     position: fixed;
     top: 100px;
-    height: 88%;
+    height: 860px;
     overflow: auto;
     width: 300px;
     left: 1390px;
