@@ -792,14 +792,18 @@ $( document ).ready( function () {
     // Youtube iFrame fullscreen button overlay
     $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).hover( function ( event ) {
         $( event.target ).find( '.enableVideoFullscreenIcon' ).show();
+        $( event.target ).find( '.enableVideoFullscreenIcon2' ).show();
     }, function () {
         $( '.enableVideoFullscreenIcon' ).hide();
+        $( '.enableVideoFullscreenIcon2' ).hide();
     } );
     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
         $( event.target ).find( '.disableVideoFullscreenIcon' ).show();
+        $( event.target ).find( '.disableVideoFullscreenIcon2' ).show();
         $( '.videoMenuOverlay' ).show();
     }, function () {
         $( '.disableVideoFullscreenIcon' ).hide();
+        $( '.disableVideoFullscreenIcon2' ).hide();
         $( '.videoMenuOverlay' ).hide();
     } );
     $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).click( function ( event ) {
