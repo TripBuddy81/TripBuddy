@@ -837,7 +837,7 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 10;
     width: 50px;
     height: 50px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     position: absolute;
 }
 
@@ -858,7 +858,7 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 1;
     width: 35px;
     height: 35px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     position: absolute;
     display: none;
 }
@@ -1174,6 +1174,14 @@ video::-webkit-media-controls-fullscreen-button {
     border-radius: 5px;
 }
 
+#clearMainSearchInput {
+    position: absolute;
+    height: 30px;
+    right: 10px;
+    top: 13px;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
 #mainSearchInputBorder {
     position: initial;
 }
@@ -1224,7 +1232,7 @@ video::-webkit-media-controls-fullscreen-button {
     display: inline-table;
     position: relative;
     margin-left: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     height: 255px;
     width: 245px;
 }
@@ -1233,12 +1241,13 @@ video::-webkit-media-controls-fullscreen-button {
     height: 180px;
     display: block;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    margin-bottom: 4px;
 }
 
 .youtubeResultItemDescription, .youtubeQueueItemDescription {
     display: table;
     position: relative;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     min-height: 50px;
     font-size: 17px;
     font-weight: 600;
@@ -1246,7 +1255,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #openVideoOnYouTube {
     position: fixed;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     height: 50px;
     left: 1065px;
     top: 413px;
@@ -1266,7 +1275,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     top: 413px;
     left: 580px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
 .youtubeQueueEmpty {
@@ -1276,8 +1285,8 @@ video::-webkit-media-controls-fullscreen-button {
 
 .youtubeItemDuration {
     position: absolute;
-    top: 135px;
-    right: 10px;
+    top: 121px;
+    right: 15px;
     color: white;
     font-size: 30px;
     font-weight: 400;
@@ -1288,11 +1297,11 @@ video::-webkit-media-controls-fullscreen-button {
 .youtubeQueueItemDeleteSymbol:after {
     content: "\00d7";
     font-size: 50px;
-    color: darkred;
+    color: crimson;
     position: absolute;
     font-weight: 800;
-    top: 138px;
-    right: -13px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    top: 136px;
+    right: -12px;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     z-index: 10;
 }

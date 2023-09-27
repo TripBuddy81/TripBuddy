@@ -1431,6 +1431,12 @@ $( document ).ready( function () {
         enableFullscreen();
     } );
 
+    $( '#clearMainSearchInput' ).click( function ( event ) {
+        $( '#mainSearchInput' ).val('');
+        $( '#mainSearchInput' ).focus();
+    } );
+
+
     $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function ( e ) {
         removeIdFromYoutubeQueue( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
         displayYoutubeQueue();
