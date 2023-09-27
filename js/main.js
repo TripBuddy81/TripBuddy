@@ -1498,7 +1498,7 @@ $( document ).ready( function () {
         if ( youtubeCurrentQueue.length == 0 ) {
             let youtubeQueueItem = document.createElement( 'div' );
             youtubeQueueItem.classList.add( 'youtubeQueueEmpty' );
-            youtubeQueueItem.innerHTML = 'Queue is empty... will play Spotify instead';
+            youtubeQueueItem.innerHTML = '';
             document.getElementById( 'currentYoutubeQueue' ).appendChild( youtubeQueueItem );
         } else {
             youtubeCurrentQueue.forEach( function ( item ) {
