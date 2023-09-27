@@ -1432,10 +1432,9 @@ $( document ).ready( function () {
     } );
 
     $( '#clearMainSearchInput' ).click( function ( event ) {
-        $( '#mainSearchInput' ).val('');
+        $( '#mainSearchInput' ).val( '' );
         $( '#mainSearchInput' ).focus();
     } );
-
 
     $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function ( e ) {
         removeIdFromYoutubeQueue( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
@@ -1653,7 +1652,12 @@ $( document ).ready( function () {
         var h = Math.floor( duration / 3600 );
         var m = Math.floor( duration % 3600 / 60 );
         var s = Math.floor( duration % 3600 % 60 );
-        return ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
+
+        duration = ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
+        if ( duration == '0:00' ) {
+            duration = 'stream';
+        }
+        return duration;
     }
 
     // END Search section
