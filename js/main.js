@@ -1693,5 +1693,4 @@ $( document ).ready( function () {
     $( '#search' ).show();
     $( '#mainMenu' ).show();
 
-
 } );
