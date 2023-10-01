@@ -792,15 +792,15 @@ $( document ).ready( function () {
 
     // Youtube iFrame fullscreen button overlay
     $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).hover( function ( event ) {
-        $( event.target ).find( '.enableVideoFullscreenIcon' ).show();
-        $( event.target ).find( '.enableVideoFullscreenIcon2' ).show();
+        $( event.target ).closest( '.iFrameContainer' ).find( '.enableVideoFullscreenIcon' ).show();
+        $( event.target ).closest( '.iFrameContainer' ).find( '.enableVideoFullscreenIcon2' ).show();
     }, function () {
         $( '.enableVideoFullscreenIcon' ).hide();
         $( '.enableVideoFullscreenIcon2' ).hide();
     } );
     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
-        $( event.target ).find( '.disableVideoFullscreenIcon' ).show();
-        $( event.target ).find( '.disableVideoFullscreenIcon2' ).show();
+        $( event.target ).closest( '.iFrameContainer' ).find( '.disableVideoFullscreenIcon' ).show();
+        $( event.target ).closest( '.iFrameContainer' ).find( '.disableVideoFullscreenIcon2' ).show();
         $( '.videoMenuOverlay' ).show();
     }, function () {
         $( '.disableVideoFullscreenIcon' ).hide();
@@ -858,6 +858,7 @@ $( document ).ready( function () {
     var intervalId = window.setInterval( function () {
         if ( window.innerHeight != screen.height ) {
             $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
+            $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
             isFullScreen = false;
         } else {
         }
