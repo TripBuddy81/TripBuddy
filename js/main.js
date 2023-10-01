@@ -62,7 +62,7 @@ $( document ).ready( function () {
 
     // Init fastmode to true if not specifid otherwise
     if ( localStorage.getItem( 'fastModeSetting' ) == undefined ) {
-        localStorage.setItem( 'fastModeSetting', 'true' );
+        localStorage.setItem( 'fastModeSetting', 'false' );
     }
 
     // If fast mode is inactive, enable all vidoes
@@ -1252,7 +1252,7 @@ $( document ).ready( function () {
         redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
         client_id = config['oAuthSpotify'][0]['client_id'];
         client_secret = config['oAuthSpotify'][0]['client_secret'];
-        spotifyInitOnPageLoad();
+        /*spotifyInitOnPageLoad();*/
         shuffle();
         repeat();
         refreshAccessToken();
@@ -1295,6 +1295,7 @@ $( document ).ready( function () {
             }
         } );
         $( '#next' ).click( function () {
+            spotifyInitOnPageLoad();
             openDesktopApp();
             shuffle();
             repeat();
