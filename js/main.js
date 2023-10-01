@@ -861,6 +861,7 @@ $( document ).ready( function () {
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
             isFullScreen = false;
         } else {
+            isFullScreen = true;
         }
     }, 1000 );
 
