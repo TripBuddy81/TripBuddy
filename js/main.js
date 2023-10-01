@@ -1322,7 +1322,7 @@ $( document ).ready( function () {
         } );
 
         function openDesktopApp() {
-            if ( typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
+            if ( localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
                 window.open( lastSelectedPlaylist, '_blank' );
                 spotifyOpened = true;
             }
