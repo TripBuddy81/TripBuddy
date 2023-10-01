@@ -1253,6 +1253,10 @@ $( document ).ready( function () {
         client_id = config['oAuthSpotify'][0]['client_id'];
         client_secret = config['oAuthSpotify'][0]['client_secret'];
         /*spotifyInitOnPageLoad();*/
+        if ( window.location.search.length > 0 ) {
+            handleRedirect();
+        }
+
         shuffle();
         repeat();
         refreshAccessToken();
