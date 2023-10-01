@@ -62,7 +62,7 @@ $( document ).ready( function () {
 
     // Init fastmode to true if not specifid otherwise
     if ( localStorage.getItem( 'fastModeSetting' ) == undefined ) {
-        localStorage.setItem( 'fastModeSetting', 'true' );
+        localStorage.setItem( 'fastModeSetting', 'false' );
     }
 
     // If fast mode is inactive, enable all vidoes
@@ -1670,7 +1670,7 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-  /*  if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
+    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
         $( '#videos' ).show();
         $( '#images' ).hide();
         $( '#shrine' ).hide();
@@ -1689,13 +1689,13 @@ $( document ).ready( function () {
         } );
         $( '#mainMenu' ).hide();
         isFullScreen = false;
-    }*/
+    }
 
-        $( '#videos' ).hide();
+    /*    $( '#videos' ).hide();
         $( '#images' ).hide();
         $( '#shrine' ).hide();
         $( '#games' ).hide();
         $( '#search' ).show();
-        $( '#mainMenu' ).show();
+        $( '#mainMenu' ).show();*/
 
 } );
