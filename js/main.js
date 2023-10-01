@@ -62,7 +62,7 @@ $( document ).ready( function () {
 
     // Init fastmode to true if not specifid otherwise
     if ( localStorage.getItem( 'fastModeSetting' ) == undefined ) {
-        localStorage.setItem( 'fastModeSetting', 'false' );
+        localStorage.setItem( 'fastModeSetting', 'true' );
     }
 
     // If fast mode is inactive, enable all vidoes
