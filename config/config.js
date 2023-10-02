@@ -59,6 +59,10 @@ var config = {
             'id'   : '6JFcprqODBhUDXLoiecO21'
         },
         {
+            'label': 'Lucid Planet',
+            'id'   : '3SgSFL3J8lrmbDkUoUh46m'
+        },
+        {
             'label': 'Tool',
             'id'   : '54c657PnbEgWUJt7biWHtO'
         },
@@ -77,14 +81,6 @@ var config = {
         {
             'label': 'Psybass',
             'id'   : '0O1C7wbOthIxBbai9pYvEH'
-        },
-        {
-            'label': 'Psychill',
-            'id'   : '5bureHLe8RGJoak8ARvsDt'
-        },
-        {
-            'label': 'Lucid Planet',
-            'id'   : '3SgSFL3J8lrmbDkUoUh46m'
         },
         {
             'label': 'Progressive Psy',

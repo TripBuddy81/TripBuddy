@@ -694,6 +694,17 @@ $( document ).ready( function () {
         location.reload();
     } )
 
+    // ******************************************
+    // Show Youtube played history
+    $( '#showYoutubePlayedHistory' ).click( function ( event ) {
+        showYoutubeHistory();
+    } )
+    $( '#clearYoutubePlayedHistory' ).click( function ( event ) {
+        localStorage.setItem( 'youtubeHistory', JSON.stringify( '' ) );
+        event.stopPropagation();
+    } )
+
+
     // ***********************************
     // Video section
     $( '.videoFilterBtn' ).click( function () {
@@ -1245,7 +1256,6 @@ $( document ).ready( function () {
             repeat();
             spotifyPlay( lastSelectedPlaylist );
             youtubePlayer.stopVideo();
-            enableFullscreen();
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
@@ -1473,7 +1483,10 @@ $( document ).ready( function () {
     } );
 
     $( document ).on( 'click', '.youtubeQueueItemImage,.youtubeQueueItemDescription', function () {
-        playSpecificYoutubeVideo( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
+        videoItem.id = $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' );
+        videoItem.description = $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemDescription' ).html();
+        videoItem.img = $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'src' );
+        playSpecificYoutubeVideo( videoItem );
         enableFullscreen();
     } );
 
@@ -1662,16 +1675,19 @@ $( document ).ready( function () {
                 spotifyPlay();
             }
         } else {
+            videoItem = youtubeCurrentQueue.shift();
             spotifyPause();
-            youtubePlayer.loadVideoById( youtubeCurrentQueue.shift().id );
+            youtubePlayer.loadVideoById( videoItem.id );
+            addVideoToHistory( videoItem );
             displayYoutubeQueue();
         }
     }
 
-    function playSpecificYoutubeVideo( videoId ) {
+    function playSpecificYoutubeVideo( videoItem ) {
         spotifyPause();
-        youtubePlayer.loadVideoById( videoId );
-        removeIdFromYoutubeQueue( videoId );
+        youtubePlayer.loadVideoById( videoItem.id );
+        addVideoToHistory( videoItem );
+        removeIdFromYoutubeQueue( videoItem.id );
         displayYoutubeQueue();
     }
 
@@ -1724,6 +1740,27 @@ $( document ).ready( function () {
             duration = 'stream';
         }
         return duration;
+    }
+
+    function addVideoToHistory( videoItem ) {
+        var youtubeHistory = JSON.parse( localStorage.getItem( 'youtubeHistory' ) ) || [];
+        youtubeHistory.push( {
+            'id'         : videoItem.id,
+            'description': videoItem.description,
+            'img'        : videoItem.img
+        } );
+        localStorage.setItem( 'youtubeHistory', JSON.stringify( youtubeHistory ) );
+    }
+
+    function showYoutubeHistory() {
+        playedVideos = JSON.parse( localStorage.getItem( 'youtubeHistory' ) );
+        var html = '<h1>Youtube played history</h1>';
+        jQuery.each( playedVideos, function ( i, val ) {
+            html += '<img src="' + val.img + '"><a href="https://www.youtube.com/watch?v=' + val.id + '">' + val.description + '</a><br>';
+        } );
+
+        var w = window.open();
+        $( w.document.body ).html( html );
     }
 
     // END Search section
