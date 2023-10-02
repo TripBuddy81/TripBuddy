@@ -1256,14 +1256,12 @@ $( document ).ready( function () {
         if ( window.location.search.length > 0 ) {
             handleRedirect();
         }
+        refreshAccessToken();
         shuffle();
         repeat();
-        refreshAccessToken();
         setInterval( refreshAccessToken, 60000 );
-        currentlyPlaying();
-        setInterval( currentlyPlaying, 3000 );
-        refreshDevices();
         setInterval( refreshDevices, 3000 );
+        setInterval( currentlyPlaying, 3000 );
 
         $( '#stopMusic' ).click( function () {
             spotifyPause();
@@ -1670,24 +1668,19 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-        $( '#videos' ).show();
-        $( '#images' ).hide();
-        $( '#shrine' ).hide();
-        $( '#games' ).hide();
-        $( '#search' ).hide();
-        isFullScreen = false;
-    } else { // FAST MODE - loads videos later on demand
-        $( '#videos' ).show();
-        $( '#images' ).hide();
-        $( '#shrine' ).hide();
-        $( '#games' ).hide();
-        $( '#search' ).hide();
+    $( '#videos' ).show();
+    $( '#images' ).hide();
+    $( '#shrine' ).hide();
+    $( '#games' ).hide();
+    $( '#search' ).hide();
+    isFullScreen = false;
+
+    // FAST MODE - loads videos later on demand
+    if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
         $( '.videoContainer' ).each( function () {
             $( this ).hide();
         } );
-        $( '#trippy-2Dfilter' ).trigger( 'click' );
-        isFullScreen = false;
+        $( '#trippy-3Dfilter' ).trigger( 'click' );
     }
 
     // Some Debug settings ...  to be deleted at some point
