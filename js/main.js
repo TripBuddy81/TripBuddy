@@ -1641,6 +1641,8 @@ $( document ).ready( function () {
                 document.getElementById( item.id ).appendChild( videoDuration );
             } );
         }
+
+        $( '#youtubeResults' ).animate( {scrollTop: 0}, 'fast' );
     }
 
     function playNextYoutubeVideoOrSpotifyTrack() {
