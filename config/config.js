@@ -39,12 +39,28 @@ var config = {
             'id'   : '4ILChY5F4Hn08ikt0rfHhW'
         },
         {
+            'label': 'Lofi Sleep',
+            'id'   : '37i9dQZF1DX2PQDq3PdrHQ'
+        },
+        {
             'label': 'Lofi Favorites',
             'id'   : '4ktxEZYVOky9D6eBKrmZ4g'
         },
         {
-            'label': 'Lofi Sleep',
-            'id'   : '37i9dQZF1DX2PQDq3PdrHQ'
+            'label': 'Celtic',
+            'id'   : '7IMTMDqc2NIzovRgtC1Imq'
+        },
+        {
+            'label': 'Rock',
+            'id'   : '1J2Q32HV4PbVhlhNTensBV'
+        },
+        {
+            'label': 'Cash meets Tarantino',
+            'id'   : '6JFcprqODBhUDXLoiecO21'
+        },
+        {
+            'label': 'Tool',
+            'id'   : '54c657PnbEgWUJt7biWHtO'
         },
         {
             'label': 'Soultrip',
@@ -63,37 +79,25 @@ var config = {
             'id'   : '0O1C7wbOthIxBbai9pYvEH'
         },
         {
+            'label': 'Psychill',
+            'id'   : '5bureHLe8RGJoak8ARvsDt'
+        },
+        {
             'label': 'Lucid Planet',
             'id'   : '3SgSFL3J8lrmbDkUoUh46m'
         },
         {
-            'label': 'Meditation',
-            'id'   : '3ogKJHz0eQMVe9rouV12Zj'
-        },
-        {
-            'label': 'Tool',
-            'id'   : '54c657PnbEgWUJt7biWHtO'
-        },
-        {
-            'label': 'Rock',
-            'id'   : '1J2Q32HV4PbVhlhNTensBV'
-        },
-        {
-            'label': 'Electro',
-            'id'   : '0ZigR4WogVGwftQA7GAMhu'
-        },
-        {
-            'label': 'Force',
-            'id'   : '6fB9PJQ7Hy8SDvcRmBeKwr'
-        },
-        {
-            'label': 'Main',
-            'id'   : '57JGgX4bq54IIJePFNU8M0'
+            'label': 'Progressive Psy',
+            'id'   : '0ZVlYhZpCUkjZZ04pdKx8O'
         },
         {
             'label': 'Wonderland',
             'id'   : '4IXAhGiDhuzPz2VQjTDTSy'
         },
+        {
+            'label': 'Force',
+            'id'   : '6fB9PJQ7Hy8SDvcRmBeKwr'
+        }
     ],
     'selectableVideoTags': [
         {'selectableTag': 'trippy-2D'},
