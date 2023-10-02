@@ -1482,6 +1482,7 @@ $( document ).ready( function () {
     $( '#clearMainSearchInput' ).click( function ( event ) {
         $( '#mainSearchInput' ).val( '' );
         $( '#mainSearchInput' ).focus();
+        searchYoutubeAutocomplete( $( this ).val() );
     } );
 
     $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function ( e ) {

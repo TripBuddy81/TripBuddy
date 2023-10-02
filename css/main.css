@@ -1159,7 +1159,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #mainSearchBar {
     position: fixed;
-    left: 590px;
+    left: 400px;
     height: 40px;
     top: 720px;
 }
@@ -1168,7 +1168,7 @@ video::-webkit-media-controls-fullscreen-button {
     padding-left: 10px;
     font-weight: bold;
     font-size: 25px !important;
-    width: 500px;
+    width: 900px;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -1310,7 +1310,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #mainSearchAutocompleteSuggestions {
     position: fixed;
-    left: 600px;
+    left: 410px;
     top: 765px;
 }
 
