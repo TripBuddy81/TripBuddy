@@ -1429,8 +1429,13 @@ $( document ).ready( function () {
         enableFullscreen();
     } );
 
-    $( '#mainSearchInput' ).keyup( function ( event ) {
+    $( '#mainSearchInput' ).keydown( function ( event ) {
         enableFullscreen();
+
+        if ( event.keyCode === 38 || event.keyCode === 40 ) {
+            event.stopPropagation();
+            event.preventDefault();
+        }
 
         if ( event.keyCode === 13 ) { // Enter
             currentAutocompleteItem = 0;
@@ -1442,13 +1447,13 @@ $( document ).ready( function () {
             event.preventDefault();
 
             currentAutocompleteItem = 0;
-            if ( lastSelectedAutocompleteItem < 0 ) {
-                lastSelectedAutocompleteItem = 0;
+            if ( lastSelectedAutocompleteItem < 1 ) {
+                lastSelectedAutocompleteItem = 1;
                 return false;
             }
             $( '.youtubeAutocompleteItem' ).each( function () {
                 $( this ).removeClass( 'autocompleteSelected' );
-                if ( currentAutocompleteItem == lastSelectedAutocompleteItem - 1 ) {
+                if ( currentAutocompleteItem == lastSelectedAutocompleteItem - 2 ) {
                     $( this ).addClass( 'autocompleteSelected' );
                     lastSelectedAutocompleteItem = lastSelectedAutocompleteItem - 1;
                     $( '#mainSearchInput' ).val( $( this ).html() );
@@ -1459,6 +1464,11 @@ $( document ).ready( function () {
         } else if ( event.keyCode === 40 ) { // Down
             event.stopPropagation();
             event.preventDefault();
+
+            if ( lastSelectedAutocompleteItem > 6 ) {
+                lastSelectedAutocompleteItem = 5;
+                return false;
+            }
 
             currentAutocompleteItem = 0;
             $( '.youtubeAutocompleteItem' ).each( function () {
