@@ -1520,8 +1520,12 @@ $( document ).ready( function () {
 
     function getVideoDurationsFromYoutube( searchYoutubeResult ) {
         listOfVideoIds = [];
+        index = 1;
         searchYoutubeResult.items.forEach( function ( item ) {
-            listOfVideoIds.push( item.id.videoId );
+            if ( index <= 50 ) {
+                listOfVideoIds.push( item.id.videoId );
+            }
+            index++;
         } );
         listOfVideoIds = listOfVideoIds.join( ',' );
 
