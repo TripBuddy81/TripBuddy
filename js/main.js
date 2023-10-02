@@ -37,7 +37,7 @@ $( document ).ready( function () {
     var youtubeApiKeyInUse = 1;
     var youtubeCurrentQueue = [];
     var youtubePlayerState = 'undefined';
-    var youtubeIntitalSearchTerm = 'Psybass';
+    var youtubeIntitalSearchTerm = 'Psychill';
     var lastSelectedAutocompleteItem = 0;
     var currentAutocompleteItem = 0;
 
@@ -1741,7 +1741,4 @@ $( document ).ready( function () {
     } else {
         $( '#showVideoSection' ).trigger( 'click' );
     }
-
-    /*    isFullScreen = false;*/
-
 } );
