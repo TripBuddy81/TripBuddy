@@ -888,18 +888,18 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .enableVideoFullscreenIcon2, .disableVideoFullscreenIcon2 {
-    height: 50px;
-    width: 50px;
+    height: 55px;
+    width: 55px;
     position: absolute;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     display: none;
-    background-color: black;
+    background-color:rgba(0, 0, 0, 0.5);
     bottom: 0px;
     right: 0px;
 }
 
 .disableVideoFullscreenIcon2 {
-    right: -10px;
+    right: -17px;
 }
 
 .imageSlideshowControls {
