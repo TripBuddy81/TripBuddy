@@ -62,7 +62,7 @@ $( document ).ready( function () {
         config['oAuthSpotify'][0]['client_secret'] = 'f8264dee44854a8db43f297156d33668';
     }
 
-    // Init fastmode to true if not specifid otherwise
+    // Init fastmode to true if not specified otherwise
     if ( localStorage.getItem( 'fastModeSetting' ) == undefined ) {
         localStorage.setItem( 'fastModeSetting', 'true' );
     }
@@ -1733,9 +1733,6 @@ $( document ).ready( function () {
     // init initial view
     // FAST MODE - loads videos later on demand
     if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
-        $( '.videoContainer' ).each( function () {
-            $( this ).hide();
-        } );
         $( '#trippy-3Dfilter' ).trigger( 'click' );
         $( '#searchSymbol' ).trigger( 'click' );
     } else {
