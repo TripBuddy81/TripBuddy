@@ -1731,27 +1731,17 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    $( '#videos' ).show();
-    $( '#images' ).hide();
-    $( '#shrine' ).hide();
-    $( '#games' ).hide();
-    $( '#search' ).hide();
-    isFullScreen = false;
-
     // FAST MODE - loads videos later on demand
-    /*    if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
-            $( '.videoContainer' ).each( function () {
-                $( this ).hide();
-            } );
-            $( '#trippy-3Dfilter' ).trigger( 'click' );
-        }*/
+    if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
+        $( '.videoContainer' ).each( function () {
+            $( this ).hide();
+        } );
+        $( '#trippy-3Dfilter' ).trigger( 'click' );
+        $( '#searchSymbol' ).trigger( 'click' );
+    } else {
+        $( '#showVideoSection' ).trigger( 'click' );
+    }
 
-    // Some Debug settings ...  to be deleted at some point
-    $( '#videos' ).hide();
-    $( '#images' ).hide();
-    $( '#shrine' ).hide();
-    $( '#games' ).hide();
-    $( '#search' ).show();
-    $( '#mainMenu' ).show();
+    /*    isFullScreen = false;*/
 
 } );

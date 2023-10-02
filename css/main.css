@@ -178,6 +178,10 @@ p {
     background-color: #d6eadf;
 }
 
+#videos, #images, #shrine, #games, #search {
+    display: none;
+}
+
 .iFrameContainer {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     z-index: 1;
