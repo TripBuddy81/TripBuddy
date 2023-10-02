@@ -130,6 +130,7 @@ $( document ).ready( function () {
 
     // ***********************************
     // Main Menu
+    $( '.XXX' ).hide();
     $( '#mainMenu' ).hover(
             function ( event ) {
                 if ( $( '#mainMenu' ).attr( 'style' ) == 'opacity:0' ) {
@@ -142,7 +143,6 @@ $( document ).ready( function () {
             }, function () {
             }
     );
-
     $( '#showVideoSection' ).click( function () {
         $( '#videos' ).show();
         $( '#images' ).hide();
@@ -243,6 +243,7 @@ $( document ).ready( function () {
         } );
 
         $( '#mainSearchInput' ).focus().val( '' );
+        searchYoutubeAutocomplete( $( this ).html() );
 
         enableFullscreen();
         refreshGradientBackground();
@@ -253,13 +254,21 @@ $( document ).ready( function () {
     } );
 
     // ******************************************
-    // Enable hidden menue
-    $( '.XXX' ).hide();
+    // Global key captures
     $( document ).keydown( function ( e ) {
+
+        // Enable hidden menue
         keyCache[e.which] = true;
         if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
             toggleXXXVisible();
         }
+
+        // Allow direct typing in search if search is visible
+        if ( $( '#search' ).is( ':visible' ) ) {
+            $( '#mainSearchInput' ).focus();
+            enableFullscreen();
+        }
+
     } );
     $( document ).keyup( function ( e ) {
         delete keyCache[e.which];
@@ -1391,6 +1400,7 @@ $( document ).ready( function () {
         searchYoutube( $( this ).html() );
         searchYoutubeAutocomplete( $( this ).html() );
     } );
+
 
     $( '#mainSearchInput' ).keydown( function ( event ) {
         enableFullscreen();
