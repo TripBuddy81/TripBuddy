@@ -24,7 +24,6 @@ const SHUFFLE = 'https://api.spotify.com/v1/me/player/shuffle';
 const REPEAT = 'https://api.spotify.com/v1/me/player/repeat';
 const SEARCH = 'https://api.spotify.com/v1/search';
 
-
 function spotifyInitOnPageLoad() {
     if ( window.location.search.length > 0 ) {
         handleRedirect();
@@ -283,21 +282,19 @@ function currentlyPlaying() {
     callApi( 'GET', PLAYER + '?market=US', null, handleCurrentlyPlayingResponse );
 }
 
-function getPlaylist( playlistID ) {
-    callApi( 'GET', 'https://api.spotify.com/v1/playlists/' + playlistID, null, handleCurrentPlaylistResponse );
+function getPlaylist( playlistNameRef ) {
+    callApi( 'GET', playlistNameRef, null, handleCurrentPlaylistResponse );
 }
 
 function handleCurrentlyPlayingResponse() {
     try {
         var data = JSON.parse( this.responseText );
-        var playlistID = data['context']['external_urls']['spotify'];
-        playlistID = playlistID.replace( 'https://open.spotify.com/playlist/', '' );
-        lastSelectedPlaylist = 'spotify:playlist:' + playlistID;
+        var playlistNameRef = data['context']['href'];
 
-        if ( lastPlaylistId != playlistID ) {
-            getPlaylist( playlistID );
+        if ( lastPlaylistId != playlistNameRef ) {
+            getPlaylist( playlistNameRef );
         }
-        lastPlaylistId = playlistID;
+        lastPlaylistId = playlistNameRef;
 
         if ( data['is_playing'] ) {
             playingTrack = true;
@@ -311,8 +308,11 @@ function handleCurrentlyPlayingResponse() {
 
 function handleCurrentPlaylistResponse() {
     var data = JSON.parse( this.responseText );
-    $( '#playlists > option:first-child' ).text( data['name'] );
-
+    if ( this.status == 200 ) {
+        $( '#playlists > option:first-child' ).text( data['name'] );
+    } else {
+        $( '#playlists > option:first-child' ).text( 'Select Playlist' );
+    }
 }
 
 function searchSpotify( searchTerm, type = 'track' ) {
