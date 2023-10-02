@@ -1317,8 +1317,9 @@ video::-webkit-media-controls-fullscreen-button {
 
 .youtubeAutocompleteItem {
     font-size: 20px;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
-.autocompleteSelected {
+.autocompleteSelected, .youtubeAutocompleteItem:hover {
     font-weight: 800;
 }

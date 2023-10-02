@@ -1386,6 +1386,12 @@ $( document ).ready( function () {
         enableFullscreen();
     } );
 
+    $( document ).on( 'click', '.youtubeAutocompleteItem', function ( e ) {
+        $( '#mainSearchInput' ).val( $( this ).html() );
+        searchYoutube( $( this ).html() );
+        searchYoutubeAutocomplete( $( this ).html() );
+    } );
+
     $( '#mainSearchInput' ).keydown( function ( event ) {
         enableFullscreen();
 
