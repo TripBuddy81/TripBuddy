@@ -1731,7 +1731,6 @@ $( document ).ready( function () {
 
     // ******************************************
     // init initial view
-    // FAST MODE - loads videos later on demand
     if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
         $( '#trippy-3Dfilter' ).trigger( 'click' );
         $( '#searchSymbol' ).trigger( 'click' );
