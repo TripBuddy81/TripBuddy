@@ -1243,7 +1243,6 @@ video::-webkit-media-controls-fullscreen-button {
     height: 180px;
     display: block;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    margin-bottom: 4px;
 }
 
 .youtubeResultItemDescription, .youtubeQueueItemDescription {
@@ -1253,6 +1252,8 @@ video::-webkit-media-controls-fullscreen-button {
     min-height: 50px;
     font-size: 17px;
     font-weight: 600;
+    padding-top: 5px;
+    width: 240px;
 }
 
 #openVideoOnYouTube {
