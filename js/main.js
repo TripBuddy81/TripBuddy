@@ -38,6 +38,8 @@ $( document ).ready( function () {
     var youtubeCurrentQueue = [];
     var youtubePlayerState = 'undefined';
     var youtubeIntitalSearchTerm = 'Psybass';
+    var lastSelectedAutocompleteItem = 0;
+    var currentAutocompleteItem = 0;
 
     Object.assign( config, optionalConfig );
 
@@ -1428,10 +1430,53 @@ $( document ).ready( function () {
     } );
 
     $( '#mainSearchInput' ).keyup( function ( event ) {
-        if ( event.keyCode === 13 ) {
-            searchYoutube( $( this ).val() );
-        }
         enableFullscreen();
+
+        if ( event.keyCode === 13 ) { // Enter
+            currentAutocompleteItem = 0;
+            lastSelectedAutocompleteItem = 0;
+            searchYoutube( $( this ).val() );
+            searchYoutubeAutocomplete( $( this ).val() );
+        } else if ( event.keyCode === 38 ) { // Up
+            event.stopPropagation();
+            event.preventDefault();
+
+            currentAutocompleteItem = 0;
+            if ( lastSelectedAutocompleteItem < 0 ) {
+                lastSelectedAutocompleteItem = 0;
+                return false;
+            }
+            $( '.youtubeAutocompleteItem' ).each( function () {
+                $( this ).removeClass( 'autocompleteSelected' );
+                if ( currentAutocompleteItem == lastSelectedAutocompleteItem - 1 ) {
+                    $( this ).addClass( 'autocompleteSelected' );
+                    lastSelectedAutocompleteItem = lastSelectedAutocompleteItem - 1;
+                    $( '#mainSearchInput' ).val( $( this ).html() );
+                }
+                currentAutocompleteItem++;
+            } );
+            return;
+        } else if ( event.keyCode === 40 ) { // Down
+            event.stopPropagation();
+            event.preventDefault();
+
+            currentAutocompleteItem = 0;
+            $( '.youtubeAutocompleteItem' ).each( function () {
+                $( this ).removeClass( 'autocompleteSelected' );
+                if ( currentAutocompleteItem == lastSelectedAutocompleteItem ) {
+                    $( this ).addClass( 'autocompleteSelected' );
+                    lastSelectedAutocompleteItem = currentAutocompleteItem + 1;
+                    $( '#mainSearchInput' ).val( $( this ).html() );
+                    return false;
+                }
+                currentAutocompleteItem++;
+            } );
+            return;
+        } else {
+            currentAutocompleteItem = 0;
+            lastSelectedAutocompleteItem = 0;
+            searchYoutubeAutocomplete( $( this ).val() );
+        }
     } );
 
     $( '#clearMainSearchInput' ).click( function ( event ) {
@@ -1514,6 +1559,35 @@ $( document ).ready( function () {
             },
             error  : function ( response ) {
                 displayYoutubeSearchResults( searchYoutubeResult );
+            }
+        } );
+    }
+
+    function searchYoutubeAutocomplete( searchTerm ) {
+        $.ajax( {
+            type    : 'GET',
+            url     : 'https://suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=' + searchTerm,
+            dataType: 'jsonp',
+            success : function ( data ) {
+                displayYoutubeAutocompleteSuggestions( data );
+            },
+            error   : function ( data ) {
+            }
+        } );
+    }
+
+    function displayYoutubeAutocompleteSuggestions( data ) {
+        $( '#mainSearchAutocompleteSuggestions' ).empty();
+        index = 1;
+        data[1].forEach( function ( item ) {
+            if ( index <= 6 ) {
+                let youtubeAutocompleteItem = document.createElement( 'div' );
+                youtubeAutocompleteItem.classList.add( 'youtubeAutocompleteItem' );
+                youtubeAutocompleteItem.innerHTML = item[0];
+                document.getElementById( 'mainSearchAutocompleteSuggestions' ).appendChild( youtubeAutocompleteItem );
+                index++;
+            } else {
+                return false;
             }
         } );
     }
@@ -1676,19 +1750,19 @@ $( document ).ready( function () {
     isFullScreen = false;
 
     // FAST MODE - loads videos later on demand
-    if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
-        $( '.videoContainer' ).each( function () {
-            $( this ).hide();
-        } );
-        $( '#trippy-3Dfilter' ).trigger( 'click' );
-    }
+    /*    if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
+            $( '.videoContainer' ).each( function () {
+                $( this ).hide();
+            } );
+            $( '#trippy-3Dfilter' ).trigger( 'click' );
+        }*/
 
     // Some Debug settings ...  to be deleted at some point
-    /*    $( '#videos' ).hide();
-        $( '#images' ).hide();
-        $( '#shrine' ).hide();
-        $( '#games' ).hide();
-        $( '#search' ).show();
-        $( '#mainMenu' ).show();*/
+    $( '#videos' ).hide();
+    $( '#images' ).hide();
+    $( '#shrine' ).hide();
+    $( '#games' ).hide();
+    $( '#search' ).show();
+    $( '#mainMenu' ).show();
 
 } );
