@@ -1432,11 +1432,6 @@ $( document ).ready( function () {
     $( '#mainSearchInput' ).keydown( function ( event ) {
         enableFullscreen();
 
-        if ( event.keyCode === 38 || event.keyCode === 40 ) {
-            event.stopPropagation();
-            event.preventDefault();
-        }
-
         if ( event.keyCode === 13 ) { // Enter
             currentAutocompleteItem = 0;
             lastSelectedAutocompleteItem = 0;
@@ -1447,7 +1442,7 @@ $( document ).ready( function () {
             event.preventDefault();
 
             currentAutocompleteItem = 0;
-            if ( lastSelectedAutocompleteItem < 1 ) {
+            if ( lastSelectedAutocompleteItem <= 1 ) {
                 lastSelectedAutocompleteItem = 1;
                 return false;
             }
@@ -1465,8 +1460,8 @@ $( document ).ready( function () {
             event.stopPropagation();
             event.preventDefault();
 
-            if ( lastSelectedAutocompleteItem > 6 ) {
-                lastSelectedAutocompleteItem = 5;
+            if ( lastSelectedAutocompleteItem >= 6 ) {
+                lastSelectedAutocompleteItem = 6;
                 return false;
             }
 
