@@ -1245,6 +1245,7 @@ $( document ).ready( function () {
             repeat();
             spotifyPlay( lastSelectedPlaylist );
             youtubePlayer.stopVideo();
+            enableFullscreen();
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
