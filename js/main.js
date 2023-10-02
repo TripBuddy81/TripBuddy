@@ -62,7 +62,7 @@ $( document ).ready( function () {
 
     // Init fastmode to true if not specifid otherwise
     if ( localStorage.getItem( 'fastModeSetting' ) == undefined ) {
-        localStorage.setItem( 'fastModeSetting', 'false' );
+        localStorage.setItem( 'fastModeSetting', 'true' );
     }
 
     // If fast mode is inactive, enable all vidoes
@@ -1678,19 +1678,19 @@ $( document ).ready( function () {
         $( '#search' ).hide();
         isFullScreen = false;
     } else { // FAST MODE - loads videos later on demand
-        $( '#videos' ).hide();
+        $( '#videos' ).show();
         $( '#images' ).hide();
-        $( '#shrine' ).show();
+        $( '#shrine' ).hide();
         $( '#games' ).hide();
         $( '#search' ).hide();
-        $( '#showShrineSection' ).trigger( 'click' );
         $( '.videoContainer' ).each( function () {
             $( this ).hide();
         } );
-        $( '#mainMenu' ).hide();
+        $( '#trippy-2Dfilter' ).trigger( 'click' );
         isFullScreen = false;
     }
 
+    // Some Debug settings ...  to be deleted at some point
     /*    $( '#videos' ).hide();
         $( '#images' ).hide();
         $( '#shrine' ).hide();
