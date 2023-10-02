@@ -1405,7 +1405,10 @@ $( document ).ready( function () {
     $( '#mainSearchInput' ).keydown( function ( event ) {
         enableFullscreen();
 
-        if ( event.keyCode === 13 ) { // Enter
+        if ( event.keyCode === 13 || event.keyCode === 9 ) { // Enter or Tab
+            event.stopPropagation();
+            event.preventDefault();
+
             currentAutocompleteItem = 0;
             lastSelectedAutocompleteItem = 0;
             searchYoutube( $( this ).val() );
