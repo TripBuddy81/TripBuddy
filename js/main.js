@@ -704,7 +704,6 @@ $( document ).ready( function () {
         event.stopPropagation();
     } )
 
-
     // ***********************************
     // Video section
     $( '.videoFilterBtn' ).click( function () {

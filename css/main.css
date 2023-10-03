@@ -1005,6 +1005,7 @@ video::-webkit-media-controls-fullscreen-button {
     text-align: center;
     cursor: none;
     pointer-events: none;
+    display: none;
 }
 
 #absoluteTruthsOverlayContainer {
