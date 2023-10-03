@@ -1487,6 +1487,7 @@ $( document ).ready( function () {
         videoItem.id = $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' );
         videoItem.description = $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemDescription' ).html();
         videoItem.img = $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'src' );
+        videoItem.duration = $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeItemDuration' ).html();
         playSpecificYoutubeVideo( videoItem );
         enableFullscreen();
     } );
@@ -1635,7 +1636,7 @@ $( document ).ready( function () {
 
         searchYoutubeResult.items.forEach( function ( item ) {
             let youtubeResult = document.createElement( 'span' );
-            youtubeResult.id = typeof item.id == "string" ? item.id : item.id.videoId;
+            youtubeResult.id = typeof item.id == 'string' ? item.id : item.id.videoId;
             youtubeResult.classList.add( 'youtubeResult' );
             document.getElementById( 'youtubeResults' ).appendChild( youtubeResult );
 
@@ -1648,6 +1649,14 @@ $( document ).ready( function () {
             youtubeResultDescription.innerHTML = typeof item.description !== 'undefined' ? item.description : item.snippet.title;
             youtubeResultDescription.classList.add( 'youtubeResultItemDescription' );
             youtubeResult.appendChild( youtubeResultDescription );
+
+            if ( typeof item.duration !== 'undefined' ) {
+                duration = convertYoutubeTime( item.duration );
+                let videoDuration = document.createElement( 'span' );
+                videoDuration.innerHTML = duration;
+                videoDuration.classList.add( 'youtubeItemDuration' );
+                document.getElementById( item.id ).appendChild( videoDuration );
+            }
         } );
 
         if ( getVideoDurationsFromYoutubeResult != '' ) {
@@ -1749,11 +1758,11 @@ $( document ).ready( function () {
         };
 
         youtubeHistory['items'] = JSON.parse( localStorage.getItem( 'youtubeHistory' ) ) || [];
-        youtubeHistory['items'].push( {
+        youtubeHistory['items'].unshift( {
             'id'         : videoItem.id,
             'description': videoItem.description,
-            'img'        : videoItem.img
-            /*            'duration'                   : videoItem.duration*/
+            'img'        : videoItem.img,
+            'duration'   : videoItem.duration
         } );
         localStorage.setItem( 'youtubeHistory', JSON.stringify( youtubeHistory['items'] ) );
     }
