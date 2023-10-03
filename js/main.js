@@ -699,7 +699,8 @@ $( document ).ready( function () {
     $( '#showYoutubePlayedHistory' ).click( function ( event ) {
         var history = {'items': []};
         history['items'] = JSON.parse( localStorage.getItem( 'youtubeHistory' ) );
-        displayYoutubeSearchResultsOrHistory( history );
+        displayYoutubeSearchResultsOrHistory( history, '', true );
+        searchYoutubeAutocomplete( '' );
     } )
     $( '#clearYoutubePlayedHistory' ).click( function ( event ) {
         localStorage.setItem( 'youtubeHistory', JSON.stringify( '' ) );
@@ -1631,7 +1632,7 @@ $( document ).ready( function () {
         }
     }
 
-    function displayYoutubeSearchResultsOrHistory( searchYoutubeResult, getVideoDurationsFromYoutubeResult = '' ) {
+    function displayYoutubeSearchResultsOrHistory( searchYoutubeResult, getVideoDurationsFromYoutubeResult = '', isHistory = false ) {
         $( '#youtubeResults' ).empty();
 
         searchYoutubeResult.items.forEach( function ( item ) {

@@ -94,6 +94,7 @@
                     <li class="menuItem" id="fastMode">Fast mode - load videos
                         on demand <span id="fastModeSetting">(off)</span>
                     </li>
+                    <!--<li><span id="clearYoutubePlayedHistory">Clear Youtube history</span></li>-->
                 </ul>
             </div>
         </div>
@@ -341,7 +342,8 @@
             <div class="videoContainer XXX" id="searchBar">
                 <label class="searchLabel form-check-label me-2" for="searchInput">Search: </label>
                 <input type="text" class="me-2" id="searchInput" name="searchInput" value=""
-                       placeholder="enter search text here!" data-trigger-keyboard="true" autocomplete="off" spellcheck="false">
+                       placeholder="enter search text here!" data-trigger-keyboard="true" autocomplete="off"
+                       spellcheck="false">
                 <label class="searchLabel form-check-label me-2" for="searchInput">--></label>
 
                 {{#searchEngines}}
@@ -564,9 +566,7 @@
 
 
         <span id="currentYoutubeQueue"></span>
-
-        <span id="youtubeResults">
-        </span>
+        <span id="youtubeResults"></span>
     </div>
 
 </script>
