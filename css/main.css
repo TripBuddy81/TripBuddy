@@ -1169,6 +1169,16 @@ video::-webkit-media-controls-fullscreen-button {
     top: 720px;
 }
 
+#showYoutubePlayedHistory {
+    position: fixed;
+    left: 330px;
+    height: 40px;
+    top: 718px;
+    width: 50px;
+    opacity: 0.5;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
 #mainSearchInput, #mainSearchInput:focus, #mainSearchInput:active {
     padding-left: 10px;
     font-weight: bold;

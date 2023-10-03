@@ -697,7 +697,9 @@ $( document ).ready( function () {
     // ******************************************
     // Show Youtube played history
     $( '#showYoutubePlayedHistory' ).click( function ( event ) {
-        showYoutubeHistory();
+        var history = {'items': []};
+        history['items'] = JSON.parse( localStorage.getItem( 'youtubeHistory' ) );
+        displayYoutubeSearchResultsOrHistory( history );
     } )
     $( '#clearYoutubePlayedHistory' ).click( function ( event ) {
         localStorage.setItem( 'youtubeHistory', JSON.stringify( '' ) );
@@ -1554,10 +1556,10 @@ $( document ).ready( function () {
                 id  : listOfVideoIds
             },
             success: function ( getVideoDurationsFromYoutubeResult ) {
-                displayYoutubeSearchResults( searchYoutubeResult, getVideoDurationsFromYoutubeResult );
+                displayYoutubeSearchResultsOrHistory( searchYoutubeResult, getVideoDurationsFromYoutubeResult );
             },
             error  : function ( response ) {
-                displayYoutubeSearchResults( searchYoutubeResult );
+                displayYoutubeSearchResultsOrHistory( searchYoutubeResult );
             }
         } );
     }
@@ -1628,22 +1630,22 @@ $( document ).ready( function () {
         }
     }
 
-    function displayYoutubeSearchResults( searchYoutubeResult, getVideoDurationsFromYoutubeResult = '' ) {
+    function displayYoutubeSearchResultsOrHistory( searchYoutubeResult, getVideoDurationsFromYoutubeResult = '' ) {
         $( '#youtubeResults' ).empty();
 
         searchYoutubeResult.items.forEach( function ( item ) {
             let youtubeResult = document.createElement( 'span' );
-            youtubeResult.id = item.id.videoId;
+            youtubeResult.id = typeof item.id == "string" ? item.id : item.id.videoId;
             youtubeResult.classList.add( 'youtubeResult' );
             document.getElementById( 'youtubeResults' ).appendChild( youtubeResult );
 
             let youtubeResultItemImage = document.createElement( 'img' );
-            youtubeResultItemImage.src = item.snippet.thumbnails.high.url;
+            youtubeResultItemImage.src = typeof item.img !== 'undefined' ? item.img : item.snippet.thumbnails.high.url;
             youtubeResultItemImage.classList.add( 'youtubeResultItemImage' );
             youtubeResult.appendChild( youtubeResultItemImage );
 
             let youtubeResultDescription = document.createElement( 'span' );
-            youtubeResultDescription.innerHTML = item.snippet.title;
+            youtubeResultDescription.innerHTML = typeof item.description !== 'undefined' ? item.description : item.snippet.title;
             youtubeResultDescription.classList.add( 'youtubeResultItemDescription' );
             youtubeResult.appendChild( youtubeResultDescription );
         } );
@@ -1742,24 +1744,18 @@ $( document ).ready( function () {
     }
 
     function addVideoToHistory( videoItem ) {
-        var youtubeHistory = JSON.parse( localStorage.getItem( 'youtubeHistory' ) ) || [];
-        youtubeHistory.push( {
+        var youtubeHistory = {
+            'items': []
+        };
+
+        youtubeHistory['items'] = JSON.parse( localStorage.getItem( 'youtubeHistory' ) ) || [];
+        youtubeHistory['items'].push( {
             'id'         : videoItem.id,
             'description': videoItem.description,
             'img'        : videoItem.img
+            /*            'duration'                   : videoItem.duration*/
         } );
-        localStorage.setItem( 'youtubeHistory', JSON.stringify( youtubeHistory ) );
-    }
-
-    function showYoutubeHistory() {
-        playedVideos = JSON.parse( localStorage.getItem( 'youtubeHistory' ) );
-        var html = '<h1>Youtube played history</h1>';
-        jQuery.each( playedVideos, function ( i, val ) {
-            html += '<img src="' + val.img + '"><a href="https://www.youtube.com/watch?v=' + val.id + '">' + val.description + '</a><br>';
-        } );
-
-        var w = window.open();
-        $( w.document.body ).html( html );
+        localStorage.setItem( 'youtubeHistory', JSON.stringify( youtubeHistory['items'] ) );
     }
 
     // END Search section

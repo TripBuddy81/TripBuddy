@@ -79,12 +79,16 @@ var config = {
             'id'   : '5oJ4jtBbf0y2ULYTJdcrHK'
         },
         {
+            'label': 'Chillout',
+            'id'   : '7rDDQh788CX392cb9oWSL7'
+        },
+        {
             'label': 'Psybass',
             'id'   : '0O1C7wbOthIxBbai9pYvEH'
         },
         {
             'label': 'Progressive Psy',
-            'id'   : '0ZVlYhZpCUkjZZ04pdKx8O'
+            'id'   : '5RYT8fTg6Pq9JrS0lcG12p'
         },
         {
             'label': 'Wonderland',
