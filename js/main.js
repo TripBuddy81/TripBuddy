@@ -698,7 +698,7 @@ $( document ).ready( function () {
     // Show Youtube played history
     $( '#showYoutubePlayedHistory' ).click( function ( event ) {
         var history = {'items': []};
-        history['items'] = JSON.parse( localStorage.getItem( 'youtubeHistory' ) );
+        history['items'] = JSON.parse( localStorage.getItem( 'youtubeHistory' ) ) || [];
         displayYoutubeSearchResultsOrHistory( history );
         searchYoutubeAutocomplete( '' );
     } )
