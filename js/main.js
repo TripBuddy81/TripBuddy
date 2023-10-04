@@ -1717,14 +1717,17 @@ $( document ).ready( function () {
 
     function removeIdFromYoutubeQueue( videoId ) {
         tempYoutubeCurrentQueue = [];
+        var videoIdCount = 0;
         $.each( youtubeCurrentQueue, function ( key, value ) {
-            if ( value.id != videoId ) {
+            if ( value.id != videoId || videoIdCount > 0 ) {
                 tempYoutubeCurrentQueue.push( {
                     'id'         : value.id,
                     'img'        : value.img,
                     'description': value.description,
                     'duration'   : value.duration
                 } );
+            } else {
+                videoIdCount++;
             }
         } );
         youtubeCurrentQueue = tempYoutubeCurrentQueue;
