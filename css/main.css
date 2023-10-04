@@ -612,12 +612,12 @@ option {
 #spotifyPlaylistsMenu {
     position: fixed;
     top: 75px;
-    left: 900px;
+    left: 687px;
     background: black;
     font-size: 30px;
     color: white;
-    width: 800px;
-    padding: 25px;
+    width: 1000px;
+    padding: 10px 15px;
     display: none;
 }
 

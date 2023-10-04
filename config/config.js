@@ -33,72 +33,82 @@ var config = {
         {'checklistItem': 'Something to eat set aside'},
         {'checklistItem': 'Backpack for outside? (Water, Tissues, something to eat)'}
     ],
-    'playlists'          : [
-        {
-            'label': 'Soft/Peak',
-            'id'   : '4ILChY5F4Hn08ikt0rfHhW'
-        },
-        {
-            'label': 'Lofi Sleep',
-            'id'   : '37i9dQZF1DX2PQDq3PdrHQ'
-        },
-        {
-            'label': 'Lofi Favorites',
-            'id'   : '4ktxEZYVOky9D6eBKrmZ4g'
-        },
-        {
-            'label': 'Celtic',
-            'id'   : '7IMTMDqc2NIzovRgtC1Imq'
-        },
-        {
-            'label': 'Rock',
-            'id'   : '1J2Q32HV4PbVhlhNTensBV'
-        },
-        {
-            'label': 'Cash meets Tarantino',
-            'id'   : '6JFcprqODBhUDXLoiecO21'
-        },
-        {
-            'label': 'Lucid Planet',
-            'id'   : '3SgSFL3J8lrmbDkUoUh46m'
-        },
-        {
-            'label': 'Tool',
-            'id'   : '54c657PnbEgWUJt7biWHtO'
-        },
-        {
-            'label': 'Soultrip',
-            'id'   : '0N1qMBk7vfvADy2odM1iG1'
-        },
-        {
-            'label': 'Ghetto Blaster Cowboy',
-            'id'   : '6RiLcbvU8CrNO7XsxcJmnE'
-        },
-        {
-            'label': 'Tokyo Glitter',
-            'id'   : '5oJ4jtBbf0y2ULYTJdcrHK'
-        },
-        {
-            'label': 'Chillout',
-            'id'   : '7rDDQh788CX392cb9oWSL7'
-        },
-        {
-            'label': 'Psybass',
-            'id'   : '0O1C7wbOthIxBbai9pYvEH'
-        },
-        {
-            'label': 'Progressive Psy',
-            'id'   : '5RYT8fTg6Pq9JrS0lcG12p'
-        },
-        {
-            'label': 'Wonderland',
-            'id'   : '4IXAhGiDhuzPz2VQjTDTSy'
-        },
-        {
-            'label': 'Force',
-            'id'   : '6fB9PJQ7Hy8SDvcRmBeKwr'
-        }
-    ],
+    'playlists'         : {
+        'green': [
+            {
+                'label': 'Soft/Peak',
+                'id'   : '4ILChY5F4Hn08ikt0rfHhW'
+            },
+            {
+                'label': 'Meditation',
+                'id'   : '3ogKJHz0eQMVe9rouV12Zj'
+            },
+            {
+                'label': 'Lofi Sleep',
+                'id'   : '37i9dQZF1DX2PQDq3PdrHQ'
+            },
+            {
+                'label': 'Lofi Favorites',
+                'id'   : '4ktxEZYVOky9D6eBKrmZ4g'
+            },
+            {
+                'label': 'Soultrip',
+                'id'   : '0N1qMBk7vfvADy2odM1iG1'
+            },
+            {
+                'label': 'Ghetto Blaster Cowboy',
+                'id'   : '6RiLcbvU8CrNO7XsxcJmnE'
+            },
+            {
+                'label': 'Tokyo Glitter',
+                'id'   : '5oJ4jtBbf0y2ULYTJdcrHK'
+            },
+            {
+                'label': 'Chillout',
+                'id'   : '7rDDQh788CX392cb9oWSL7'
+            },
+            {
+                'label': 'Psybass',
+                'id'   : '0O1C7wbOthIxBbai9pYvEH'
+            },
+        ],
+        'blue': [
+            {
+                'label': 'Celtic',
+                'id'   : '7IMTMDqc2NIzovRgtC1Imq'
+            },
+            {
+                'label': 'Rock',
+                'id'   : '1J2Q32HV4PbVhlhNTensBV'
+            },
+            {
+                'label': 'Cash meets Tarantino',
+                'id'   : '6JFcprqODBhUDXLoiecO21'
+            },
+            {
+                'label': 'Lucid Planet',
+                'id'   : '3SgSFL3J8lrmbDkUoUh46m'
+            },
+            {
+                'label': 'Tool',
+                'id'   : '54c657PnbEgWUJt7biWHtO'
+            }
+        ],
+        'red': [
+            {
+                'label': 'Progressive Psy',
+                'id'   : '5RYT8fTg6Pq9JrS0lcG12p'
+            },
+            {
+                'label': 'Wonderland',
+                'id'   : '4IXAhGiDhuzPz2VQjTDTSy'
+            },
+            {
+                'label': 'Force',
+                'id'   : '6fB9PJQ7Hy8SDvcRmBeKwr'
+            }
+        ]
+    },
     'selectableVideoTags': [
         {'selectableTag': 'trippy-2D'},
         {'selectableTag': 'trippy-3D'},

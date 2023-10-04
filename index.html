@@ -175,9 +175,26 @@
         </button>
 
         <div id="spotifyPlaylistsMenu">
-            {{#playlists}}
-            <div class="spotifyPlaylistItem" data-spotify-id="spotify:playlist:{{id}}">{{label}}</div>
-            {{/playlists}}
+            <div class="row">
+                <div class="col">
+                    {{#playlists.green}}
+                    <div class="spotifyPlaylistItem" data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    </div>
+                    {{/playlists.green}}
+                </div>
+                <div class="col">
+                    {{#playlists.blue}}
+                    <div class="spotifyPlaylistItem" data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    </div>
+                    {{/playlists.blue}}
+                </div>
+                <div class="col">
+                    {{#playlists.red}}
+                    <div class="spotifyPlaylistItem" data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    </div>
+                    {{/playlists.red}}
+                </div>
+            </div>
         </div>
 
         <div id="iFrameSpotifyPlayerContainer" class="float-end ">
@@ -238,7 +255,8 @@
                                         <label class="form-check-label reminderLabel" for="topupCheckbox1">Top Up
                                             Shrooms after </label>
                                         <input class="form-check-input" type="checkbox" id="topupCheckbox1">
-                                        <input type="number" id="topupReminderInMinutes1" name="topupReminderInMinutes1"
+                                        <input type="number" id="topupReminderInMinutes1"
+                                               name="topupReminderInMinutes1"
                                                value="50" min="1" max="600">
                                         <span>minutes</span>
                                     </div>
@@ -246,7 +264,8 @@
                                         <label class="form-check-label reminderLabel" for="topupCheckbox2">Take Weed
                                             after </label>
                                         <input class="form-check-input" type="checkbox" id="topupCheckbox2">
-                                        <input type="number" id="topupReminderInMinutes2" name="topupReminderInMinutes2"
+                                        <input type="number" id="topupReminderInMinutes2"
+                                               name="topupReminderInMinutes2"
                                                value="60" min="1" max="600">
                                         <span>minutes</span>
                                     </div>
@@ -283,23 +302,27 @@
                                            value="" maxlength="40" autocomplete="off" spellcheck="false"> </br>
 
                                     <label class="firstGuidedThoughtMinLabel form-check-label me-2"
-                                           for="firstGuidedThoughtMin">Minutes till first thought appears at all</label>
+                                           for="firstGuidedThoughtMin">Minutes till first thought appears at
+                                        all</label>
                                     <input type="number" id="firstGuidedThoughtMin" name="firstGuidedThoughtMin"
                                            value="60" min="0" max="600">
 
                                     <label class="guidedThoughtMinutesLabel form-check-label me-2"
-                                           for="guidedThoughtMinMinutes">Min minutes till next thought appears</label>
+                                           for="guidedThoughtMinMinutes">Min minutes till next thought
+                                        appears</label>
                                     <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMinMinutes"
                                            name="guidedThoughtMinMinutes"
                                            value="15" min="1" max="60"> </br>
 
                                     <label class="guidedThoughtMinutesLabel form-check-label me-2"
-                                           for="guidedThoughtMaxMinutes">Max minutes till next thought appears</label>
+                                           for="guidedThoughtMaxMinutes">Max minutes till next thought
+                                        appears</label>
                                     <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMaxMinutes"
                                            name="guidedThoughtMaxMinutes"
                                            value="20" min="1" max="60">
 
-                                    <h3 class="mt-3">Reminder suggestions <span id="clearReminders">(clear all)</span>
+                                    <h3 class="mt-3">Reminder suggestions <span
+                                            id="clearReminders">(clear all)</span>
                                     </h3>
                                     {{#reminderSelection}}
                                     <span class="reminderSuggestion">{{reminder}}</span>
@@ -451,14 +474,16 @@
         </div>
         <div class="imageSlideshowControls videoMenuOverlay">
             <img id="startSlideshow" class="playerIcon me-4 ms-4" src="./assets/play.png">
-            <input class="float-end playerIcon me-4 ms-4" type="number" id="slideshowInterval" name="slideshowInterval"
+            <input class="float-end playerIcon me-4 ms-4" type="number" id="slideshowInterval"
+                   name="slideshowInterval"
                    min="10" max="300" value="60" step="10">
         </div>
 
         <div class="fullscreenImage XXX mt-4 mb-4" style="display:none;width: 100% !important;">
             <h1 class="cursorNormal">External Pics</h1>
             {{#externalPicLinks}}
-            <a class="xxxLink" href="{{link}}" target=_blank>{{name}}<img class="externalVideoPreview" src="{{thumb}}"></a>
+            <a class="xxxLink" href="{{link}}" target=_blank>{{name}}<img class="externalVideoPreview"
+                                                                          src="{{thumb}}"></a>
             {{/externalPicLinks}}
         </div>
     </div>
