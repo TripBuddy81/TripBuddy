@@ -607,19 +607,55 @@ option {
     margin-left: 10px;
     margin-right: 0px;
     text-align-last: center;
+    height: 60px;
+    overflow: hidden;
 }
 
 #spotifyPlaylistsMenu {
     position: fixed;
-    top: 75px;
-    left: 687px;
+    top: 85px;
+    left: 582px;
     background: black;
     font-size: 30px;
     color: white;
-    width: 1000px;
-    padding: 10px 15px;
+    width: 1100px;
+    padding: 5px 15px;
     display: none;
+    font-weight: 600;
 }
+
+.spotifyPlaylistsMenuContent {
+    background-color: black;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#spotifyPlaylistsMenuBorder {
+    position: initial;
+}
+
+.spotifyPlaylistsMenuBorderGradient {
+    --borderWidth: 5px;
+    background: #1D1F20;
+    position: relative;
+    border-radius: var(--borderWidth);
+}
+
+.spotifyPlaylistsMenuBorderGradient:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    animation: animatedgradient 3s ease alternate infinite;
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    background-size: 300% 300%;
+}
+
 
 .spotifyPlaylistItem {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
@@ -1223,14 +1259,14 @@ video::-webkit-media-controls-fullscreen-button {
     position: initial;
 }
 
-.gradient-border {
+.mainSearchInputBorderGradient {
     --borderWidth: 5px;
     background: #1D1F20;
     position: relative;
     border-radius: var(--borderWidth);
 }
 
-.gradient-border:after {
+.mainSearchInputBorderGradient:after {
     content: '';
     position: absolute;
     top: calc(-1 * var(--borderWidth));

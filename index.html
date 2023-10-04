@@ -175,7 +175,7 @@
         </button>
 
         <div id="spotifyPlaylistsMenu">
-            <div class="row">
+            <div class="row spotifyPlaylistsMenuContent">
                 <div class="col">
                     {{#playlists.green}}
                     <div class="spotifyPlaylistItem" data-spotify-id="spotify:playlist:{{id}}">{{label}}
@@ -195,6 +195,7 @@
                     {{/playlists.red}}
                 </div>
             </div>
+            <div class="spotifyPlaylistsMenuBorderGradient" id="spotifyPlaylistsMenuBorder"></div>
         </div>
 
         <div id="iFrameSpotifyPlayerContainer" class="float-end ">
@@ -586,7 +587,7 @@
             <input type="text" class="sharedBackground" id="mainSearchInput" name="mainSearchInput"
                    placeholder="search Youtube... " autocomplete="off" spellcheck="false">
             <img id="clearMainSearchInput" class="" src="./assets/x.png">
-            <div class="gradient-border" id="mainSearchInputBorder"></div>
+            <div class="mainSearchInputBorderGradient" id="mainSearchInputBorder"></div>
         </span>
         <img id="showYoutubePlayedHistory" class="" src="./assets/history.png">
         <span id="mainSearchAutocompleteSuggestions">
