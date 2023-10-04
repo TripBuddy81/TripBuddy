@@ -279,19 +279,18 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
 
 #menu {
     position: absolute;
-    top: -25px;
+    top: -30px;
     min-width: 591px;
     padding-bottom: 15px;
     right: -30px;
-    background: #ffffff;
+    background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b);
+    border-radius: 5px;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
     transform: translate(100%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    background: transparent;
     color: black;
-    border-radius: 5px;
     font-weight: 600;
 }
 
@@ -621,6 +620,8 @@ option {
     padding: 5px 15px;
     display: none;
     font-weight: 600;
+    background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055);
+    border-radius: 5px;
 }
 
 .spotifyPlaylistsMenuContent {
@@ -628,26 +629,6 @@ option {
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
-}
-
-.menuBorderGradient {
-    --borderWidth: 5px;
-    background: #1D1F20;
-    position: relative;
-    border-radius: var(--borderWidth);
-}
-
-.menuBorderGradient:after {
-    content: '';
-    position: absolute;
-    top: calc(-1 * var(--borderWidth));
-    left: calc(-1 * var(--borderWidth));
-    height: calc(100% + var(--borderWidth) * 2);
-    width: calc(100% + var(--borderWidth) * 2);
-    background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055, #f79533, #f79533, #f79533, #EF5553, #EF5553, #EF5553, #EF5553);
-    border-radius: calc(2 * var(--borderWidth));
-    z-index: -1;
-    background-size: 300% 300%;
 }
 
 .spotifyPlaylistItem {
@@ -1248,17 +1229,13 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .colorfulBorder {
+    --borderWidth: 5px;
+    background: #1D1F20;
+    border-radius: var(--borderWidth);
     position: initial !important;
 }
 
-.mainSearchInputBorderGradient {
-    --borderWidth: 5px;
-    background: #1D1F20;
-    position: relative;
-    border-radius: var(--borderWidth);
-}
-
-.mainSearchInputBorderGradient:after {
+.colorfulBorder:after {
     content: '';
     position: absolute;
     top: calc(-1 * var(--borderWidth));
@@ -1270,7 +1247,9 @@ video::-webkit-media-controls-fullscreen-button {
     border-radius: calc(2 * var(--borderWidth));
     z-index: -1;
     background-size: 300% 300%;
+
 }
+
 
 @keyframes animatedgradient {
     0% {
