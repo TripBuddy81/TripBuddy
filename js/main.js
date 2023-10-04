@@ -1265,7 +1265,6 @@ $( document ).ready( function () {
         }
 
         $( '.spotifyPlaylistItem' ).click( function () {
-            $( '#spotifyPlaylistsMenu' ).hide();
             lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
             $( '#spotifyPlaylists' ).html( '...' );
             openDesktopApp();

@@ -292,7 +292,7 @@ function handleCurrentlyPlayingResponse() {
         var playlistNameRef = data['context']['href'];
         lastSelectedPlaylist = data['context']['uri'];
 
-        if ( lastPlaylistId != playlistNameRef ) {
+        if ( lastPlaylistId != playlistNameRef || $( '#spotifyPlaylists' ).html() == '...' ) {
             getPlaylist( playlistNameRef );
         }
         lastPlaylistId = playlistNameRef;
