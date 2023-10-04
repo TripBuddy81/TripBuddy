@@ -611,8 +611,8 @@ option {
 
 #spotifyPlaylistsMenu {
     position: fixed;
-    top: -435px;
-    left: 582px;
+    top: 75px;
+    right: -1100px;
     background: black;
     font-size: 30px;
     color: black;
@@ -627,7 +627,7 @@ option {
 }
 
 .spotifyPlaylistsMenuTransition {
-    top: 75px !important;
+    right: 20px !important;
 }
 
 .spotifyPlaylistsMenuContent {
