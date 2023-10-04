@@ -616,7 +616,7 @@ option {
     left: 582px;
     background: black;
     font-size: 30px;
-    color: white;
+    color: black;
     width: 1100px;
     padding: 5px 15px;
     display: none;
@@ -624,7 +624,7 @@ option {
 }
 
 .spotifyPlaylistsMenuContent {
-    background-color: black;
+    background-color: transparent;
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -657,8 +657,7 @@ option {
 }
 
 .spotifyPlaylistItem:hover {
-    background-color: white;
-    color: black;
+    color: white;
 }
 
 #iFrameSpotifyPlayerContainer {
