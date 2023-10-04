@@ -290,6 +290,7 @@ function handleCurrentlyPlayingResponse() {
     try {
         var data = JSON.parse( this.responseText );
         var playlistNameRef = data['context']['href'];
+        lastSelectedPlaylist = data['context']['uri'];
 
         if ( lastPlaylistId != playlistNameRef ) {
             getPlaylist( playlistNameRef );
