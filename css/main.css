@@ -102,7 +102,7 @@ a:link, a:visited, a:active, a:hover, p {
 }
 
 a:hover {
-    color: #809bce;
+    color: white;
 }
 
 .xxxLink:hover, .searchLink:hover {
