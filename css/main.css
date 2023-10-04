@@ -279,17 +279,20 @@ p {
 
 #menu {
     position: absolute;
-    width: 650px;
-    margin: -100px 0 0 0;
-    padding: 25px;
-    padding-top: 48px;
-    right: -100px;
+    top: -25px;
+    min-width: 591px;
+    padding-bottom: 15px;
+    right: -30px;
     background: #ffffff;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
     transform: translate(100%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    background: transparent;
+    color: black;
+    border-radius: 5px;
+    font-weight: 600;
 }
 
 #menu li {
@@ -629,10 +632,6 @@ option {
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
-}
-
-#spotifyPlaylistsMenuBorder {
-    position: initial;
 }
 
 .spotifyPlaylistsMenuBorderGradient {
@@ -1255,8 +1254,8 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
-#mainSearchInputBorder {
-    position: initial;
+.colorfulBorder  {
+    position: initial !important;
 }
 
 .mainSearchInputBorderGradient {

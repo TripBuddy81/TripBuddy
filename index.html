@@ -95,8 +95,11 @@
                         on demand <span id="fastModeSetting">(off)</span>
                     </li>
                     <li><span class="menuItem" id="clearYoutubePlayedHistory">Clear Youtube history</span></li>
+                    <div class="spotifyPlaylistsMenuBorderGradient colorfulBorder"></div>
                 </ul>
+
             </div>
+
         </div>
 
         <img id="fullscreenIcon" class="toggleFullscreen float-end me-3 mt-3" src="./assets/disableFullscreen.png">
@@ -195,7 +198,7 @@
                     {{/playlists.red}}
                 </div>
             </div>
-            <div class="spotifyPlaylistsMenuBorderGradient" id="spotifyPlaylistsMenuBorder"></div>
+            <div class="spotifyPlaylistsMenuBorderGradient colorfulBorder"></div>
         </div>
 
         <div id="iFrameSpotifyPlayerContainer" class="float-end ">
@@ -587,12 +590,11 @@
             <input type="text" class="sharedBackground" id="mainSearchInput" name="mainSearchInput"
                    placeholder="search Youtube... " autocomplete="off" spellcheck="false">
             <img id="clearMainSearchInput" class="" src="./assets/x.png">
-            <div class="mainSearchInputBorderGradient" id="mainSearchInputBorder"></div>
+            <div class="mainSearchInputBorderGradient colorfulBorder"></div>
         </span>
         <img id="showYoutubePlayedHistory" class="" src="./assets/history.png">
         <span id="mainSearchAutocompleteSuggestions">
         </span>
-
 
         <span id="currentYoutubeQueue"></span>
         <span id="youtubeResults"></span>

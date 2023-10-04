@@ -1250,6 +1250,7 @@ $( document ).ready( function () {
         } );
 
         $( '#spotifyPlaylists' ).click( function () {
+            spotifyInitOnPageLoad();
             $( '#spotifyPlaylistsMenu' ).toggle();
         } );
 
