@@ -170,12 +170,15 @@
             </table>
         </div>
 
-        <select id="playlists" class="float-end mt-3 form-control">
-            <option data-spotify-id="" value="" disabled selected value>Select Playlist</option>
+        <button type="button" id="spotifyPlaylists" class="float-end mt-3 form-control">
+            Select Playlist
+        </button>
+
+        <div id="spotifyPlaylistsMenu">
             {{#playlists}}
-            <option data-spotify-id="spotify:playlist:{{id}}" value="spotify:playlist:{{id}}">{{label}}</option>
+            <div class="spotifyPlaylistItem" data-spotify-id="spotify:playlist:{{id}}">{{label}}</div>
             {{/playlists}}
-        </select>
+        </div>
 
         <div id="iFrameSpotifyPlayerContainer" class="float-end ">
             <div id="iFrameSpotifyPlayer"></div>

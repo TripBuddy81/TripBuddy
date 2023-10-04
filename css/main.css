@@ -593,7 +593,7 @@ option {
     margin-bottom: 20px;
 }
 
-#playlists {
+#spotifyPlaylists {
     position: relative;
     top: -7px;
     width: 260px;
@@ -607,6 +607,27 @@ option {
     margin-left: 10px;
     margin-right: 0px;
     text-align-last: center;
+}
+
+#spotifyPlaylistsMenu {
+    position: fixed;
+    top: 75px;
+    left: 900px;
+    background: black;
+    font-size: 30px;
+    color: white;
+    width: 800px;
+    padding: 25px;
+    display: none;
+}
+
+.spotifyPlaylistItem {
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+.spotifyPlaylistItem:hover {
+    background-color: white;
+    color: black;
 }
 
 #iFrameSpotifyPlayerContainer {
@@ -897,7 +918,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     display: none;
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     bottom: 0px;
     right: 0px;
 }

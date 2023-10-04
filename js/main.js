@@ -1249,10 +1249,14 @@ $( document ).ready( function () {
             youtubePlayer.stopVideo();
         } );
 
-        $( '#playlists' ).change( function () {
-            lastSelectedPlaylist = $( '#playlists' ).find( ':selected' ).val();
-            $( '#playlists > option:first-child' ).text( '...' );
-            $( '#playlists' ).prop( 'selectedIndex', 0 );
+        $( '#spotifyPlaylists' ).click( function () {
+            $( '#spotifyPlaylistsMenu' ).toggle();
+        } );
+
+        $( '.spotifyPlaylistItem' ).click( function () {
+            $( '#spotifyPlaylistsMenu' ).hide();
+            lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
+            $( '#spotifyPlaylists' ).html( '...' );
             openDesktopApp();
             shuffle();
             repeat();

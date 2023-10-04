@@ -309,9 +309,9 @@ function handleCurrentlyPlayingResponse() {
 function handleCurrentPlaylistResponse() {
     var data = JSON.parse( this.responseText );
     if ( this.status == 200 ) {
-        $( '#playlists > option:first-child' ).text( data['name'] );
+        $( '#spotifyPlaylists' ).html( data['name'] );
     } else {
-        $( '#playlists > option:first-child' ).text( 'Select Playlist' );
+        $( '#spotifyPlaylists' ).html( 'Select Playlist' );
     }
 }
 
