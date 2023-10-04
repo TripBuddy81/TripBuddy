@@ -1251,16 +1251,12 @@ $( document ).ready( function () {
 
         $( '#spotifyPlaylists' ).click( function () {
             spotifyInitOnPageLoad();
-            if ( $( '#spotifyPlaylistsMenu' ).is( ':visible' ) ) {
-                $( '#spotifyPlaylistsMenu' ).fadeOut( 300 );
-            } else {
-                $( '#spotifyPlaylistsMenu' ).fadeIn( 300 );
-            }
+            $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
         } );
 
         document.onclick = function ( e ) {
             if ( e.target != document.getElementById( 'spotifyPlaylistsMenu' ) && e.target != document.getElementById( 'spotifyPlaylists' ) ) {
-                $( '#spotifyPlaylistsMenu' ).fadeOut( 300 );
+                $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
             }
         }
 
