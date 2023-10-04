@@ -249,8 +249,8 @@ p {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
-.menuItem > a:hover {
-    color: black;
+a.menuItem:hover, .menuItem:hover, #menu li:hover {
+    color: white;
 }
 
 #menuToggle span:first-child {
@@ -298,10 +298,6 @@ p {
 #menu li {
     padding: 3px 0;
     font-size: 25px;
-}
-
-#menu li:hover {
-    color: #809bce;
 }
 
 #menuToggle input:checked ~ ul {
