@@ -1253,6 +1253,12 @@ $( document ).ready( function () {
             $( '#spotifyPlaylistsMenu' ).toggle();
         } );
 
+        document.onclick = function ( e ) {
+            if ( e.target != document.getElementById( 'spotifyPlaylistsMenu' ) && e.target != document.getElementById( 'spotifyPlaylists' ) ) {
+                $( '#spotifyPlaylistsMenu' ).hide();
+            }
+        }
+
         $( '.spotifyPlaylistItem' ).click( function () {
             $( '#spotifyPlaylistsMenu' ).hide();
             lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
