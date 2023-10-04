@@ -699,7 +699,7 @@ $( document ).ready( function () {
     $( '#showYoutubePlayedHistory' ).click( function ( event ) {
         var history = {'items': []};
         history['items'] = JSON.parse( localStorage.getItem( 'youtubeHistory' ) );
-        displayYoutubeSearchResultsOrHistory( history, '', true );
+        displayYoutubeSearchResultsOrHistory( history );
         searchYoutubeAutocomplete( '' );
     } )
     $( '#clearYoutubePlayedHistory' ).click( function ( event ) {
@@ -1501,6 +1501,7 @@ $( document ).ready( function () {
             'duration'   : $( this ).closest( '.youtubeResult' ).find( '.youtubeItemDuration' ).text()
         };
         youtubeCurrentQueue.push( videoToQueue );
+        addVideoToHistory( videoToQueue );
         if ( youtubePlayerState == 'video cued' || youtubePlayerState == 'undefined' ) {
             playNextYoutubeVideoOrSpotifyTrack();
         }
@@ -1632,7 +1633,7 @@ $( document ).ready( function () {
         }
     }
 
-    function displayYoutubeSearchResultsOrHistory( searchYoutubeResult, getVideoDurationsFromYoutubeResult = '', isHistory = false ) {
+    function displayYoutubeSearchResultsOrHistory( searchYoutubeResult, getVideoDurationsFromYoutubeResult = '' ) {
         $( '#youtubeResults' ).empty();
 
         searchYoutubeResult.items.forEach( function ( item ) {
@@ -1689,7 +1690,6 @@ $( document ).ready( function () {
             videoItem = youtubeCurrentQueue.shift();
             spotifyPause();
             youtubePlayer.loadVideoById( videoItem.id );
-            addVideoToHistory( videoItem );
             displayYoutubeQueue();
         }
     }
@@ -1697,7 +1697,6 @@ $( document ).ready( function () {
     function playSpecificYoutubeVideo( videoItem ) {
         spotifyPause();
         youtubePlayer.loadVideoById( videoItem.id );
-        addVideoToHistory( videoItem );
         removeIdFromYoutubeQueue( videoItem.id );
         displayYoutubeQueue();
     }
