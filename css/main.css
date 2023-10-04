@@ -415,15 +415,6 @@ li, .options, .form-check-label {
     font-size: 25px;
 }
 
-option {
-    background-color: #363636;
-    color: white;
-}
-
-#playlists > option:first-child {
-    display: none;
-}
-
 .guidedThoughtsTextInput {
     width: 450px;
     font-size: 25px;
@@ -581,14 +572,19 @@ option {
     position: relative;
     top: 9px;
     width: 300px;
+    background: transparent;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    background-color: transparent;
     border: none;
     font-weight: bold;
     padding: 0;
     font-size: 30px;
     color: black;
     margin-bottom: 20px;
+}
+
+option {
+    background: black;
+    color: white;
 }
 
 #spotifyPlaylists {
