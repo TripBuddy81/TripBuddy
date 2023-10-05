@@ -159,20 +159,17 @@ p {
     padding-right: 35px;
 }
 
-.btn.videoFilterBtn, .btn.imageFilterBtn, .btn.gameLink,
-.btn#showVideoSection, .btn#showImageSection, .btn#showShrineSection, .btn#showGamesSection {
+.btn.videoFilterBtn, .btn.imageFilterBtn, .btn.gameLink {
     background-color: #AAD0D2;
 }
 
-.btn.videoFilterBtn:hover, .btn.imageFilterBtn:hover, .btn.gameLink:hover,
-.btn#showVideoSection:hover, .btn#showImageSection:hover, .btn#showShrineSection:hover, .btn#showGamesSection:hover {
+.btn.videoFilterBtn:hover, .btn.imageFilterBtn:hover, .btn.gameLink:hover {
     background-color: #d6eadf;
 }
 
 .btn.videoFilterBtn.videoFilterActive,
 .btn.imageFilterBtn.imageFilterActive,
-.btn.gameLink.gameLinkActive,
-.btn#showVideoSection.mainSectionActive, .btn#showImageSection.mainSectionActive, .btn#showShrineSection.mainSectionActive, .btn#showGamesSection.mainSectionActive {
+.btn.gameLink.gameLinkActive {
     background-color: #809bce;
 }
 
