@@ -152,6 +152,13 @@ p {
     font-size: xx-large;
 }
 
+#showVideoSection, #showImageSection, #showShrineSection, #showGamesSection {
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    height: 65px;
+    margin-top: 3px;
+    padding-right: 35px;
+}
+
 .btn.videoFilterBtn, .btn.imageFilterBtn, .btn.gameLink,
 .btn#showVideoSection, .btn#showImageSection, .btn#showShrineSection, .btn#showGamesSection {
     background-color: #AAD0D2;
