@@ -162,7 +162,7 @@ p {
 .btn.videoFilterBtn, .btn.imageFilterBtn, .btn.gameLink {
     background-color: transparent;
     color: black;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 25px;
     border-width: 3px;
     border-color: black;
@@ -386,7 +386,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
 }
 
 #startPizzaTimer, #disableAllReminders {
-    color: #E04006;
+    color: black;
     font-size: 30px;
     font-weight: bold;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
@@ -448,6 +448,14 @@ li, .options, .form-check-label {
     font-size: 35px;
     font-weight: bold;
     margin-left: auto;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: black;
+    background: white;
+}
+
+#liftOff:hover {
+    background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055);
 }
 
 .menuvisibleAfterStarted {
