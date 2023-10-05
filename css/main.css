@@ -623,7 +623,7 @@ option {
 }
 
 .spotifyPlaylistsMenuTransition {
-    right: 20px !important;
+    right: -5px !important;
 }
 
 .spotifyPlaylistsMenuContent {
