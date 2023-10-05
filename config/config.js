@@ -6,12 +6,12 @@ var config = {
             'client_secret': 'f8264dee44854a8db43f297156d33668'
         }
     ],
-    'youtubeApiKey1'       : 'AIzaSyCmE1ZP5k5e5B7SxgHhZ0B84S22gLtd5Qc',
-    'youtubeApiKey2'       : 'AIzaSyBPa1mJdcHURF1iXQnoXQbAmP4KJBV-99E',
-    'youtubeApiKey3'       : 'AIzaSyDQ-b7pUMihSfd-9axAJrvIJdpSkeocvB0',
-    'youtubeApiKey4'       : 'AIzaSyDzTfNL056PFCwHr8LCN28M2sxtqFhVcrk',
-    'youtubeApiKey5'       : 'AIzaSyDYbNZadsnrc3RdwxL9nPhKrg3oa8EbNoA',
-    'spotifyPhoneName' : 'Pixel',
+    'youtubeApiKey1'     : 'AIzaSyCmE1ZP5k5e5B7SxgHhZ0B84S22gLtd5Qc',
+    'youtubeApiKey2'     : 'AIzaSyBPa1mJdcHURF1iXQnoXQbAmP4KJBV-99E',
+    'youtubeApiKey3'     : 'AIzaSyDQ-b7pUMihSfd-9axAJrvIJdpSkeocvB0',
+    'youtubeApiKey4'     : 'AIzaSyDzTfNL056PFCwHr8LCN28M2sxtqFhVcrk',
+    'youtubeApiKey5'     : 'AIzaSyDYbNZadsnrc3RdwxL9nPhKrg3oa8EbNoA',
+    'spotifyPhoneName'   : 'Pixel',
     'preFlightChecklist' : [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
         {'checklistItem': 'Mouse charged/VPN off?'},
@@ -33,7 +33,7 @@ var config = {
         {'checklistItem': 'Something to eat set aside'},
         {'checklistItem': 'Backpack for outside? (Water, Tissues, something to eat)'}
     ],
-    'playlists'         : {
+    'playlists'          : {
         'green': [
             {
                 'label': 'Soft/Peak',
@@ -70,9 +70,9 @@ var config = {
             {
                 'label': 'Psybass',
                 'id'   : '0O1C7wbOthIxBbai9pYvEH'
-            },
+            }
         ],
-        'blue': [
+        'blue' : [
             {
                 'label': 'Celtic',
                 'id'   : '7IMTMDqc2NIzovRgtC1Imq'
@@ -94,7 +94,7 @@ var config = {
                 'id'   : '54c657PnbEgWUJt7biWHtO'
             }
         ],
-        'red': [
+        'red'  : [
             {
                 'label': 'Progressive Psy',
                 'id'   : '5RYT8fTg6Pq9JrS0lcG12p'
@@ -118,10 +118,34 @@ var config = {
         {'selectableTag': 'slideshow'},
         {'selectableTag': 'hiking'},
         {'selectableTag': 'festival'},
-        {'selectableTag': 'spiritual'},
-/*        {'selectableTag': 'nsfw'}*/
+        {'selectableTag': 'spiritual'}
+        /*        {'selectableTag': 'nsfw'}*/
     ],
     'videosYoutube'      : [
+        {
+            'videoLink': 'https://www.youtube.com/embed/TdU2Ab7y91w?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/8N1qXnx7PyY?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/moTy7FA7UO4?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/oCi2JpkEZbo?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/ilHJzyZTr3U?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/jaXuqScMt68?mute=1',
+            'tags'     : 'trippy-3D'
+        },
         {
             'videoLink': 'https://www.youtube.com/embed/BEdAaSWiY_8?mute=1',
             'tags'     : 'trippy-3D'
@@ -167,18 +191,6 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/jaXuqScMt68?mute=1',
-            'tags'     : 'trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/oCi2JpkEZbo?mute=1',
-            'tags'     : 'trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/ilHJzyZTr3U?mute=1',
-            'tags'     : 'trippy-3D'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
             'tags'     : 'trippy-3D meditative'
         },
@@ -191,23 +203,15 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/TdU2Ab7y91w?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoLink': 'https://www.youtube.com/embed/zqXohGL36cw?mute=1',
+            'tags'     : 'trippy-3D meditative'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/fFyC68CIEio?mute=1',
             'tags'     : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/zqXohGL36cw?mute=1',
-            'tags'     : 'trippy-3D meditative'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/z3ul9PkRvfY?mute=1',
-            'tags'     : 'trippy-2D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/k7Fvg0zkrQo?mute=0',
             'tags'     : 'trippy-2D'
         },
         {
@@ -287,7 +291,7 @@ var config = {
             'tags'     : 'spiritual'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/afLcexC5dsk?mute=0',
+            'videoLink': 'https://www.youtube.com/embed/Jbc0YVgI5Bo?mute=0',
             'tags'     : 'spiritual'
         },
         {
@@ -610,7 +614,7 @@ var config = {
         {
             'link': 'https://www.google.de/search?q=',
             'name': 'Google',
-            'tag': ''
+            'tag' : ''
         }
     ],
     'externalVideoLinks' : [],
@@ -633,7 +637,7 @@ var config = {
             'name': 'Shooter'
         }
     ],
-    'menuLinks'              : [
+    'menuLinks'          : [
         {
             'link': 'https://www.youtube.com/playlist?list=PLcrVuDwOKu1eoYdyQxZAW7zA1gzO1GTEk',
             'name': 'Psychedelic Knowledge'
@@ -679,15 +683,15 @@ var config = {
     'absoluteTruths'     : [
         {
             'text': 'Depression is the past, Anxiety is the future & Peace is the present',
-            'tag': ''
+            'tag' : ''
         },
         {
             'text': 'We are only passing through',
-            'tag': ''
+            'tag' : ''
         },
         {
             'text': 'You shouldn\'t be alive, but yet you are!',
-            'tag': ''
-        },
+            'tag' : ''
+        }
     ]
 };
