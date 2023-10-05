@@ -1284,7 +1284,7 @@ video::-webkit-media-controls-fullscreen-button {
 #youtubeResults {
     position: fixed;
     top: 90px;
-    height: 860px;
+    height: 870px;
     overflow: auto;
     width: 285px;
     left: 15px;
@@ -1328,7 +1328,7 @@ video::-webkit-media-controls-fullscreen-button {
 #currentYoutubeQueue {
     position: fixed;
     top: 90px;
-    height: 860px;
+    height: 870px;
     overflow: auto;
     width: 284px;
     left: 1405px;
