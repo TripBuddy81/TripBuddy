@@ -330,7 +330,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     top: 75px;
     left: 0;
     width: 100%;
-    z-index: 9;
+    z-index: 3;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 15px;
@@ -620,7 +620,7 @@ option {
 
 #spotifyPlaylistsMenu {
     position: fixed;
-    top: 75px;
+    top: 80px;
     right: -1100px;
     background: black;
     font-size: 30px;
@@ -1175,21 +1175,16 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
-#search {
-    padding-top: 100px;
-    padding-left: 15px;
-}
-
 #mainSearchResultSpotifyContainer {
     position: fixed;
-    top: 100px;
+    top: 90px;
     left: 15px;
     display: block !important;
 }
 
 #mainSearchResultYoutubeContainer {
     position: fixed;
-    top: 100px;
+    top: 90px;
     left: 320px;
     display: block !important;
     width: 1061px;
@@ -1280,7 +1275,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #youtubeResults {
     position: fixed;
-    top: 100px;
+    top: 90px;
     height: 860px;
     overflow: auto;
     width: 285px;
@@ -1324,7 +1319,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #currentYoutubeQueue {
     position: fixed;
-    top: 100px;
+    top: 90px;
     height: 860px;
     overflow: auto;
     width: 284px;
