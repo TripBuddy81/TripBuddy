@@ -291,7 +291,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     min-width: 591px;
     padding-bottom: 15px;
     right: -30px;
-    background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b);
+    background: linear-gradient(to right, #6fba82, #1098ad, #5073b8);
     border-radius: 5px;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
