@@ -100,6 +100,14 @@ var config = {
                 'id'   : '5RYT8fTg6Pq9JrS0lcG12p'
             },
             {
+                'label': 'Psy-Trance',
+                'id'   : '7juOWIZaBBism1Y2Eux9JM'
+            },
+            {
+                'label': 'Electro',
+                'id'   : '0ZigR4WogVGwftQA7GAMhu'
+            },
+            {
                 'label': 'Wonderland',
                 'id'   : '4IXAhGiDhuzPz2VQjTDTSy'
             },
