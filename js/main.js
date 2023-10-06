@@ -224,7 +224,7 @@ $( document ).ready( function () {
         enableFullscreen();
         refreshGradientBackground();
     } );
-    $( '#searchSymbol' ).click( function () {
+    $( '#showSearchSection' ).click( function () {
         $( '#videos' ).hide();
         $( '#images' ).hide();
         $( '#shrine' ).hide();
@@ -234,6 +234,7 @@ $( document ).ready( function () {
         $( '.mainSectionActive' ).each( function () {
             $( this ).toggleClass( 'mainSectionActive' );
         } );
+        $( this ).toggleClass( 'mainSectionActive' );
 
         $( '#mainSearchInput' ).focus().val( '' );
         searchYoutubeAutocomplete( $( this ).html() );
@@ -1780,7 +1781,7 @@ $( document ).ready( function () {
     // init initial view
     if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
         $( '#trippy-3Dfilter' ).trigger( 'click' );
-        $( '#searchSymbol' ).trigger( 'click' );
+        $( '#showSearchSection' ).trigger( 'click' );
     } else {
         $( '#showVideoSection' ).trigger( 'click' );
     }

@@ -143,7 +143,7 @@ p {
     font-size: xx-large;
 }
 
-#showVideoSection, #showImageSection, #showShrineSection, #showGamesSection {
+#showVideoSection, #showImageSection, #showShrineSection, #showGamesSection, #showSearchSection {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
     height: 65px;
     margin-top: 3px;
@@ -538,13 +538,6 @@ li, .options, .form-check-label {
     height: 53px;
     top: -8px;
     position: inherit;
-}
-
-#searchSymbol {
-    height: 58px;
-    top: -6px;
-    position: inherit;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
 #switchDesktopPhone {
