@@ -1781,7 +1781,7 @@ $( document ).ready( function () {
     // init initial view
     if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
         $( '#trippy-3Dfilter' ).trigger( 'click' );
-        $( '#showSearchSection' ).trigger( 'click' );
+        $( '#showVideoSection' ).trigger( 'click' );
     } else {
         $( '#showVideoSection' ).trigger( 'click' );
     }
