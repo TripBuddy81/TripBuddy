@@ -23,6 +23,11 @@
             color: black;
             font-size: 25px;
         }
+        #watchingAlan {
+            width: 200px;
+            float: right;
+            margin-right: 50px;
+        }
     </style>
 
 
@@ -31,6 +36,7 @@
 
 
 <div class="px-4 py-5 my-5">
+    <img id="watchingAlan" class="" src="./assets/alan.gif">
     <h1 class="display-5 fw-bold">Suggestions or want to drop a thx? Contact me via:</h1>
     <a href="mailto:tripbuddy81@gmail.com">tripbuddy81@gmail.com</a>
 
@@ -42,7 +48,8 @@
 
     <h1 class="fw-bold mt-4">Get Tampermonkey:</h1>
     <div class="col-lg-6">
-        <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo">Install Tampermonkey Browser extension</a>
+        <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo">Install
+            Tampermonkey Browser extension</a>
     </div>
     <h1 class="fw-bold mt-4">Install Tampermonkey script for no age validation on Youtube videos:</h1>
     <div class="col-lg-6">
@@ -62,7 +69,8 @@
 
     <div class="col-lg-6">
         <p class="">Middle Mouse button plays next track (if Spotify is used in integrated mode )</p>
-        <p class="">Double clicking a video Tag section reloads all videos in this section (if iframe did not load on first try)</p>
+        <p class="">Double clicking a video Tag section reloads all videos in this section (if iframe did not load on
+            first try)</p>
         <p class="">Double clicking the main video tag will load all videos (if in fast mode currently)</p>
     </div>
 </div>
@@ -73,7 +81,8 @@
     <h1 class="display-5 fw-bold">Use your own config</h1>
     <div class="col-lg-6">
         <p class="lead mb-4">You can overwrite any setting (e.g. displayed videos, playlists etc.) by duplicating the
-            setting within the <b>config/config.js</b> into the <b>config/optionalConfig.js</b> and changing it to your needs.</p>
+            setting within the <b>config/config.js</b> into the <b>config/optionalConfig.js</b> and changing it to your
+            needs.</p>
         <p>
         <p>e.g. add the following to configure your own playlist selection:</p>
         <pre>
@@ -113,9 +122,11 @@
 <div class="px-4 py-5 my-5">
     <h1 class="display-5 fw-bold">Use Spotify oAuth API</h1>
     <div class="col-lg-6">
-        <p class="lead mb-4">A little bit more trickier... Spotify won't allow my app to access their API outside of developer mode. So you will need to register your own developer account if you want to use it.
-        Go to <a href="https://developer.spotify.com/dashboard/">Spotify Dashboard</a> and create a simple App. Use the given id and secret to fill out the settings within the optionalConfig.js.
-            </p>
+        <p class="lead mb-4">A little bit more trickier... Spotify won't allow my app to access their API outside of
+            developer mode. So you will need to register your own developer account if you want to use it.
+            Go to <a href="https://developer.spotify.com/dashboard/">Spotify Dashboard</a> and create a simple App. Use
+            the given id and secret to fill out the settings within the optionalConfig.js.
+        </p>
         <pre>
     'oAuthSpotify': [
         {
@@ -125,10 +136,15 @@
         }
     ],
         </pre>
-        <p>Also, you need to tell spotify that your personal Spotify account is allowed to access it (same page within dashboard)</p>
-        <p>Last but not least you need to configure the return url under settings. This can be "http://127.0.0.1:8080" for example. However, to make this fully work you need a very simple webserver like <a href="https://simplewebserver.org/" target="_blank">Simple webserver</a> to handle the spotify return.</p>
+        <p>Also, you need to tell spotify that your personal Spotify account is allowed to access it (same page within
+            dashboard)</p>
+        <p>Last but not least you need to configure the return url under settings. This can be "http://127.0.0.1:8080"
+            for example. However, to make this fully work you need a very simple webserver like <a
+                    href="https://simplewebserver.org/" target="_blank">Simple webserver</a> to handle the spotify
+            return.</p>
 
-        <p>It is not needed for this page to run (you get the embedded spotify player instead), but allows to transfer music from your PC to other devices via the menu, which I like a lot (headphones ftw!)</p>
+        <p>It is not needed for this page to run (you get the embedded spotify player instead), but allows to transfer
+            music from your PC to other devices via the menu, which I like a lot (headphones ftw!)</p>
     </div>
 </div>
 
