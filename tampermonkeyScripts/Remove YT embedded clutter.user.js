@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Remove YT embedded clutter
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
+// @version      1.0
+// @description  Remove all the clutter from youtube embedded videos
+// @author       TripBuddy
 // @match        https://www.youtube.com/embed*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=undefined.localhost
 // @grant        none
@@ -39,6 +39,11 @@
 
         try {
             document.getElementsByClassName("ytp-impression-link")[0].remove();
+        } catch(e) {
+        }
+
+        try {
+            document.getElementsByClassName("ytp-large-play-button")[0].remove();
         } catch(e) {
         }
 
