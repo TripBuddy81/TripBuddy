@@ -1240,7 +1240,7 @@ $( document ).ready( function () {
 
         $( '#stopMusic' ).click( function () {
             spotifyPause();
-            youtubePlayer.stopVideo();
+            youtubePlayer.pauseVideo();
         } );
 
         $( '#spotifyPlaylists' ).click( function () {
@@ -1261,7 +1261,7 @@ $( document ).ready( function () {
             shuffle();
             repeat();
             spotifyPlay( lastSelectedPlaylist );
-            youtubePlayer.stopVideo();
+            youtubePlayer.pauseVideo();
         } );
 
         $( document ).on( 'mousedown', document, function ( e ) {
@@ -1681,7 +1681,7 @@ $( document ).ready( function () {
     function playNextYoutubeVideoOrSpotifyTrack() {
         if ( youtubeCurrentQueue.length == 0 ) {
             try {
-                youtubePlayer.stopVideo();
+                youtubePlayer.pauseVideo();
             } catch ( e ) {
             }
 
