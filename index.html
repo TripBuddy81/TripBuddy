@@ -431,13 +431,15 @@
                 </div>
             </div>
             {{/videosLocal}}
-        </div>
 
-        <div class="XXX mt-4 mb-4" style="display:none;width: 100% !important;">
-            <h1>External Videos</h1>
+            </br>
+
             {{#externalVideoLinks}}
-            <a class="xxxLink mt-4 mb-4" href="{{link}}" target=_blank>{{name}}<img class="externalVideoPreview"
-                                                                                    src="{{thumb}}"></a>
+            <div class="videoContainer XXX">
+                <a class="xxxLink mt-4 mb-4" href="{{link}}" target=_blank>{{name}}<img
+                        class="externalVideoPreview"
+                        src="{{thumb}}"></a>
+            </div>
             {{/externalVideoLinks}}
         </div>
     </div>

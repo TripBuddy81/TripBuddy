@@ -557,11 +557,17 @@ li, .options, .form-check-label {
     width: 70px !important;
 }
 
-.fullscreenImage, .externalVideoPreview {
+.fullscreenImage {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     width: 538.7px;
     margin-right: 22px;
-    margin-bottom: 25px;
+    padding-bottom: 25px;
+}
+
+.externalVideoPreview {
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    width: 538.7px;
+    margin-right: 22px;
 }
 
 .displayedFullscreenImage {
