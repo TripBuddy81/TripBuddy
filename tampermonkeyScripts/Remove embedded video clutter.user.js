@@ -1,10 +1,11 @@
 // ==UserScript==
-// @name         Remove YT embedded clutter
+// @name         Remove embedded video clutter
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Remove all the clutter from youtube embedded videos
+// @description  Remove all the clutter from embedded videos
 // @author       TripBuddy
 // @match        https://www.youtube.com/embed*
+// @match        https://*/embed*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=undefined.localhost
 // @grant        none
 // ==/UserScript==
@@ -44,6 +45,17 @@
 
         try {
             document.getElementsByClassName("ytp-large-play-button")[0].remove();
+        } catch(e) {
+        }
+
+        try {
+            document.getElementsByClassName("vjs-big-play-button")[0].remove();
+        } catch(e) {
+        }
+
+
+        try {
+            document.getElementById("playerOverlay").remove();
         } catch(e) {
         }
 
