@@ -561,7 +561,7 @@ li, .options, .form-check-label {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     width: 538.7px;
     margin-right: 22px;
-    padding-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 .externalVideoPreview {
