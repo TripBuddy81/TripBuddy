@@ -620,7 +620,11 @@ var config = {
         {
             'image': './media/images/19.jpg',
             'tags' : 'space'
-        }
+        },
+        {
+            'image': './media/images/75.jpg',
+            'tags' : 'space'
+        },
     ],
     'searchEngines'      : [
         {
