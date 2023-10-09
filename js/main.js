@@ -121,6 +121,9 @@ $( document ).ready( function () {
         } );
     }
 
+    // Init global alarm sounds
+    var alarmSound1 = document.getElementById("alarmSound1");
+
     // ***********************************
     // Main Menu
     $( '.XXX' ).hide();
@@ -355,6 +358,7 @@ $( document ).ready( function () {
 
     $( '#timedRecommendation' ).click( function ( event ) {
         $( '#timedRecommendation' ).modal( 'hide' );
+        alarmSound1.pause();
     } );
 
     // Top up Reminder Config
@@ -477,6 +481,7 @@ $( document ).ready( function () {
         if ( pizzaTimerStart != '' && totalMinsPizzaTimerPassed >= parseInt( localStorage.getItem( 'pizzaTimerMinutesTillReady' ) ) && pizzaTimerShown == false ) {
             pizzaTimerShown = true;
             showTimedRecommendation( 'Pizza is ready!!!' );
+            alarmSound1.play();
         }
     }
 
