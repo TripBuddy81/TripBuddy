@@ -40,6 +40,10 @@ var config = {
                 'id'   : '4ILChY5F4Hn08ikt0rfHhW'
             },
             {
+                'label': 'Binaural Beats',
+                'id'   : '6wQ07R92xkvztkwjhxUup3'
+            },
+            {
                 'label': 'Meditation',
                 'id'   : '3ogKJHz0eQMVe9rouV12Zj'
             },
@@ -204,7 +208,7 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
-            'tags'     : 'trippy-3D meditative'
+            'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/M45c6WiZ2tc?mute=1',
@@ -216,7 +220,7 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/zqXohGL36cw?mute=1',
-            'tags'     : 'trippy-3D meditative'
+            'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/fFyC68CIEio?mute=1',
@@ -243,20 +247,16 @@ var config = {
             'tags'     : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/dJoXVILGeKQ?mute=1',
             'tags'     : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/ICmWwxaTmB8?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
             'tags'     : 'meditative'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/XHprvRGY2aA?mute=1',
             'tags'     : 'meditative'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/rY4O88vcTVg?mute=1',
-            'tags'     : 'meditative nature'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/tI2ucenn6hM?mute=1',
@@ -324,39 +324,39 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/hld4uaO1MDE?mute=1',
-            'tags'     : 'nature hiking'
+            'tags'     : 'hiking'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/PyFN_FYwqvc?mute=1',
-            'tags'     : 'nature hiking'
+            'tags'     : 'hiking'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/hF-F559PTUg?mute=1',
-            'tags'     : 'nature hiking'
+            'tags'     : 'hiking'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/kSVqPAN1nCM?mute=1',
-            'tags'     : 'nature hiking'
+            'tags'     : 'hiking'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/RDiK058GjgI?mute=1',
-            'tags'     : 'nature hiking'
+            'tags'     : 'hiking'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/U1j-eO3-aR8?mute=1',
-            'tags'     : 'nature hiking'
+            'tags'     : 'hiking'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/e04zAMupq7E?mute=1',
-            'tags'     : 'nature hiking'
+            'tags'     : 'hiking'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/RHycI27FelE?mute=1',
-            'tags'     : 'nature hiking'
+            'tags'     : 'hiking'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/b4AVn8mTuJw?mute=1',
-            'tags'     : 'nature hiking'
+            'tags'     : 'hiking'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/123Z5KLLiO8?mute=1',
@@ -371,7 +371,7 @@ var config = {
             'tags'     : 'festival'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/azfTB6oXhis?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/6GHiYo3530o?mute=1',
             'tags'     : 'festival'
         },
         {
@@ -393,10 +393,6 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/rgZfmWXTqas?mute=1',
             'tags'     : 'slideshow'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/VBvVBFZMhKI?mute=1',
-            'tags'     : 'trippy-3D'
         }
     ],
     'selectableImageTags': [
