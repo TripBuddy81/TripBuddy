@@ -28,7 +28,7 @@ $( document ).ready( function () {
     var lastActiveBackgroundGradientKeyFrame = 1;
     var textShrinkFrameSeed = 1;
     var spotifyOpened = false;
-    var lastDisplayedAbsoluteTruthIndex = 0;
+    var displayedAbsoluteTruthIndex = [];
     var stroboBGWhite = false;
     var absoluteTruthsTimer = undefined;
     var absoluteTruthsTimerDuration = 14000;
@@ -122,7 +122,7 @@ $( document ).ready( function () {
     }
 
     // Init global alarm sounds
-    var alarmSound1 = document.getElementById("alarmSound1");
+    var alarmSound1 = document.getElementById( 'alarmSound1' );
 
     // ***********************************
     // Main Menu
@@ -302,6 +302,8 @@ $( document ).ready( function () {
                 $( this ).trigger( 'click' );
             } );
         }
+
+        displayedAbsoluteTruthIndex = [];
 
         if ( xxxVisible ) {
             $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
@@ -1172,19 +1174,22 @@ $( document ).ready( function () {
             $( '#absoluteTruthsOverlayText' ).html( '' );
         }
 
-        random = Math.floor( Math.random() * config['absoluteTruths'].length );
+        if ( displayedAbsoluteTruthIndex.length <= 0 ) {
+            config['absoluteTruths'].forEach( function ( item ) {
+                displayedAbsoluteTruthIndex.push( item );
+            } );
+            shuffleArray( displayedAbsoluteTruthIndex );
+        }
+        nextTruth = displayedAbsoluteTruthIndex.pop();
 
-        if ( config['absoluteTruths'][random]['text'] == config['absoluteTruths'][lastDisplayedAbsoluteTruthIndex]['text'] ) {
-            absoluteTruthsUpdate( quickSwap );
-        } else if ( config['absoluteTruths'][random]['tag'] == 'XXX' && !xxxVisible ) {
+        if ( nextTruth['tag'] == 'XXX' && !xxxVisible ) {
             absoluteTruthsUpdate( quickSwap );
         } else {
-            lastDisplayedAbsoluteTruthIndex = random;
 
             $( '#absoluteTruthsOverlayText' ).fadeOut( fadeoutDuration, function () {
-                $( '#absoluteTruthsOverlayText' ).html( config['absoluteTruths'][random]['text'] );
+                $( '#absoluteTruthsOverlayText' ).html( nextTruth['text'] );
 
-                length = config['absoluteTruths'][random]['text'].length;
+                length = nextTruth['text'].length;
                 if ( length < 100 ) {
                     document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
                 } else if ( length < 150 ) {
@@ -1200,6 +1205,17 @@ $( document ).ready( function () {
                 textShrinkFrameSeed = (textShrinkFrameSeed + 1) % 2;
             } );
         }
+    }
+
+    function shuffleArray( array ) {
+        let currentIndex = array.length, randomIndex;
+        while ( currentIndex > 0 ) {
+            randomIndex = Math.floor( Math.random() * currentIndex );
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+        }
+        return array;
     }
 
     // END Shrine section
