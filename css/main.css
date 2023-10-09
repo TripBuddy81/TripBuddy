@@ -223,7 +223,7 @@ p {
     user-select: none;
 }
 
-#menuToggle input {
+#menuClose {
     display: block;
     width: 40px;
     height: 32px;
@@ -269,18 +269,18 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     transform-origin: 0% 100%;
 }
 
-#menuToggle input:checked ~ span {
+#menuClose:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: black;
 }
 
-#menuToggle input:checked ~ span:nth-last-child(3) {
+#menuClose:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-#menuToggle input:checked ~ span:nth-last-child(2) {
+#menuClose:checked ~ span:nth-last-child(2) {
     opacity: 1;
     transform: rotate(-45deg) translate(0, -1px);
 }
@@ -302,12 +302,12 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     font-weight: 600;
 }
 
-#menu li {
+#menu li, .pizzaTimerMinutesSuffix {
     padding: 3px 0;
     font-size: 25px;
 }
 
-#menuToggle input:checked ~ ul {
+#menuClose:checked ~ ul {
     transform: none;
     opacity: 1;
 }
@@ -384,6 +384,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     color: black;
     font-size: 30px;
     font-weight: bold;
+    margin-right: 15px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
@@ -432,10 +433,30 @@ li, .options, .form-check-label {
     width: 65px;
     border: none;
     font-weight: bold;
+    outline: none;
 }
 
 #topupRecommendation {
     font-size: 130px;
+}
+
+.pizzaTimerMinutesSuffix {
+    padding: 3px 0;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#pizzaTimerMinutesContainer {
+    display: flex;
+}
+
+#pizzaTimerMinutes, #pizzaTimerMinutes:focus {
+    width: 50px;
+    border: none;
+    font-weight: bold;
+    font-size: 25px;
+    background: transparent;
+    outline: none;
 }
 
 #liftOff {

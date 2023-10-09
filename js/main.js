@@ -1,7 +1,6 @@
 $( document ).ready( function () {
     // ***********************************
     // Globals
-    var pizzaTimerMinutesTillReady = 1;
     var pizzaTimerStart = '';
     var minutesCountAtLastDisplayedThought = 0;
     var isFullScreen = false;
@@ -444,6 +443,14 @@ $( document ).ready( function () {
 
     // ******************************************
     // Pizza timer
+    if ( localStorage.getItem( 'pizzaTimerMinutesTillReady' )  == undefined ) {
+        localStorage.setItem( 'pizzaTimerMinutesTillReady', $( '#pizzaTimerMinutes' ).val() );
+    }
+
+    $( '#pizzaTimerMinutes' ).change( function ( event ) {
+        localStorage.setItem( 'pizzaTimerMinutesTillReady', $( '#pizzaTimerMinutes' ).val() );
+    } );
+
     $( '#startPizzaTimer' ).click( function ( e ) {
         $( '#timerMinutes' ).hide();
         $( '#pizzaTimerContainer' ).show();
@@ -469,7 +476,7 @@ $( document ).ready( function () {
                 $( '#pizzaTimerProgress' ).html( totalMinsPizzaTimerPassed );
             }
         }
-        if ( pizzaTimerStart != '' && totalMinsPizzaTimerPassed >= pizzaTimerMinutesTillReady && pizzaTimerShown == false ) {
+        if ( pizzaTimerStart != '' && totalMinsPizzaTimerPassed >= parseInt( localStorage.getItem( 'pizzaTimerMinutesTillReady' ) ) && pizzaTimerShown == false ) {
             pizzaTimerShown = true;
             showTimedRecommendation( 'Pizza is ready!!!' );
         }
