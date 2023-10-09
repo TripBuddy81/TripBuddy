@@ -290,6 +290,7 @@ $( document ).ready( function () {
     } );
 
     function toggleXXXVisible() {
+        enableFullscreen();
         xxxVisible = !xxxVisible;
         $( '.XXX' ).toggle();
 
