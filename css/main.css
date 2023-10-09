@@ -147,7 +147,7 @@ p {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
     height: 65px;
     margin-top: 3px;
-    padding-right: 35px;
+    margin-right: 35px;
 }
 
 .mainSectionActive {
@@ -465,6 +465,7 @@ li, .options, .form-check-label {
     outline: none;
     z-index: 5;
     padding-top: 3px;
+    margin-left: -3px;
 }
 
 #liftOff {
