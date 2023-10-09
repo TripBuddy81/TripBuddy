@@ -66,7 +66,7 @@
                             class="form-control"
                             style=""></select>
                     <span class="menuvisibleAfterStarted">-- <b>Actions</b> --------------------------------------------------------------------</span>
-                    <li class="menuItem menuvisibleAfterStarted" id="startPizzaTimer">Start/Reset Pizza Timer (18 min)
+                    <li class="menuItem" id="startPizzaTimer">Start/Reset Pizza Timer (18 min)
                     </li>
                     <li class="menuItem menuvisibleAfterStarted" id="disableAllReminders">Disable all reminders</li>
                     <div class="mt-3">-- <b>LINKS</b>
@@ -92,7 +92,7 @@
         </div>
 
         <img id="fullscreenIcon" class="toggleFullscreen float-end me-3 mt-3" src="./assets/disableFullscreen.png">
-        <div id="timerMinutes" class="float-end me-3"><span id="displayHour"></span><span id="displayMinute"></span>
+        <div id="timerMinutes" class="float-end me-3"><span id="displayHour"></span><span id="timerColon">:</span><span id="displayMinute"></span>
         </div>
         <span id="pizzaTimerContainer" class="ms-4">
             <img id="pizzaTimerSymbol" src="assets/pizza.png">
@@ -100,7 +100,7 @@
         </span>
         <img id="notesSymbol" src="assets/notes.png">
         <div id="launchText" class="float-end me-3 mt-3" data-bs-toggle="modal" data-bs-target="#preFlightChecklist">
-            Loading...
+            Loading
         </div>
 
         <div id="progressGraphContainer" class="float-end me-3 mt-3">

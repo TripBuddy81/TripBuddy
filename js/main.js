@@ -1,7 +1,8 @@
 $( document ).ready( function () {
     // ***********************************
     // Globals
-    var pizzaTimerMinutesTillReady = 18;
+    var pizzaTimerMinutesTillReady = 1;
+    var pizzaTimerStart = '';
     var minutesCountAtLastDisplayedThought = 0;
     var isFullScreen = false;
     var lastDisplayedImage = config['images'][0]['image'];
@@ -325,13 +326,13 @@ $( document ).ready( function () {
         timer = setInterval( tripTimer, 1000 );
         start = new Date();
         setTimeout( function () {
-            $( '#timerMinutes' ).show();
+            if ( !$( '#pizzaTimerContainer' ).is( ':visible' ) ) {
+                $( '#timerMinutes' ).show();
+            }
             $( '#notesSymbol' ).show();
             $( '#launchText' ).hide();
             $( '#progressGraphContainer' ).show();
         }, 1000 );
-
-        localStorage.setItem( 'pizzaTimerStartMinutes', '' );
 
         minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
 
@@ -351,6 +352,10 @@ $( document ).ready( function () {
         if ( allGuidedThoughts.length == 0 && localStorage.getItem( 'topupReminderInMinutes1' ) == '' && localStorage.getItem( 'topupReminderInMinutes2' ) == '' && localStorage.getItem( 'orderPizzaReminderInMinutes' ) == '' ) {
             $( '#disableAllReminders' ).hide();
         }
+    } );
+
+    $( '#timedRecommendation' ).click( function ( event ) {
+        $( '#timedRecommendation' ).modal( 'hide' );
     } );
 
     // Top up Reminder Config
@@ -440,15 +445,35 @@ $( document ).ready( function () {
     // ******************************************
     // Pizza timer
     $( '#startPizzaTimer' ).click( function ( e ) {
-        localStorage.setItem( 'pizzaTimerStartMinutes', totalMins );
-        pizzaTimerShown = false;
         $( '#timerMinutes' ).hide();
         $( '#pizzaTimerContainer' ).show();
+        pizzaTimerShown = false;
+        pizzaTimerStart = new Date();
+        setInterval( pizzaTimer, 1000 );
     } );
     $( '#pizzaTimerContainer' ).click( function ( e ) {
         $( '#pizzaTimerContainer' ).hide();
-        $( '#timerMinutes' ).show();
+        pizzaTimerStart = '';
+        if ( timer != '' ) {
+            $( '#timerMinutes' ).show();
+        }
     } );
+
+    function pizzaTimer() {
+        var totalMinsPizzaTimerPassed = Math.floor( (new Date() - pizzaTimerStart) / 60000 );
+
+        if ( pizzaTimerStart != '' ) {
+            if ( totalMinsPizzaTimerPassed <= 9 ) {
+                $( '#pizzaTimerProgress' ).html( '0' + totalMinsPizzaTimerPassed );
+            } else {
+                $( '#pizzaTimerProgress' ).html( totalMinsPizzaTimerPassed );
+            }
+        }
+        if ( pizzaTimerStart != '' && totalMinsPizzaTimerPassed >= pizzaTimerMinutesTillReady && pizzaTimerShown == false ) {
+            pizzaTimerShown = true;
+            showTimedRecommendation( 'Pizza is ready!!!' );
+        }
+    }
 
     // ******************************************
     // enable/disable screen
@@ -526,18 +551,6 @@ $( document ).ready( function () {
             updateprogressGraphColor( color );
         }
 
-        // Reminder Display - Pizza Timer
-        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' ) {
-            minutesPassed = totalMins - parseInt( localStorage.getItem( 'pizzaTimerStartMinutes' ) );
-            if ( minutesPassed <= 9 ) {
-                minutesPassed = '0' + minutesPassed;
-            }
-            $( '#pizzaTimerProgress' ).html( minutesPassed );
-        }
-        if ( localStorage.getItem( 'pizzaTimerStartMinutes' ) != undefined && localStorage.getItem( 'pizzaTimerStartMinutes' ) != '' && totalMins >= (parseInt( localStorage.getItem( 'pizzaTimerStartMinutes' ) ) + pizzaTimerMinutesTillReady) && pizzaTimerShown == false ) {
-            pizzaTimerShown = true;
-            showTimedRecommendation( 'Pizza is ready!!!' );
-        }
         // Reminder Display - Top up
         if ( localStorage.getItem( 'topupReminderInMinutes1' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes1' ) ) && topUpReminderShown1 == false ) {
             topUpReminderShown1 = true;
@@ -552,9 +565,6 @@ $( document ).ready( function () {
             orderPizzaReminderShown = true;
             showTimedRecommendation( 'Order Pizza!' );
         }
-        $( '#timedRecommendation' ).click( function ( event ) {
-            $( '#timedRecommendation' ).modal( 'hide' );
-        } );
 
         // Guided Thoughts
         if ( allGuidedThoughts[guidedThoughtsNext] != undefined && ((totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'minutesCountAtLastDisplayedThought' ) )) || (totalMins == parseInt( localStorage.getItem( 'minutesCountAtLastDisplayedThought' ) ) && veryFirstThoughtDisplayed != true)) ) {
@@ -1782,7 +1792,7 @@ $( document ).ready( function () {
     // ******************************************
     // init initial view
     if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
-        $( '#trippy-3Dfilter' ).trigger( 'click' );
+        /*        $( '#trippy-3Dfilter' ).trigger( 'click' );*/
         $( '#showVideoSection' ).trigger( 'click' );
     } else {
         $( '#showVideoSection' ).trigger( 'click' );

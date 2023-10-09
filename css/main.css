@@ -385,7 +385,6 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     font-size: 30px;
     font-weight: bold;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    display: none;
 }
 
 .guidedThoughtsText {
@@ -478,7 +477,7 @@ li, .options, .form-check-label {
     line-height: 80px;
 }
 
-#displayHour::after {
+#timerColon {
     content: ":";
     position: relative;
     top: -.1em;
@@ -692,6 +691,7 @@ option {
     height: 35px;
     width: 390px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    left:35px;
 }
 
 #particles-js {
