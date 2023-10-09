@@ -440,10 +440,16 @@ li, .options, .form-check-label {
     font-size: 130px;
 }
 
-.pizzaTimerMinutesSuffix {
+.pizzaTimerMinutesPrefix, .pizzaTimerMinutesSuffix {
     padding: 3px 0;
     font-size: 25px;
     font-weight: bold;
+}
+
+.pizzaTimerMinutesSuffix {
+    margin-left: -15px;
+    pointer-events: none;
+    z-index: 4;
 }
 
 #pizzaTimerMinutesContainer {
@@ -457,6 +463,8 @@ li, .options, .form-check-label {
     font-size: 25px;
     background: transparent;
     outline: none;
+    z-index: 5;
+    padding-top: 3px;
 }
 
 #liftOff {
@@ -712,7 +720,7 @@ option {
     height: 35px;
     width: 390px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    left:35px;
+    left: 35px;
 }
 
 #particles-js {

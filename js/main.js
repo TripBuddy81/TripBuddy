@@ -443,9 +443,7 @@ $( document ).ready( function () {
 
     // ******************************************
     // Pizza timer
-    if ( localStorage.getItem( 'pizzaTimerMinutesTillReady' )  == undefined ) {
-        localStorage.setItem( 'pizzaTimerMinutesTillReady', $( '#pizzaTimerMinutes' ).val() );
-    }
+    localStorage.setItem( 'pizzaTimerMinutesTillReady', $( '#pizzaTimerMinutes' ).val() );
 
     $( '#pizzaTimerMinutes' ).change( function ( event ) {
         localStorage.setItem( 'pizzaTimerMinutesTillReady', $( '#pizzaTimerMinutes' ).val() );
