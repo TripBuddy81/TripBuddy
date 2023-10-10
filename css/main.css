@@ -565,6 +565,8 @@ li, .options, .form-check-label {
 #fullscreenIcon, .playerIcon {
     height: 45px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    position: relative;
+    z-index: 5;
 }
 
 #spotifyIcon {
