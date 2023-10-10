@@ -31,7 +31,7 @@ $( document ).ready( function () {
     var displayedAbsoluteTruthIndex = [];
     var stroboBGWhite = false;
     var absoluteTruthsTimer = undefined;
-    var absoluteTruthsTimerDuration = 14000;
+    var absoluteTruthsTimerDuration = 20000;
     var videoTagList = '';
     var maxYoutubeSearchResults = 50;
     var youtubeApiKeyInUse = 1;
@@ -1198,7 +1198,7 @@ $( document ).ready( function () {
                 } else if ( length < 200 ) {
                     document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '90px';
                 } else {
-                    document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '50px';
+                    document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '67px';
                 }
 
                 $( '#absoluteTruthsOverlayText' ).fadeIn( 1500 );

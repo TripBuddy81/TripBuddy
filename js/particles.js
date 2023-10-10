@@ -66,8 +66,8 @@ function particlesInit( showParticles = true ) {
                             'out_mode' : 'out',
                             'attract'  : {
                                 'enable' : true,
-                                'rotateX': 3500,
-                                'rotateY': 3500
+                                'rotateX': 4500,
+                                'rotateY': 4500
                             }
                         }
                     },
