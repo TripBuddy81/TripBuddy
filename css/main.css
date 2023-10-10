@@ -724,6 +724,7 @@ option {
     width: 390px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     left: 35px;
+    z-index: 2;
 }
 
 #particles-js {
