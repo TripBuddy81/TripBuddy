@@ -717,13 +717,12 @@ option {
     font-size: 50px;
     position: relative;
     top: -16px;
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 185px;
     font-weight: bold;
     height: 35px;
     width: 390px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    left: 35px;
+    left: 0px;
     z-index: 2;
 }
 
