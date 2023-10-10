@@ -729,6 +729,7 @@ $( document ).ready( function () {
     // ***********************************
     // Video section
     $( '.videoFilterBtn' ).click( function () {
+        enableFullscreen();
         videoTagList = '';
         $( '.videoFilterBtn.videoFilterActive' ).each( function () {
             activeFilter = $( this ).attr( 'id' );
@@ -900,6 +901,7 @@ $( document ).ready( function () {
     var imageTagList = '';
     var lastActiveTag = '';
     $( '.imageFilterBtn' ).click( function () {
+        enableFullscreen();
         imageTagList = '';
         $( '.imageFilterBtn.imageFilterActive' ).each( function () {
             $( this ).toggleClass( 'imageFilterActive' );
