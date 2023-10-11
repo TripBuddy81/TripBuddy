@@ -645,6 +645,10 @@ var config = {
             'name': 'Sushi Party'
         },
         {
+            'link': 'https://static.pixeled.site/rps-web/index.html',
+            'name': 'Rock Paper Scissors'
+        },
+        {
             'link': 'https://v6p9d9t4.ssl.hwcdn.net/html/4112368/index.html',
             'name': 'Breakout'
         },
