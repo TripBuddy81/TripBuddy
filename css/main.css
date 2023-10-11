@@ -635,7 +635,7 @@ option {
 
 #spotifyPlaylists {
     position: relative;
-    top: -7px;
+    top: -11px;
     width: 260px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     background-color: transparent;
@@ -716,7 +716,7 @@ option {
 #launchText {
     font-size: 50px;
     position: relative;
-    top: -16px;
+    top: -19px;
     padding-left: 185px;
     font-weight: bold;
     height: 35px;
