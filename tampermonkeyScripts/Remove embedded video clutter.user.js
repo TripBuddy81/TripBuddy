@@ -13,11 +13,10 @@
 (function() {
     'use strict';
 
+    modifyIframe();
+    javascript:setInterval( modifyIframe , 5000);
 
-    removeFromIframe();
-    javascript:setInterval( removeFromIframe , 5000);
-
-    function removeFromIframe() {
+    function modifyIframe() {
         try {
             document.getElementsByClassName("ytp-button ytp-cards-button")[0].remove();
         } catch(e) {
@@ -49,10 +48,24 @@
         }
 
         try {
+            document.getElementsByClassName("html5-endscreen")[0].remove();
+        } catch(e) {
+        }
+
+        try {
             document.getElementsByClassName("vjs-big-play-button")[0].remove();
         } catch(e) {
         }
 
+        try {
+            document.getElementsByClassName("ytp-ce-element")[0].remove();
+        } catch(e) {
+        }
+
+        try {
+            document.getElementsByClassName("ytp-ce-channel")[0].remove();
+        } catch(e) {
+        }
 
         try {
             document.getElementById("playerOverlay").remove();
