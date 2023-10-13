@@ -239,8 +239,9 @@ $( document ).ready( function () {
         } );
         $( this ).toggleClass( 'mainSectionActive' );
 
-        $( '#mainSearchInput' ).focus().val( '' );
-        searchYoutubeAutocomplete( $( this ).html() );
+        setTimeout( function () {
+            $( '#mainSearchInput' ).focus();
+        }, 500 );
 
         enableFullscreen();
         refreshGradientBackground();
@@ -1245,7 +1246,7 @@ $( document ).ready( function () {
 
         $( '#gamesFrame' ).attr( 'class', '' );
         $( '#gamesFrame' ).attr( 'src', $( this ).attr( 'data' ) );
-        $( '#gamesFrame' ).addClass($( this ).attr( 'iframeClass' ));
+        $( '#gamesFrame' ).addClass( $( this ).attr( 'iframeClass' ) );
 
         $( '.gameLink.gameLinkActive' ).each( function () {
             $( this ).toggleClass( 'gameLinkActive' );
