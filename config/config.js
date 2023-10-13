@@ -168,7 +168,7 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/AITN4rs1Ev8?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/mCScNx6Oxe4?mute=1',
             'tags'     : 'trippy-2D'
         },
         {
@@ -188,7 +188,7 @@ var config = {
             'tags'     : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/0NR8_r2FmFk?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/BxkMslKrtzI?mute=1',
             'tags'     : 'trippy-2D'
         },
         {
@@ -396,7 +396,11 @@ var config = {
             'tags'     : 'slideshow'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/zLgWjiHv3_U?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/zLgWjiHv3_U?mute=1&loop=1&playlist=zLgWjiHv3_U',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/CGi0Snrq1Yg?mute=1&loop=1&playlist=CGi0Snrq1Yg',
             'tags'     : 'weird'
         },
         {
