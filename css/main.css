@@ -634,8 +634,8 @@ option {
 }
 
 #spotifyPlaylists {
-    position: relative;
-    top: -11px;
+    position: sticky;
+    top: 0px;
     width: 260px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     background-color: transparent;
@@ -646,8 +646,9 @@ option {
     color: black;
     margin-left: 10px;
     margin-right: 0px;
+    margin-top: 10px;
     text-align-last: center;
-    height: 60px;
+    max-height: 50px;
     overflow: hidden;
 }
 
