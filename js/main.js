@@ -1195,10 +1195,10 @@ $( document ).ready( function () {
                 length = nextTruth['text'].length;
                 if ( length < 100 ) {
                     document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
-                } else if ( length < 150 ) {
-                    document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '100px';
                 } else if ( length < 200 ) {
-                    document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '90px';
+                    document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '95px';
+                } else if ( length < 300 ) {
+                    document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '82px';
                 } else {
                     document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '67px';
                 }
