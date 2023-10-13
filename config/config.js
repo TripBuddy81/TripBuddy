@@ -654,6 +654,14 @@ var config = {
             'image': './media/images/75.jpg',
             'tags' : 'space'
         },
+        {
+            'image': './media/images/76.jpg',
+            'tags' : 'space'
+        },
+        {
+            'image': './media/images/77.jpg',
+            'tags' : 'space'
+        },
     ],
     'searchEngines'      : [
         {
