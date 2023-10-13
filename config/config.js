@@ -128,6 +128,7 @@ var config = {
     'selectableVideoTags': [
         {'selectableTag': 'trippy-2D'},
         {'selectableTag': 'trippy-3D'},
+        {'selectableTag': 'weird'},
         {'selectableTag': 'meditative'},
         {'selectableTag': 'space'},
         {'selectableTag': 'nature'},
@@ -393,6 +394,38 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/rgZfmWXTqas?mute=1',
             'tags'     : 'slideshow'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/zLgWjiHv3_U?mute=1',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/er416Ad3R1g?mute=1',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/ClVqVohatEk?mute=1',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/FOEYsueJsEg?mute=1',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/770SdGs803A?mute=1',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/mhTobDEY9fI?mute=1',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/sKo-vjhAkQs?mute=1',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/8vMhr3HeyMQ?mute=1',
+            'tags'     : 'weird'
         }
     ],
     'selectableImageTags': [
@@ -701,10 +734,6 @@ var config = {
         {
             'link': 'https://www.youtube.com/watch?v=M6M9-oFEKpk&list=PLl6BRvEJ-auZ5aYPHj1B3pKJ_pLjg9qNU',
             'name': 'Luetin - Warhammer 40K Lore'
-        },
-        {
-            'link': 'https://www.youtube.com/watch?v=ClVqVohatEk&list=PLa5pIh4vGRBt9oMGlYWTW2wT8P5ZQfHao',
-            'name': 'Post America'
         },
         {
             'link': 'https://symbolsage.com/enso-symbol-and-its-meaning/',
