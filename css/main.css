@@ -1134,6 +1134,12 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100vh;
 }
 
+.rockPaperSciccors {
+    height: 103vh !important;
+    position: fixed;
+    top: -29px;
+}
+
 #games, #shrine {
     overflow-y: hidden;
     height: 100vh;

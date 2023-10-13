@@ -1242,7 +1242,10 @@ $( document ).ready( function () {
         }
 
         enableFullscreen();
+
+        $( '#gamesFrame' ).attr( 'class', '' );
         $( '#gamesFrame' ).attr( 'src', $( this ).attr( 'data' ) );
+        $( '#gamesFrame' ).addClass($( this ).attr( 'iframeClass' ));
 
         $( '.gameLink.gameLinkActive' ).each( function () {
             $( this ).toggleClass( 'gameLinkActive' );
