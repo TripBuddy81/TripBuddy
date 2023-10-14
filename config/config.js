@@ -164,6 +164,10 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/QxLV23bApTA?mute=1&loop=1&playlist=QxLV23bApTA',
+            'tags'     : 'trippy-3D'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/BEdAaSWiY_8?mute=1',
             'tags'     : 'trippy-3D'
         },
@@ -252,7 +256,11 @@ var config = {
             'tags'     : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/Syyxe6PNLeQ?mute=1&loop=1&playlist=Syyxe6PNLeQ',
+            'tags'     : 'meditative'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/K2BoRq70QeU?mute=1&loop=1&playlist=K2BoRq70QeU',
             'tags'     : 'meditative'
         },
         {
@@ -266,6 +274,10 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/B5unCXpegAw?mute=1',
             'tags'     : 'meditative space'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
+            'tags'     : 'meditative'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/jNyvfvDFFPk?mute=1',
@@ -404,7 +416,23 @@ var config = {
             'tags'     : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/er416Ad3R1g?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/er416Ad3R1g?mute=1&loop=1&playlist=er416Ad3R1g',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/15il5mmlpmE?mute=1&loop=1&playlist=15il5mmlpmE',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/YNOExz7gvRU?mute=1',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/PfxtpPF5qmk?mute=1&loop=1&playlist=PfxtpPF5qmk',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/ZmxiaXvIotQ?mute=1&loop=1&playlist=ZmxiaXvIotQ',
             'tags'     : 'weird'
         },
         {
