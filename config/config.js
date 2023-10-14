@@ -719,7 +719,8 @@ var config = {
         },
         {
             'link': 'https://static.pixeled.site/rps-web/index.html',
-            'name': 'Rock Paper Scissors'
+            'name': 'Rock Paper Scissors',
+            'class': 'rockPaperSciccors'
         },
         {
             'link': 'https://v6p9d9t4.ssl.hwcdn.net/html/4112368/index.html',
