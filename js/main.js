@@ -40,6 +40,7 @@ $( document ).ready( function () {
     var youtubeIntitalSearchTerm = 'Psychill';
     var lastSelectedAutocompleteItem = 0;
     var currentAutocompleteItem = 0;
+    var allVideosLoaded = false;
 
     Object.assign( config, optionalConfig );
 
@@ -324,7 +325,9 @@ $( document ).ready( function () {
         localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
         enableFullscreen();
 
-        loadAllVideos();
+        if ( !allVideosLoaded ) {
+            loadAllVideos();
+        }
     } );
 
     // Lift off - initialize a lot of stuff
@@ -801,6 +804,8 @@ $( document ).ready( function () {
             $( '.localVideo' ).each( function () {
                 this.load();
             } );
+
+            allVideosLoaded = true;
         }
     }
 
