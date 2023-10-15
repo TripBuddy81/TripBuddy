@@ -591,7 +591,7 @@ li, .options, .form-check-label {
 .fullscreenImage {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     width: 538.7px;
-    margin-right: 22px;
+    margin-right: 19px;
     margin-bottom: 25px;
 }
 
@@ -888,7 +888,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 300px;
     display: inline-block;
     position: relative;
-    margin-right: 22px;
+    margin-right: 19px;
     margin-bottom: 25px;
 }
 
@@ -1187,7 +1187,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: relative;
     margin-left: 15px;
     margin-bottom: 25px;
-    margin-right: 12.5px
+    margin-right: 9.5px
 }
 
 .VRGameImage {
