@@ -1462,6 +1462,21 @@ $( document ).ready( function () {
         enableFullscreen();
     } );
 
+    $( '.addVideoToQueue' ).click( function ( event ) {
+        var targetURL = $( this ).siblings( '.videoSource' ).attr( 'src' );
+        var videoId = targetURL.match( /.*embed\/(.+)\?+/ )[1];
+
+        videoToQueue = {
+            'id'         : videoId,
+            'img'        : 'https://img.youtube.com/vi/' + videoId + '/0.jpg',
+            'description': '',
+            'duration'   : ''
+        };
+
+        youtubeCurrentQueue.push( videoToQueue );
+        displayYoutubeQueue();
+    } );
+
     $( document ).on( 'click', '.youtubeAutocompleteItem', function ( e ) {
         $( '#mainSearchInput' ).val( $( this ).html() );
         searchYoutube( $( this ).html() );

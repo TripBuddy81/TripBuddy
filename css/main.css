@@ -928,6 +928,20 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
 }
 
+.addVideoToQueue {
+    right: 5px;
+    top: 5px;
+    z-index: 1;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+}
+
+.addVideoToQueue:hover {
+    opacity: 1;
+}
+
 .videoMenuOverlayFullscreen {
     left: 753px;
     top: 380px;
