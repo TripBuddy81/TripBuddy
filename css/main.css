@@ -119,11 +119,10 @@ p {
 
 .videoLabel {
     position: relative;
-    top: -33px;
+    top: 0px;
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
-    line-height: 3.5;
     cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
 }
 
@@ -890,6 +889,10 @@ input[type=range]::-webkit-slider-thumb {
     position: relative;
     margin-right: 19px;
     margin-bottom: 25px;
+}
+
+.videoContainer.wisdom {
+    margin-bottom: 50px !important;
 }
 
 .videoFrame {
