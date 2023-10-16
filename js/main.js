@@ -1594,7 +1594,7 @@ $( document ).ready( function () {
         };
         youtubeCurrentQueue.push( videoToQueue );
         addVideoToHistory( videoToQueue );
-        if ( youtubePlayerState == 'video cued' || youtubePlayerState == 'undefined' ) {
+        if ( youtubePlayerState == 'video cued' || youtubePlayerState == 'undefined' || youtubePlayerState == 'paused' ) {
             playNextYoutubeVideoOrSpotifyTrack();
         }
         displayYoutubeQueue();
