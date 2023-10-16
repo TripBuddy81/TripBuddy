@@ -1555,6 +1555,7 @@ $( document ).ready( function () {
     } );
 
     $( document ).on( 'click', '.youtubeQueueItemImage,.youtubeQueueItemDescription', function () {
+        var videoItem = {};
         videoItem.id = $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' );
         videoItem.description = $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemDescription' ).html();
         videoItem.img = $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'src' );
