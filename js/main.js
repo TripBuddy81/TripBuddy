@@ -1463,11 +1463,11 @@ $( document ).ready( function () {
     } );
 
     $( '.addVideoToQueue' ).click( function ( event ) {
-        $( this ).hide();
+        $( this ).addClass('addVideoToQueueClicked');
         addToQueueElement = this;
         setTimeout( function () {
-            $( addToQueueElement ).show();
-        }, 1000 );
+            $( addToQueueElement ).removeClass('addVideoToQueueClicked');
+        }, 200 );
 
         var targetURL = $( this ).siblings( '.videoSource' ).attr( 'src' );
         var videoId = targetURL.match( /.*embed\/(.+)\?+/ )[1];
