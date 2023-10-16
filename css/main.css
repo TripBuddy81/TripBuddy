@@ -947,6 +947,10 @@ video::-webkit-media-controls-fullscreen-button {
     width: 45px;
 }
 
+.videoContainer.XXX .addVideoToQueue {
+    display: none;
+}
+
 .videoMenuOverlayFullscreen {
     left: 753px;
     top: 380px;
