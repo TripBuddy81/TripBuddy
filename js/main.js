@@ -1555,6 +1555,21 @@ $( document ).ready( function () {
         searchYoutubeAutocomplete( $( this ).val() );
     } );
 
+    $( '#switchAudioSource' ).click( function ( event ) {
+        if (youtubePlayer.isMuted()) {
+            spotifyPause();
+            youtubePlayer.unMute();
+        } else {
+            youtubePlayer.mute();
+            if ( playingTrack ) {
+                spotifyNext();
+            } else {
+                spotifyPlay();
+            }
+        }
+
+    } );
+
     $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function ( e ) {
         removeIdFromYoutubeQueue( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
         displayYoutubeQueue();
