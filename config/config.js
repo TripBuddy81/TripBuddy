@@ -453,82 +453,82 @@ var config = {
             'tags'     : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/ogLc7M9_hR8?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/ogLc7M9_hR8?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'The lie we live'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/rBpaUICxEhk?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/rBpaUICxEhk?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'Das Leben ist keine Reise'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4yaBJVfyy00?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/4yaBJVfyy00?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'The false idea of who you are'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/kl1fytRAMRE?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/kl1fytRAMRE?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'Don\'t take life too seriously'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4vv93azMkDE?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/4vv93azMkDE?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'The rules to the game of life'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/DIChudNdFQ8?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/DIChudNdFQ8?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'The Mystery of falling in love'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/pFH804qrIOU?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/pFH804qrIOU?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'What is Nirvana?'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/2u0rPBbn5G8?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/2u0rPBbn5G8?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'When you are ready to wake up, you are going to wake up'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4f5yF8GeCG4?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/4f5yF8GeCG4?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'It\'s time to wake up'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/uc8ceRYTbtU?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/uc8ceRYTbtU?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'Surrendering does not make sense, but it does'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/Q5OioTR4PPs?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/Q5OioTR4PPs?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'Being a real person'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/h6fcK_fRYaI?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/h6fcK_fRYaI?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'The egg'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/Jv79l1b-eoI?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/Jv79l1b-eoI?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'How to party at the end of meaning'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/yXBiYk4hYm0?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/yXBiYk4hYm0?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'Dostoevsky - Timeless philosophy of a tormented genius'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/id0Kkq4VHDo?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/id0Kkq4VHDo?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'Socrates\' Trial: His historic defense in today\'s language'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4nHj3gL_JN0?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/4nHj3gL_JN0?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'The profound meaning of Plato\'s allegory of the cave'
         },
@@ -543,32 +543,32 @@ var config = {
             'label'    : '365 life lessons so you don\'t screw your life up like I did'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/DRc430cTkQk?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/DRc430cTkQk?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'Near death experience'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/k3VCrlN_1OI?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/k3VCrlN_1OI?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'The most important question of your life'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/hZeoyYOYgg4?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/hZeoyYOYgg4?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'How to be completely carefree'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/9M56t0UoW5M?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/9M56t0UoW5M?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'Aloneness to oneness'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4DrR6rSJhN0?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/4DrR6rSJhN0?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'Going through a dark night of the soul?'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/9PnGNVJSN6Q?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/9PnGNVJSN6Q?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'All along the watchtower'
         },
