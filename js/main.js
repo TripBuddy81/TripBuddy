@@ -1463,10 +1463,10 @@ $( document ).ready( function () {
     } );
 
     $( '.addVideoToQueue' ).click( function ( event ) {
-        $( this ).addClass('addVideoToQueueClicked');
+        $( this ).addClass( 'addVideoToQueueClicked' );
         addToQueueElement = this;
         setTimeout( function () {
-            $( addToQueueElement ).removeClass('addVideoToQueueClicked');
+            $( addToQueueElement ).removeClass( 'addVideoToQueueClicked' );
         }, 200 );
 
         var targetURL = $( this ).siblings( '.videoSource' ).attr( 'src' );
@@ -1556,9 +1556,10 @@ $( document ).ready( function () {
     } );
 
     $( '#switchAudioSource' ).click( function ( event ) {
-        if (youtubePlayer.isMuted()) {
+        if ( youtubePlayer.isMuted() || youtubePlayerState != 'playing' ) {
             spotifyPause();
             youtubePlayer.unMute();
+            youtubePlayer.playVideo();
         } else {
             youtubePlayer.mute();
             if ( playingTrack ) {
@@ -1567,7 +1568,6 @@ $( document ).ready( function () {
                 spotifyPlay();
             }
         }
-
     } );
 
     $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function ( e ) {
