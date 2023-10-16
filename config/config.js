@@ -901,12 +901,48 @@ var config = {
             'tag' : ''
         },
         {
+            'text': 'To someone going through a difficult time in their life – the Enso signifies limitless strength and control of their destiny, reminding the person that they have the choice to decide how they view and live their life. It’s also a reminder to look inwards and find inner peace.',
+            'tag' : ''
+        },
+        {
+            'text': 'The Enso represents the idea of immense space that has no need of anything and contains nothing that it needs. It’s empty and yet full, with no beginning or end.',
+            'tag' : ''
+        },
+        {
+            'text': 'The Enso signifies the Circle of Eternity and Enlightenment.',
+            'tag' : ''
+        },
+        {
+            'text': 'The Enso represents the Circle of Life. It is the start and end of all things.',
+            'tag' : ''
+        },
+        {
+            'text': 'The Enso can indicate emptiness and also the idea that it contains all it needs within its center.',
+            'tag' : ''
+        },
+        {
+            'text': 'The Enso represents the cyclic nature of life: Birth, Death and Rebirth.',
+            'tag' : ''
+        },
+        {
+            'text': 'You don’t know what you want because you already have it !',
+            'tag' : ''
+        },
+        {
+            'text': 'You can decide how to view and live your life - there is no right or wrong!',
+            'tag' : ''
+        },
+        {
+            'text': 'There is nothing permanent!',
+            'tag' : ''
+        },
+        {
             'text': 'We are only passing through',
             'tag' : ''
         },
         {
             'text': 'You shouldn\'t be alive, but yet you are!',
             'tag' : ''
-        }
+        },
     ]
 };
