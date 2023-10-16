@@ -1433,7 +1433,9 @@ $( document ).ready( function () {
                 break;
             case YT.PlayerState.PLAYING:
                 youtubePlayerState = 'playing';
-                spotifyPause();
+                if ( !youtubePlayer.isMuted() ) {
+                    spotifyPause();
+                }
                 break;
             case YT.PlayerState.PAUSED:
                 youtubePlayerState = 'paused';
@@ -1812,16 +1814,18 @@ $( document ).ready( function () {
             }
         } else {
             videoItem = youtubeCurrentQueue.shift();
-            spotifyPause();
-            youtubePlayer.unMute();
+            if ( !youtubePlayer.isMuted() ) {
+                spotifyPause();
+            }
             youtubePlayer.loadVideoById( videoItem.id );
             displayYoutubeQueue();
         }
     }
 
     function playSpecificYoutubeVideo( videoItem ) {
-        spotifyPause();
-        youtubePlayer.unMute();
+        if ( !youtubePlayer.isMuted() ) {
+            spotifyPause();
+        }
         youtubePlayer.loadVideoById( videoItem.id );
         removeIdFromYoutubeQueue( videoItem.id );
         displayYoutubeQueue();
