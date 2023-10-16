@@ -1813,6 +1813,7 @@ $( document ).ready( function () {
         } else {
             videoItem = youtubeCurrentQueue.shift();
             spotifyPause();
+            youtubePlayer.unMute();
             youtubePlayer.loadVideoById( videoItem.id );
             displayYoutubeQueue();
         }
