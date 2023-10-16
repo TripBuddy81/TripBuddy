@@ -1821,6 +1821,7 @@ $( document ).ready( function () {
 
     function playSpecificYoutubeVideo( videoItem ) {
         spotifyPause();
+        youtubePlayer.unMute();
         youtubePlayer.loadVideoById( videoItem.id );
         removeIdFromYoutubeQueue( videoItem.id );
         displayYoutubeQueue();
