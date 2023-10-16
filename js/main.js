@@ -1465,11 +1465,12 @@ $( document ).ready( function () {
     $( '.addVideoToQueue' ).click( function ( event ) {
         var targetURL = $( this ).siblings( '.videoSource' ).attr( 'src' );
         var videoId = targetURL.match( /.*embed\/(.+)\?+/ )[1];
+        var description = searchYoutubeSpecificVideoId( videoId );
 
         videoToQueue = {
             'id'         : videoId,
             'img'        : 'https://img.youtube.com/vi/' + videoId + '/0.jpg',
-            'description': '',
+            'description': description,
             'duration'   : ''
         };
 
@@ -1606,6 +1607,38 @@ $( document ).ready( function () {
                 }
             }
         } );
+    }
+
+    function searchYoutubeSpecificVideoId( videoId, increaseApiKey = false ) {
+        if ( increaseApiKey ) {
+            youtubeApiKeyInUse += 1;
+            if ( youtubeApiKeyInUse > 10 ) {
+                return false;
+            }
+        }
+
+        var description = '';
+
+        $.ajax( {
+            type   : 'GET',
+            async  : false,
+            url    : 'https://www.googleapis.com/youtube/v3/videos',
+            data   : {
+                key : config['youtubeApiKey' + youtubeApiKeyInUse],
+                id  : videoId,
+                part: 'snippet'
+            },
+            success: function ( searchYoutubeResult ) {
+                description = searchYoutubeResult.items[0].snippet.title;
+            },
+            error  : function ( response ) {
+                if ( response.responseJSON.error.errors[0].reason == 'quotaExceeded' ) {
+                    searchYoutube( videoId, true );
+                }
+            }
+        } );
+
+        return description;
     }
 
     function getVideoDurationsFromYoutube( searchYoutubeResult ) {
