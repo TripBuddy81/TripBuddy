@@ -18,6 +18,11 @@
 
     function modifyIframe() {
         try {
+            document.getElementsByClassName("ytp-fullscreen-button")[0].style.opacity = "0";
+        } catch(e) {
+        }
+
+        try {
             document.getElementsByClassName("ytp-volume-area")[0].remove();
         } catch(e) {
         }
