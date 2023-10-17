@@ -483,6 +483,11 @@ $( document ).ready( function () {
             $( '#startPizzaTimer' ).click( function ( e ) {
                 $( '#timerMinutes' ).hide();
                 $( '#pizzaTimerContainer' ).show();
+                if ( timer == '' ) {
+                    $( '#launchText' ).attr( 'style', 'opacity:0' );
+                } else {
+                    $( '#launchText' ).hide();
+                }
                 pizzaTimerShown = false;
                 pizzaTimerStart = new Date();
                 setInterval( pizzaTimer, 1000 );
@@ -492,6 +497,10 @@ $( document ).ready( function () {
                 pizzaTimerStart = '';
                 if ( timer != '' ) {
                     $( '#timerMinutes' ).show();
+                    $( '#launchText' ).hide();
+                } else {
+                    $( '#launchText' ).attr( 'style', 'opacity:1' );
+                    $( '#launchText' ).show();
                 }
             } );
 
