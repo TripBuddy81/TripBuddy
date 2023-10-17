@@ -1318,7 +1318,8 @@ $( document ).ready( function () {
                     shuffle();
                     repeat();
                     spotifyPlay( lastSelectedPlaylist );
-                    youtubePlayer.pauseVideo();
+                    markYoutubeAsActiveAudioSource( false );
+                    youtubePlayer.mute();
                 } );
 
                 $( document ).on( 'mousedown', document, function ( e ) {
@@ -1832,10 +1833,8 @@ $( document ).ready( function () {
 
             function playNextYoutubeVideoOrSpotifyTrack() {
                 if ( youtubeCurrentQueue.length == 0 ) {
-                    try {
-                        youtubePlayer.pauseVideo();
-                    } catch ( e ) {
-                    }
+                    markYoutubeAsActiveAudioSource( false );
+                    youtubePlayer.mute();
 
                     if ( playingTrack ) {
                         spotifyNext();
