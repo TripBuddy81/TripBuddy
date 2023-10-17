@@ -1296,8 +1296,11 @@ $( document ).ready( function () {
                 setInterval( currentlyPlaying, 3000 );
 
                 $( '#stopMusic' ).click( function () {
-                    spotifyPause();
+                    if ( youtubePlayerState != 'playing' ) {
+                        spotifyPause();
+                    }
                     youtubePlayer.pauseVideo();
+                    markYoutubeAsActiveAudioSource( false );
                 } );
 
                 $( '#spotifyPlaylists' ).click( function () {
