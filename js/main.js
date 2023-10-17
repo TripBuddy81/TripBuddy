@@ -1210,7 +1210,6 @@ $( document ).ready( function () {
                 if ( nextTruth['tag'] == 'XXX' && !xxxVisible ) {
                     absoluteTruthsUpdate( quickSwap );
                 } else {
-
                     $( '#absoluteTruthsOverlayText' ).fadeOut( fadeoutDuration, function () {
                         $( '#absoluteTruthsOverlayText' ).html( nextTruth['text'] );
 
@@ -1580,7 +1579,10 @@ $( document ).ready( function () {
 
             $( '#switchAudioSource' ).click( function ( event ) {
                 if ( youtubePlayer.isMuted() || youtubePlayerState != 'playing' ) {
-                    $( '#showSearchSection' ).trigger( 'click' );
+                    if ( !$( '#search' ).is( ':visible' ) ) {
+                        $( '#showSearchSection' ).trigger( 'click' );
+                    }
+
                     markYoutubeAsActiveAudioSource( true );
                     spotifyPause();
                     youtubePlayer.unMute();
