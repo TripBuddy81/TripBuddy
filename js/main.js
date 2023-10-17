@@ -1568,6 +1568,7 @@ $( document ).ready( function () {
 
             $( '#switchAudioSource' ).click( function ( event ) {
                 if ( youtubePlayer.isMuted() || youtubePlayerState != 'playing' ) {
+                    $( '#showSearchSection' ).trigger( 'click' );
                     markYoutubeAsActiveAudioSource( true );
                     spotifyPause();
                     youtubePlayer.unMute();
