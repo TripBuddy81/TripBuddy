@@ -1451,7 +1451,7 @@ $( document ).ready( function () {
                         setTimeout( function () {
                             if ( youtubePlayerState == 'paused' ) {
                                 markYoutubeAsActiveAudioSource( false );
-                                if ( playingTrack ) {
+                                if ( playingTrack && !youtubePlayer.isMuted() ) {
                                     spotifyNext();
                                 } else {
                                     spotifyPlay();
