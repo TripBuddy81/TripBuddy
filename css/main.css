@@ -592,12 +592,14 @@ li, .options, .form-check-label {
     width: 538.7px;
     margin-right: 19px;
     margin-bottom: 25px;
+    border-radius: 5px;
 }
 
 .externalVideoPreview {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     width: 538.7px;
     margin-right: 22px;
+    border-radius: 5px;
 }
 
 .displayedFullscreenImage {
@@ -902,6 +904,7 @@ input[type=range]::-webkit-slider-thumb {
     overflow: hidden;
     z-index: 1;
     background-color: black;
+    border-radius: 5px;
 }
 
 video::-webkit-media-controls-fullscreen-button {
@@ -1220,6 +1223,7 @@ video::-webkit-media-controls-fullscreen-button {
     width: 525px;
     height: 300px;
     margin-bottom: 5px;
+    border-radius: 5px;
 }
 
 .VRGameName {
@@ -1239,6 +1243,10 @@ video::-webkit-media-controls-fullscreen-button {
 
 .keyboard-action-button, .keyboard-key {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+#mainSearchResultYoutubeIframe {
+    border-radius: 5px;
 }
 
 #mainSearchResultSpotifyContainer {
@@ -1370,6 +1378,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 180px;
     display: block;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    border-radius: 5px;
 }
 
 .youtubeResultItemDescription, .youtubeQueueItemDescription {
