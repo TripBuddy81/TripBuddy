@@ -499,8 +499,8 @@ li, .options, .form-check-label {
     display: inline-block;
     color: #000000;
     position: absolute;
-    top: -2px;
-    right: 275px;
+    top: 2px;
+    right: 200px;
     display: none;
     z-index: 2;
     line-height: 80px;
@@ -513,7 +513,7 @@ li, .options, .form-check-label {
 }
 
 #progressGraphContainer {
-    width: 390px;
+    width: 285px;
     position: relative;
     display: none;
 }
@@ -637,7 +637,7 @@ option {
 #spotifyPlaylists {
     position: sticky;
     top: 0px;
-    width: 260px;
+    width: 340px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     background-color: transparent;
     border: none;
@@ -719,10 +719,10 @@ option {
     font-size: 50px;
     position: relative;
     top: -19px;
-    padding-left: 185px;
+    padding-left: 80px;
     font-weight: bold;
     height: 35px;
-    width: 390px;
+    width: 285px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     left: 0px;
     z-index: 2;
@@ -1056,7 +1056,7 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
     position: absolute;
     top: 5px;
-    right: 440px;
+    right: 360px;
     z-index: 10;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
