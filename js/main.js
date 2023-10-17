@@ -717,19 +717,6 @@ $( document ).ready( function () {
         location.reload();
     } )
 
-    // ******************************************
-    // Show Youtube played history
-    $( '#showYoutubePlayedHistory' ).click( function ( event ) {
-        var history = {'items': []};
-        history['items'] = JSON.parse( localStorage.getItem( 'youtubeHistory' ) ) || [];
-        displayYoutubeSearchResultsOrHistory( history );
-        searchYoutubeAutocomplete( '' );
-    } )
-    $( '#clearYoutubePlayedHistory' ).click( function ( event ) {
-        localStorage.setItem( 'youtubeHistory', JSON.stringify( '' ) );
-        event.stopPropagation();
-    } )
-
     // ***********************************
     // Video section
     $( '.videoFilterBtn' ).click( function () {
@@ -1574,6 +1561,18 @@ $( document ).ready( function () {
             }
         }
     } );
+
+    $( '#showYoutubePlayedHistory' ).click( function ( event ) {
+        var history = {'items': []};
+        history['items'] = JSON.parse( localStorage.getItem( 'youtubeHistory' ) ) || [];
+        displayYoutubeSearchResultsOrHistory( history );
+        searchYoutubeAutocomplete( '' );
+    } )
+
+    $( '#clearYoutubePlayedHistory' ).click( function ( event ) {
+        localStorage.setItem( 'youtubeHistory', JSON.stringify( '' ) );
+        event.stopPropagation();
+    } )
 
     $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function ( e ) {
         removeIdFromYoutubeQueue( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
