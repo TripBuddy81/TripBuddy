@@ -885,11 +885,11 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .videoContainer {
-    width: 538.7px;
+    width: 530px;
     height: 300px;
     display: inline-block;
     position: relative;
-    margin-right: 19px;
+    margin-right: 28px;
     margin-bottom: 25px;
 }
 
@@ -922,7 +922,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videoMenuOverlayMinimized2 {
-    left: 488px;
+    left: 480px;
     top: 250px;
     z-index: 1;
     width: 50px;
