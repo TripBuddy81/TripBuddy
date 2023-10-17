@@ -1434,6 +1434,7 @@ $( document ).ready( function () {
             case YT.PlayerState.PLAYING:
                 youtubePlayerState = 'playing';
                 if ( !youtubePlayer.isMuted() ) {
+                    markYoutubeAsActiveAudioSource( true );
                     spotifyPause();
                 }
                 break;
@@ -1441,6 +1442,7 @@ $( document ).ready( function () {
                 youtubePlayerState = 'paused';
                 setTimeout( function () {
                     if ( youtubePlayerState == 'paused' ) {
+                        markYoutubeAsActiveAudioSource( false );
                         if ( playingTrack ) {
                             spotifyNext();
                         } else {
@@ -1491,7 +1493,6 @@ $( document ).ready( function () {
         searchYoutube( $( this ).html() );
         searchYoutubeAutocomplete( $( this ).html() );
     } );
-
 
     $( '#mainSearchInput' ).keydown( function ( event ) {
         enableFullscreen();
@@ -1559,10 +1560,12 @@ $( document ).ready( function () {
 
     $( '#switchAudioSource' ).click( function ( event ) {
         if ( youtubePlayer.isMuted() || youtubePlayerState != 'playing' ) {
+            markYoutubeAsActiveAudioSource( true );
             spotifyPause();
             youtubePlayer.unMute();
             youtubePlayer.playVideo();
         } else {
+            markYoutubeAsActiveAudioSource( false );
             youtubePlayer.mute();
             if ( playingTrack ) {
                 spotifyNext();
@@ -1602,6 +1605,14 @@ $( document ).ready( function () {
         displayYoutubeQueue();
         enableFullscreen();
     } );
+
+    function markYoutubeAsActiveAudioSource( youtubeIsActiveAudioSource = false ) {
+        if ( youtubeIsActiveAudioSource ) {
+            $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
+        } else {
+            $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
+        }
+    }
 
     function searchYoutube( searchTerm, increaseApiKey = false ) {
         if ( increaseApiKey ) {
@@ -1815,6 +1826,7 @@ $( document ).ready( function () {
         } else {
             videoItem = youtubeCurrentQueue.shift();
             if ( !youtubePlayer.isMuted() ) {
+                markYoutubeAsActiveAudioSource( true );
                 spotifyPause();
             }
             youtubePlayer.loadVideoById( videoItem.id );
@@ -1824,6 +1836,7 @@ $( document ).ready( function () {
 
     function playSpecificYoutubeVideo( videoItem ) {
         if ( !youtubePlayer.isMuted() ) {
+            markYoutubeAsActiveAudioSource( true );
             spotifyPause();
         }
         youtubePlayer.loadVideoById( videoItem.id );
