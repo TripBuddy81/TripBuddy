@@ -18,6 +18,11 @@
 
     function modifyIframe() {
         try {
+            document.getElementsByClassName("ytp-volume-area")[0].remove();
+        } catch(e) {
+        }
+
+        try {
             document.getElementsByClassName("ytp-button ytp-cards-button")[0].remove();
         } catch(e) {
         }
