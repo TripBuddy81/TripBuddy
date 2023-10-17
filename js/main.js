@@ -1934,12 +1934,14 @@ $( document ).ready( function () {
             // END Search section
             // ******************************************
 
-    // ******************************************
-    // init initial view
-    if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
-        $( '#trippy-3Dfilter' ).trigger( 'click' );
-        $( '#showVideoSection' ).trigger( 'click' );
-    } else {
-        $( '#showVideoSection' ).trigger( 'click' );
-    }
-} );
+            // ******************************************
+            // init initial view
+            if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
+                $( '#trippy-3Dfilter' ).trigger( 'click' );
+                $( '#showVideoSection' ).trigger( 'click' );
+            } else {
+                $( '#showVideoSection' ).trigger( 'click' );
+            }
+        }
+)
+;
