@@ -1284,137 +1284,105 @@ $( document ).ready( function () {
 
             // ******************************************
             // Music section
-            // if oAuth Spotify Info is not found in optional config, we hide all player functionality and show the simple embedded player instead
-            // Work in progress - oAuth Spotify Player - Needs credentials
-            // If you know how to get client id and secret and also how to setup a debug user -> go for it (https://developer.spotify.com/dashboard/).
-            // oAuth Spotify Player
-            if ( config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
-                $( '#iFrameSpotifyPlayerContainer' ).remove();
-                redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
-                client_id = config['oAuthSpotify'][0]['client_id'];
-                client_secret = config['oAuthSpotify'][0]['client_secret'];
-                if ( window.location.search.length > 0 ) {
-                    handleRedirect();
+            redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
+            client_id = config['oAuthSpotify'][0]['client_id'];
+            client_secret = config['oAuthSpotify'][0]['client_secret'];
+            if ( window.location.search.length > 0 ) {
+                handleRedirect();
+            }
+            refreshAccessToken();
+            shuffle();
+            repeat();
+            setInterval( refreshAccessToken, 60000 );
+            setInterval( refreshDevices, 3000 );
+            setInterval( currentlyPlaying, 3000 );
+
+            $( '#stopMusic' ).click( function () {
+                if ( youtubePlayerState != 'playing' ) {
+                    spotifyPause();
                 }
-                refreshAccessToken();
+                youtubePlayer.pauseVideo();
+                markYoutubeAsActiveAudioSource( false );
+            } );
+
+            $( '#spotifyPlaylists' ).click( function () {
+                spotifyInitOnPageLoad();
+                $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
+            } );
+
+            document.onclick = function ( e ) {
+                if ( e.target != document.getElementById( 'spotifyPlaylistsMenu' ) && e.target != document.getElementById( 'spotifyPlaylists' ) ) {
+                    $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
+                }
+            }
+
+            $( '.spotifyPlaylistItem' ).click( function () {
+                lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
+                $( '#spotifyPlaylists' ).html( '...' );
+                openDesktopApp();
                 shuffle();
                 repeat();
-                setInterval( refreshAccessToken, 60000 );
-                setInterval( refreshDevices, 3000 );
-                setInterval( currentlyPlaying, 3000 );
+                spotifyPlay( lastSelectedPlaylist );
+                markYoutubeAsActiveAudioSource( false );
+                youtubePlayer.mute();
+            } );
 
-                $( '#stopMusic' ).click( function () {
-                    if ( youtubePlayerState != 'playing' ) {
-                        spotifyPause();
-                    }
-                    youtubePlayer.pauseVideo();
-                    markYoutubeAsActiveAudioSource( false );
-                } );
-
-                $( '#spotifyPlaylists' ).click( function () {
-                    spotifyInitOnPageLoad();
-                    $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
-                } );
-
-                document.onclick = function ( e ) {
-                    if ( e.target != document.getElementById( 'spotifyPlaylistsMenu' ) && e.target != document.getElementById( 'spotifyPlaylists' ) ) {
-                        $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
-                    }
-                }
-
-                $( '.spotifyPlaylistItem' ).click( function () {
-                    lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
-                    $( '#spotifyPlaylists' ).html( '...' );
-                    openDesktopApp();
-                    shuffle();
-                    repeat();
-                    spotifyPlay( lastSelectedPlaylist );
-                    markYoutubeAsActiveAudioSource( false );
-                    youtubePlayer.mute();
-                } );
-
-                $( document ).on( 'mousedown', document, function ( e ) {
-                    // on middle mouse button play next track
-                    if (
-                            e.which == 2 &&
-                            !$( event.target ).hasClass( 'menuItem' ) &&
-                            !$( event.target ).hasClass( 'xxxLink' ) &&
-                            !$( event.target ).hasClass( 'searchLink' ) &&
-                            !$( event.target ).hasClass( 'externalVideoPreview' )
-                    ) {
-                        e.preventDefault();
-                        openDesktopApp();
-                        shuffle();
-                        repeat();
-                        playNextYoutubeVideoOrSpotifyTrack();
-                    }
-                } );
-                $( '#next' ).click( function () {
-                    spotifyInitOnPageLoad();
+            $( document ).on( 'mousedown', document, function ( e ) {
+                // on middle mouse button play next track
+                if (
+                        e.which == 2 &&
+                        !$( event.target ).hasClass( 'menuItem' ) &&
+                        !$( event.target ).hasClass( 'xxxLink' ) &&
+                        !$( event.target ).hasClass( 'searchLink' ) &&
+                        !$( event.target ).hasClass( 'externalVideoPreview' )
+                ) {
+                    e.preventDefault();
                     openDesktopApp();
                     shuffle();
                     repeat();
                     playNextYoutubeVideoOrSpotifyTrack();
-                } );
-                $( '#switchDesktopPhone' ).click( function () {
-                    if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
-                        transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
-                    } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
-                        openDesktopApp();
-                        transfer( $( '#devices option:contains("DESKTOP")' ).val() );
-                    }
-                } );
-                $( '#menuClose' ).click( function () {
-                    refreshAccessToken();
-                    refreshDevices();
-                } );
-                $( '#devices' ).change( function () {
-                    transfer( $( '#devices' ).find( ':selected' ).val() );
-                    $( '#menuClose' ).trigger( 'click' );
-                } );
-
-                $( '#spotifyIcon' ).click( function ( e ) {
-                    window.open( lastSelectedPlaylist, '_blank' );
-                } );
-
-                function openDesktopApp() {
-                    if ( localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
-                        window.open( lastSelectedPlaylist, '_blank' );
-                        spotifyOpened = true;
-                    }
                 }
+            } );
+            $( '#next' ).click( function () {
+                spotifyInitOnPageLoad();
+                openDesktopApp();
+                shuffle();
+                repeat();
+                playNextYoutubeVideoOrSpotifyTrack();
+            } );
+            $( '#switchDesktopPhone' ).click( function () {
+                if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
+                    transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
+                } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
+                    openDesktopApp();
+                    transfer( $( '#devices option:contains("DESKTOP")' ).val() );
+                }
+            } );
+            $( '#menuClose' ).click( function () {
+                refreshAccessToken();
+                refreshDevices();
+            } );
+            $( '#devices' ).change( function () {
+                transfer( $( '#devices' ).find( ':selected' ).val() );
+                $( '#menuClose' ).trigger( 'click' );
+            } );
 
-            } else {
-                // Stand alone iFrame Spotify Player
-                $( '#oAuthPlayerControl' ).remove();
-                $( '#devices' ).css( 'visibility', 'hidden' );
-                $( '#refresh' ).css( 'visibility', 'hidden' );
+            $( '#spotifyIcon' ).click( function ( e ) {
+                window.open( lastSelectedPlaylist, '_blank' );
+            } );
 
-                $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
-                    window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
-                        let element = document.getElementById( 'iFrameSpotifyPlayer' );
-                        let options = {
-                            uri: 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
-                        };
-                        let callback = ( EmbedController ) => {
-                            document.querySelectorAll( '#playlists' ).forEach(
-                                    episode => {
-                                        episode.addEventListener( 'change', () => {
-                                            EmbedController.loadUri( episode.value )
-                                            EmbedController.play();
-                                        } );
-                                    } )
-                        };
-                        IFrameAPI.createController( element, options, callback );
-                    };
-                } );
+            function openDesktopApp() {
+                if ( localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
+                    window.open( lastSelectedPlaylist, '_blank' );
+                    spotifyOpened = true;
+                }
             }
 
             // END Music section
             // ******************************************
 
             // ******************************************
-            // Search section
+            // Search/Youtube section
             displayYoutubeQueue();
             searchYoutube( youtubeIntitalSearchTerm );
 
