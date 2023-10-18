@@ -1486,7 +1486,7 @@ $( document ).ready( function () {
                 addToQueueElement = this;
                 setTimeout( function () {
                     $( addToQueueElement ).removeClass( 'addVideoToQueueClicked' );
-                }, 100 );
+                }, 150 );
 
                 var targetURL = $( this ).siblings( '.videoSource' ).attr( 'src' );
                 var videoId = targetURL.match( /.*embed\/(.+)\?+/ )[1];
