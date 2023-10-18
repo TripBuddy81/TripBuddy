@@ -1462,11 +1462,7 @@ $( document ).ready( function () {
                         setTimeout( function () {
                             if ( youtubePlayerState == 'paused' ) {
                                 markYoutubeAsActiveAudioSource( false );
-                                if ( playingTrack && !youtubePlayer.isMuted() ) {
-                                    spotifyNext();
-                                } else {
-                                    spotifyPlay();
-                                }
+                                spotifyPlay();
                             }
                         }, 1000 );
                         break;
@@ -1590,11 +1586,7 @@ $( document ).ready( function () {
                 } else {
                     markYoutubeAsActiveAudioSource( false );
                     youtubePlayer.mute();
-                    if ( playingTrack ) {
-                        spotifyNext();
-                    } else {
-                        spotifyPlay();
-                    }
+                    spotifyPlay();
                 }
             } );
 
