@@ -1490,7 +1490,7 @@ $( document ).ready( function () {
                 addToQueueElement = this;
                 setTimeout( function () {
                     $( addToQueueElement ).removeClass( 'addVideoToQueueClicked' );
-                }, 200 );
+                }, 100 );
 
                 var targetURL = $( this ).siblings( '.videoSource' ).attr( 'src' );
                 var videoId = targetURL.match( /.*embed\/(.+)\?+/ )[1];
