@@ -41,6 +41,7 @@ $( document ).ready( function () {
             var lastSelectedAutocompleteItem = 0;
             var currentAutocompleteItem = 0;
             var allVideosLoaded = false;
+            var mainYoutubePlayerIsActiveSoundSource = false;
 
             Object.assign( config, optionalConfig );
 
@@ -863,6 +864,7 @@ $( document ).ready( function () {
                 fullscreenApi.call( container );
                 $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+                $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
             } );
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
                 const container = $( this ).closest( '.videoContainer' )[0];
@@ -875,6 +877,9 @@ $( document ).ready( function () {
 
                 $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                if ( mainYoutubePlayerIsActiveSoundSource ) {
+                    $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
+                }
             } );
 
             // Reset settings if user disengaged fullscreen via ESC or other means...
@@ -1604,8 +1609,10 @@ $( document ).ready( function () {
             function markYoutubeAsActiveAudioSource( youtubeIsActiveAudioSource = false ) {
                 if ( youtubeIsActiveAudioSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
+                    mainYoutubePlayerIsActiveSoundSource = true;
                 } else {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
+                    mainYoutubePlayerIsActiveSoundSource = false;
                 }
             }
 
