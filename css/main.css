@@ -893,7 +893,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videoMenuOverlayMinimized {
     left: 165px;
-    top: 52px;
+    top: 50px;
     z-index: 1;
     width: 200px;
     height: 200px;
@@ -903,7 +903,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videoMenuOverlayMinimized2 {
     left: 480px;
-    top: 250px;
+    top: 248px;
     z-index: 1;
     width: 50px;
     height: 50px;
