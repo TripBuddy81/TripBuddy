@@ -225,6 +225,18 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/dBRa8pMAn9U?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/g5RZK_ts8zE?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/laA27w4Sets?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/fFyC68CIEio?mute=1',
             'tags'     : 'trippy-2D'
         },
@@ -499,11 +511,6 @@ var config = {
             'label'    : 'Surrendering does not make sense, but it does'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/Q5OioTR4PPs?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Being a real person'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/h6fcK_fRYaI?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'The egg'
@@ -567,6 +574,11 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/9PnGNVJSN6Q?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'All along the watchtower'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/iC6DDvzM6Nc?mute=0',
+            'tags'     : 'wisdom',
+            'label'    : 'The Best-Kept Secret in History'
         },
     ],
     'selectableImageTags': [
