@@ -253,10 +253,6 @@ var config = {
             'tags'     : 'space'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/qFI4vnMd9X8?mute=1',
-            'tags'     : 'meditative'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/RhlQvbvMg-0?mute=1',
             'tags'     : 'meditative'
         },
