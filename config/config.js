@@ -169,7 +169,7 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/BEdAaSWiY_8?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
             'tags'     : 'trippy-3D'
         },
         {
@@ -209,7 +209,7 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/BEdAaSWiY_8?mute=1',
             'tags'     : 'trippy-3D'
         },
         {
@@ -459,6 +459,16 @@ var config = {
         {
             'videoLink': 'https://www.youtube.com/embed/8vMhr3HeyMQ?mute=1',
             'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/9_dgIfz876A?mute=0',
+            'tags'     : 'wisdom',
+            'label'    : 'Right where it belongs - NIN'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/m-47paKizHM?mute=0',
+            'tags'     : 'wisdom',
+            'label'    : 'Right where it belongs - Mumi'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/ogLc7M9_hR8?mute=0',
