@@ -201,10 +201,6 @@ var config = {
             'tags'     : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/jRn3MDxESfw?mute=1',
-            'tags'     : 'trippy-2D'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/7jv-1iSRuN4?mute=1',
             'tags'     : 'trippy-3D'
         },
@@ -221,15 +217,7 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/zqXohGL36cw?mute=1',
-            'tags'     : 'trippy-3D'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/dBRa8pMAn9U?mute=1',
-            'tags'     : 'trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/g5RZK_ts8zE?mute=1',
             'tags'     : 'trippy-3D'
         },
         {
@@ -270,6 +258,10 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/XHprvRGY2aA?mute=1',
+            'tags'     : 'meditative'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/zqXohGL36cw?mute=1',
             'tags'     : 'meditative'
         },
         {
