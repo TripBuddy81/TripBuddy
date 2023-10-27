@@ -137,7 +137,6 @@ var config = {
         {'selectableTag': 'festival'},
         {'selectableTag': 'breathing'},
         {'selectableTag': 'wisdom'}
-        /*        {'selectableTag': 'nsfw'}*/
     ],
     'videosYoutube'      : [
         {
@@ -217,11 +216,23 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/2QWlxqKneLs?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/dBRa8pMAn9U?mute=1',
             'tags'     : 'trippy-3D'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/laA27w4Sets?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/NjkeGGy71IE?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/d6gofPAru34?mute=1',
             'tags'     : 'trippy-3D'
         },
         {
@@ -422,6 +433,14 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/ZmxiaXvIotQ?mute=1&loop=1&playlist=ZmxiaXvIotQ',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/JYfnhKnl7_s?mute=1',
+            'tags'     : 'weird'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/fUWYgdmNscg?mute=1',
             'tags'     : 'weird'
         },
         {
