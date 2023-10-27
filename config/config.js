@@ -596,7 +596,7 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/iC6DDvzM6Nc?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'The Best-Kept Secret in History'
-        },
+        }
     ],
     'selectableImageTags': [
         {'selectableTag': 'trippy'},
@@ -831,7 +831,7 @@ var config = {
         {
             'image': './media/images/77.jpg',
             'tags' : 'space'
-        },
+        }
     ],
     'searchEngines'      : [
         {
@@ -856,8 +856,8 @@ var config = {
             'name': 'Sushi Party'
         },
         {
-            'link': 'https://static.pixeled.site/rps-web/index.html',
-            'name': 'Rock Paper Scissors',
+            'link' : 'https://static.pixeled.site/rps-web/index.html',
+            'name' : 'Rock Paper Scissors',
             'class': 'rockPaperSciccors'
         },
         {
@@ -968,6 +968,6 @@ var config = {
         {
             'text': 'You shouldn\'t be alive, but yet you are!',
             'tag' : ''
-        },
+        }
     ]
 };

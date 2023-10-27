@@ -44,6 +44,8 @@ $( document ).ready( function () {
             var mainYoutubePlayerIsActiveSoundSource = false;
 
             Object.assign( config, optionalConfig );
+            config['videosYoutube'] = config['videosYoutube'].concat( optionalConfig['videosXXX'] );
+            config['images'] = config['images'].concat( optionalConfig['imagesXXX'] );
 
             // Disable right click context menu
             $( document ).bind( 'contextmenu', function ( e ) {
@@ -518,7 +520,7 @@ $( document ).ready( function () {
                 if ( pizzaTimerStart != '' && totalMinsPizzaTimerPassed >= parseInt( localStorage.getItem( 'pizzaTimerMinutesTillReady' ) ) && pizzaTimerShown == false ) {
                     pizzaTimerShown = true;
                     showTimedRecommendation( 'Pizza is ready!!!' );
-                   /* alarmSound.play();*/
+                    /* alarmSound.play();*/
                 }
             }
 
