@@ -46,6 +46,7 @@ $( document ).ready( function () {
             Object.assign( config, optionalConfig );
             config['videosYoutube'] = config['videosYoutube'].concat( optionalConfig['videosXXX'] );
             config['images'] = config['images'].concat( optionalConfig['imagesXXX'] );
+            config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
 
             // Disable right click context menu
             $( document ).bind( 'contextmenu', function ( e ) {

@@ -968,6 +968,10 @@ var config = {
         {
             'text': 'You shouldn\'t be alive, but yet you are!',
             'tag' : ''
+        },
+        {
+            'text': 'You are an aperture through which the universe is looking at and exploring itself.',
+            'tag' : ''
         }
     ]
 };
