@@ -1190,6 +1190,10 @@ $( document ).ready( function () {
                 enableFullscreen();
             } );
 
+            $( window ).on( 'wheel', function ( event ) {
+                absoluteTruthsUpdate( true );
+            } );
+
             function renderShrineSection( showParticles ) {
                 // reset strobo to default
                 stroboBGWhite = false;
@@ -1215,7 +1219,9 @@ $( document ).ready( function () {
                 }
                 nextTruth = displayedAbsoluteTruthIndex.pop();
 
-                if ( nextTruth['tag'] == 'XXX' && !xxxVisible ) {
+                if ( nextTruth['tag'] != 'XXX' && xxxVisible ) {
+                    absoluteTruthsUpdate( quickSwap );
+                } else if ( nextTruth['tag'] == 'XXX' && !xxxVisible ) {
                     absoluteTruthsUpdate( quickSwap );
                 } else {
                     $( '#absoluteTruthsOverlayText' ).fadeOut( fadeoutDuration, function () {
