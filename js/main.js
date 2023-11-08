@@ -1193,6 +1193,8 @@ $( document ).ready( function () {
             $( window ).on( 'wheel', function ( event ) {
                 $( '#absoluteTruthsOverlay' ).show();
                 enableFullscreen();
+                clearInterval( absoluteTruthsTimer );
+                absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
                 absoluteTruthsUpdate( true );
             } );
 
