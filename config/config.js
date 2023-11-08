@@ -193,7 +193,7 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/XICnl77dchU?mute=1&loop=1&playlist=XICnl77dchU',
-            'tags'     : 'trippy-2D'
+            'tags'     : 'trippy-2D meditative'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/1PiXGku9QpI?mute=1&loop=1&playlist=1PiXGku9QpI',
