@@ -1191,6 +1191,8 @@ $( document ).ready( function () {
             } );
 
             $( window ).on( 'wheel', function ( event ) {
+                $( '#absoluteTruthsOverlay' ).show();
+                enableFullscreen();
                 absoluteTruthsUpdate( true );
             } );
 
@@ -1207,6 +1209,7 @@ $( document ).ready( function () {
 
             function absoluteTruthsUpdate( quickSwap = false ) {
                 fadeoutDuration = 1500;
+
                 if ( quickSwap ) {
                     $( '#absoluteTruthsOverlayText' ).html( '' );
                 }
