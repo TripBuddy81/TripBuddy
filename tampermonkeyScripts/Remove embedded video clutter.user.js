@@ -23,7 +23,7 @@
         }
 
         try {
-            document.getElementsByClassName("ytp-volume-area")[0].remove();
+          //  document.getElementsByClassName("ytp-volume-area")[0].remove();
         } catch(e) {
         }
 

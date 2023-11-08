@@ -192,15 +192,15 @@ var config = {
             'tags'     : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/XICnl77dchU?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/XICnl77dchU?mute=1&loop=1&playlist=XICnl77dchU',
             'tags'     : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/1PiXGku9QpI?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/1PiXGku9QpI?mute=1&loop=1&playlist=1PiXGku9QpI',
             'tags'     : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/PZO-wIPRZg4?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/PZO-wIPRZg4?mute=1&loop=1&playlist=PZO-wIPRZg4',
             'tags'     : 'trippy-2D'
         },
         {
