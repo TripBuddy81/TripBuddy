@@ -1318,7 +1318,7 @@ $( document ).ready( function () {
             repeat();
             setInterval( refreshAccessToken, 60000 );
             setInterval( refreshDevices, 3000 );
-            setInterval( currentlyPlaying, 3000 );
+            setInterval( currentlyPlaying, 1000 );
 
             $( '#stopMusic' ).click( function () {
                 if ( youtubePlayerState != 'playing' ) {
