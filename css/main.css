@@ -634,11 +634,16 @@ option {
     color: white;
 }
 
+#spotifyTrackProgressContainer {
+    width: 228px;
+    text-align: center;
+    position: sticky;
+    left: 698px;
+}
+
 #spotifyTrackProgress {
-    position: absolute;
-    top: 69px;
-    right: 781px;
-    height: 0px;
+    margin: -3px auto;
+    position: sticky;
 }
 
 #spotifyTrackProgress .colorfulBorder {
