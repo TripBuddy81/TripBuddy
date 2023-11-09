@@ -136,7 +136,8 @@ var config = {
         {'selectableTag': 'hiking'},
         {'selectableTag': 'festival'},
         {'selectableTag': 'breathing'},
-        {'selectableTag': 'wisdom'}
+        {'selectableTag': 'wisdom'},
+        {'selectableTag': 'nsfw'}
     ],
     'videosYoutube'      : [
         {
@@ -428,6 +429,18 @@ var config = {
             'tags'     : 'slideshow'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/934tHxQ_-3U?mute=1',
+            'tags'     : 'slideshow nsfw'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/2wGUWpwrZMM?mute=1',
+            'tags'     : 'slideshow nsfw'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/rlwYbRZzS7A?mute=1',
+            'tags'     : 'slideshow'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/zLgWjiHv3_U?mute=1&loop=1&playlist=zLgWjiHv3_U',
             'tags'     : 'weird'
         },
@@ -616,7 +629,19 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/iC6DDvzM6Nc?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'The Best-Kept Secret in History'
-        }
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/zqcDGHzJKOc?mute=1',
+            'tags'     : 'nsfw'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/ZcfDzE3FCt4?mute=1',
+            'tags'     : 'nsfw'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/LnvW8MaFZGg?mute=1',
+            'tags'     : 'nsfw'
+        },
     ],
     'selectableImageTags': [
         {'selectableTag': 'trippy'},
