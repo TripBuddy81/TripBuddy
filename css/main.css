@@ -635,10 +635,12 @@ option {
 }
 
 #spotifyTrackProgressContainer {
-    width: 228px;
+    width: 100%;
     text-align: center;
-    position: relative;
-    top: 66px;
+    position: fixed;
+    top: 2px;
+    z-index: 10;
+    margin-left: -15px;
 }
 
 #spotifyTrackProgress {
