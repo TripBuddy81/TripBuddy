@@ -331,6 +331,7 @@ $( document ).ready( function () {
                 }
 
                 displayedAbsoluteTruthIndex = [];
+                absoluteTruthsUpdate( true );
 
                 if ( xxxVisible ) {
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );

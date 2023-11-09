@@ -433,11 +433,11 @@ var config = {
             'tags'     : 'slideshow nsfw'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/2wGUWpwrZMM?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/2wGUWpwrZMM?mute=1&loop=1&playlist=2wGUWpwrZMM',
             'tags'     : 'slideshow nsfw'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/rlwYbRZzS7A?mute=1',
+            'videoLink': 'https://www.youtube.com/embed/rlwYbRZzS7A?mute=1&loop=1&playlist=rlwYbRZzS7A',
             'tags'     : 'slideshow'
         },
         {
@@ -974,10 +974,10 @@ var config = {
             'text': 'To someone going through a difficult time in their life – the Enso signifies limitless strength and control of their destiny, reminding the person that they have the choice to decide how they view and live their life. It’s also a reminder to look inwards and find inner peace.',
             'tag' : ''
         },
-        {
+/*        {
             'text': 'The Enso represents the idea of immense space that has no need of anything and contains nothing that it needs. It’s empty and yet full, with no beginning or end.',
             'tag' : ''
-        },
+        },*/
         {
             'text': 'The Enso signifies the Circle of Eternity and Enlightenment.',
             'tag' : ''
@@ -995,7 +995,7 @@ var config = {
             'tag' : ''
         },
         {
-            'text': 'You don’t know what you want because you already have it !',
+            'text': 'You don’t know what you want because you already have it!',
             'tag' : ''
         },
         {
