@@ -635,12 +635,10 @@ option {
 }
 
 #spotifyTrackProgress {
-    display: none;
     position: absolute;
     top: 65px;
     right: 413px;
     height: 5px;
-    background-color: red;
 /*    width: 340px;*/
 }
 

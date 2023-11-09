@@ -149,6 +149,9 @@ $( document ).ready( function () {
             // Init global alarm sounds
             var alarmSound = document.getElementById( 'alarmSound' );
 
+            // Init track progress bar
+            $( '#spotifyTrackProgress' ).hide();
+
             // ***********************************
             // Main Menu
             $( '.XXX' ).hide();
