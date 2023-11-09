@@ -638,10 +638,6 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/ZcfDzE3FCt4?mute=1',
             'tags'     : 'nsfw'
         },
-        {
-            'videoLink': 'https://www.youtube.com/embed/LnvW8MaFZGg?mute=1',
-            'tags'     : 'nsfw'
-        },
     ],
     'selectableImageTags': [
         {'selectableTag': 'trippy'},
