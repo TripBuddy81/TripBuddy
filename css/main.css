@@ -637,12 +637,12 @@ option {
 #spotifyTrackProgressContainer {
     width: 228px;
     text-align: center;
-    position: sticky;
-    left: 699px;
+    position: relative;
+    top: 66px;
 }
 
 #spotifyTrackProgress {
-    margin: -3px auto;
+    margin: 0px auto;
     position: sticky;
 }
 
