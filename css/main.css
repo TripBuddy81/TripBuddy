@@ -634,6 +634,16 @@ option {
     color: white;
 }
 
+#spotifyTrackProgress {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 413px;
+    height: 5px;
+    background-color: red;
+/*    width: 340px;*/
+}
+
 #spotifyPlaylists {
     position: sticky;
     top: 0px;

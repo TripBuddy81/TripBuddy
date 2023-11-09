@@ -289,6 +289,9 @@ function getPlaylist( playlistNameRef ) {
 function handleCurrentlyPlayingResponse() {
     try {
         var data = JSON.parse( this.responseText );
+
+        updateProgressBar( data['item']['duration_ms'], data['progress_ms'], data['is_playing'] );
+
         var playlistNameRef = data['context']['href'];
         lastSelectedPlaylist = data['context']['uri'];
 
@@ -305,6 +308,20 @@ function handleCurrentlyPlayingResponse() {
     } catch ( e ) {
         return false;
     }
+}
+
+function updateProgressBar( duration, progress, isPlaying ) {
+    // 100% = 340px
+
+    if ( isPlaying ) {
+        percentageProgress = progress / duration;
+        percentageRemaining = 1 - percentageProgress;
+        newWidth = 340 * percentageRemaining;
+    } else {
+        newWidth = 0;
+    }
+
+    $( '#spotifyTrackProgress' ).attr( 'style', 'width:' + newWidth + 'px' );
 }
 
 function handleCurrentPlaylistResponse() {
