@@ -311,12 +311,12 @@ function handleCurrentlyPlayingResponse() {
 }
 
 function updateProgressBar( duration, progress, isPlaying ) {
-    // 100% = 340px
+    // 100% = 250px
     if ( isPlaying ) {
         $( '#spotifyTrackProgress' ).show();
         percentageProgress = progress / duration;
         percentageRemaining = 1 - percentageProgress;
-        newWidth = 340 * percentageRemaining;
+        newWidth = 250 * percentageRemaining;
         $( '#spotifyTrackProgress' ).attr( 'style', 'width:' + newWidth + 'px' );
     } else {
         $( '#spotifyTrackProgress' ).hide();

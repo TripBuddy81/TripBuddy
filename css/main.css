@@ -636,10 +636,9 @@ option {
 
 #spotifyTrackProgress {
     position: absolute;
-    top: 65px;
-    right: 413px;
-    height: 5px;
-/*    width: 340px;*/
+    top: 21px;
+    right: 770px;
+    height: 43px;
 }
 
 #spotifyPlaylists {
