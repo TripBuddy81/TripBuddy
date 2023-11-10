@@ -201,10 +201,6 @@ var config = {
             'tags'     : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/PZO-wIPRZg4?mute=1&loop=1&playlist=PZO-wIPRZg4',
-            'tags'     : 'trippy-2D'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
             'tags'     : 'trippy-2D'
         },
@@ -614,11 +610,6 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/9M56t0UoW5M?mute=0',
             'tags'     : 'wisdom',
             'label'    : 'Aloneness to oneness'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/4DrR6rSJhN0?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Going through a dark night of the soul?'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/9PnGNVJSN6Q?mute=0',
