@@ -646,6 +646,7 @@ option {
 #spotifyTrackProgress {
     margin: 0px auto;
     position: sticky;
+    transition: all 2s;
 }
 
 #spotifyTrackProgress .colorfulBorder {
