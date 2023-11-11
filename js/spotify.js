@@ -315,7 +315,7 @@ function updateProgressBar( duration, progress, isPlaying ) {
         $( '#spotifyTrackProgress' ).show();
         percentageProgress = progress / duration;
         percentageRemaining = 1 - percentageProgress;
-        newWidth = ($( window ).width() - 30) * percentageRemaining;
+        newWidth = $( window ).width() * percentageRemaining;
         $( '#spotifyTrackProgress' ).attr( 'style', 'width:' + newWidth + 'px' );
     } else {
         $( '#spotifyTrackProgress' ).hide();
