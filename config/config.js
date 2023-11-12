@@ -245,10 +245,6 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/fFyC68CIEio?mute=1',
-            'tags'     : 'trippy-2D'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/z3ul9PkRvfY?mute=1',
             'tags'     : 'trippy-2D'
         },
