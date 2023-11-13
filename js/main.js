@@ -47,8 +47,12 @@ $( document ).ready( function () {
             if ( optionalConfig['videosXXX'] != undefined ) {
                 config['videosYoutube'] = config['videosYoutube'].concat( optionalConfig['videosXXX'] );
             }
-            config['images'] = config['images'].concat( optionalConfig['imagesXXX'] );
-            config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
+            if ( optionalConfig['imagesXXX'] != undefined ) {
+                config['images'] = config['images'].concat( optionalConfig['imagesXXX'] );
+            }
+            if ( optionalConfig['absoluteTruthsXXX'] != undefined ) {
+                config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
+            }
 
             console.info( config );
 
