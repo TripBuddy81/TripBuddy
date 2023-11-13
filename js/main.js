@@ -44,9 +44,13 @@ $( document ).ready( function () {
             var mainYoutubePlayerIsActiveSoundSource = false;
 
             Object.assign( config, optionalConfig );
-            config['videosYoutube'] = config['videosYoutube'].concat( optionalConfig['videosXXX'] );
+            if ( optionalConfig['videosXXX'] != undefined ) {
+                config['videosYoutube'] = config['videosYoutube'].concat( optionalConfig['videosXXX'] );
+            }
             config['images'] = config['images'].concat( optionalConfig['imagesXXX'] );
             config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
+
+            console.info( config );
 
             // Disable right click context menu
             $( document ).bind( 'contextmenu', function ( e ) {
@@ -117,7 +121,7 @@ $( document ).ready( function () {
 
             function loadLoopedVideosOnce() {
                 $.each( config['videosYoutube'], function ( index, val ) {
-                            if ( val.videoLink != 'undefined' && val.videoLink.indexOf( 'loop=1' ) >= 0 ) {
+                            if ( val.videoLink.indexOf( 'loop=1' ) >= 0 ) {
                                 $.ajax( {
                                     type    : 'GET',
                                     url     : val.videoLink,
