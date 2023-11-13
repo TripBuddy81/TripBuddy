@@ -117,7 +117,7 @@ $( document ).ready( function () {
 
             function loadLoopedVideosOnce() {
                 $.each( config['videosYoutube'], function ( index, val ) {
-                            if ( val.videoLink.indexOf( 'loop=1' ) >= 0 ) {
+                            if ( val.videoLink != 'undefined' && val.videoLink.indexOf( 'loop=1' ) >= 0 ) {
                                 $.ajax( {
                                     type    : 'GET',
                                     url     : val.videoLink,
