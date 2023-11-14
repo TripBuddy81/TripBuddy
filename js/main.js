@@ -1316,9 +1316,14 @@ $( document ).ready( function () {
             redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
             client_id = config['oAuthSpotify'][0]['client_id'];
             client_secret = config['oAuthSpotify'][0]['client_secret'];
+
             if ( window.location.search.length > 0 ) {
-                handleRedirect();
+                const urlParams = new URLSearchParams( window.location.search );
+                if ( urlParams.get( 'code' ) != undefined ) {
+                    handleRedirect( urlParams.get( 'code' ) );
+                }
             }
+
             refreshAccessToken();
             shuffle();
             repeat();
@@ -1942,12 +1947,15 @@ $( document ).ready( function () {
 
             // ******************************************
             // init initial view
-            if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
+            $( '#showVideoSection' ).trigger( 'click' );
+            if ( window.location.search.length > 0 ) {
+                const urlParams = new URLSearchParams( window.location.search );
+                if ( urlParams.get( 'tab' ) != undefined ) {
+                    $( '#' + urlParams.get( 'tab' ) + 'filter' ).trigger( 'click' );
+
+                }
+            } else if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
                 $( '#meditativefilter' ).trigger( 'click' );
-                $( '#showVideoSection' ).trigger( 'click' );
-            } else {
-                $( '#showVideoSection' ).trigger( 'click' );
             }
         }
-)
-;
+);
