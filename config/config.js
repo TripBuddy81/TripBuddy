@@ -272,8 +272,9 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/dJoXVILGeKQ?mute=1',
             'tags'     : 'meditative'
         },
+
         {
-            'videoLink': 'https://www.youtube.com/embed/Syyxe6PNLeQ?mute=1&loop=1&playlist=Syyxe6PNLeQ',
+            'videoLink': 'https://www.youtube.com/embed/AHzek64M6jY?mute=0',
             'tags'     : 'meditative'
         },
         {
@@ -285,16 +286,16 @@ var config = {
             'tags'     : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/zqXohGL36cw?mute=1',
-            'tags'     : 'meditative'
-        },
-        {
             'videoLink': 'https://www.youtube.com/embed/tI2ucenn6hM?mute=1',
             'tags'     : 'meditative nature'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/B5unCXpegAw?mute=1',
             'tags'     : 'meditative space'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/Syyxe6PNLeQ?mute=1&loop=1&playlist=Syyxe6PNLeQ',
+            'tags'     : 'meditative'
         },
         {
             'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
