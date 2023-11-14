@@ -43,6 +43,8 @@ $( document ).ready( function () {
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
 
+            const urlParams = new URLSearchParams( window.location.search );
+
             Object.assign( config, optionalConfig );
             if ( optionalConfig['videosXXX'] != undefined ) {
                 config['videosYoutube'] = config['videosYoutube'].concat( optionalConfig['videosXXX'] );
@@ -1317,11 +1319,8 @@ $( document ).ready( function () {
             client_id = config['oAuthSpotify'][0]['client_id'];
             client_secret = config['oAuthSpotify'][0]['client_secret'];
 
-            if ( window.location.search.length > 0 ) {
-                const urlParams = new URLSearchParams( window.location.search );
-                if ( urlParams.get( 'code' ) != undefined ) {
-                    handleRedirect( urlParams.get( 'code' ) );
-                }
+            if ( urlParams.get( 'code' ) != undefined ) {
+                handleRedirect( urlParams.get( 'code' ) );
             }
 
             refreshAccessToken();
@@ -1948,12 +1947,8 @@ $( document ).ready( function () {
             // ******************************************
             // init initial view
             $( '#showVideoSection' ).trigger( 'click' );
-            if ( window.location.search.length > 0 ) {
-                const urlParams = new URLSearchParams( window.location.search );
-                if ( urlParams.get( 'tab' ) != undefined ) {
-                    $( '#' + urlParams.get( 'tab' ) + 'filter' ).trigger( 'click' );
-
-                }
+            if ( urlParams.get( 'tab' ) != undefined ) {
+                $( '#' + urlParams.get( 'tab' ) + 'filter' ).trigger( 'click' );
             } else if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
                 $( '#meditativefilter' ).trigger( 'click' );
             }
