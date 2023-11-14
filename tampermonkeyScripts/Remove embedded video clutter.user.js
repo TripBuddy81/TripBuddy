@@ -23,7 +23,12 @@
         }
 
         try {
-          //  document.getElementsByClassName("ytp-volume-area")[0].remove();
+            document.getElementsByClassName("fp-embed")[0].remove();
+        } catch(e) {
+        }
+
+        try {
+            // document.getElementsByClassName("ytp-volume-area")[0].remove();
         } catch(e) {
         }
 

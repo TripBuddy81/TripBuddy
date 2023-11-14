@@ -54,8 +54,6 @@ $( document ).ready( function () {
                 config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
             }
 
-            console.info( config );
-
             // Disable right click context menu
             $( document ).bind( 'contextmenu', function ( e ) {
                 if ( $( e.target ).attr( 'type' ) != 'text' ) {
