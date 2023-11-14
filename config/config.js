@@ -630,10 +630,6 @@ var config = {
             'videoLink': 'https://www.youtube.com/embed/ZcfDzE3FCt4?mute=1',
             'tags'     : 'nsfw'
         },
-        {
-            'videoLink': 'https://www.xvideos.com/embedframe/70968359?mute=1',
-            'tags'     : 'nsfw'
-        },
     ],
     'selectableImageTags': [
         {'selectableTag': 'trippy'},
