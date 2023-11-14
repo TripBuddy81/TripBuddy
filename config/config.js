@@ -201,6 +201,10 @@ var config = {
             'tags'     : 'trippy-2D'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/S7TUe5w6RHo?mute=1',
+            'tags'     : 'meditative'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
             'tags'     : 'trippy-2D'
         },
@@ -242,6 +246,10 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/d6gofPAru34?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/fzpi8ozG-pQ?mute=1',
             'tags'     : 'trippy-3D'
         },
         {
