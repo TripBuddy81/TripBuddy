@@ -615,7 +615,7 @@ li, .options, .form-check-label {
     top: -17px;
 }
 
-#devices, #spotifyLogin {
+#devices {
     position: relative;
     top: 9px;
     width: 300px;
@@ -627,10 +627,6 @@ li, .options, .form-check-label {
     font-size: 30px;
     color: black;
     margin-bottom: 20px;
-}
-
-#spotifyLogin:hover {
-    color: white;
 }
 
 option {

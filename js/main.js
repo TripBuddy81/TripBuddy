@@ -1427,7 +1427,7 @@ $( document ).ready( function () {
             } else {
                 // Stand alone iFrame Spotify Player
                 $( '#oAuthPlayerControl' ).remove();
-                $( '#devices' ).hide();
+                $( '#devices' ).attr('style', 'visibility:hidden');
                 $( '#spotifyLogout' ).hide();
 
                 $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
