@@ -24,17 +24,6 @@ const SHUFFLE = 'https://api.spotify.com/v1/me/player/shuffle';
 const REPEAT = 'https://api.spotify.com/v1/me/player/repeat';
 const SEARCH = 'https://api.spotify.com/v1/search';
 
-function spotifyInitOnPageLoad() {
-    if ( window.location.search.length > 0 ) {
-        handleRedirect();
-    } else {
-        access_token = localStorage.getItem( 'access_token' );
-        if ( access_token == null ) {
-            requestAuthorization();
-        }
-    }
-}
-
 function handleRedirect( code ) {
     fetchAccessToken( code );
     window.history.pushState( '', '', redirect_uri ); // remove param from url
@@ -79,17 +68,14 @@ function callAuthorizationApi( body ) {
 function handleAuthorizationResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
-        if ( data.access_token != undefined ) {
-            access_token = data.access_token;
-            localStorage.setItem( 'access_token', access_token );
-        }
         if ( data.refresh_token != undefined ) {
             refresh_token = data.refresh_token;
             localStorage.setItem( 'refresh_token', refresh_token );
         }
-        spotifyInitOnPageLoad();
-    } else {
-        /*        console.log( this.responseText );*/
+        if ( data.access_token != undefined ) {
+            access_token = data.access_token;
+            localStorage.setItem( 'access_token', access_token );
+        }
     }
 }
 

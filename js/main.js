@@ -1334,11 +1334,13 @@ $( document ).ready( function () {
             } );
             if ( urlParams.get( 'code' ) != undefined ) {
                 handleRedirect( urlParams.get( 'code' ) );
+                setTimeout( function () {
+                    location.reload();
+                }, 1000 );
             }
-            access_token = localStorage.getItem( 'access_token' );
 
             // integrated Spotify player if succesfully logged in
-            if ( access_token != null ) {
+            if ( localStorage.getItem( 'access_token') != null ) {
                 $( '#spotifyLogin' ).hide();
 
                 refreshAccessToken();
@@ -1384,7 +1386,6 @@ $( document ).ready( function () {
                     }
                 } );
                 $( '#next' ).click( function () {
-                    spotifyInitOnPageLoad();
                     openDesktopApp();
                     shuffle();
                     repeat();
