@@ -708,6 +708,26 @@ option {
     color: white;
 }
 
+#iFrameSpotifyPlayerContainer {
+    position: fixed;
+    top: 0px;
+    left: 665px;
+    z-index: 11;
+}
+
+#iFrameSpotifyPlayerContainer iframe {
+    width: 300px;
+    height: 80px;
+}
+
+#iFrameSpotifyPlayerContainer iframe:hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 640px;
+    height: 600px;
+}
+
 .form-control:focus {
     border-color: inherit;
     -webkit-box-shadow: none;

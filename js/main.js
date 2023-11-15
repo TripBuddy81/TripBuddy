@@ -1315,29 +1315,6 @@ $( document ).ready( function () {
 
             // ******************************************
             // Music section
-            redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
-            client_id = config['oAuthSpotify'][0]['client_id'];
-            client_secret = config['oAuthSpotify'][0]['client_secret'];
-
-            if ( urlParams.get( 'code' ) != undefined ) {
-                handleRedirect( urlParams.get( 'code' ) );
-            }
-
-            refreshAccessToken();
-            shuffle();
-            repeat();
-            setInterval( refreshAccessToken, 60000 );
-            setInterval( refreshDevices, 3000 );
-            setInterval( currentlyPlaying, 1000 );
-
-            $( '#stopMusic' ).click( function () {
-                if ( youtubePlayerState != 'playing' ) {
-                    spotifyPause();
-                }
-                youtubePlayer.pauseVideo();
-                markYoutubeAsActiveAudioSource( false );
-            } );
-
             $( '#spotifyPlaylists' ).click( function () {
                 spotifyInitOnPageLoad();
                 $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
@@ -1349,66 +1326,122 @@ $( document ).ready( function () {
                 }
             }
 
-            $( '.spotifyPlaylistItem' ).click( function () {
-                lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
-                $( '#spotifyPlaylists' ).html( '...' );
-                openDesktopApp();
+            // integrated Spotify player
+            if ( false && config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
+                redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
+                client_id = config['oAuthSpotify'][0]['client_id'];
+                client_secret = config['oAuthSpotify'][0]['client_secret'];
+
+                if ( urlParams.get( 'code' ) != undefined ) {
+                    handleRedirect( urlParams.get( 'code' ) );
+                }
+
+                refreshAccessToken();
                 shuffle();
                 repeat();
-                spotifyPlay( lastSelectedPlaylist );
-                markYoutubeAsActiveAudioSource( false );
-                youtubePlayer.mute();
-            } );
+                setInterval( refreshAccessToken, 60000 );
+                setInterval( refreshDevices, 3000 );
+                setInterval( currentlyPlaying, 1000 );
 
-            $( document ).on( 'mousedown', document, function ( e ) {
-                // on middle mouse button play next track
-                if (
-                        e.which == 2 &&
-                        !$( event.target ).hasClass( 'menuItem' ) &&
-                        !$( event.target ).hasClass( 'xxxLink' ) &&
-                        !$( event.target ).hasClass( 'searchLink' ) &&
-                        !$( event.target ).hasClass( 'externalVideoPreview' )
-                ) {
-                    e.preventDefault();
+                $( '.spotifyPlaylistItem' ).click( function () {
+                    lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
+                    $( '#spotifyPlaylists' ).html( '...' );
+                    openDesktopApp();
+                    shuffle();
+                    repeat();
+                    spotifyPlay( lastSelectedPlaylist );
+                    markYoutubeAsActiveAudioSource( false );
+                    youtubePlayer.mute();
+                } );
+
+                $( '#stopMusic' ).click( function () {
+                    if ( youtubePlayerState != 'playing' ) {
+                        spotifyPause();
+                    }
+                    youtubePlayer.pauseVideo();
+                    markYoutubeAsActiveAudioSource( false );
+                } );
+
+                $( document ).on( 'mousedown', document, function ( e ) {
+                    // on middle mouse button play next track
+                    if (
+                            e.which == 2 &&
+                            !$( event.target ).hasClass( 'menuItem' ) &&
+                            !$( event.target ).hasClass( 'xxxLink' ) &&
+                            !$( event.target ).hasClass( 'searchLink' ) &&
+                            !$( event.target ).hasClass( 'externalVideoPreview' )
+                    ) {
+                        e.preventDefault();
+                        openDesktopApp();
+                        shuffle();
+                        repeat();
+                        playNextYoutubeVideoOrSpotifyTrack();
+                    }
+                } );
+                $( '#next' ).click( function () {
+                    spotifyInitOnPageLoad();
                     openDesktopApp();
                     shuffle();
                     repeat();
                     playNextYoutubeVideoOrSpotifyTrack();
-                }
-            } );
-            $( '#next' ).click( function () {
-                spotifyInitOnPageLoad();
-                openDesktopApp();
-                shuffle();
-                repeat();
-                playNextYoutubeVideoOrSpotifyTrack();
-            } );
-            $( '#switchDesktopPhone' ).click( function () {
-                if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
-                    transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
-                } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
-                    openDesktopApp();
-                    transfer( $( '#devices option:contains("DESKTOP")' ).val() );
-                }
-            } );
-            $( '#menuClose' ).click( function () {
-                refreshAccessToken();
-                refreshDevices();
-            } );
-            $( '#devices' ).change( function () {
-                transfer( $( '#devices' ).find( ':selected' ).val() );
-                $( '#menuClose' ).trigger( 'click' );
-            } );
+                } );
+                $( '#switchDesktopPhone' ).click( function () {
+                    if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
+                        transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
+                    } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
+                        openDesktopApp();
+                        transfer( $( '#devices option:contains("DESKTOP")' ).val() );
+                    }
+                } );
+                $( '#menuClose' ).click( function () {
+                    refreshAccessToken();
+                    refreshDevices();
+                } );
+                $( '#devices' ).change( function () {
+                    transfer( $( '#devices' ).find( ':selected' ).val() );
+                    $( '#menuClose' ).trigger( 'click' );
+                } );
 
-            $( '#spotifyIcon' ).click( function ( e ) {
-                window.open( lastSelectedPlaylist, '_blank' );
-            } );
-
-            function openDesktopApp() {
-                if ( localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
+                $( '#spotifyIcon' ).click( function ( e ) {
                     window.open( lastSelectedPlaylist, '_blank' );
-                    spotifyOpened = true;
+                } );
+
+                function openDesktopApp() {
+                    if ( localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
+                        window.open( lastSelectedPlaylist, '_blank' );
+                        spotifyOpened = true;
+                    }
                 }
+            } else {
+                // Stand alone iFrame Spotify Player
+                $( '#oAuthPlayerControl' ).remove();
+                $( '#devices' ).css( 'visibility', 'hidden' );
+                $( '#refresh' ).css( 'visibility', 'hidden' );
+
+
+
+                $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
+                    window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
+                        let element = document.getElementById( 'iFrameSpotifyPlayer' );
+                        let options = {
+                            uri: 'spotify:playlist:4ILChY5F4Hn08ikt0rfHhW'
+                        };
+                        let callback = ( EmbedController ) => {
+                            document.querySelectorAll( '.spotifyPlaylistItem' ).forEach(
+                                    episode => {
+                                        episode.addEventListener( 'click', () => {
+                                            EmbedController.loadUri( episode.getAttribute('data-spotify-id') );
+                                            $( '#spotifyPlaylists' ).html( episode.innerHTML );
+
+                                            EmbedController.play();
+                                            markYoutubeAsActiveAudioSource( false );
+                                            youtubePlayer.mute();
+                                        } );
+                                    } )
+                        };
+                        IFrameAPI.createController( element, options, callback );
+                    };
+                } );
             }
 
             // END Music section
