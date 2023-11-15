@@ -86,12 +86,28 @@ var config = {
                 'id'   : '7IMTMDqc2NIzovRgtC1Imq'
             },
             {
-                'label': 'Rock',
+                'label': 'Hangmatpop',
+                'id'   : '6ySAQd8K6BZt5tQ9M5wNAY'
+            },
+            {
+                'label': 'Liquify',
+                'id'   : '1aJ2MgVqNh3MC7ZcpEn6yM'
+            },
+            {
+                'label': 'Psychedelic Rock',
                 'id'   : '1J2Q32HV4PbVhlhNTensBV'
+            },
+            {
+                'label': 'Southern gothic',
+                'id'   : '37i9dQZF1DX58NJL8iVBGW'
             },
             {
                 'label': 'Cash meets Tarantino',
                 'id'   : '6JFcprqODBhUDXLoiecO21'
+            },
+            {
+                'label': 'New model army',
+                'id'   : '0aA3os9XTLtYxCNL7iXKcV'
             },
             {
                 'label': 'Lucid Planet',
@@ -106,6 +122,10 @@ var config = {
             {
                 'label': 'Progressive Psy',
                 'id'   : '5RYT8fTg6Pq9JrS0lcG12p'
+            },
+            {
+                'label': 'Spiritual Science Radio',
+                'id'   : '37i9dQZF1E8HeYqfMXnTma'
             },
             {
                 'label': 'Psy-Trance',
