@@ -1315,8 +1315,11 @@ $( document ).ready( function () {
 
             // ******************************************
             // Music section
+            redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
+            client_id = config['oAuthSpotify'][0]['client_id'];
+            client_secret = config['oAuthSpotify'][0]['client_secret'];
+
             $( '#spotifyPlaylists' ).click( function () {
-                spotifyInitOnPageLoad();
                 $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
             } );
 
@@ -1326,15 +1329,17 @@ $( document ).ready( function () {
                 }
             }
 
-            // integrated Spotify player
-            if ( false && config['oAuthSpotify'] != undefined && config['oAuthSpotify'][0]['client_id'] != '' ) {
-                redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
-                client_id = config['oAuthSpotify'][0]['client_id'];
-                client_secret = config['oAuthSpotify'][0]['client_secret'];
+            $( '#spotifyLogin' ).click( function ( e ) {
+                requestAuthorization();
+            } );
+            if ( urlParams.get( 'code' ) != undefined ) {
+                handleRedirect( urlParams.get( 'code' ) );
+            }
+            access_token = localStorage.getItem( 'access_token' );
 
-                if ( urlParams.get( 'code' ) != undefined ) {
-                    handleRedirect( urlParams.get( 'code' ) );
-                }
+            // integrated Spotify player if succesfully logged in
+            if ( access_token != null ) {
+                $( '#spotifyLogin' ).hide();
 
                 refreshAccessToken();
                 shuffle();
@@ -1415,10 +1420,8 @@ $( document ).ready( function () {
             } else {
                 // Stand alone iFrame Spotify Player
                 $( '#oAuthPlayerControl' ).remove();
-                $( '#devices' ).css( 'visibility', 'hidden' );
-                $( '#refresh' ).css( 'visibility', 'hidden' );
-
-
+                $( '#devices' ).hide();
+                $( '#refresh' ).hide();
 
                 $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
                     window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
