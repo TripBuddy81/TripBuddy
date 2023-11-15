@@ -1,7 +1,7 @@
 var config = {
     'oAuthSpotify'       : [
         {
-            'redirect_uri' : 'https://psychictripbuddy.netlify.app',
+            'redirect_uri' : 'https://tripbuddy.vercel.app',
             'client_id'    : '239e89be105a4707b00b79bab260cdc1',
             'client_secret': 'a648b8cc0b5947eb9f235f663fe65b92'
         }
