@@ -1332,11 +1332,17 @@ $( document ).ready( function () {
             $( '#spotifyLogin' ).click( function ( e ) {
                 requestAuthorization();
             } );
+            $( '#spotifyLogout' ).click( function ( e ) {
+                window.history.pushState( '', '', redirect_uri );
+                localStorage.removeItem( 'access_token' );
+                localStorage.removeItem( 'refresh_token' );
+                location.reload();
+            } );
             if ( urlParams.get( 'code' ) != undefined ) {
                 handleRedirect( urlParams.get( 'code' ) );
                 setTimeout( function () {
                     location.reload();
-                }, 1000 );
+                }, 3000 );
             }
 
             // integrated Spotify player if succesfully logged in
@@ -1422,7 +1428,7 @@ $( document ).ready( function () {
                 // Stand alone iFrame Spotify Player
                 $( '#oAuthPlayerControl' ).remove();
                 $( '#devices' ).hide();
-                $( '#refresh' ).hide();
+                $( '#spotifyLogout' ).hide();
 
                 $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
                     window.onSpotifyIframeApiReady = ( IFrameAPI ) => {
