@@ -1216,8 +1216,8 @@ video::-webkit-media-controls-fullscreen-button {
 #globalEnsoContainer {
     position: fixed;
     top: 60px;
-    left: 400px;
     transition: all 1s ease;
+    left: 24vw;
 }
 
 .globalEnsoContainerHidden {
