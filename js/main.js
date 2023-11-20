@@ -765,7 +765,7 @@ $( document ).ready( function () {
             } )
 
             // Screensaver
-            setInterval( checkScreensaver, 1000 );
+            /*setInterval( checkScreensaver, 1000 );*/
             $( document ).mousemove( function ( event ) {
                 resetScreensaver();
             } );
