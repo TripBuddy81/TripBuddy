@@ -43,7 +43,7 @@ $( document ).ready( function () {
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
             var screensaverSecondsIdle = 0;
-            var screensaverStartAfterSeconds = 20;
+            var screensaverStartAfterSeconds = 3;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -774,10 +774,8 @@ $( document ).ready( function () {
                 screensaverSecondsIdle++;
                 if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
                     $( '.mainSectionActive' ).each( function () {
-                        if ( $( this ).attr( 'id' ) == 'showVideoSection' ) {
-                            $('#videos').hide();
-                        } else if ( $( this ).attr( 'id' ) == 'showImageSection' ) {
-                            $('#images').hide();
+                        if ( $( this ).attr( 'data-target' ) != 'shrine' ) {
+                            $( '#' + $( this ).attr( 'data-target' ) ).hide();
                         }
                     } );
                 }
@@ -785,18 +783,11 @@ $( document ).ready( function () {
 
             function resetScreensaver() {
                 screensaverSecondsIdle = 0;
-
                 $( '.mainSectionActive' ).each( function () {
-                    if ( $( this ).attr( 'id' ) == 'showVideoSection' ) {
-                        $('#videos').show();
-                        refreshGradientBackground();
-                    } else if ( $( this ).attr( 'id' ) == 'showImageSection' ) {
-                        $('#images').show();
-                        refreshGradientBackground();
-                    }
+                    $( '#' + $( this ).attr( 'data-target' ) ).show();
+                    refreshGradientBackground();
                 } );
             }
-
 
             // ***********************************
             // Video section
