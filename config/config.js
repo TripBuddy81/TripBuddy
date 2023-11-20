@@ -1017,6 +1017,10 @@ var config = {
         {
             'text': 'You are an aperture through which the universe is looking at and exploring itself.',
             'tag' : ''
-        }
+        },
+        {
+            'text': 'Life is not a problem to be solved, but a reality to be experienced.',
+            'tag' : ''
+        },
     ]
 };
