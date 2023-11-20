@@ -48,7 +48,7 @@ var config = {
                 'id'   : '3ogKJHz0eQMVe9rouV12Zj'
             },
             {
-                'label': 'Handpan Meditation',
+                'label': 'Handpan',
                 'id'   : '5toyuNP4ZjYIxnfBrtNF45'
             },
             {
