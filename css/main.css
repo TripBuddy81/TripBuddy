@@ -188,6 +188,11 @@ p {
 
 #videos, #images, #shrine, #games, #search {
     display: none;
+    transition: all 1s ease;
+}
+
+.screensaverHidden {
+    opacity: 0;
 }
 
 .iFrameContainer {
@@ -1476,3 +1481,4 @@ video::-webkit-media-controls-fullscreen-button {
 #clearYoutubePlayedHistory {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
+

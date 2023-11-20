@@ -763,17 +763,17 @@ $( document ).ready( function () {
             } )
 
             // Screensaver
-            /*setInterval( checkScreensaver, 1000 );*/
-/*            $( document ).mousemove( function ( event ) {
+            setInterval( checkScreensaver, 1000 );
+            $( document ).mousemove( function ( event ) {
                 resetScreensaver();
-            } );*/
+            } );
 
             function checkScreensaver() {
                 screensaverSecondsIdle++;
                 if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
                     $( '.mainSectionActive' ).each( function () {
-                        if ( $( this ).attr( 'data-target' ) != 'shrine' ) {
-                            $( '#' + $( this ).attr( 'data-target' ) ).hide();
+                        if ( $( this ).attr( 'data-target' ) != 'shrine' && $( this ).attr( 'data-target' ) != 'search' ) {
+                            $( '#' + $( this ).attr( 'data-target' ) ).addClass('screensaverHidden');
                         }
                     } );
                 }
@@ -782,7 +782,7 @@ $( document ).ready( function () {
             function resetScreensaver() {
                 if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
                     $( '.mainSectionActive' ).each( function () {
-                        $( '#' + $( this ).attr( 'data-target' ) ).show();
+                        $( '#' + $( this ).attr( 'data-target' ) ).removeClass('screensaverHidden');
                         refreshGradientBackground();
                     } );
                 }
