@@ -970,18 +970,18 @@ var config = {
             'text': 'Depression is the past, Anxiety is the future & Peace is the present',
             'tag' : ''
         },
-        {
+/*        {
             'text': 'To someone going through a difficult time in their life – the Enso signifies limitless strength and control of their destiny, reminding the person that they have the choice to decide how they view and live their life. It’s also a reminder to look inwards and find inner peace.',
             'tag' : ''
-        },
+        },*/
 /*        {
             'text': 'The Enso represents the idea of immense space that has no need of anything and contains nothing that it needs. It’s empty and yet full, with no beginning or end.',
             'tag' : ''
         },*/
-        {
+/*        {
             'text': 'The Enso signifies the Circle of Eternity and Enlightenment.',
             'tag' : ''
-        },
+        },*/
         {
             'text': 'The Enso represents the Circle of Life. It is the start and end of all things.',
             'tag' : ''
