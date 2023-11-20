@@ -43,7 +43,7 @@ $( document ).ready( function () {
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
             var screensaverSecondsIdle = 0;
-            var screensaverStartAfterSeconds = 3;
+            var screensaverStartAfterSeconds = 10;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -762,35 +762,6 @@ $( document ).ready( function () {
                 location.reload();
             } )
 
-            // Screensaver
-            setInterval( checkScreensaver, 1000 );
-            $( document ).mousemove( function ( event ) {
-                resetScreensaver();
-            } );
-
-            function checkScreensaver() {
-                screensaverSecondsIdle++;
-                if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
-                    $( '.mainSectionActive' ).each( function () {
-                        if ( $( this ).attr( 'data-target' ) != 'shrine' && $( this ).attr( 'data-target' ) != 'search' ) {
-                            $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'screensaverHidden' );
-                            $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
-                        }
-                    } );
-                }
-            }
-
-            function resetScreensaver() {
-                if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
-                    $( '.mainSectionActive' ).each( function () {
-                        $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'screensaverHidden' );
-                        $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
-                        refreshGradientBackground();
-                    } );
-                }
-                screensaverSecondsIdle = 0;
-            }
-
             // ***********************************
             // Video section
             $( '.videoFilterBtn' ).click( function () {
@@ -954,6 +925,35 @@ $( document ).ready( function () {
                     window.open( $( e.target ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
                 }
             } );
+
+            // Video selection screensaver
+            setInterval( startScreensaver, 1000 );
+            $( document ).mousemove( function ( event ) {
+                stopScreensaver();
+            } );
+
+            function startScreensaver() {
+                screensaverSecondsIdle++;
+                if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
+                    $( '.mainSectionActive' ).each( function () {
+                        if ( $( this ).attr( 'data-target' ) == 'videos' ) {
+                            $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'screensaverHidden' );
+                            $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
+                        }
+                    } );
+                }
+            }
+
+            function stopScreensaver() {
+                if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
+                    $( '.mainSectionActive' ).each( function () {
+                        $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'screensaverHidden' );
+                        $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
+                        refreshGradientBackground();
+                    } );
+                }
+                screensaverSecondsIdle = 0;
+            }
 
             // END Video section
             // ******************************************
@@ -1233,6 +1233,7 @@ $( document ).ready( function () {
 
             $( window ).on( 'wheel', function ( event ) {
                 $( '#absoluteTruthsOverlay' ).show();
+                stopScreensaver();
                 enableFullscreen();
                 clearInterval( absoluteTruthsTimer );
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
