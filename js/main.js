@@ -773,7 +773,8 @@ $( document ).ready( function () {
                 if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
                     $( '.mainSectionActive' ).each( function () {
                         if ( $( this ).attr( 'data-target' ) != 'shrine' && $( this ).attr( 'data-target' ) != 'search' ) {
-                            $( '#' + $( this ).attr( 'data-target' ) ).addClass('screensaverHidden');
+                            $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'screensaverHidden' );
+                            $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
                         }
                     } );
                 }
@@ -782,7 +783,8 @@ $( document ).ready( function () {
             function resetScreensaver() {
                 if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
                     $( '.mainSectionActive' ).each( function () {
-                        $( '#' + $( this ).attr( 'data-target' ) ).removeClass('screensaverHidden');
+                        $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'screensaverHidden' );
+                        $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
                         refreshGradientBackground();
                     } );
                 }

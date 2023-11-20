@@ -1196,7 +1196,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100vh;
 }
 
-#ensoImageShrineContainer {
+#ensoImageShrineContainer, #globalEnsoContainer {
     position: relative;
     top: 15px;
     height: 95%;
@@ -1213,7 +1213,19 @@ video::-webkit-media-controls-fullscreen-button {
     animation: spin 120s linear infinite;
 }
 
-#ensoImageShrine {
+#globalEnsoContainer {
+    position: fixed;
+    top: 70px;
+    height: 900px;
+    left: 400px;
+    transition: all 1s ease;
+}
+
+.globalEnsoContainerHidden {
+    opacity: 0 !important;
+}
+
+#ensoImageShrine, #globalEnsoImage {
     height: 100%;
     display: block;
     margin-left: auto;
