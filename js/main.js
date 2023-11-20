@@ -766,9 +766,9 @@ $( document ).ready( function () {
 
             // Screensaver
             /*setInterval( checkScreensaver, 1000 );*/
-            $( document ).mousemove( function ( event ) {
+/*            $( document ).mousemove( function ( event ) {
                 resetScreensaver();
-            } );
+            } );*/
 
             function checkScreensaver() {
                 screensaverSecondsIdle++;
@@ -782,11 +782,13 @@ $( document ).ready( function () {
             }
 
             function resetScreensaver() {
+                if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
+                    $( '.mainSectionActive' ).each( function () {
+                        $( '#' + $( this ).attr( 'data-target' ) ).show();
+                        refreshGradientBackground();
+                    } );
+                }
                 screensaverSecondsIdle = 0;
-                $( '.mainSectionActive' ).each( function () {
-                    $( '#' + $( this ).attr( 'data-target' ) ).show();
-                    refreshGradientBackground();
-                } );
             }
 
             // ***********************************
