@@ -42,6 +42,8 @@ $( document ).ready( function () {
             var currentAutocompleteItem = 0;
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
+            var screensaverSecondsIdle = 0;
+            var screensaverStartAfterSeconds = 20;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -762,6 +764,40 @@ $( document ).ready( function () {
                 location.reload();
             } )
 
+            // Screensaver
+            setInterval( checkScreensaver, 1000 );
+            $( document ).mousemove( function ( event ) {
+                resetScreensaver();
+            } );
+
+            function checkScreensaver() {
+                screensaverSecondsIdle++;
+                if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
+                    $( '.mainSectionActive' ).each( function () {
+                        if ( $( this ).attr( 'id' ) == 'showVideoSection' ) {
+                            $('#videos').hide();
+                        } else if ( $( this ).attr( 'id' ) == 'showImageSection' ) {
+                            $('#images').hide();
+                        }
+                    } );
+                }
+            }
+
+            function resetScreensaver() {
+                screensaverSecondsIdle = 0;
+
+                $( '.mainSectionActive' ).each( function () {
+                    if ( $( this ).attr( 'id' ) == 'showVideoSection' ) {
+                        $('#videos').show();
+                        refreshGradientBackground();
+                    } else if ( $( this ).attr( 'id' ) == 'showImageSection' ) {
+                        $('#images').show();
+                        refreshGradientBackground();
+                    }
+                } );
+            }
+
+
             // ***********************************
             // Video section
             $( '.videoFilterBtn' ).click( function () {
@@ -1348,7 +1384,7 @@ $( document ).ready( function () {
             }
 
             // integrated Spotify player if succesfully logged in
-            if ( localStorage.getItem( 'access_token') != null ) {
+            if ( localStorage.getItem( 'access_token' ) != null ) {
                 $( '#spotifyLogin' ).hide();
 
                 refreshAccessToken();
@@ -1429,7 +1465,7 @@ $( document ).ready( function () {
             } else {
                 // Stand alone iFrame Spotify Player
                 $( '#oAuthPlayerControl' ).remove();
-                $( '#devices' ).attr('style', 'visibility:hidden');
+                $( '#devices' ).attr( 'style', 'visibility:hidden' );
                 $( '#spotifyLogout' ).hide();
 
                 $.getScript( 'https://open.spotify.com/embed-podcast/iframe-api/v1', function ( data, textStatus, jqxhr ) {
@@ -1442,7 +1478,7 @@ $( document ).ready( function () {
                             document.querySelectorAll( '.spotifyPlaylistItem' ).forEach(
                                     episode => {
                                         episode.addEventListener( 'click', () => {
-                                            EmbedController.loadUri( episode.getAttribute('data-spotify-id') );
+                                            EmbedController.loadUri( episode.getAttribute( 'data-spotify-id' ) );
                                             $( '#spotifyPlaylists' ).html( episode.innerHTML );
 
                                             EmbedController.play();
