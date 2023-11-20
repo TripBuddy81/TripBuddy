@@ -348,10 +348,8 @@ $( document ).ready( function () {
 
                 if ( xxxVisible ) {
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
-                    $( '#absoluteTruthsOverlay' ).show();
                 } else {
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
-                    $( '#absoluteTruthsOverlay' ).hide();
                 }
             }
 
