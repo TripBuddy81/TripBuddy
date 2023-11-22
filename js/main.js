@@ -652,7 +652,7 @@ $( document ).ready( function () {
             function showTimedRecommendation( recommendationText ) {
                 if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
                     disableFullscreen();
-                    $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
+                    $( '.videoMenuOverlayMinimized' ).show();
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 }
 
@@ -871,14 +871,14 @@ $( document ).ready( function () {
                 $( '.disableVideoFullscreenIcon2' ).hide();
                 $( '.videoMenuOverlay' ).hide();
             } );
-            $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).click( function ( event ) {
+            $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
                 const container = $( this ).closest( '.videoContainer' )[0];
                 const fullscreenApi = container.requestFullscreen
                         || container.webkitRequestFullScreen
                         || container.mozRequestFullScreen
                         || container.msRequestFullscreen;
                 fullscreenApi.call( container );
-                $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).hide();
+                $( '.videoMenuOverlayMinimized' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
                 $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
             } );
@@ -891,7 +891,7 @@ $( document ).ready( function () {
                 fullscreenApi.call( container );
                 document.exitFullscreen();
 
-                $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
+                $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -901,7 +901,7 @@ $( document ).ready( function () {
             // Reset settings if user disengaged fullscreen via ESC or other means...
             var intervalId = window.setInterval( function () {
                 if ( window.innerHeight != screen.height ) {
-                    $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).show();
+                    $( '.videoMenuOverlayMinimized' ).show();
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                     isFullScreen = false;
                 } else {

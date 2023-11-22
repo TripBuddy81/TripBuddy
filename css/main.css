@@ -949,20 +949,10 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
 }
 
-.videoMenuOverlayMinimized2 {
-    left: 480px;
-    top: 248px;
-    z-index: 1;
-    width: 50px;
-    height: 50px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    position: absolute;
-}
-
 .addVideoToQueue {
     right: 5px;
     top: 5px;
-    z-index: 1;
+    z-index: 2;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
     position: absolute;
     width: 50px;
@@ -1305,16 +1295,14 @@ video::-webkit-media-controls-fullscreen-button {
     height: 597px;
 }
 
-#mainSearchResultYoutubeContainer .videoMenuOverlayMinimized {
-    left: 430px;
-    top: 197px;
-}
-
-#mainSearchResultYoutubeContainer .videoMenuOverlayMinimized2 {
-    left: 1011px;
-    top: 547px;
-    width: 50px;
-    height: 50px;
+#mainSearchResultYoutubeContainerOverlayMinimized {
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    width: 1061px;
+    height: 547px;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    position: absolute;
 }
 
 #mainSearchBar {
