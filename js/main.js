@@ -44,6 +44,7 @@ $( document ).ready( function () {
             var mainYoutubePlayerIsActiveSoundSource = false;
             var screensaverSecondsIdle = 0;
             var screensaverStartAfterSeconds = 10;
+            var screensaverActive = false;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -326,6 +327,11 @@ $( document ).ready( function () {
                         break;
                 }
             } );
+
+/*            $( '#displayedVideos' ).click( function () {
+                enableFullscreen();
+                incompatible WITH LOCAL VIDEOS!
+            } );*/
 
             $( '#activateHiddenMenue' ).mouseout( function ( event ) {
                 rightMouseClicked = false;
@@ -856,13 +862,6 @@ $( document ).ready( function () {
             } );
 
             // Youtube iFrame fullscreen button overlay
-            $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).hover( function ( event ) {
-                /*$( event.target ).closest( '.iFrameContainer' ).find( '.enableVideoFullscreenIcon' ).show();*/
-                $( event.target ).closest( '.iFrameContainer' ).find( '.enableVideoFullscreenIcon2' ).show();
-            }, function () {
-                /*$( '.enableVideoFullscreenIcon' ).hide();*/
-                $( '.enableVideoFullscreenIcon2' ).hide();
-            } );
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
                 $( event.target ).closest( '.iFrameContainer' ).find( '.disableVideoFullscreenIcon' ).show();
                 $( event.target ).closest( '.iFrameContainer' ).find( '.disableVideoFullscreenIcon2' ).show();
@@ -934,23 +933,27 @@ $( document ).ready( function () {
                 stopScreensaver();
             } );
 
-            function startScreensaver() {
+            function startScreensaver( force = false ) {
                 screensaverSecondsIdle++;
-                if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
+                if ( screensaverSecondsIdle >= screensaverStartAfterSeconds || force ) {
+                    screensaverActive = true;
                     $( '.mainSectionActive' ).each( function () {
                         if ( $( this ).attr( 'data-target' ) == 'videos' ) {
                             $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'screensaverHidden' );
                             $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
                         }
+                        $( 'body,.videoMenuOverlayMinimized' ).attr( 'style', 'cursor:none !important;' );
                     } );
                 }
             }
 
             function stopScreensaver() {
-                if ( screensaverSecondsIdle >= screensaverStartAfterSeconds ) {
+                if ( screensaverActive ) {
+                    screensaverActive = false;
                     $( '.mainSectionActive' ).each( function () {
                         $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'screensaverHidden' );
                         $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
+                        $( 'body,.videoMenuOverlayMinimized' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                         refreshGradientBackground();
                     } );
                 }

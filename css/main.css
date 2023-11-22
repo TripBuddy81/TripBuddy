@@ -944,7 +944,7 @@ video::-webkit-media-controls-fullscreen-button {
     top: 0px;
     z-index: 1;
     width: 530px;
-    height: 255px;
+    height: 235px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     position: absolute;
 }
@@ -1020,7 +1020,7 @@ video::-webkit-media-controls-fullscreen-button {
     visibility: visible !important;
 }
 
-.enableVideoFullscreenIcon, .disableVideoFullscreenIcon {
+.disableVideoFullscreenIcon {
     height: 200px;
     width: 200px;
     position: absolute;
@@ -1030,7 +1030,7 @@ video::-webkit-media-controls-fullscreen-button {
     left: 0px;
 }
 
-.enableVideoFullscreenIcon2, .disableVideoFullscreenIcon2 {
+.disableVideoFullscreenIcon2 {
     height: 55px;
     width: 55px;
     position: absolute;
