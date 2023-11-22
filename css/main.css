@@ -313,7 +313,6 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
 
 #menuClose:checked ~ ul {
     transform: none;
-    opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
@@ -566,7 +565,7 @@ li, .options, .form-check-label {
     --color: rgba(0, 0, 0, 0.2);
 }
 
-#fullscreenIcon, .playerIcon {
+#fullscreenIcon, .playerIcon, #switchDesktopPhone {
     height: 45px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     position: relative;
@@ -580,9 +579,6 @@ li, .options, .form-check-label {
 }
 
 #switchDesktopPhone {
-    height: 45px;
-    top: 0px;
-    position: inherit;
     display: none;
 }
 

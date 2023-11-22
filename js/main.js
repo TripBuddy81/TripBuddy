@@ -328,10 +328,10 @@ $( document ).ready( function () {
                 }
             } );
 
-/*            $( '#displayedVideos' ).click( function () {
-                enableFullscreen();
-                incompatible WITH LOCAL VIDEOS!
-            } );*/
+            /*            $( '#displayedVideos' ).click( function () {
+                            enableFullscreen();
+                            incompatible WITH LOCAL VIDEOS!
+                        } );*/
 
             $( '#activateHiddenMenue' ).mouseout( function ( event ) {
                 rightMouseClicked = false;
@@ -434,7 +434,7 @@ $( document ).ready( function () {
                 }
             } );
             $( '#topupReminderInMinutes1' ).change( function () {
-                $( '#topupCheckbox1' ).prop('checked', true);
+                $( '#topupCheckbox1' ).prop( 'checked', true );
                 localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
             } );
             $( '#topupCheckbox2' ).change( function () {
@@ -445,7 +445,7 @@ $( document ).ready( function () {
                 }
             } );
             $( '#topupReminderInMinutes2' ).change( function () {
-                $( '#topupCheckbox2' ).prop('checked', true);
+                $( '#topupCheckbox2' ).prop( 'checked', true );
                 localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
             } );
 
@@ -458,7 +458,7 @@ $( document ).ready( function () {
                 }
             } );
             $( '#orderPizzaReminderInMinutes' ).change( function () {
-                $( '#orderPizzaCheckbox' ).prop('checked', true);
+                $( '#orderPizzaCheckbox' ).prop( 'checked', true );
                 localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
             } );
 
@@ -932,14 +932,16 @@ $( document ).ready( function () {
 
             function startScreensaver( force = false ) {
                 screensaverSecondsIdle++;
-                if ( screensaverSecondsIdle >= screensaverStartAfterSeconds || force ) {
+                if ( (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive ) {
                     screensaverActive = true;
                     $( '.mainSectionActive' ).each( function () {
                         if ( $( this ).attr( 'data-target' ) == 'videos' ) {
                             $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'screensaverHidden' );
+                            $( '#spotifyPlaylistsMenu' ).addClass( 'screensaverHidden' );
+                            $( '#menu' ).addClass( 'screensaverHidden' );
                             $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
+                            $( 'body,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon' ).attr( 'style', 'cursor:none !important;' );
                         }
-                        $( 'body,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn' ).attr( 'style', 'cursor:none !important;' );
                     } );
                 }
             }
@@ -949,8 +951,10 @@ $( document ).ready( function () {
                     screensaverActive = false;
                     $( '.mainSectionActive' ).each( function () {
                         $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'screensaverHidden' );
+                        $( '#spotifyPlaylistsMenu' ).removeClass( 'screensaverHidden' );
+                        $( '#menu' ).removeClass( 'screensaverHidden' );
                         $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
-                        $( 'body,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+                        $( 'body,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                         refreshGradientBackground();
                     } );
                 }

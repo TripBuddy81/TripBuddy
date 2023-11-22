@@ -103,7 +103,6 @@ function handleDevicesResponse() {
         } else {
             $( '#switchDesktopPhone' ).hide();
         }
-
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
