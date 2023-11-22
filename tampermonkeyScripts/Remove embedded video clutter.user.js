@@ -6,6 +6,9 @@
 // @author       TripBuddy
 // @match        https://www.youtube.com/embed*
 // @match        https://*/embed*
+// @match        https://static*
+// @match        *videoassets*
+// @match        https://videos*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=undefined.localhost
 // @grant        none
 // ==/UserScript==
@@ -84,6 +87,21 @@
 
         try {
             document.getElementById("playerOverlay").remove();
+        } catch(e) {
+        }
+
+        try {
+            document.getElementsByClassName("big-buttons")[0].remove();
+        } catch(e) {
+        }
+
+        try {
+            document.getElementsByClassName("shaka-play-button-container")[0].remove();
+        } catch(e) {
+        }
+
+        try {
+            document.getElementsByClassName("xv-logo")[0].remove();
         } catch(e) {
         }
 
