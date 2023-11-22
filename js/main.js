@@ -91,7 +91,10 @@ $( document ).ready( function () {
             document.onreadystatechange = function () {
                 if ( document.readyState !== 'complete' ) {
                 } else {
-                    $( '#launchSymbol' ).attr( 'src', './assets/ufo.png' );
+                    $( '#launchSymbol' ).fadeOut( 800, function () {
+                        $( '#launchSymbol' ).attr( 'src', './assets/ufo.png' );
+                        $( '#launchSymbol' ).fadeIn();
+                    } );
                 }
             };
 
