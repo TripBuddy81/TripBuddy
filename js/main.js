@@ -93,7 +93,7 @@ $( document ).ready( function () {
                 } else {
                     $( '#launchSymbol' ).fadeOut( 800, function () {
                         $( '#launchSymbol' ).attr( 'src', './assets/ufo.png' );
-                        $( '#launchSymbol' ).fadeIn();
+                        $( '#launchSymbol' ).delay( 200 ).fadeIn();
                     } );
                 }
             };
