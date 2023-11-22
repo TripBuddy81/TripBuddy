@@ -43,7 +43,7 @@ $( document ).ready( function () {
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
             var screensaverSecondsIdle = 0;
-            var screensaverStartAfterSeconds = 2;
+            var screensaverStartAfterSeconds = 10;
             var screensaverActive = false;
 
             const urlParams = new URLSearchParams( window.location.search );
