@@ -926,7 +926,7 @@ $( document ).ready( function () {
 
             // Video selection screensaver
             setInterval( startScreensaver, 1000 );
-            $( document ).mousemove( function ( event ) {
+            $( document ).on( 'click mousemove wheel', function ( e ) {
                 stopScreensaver();
             } );
 
@@ -940,7 +940,7 @@ $( document ).ready( function () {
                             $( '#spotifyPlaylistsMenu' ).addClass( 'screensaverHidden' );
                             $( '#menu' ).addClass( 'screensaverHidden' );
                             $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
-                            $( 'body,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon' ).attr( 'style', 'cursor:none !important;' );
+                            $( 'body,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:none !important;' );
                         }
                     } );
                 }
@@ -954,7 +954,7 @@ $( document ).ready( function () {
                         $( '#spotifyPlaylistsMenu' ).removeClass( 'screensaverHidden' );
                         $( '#menu' ).removeClass( 'screensaverHidden' );
                         $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
-                        $( 'body,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+                        $( 'body,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                         refreshGradientBackground();
                     } );
                 }
