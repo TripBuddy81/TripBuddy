@@ -586,12 +586,6 @@ li, .options, .form-check-label {
     display: none;
 }
 
-#turnScreenBlack {
-    height: 70px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    width: 70px !important;
-}
-
 .fullscreenImage {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     width: 538.7px;

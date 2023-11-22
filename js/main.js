@@ -550,19 +550,6 @@ $( document ).ready( function () {
             }
 
             // ******************************************
-            // enable/disable screen
-            $( '#turnScreenBlack' ).click( function ( e ) {
-                enableFullscreen();
-                e.stopPropagation();
-                $( 'body' ).hide();
-                $( 'html' ).attr( 'style', 'background-color:black;cursor:none !important;' );
-            } );
-            $( 'html' ).click( function () {
-                $( 'body' ).show();
-                $( 'html' ).attr( 'style', 'cursor:auto;' );
-            } );
-
-            // ******************************************
             // Disable all future reminders and guided thoughts
             $( '#disableAllReminders' ).click( function ( e ) {
                 $( '#disableAllReminders' ).hide();
