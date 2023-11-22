@@ -752,6 +752,16 @@ option {
     z-index: 2;
 }
 
+#launchSymbol {
+    position: relative;
+    top: -7px;
+    padding-left: 0px;
+    height: 55px;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    left: 0px;
+    z-index: 2;
+}
+
 #particles-js {
     position: relative;
     height: 975px;
@@ -1493,4 +1503,3 @@ video::-webkit-media-controls-fullscreen-button {
 #clearYoutubePlayedHistory {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
-

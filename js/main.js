@@ -91,14 +91,14 @@ $( document ).ready( function () {
             document.onreadystatechange = function () {
                 if ( document.readyState !== 'complete' ) {
                 } else {
-                    $( '#launchText' ).html( 'Start!' );
+                    $( '#launchSymbol' ).attr( 'src', './assets/ufo.png' );
                 }
             };
 
             // Firefox does not want to play along
             userAgentString = navigator.userAgent;
             if ( userAgentString.indexOf( 'Firefox' ) > -1 ) {
-                $( '#launchText' ).html( 'Start!' );
+                $( '#launchSymbol' ).attr( 'src', './assets/ufo.png' );
             }
 
             // Show VRGames Tag if configured
