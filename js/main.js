@@ -434,9 +434,8 @@ $( document ).ready( function () {
                 }
             } );
             $( '#topupReminderInMinutes1' ).change( function () {
-                if ( $( '#topupCheckbox1' ).is( ':checked' ) ) {
-                    localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
-                }
+                $( '#topupCheckbox1' ).prop('checked', true);
+                localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
             } );
             $( '#topupCheckbox2' ).change( function () {
                 if ( $( '#topupCheckbox2' ).is( ':checked' ) ) {
@@ -446,9 +445,8 @@ $( document ).ready( function () {
                 }
             } );
             $( '#topupReminderInMinutes2' ).change( function () {
-                if ( $( '#topupCheckbox2' ).is( ':checked' ) ) {
-                    localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
-                }
+                $( '#topupCheckbox2' ).prop('checked', true);
+                localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
             } );
 
             // Order Pizza Reminder Config
@@ -460,9 +458,8 @@ $( document ).ready( function () {
                 }
             } );
             $( '#orderPizzaReminderInMinutes' ).change( function () {
-                if ( $( '#orderPizzaCheckbox' ).is( ':checked' ) ) {
-                    localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
-                }
+                $( '#orderPizzaCheckbox' ).prop('checked', true);
+                localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
             } );
 
             // Guided Thoughts Config
