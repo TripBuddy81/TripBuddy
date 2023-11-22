@@ -857,10 +857,10 @@ $( document ).ready( function () {
 
             // Youtube iFrame fullscreen button overlay
             $( '.videoMenuOverlayMinimized, .videoMenuOverlayMinimized2' ).hover( function ( event ) {
-                $( event.target ).closest( '.iFrameContainer' ).find( '.enableVideoFullscreenIcon' ).show();
+                /*$( event.target ).closest( '.iFrameContainer' ).find( '.enableVideoFullscreenIcon' ).show();*/
                 $( event.target ).closest( '.iFrameContainer' ).find( '.enableVideoFullscreenIcon2' ).show();
             }, function () {
-                $( '.enableVideoFullscreenIcon' ).hide();
+                /*$( '.enableVideoFullscreenIcon' ).hide();*/
                 $( '.enableVideoFullscreenIcon2' ).hide();
             } );
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
