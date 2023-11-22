@@ -356,9 +356,21 @@ $( document ).ready( function () {
             // ******************************************
             // Start button & preFlightChecklist & Reminders
             $( '#launchText' ).click( function ( e ) {
-                localStorage.setItem( 'topupReminderInMinutes1', '' );
-                localStorage.setItem( 'topupReminderInMinutes2', '' );
-                localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
+                if ( $( '#topupCheckbox1' ).is( ':checked' ) ) {
+                    localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
+                } else {
+                    localStorage.setItem( 'topupReminderInMinutes1', '' );
+                }
+                if ( $( '#topupCheckbox2' ).is( ':checked' ) ) {
+                    localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
+                } else {
+                    localStorage.setItem( 'topupReminderInMinutes2', '' );
+                }
+                if ( $( '#orderPizzaCheckbox' ).is( ':checked' ) ) {
+                    localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
+                } else {
+                    localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
+                }
                 enableFullscreen();
 
                 if ( !allVideosLoaded ) {
