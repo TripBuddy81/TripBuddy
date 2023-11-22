@@ -939,7 +939,7 @@ $( document ).ready( function () {
                             $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'screensaverHidden' );
                             $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
                         }
-                        $( 'body,.videoMenuOverlayMinimized,.videoFilterBtn,.mainCategoryBtn,.playerIcon,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#menuClose' ).attr( 'style', 'cursor:none !important;' );
+                        $( 'body,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn' ).attr( 'style', 'cursor:none !important;' );
                     } );
                 }
             }
@@ -950,7 +950,7 @@ $( document ).ready( function () {
                     $( '.mainSectionActive' ).each( function () {
                         $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'screensaverHidden' );
                         $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
-                        $( 'body,.videoMenuOverlayMinimized,.videoFilterBtn,.mainCategoryBtn,.playerIcon,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#menuClose' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+                        $( 'body,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                         refreshGradientBackground();
                     } );
                 }
