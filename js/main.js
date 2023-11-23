@@ -45,6 +45,7 @@ $( document ).ready( function () {
             var screensaverSecondsIdle = 0;
             var screensaverStartAfterSeconds = 10;
             var screensaverActive = false;
+            var blockScreenSaver = false;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -869,6 +870,7 @@ $( document ).ready( function () {
                 $( '.videoMenuOverlay' ).hide();
             } );
             $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
+                blockScreenSaver = true;
                 const container = $( this ).closest( '.videoContainer' )[0];
                 const fullscreenApi = container.requestFullscreen
                         || container.webkitRequestFullScreen
@@ -880,6 +882,8 @@ $( document ).ready( function () {
                 $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
             } );
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
+                blockScreenSaver = false;
+                screensaverSecondsIdle = 0;
                 const container = $( this ).closest( '.videoContainer' )[0];
                 const fullscreenApi = container.requestFullscreen
                         || container.webkitRequestFullScreen
@@ -887,7 +891,6 @@ $( document ).ready( function () {
                         || container.msRequestFullscreen;
                 fullscreenApi.call( container );
                 document.exitFullscreen();
-
                 $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
@@ -901,6 +904,7 @@ $( document ).ready( function () {
                     $( '.videoMenuOverlayMinimized' ).show();
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                     isFullScreen = false;
+                    blockScreenSaver = false;
                 } else {
                     isFullScreen = true;
                 }
@@ -932,7 +936,7 @@ $( document ).ready( function () {
 
             function startScreensaver( force = false ) {
                 screensaverSecondsIdle++;
-                if ( (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive ) {
+                if ( (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
                     screensaverActive = true;
                     $( '.mainSectionActive' ).each( function () {
                         if ( $( this ).attr( 'data-target' ) == 'videos' ) {
