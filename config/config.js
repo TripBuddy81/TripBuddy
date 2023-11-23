@@ -245,6 +245,14 @@ var config = {
             'tags'     : 'trippy-3D'
         },
         {
+            'videoLink': 'https://www.youtube.com/embed/d6gofPAru34?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
+            'videoLink': 'https://www.youtube.com/embed/fzpi8ozG-pQ?mute=1',
+            'tags'     : 'trippy-3D'
+        },
+        {
             'videoLink': 'https://www.youtube.com/embed/dBRa8pMAn9U?mute=1',
             'tags'     : 'trippy-3D'
         },
@@ -254,14 +262,6 @@ var config = {
         },
         {
             'videoLink': 'https://www.youtube.com/embed/NjkeGGy71IE?mute=1',
-            'tags'     : 'trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/d6gofPAru34?mute=1',
-            'tags'     : 'trippy-3D'
-        },
-        {
-            'videoLink': 'https://www.youtube.com/embed/fzpi8ozG-pQ?mute=1',
             'tags'     : 'trippy-3D'
         },
         {
