@@ -95,11 +95,15 @@ function handleDevicesResponse() {
         } ).forEach( item => addDevice( item ) );
 
         if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
-            $( '#switchDesktopPhone' ).attr( 'src', './assets/phone.png' );
-            $( '#switchDesktopPhone' ).show();
+            if ( $( '#switchDesktopPhone' ).attr( 'src' ) != './assets/phone.png' ) {
+                $( '#switchDesktopPhone' ).attr( 'src', './assets/phone.png' );
+                $( '#switchDesktopPhone' ).show();
+            }
         } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
-            $( '#switchDesktopPhone' ).attr( 'src', './assets/desktop.png' );
-            $( '#switchDesktopPhone' ).show();
+            if ( $( '#switchDesktopPhone' ).attr( 'src' ) != './assets/desktop.png' ) {
+                $( '#switchDesktopPhone' ).attr( 'src', './assets/desktop.png' );
+                $( '#switchDesktopPhone' ).show();
+            }
         } else {
             $( '#switchDesktopPhone' ).hide();
         }

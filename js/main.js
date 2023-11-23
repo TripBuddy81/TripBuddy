@@ -342,6 +342,7 @@ $( document ).ready( function () {
                 enableFullscreen();
                 xxxVisible = !xxxVisible;
                 $( '.XXX' ).toggle();
+                defaultStyleXXXfilter = $('.XXXfilter').attr('style');
 
                 if ( videoTagList == '' ) {
                     $( '.videoContainer' ).each( function () {
@@ -933,6 +934,7 @@ $( document ).ready( function () {
             $( document ).on( 'click mousemove wheel', function ( e ) {
                 stopScreensaver();
             } );
+            var defaultStyleXXXfilter = $('.XXXfilter').attr('style');
 
             function startScreensaver( force = false ) {
                 screensaverSecondsIdle++;
@@ -945,6 +947,7 @@ $( document ).ready( function () {
                             $( '#menu' ).addClass( 'screensaverHidden' );
                             $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
                             $( 'body,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:none !important;' );
+                            $('.XXXfilter').attr('style', defaultStyleXXXfilter + 'cursor:none !important;');
                         }
                     } );
                 }
@@ -959,6 +962,7 @@ $( document ).ready( function () {
                         $( '#menu' ).removeClass( 'screensaverHidden' );
                         $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
                         $( 'body,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+                        $('.XXXfilter').attr('style', defaultStyleXXXfilter + 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;');
                         refreshGradientBackground();
                     } );
                 }
