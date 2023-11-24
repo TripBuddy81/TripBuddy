@@ -220,7 +220,7 @@ p {
 #menuToggle {
     display: block;
     position: absolute;
-    top: 30px;
+    top: 32px;
     right: 20px;
     z-index: 15;
     -webkit-user-select: none;
