@@ -50,8 +50,8 @@ $( document ).ready( function () {
             const urlParams = new URLSearchParams( window.location.search );
 
             Object.assign( config, optionalConfig );
-            if ( optionalConfig['videosXXX'] != undefined ) {
-                config['videosYoutube'] = config['videosYoutube'].concat( optionalConfig['videosXXX'] );
+            if ( optionalConfig['videosMisc'] != undefined ) {
+                config['videosYoutube'] = config['videosYoutube'].concat( optionalConfig['videosMisc'] );
             }
             if ( optionalConfig['imagesXXX'] != undefined ) {
                 config['images'] = config['images'].concat( optionalConfig['imagesXXX'] );
