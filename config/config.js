@@ -161,487 +161,512 @@ var config = {
     ],
     'videosYoutube'      : [
         {
-            'videoLink': 'https://www.youtube.com/embed/TdU2Ab7y91w?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'TdU2Ab7y91w',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/8N1qXnx7PyY?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': '8N1qXnx7PyY',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/moTy7FA7UO4?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'moTy7FA7UO4',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/oCi2JpkEZbo?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'oCi2JpkEZbo',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/ilHJzyZTr3U?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'ilHJzyZTr3U',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/jaXuqScMt68?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'jaXuqScMt68',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/QxLV23bApTA?mute=1&loop=1&playlist=QxLV23bApTA',
-            'tags'     : 'trippy-3D'
+            'videoId': 'QxLV23bApTA',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/5drq3OD19NQ?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': '5drq3OD19NQ',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/mCScNx6Oxe4?mute=1',
-            'tags'     : 'trippy-2D'
+            'videoId': 'mCScNx6Oxe4',
+            'tags'   : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/JKe0gryiCCw?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'JKe0gryiCCw',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/ZqvhJhi8CF4?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'ZqvhJhi8CF4',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/AmkZRNmLiGE?mute=1',
-            'tags'     : 'trippy-2D'
+            'videoId': 'AmkZRNmLiGE',
+            'tags'   : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/BxkMslKrtzI?mute=1',
-            'tags'     : 'trippy-2D'
+            'videoId': 'BxkMslKrtzI',
+            'tags'   : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/XICnl77dchU?mute=1&loop=1&playlist=XICnl77dchU',
-            'tags'     : 'trippy-2D meditative'
+            'videoId': 'XICnl77dchU',
+            'tags'   : 'trippy-2D meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/1PiXGku9QpI?mute=1&loop=1&playlist=1PiXGku9QpI',
-            'tags'     : 'trippy-2D'
+            'videoId': '1PiXGku9QpI',
+            'tags'   : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/S7TUe5w6RHo?mute=1',
-            'tags'     : 'meditative'
+            'videoId': 'S7TUe5w6RHo',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/bx-0YlFprqc?mute=1',
-            'tags'     : 'trippy-2D'
+            'videoId': 'bx-0YlFprqc',
+            'tags'   : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/JTbWeMQnJUE?mute=1',
-            'tags'     : 'trippy-2D'
+            'videoId': 'JTbWeMQnJUE',
+            'tags'   : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/M45c6WiZ2tc?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'M45c6WiZ2tc',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/s3Tp8ESiiM4?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 's3Tp8ESiiM4',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/2QWlxqKneLs?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': '2QWlxqKneLs',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/d6gofPAru34?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'd6gofPAru34',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/fzpi8ozG-pQ?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'fzpi8ozG-pQ',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/dBRa8pMAn9U?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'dBRa8pMAn9U',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/laA27w4Sets?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'laA27w4Sets',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/NjkeGGy71IE?mute=1',
-            'tags'     : 'trippy-3D'
+            'videoId': 'NjkeGGy71IE',
+            'tags'   : 'trippy-3D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/z3ul9PkRvfY?mute=1',
-            'tags'     : 'trippy-2D'
+            'videoId': 'z3ul9PkRvfY',
+            'tags'   : 'trippy-2D'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/vmGDO0eU1n0?mute=1',
-            'tags'     : 'meditative'
+            'videoId': 'vmGDO0eU1n0',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/Y_plhk1FUQA?mute=1',
-            'tags'     : 'space'
+            'videoId': 'Y_plhk1FUQA',
+            'tags'   : 'space'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/RhlQvbvMg-0?mute=1',
-            'tags'     : 'meditative'
+            'videoId': 'RhlQvbvMg-0',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/dJoXVILGeKQ?mute=1',
-            'tags'     : 'meditative'
+            'videoId': 'dJoXVILGeKQ',
+            'tags'   : 'meditative'
         },
 
         {
-            'videoLink': 'https://www.youtube.com/embed/AHzek64M6jY?mute=0',
-            'tags'     : 'meditative'
+            'videoId': 'AHzek64M6jY',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/K2BoRq70QeU?mute=1&loop=1&playlist=K2BoRq70QeU',
-            'tags'     : 'meditative'
+            'videoId': 'K2BoRq70QeU',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/XHprvRGY2aA?mute=1',
-            'tags'     : 'meditative'
+            'videoId': 'XHprvRGY2aA',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/tI2ucenn6hM?mute=1',
-            'tags'     : 'meditative nature'
+            'videoId': 'tI2ucenn6hM',
+            'tags'   : 'meditative nature'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/B5unCXpegAw?mute=1',
-            'tags'     : 'meditative space'
+            'videoId': 'B5unCXpegAw',
+            'tags'   : 'meditative space'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/Syyxe6PNLeQ?mute=1&loop=1&playlist=Syyxe6PNLeQ',
-            'tags'     : 'meditative'
+            'videoId': 'Syyxe6PNLeQ',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/xAwB9lQnxAY?mute=1',
-            'tags'     : 'meditative'
+            'videoId': 'xAwB9lQnxAY',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/jNyvfvDFFPk?mute=1',
-            'tags'     : 'space'
+            'videoId': 'jNyvfvDFFPk',
+            'tags'   : 'space'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/lkUuCgNkSsk?mute=1',
-            'tags'     : 'meditative'
+            'videoId': 'lkUuCgNkSsk',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/JbJ0sYt9Nyk?mute=0',
-            'tags'     : 'meditative'
+            'videoId': 'JbJ0sYt9Nyk',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/J2kFChP2O2k?mute=0',
-            'tags'     : 'meditative'
+            'videoId': 'J2kFChP2O2k',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/W5KJsQMKbwM?mute=0',
-            'tags'     : 'meditative'
+            'videoId': 'W5KJsQMKbwM',
+            'tags'   : 'meditative'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/z5JdoygbFCE?mute=1',
-            'tags'     : 'breathing'
+            'videoId': 'z5JdoygbFCE',
+            'tags'   : 'breathing'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/HZ4p5qaLKec?mute=1',
-            'tags'     : 'breathing'
+            'videoId': 'HZ4p5qaLKec',
+            'tags'   : 'breathing'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/hZiCBWrwiRw?mute=1',
-            'tags'     : 'breathing'
+            'videoId': 'hZiCBWrwiRw',
+            'tags'   : 'breathing'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/Wm9MfQMuoIY?mute=1',
-            'tags'     : 'breathing'
+            'videoId': 'Wm9MfQMuoIY',
+            'tags'   : 'breathing'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/t_S_cN2re4g?mute=1',
-            'tags'     : 'nature'
+            'videoId': 't_S_cN2re4g',
+            'tags'   : 'nature'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/683p4Ubg2NU?mute=1',
-            'tags'     : 'nature'
+            'videoId': '683p4Ubg2NU',
+            'tags'   : 'nature'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/AKeUssuu3Is?mute=1',
-            'tags'     : 'nature'
+            'videoId': 'AKeUssuu3Is',
+            'tags'   : 'nature'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/BNTs6-pNFRk?mute=1',
-            'tags'     : 'nature'
+            'videoId': 'BNTs6-pNFRk',
+            'tags'   : 'nature'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/yvd8PObLWsg?mute=1',
-            'tags'     : 'nature'
+            'videoId': 'yvd8PObLWsg',
+            'tags'   : 'nature'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/hld4uaO1MDE?mute=1',
-            'tags'     : 'hiking'
+            'videoId': 'hld4uaO1MDE',
+            'tags'   : 'hiking'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/PyFN_FYwqvc?mute=1',
-            'tags'     : 'hiking'
+            'videoId': 'PyFN_FYwqvc',
+            'tags'   : 'hiking'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/hF-F559PTUg?mute=1',
-            'tags'     : 'hiking'
+            'videoId': 'hF-F559PTUg',
+            'tags'   : 'hiking'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/kSVqPAN1nCM?mute=1',
-            'tags'     : 'hiking'
+            'videoId': 'kSVqPAN1nCM',
+            'tags'   : 'hiking'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/RDiK058GjgI?mute=1',
-            'tags'     : 'hiking'
+            'videoId': 'RDiK058GjgI',
+            'tags'   : 'hiking'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/U1j-eO3-aR8?mute=1',
-            'tags'     : 'hiking'
+            'videoId': 'U1j-eO3-aR8',
+            'tags'   : 'hiking'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/e04zAMupq7E?mute=1',
-            'tags'     : 'hiking'
+            'videoId': 'e04zAMupq7E',
+            'tags'   : 'hiking'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/RHycI27FelE?mute=1',
-            'tags'     : 'hiking'
+            'videoId': 'RHycI27FelE',
+            'tags'   : 'hiking'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/b4AVn8mTuJw?mute=1',
-            'tags'     : 'hiking'
+            'videoId': 'b4AVn8mTuJw',
+            'tags'   : 'hiking'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/123Z5KLLiO8?mute=1',
-            'tags'     : 'festival'
+            'videoId': '123Z5KLLiO8',
+            'tags'   : 'festival'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/8eYEW4q42y8?mute=1',
-            'tags'     : 'festival'
+            'videoId': '8eYEW4q42y8',
+            'tags'   : 'festival'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/G59Tm7KqEnY?mute=1',
-            'tags'     : 'festival'
+            'videoId': 'G59Tm7KqEnY',
+            'tags'   : 'festival'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/6GHiYo3530o?mute=1',
-            'tags'     : 'festival'
+            'videoId': '6GHiYo3530o',
+            'tags'   : 'festival'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/R4LKjRJUGkk?mute=1',
-            'tags'     : 'festival'
+            'videoId': 'R4LKjRJUGkk',
+            'tags'   : 'festival'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/R1CyKwtCDr8?mute=1',
-            'tags'     : 'festival'
+            'videoId': 'R1CyKwtCDr8',
+            'tags'   : 'festival'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/KtXphUrwQtA?mute=1',
-            'tags'     : 'festival'
+            'videoId': 'KtXphUrwQtA',
+            'tags'   : 'festival'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/5I69DCxYbBg?mute=1',
-            'tags'     : 'slideshow'
+            'videoId': '5I69DCxYbBg',
+            'tags'   : 'slideshow'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/rgZfmWXTqas?mute=1',
-            'tags'     : 'slideshow'
+            'videoId': 'rgZfmWXTqas',
+            'tags'   : 'slideshow'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/934tHxQ_-3U?mute=1',
-            'tags'     : 'slideshow nsfw'
+            'videoId': '934tHxQ_-3U',
+            'tags'   : 'slideshow nsfw'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/2wGUWpwrZMM?mute=1&loop=1&playlist=2wGUWpwrZMM',
-            'tags'     : 'slideshow nsfw'
+            'videoId': '2wGUWpwrZMM',
+            'tags'   : 'slideshow nsfw'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/rlwYbRZzS7A?mute=1&loop=1&playlist=rlwYbRZzS7A',
-            'tags'     : 'slideshow'
+            'videoId': 'rlwYbRZzS7A',
+            'tags'   : 'slideshow'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/zLgWjiHv3_U?mute=1&loop=1&playlist=zLgWjiHv3_U',
-            'tags'     : 'weird'
+            'videoId': 'zLgWjiHv3_U',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/CGi0Snrq1Yg?mute=1&loop=1&playlist=CGi0Snrq1Yg',
-            'tags'     : 'weird'
+            'videoId': 'CGi0Snrq1Yg',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/er416Ad3R1g?mute=1&loop=1&playlist=er416Ad3R1g',
-            'tags'     : 'weird'
+            'videoId': 'er416Ad3R1g',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/15il5mmlpmE?mute=1&loop=1&playlist=15il5mmlpmE',
-            'tags'     : 'weird'
+            'videoId': '15il5mmlpmE',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/YNOExz7gvRU?mute=1',
-            'tags'     : 'weird'
+            'videoId': 'YNOExz7gvRU',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/PfxtpPF5qmk?mute=1&loop=1&playlist=PfxtpPF5qmk',
-            'tags'     : 'weird'
+            'videoId': 'PfxtpPF5qmk',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/ZmxiaXvIotQ?mute=1&loop=1&playlist=ZmxiaXvIotQ',
-            'tags'     : 'weird'
+            'videoId': 'ZmxiaXvIotQ',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/JYfnhKnl7_s?mute=1',
-            'tags'     : 'weird'
+            'videoId': 'JYfnhKnl7_s',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/fUWYgdmNscg?mute=1',
-            'tags'     : 'weird'
+            'videoId': 'fUWYgdmNscg',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/ClVqVohatEk?mute=1',
-            'tags'     : 'weird'
+            'videoId': 'ClVqVohatEk',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/FOEYsueJsEg?mute=1',
-            'tags'     : 'weird'
+            'videoId': 'FOEYsueJsEg',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/770SdGs803A?mute=1',
-            'tags'     : 'weird'
+            'videoId': '770SdGs803A',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/mhTobDEY9fI?mute=1',
-            'tags'     : 'weird'
+            'videoId': 'mhTobDEY9fI',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/sKo-vjhAkQs?mute=1',
-            'tags'     : 'weird'
+            'videoId': 'sKo-vjhAkQs',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/8vMhr3HeyMQ?mute=1',
-            'tags'     : 'weird'
+            'videoId': '8vMhr3HeyMQ',
+            'tags'   : 'weird'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/9_dgIfz876A?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Right where it belongs - NIN'
+            'videoId': '9_dgIfz876A',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'Right where it belongs - NIN'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/m-47paKizHM?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Right where it belongs - Mumi'
+            'videoId': 'm-47paKizHM',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'Right where it belongs - Mumi'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/ogLc7M9_hR8?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'The lie we live'
+            'videoId': 'ogLc7M9_hR8',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'The lie we live'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/rBpaUICxEhk?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Das Leben ist keine Reise'
+            'videoId': 'rBpaUICxEhk',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'Das Leben ist keine Reise'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4yaBJVfyy00?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'The false idea of who you are'
+            'videoId': '4yaBJVfyy00',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'The false idea of who you are'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/kl1fytRAMRE?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Don\'t take life too seriously'
+            'videoId': 'kl1fytRAMRE',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'Don\'t take life too seriously'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4vv93azMkDE?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'The rules to the game of life'
+            'videoId': '4vv93azMkDE',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'The rules to the game of life'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/DIChudNdFQ8?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'The Mystery of falling in love'
+            'videoId': 'DIChudNdFQ8',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'The Mystery of falling in love'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/pFH804qrIOU?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'What is Nirvana?'
+            'videoId': 'pFH804qrIOU',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'What is Nirvana?'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/2u0rPBbn5G8?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'When you are ready to wake up, you are going to wake up'
+            'videoId': '2u0rPBbn5G8',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'When you are ready to wake up, you are going to wake up'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4f5yF8GeCG4?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'It\'s time to wake up'
+            'videoId': '4f5yF8GeCG4',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'It\'s time to wake up'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/uc8ceRYTbtU?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Surrendering does not make sense, but it does'
+            'videoId': 'uc8ceRYTbtU',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'Surrendering does not make sense, but it does'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/h6fcK_fRYaI?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'The egg'
+            'videoId': 'h6fcK_fRYaI',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'The egg'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/Jv79l1b-eoI?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'How to party at the end of meaning'
+            'videoId': 'Jv79l1b-eoI',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'How to party at the end of meaning'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/yXBiYk4hYm0?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Dostoevsky - Timeless philosophy of a tormented genius'
+            'videoId': 'yXBiYk4hYm0',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'Dostoevsky - Timeless philosophy of a tormented genius'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/id0Kkq4VHDo?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Socrates\' Trial: His historic defense in today\'s language'
+            'videoId': 'id0Kkq4VHDo',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'Socrates\' Trial: His historic defense in today\'s language'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/4nHj3gL_JN0?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'The profound meaning of Plato\'s allegory of the cave'
+            'videoId': '4nHj3gL_JN0',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'The profound meaning of Plato\'s allegory of the cave'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/lZ62b5JjO6Q?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Carl Jung\'s life lessons men learn too late in life'
+            'videoId': 'lZ62b5JjO6Q',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'Carl Jung\'s life lessons men learn too late in life'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/Jbc0YVgI5Bo?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : '365 life lessons so you don\'t screw your life up like I did'
+            'videoId': 'Jbc0YVgI5Bo',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : '365 life lessons so you don\'t screw your life up like I did'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/DRc430cTkQk?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Near death experience'
+            'videoId': 'DRc430cTkQk',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'Near death experience'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/k3VCrlN_1OI?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'The most important question of your life'
+            'videoId': 'k3VCrlN_1OI',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'The most important question of your life'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/hZeoyYOYgg4?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'How to be completely carefree'
+            'videoId': 'hZeoyYOYgg4',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'How to be completely carefree'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/9M56t0UoW5M?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'Aloneness to oneness'
+            'videoId': '9M56t0UoW5M',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'Aloneness to oneness'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/9PnGNVJSN6Q?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'All along the watchtower'
+            'videoId': '9PnGNVJSN6Q',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'All along the watchtower'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/iC6DDvzM6Nc?mute=0',
-            'tags'     : 'wisdom',
-            'label'    : 'The Best-Kept Secret in History'
+            'videoId': 'iC6DDvzM6Nc',
+            'mute'   : false,
+            'tags'   : 'wisdom',
+            'label'  : 'The Best-Kept Secret in History'
         },
         {
-            'videoLink': 'https://www.youtube.com/embed/ZcfDzE3FCt4?mute=1',
-            'tags'     : 'nsfw'
-        },
+            'videoId': 'ZcfDzE3FCt4',
+            'tags'   : 'nsfw'
+        }
     ],
     'selectableImageTags': [
         {'selectableTag': 'trippy'},
@@ -970,18 +995,18 @@ var config = {
             'text': 'Depression is the past, Anxiety is the future & Peace is the present',
             'tag' : ''
         },
-/*        {
-            'text': 'To someone going through a difficult time in their life – the Enso signifies limitless strength and control of their destiny, reminding the person that they have the choice to decide how they view and live their life. It’s also a reminder to look inwards and find inner peace.',
-            'tag' : ''
-        },*/
-/*        {
-            'text': 'The Enso represents the idea of immense space that has no need of anything and contains nothing that it needs. It’s empty and yet full, with no beginning or end.',
-            'tag' : ''
-        },*/
-/*        {
-            'text': 'The Enso signifies the Circle of Eternity and Enlightenment.',
-            'tag' : ''
-        },*/
+        /*        {
+                    'text': 'To someone going through a difficult time in their life – the Enso signifies limitless strength and control of their destiny, reminding the person that they have the choice to decide how they view and live their life. It’s also a reminder to look inwards and find inner peace.',
+                    'tag' : ''
+                },*/
+        /*        {
+                    'text': 'The Enso represents the idea of immense space that has no need of anything and contains nothing that it needs. It’s empty and yet full, with no beginning or end.',
+                    'tag' : ''
+                },*/
+        /*        {
+                    'text': 'The Enso signifies the Circle of Eternity and Enlightenment.',
+                    'tag' : ''
+                },*/
         {
             'text': 'The Enso represents the Circle of Life. It is the start and end of all things.',
             'tag' : ''
@@ -1021,6 +1046,6 @@ var config = {
         {
             'text': 'Life is not a problem to be solved, but a reality to be experienced.',
             'tag' : ''
-        },
+        }
     ]
 };

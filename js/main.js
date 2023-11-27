@@ -43,10 +43,9 @@ $( document ).ready( function () {
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
             var screensaverSecondsIdle = 0;
-            var screensaverStartAfterSeconds = 10;
+            var screensaverStartAfterSeconds = 1000000;
             var screensaverActive = false;
             var blockScreenSaver = false;
-            var youtubePlayerIds = {};
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -754,31 +753,27 @@ $( document ).ready( function () {
             tag.src = 'https://www.youtube.com/iframe_api';
             var firstScriptTag = document.getElementsByTagName( 'script' )[0];
             firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
-            var tempYoutubePlayer;
+            var youtubePlayer;
+            var directYoutubePlayer;
 
             window.onYouTubePlayerAPIReady = function () {
-                $( '.youtubeVideo' ).each( function () {
-                    youtubeVideoId = $( this ).attr( 'id' );
-                    tempYoutubePlayer = new YT.Player( youtubeVideoId, {
-                        videoId   : youtubeVideoId,
-                        playerVars: {
-                            rel           : 0,
-                            autoplay      : 0,
-                            controls      : 1,
-                            showinfo      : 0,
-                            modestbranding: 1,
-                            iv_load_policy: 3
-                        },
-                        events    : {
-                            'onStateChange': onPlayerStateChange
-                        }
-                    } );
-
-                    youtubePlayerIds[youtubeVideoId] = tempYoutubePlayer;
-
+                // Direct youtube player for clicked preview images in video section
+                directYoutubePlayer = new YT.Player( 'directYoutubePlayer', {
+                    videoId   : 'TdU2Ab7y91w',
+                    playerVars: {
+                        rel           : 0,
+                        autoplay      : 0,
+                        controls      : 1,
+                        showinfo      : 0,
+                        modestbranding: 1,
+                        iv_load_policy: 3
+                    },
+                    events    : {
+                        'onStateChange': onPlayerStateChange
+                    }
                 } );
 
-                // Search section youtube player is special
+                // Search section youtube player
                 youtubePlayer = new YT.Player( 'mainSearchResultYoutubeIframe', {
                     videoId   : 'TdU2Ab7y91w',
                     playerVars: {
@@ -795,6 +790,12 @@ $( document ).ready( function () {
                 } );
             }
 
+            $( '.youtubeVideo' ).click( function ( event ) {
+                youtubeVideoId = $( this ).attr( 'videoId' );
+console.info(youtubeVideoId);
+                directYoutubePlayer.loadVideoById( youtubeVideoId );
+                directYoutubePlayer.playVideo();
+            } );
 
             function onPlayerStateChange( event ) {
                 switch ( event.data ) {
@@ -921,9 +922,6 @@ $( document ).ready( function () {
                 $( '.videoMenuOverlay' ).hide();
             } );
             $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
-                youtubeVideoId = $( this ).siblings( '.addVideoToQueue' ).attr( 'videoid' );
-                youtubePlayerIds[youtubeVideoId].playVideo();
-
                 blockScreenSaver = true;
                 const container = $( this ).closest( '.videoContainer' )[0];
                 const fullscreenApi = container.requestFullscreen
