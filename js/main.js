@@ -792,7 +792,6 @@ $( document ).ready( function () {
 
             $( '.youtubeVideo' ).click( function ( event ) {
                 youtubeVideoId = $( this ).attr( 'videoId' );
-console.info(youtubeVideoId);
                 directYoutubePlayer.loadVideoById( youtubeVideoId );
                 directYoutubePlayer.playVideo();
             } );
