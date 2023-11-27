@@ -220,7 +220,7 @@ p {
 #menuToggle {
     display: block;
     position: absolute;
-    top: 32px;
+    top: 33px;
     right: 20px;
     z-index: 15;
     -webkit-user-select: none;
@@ -291,7 +291,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
 
 #menu {
     position: absolute;
-    top: -30px;
+    top: -32px;
     min-width: 591px;
     padding-bottom: 15px;
     right: -30px;
@@ -612,7 +612,7 @@ li, .options, .form-check-label {
 
 #devices {
     position: relative;
-    top: 9px;
+    top: 16px;
     width: 300px;
     background: transparent;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;

@@ -36,7 +36,7 @@ var config = {
     'playlists'          : {
         'green': [
             {
-                'label': 'Soft/Peak',
+                'label': 'Classic & Soft',
                 'id'   : '4ILChY5F4Hn08ikt0rfHhW'
             },
             {
