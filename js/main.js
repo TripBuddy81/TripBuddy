@@ -46,6 +46,7 @@ $( document ).ready( function () {
             var screensaverStartAfterSeconds = 10;
             var screensaverActive = false;
             var blockScreenSaver = false;
+            var youtubePlayerIds = {};
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -753,12 +754,12 @@ $( document ).ready( function () {
             tag.src = 'https://www.youtube.com/iframe_api';
             var firstScriptTag = document.getElementsByTagName( 'script' )[0];
             firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
-            var youtubePlayer;
+            var tempYoutubePlayer;
 
             window.onYouTubePlayerAPIReady = function () {
                 $( '.youtubeVideo' ).each( function () {
                     youtubeVideoId = $( this ).attr( 'id' );
-                    youtubePlayer = new YT.Player( youtubeVideoId, {
+                    tempYoutubePlayer = new YT.Player( youtubeVideoId, {
                         videoId   : youtubeVideoId,
                         playerVars: {
                             rel           : 0,
@@ -772,6 +773,9 @@ $( document ).ready( function () {
                             'onStateChange': onPlayerStateChange
                         }
                     } );
+
+                    youtubePlayerIds[youtubeVideoId] = tempYoutubePlayer;
+
                 } );
 
                 // Search section youtube player is special
@@ -790,6 +794,7 @@ $( document ).ready( function () {
                     }
                 } );
             }
+
 
             function onPlayerStateChange( event ) {
                 switch ( event.data ) {
@@ -916,6 +921,9 @@ $( document ).ready( function () {
                 $( '.videoMenuOverlay' ).hide();
             } );
             $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
+                youtubeVideoId = $( this ).siblings( '.addVideoToQueue' ).attr( 'videoid' );
+                youtubePlayerIds[youtubeVideoId].playVideo();
+
                 blockScreenSaver = true;
                 const container = $( this ).closest( '.videoContainer' )[0];
                 const fullscreenApi = container.requestFullscreen
