@@ -50,9 +50,9 @@ $( document ).ready( function () {
             const urlParams = new URLSearchParams( window.location.search );
 
             Object.assign( config, optionalConfig );
-            if ( optionalConfig['videosXXX'] != undefined ) {
-                config['videosYoutube'] = config['videosYoutube'].concat( optionalConfig['videosXXX'] );
-            }
+/*            if ( optionalConfig['videosMisc'] != undefined ) {
+              /!*  config['videosYoutube'] = config['videosYoutube'].concat( optionalConfig['videosMisc'] );*!/
+            }*/
             if ( optionalConfig['imagesXXX'] != undefined ) {
                 config['images'] = config['images'].concat( optionalConfig['imagesXXX'] );
             }
@@ -126,26 +126,6 @@ $( document ).ready( function () {
                 $( window ).trigger( 'resize' );
                 $( this ).val( '' );
             } );
-
-            // Load all videos with loop setting once so youtube does not trip up on actual load
-            loadLoopedVideosOnce();
-
-            function loadLoopedVideosOnce() {
-                $.each( config['videosYoutube'], function ( index, val ) {
-                            if ( val.videoLink.indexOf( 'loop=1' ) >= 0 ) {
-                                $.ajax( {
-                                    type    : 'GET',
-                                    url     : val.videoLink,
-                                    dataType: 'html',
-                                    success : function ( data ) {
-                                    },
-                                    error   : function ( data ) {
-                                    }
-                                } );
-                            }
-                        }
-                );
-            }
 
             // Init gradient background
             refreshGradientBackground();
@@ -342,7 +322,7 @@ $( document ).ready( function () {
                 enableFullscreen();
                 xxxVisible = !xxxVisible;
                 $( '.XXX' ).toggle();
-                defaultStyleXXXfilter = $('.XXXfilter').attr('style');
+                defaultStyleXXXfilter = $( '.XXXfilter' ).attr( 'style' );
 
                 if ( videoTagList == '' ) {
                     $( '.videoContainer' ).each( function () {
@@ -771,6 +751,74 @@ $( document ).ready( function () {
 
             // ***********************************
             // Video section
+            // Youtube Player API init
+            var tag = document.createElement( 'script' );
+            tag.src = 'https://www.youtube.com/iframe_api';
+            var firstScriptTag = document.getElementsByTagName( 'script' )[0];
+            firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
+            var youtubePlayer;
+
+            window.onYouTubePlayerAPIReady = function () {
+                $( '.youtubeVideo' ).each( function () {
+                    youtubeVideoId = $( this ).attr( 'id' );
+                    youtubePlayer = new YT.Player( youtubeVideoId, {
+                        videoId   : youtubeVideoId,
+                        playerVars: {
+                            rel           : 0,
+                            autoplay      : 0,
+                            controls      : 1,
+                            showinfo      : 0,
+                            modestbranding: 1,
+                            iv_load_policy: 3
+                        },
+                        events    : {
+                            'onStateChange': onPlayerStateChange
+                        }
+                    } );
+                } );
+
+                // Search section youtube player is special
+                youtubePlayer = new YT.Player( 'mainSearchResultYoutubeIframe', {
+                    videoId   : 'TdU2Ab7y91w',
+                    playerVars: {
+                        rel           : 0,
+                        autoplay      : 0,
+                        controls      : 1,
+                        showinfo      : 0,
+                        modestbranding: 1,
+                        iv_load_policy: 3
+                    },
+                    events    : {
+                        'onStateChange': onMainSearchResultPlayerStateChange
+                    }
+                } );
+            }
+
+            function onPlayerStateChange( event ) {
+                switch ( event.data ) {
+                    case YT.PlayerState.UNSTARTED:
+                        youtubePlayerState = 'unstarted';
+                        break;
+                    case YT.PlayerState.ENDED:
+                        youtubePlayerState = 'ended';
+                        break;
+                    case YT.PlayerState.PLAYING:
+                        youtubePlayerState = 'playing';
+                        break;
+                    case YT.PlayerState.PAUSED:
+                        youtubePlayerState = 'paused';
+                        break;
+                    case YT.PlayerState.BUFFERING:
+                        youtubePlayerState = 'buffering';
+                        break;
+                    case YT.PlayerState.CUED:
+                        youtubePlayerState = 'video cued';
+                        break;
+                    default:
+                        youtubePlayerState = 'unknown (' + event.data + ')';
+                }
+            }
+
             $( '.videoFilterBtn' ).click( function () {
                 enableFullscreen();
                 videoTagList = '';
@@ -934,7 +982,7 @@ $( document ).ready( function () {
             $( document ).on( 'click mousemove wheel', function ( e ) {
                 stopScreensaver();
             } );
-            var defaultStyleXXXfilter = $('.XXXfilter').attr('style');
+            var defaultStyleXXXfilter = $( '.XXXfilter' ).attr( 'style' );
 
             function startScreensaver( force = false ) {
                 screensaverSecondsIdle++;
@@ -947,7 +995,7 @@ $( document ).ready( function () {
                             $( '#menu' ).addClass( 'screensaverHidden' );
                             $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
                             $( 'body,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:none !important;' );
-                            $('.XXXfilter').attr('style', defaultStyleXXXfilter + 'cursor:none !important;');
+                            $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:none !important;' );
                         }
                     } );
                 }
@@ -962,7 +1010,7 @@ $( document ).ready( function () {
                         $( '#menu' ).removeClass( 'screensaverHidden' );
                         $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
                         $( 'body,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
-                        $('.XXXfilter').attr('style', defaultStyleXXXfilter + 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;');
+                        $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                         refreshGradientBackground();
                     } );
                 }
@@ -1508,30 +1556,7 @@ $( document ).ready( function () {
             displayYoutubeQueue();
             searchYoutube( youtubeIntitalSearchTerm );
 
-            // Youtube Player API init
-            var tag = document.createElement( 'script' );
-            tag.src = 'https://www.youtube.com/iframe_api';
-            var firstScriptTag = document.getElementsByTagName( 'script' )[0];
-            firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
-            var youtubePlayer;
-            window.onYouTubePlayerAPIReady = function () {
-                youtubePlayer = new YT.Player( 'mainSearchResultYoutubeIframe', {
-                    videoId   : 'TdU2Ab7y91w',
-                    playerVars: {
-                        rel           : 0,
-                        autoplay      : 0,
-                        controls      : 1,
-                        showinfo      : 0,
-                        modestbranding: 1,
-                        iv_load_policy: 3
-                    },
-                    events    : {
-                        'onStateChange': onPlayerStateChange
-                    }
-                } );
-            }
-
-            function onPlayerStateChange( event ) {
+            function onMainSearchResultPlayerStateChange( event ) {
                 switch ( event.data ) {
                     case YT.PlayerState.UNSTARTED:
                         youtubePlayerState = 'unstarted';
@@ -1578,8 +1603,7 @@ $( document ).ready( function () {
                     $( addToQueueElement ).removeClass( 'addVideoToQueueClicked' );
                 }, 150 );
 
-                var targetURL = $( this ).siblings( '.videoSource' ).attr( 'src' );
-                var videoId = targetURL.match( /.*embed\/(.+)\?+/ )[1];
+                var videoId = $( this ).attr( 'videoId' );
                 var description = searchYoutubeSpecificVideoId( videoId );
 
                 videoToQueue = {
