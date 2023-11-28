@@ -1272,6 +1272,15 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
+#directYoutubePlayer {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
 #mainSearchResultYoutubeIframe {
     border-radius: 5px;
 }

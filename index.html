@@ -378,8 +378,7 @@
         </div>
 
         <div id="displayedVideos">
-            <div id="directYoutubePlayer" width="554" height="315" class=""
-                 allowfullscreen=false></div>
+
 
             <div class="videoContainer XXX" id="searchBar">
                 <label class="searchLabel form-check-label me-2" for="searchInput">Search: </label>
@@ -394,6 +393,21 @@
                 <br>
             </div>
 
+            <div id="directYoutubePlayerContainer">
+                <div id="directYoutubePlayer" width="554" height="315" class="" allowfullscreen=false>
+                </div>
+                <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                <img class="addVideoToQueue" videoId="{{videoId}}" src="./assets/addToQueue.png">
+                <div class="videoMenuOverlayFullscreen">
+                    <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
+                </div>
+                <div class="videoMenuOverlayFullscreen2">
+                    <img class="disableVideoFullscreenIcon2" src="./assets/fullscreenToggle_red.png">
+                </div>
+                <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                </div>
+            </div>
+
             {{#videosYoutube}}
             <div class="videoContainer {{tags}}">
                 <div class="iFrameContainer">
@@ -403,22 +417,15 @@
                         <div>{{tags}}</div>
                         <div>({{videoId}})</div>
                     </div>
-                    <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
                     <div class="videoLabel">
                         {{label}}
                     </div>
-                    <img class="addVideoToQueue" videoId="{{videoId}}" src="./assets/addToQueue.png">
-                    <div class="videoMenuOverlayFullscreen">
-                        <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
-                    </div>
-                    <div class="videoMenuOverlayFullscreen2">
-                        <img class="disableVideoFullscreenIcon2" src="./assets/fullscreenToggle_red.png">
-                    </div>
-                    <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
-                    </div>
+
+
                 </div>
             </div>
             {{/videosYoutube}}
+
 
             {{#videosMisc}}
             <div class="videoContainer {{tags}}">
