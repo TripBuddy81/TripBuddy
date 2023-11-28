@@ -775,7 +775,10 @@ $( document ).ready( function () {
                         controls      : 1,
                         showinfo      : 0,
                         modestbranding: 1,
-                        iv_load_policy: 3
+                        iv_load_policy: 3,
+                        loop          : 1,
+                        cc_load_policy: 0,
+                        mute          : 0
                     },
                     events    : {
                         'onStateChange': onDirectYoutubePlayerStateChange
@@ -798,23 +801,6 @@ $( document ).ready( function () {
                     }
                 } );
             }
-
-            $( '.youtubeVideo' ).click( function ( event ) {
-                blockScreenSaver = true;
-                const container = $( '#directYoutubePlayerContainer' )[0];
-                const fullscreenApi = container.requestFullscreen
-                        || container.webkitRequestFullScreen
-                        || container.mozRequestFullScreen
-                        || container.msRequestFullscreen;
-                fullscreenApi.call( container );
-
-                $( '#directYoutubePlayer' ).show();
-                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
-
-                youtubeVideoId = $( this ).attr( 'videoId' );
-                directYoutubePlayer.loadVideoById( youtubeVideoId );
-                directYoutubePlayer.playVideo();
-            } );
 
             function onDirectYoutubePlayerStateChange( event ) {
                 switch ( event.data ) {
@@ -840,6 +826,22 @@ $( document ).ready( function () {
                         youtubePlayerState = 'unknown (' + event.data + ')';
                 }
             }
+
+            $( '.youtubeVideo' ).click( function ( event ) {
+                blockScreenSaver = true;
+                const container = $( '#directYoutubePlayerContainer' )[0];
+                const fullscreenApi = container.requestFullscreen
+                        || container.webkitRequestFullScreen
+                        || container.mozRequestFullScreen
+                        || container.msRequestFullscreen;
+                fullscreenApi.call( container );
+
+                $( '#directYoutubePlayer' ).show();
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+
+                directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ) );
+                directYoutubePlayer.playVideo();
+            } );
 
             $( '.videoFilterBtn' ).click( function () {
                 enableFullscreen();
