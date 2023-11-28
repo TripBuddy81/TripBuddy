@@ -936,14 +936,10 @@ $( document ).ready( function () {
                         || container.msRequestFullscreen;
                 fullscreenApi.call( container );
 
-
-                /*                player = $( this ).find( '.videoFrame' );
-                                console.info(player);
-
-                                player.play();*/
-                /*                $( '.videoFrame' ).click( function ( event ) {
-                                    this.paused ? this.play() : this.pause();
-                                } );*/
+                try {
+                    $( this ).parent().find( '.videoFrame' ).get( 0 ).play();
+                } catch ( e ) {
+                }
 
                 $( '.videoMenuOverlayMinimized' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
@@ -953,6 +949,10 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 document.exitFullscreen();
+                try {
+                    $( this ).parent().find( '.videoFrame' ).get( 0 ).pause();
+                } catch ( e ) {
+                }
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
