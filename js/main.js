@@ -843,6 +843,7 @@ $( document ).ready( function () {
 
             $( '.videoFilterBtn' ).click( function () {
                 enableFullscreen();
+                $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
                 videoTagList = '';
                 $( '.videoFilterBtn.videoFilterActive' ).each( function () {
                     activeFilter = $( this ).attr( 'id' );
@@ -885,8 +886,20 @@ $( document ).ready( function () {
             } );
 
             // Double clicking videos main button loads all videos if in fast mode
-            $( '#showVideoSection' ).dblclick( function () {
+            $( '#showVideoSection' ).dblclick( function ( e ) {
                 loadAllVideos();
+            } );
+
+            // reload videos of given tag if double clicking on video tag
+            $( '.videoFilterBtn' ).dblclick( function ( e ) {
+                $( videoTagList ).each( function () {
+                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                        $( this ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+                    }
+                } );
+                $( '.localVideo' ).each( function () {
+                    this.load();
+                } );
             } );
 
             function loadAllVideos() {
@@ -903,18 +916,6 @@ $( document ).ready( function () {
                     allVideosLoaded = true;
                 }
             }
-
-            // reload videos of given tag if double clicking on video tag
-            $( '.videoFilterBtn' ).dblclick( function () {
-                $( videoTagList ).each( function () {
-                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        $( this ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ).replace( /NOLOAD/, '' ) );
-                    }
-                } );
-                $( '.localVideo' ).each( function () {
-                    this.load();
-                } );
-            } );
 
             // Youtube iFrame fullscreen button overlay
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
