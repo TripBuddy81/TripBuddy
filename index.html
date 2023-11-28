@@ -378,6 +378,9 @@
         </div>
 
         <div id="displayedVideos">
+            <div id="directYoutubePlayer" width="554" height="315" class=""
+                 allowfullscreen=false></div>
+
             <div class="videoContainer XXX" id="searchBar">
                 <label class="searchLabel form-check-label me-2" for="searchInput">Search: </label>
                 <input type="text" class="me-2" id="searchInput" name="searchInput" value=""
@@ -390,9 +393,6 @@
                 {{/searchEngines}}
                 <br>
             </div>
-
-            <div id="directYoutubePlayer" width="554" height="315" class=""
-                 allowfullscreen=false></div>
 
             {{#videosYoutube}}
             <div class="videoContainer {{tags}}">

@@ -791,6 +791,17 @@ $( document ).ready( function () {
             }
 
             $( '.youtubeVideo' ).click( function ( event ) {
+                blockScreenSaver = true;
+                const container = $('#directYoutubePlayer')[0];
+                const fullscreenApi = container.requestFullscreen
+                        || container.webkitRequestFullScreen
+                        || container.mozRequestFullScreen
+                        || container.msRequestFullscreen;
+                fullscreenApi.call( container );
+
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+
+
                 youtubeVideoId = $( this ).attr( 'videoId' );
                 directYoutubePlayer.loadVideoById( youtubeVideoId );
                 directYoutubePlayer.playVideo();
