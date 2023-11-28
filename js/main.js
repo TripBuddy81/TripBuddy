@@ -764,7 +764,8 @@ $( document ).ready( function () {
                         showinfo      : 0,
                         modestbranding: 1,
                         iv_load_policy: 3,
-                        cc_load_policy: 0
+                        cc_load_policy: 0,
+                        fs            : 0
                     },
                     events    : {
                         'onStateChange': onDirectYoutubePlayerStateChange
@@ -781,7 +782,8 @@ $( document ).ready( function () {
                         showinfo      : 0,
                         modestbranding: 1,
                         iv_load_policy: 3,
-                        cc_load_policy: 0
+                        cc_load_policy: 0,
+                        fs            : 0
                     },
                     events    : {
                         'onStateChange': onMainSearchResultPlayerStateChange
