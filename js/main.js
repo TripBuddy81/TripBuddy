@@ -843,12 +843,17 @@ $( document ).ready( function () {
                 $( '#directYoutubePlayer' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
 
-
                 if ( lastPlayedDirectYoutubePlayerId != $( this ).attr( 'videoId' ) ) {
                     directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ) );
                 }
                 lastPlayedDirectYoutubePlayerId = $( this ).attr( 'videoId' );
                 directYoutubePlayer.playVideo();
+
+                if ( $( this ).attr( 'mute' ) == 'false' ) {
+                    directYoutubePlayer.unMute();
+                } else {
+                    directYoutubePlayer.mute();
+                }
             } );
 
             $( '.videoFilterBtn' ).click( function () {
