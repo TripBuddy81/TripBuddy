@@ -8,7 +8,6 @@ $( document ).ready( function () {
             var minutesTillNextThought = 0;
             var allGuidedThoughts = [];
             var guidedThoughtsNext = 0;
-            var keyCache = {};
             var timer = '';
             var imageSlideshowInterval = undefined;
             var imageSlideshowIntervalLength = 1000;
@@ -277,27 +276,9 @@ $( document ).ready( function () {
 
             // ******************************************
             // Global key captures
-            $( document ).keydown( function ( e ) {
-
-                // Enable hidden menue
-                keyCache[e.which] = true;
-                if ( 17 in keyCache && 18 in keyCache && 88 in keyCache ) {
-                    toggleXXXVisible();
-                }
-
-                // Allow direct typing in search if search is visible
-                if ( $( '#search' ).is( ':visible' ) ) {
-                    $( '#mainSearchInput' ).focus();
-                    enableFullscreen();
-                }
-
-            } );
-            $( document ).keyup( function ( e ) {
-                delete keyCache[e.which];
-            } );
-
             var rightMouseClicked = false;
             $( '#activateHiddenMenue' ).mousedown( function ( event ) {
+                enableFullscreen();
                 switch ( event.which ) {
                     case 1:
                         if ( rightMouseClicked ) {
@@ -310,10 +291,11 @@ $( document ).ready( function () {
                 }
             } );
 
-            /*            $( '#displayedVideos' ).click( function () {
-                            enableFullscreen();
-                            incompatible WITH LOCAL VIDEOS!
-                        } );*/
+            $( '#displayedVideos' ).click( function ( e ) {
+                if ( !isFullScreen ) {
+                    enableFullscreen();
+                }
+            } );
 
             $( '#activateHiddenMenue' ).mouseout( function ( event ) {
                 rightMouseClicked = false;

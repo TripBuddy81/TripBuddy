@@ -82,7 +82,7 @@ a:link, a:visited, a:active, a:hover, p {
 
 #activateHiddenMenue {
     width: 15px;
-    height: 73px;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
