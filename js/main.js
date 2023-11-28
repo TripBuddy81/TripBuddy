@@ -755,7 +755,7 @@ $( document ).ready( function () {
             window.onYouTubePlayerAPIReady = function () {
                 // Direct youtube player for clicked preview images in video section
                 directYoutubePlayer = new YT.Player( 'directYoutubePlayer', {
-                    videoId   : 'TdU2Ab7y91w',
+                    videoId   : '',
                     playerVars: {
                         rel           : 0,
                         autoplay      : 0,
@@ -796,6 +796,7 @@ $( document ).ready( function () {
                         break;
                     case YT.PlayerState.ENDED:
                         youtubePlayerState = 'ended';
+                        directYoutubePlayer.playVideo();
                         break;
                     case YT.PlayerState.PLAYING:
                         youtubePlayerState = 'playing';
