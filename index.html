@@ -395,7 +395,6 @@
                 <div id="directYoutubePlayer" width="554" height="315" class="" allowfullscreen=false>
                 </div>
                 <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
-
                 <div class="videoMenuOverlayFullscreen">
                     <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
                 </div>
@@ -412,8 +411,7 @@
                     <img videoId="{{videoId}}" class="youtubeVideo videoSource"
                          src="https://i.ytimg.com/vi/{{videoId}}/mqdefault.jpg"/>
                     <div class="videoInfo mb-2">
-                        <div>{{tags}}</div>
-                        <div>({{videoId}})</div>
+                        <div>{{tags}} - {{videoId}}</div>
                     </div>
                     <div class="videoLabel">
                         {{label}}
@@ -422,7 +420,6 @@
                 </div>
             </div>
             {{/videosYoutube}}
-
 
             {{#videosMisc}}
             <div class="videoContainer {{tags}}">
@@ -435,16 +432,13 @@
                             loop
                             sandbox="allow-scripts allow-same-origin"></iframe>
                     <div class="videoInfo mb-2">
-                        <div>{{tags}}</div>
-                        <div>({{videoLink}})</div>
+                        <div>{{tags}} - {{videoLink}}</div>
                     </div>
                     <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
                     <div class="videoLabel">
                         {{label}}
                     </div>
-
                     <img class="addVideoToQueue" src="./assets/addToQueue.png">
-
                     <div class="videoMenuOverlayMinimized">
                     </div>
                     <div class="videoMenuOverlayFullscreen">
@@ -465,8 +459,8 @@
                     <video class="videoFrame localVideo" controls muted loop controlsList="nofullscreen">
                         <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">
                     </video>
-                    <div class="videoInfo mb-2">{{tags}}
-                        <div>({{videoLink}})</div>
+                    <div class="videoInfo mb-2">
+                        <div>{{tags}} - {{videoLink}}</div>
                     </div>
                     <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
                     <div class="videoLabel">

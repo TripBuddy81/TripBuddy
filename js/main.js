@@ -645,7 +645,6 @@ $( document ).ready( function () {
                 screensaverSecondsIdle = 0;
                 $( '.videoMenuOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
-
                 $( '#timedRecommendation' ).modal( 'show' );
                 $( '#topupRecommendation' ).html( recommendationText );
                 $( '#topupRecommendation' ).show();
@@ -779,7 +778,7 @@ $( document ).ready( function () {
                         iv_load_policy: 3
                     },
                     events    : {
-                        'onStateChange': onPlayerStateChange
+                        'onStateChange': onDirectYoutubePlayerStateChange
                     }
                 } );
 
@@ -817,7 +816,7 @@ $( document ).ready( function () {
                 directYoutubePlayer.playVideo();
             } );
 
-            function onPlayerStateChange( event ) {
+            function onDirectYoutubePlayerStateChange( event ) {
                 switch ( event.data ) {
                     case YT.PlayerState.UNSTARTED:
                         youtubePlayerState = 'unstarted';
@@ -893,19 +892,6 @@ $( document ).ready( function () {
 
             function loadAllVideos() {
                 if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
-                    $( '#showVideoSection' ).trigger( 'click' );
-
-                    $( '.videoFilterBtn.videoFilterActive' ).each( function () {
-                        $( this ).toggleClass( 'videoFilterActive' );
-                    } );
-
-                    $( '.videoContainer' ).each( function () {
-                        $( this ).show();
-                    } );
-                    if ( !xxxVisible ) {
-                        $( '.XXX' ).hide();
-                    }
-
                     $( '.videoSource' ).each( function () {
                         if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
                             $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
@@ -935,7 +921,6 @@ $( document ).ready( function () {
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
                 $( '.disableVideoFullscreenIcon' ).show();
                 $( '.disableVideoFullscreenIcon2' ).show();
-
                 $( '.videoMenuOverlay' ).show();
             }, function () {
                 $( '.disableVideoFullscreenIcon' ).hide();
@@ -993,7 +978,6 @@ $( document ).ready( function () {
                 this.paused ? this.play() : this.pause();
             } );
 
-
             // XXX section within video
             $( '.searchLink' ).click( function ( event ) {
                 event.preventDefault();
@@ -1008,7 +992,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            // Video selection screensaver
+            // Video section screensaver
             setInterval( startScreensaver, 1000 );
             $( document ).on( 'click mousemove wheel', function ( e ) {
                 stopScreensaver();
@@ -1025,7 +1009,7 @@ $( document ).ready( function () {
                             $( '#spotifyPlaylistsMenu' ).addClass( 'screensaverHidden' );
                             $( '#menu' ).addClass( 'screensaverHidden' );
                             $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
-                            $( 'body,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:none !important;' );
+                            $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:none !important;' );
                             $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:none !important;' );
                         }
                     } );
@@ -1040,7 +1024,7 @@ $( document ).ready( function () {
                         $( '#spotifyPlaylistsMenu' ).removeClass( 'screensaverHidden' );
                         $( '#menu' ).removeClass( 'screensaverHidden' );
                         $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
-                        $( 'body,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+                        $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                         $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                         refreshGradientBackground();
                     } );
