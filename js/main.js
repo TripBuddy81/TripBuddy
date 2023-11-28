@@ -929,6 +929,7 @@ $( document ).ready( function () {
                 $( '.disableVideoFullscreenIcon2' ).attr( 'style', 'opacity:0' );
                 $( '.videoMenuOverlay' ).hide();
             } );
+
             $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
                 blockScreenSaver = true;
                 const container = $( this ).closest( '.videoContainer' )[0];
@@ -947,6 +948,7 @@ $( document ).ready( function () {
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
                 $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
             } );
+
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
@@ -964,6 +966,37 @@ $( document ).ready( function () {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
             } );
+
+            /*
+                        var timer;
+                        var fadeInBuffer = false;
+                        $( document ).mousemove( function () {
+                            if ( !fadeInBuffer ) {
+                                if ( timer ) {
+                                    console.log( 'clearTimer' );
+                                    clearTimeout( timer );
+                                    timer = 0;
+                                }
+
+                                console.log( 'fadeIn' );
+                                $( 'html' ).css( {
+                                    cursor: ''
+                                } );
+                            } else {
+                                $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+                                fadeInBuffer = false;
+                            }
+
+                            timer = setTimeout( function () {
+                                console.log( 'fadeout' );
+                                $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:none !important;' );
+
+                                fadeInBuffer = true;
+                            }, 1000 )
+                        } );
+                        $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+            */
+
 
             // Reset settings if user disengaged fullscreen via ESC or other means...
             var intervalId = window.setInterval( function () {
