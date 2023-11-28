@@ -920,13 +920,13 @@ $( document ).ready( function () {
             }
 
             // Youtube iFrame fullscreen button overlay
-            $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
-                $( '.disableVideoFullscreenIcon' ).show();
-                $( '.disableVideoFullscreenIcon2' ).show();
+            $( '.disableVideoFullscreenIcon, .disableVideoFullscreenIcon2' ).hover( function ( event ) {
+                $( '.disableVideoFullscreenIcon' ).attr( 'style', 'opacity:1' );
+                $( '.disableVideoFullscreenIcon2' ).attr( 'style', 'opacity:1' );
                 $( '.videoMenuOverlay' ).show();
             }, function () {
-                $( '.disableVideoFullscreenIcon' ).hide();
-                $( '.disableVideoFullscreenIcon2' ).hide();
+                $( '.disableVideoFullscreenIcon' ).attr( 'style', 'opacity:0' );
+                $( '.disableVideoFullscreenIcon2' ).attr( 'style', 'opacity:0' );
                 $( '.videoMenuOverlay' ).hide();
             } );
             $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
