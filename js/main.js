@@ -832,6 +832,7 @@ $( document ).ready( function () {
                 directYoutubePlayer.playVideo();
 
                 if ( $( this ).attr( 'mute' ) == 'false' ) {
+                    spotifyPause();
                     directYoutubePlayer.unMute();
                 } else {
                     directYoutubePlayer.mute();
@@ -951,6 +952,7 @@ $( document ).ready( function () {
                 } catch ( e ) {
                 }
                 directYoutubePlayer.pauseVideo();
+                spotifyPlay();
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
