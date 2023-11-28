@@ -972,7 +972,7 @@ video::-webkit-media-controls-fullscreen-button {
 .videoMenuOverlayFullscreen {
     left: 753px;
     top: 380px;
-    z-index: 1;
+    z-index: 2;
     width: 200px;
     height: 200px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
@@ -1015,6 +1015,7 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
     top: 0px;
     left: 0px;
+    z-index: 2;
 }
 
 .disableVideoFullscreenIcon2 {
@@ -1025,6 +1026,7 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
     bottom: 0px;
     right: 0px;
+    z-index: 2;
 }
 
 .disableVideoFullscreenIcon2 {

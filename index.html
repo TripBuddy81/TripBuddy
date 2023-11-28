@@ -378,8 +378,6 @@
         </div>
 
         <div id="displayedVideos">
-
-
             <div class="videoContainer XXX" id="searchBar">
                 <label class="searchLabel form-check-label me-2" for="searchInput">Search: </label>
                 <input type="text" class="me-2" id="searchInput" name="searchInput" value=""
@@ -397,7 +395,7 @@
                 <div id="directYoutubePlayer" width="554" height="315" class="" allowfullscreen=false>
                 </div>
                 <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
-                <img class="addVideoToQueue" videoId="{{videoId}}" src="./assets/addToQueue.png">
+
                 <div class="videoMenuOverlayFullscreen">
                     <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
                 </div>
@@ -420,8 +418,7 @@
                     <div class="videoLabel">
                         {{label}}
                     </div>
-
-
+                    <img class="addVideoToQueue" videoId="{{videoId}}" src="./assets/addToQueue.png">
                 </div>
             </div>
             {{/videosYoutube}}

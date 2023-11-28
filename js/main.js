@@ -799,7 +799,7 @@ $( document ).ready( function () {
                         || container.msRequestFullscreen;
                 fullscreenApi.call( container );
 
-                $('#directYoutubePlayer').show();
+                $( '#directYoutubePlayer' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
 
                 youtubeVideoId = $( this ).attr( 'videoId' );
@@ -923,8 +923,9 @@ $( document ).ready( function () {
 
             // Youtube iFrame fullscreen button overlay
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hover( function ( event ) {
-                $( event.target ).closest( '.iFrameContainer' ).find( '.disableVideoFullscreenIcon' ).show();
-                $( event.target ).closest( '.iFrameContainer' ).find( '.disableVideoFullscreenIcon2' ).show();
+                $( '.disableVideoFullscreenIcon' ).show();
+                $( '.disableVideoFullscreenIcon2' ).show();
+
                 $( '.videoMenuOverlay' ).show();
             }, function () {
                 $( '.disableVideoFullscreenIcon' ).hide();
@@ -946,13 +947,14 @@ $( document ).ready( function () {
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
-                const container = $( this ).closest( '.videoContainer' )[0];
+/*                const container = $( this ).closest( '.videoContainer' )[0];
                 const fullscreenApi = container.requestFullscreen
                         || container.webkitRequestFullScreen
                         || container.mozRequestFullScreen
                         || container.msRequestFullscreen;
-                fullscreenApi.call( container );
+                fullscreenApi.call( container );*/
                 document.exitFullscreen();
+                $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
@@ -965,6 +967,7 @@ $( document ).ready( function () {
                 if ( window.innerHeight != screen.height ) {
                     $( '.videoMenuOverlayMinimized' ).show();
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                    $( '#directYoutubePlayer' ).hide();
                     isFullScreen = false;
                     blockScreenSaver = false;
                 } else {
