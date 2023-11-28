@@ -35,7 +35,8 @@ $( document ).ready( function () {
             var maxYoutubeSearchResults = 50;
             var youtubeApiKeyInUse = 1;
             var youtubeCurrentQueue = [];
-            var youtubePlayerState = 'undefined';
+            var mainSearchResultYoutubePlayerState = 'undefined';
+            var directYoutubePlayerState = 'undefined';
             var youtubeIntitalSearchTerm = 'Psychill';
             var lastPlayedDirectYoutubePlayerId = '';
             var lastSelectedAutocompleteItem = 0;
@@ -749,7 +750,7 @@ $( document ).ready( function () {
             tag.src = 'https://www.youtube.com/iframe_api';
             var firstScriptTag = document.getElementsByTagName( 'script' )[0];
             firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
-            var youtubePlayer;
+            var mainSearchResultYoutubePlayer;
             var directYoutubePlayer;
 
             window.onYouTubePlayerAPIReady = function () {
@@ -763,9 +764,7 @@ $( document ).ready( function () {
                         showinfo      : 0,
                         modestbranding: 1,
                         iv_load_policy: 3,
-                        loop          : 1,
-                        cc_load_policy: 0,
-                        mute          : 0
+                        cc_load_policy: 0
                     },
                     events    : {
                         'onStateChange': onDirectYoutubePlayerStateChange
@@ -773,7 +772,7 @@ $( document ).ready( function () {
                 } );
 
                 // Search section youtube player
-                youtubePlayer = new YT.Player( 'mainSearchResultYoutubeIframe', {
+                mainSearchResultYoutubePlayer = new YT.Player( 'mainSearchResultYoutubeIframe', {
                     videoId   : 'TdU2Ab7y91w',
                     playerVars: {
                         rel           : 0,
@@ -781,7 +780,8 @@ $( document ).ready( function () {
                         controls      : 1,
                         showinfo      : 0,
                         modestbranding: 1,
-                        iv_load_policy: 3
+                        iv_load_policy: 3,
+                        cc_load_policy: 0
                     },
                     events    : {
                         'onStateChange': onMainSearchResultPlayerStateChange
@@ -792,26 +792,26 @@ $( document ).ready( function () {
             function onDirectYoutubePlayerStateChange( event ) {
                 switch ( event.data ) {
                     case YT.PlayerState.UNSTARTED:
-                        youtubePlayerState = 'unstarted';
+                        directYoutubePlayerState = 'unstarted';
                         break;
                     case YT.PlayerState.ENDED:
-                        youtubePlayerState = 'ended';
+                        directYoutubePlayerState = 'ended';
                         directYoutubePlayer.playVideo();
                         break;
                     case YT.PlayerState.PLAYING:
-                        youtubePlayerState = 'playing';
+                        directYoutubePlayerState = 'playing';
                         break;
                     case YT.PlayerState.PAUSED:
-                        youtubePlayerState = 'paused';
+                        directYoutubePlayerState = 'paused';
                         break;
                     case YT.PlayerState.BUFFERING:
-                        youtubePlayerState = 'buffering';
+                        directYoutubePlayerState = 'buffering';
                         break;
                     case YT.PlayerState.CUED:
-                        youtubePlayerState = 'video cued';
+                        directYoutubePlayerState = 'video cued';
                         break;
                     default:
-                        youtubePlayerState = 'unknown (' + event.data + ')';
+                        directYoutubePlayerState = 'unknown (' + event.data + ')';
                 }
             }
 
@@ -1482,14 +1482,14 @@ $( document ).ready( function () {
                     repeat();
                     spotifyPlay( lastSelectedPlaylist );
                     markYoutubeAsActiveAudioSource( false );
-                    youtubePlayer.mute();
+                    mainSearchResultYoutubePlayer.mute();
                 } );
 
                 $( '#stopMusic' ).click( function () {
-                    if ( youtubePlayerState != 'playing' ) {
+                    if ( mainSearchResultYoutubePlayerState != 'playing' ) {
                         spotifyPause();
                     }
-                    youtubePlayer.pauseVideo();
+                    mainSearchResultYoutubePlayer.pauseVideo();
                     markYoutubeAsActiveAudioSource( false );
                 } );
 
@@ -1563,7 +1563,7 @@ $( document ).ready( function () {
 
                                             EmbedController.play();
                                             markYoutubeAsActiveAudioSource( false );
-                                            youtubePlayer.mute();
+                                            mainSearchResultYoutubePlayer.mute();
                                         } );
                                     } )
                         };
@@ -1583,36 +1583,36 @@ $( document ).ready( function () {
             function onMainSearchResultPlayerStateChange( event ) {
                 switch ( event.data ) {
                     case YT.PlayerState.UNSTARTED:
-                        youtubePlayerState = 'unstarted';
+                        mainSearchResultYoutubePlayerState = 'unstarted';
                         break;
                     case YT.PlayerState.ENDED:
-                        youtubePlayerState = 'ended';
+                        mainSearchResultYoutubePlayerState = 'ended';
                         playNextYoutubeVideoOrSpotifyTrack();
                         break;
                     case YT.PlayerState.PLAYING:
-                        youtubePlayerState = 'playing';
-                        if ( !youtubePlayer.isMuted() ) {
+                        mainSearchResultYoutubePlayerState = 'playing';
+                        if ( !mainSearchResultYoutubePlayer.isMuted() ) {
                             markYoutubeAsActiveAudioSource( true );
                             spotifyPause();
                         }
                         break;
                     case YT.PlayerState.PAUSED:
-                        youtubePlayerState = 'paused';
+                        mainSearchResultYoutubePlayerState = 'paused';
                         setTimeout( function () {
-                            if ( youtubePlayerState == 'paused' ) {
+                            if ( mainSearchResultYoutubePlayerState == 'paused' ) {
                                 markYoutubeAsActiveAudioSource( false );
                                 spotifyPlay();
                             }
                         }, 1000 );
                         break;
                     case YT.PlayerState.BUFFERING:
-                        youtubePlayerState = 'buffering';
+                        mainSearchResultYoutubePlayerState = 'buffering';
                         break;
                     case YT.PlayerState.CUED:
-                        youtubePlayerState = 'video cued';
+                        mainSearchResultYoutubePlayerState = 'video cued';
                         break;
                     default:
-                        youtubePlayerState = 'unknown (' + event.data + ')';
+                        mainSearchResultYoutubePlayerState = 'unknown (' + event.data + ')';
                 }
             }
 
@@ -1712,18 +1712,18 @@ $( document ).ready( function () {
             } );
 
             $( '#switchAudioSource' ).click( function ( event ) {
-                if ( youtubePlayer.isMuted() || youtubePlayerState != 'playing' ) {
+                if ( mainSearchResultYoutubePlayer.isMuted() || mainSearchResultYoutubePlayerState != 'playing' ) {
                     if ( !$( '#search' ).is( ':visible' ) ) {
                         $( '#showSearchSection' ).trigger( 'click' );
                     }
 
                     markYoutubeAsActiveAudioSource( true );
                     spotifyPause();
-                    youtubePlayer.unMute();
-                    youtubePlayer.playVideo();
+                    mainSearchResultYoutubePlayer.unMute();
+                    mainSearchResultYoutubePlayer.playVideo();
                 } else {
                     markYoutubeAsActiveAudioSource( false );
-                    youtubePlayer.mute();
+                    mainSearchResultYoutubePlayer.mute();
                     spotifyPlay();
                 }
             } );
@@ -1764,7 +1764,7 @@ $( document ).ready( function () {
                 };
                 youtubeCurrentQueue.push( videoToQueue );
                 addVideoToHistory( videoToQueue );
-                if ( youtubePlayerState == 'video cued' || youtubePlayerState == 'undefined' || youtubePlayerState == 'paused' ) {
+                if ( mainSearchResultYoutubePlayerState == 'video cued' || mainSearchResultYoutubePlayerState == 'undefined' || mainSearchResultYoutubePlayerState == 'paused' ) {
                     playNextYoutubeVideoOrSpotifyTrack();
                 }
                 displayYoutubeQueue();
@@ -1981,7 +1981,7 @@ $( document ).ready( function () {
             function playNextYoutubeVideoOrSpotifyTrack() {
                 if ( youtubeCurrentQueue.length == 0 ) {
                     markYoutubeAsActiveAudioSource( false );
-                    youtubePlayer.mute();
+                    mainSearchResultYoutubePlayer.mute();
 
                     if ( playingTrack ) {
                         spotifyNext();
@@ -1990,21 +1990,21 @@ $( document ).ready( function () {
                     }
                 } else {
                     videoItem = youtubeCurrentQueue.shift();
-                    if ( !youtubePlayer.isMuted() ) {
+                    if ( !mainSearchResultYoutubePlayer.isMuted() ) {
                         markYoutubeAsActiveAudioSource( true );
                         spotifyPause();
                     }
-                    youtubePlayer.loadVideoById( videoItem.id );
+                    mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
                     displayYoutubeQueue();
                 }
             }
 
             function playSpecificYoutubeVideo( videoItem ) {
-                if ( !youtubePlayer.isMuted() ) {
+                if ( !mainSearchResultYoutubePlayer.isMuted() ) {
                     markYoutubeAsActiveAudioSource( true );
                     spotifyPause();
                 }
-                youtubePlayer.loadVideoById( videoItem.id );
+                mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
                 removeIdFromYoutubeQueue( videoItem.id );
                 displayYoutubeQueue();
             }
