@@ -245,8 +245,6 @@ $( document ).ready( function () {
                     gameSectionShown = true;
                 }
 
-                $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
-
                 hideScreensaverEnso();
                 enableFullscreen();
             } );
@@ -283,6 +281,9 @@ $( document ).ready( function () {
                     case 1:
                         if ( rightMouseClicked ) {
                             toggleXXXVisible();
+                            if ( !allVideosLoaded ) {
+                                loadAllVideos();
+                            }
                         }
                         break;
                     case 3:
@@ -847,7 +848,6 @@ $( document ).ready( function () {
                     $( this ).toggleClass( 'videoFilterActive' );
                 } );
 
-                $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
                 $( '.videoContainer' ).each( function () {
                     $( this ).hide();
                 } );
