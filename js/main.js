@@ -43,7 +43,7 @@ $( document ).ready( function () {
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
             var screensaverSecondsIdle = 0;
-            var screensaverStartAfterSeconds = 1000000;
+            var screensaverStartAfterSeconds = 10;
             var screensaverActive = false;
             var blockScreenSaver = false;
 
@@ -626,6 +626,11 @@ $( document ).ready( function () {
             }
 
             function showTimedRecommendation( recommendationText ) {
+                if ( $( '#directYoutubePlayer' ).is( ':visible' ) ) {
+                    document.exitFullscreen();
+                    $( '#directYoutubePlayer' ).hide();
+                }
+
                 if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
                     disableFullscreen();
                     $( '.videoMenuOverlayMinimized' ).show();
@@ -635,6 +640,11 @@ $( document ).ready( function () {
                 if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
                     document.elementFromPoint( 0, 0 ).click();
                 }
+
+                blockScreenSaver = false;
+                screensaverSecondsIdle = 0;
+                $( '.videoMenuOverlay' ).hide();
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
 
                 $( '#timedRecommendation' ).modal( 'show' );
                 $( '#topupRecommendation' ).html( recommendationText );
@@ -940,6 +950,16 @@ $( document ).ready( function () {
                         || container.mozRequestFullScreen
                         || container.msRequestFullscreen;
                 fullscreenApi.call( container );
+
+
+                /*                player = $( this ).find( '.videoFrame' );
+                                console.info(player);
+
+                                player.play();*/
+                /*                $( '.videoFrame' ).click( function ( event ) {
+                                    this.paused ? this.play() : this.pause();
+                                } );*/
+
                 $( '.videoMenuOverlayMinimized' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
                 $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
@@ -947,12 +967,6 @@ $( document ).ready( function () {
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
-/*                const container = $( this ).closest( '.videoContainer' )[0];
-                const fullscreenApi = container.requestFullscreen
-                        || container.webkitRequestFullScreen
-                        || container.mozRequestFullScreen
-                        || container.msRequestFullscreen;
-                fullscreenApi.call( container );*/
                 document.exitFullscreen();
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlayMinimized' ).show();
@@ -978,6 +992,7 @@ $( document ).ready( function () {
             $( '.videoFrame' ).click( function ( event ) {
                 this.paused ? this.play() : this.pause();
             } );
+
 
             // XXX section within video
             $( '.searchLink' ).click( function ( event ) {
