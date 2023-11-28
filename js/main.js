@@ -967,35 +967,31 @@ $( document ).ready( function () {
                 }
             } );
 
-            /*
-                        var timer;
-                        var fadeInBuffer = false;
-                        $( document ).mousemove( function () {
-                            if ( !fadeInBuffer ) {
-                                if ( timer ) {
-                                    console.log( 'clearTimer' );
-                                    clearTimeout( timer );
-                                    timer = 0;
-                                }
+    /*   var timer;
+       var fadeInBuffer = false;
+       $( document ).mousemove( function () {
+           if ( !fadeInBuffer ) {
+               if ( timer ) {
+                   console.log( 'clearTimer' );
+                   clearTimeout( timer );
+                   timer = 0;
+               }
 
-                                console.log( 'fadeIn' );
-                                $( 'html' ).css( {
-                                    cursor: ''
-                                } );
-                            } else {
-                                $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
-                                fadeInBuffer = false;
-                            }
+               console.log( 'fadeIn' );
+               $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+           } else {
+               $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+               fadeInBuffer = false;
+           }
 
-                            timer = setTimeout( function () {
-                                console.log( 'fadeout' );
-                                $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:none !important;' );
+           timer = setTimeout( function () {
+               console.log( 'fadeout' );
+               $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/invisible_cursor.png\'), pointer;' );
 
-                                fadeInBuffer = true;
-                            }, 1000 )
-                        } );
-                        $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
-            */
+               fadeInBuffer = true;
+           }, 1000 )
+       } );
+       $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );*/
 
 
             // Reset settings if user disengaged fullscreen via ESC or other means...
