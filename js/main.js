@@ -967,32 +967,18 @@ $( document ).ready( function () {
                 }
             } );
 
-    /*   var timer;
-       var fadeInBuffer = false;
-       $( document ).mousemove( function () {
-           if ( !fadeInBuffer ) {
-               if ( timer ) {
-                   console.log( 'clearTimer' );
-                   clearTimeout( timer );
-                   timer = 0;
-               }
+            // Show cursor when moving mouse
+            var moveTimerFullscreenOverlay;
+            $( document ).mousemove( function () {
+                $( '.videoMenuOverlayFullscreen' ).on( 'mousemove', function () {
+                    clearTimeout( moveTimerFullscreenOverlay );
+                    moveTimerFullscreenOverlay = setTimeout( function () {
+                        $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
 
-               console.log( 'fadeIn' );
-               $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
-           } else {
-               $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
-               fadeInBuffer = false;
-           }
-
-           timer = setTimeout( function () {
-               console.log( 'fadeout' );
-               $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/invisible_cursor.png\'), pointer;' );
-
-               fadeInBuffer = true;
-           }, 1000 )
-       } );
-       $( '.videoMenuOverlayFullscreen' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );*/
-
+                    }, 1000 );
+                    $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                } );
+            } );
 
             // Reset settings if user disengaged fullscreen via ESC or other means...
             var intervalId = window.setInterval( function () {
