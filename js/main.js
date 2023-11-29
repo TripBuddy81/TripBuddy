@@ -1032,7 +1032,7 @@ $( document ).ready( function () {
                     if ( $( this ).attr( 'data-target' ) == 'videos' ) {
                         $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'hidden' );
                         $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
-                        $( '.videoFilterBtn' ).hide();
+                        $( '.videoFilterBtn' ).addClass( 'hiddenAndUnclickable' );
                     }
                 } );
             }
@@ -1053,7 +1053,7 @@ $( document ).ready( function () {
                 $( '.mainSectionActive' ).each( function () {
                     $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'hidden' );
                     $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
-                    $( '.videoFilterBtn' ).show();
+                    $( '.videoFilterBtn' ).removeClass( 'hiddenAndUnclickable' );
                     refreshGradientBackground();
                 } );
             }
