@@ -622,7 +622,7 @@ $( document ).ready( function () {
                 if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
                     disableFullscreen();
                     $( '.videoMenuOverlayMinimized' ).show();
-                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2, .videoMenuOverlayFullscreenDeadspace' ).hide();
                 }
 
                 if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
@@ -632,7 +632,7 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 $( '.videoMenuOverlay' ).hide();
-                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2, .videoMenuOverlayFullscreenDeadspace' ).hide();
                 $( '#timedRecommendation' ).modal( 'show' );
                 $( '#topupRecommendation' ).html( recommendationText );
                 $( '#topupRecommendation' ).show();
@@ -827,7 +827,7 @@ $( document ).ready( function () {
                 fullscreenApi.call( container );
 
                 $( '#directYoutubePlayer' ).show();
-                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2, .videoMenuOverlayFullscreenDeadspace' ).show();
 
                 if ( lastPlayedDirectYoutubePlayerId != $( this ).attr( 'videoId' ) ) {
                     directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ) );
@@ -945,7 +945,7 @@ $( document ).ready( function () {
                 }
 
                 $( '.videoMenuOverlayMinimized' ).hide();
-                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2, .videoMenuOverlayFullscreenDeadspace' ).show();
                 $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
             } );
 
@@ -961,7 +961,7 @@ $( document ).ready( function () {
                 spotifyPlay();
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlayMinimized' ).show();
-                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2, .videoMenuOverlayFullscreenDeadspace' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
@@ -998,7 +998,7 @@ $( document ).ready( function () {
             var intervalId = window.setInterval( function () {
                 if ( window.innerHeight != screen.height ) {
                     $( '.videoMenuOverlayMinimized' ).show();
-                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2, .videoMenuOverlayFullscreenDeadspace' ).hide();
                     $( '#directYoutubePlayer' ).hide();
                     isFullScreen = false;
                     blockScreenSaver = false;

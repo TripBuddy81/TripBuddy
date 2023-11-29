@@ -970,6 +970,18 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
 
+.videoMenuOverlayFullscreenDeadspace {
+    right: 0;
+    top: 0;
+    z-index: 3;
+    width: 30px;
+    height: 94vh;
+    cursor: url('../assets/invisible_cursor.png'), pointer !important;
+    position: absolute;
+    background: transparent;
+    display: none;
+}
+
 .videoMenuOverlayFullscreen {
     left: 0;
     top: 0;
