@@ -391,7 +391,39 @@
                 <br>
             </div>
 
+            <div id="directYoutubePlayerContainer">
+                <div id="directYoutubePlayer" width="554" height="315" class="" allowfullscreen=false>
+                </div>
+                <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                <div class="videoMenuOverlayFullscreenDeadspace">
+                </div>
+                <div class="videoMenuOverlayFullscreen">
+                    <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
+                </div>
+                <div class="videoMenuOverlayFullscreen2">
+                    <img class="disableVideoFullscreenIcon2" src="./assets/fullscreenToggle_red.png">
+                </div>
+                <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                </div>
+            </div>
+
             {{#videosYoutube}}
+            <div class="videoContainer {{tags}}">
+                <div class="iFrameContainer">
+                    <img videoId="{{videoId}}" mute="{{mute}}" class="youtubeVideo videoSource"
+                         src="https://i.ytimg.com/vi/{{videoId}}/mqdefault.jpg"/>
+                    <div class="videoInfo mb-2">
+                        <div>{{tags}} - {{videoId}}</div>
+                    </div>
+                    <div class="videoLabel">
+                        {{label}}
+                    </div>
+                    <img class="addVideoToQueue" videoId="{{videoId}}" src="./assets/addToQueue.png">
+                </div>
+            </div>
+            {{/videosYoutube}}
+
+            {{#videosMisc}}
             <div class="videoContainer {{tags}}">
                 <div class="iFrameContainer">
                     <iframe width="554" height="315" class="videoFrame videoSource"
@@ -402,17 +434,16 @@
                             loop
                             sandbox="allow-scripts allow-same-origin"></iframe>
                     <div class="videoInfo mb-2">
-                        <div>{{tags}}</div>
-                        <div>({{videoLink}})</div>
+                        <div>{{tags}} - {{videoLink}}</div>
                     </div>
                     <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
                     <div class="videoLabel">
                         {{label}}
                     </div>
-
                     <img class="addVideoToQueue" src="./assets/addToQueue.png">
-
                     <div class="videoMenuOverlayMinimized">
+                    </div>
+                    <div class="videoMenuOverlayFullscreenDeadspace">
                     </div>
                     <div class="videoMenuOverlayFullscreen">
                         <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
@@ -424,7 +455,7 @@
                     </div>
                 </div>
             </div>
-            {{/videosYoutube}}
+            {{/videosMisc}}
 
             {{#videosLocal}}
             <div class="videoContainer {{tags}}">
@@ -432,14 +463,16 @@
                     <video class="videoFrame localVideo" controls muted loop controlsList="nofullscreen">
                         <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">
                     </video>
-                    <div class="videoInfo mb-2">{{tags}}
-                        <div>({{videoLink}})</div>
+                    <div class="videoInfo mb-2">
+                        <div>{{tags}} - {{videoLink}}</div>
                     </div>
                     <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
                     <div class="videoLabel">
                         {{label}}
                     </div>
                     <div class="videoMenuOverlayMinimized">
+                    </div>
+                    <div class="videoMenuOverlayFullscreenDeadspace">
                     </div>
                     <div class="videoMenuOverlayFullscreen">
                         <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
