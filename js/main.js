@@ -969,15 +969,12 @@ $( document ).ready( function () {
 
             // Show cursor when moving mouse
             var moveTimerFullscreenOverlay;
-            $( document ).mousemove( function () {
-                $( '.videoMenuOverlayFullscreen' ).on( 'mousemove', function () {
-                    clearTimeout( moveTimerFullscreenOverlay );
-                    moveTimerFullscreenOverlay = setTimeout( function () {
-                        $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
-
-                    }, 1000 );
-                    $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                } );
+            $( '.videoMenuOverlayFullscreen' ).on( 'mousemove', function () {
+                clearTimeout( moveTimerFullscreenOverlay );
+                moveTimerFullscreenOverlay = setTimeout( function () {
+                    $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
+                }, 1000 );
+                $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
             } );
 
             // Reset settings if user disengaged fullscreen via ESC or other means...
