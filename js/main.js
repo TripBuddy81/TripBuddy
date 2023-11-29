@@ -110,6 +110,12 @@ $( document ).ready( function () {
                 }
             }, 5000 );
 
+            // Init screensaver
+            setInterval( startScreensaver, 1000 );
+            $( document ).on( 'click mousemove wheel', function ( e ) {
+                stopScreensaver();
+            } );
+
             // Firefox does not want to play along
             userAgentString = navigator.userAgent;
             if ( userAgentString.indexOf( 'Firefox' ) > -1 ) {
@@ -1025,10 +1031,6 @@ $( document ).ready( function () {
             } );
 
             // Video section screensaver
-            setInterval( startScreensaver, 1000 );
-            $( document ).on( 'click mousemove wheel', function ( e ) {
-                stopScreensaver();
-            } );
             var defaultStyleXXXfilter = $( '.XXXfilter' ).attr( 'style' );
 
             function startScreensaver( force = false ) {
