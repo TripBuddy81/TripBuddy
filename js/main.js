@@ -1481,7 +1481,7 @@ $( document ).ready( function () {
             }
 
             // integrated Spotify player if succesfully logged in
-            if ( localStorage.getItem( 'access_token' ) != null ) {
+            if ( localStorage.getItem( 'refresh_token' ) != null ) {
                 $( '#spotifyLogin' ).hide();
 
                 refreshAccessToken();
