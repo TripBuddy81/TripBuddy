@@ -292,7 +292,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
 
 #menu {
     position: absolute;
-    top: -32px;
+    top: -33px;
     min-width: 591px;
     padding-bottom: 15px;
     right: -30px;
