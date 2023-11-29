@@ -975,18 +975,6 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
 
-.videoMenuOverlayFullscreenDeadspace {
-    right: 0;
-    top: 0;
-    z-index: 3;
-    width: 30px;
-    height: 94vh;
-    cursor: url('../assets/invisible_cursor.png'), pointer !important;
-    position: absolute;
-    background: transparent;
-    display: none;
-}
-
 .videoMenuOverlayFullscreen {
     left: 0;
     top: 0;
@@ -999,7 +987,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videoMenuOverlayFullscreen2 {
-    left: 1655px;
+    right: 0px;
     top: 925px;
     z-index: 1;
     width: 35px;
@@ -1045,10 +1033,6 @@ video::-webkit-media-controls-fullscreen-button {
     bottom: 0px;
     right: 0px;
     z-index: 2;
-}
-
-.disableVideoFullscreenIcon2 {
-    right: -17px;
 }
 
 .imageSlideshowControls {
