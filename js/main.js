@@ -47,6 +47,7 @@ $( document ).ready( function () {
             var screensaverStartAfterSeconds = 10;
             var screensaverActive = false;
             var blockScreenSaver = false;
+            var documentReady = false;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -91,6 +92,7 @@ $( document ).ready( function () {
             document.onreadystatechange = function () {
                 if ( document.readyState !== 'complete' ) {
                 } else {
+                    documentReady = true;
                     $( '#launchSymbol' ).fadeOut( 800, function () {
                         $( '#launchSymbol' ).attr( 'src', './assets/ufo.png' );
                         $( '#launchSymbol' ).delay( 200 ).fadeIn();
@@ -100,11 +102,21 @@ $( document ).ready( function () {
                 }
             };
 
+            // Show app after some time even if loading is not complete
+            setTimeout( function () {
+                if ( !documentReady ) {
+                    $( '.iFrameContainer ' ).delay( 200 ).fadeIn();
+                    hideScreensaverEnso();
+                }
+            }, 5000 );
+
             // Firefox does not want to play along
             userAgentString = navigator.userAgent;
             if ( userAgentString.indexOf( 'Firefox' ) > -1 ) {
+                documentReady = true;
                 $( '#launchSymbol' ).attr( 'src', './assets/ufo.png' );
                 $( '.iFrameContainer ' ).show();
+                hideScreensaverEnso();
             }
 
             // Show VRGames Tag if configured
