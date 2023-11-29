@@ -972,10 +972,10 @@ $( document ).ready( function () {
             } );
 
             // Show cursor when moving mouse
-            var moveTimerFullscreenOverlay;
+            var moveTimerFullscreenVideoOverlay;
             $( '.videoMenuOverlayFullscreen' ).on( 'mousemove', function () {
-                clearTimeout( moveTimerFullscreenOverlay );
-                moveTimerFullscreenOverlay = setTimeout( function () {
+                clearTimeout( moveTimerFullscreenVideoOverlay );
+                moveTimerFullscreenVideoOverlay = setTimeout( function () {
                     $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
                 }, 1000 );
                 $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
@@ -1121,21 +1121,23 @@ $( document ).ready( function () {
             } );
 
             // Show timer in image when moving mouse
-            var moveTimer;
+            var moveTimerFullscreenSlideshow;
             $( document ).mousemove( function () {
                 $( '.displayedFullscreenImage' ).on( 'mousemove', function () {
                     if ( !slideshowJustStarted ) {
-                        clearTimeout( moveTimer );
+                        clearTimeout( moveTimerFullscreenSlideshow );
                         clearInterval( imageSlideshowInterval );
-                        moveTimer = setTimeout( function () {
+                        moveTimerFullscreenSlideshow = setTimeout( function () {
                             $( '.videoMenuOverlay' ).hide();
+                            $( '.displayedFullscreenImage' ).css( 'cursor', 'none' );
                         }, 1500 );
                         $( '.videoMenuOverlay' ).show();
+                        $( '.displayedFullscreenImage' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                     }
                 } );
 
                 $( '.imageSlideshowControls' ).on( 'mousemove', function () {
-                    clearTimeout( moveTimer );
+                    clearTimeout( moveTimerFullscreenSlideshow );
                 } );
             } );
 
@@ -1198,9 +1200,10 @@ $( document ).ready( function () {
                 slideshowJustStarted = true;
                 setTimeout( function () {
                     slideshowJustStarted = false;
-                }, 2000 );
+                }, 3000 );
 
                 $( '.videoMenuOverlay' ).hide();
+                $( '.displayedFullscreenImage' ).css( 'cursor', 'none' );
                 shownImages = [];
                 imageSlideshowInterval = window.setInterval( function () {
                     nextRandomImageInSlideshow()
