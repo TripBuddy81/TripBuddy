@@ -1017,10 +1017,10 @@ $( document ).ready( function () {
 
             function startScreensaver( force = false ) {
                 screensaverSecondsIdle++;
-                if ( (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
+                if ( $( '.MageAIfilter.imageFilterActive' ).length == 0 && $( '.MageAIFavorites.imageFilterActive' ).length == 0 && (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
                     screensaverActive = true;
                     showScreensaverEnso();
-                    $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).attr( 'style', 'cursor:none !important;' );
+                    $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices,.fullscreenImage' ).attr( 'style', 'cursor:none !important;' );
                     $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:none !important;' );
                     $( '#spotifyPlaylistsMenu' ).addClass( 'hidden' );
                     $( '#menu' ).addClass( 'hidden' );
@@ -1029,10 +1029,11 @@ $( document ).ready( function () {
 
             function showScreensaverEnso() {
                 $( '.mainSectionActive' ).each( function () {
-                    if ( $( this ).attr( 'data-target' ) == 'videos' ) {
+                    if ( $( this ).attr( 'data-target' ) == 'videos' || $( this ).attr( 'data-target' ) == 'images' ) {
                         $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'hidden' );
                         $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
                         $( '.videoFilterBtn' ).addClass( 'hiddenAndUnclickable' );
+                        $( '.imageFilterBtn' ).addClass( 'hiddenAndUnclickable' );
                     }
                 } );
             }
@@ -1041,7 +1042,7 @@ $( document ).ready( function () {
                 if ( screensaverActive ) {
                     screensaverActive = false;
                     hideScreensaverEnso();
-                    $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+                    $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices,.fullscreenImage' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                     $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'hidden' );
                     $( '#menu' ).removeClass( 'hidden' );
@@ -1054,6 +1055,7 @@ $( document ).ready( function () {
                     $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'hidden' );
                     $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
                     $( '.videoFilterBtn' ).removeClass( 'hiddenAndUnclickable' );
+                    $( '.imageFilterBtn' ).removeClass( 'hiddenAndUnclickable' );
                     refreshGradientBackground();
                 } );
             }
