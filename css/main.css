@@ -191,7 +191,7 @@ p {
     transition: all 1s ease;
 }
 
-.screensaverHidden {
+.hidden {
     opacity: 0;
 }
 

@@ -1022,16 +1022,17 @@ $( document ).ready( function () {
                     showScreensaverEnso();
                     $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:none !important;' );
                     $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:none !important;' );
-                    $( '#spotifyPlaylistsMenu' ).addClass( 'screensaverHidden' );
-                    $( '#menu' ).addClass( 'screensaverHidden' );
+                    $( '#spotifyPlaylistsMenu' ).addClass( 'hidden' );
+                    $( '#menu' ).addClass( 'hidden' );
                 }
             }
 
             function showScreensaverEnso() {
                 $( '.mainSectionActive' ).each( function () {
                     if ( $( this ).attr( 'data-target' ) == 'videos' ) {
-                        $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'screensaverHidden' );
+                        $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'hidden' );
                         $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
+                        $( '.videoFilterBtn' ).hide();
                     }
                 } );
             }
@@ -1042,16 +1043,17 @@ $( document ).ready( function () {
                     hideScreensaverEnso();
                     $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,.menuItem,#devices' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                     $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
-                    $( '#spotifyPlaylistsMenu' ).removeClass( 'screensaverHidden' );
-                    $( '#menu' ).removeClass( 'screensaverHidden' );
+                    $( '#spotifyPlaylistsMenu' ).removeClass( 'hidden' );
+                    $( '#menu' ).removeClass( 'hidden' );
                 }
                 screensaverSecondsIdle = 0;
             }
 
             function hideScreensaverEnso() {
                 $( '.mainSectionActive' ).each( function () {
-                    $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'screensaverHidden' );
+                    $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'hidden' );
                     $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
+                    $( '.videoFilterBtn' ).show();
                     refreshGradientBackground();
                 } );
             }
