@@ -293,7 +293,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#displayedVideos' ).click( function ( e ) {
+            $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
                 if ( !isFullScreen ) {
                     enableFullscreen();
                 }
