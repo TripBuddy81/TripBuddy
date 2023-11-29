@@ -319,6 +319,10 @@ $( document ).ready( function () {
                     } );
                 }
 
+                $( '.imageFilterBtn.imageFilterActive' ).each( function () {
+                    $( this ).trigger( 'click' );
+                } );
+
                 displayedAbsoluteTruthIndex = [];
                 absoluteTruthsUpdate( true );
 
