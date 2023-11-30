@@ -1060,7 +1060,8 @@ $( document ).ready( function () {
                 if ( screensaverActive ) {
                     screensaverActive = false;
                     hideScreensaverEnso();
-                    $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices,.fullscreenImage' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+                    $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#burgerContainer,#fullscreenIcon,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#devices,.fullscreenImage' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+                    $( '#menu' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), pointer;' );
                     $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'hidden' );
                     $( '#menu' ).removeClass( 'hidden' );
