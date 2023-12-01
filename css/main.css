@@ -14,7 +14,7 @@ html, body {
 
 .row {
     padding-left: 0;
-    margin-right: 8px;
+    margin-right: 3px;
 }
 
 ::-webkit-scrollbar {
@@ -194,6 +194,7 @@ p {
 #videos, #images, #shrine, #games, #search {
     display: none;
     transition: all 1s ease;
+    margin-left: 14px;
 }
 
 .hidden {
@@ -218,7 +219,7 @@ p {
     top: 0px;
     left: 0px;
     padding-top: 5px;
-    padding-left: 15px;
+    padding-left: 14px;
     z-index: 5;
     width: 100%;
     height: 80px;
@@ -233,7 +234,7 @@ p {
     display: block;
     position: absolute;
     top: 33px;
-    right: 20px;
+    right: 16px;
     z-index: 15;
     -webkit-user-select: none;
     user-select: none;
@@ -343,7 +344,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     z-index: 3;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 15px;
+    padding-left: 14px;
 }
 
 .modal {
