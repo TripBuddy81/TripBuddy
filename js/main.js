@@ -43,6 +43,7 @@ $( document ).ready( function () {
             var currentAutocompleteItem = 0;
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
+            var spotifyHasBeenPlayingBeforePause = false;
             var screensaverSecondsIdle = 0;
             var screensaverStartAfterSeconds = 10;
             var screensaverActive = false;
@@ -986,7 +987,9 @@ $( document ).ready( function () {
 
                 } else { // Direct youtube player
                     directYoutubePlayer.pauseVideo();
-                    spotifyPlay();
+                    if ( spotifyHasBeenPlayingBeforePause ) {
+                        spotifyPlay();
+                    }
                 }
 
                 $( '#directYoutubePlayer' ).hide();
@@ -1537,6 +1540,7 @@ $( document ).ready( function () {
                 $( '#stopMusic' ).click( function () {
                     if ( mainSearchResultYoutubePlayerState != 'playing' ) {
                         spotifyPause();
+                        spotifyHasBeenPlayingBeforePause = false;
                     }
                     mainSearchResultYoutubePlayer.pauseVideo();
                     markYoutubeAsActiveAudioSource( false );
@@ -1650,7 +1654,9 @@ $( document ).ready( function () {
                         setTimeout( function () {
                             if ( mainSearchResultYoutubePlayerState == 'paused' ) {
                                 markYoutubeAsActiveAudioSource( false );
-                                spotifyPlay();
+                                if ( spotifyHasBeenPlayingBeforePause ) {
+                                    spotifyPlay();
+                                }
                             }
                         }, 1000 );
                         break;
@@ -2029,6 +2035,7 @@ $( document ).ready( function () {
 
             function playNextYoutubeVideoOrSpotifyTrack() {
                 if ( youtubeCurrentQueue.length == 0 ) {
+                    spotifyHasBeenPlayingBeforePause = true;
                     markYoutubeAsActiveAudioSource( false );
                     mainSearchResultYoutubePlayer.mute();
 
