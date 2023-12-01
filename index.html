@@ -378,19 +378,6 @@
         </div>
 
         <div id="displayedVideos">
-            <div class="videoContainer XXX" id="searchBar">
-                <label class="searchLabel form-check-label me-2" for="searchInput">Search: </label>
-                <input type="text" class="me-2" id="searchInput" name="searchInput" value=""
-                       placeholder="enter search text here!" data-trigger-keyboard="true" autocomplete="off"
-                       spellcheck="false">
-                <label class="searchLabel form-check-label me-2" for="searchInput">--></label>
-
-                {{#searchEngines}}
-                <a class="searchLink {{tag}}" href="{{link}}" target=_blank>{{name}}</a>
-                {{/searchEngines}}
-                <br>
-            </div>
-
             <div id="directYoutubePlayerContainer">
                 <div id="directYoutubePlayer" width="554" height="315" class="" allowfullscreen=false>
                 </div>
@@ -405,87 +392,101 @@
                 </div>
             </div>
 
-            {{#videosYoutube}}
-            <div class="videoContainer {{tags}}">
-                <div class="iFrameContainer">
-                    <img videoId="{{videoId}}" mute="{{mute}}" class="youtubeVideo videoSource"
-                         src="https://i.ytimg.com/vi/{{videoId}}/mqdefault.jpg"/>
-                    <div class="videoInfo mb-2">
-                        <div>{{tags}} - {{videoId}}</div>
-                    </div>
-                    <div class="videoLabel">
-                        {{label}}
-                    </div>
-                    <img class="addVideoToQueue" videoId="{{videoId}}" src="./assets/addToQueue.png">
-                </div>
-            </div>
-            {{/videosYoutube}}
+            <div class="row d-flex justify-content-between">
+                <div class="videoContainer XXX col-12" id="searchBar">
+                    <label class="searchLabel form-check-label me-2" for="searchInput">Search: </label>
+                    <input type="text" class="me-2" id="searchInput" name="searchInput" value=""
+                           placeholder="enter search text here!" data-trigger-keyboard="true" autocomplete="off"
+                           spellcheck="false">
+                    <label class="searchLabel form-check-label me-2" for="searchInput">--></label>
 
-            {{#videosMisc}}
-            <div class="videoContainer {{tags}}">
-                <div class="iFrameContainer">
-                    <iframe width="554" height="315" class="videoFrame videoSource"
-                            src="NOLOAD{{videoLink}}&rel=0&cc_load_policy=0&hd=1"
-                            frameborder="0"
-                            allow=""
-                            scrolling="no"
-                            loop
-                            sandbox="allow-scripts allow-same-origin"></iframe>
-                    <div class="videoInfo mb-2">
-                        <div>{{tags}} - {{videoLink}}</div>
-                    </div>
-                    <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
-                    <div class="videoLabel">
-                        {{label}}
-                    </div>
-                    <img class="addVideoToQueue" src="./assets/addToQueue.png">
-                    <div class="videoMenuOverlayMinimized">
-                    </div>
-                    <div class="videoMenuOverlayFullscreen">
-                        <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
-                    </div>
-                    <div class="videoMenuOverlayFullscreen2">
-                        <img class="disableVideoFullscreenIcon2" src="./assets/fullscreenToggle_red.png">
-                    </div>
-                    <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                    {{#searchEngines}}
+                    <a class="searchLink {{tag}}" href="{{link}}" target=_blank>{{name}}</a>
+                    {{/searchEngines}}
+                    <br>
+                </div>
+
+                {{#videosYoutube}}
+                <div class="videoContainer {{tags}} col-3">
+                    <div class="iFrameContainer">
+                        <img videoId="{{videoId}}" mute="{{mute}}" class="youtubeVideo videoSource"
+                             src="https://i.ytimg.com/vi/{{videoId}}/mqdefault.jpg"/>
+                        <div class="videoInfo mb-2">
+                            <div>{{tags}} - {{videoId}}</div>
+                        </div>
+                        <div class="videoLabel">
+                            {{label}}
+                        </div>
+                        <img class="addVideoToQueue" videoId="{{videoId}}" src="./assets/addToQueue.png">
                     </div>
                 </div>
-            </div>
-            {{/videosMisc}}
+                {{/videosYoutube}}
 
-            {{#videosLocal}}
-            <div class="videoContainer {{tags}}">
-                <div class="iFrameContainer">
-                    <video class="videoFrame localVideo" controls muted loop controlsList="nofullscreen">
-                        <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">
-                    </video>
-                    <div class="videoInfo mb-2">
-                        <div>{{tags}} - {{videoLink}}</div>
-                    </div>
-                    <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
-                    <div class="videoLabel">
-                        {{label}}
-                    </div>
-                    <div class="videoMenuOverlayMinimized">
-                    </div>
-                    <div class="videoMenuOverlayFullscreen">
-                        <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
-                    </div>
-                    <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                {{#videosMisc}}
+                <div class="videoContainer {{tags}} col-3">
+                    <div class="iFrameContainer">
+                        <iframe width="554" height="315" class="videoFrame videoSource"
+                                src="NOLOAD{{videoLink}}&rel=0&cc_load_policy=0&hd=1"
+                                frameborder="0"
+                                allow=""
+                                scrolling="no"
+                                loop
+                                sandbox="allow-scripts allow-same-origin"></iframe>
+                        <div class="videoInfo mb-2">
+                            <div>{{tags}} - {{videoLink}}</div>
+                        </div>
+                        <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                        <div class="videoLabel">
+                            {{label}}
+                        </div>
+                        <img class="addVideoToQueue" src="./assets/addToQueue.png">
+                        <div class="videoMenuOverlayMinimized">
+                        </div>
+                        <div class="videoMenuOverlayFullscreen">
+                            <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
+                        </div>
+                        <div class="videoMenuOverlayFullscreen2">
+                            <img class="disableVideoFullscreenIcon2" src="./assets/fullscreenToggle_red.png">
+                        </div>
+                        <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                        </div>
                     </div>
                 </div>
-            </div>
-            {{/videosLocal}}
+                {{/videosMisc}}
 
-            </br>
-
-            {{#externalVideoLinks}}
-            <div class="videoContainer XXX">
-                <a class="xxxLink mt-4 mb-4" href="{{link}}" target=_blank>{{name}}<img
-                        class="externalVideoPreview"
-                        src="{{thumb}}"></a>
+                {{#videosLocal}}
+                <div class="videoContainer {{tags}} col-3">
+                    <div class="iFrameContainer">
+                        <video class="videoFrame localVideo" controls muted loop controlsList="nofullscreen">
+                            <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">
+                        </video>
+                        <div class="videoInfo mb-2">
+                            <div>{{tags}} - {{videoLink}}</div>
+                        </div>
+                        <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                        <div class="videoLabel">
+                            {{label}}
+                        </div>
+                        <div class="videoMenuOverlayMinimized">
+                        </div>
+                        <div class="videoMenuOverlayFullscreen">
+                            <img class="disableVideoFullscreenIcon" src="./assets/fullscreenToggle_red.png">
+                        </div>
+                        <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                        </div>
+                    </div>
+                </div>
+                {{/videosLocal}}
             </div>
-            {{/externalVideoLinks}}
+            <div class="row d-flex justify-content-between">
+                {{#externalVideoLinks}}
+                <div class="videoContainer XXX col-3">
+                    <a class="xxxLink mt-4 mb-4" href="{{link}}" target=_blank>{{name}}<img
+                            class="externalVideoPreview"
+                            src="{{thumb}}"></a>
+                </div>
+                {{/externalVideoLinks}}
+            </div>
         </div>
     </div>
 
