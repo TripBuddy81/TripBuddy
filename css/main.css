@@ -805,10 +805,6 @@ option {
     }
 }
 
-#shrine {
-    background-color: #363636;
-}
-
 @property --p {
     syntax: '<percentage>';
     inherits: false;
@@ -1197,6 +1193,7 @@ video::-webkit-media-controls-fullscreen-button {
 #games, #shrine {
     overflow-y: hidden;
     height: 100vh;
+    margin-left: 0px;
 }
 
 #ensoImageShrineContainer, #globalEnsoContainer {
