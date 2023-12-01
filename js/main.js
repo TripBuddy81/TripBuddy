@@ -975,12 +975,20 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 document.exitFullscreen();
+
+                // Local video player
                 try {
                     $( this ).parent().find( '.videoFrame' ).get( 0 ).pause();
                 } catch ( e ) {
                 }
-                directYoutubePlayer.pauseVideo();
-                spotifyPlay();
+                // Main Youtube search player
+                if ( $( this ).parent().find( '#mainSearchResultYoutubeIframe' ).length > 0 ) {
+
+                } else { // Direct youtube player
+                    directYoutubePlayer.pauseVideo();
+                    spotifyPlay();
+                }
+
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
