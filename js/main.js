@@ -43,7 +43,7 @@ $( document ).ready( function () {
             var currentAutocompleteItem = 0;
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
-            var spotifyHasBeenPlayingBeforePause = false;
+            window.spotifyHasBeenPlayingBeforePause = false;
             var screensaverSecondsIdle = 0;
             var screensaverStartAfterSeconds = 10;
             var screensaverActive = false;

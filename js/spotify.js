@@ -275,6 +275,7 @@ function handleCurrentlyPlayingResponse() {
 
         if ( data['is_playing'] ) {
             playingTrack = true;
+            spotifyHasBeenPlayingBeforePause = true;
         } else {
             playingTrack = false;
         }
