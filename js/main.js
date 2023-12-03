@@ -72,23 +72,6 @@ $( document ).ready( function () {
                     Handlebars.compile( $( '#mainTemplate' ).html() )( config )
             );
 
-            // Init fastmode to true if not specified otherwise
-            if ( localStorage.getItem( 'fastModeSetting' ) == undefined ) {
-                localStorage.setItem( 'fastModeSetting', 'true' );
-            }
-
-            // If fast mode is inactive, enable all vidoes
-            if ( localStorage.getItem( 'fastModeSetting' ) != 'true' ) {
-                $( '.videoSource' ).each( function () {
-                    if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
-                        $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
-                    }
-                } );
-                $( '.localVideo' ).each( function () {
-                    this.load();
-                } );
-            }
-
             // Check if loading is complete
             document.onreadystatechange = function () {
                 if ( document.readyState !== 'complete' ) {
@@ -746,26 +729,6 @@ $( document ).ready( function () {
                 $( '.videoInfo' ).toggle();
             } )
 
-            // ******************************************
-            // fastMode toggle setting
-            if ( localStorage.getItem( 'fastModeSetting' ) == undefined || localStorage.getItem( 'fastModeSetting' ) == 'false' ) {
-                localStorage.setItem( 'fastModeSetting', 'false' );
-                $( '#fastModeSetting' ).html( '(off)' );
-            } else {
-                localStorage.setItem( 'fastModeSetting', 'true' );
-                $( '#fastModeSetting' ).html( '(on)' );
-            }
-            $( '#fastMode' ).click( function ( event ) {
-                if ( localStorage.getItem( 'fastModeSetting' ) == 'false' ) {
-                    localStorage.setItem( 'fastModeSetting', 'true' );
-                    $( '#fastModeSetting' ).html( '(on)' );
-                } else {
-                    localStorage.setItem( 'fastModeSetting', 'false' );
-                    $( '#fastModeSetting' ).html( '(off)' );
-                }
-                location.reload();
-            } )
-
             // ***********************************
             // Video section
             // Youtube Player API init
@@ -928,18 +891,16 @@ $( document ).ready( function () {
             } );
 
             function loadAllVideos() {
-                if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
-                    $( '.videoSource' ).each( function () {
-                        if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
-                            $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
-                        }
-                    } );
-                    $( '.localVideo' ).each( function () {
-                        this.load();
-                    } );
+                $( '.videoSource' ).each( function () {
+                    if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
+                        $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+                    }
+                } );
+                $( '.localVideo' ).each( function () {
+                    this.load();
+                } );
 
-                    allVideosLoaded = true;
-                }
+                allVideosLoaded = true;
             }
 
             // Youtube iFrame fullscreen button overlay
@@ -2142,7 +2103,7 @@ $( document ).ready( function () {
             $( '#showVideoSection' ).trigger( 'click' );
             if ( urlParams.get( 'tab' ) != undefined ) {
                 $( '#' + urlParams.get( 'tab' ) + 'filter' ).trigger( 'click' );
-            } else if ( localStorage.getItem( 'fastModeSetting' ) == 'true' ) {
+            } else {
                 $( '#meditativefilter' ).trigger( 'click' );
             }
             showScreensaverEnso();
