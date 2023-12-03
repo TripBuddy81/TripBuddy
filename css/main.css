@@ -13,8 +13,14 @@ html, body {
 }
 
 .row {
-    padding-left: 0;
+    padding-left: 14px;
+    padding-right: 14px;
     margin-right: 3px;
+}
+
+.row > * {
+    padding-right: 0px;
+    padding-left: 0;
 }
 
 ::-webkit-scrollbar {
@@ -234,7 +240,7 @@ p {
     display: block;
     position: absolute;
     top: 33px;
-    right: 16px;
+    right: 18px;
     z-index: 15;
     -webkit-user-select: none;
     user-select: none;
@@ -598,7 +604,6 @@ li, .options, .form-check-label {
 .fullscreenImage {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     width: 538.7px;
-    margin-right: 19px;
     margin-bottom: 25px;
     border-radius: 5px;
 }
@@ -918,8 +923,8 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .videoContainer {
-    width: 550px;
-    height: 296px;
+    width: 538px;
+    height: 304px;
     display: inline-block;
     position: relative;
     margin-bottom: 25px;
@@ -1254,7 +1259,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .VRGameImage {
-    width: 525px;
+    width: 538px;
     height: 300px;
     margin-bottom: 5px;
     border-radius: 5px;

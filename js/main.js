@@ -265,8 +265,8 @@ $( document ).ready( function () {
                     gameSectionShown = true;
                 }
 
-                hideScreensaverEnso();
                 enableFullscreen();
+                hideScreensaverEnso();
             } );
             $( '#showSearchSection' ).click( function () {
                 $( '#videos' ).hide();

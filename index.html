@@ -503,14 +503,17 @@
         </div>
 
         <div id="displayedImages">
-            {{#images}}
-            <img width="525" height="300" src="{{image}}" class="fullscreenImage {{tags}}"
-                 data-image="{{image}}">
-            {{/images}}
+            <div class="row d-flex justify-content-between">
+                {{#images}}
+                <img width="525" height="300" src="{{image}}" class="fullscreenImage {{tags}}"
+                     data-image="{{image}}">
+                {{/images}}
+            </div>
 
             <iframe id="MageAIExternalPage" class="MageAI fullscreenImage"
                     src="https://www.mage.space/explore?q=psychedelic"></iframe>
         </div>
+
         <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
         </div>
         <div class="imageSlideshowControls videoMenuOverlay">
