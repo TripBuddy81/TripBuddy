@@ -1,6 +1,7 @@
 $( document ).ready( function () {
             // ***********************************
             // Globals
+            window.spotifyHasBeenPlayingBeforePause = false;
             var pizzaTimerStart = '';
             var minutesCountAtLastDisplayedThought = 0;
             var isFullScreen = false;
@@ -43,7 +44,6 @@ $( document ).ready( function () {
             var currentAutocompleteItem = 0;
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
-            window.spotifyHasBeenPlayingBeforePause = false;
             var screensaverSecondsIdle = 0;
             var screensaverStartAfterSeconds = 10;
             var screensaverActive = false;
@@ -275,7 +275,6 @@ $( document ).ready( function () {
                 $( '#menuClose' ).trigger( 'click' );
             } );
 
-            // ******************************************
             // Global key captures
             var rightMouseClicked = false;
             $( '#activateHiddenMenue' ).mousedown( function ( event ) {
@@ -335,7 +334,6 @@ $( document ).ready( function () {
                 }
             }
 
-            // ******************************************
             // Start button & preFlightChecklist & Reminders
             $( '#launchText' ).click( function ( e ) {
                 if ( $( '#topupCheckbox1' ).is( ':checked' ) ) {
@@ -479,7 +477,6 @@ $( document ).ready( function () {
                 guidedThoughtPrefilTarget = 1;
             } );
 
-            // ******************************************
             // Pizza timer
             localStorage.setItem( 'pizzaTimerMinutesTillReady', $( '#pizzaTimerMinutes' ).val() );
 
@@ -528,7 +525,6 @@ $( document ).ready( function () {
                 }
             }
 
-            // ******************************************
             // Disable all future reminders and guided thoughts
             $( '#disableAllReminders' ).click( function ( e ) {
                 $( '#disableAllReminders' ).hide();
@@ -543,7 +539,6 @@ $( document ).ready( function () {
                 }
             } );
 
-            // ******************************************
             // Timer && Graph && Time dependent actions
             function tripTimer() {
                 var now = new Date();
@@ -655,7 +650,6 @@ $( document ).ready( function () {
                 } );
             }
 
-            // ******************************************
             // Toggle Fullscreen button
             $( '.toggleFullscreen' ).click( function ( event ) {
                 toggleFullScreen( event );
@@ -703,7 +697,6 @@ $( document ).ready( function () {
                 }
             }
 
-            // ******************************************
             // Show notes overlay
             $( '#notesSymbol' ).click( function () {
                 enableFullscreen();
@@ -723,7 +716,6 @@ $( document ).ready( function () {
                 localStorage.setItem( 'notes', $( '#notesTextarea' ).val() );
             } );
 
-            // ******************************************
             // Info Tag toggle setting
             $( '#toggleInfo' ).click( function () {
                 $( '.videoInfo' ).toggle();
@@ -740,7 +732,7 @@ $( document ).ready( function () {
             var directYoutubePlayer;
 
             window.onYouTubePlayerAPIReady = function () {
-                // Direct youtube player for clicked preview images in video section
+                // Direct youtube player (for clicked preview images in video section)
                 directYoutubePlayer = new YT.Player( 'directYoutubePlayer', {
                     videoId   : '',
                     playerVars: {
@@ -1590,7 +1582,7 @@ $( document ).ready( function () {
             // ******************************************
 
             // ******************************************
-            // Search/Youtube section
+            // Search Youtube section
             displayYoutubeQueue();
             searchYoutube( youtubeIntitalSearchTerm );
 
