@@ -255,6 +255,9 @@ $( document ).ready( function () {
                 } );
                 $( this ).toggleClass( 'mainSectionActive' );
 
+                enableFullscreen();
+                hideScreensaverEnso();
+
                 if ( !gameSectionShown ) {
                     $( '.gameLink' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
@@ -264,9 +267,6 @@ $( document ).ready( function () {
                     } );
                     gameSectionShown = true;
                 }
-
-                enableFullscreen();
-                hideScreensaverEnso();
             } );
             $( '#showSearchSection' ).click( function () {
                 $( '#videos' ).hide();
