@@ -278,6 +278,7 @@ function handleCurrentlyPlayingResponse() {
             lastPlaylistId = playlistNameRef;
         } else { // Single Track
             $( '#spotifyPlaylists' ).html( data['item']['name'] );
+            lastSelectedPlaylist = data['item']['uri'];
         }
 
         if ( data['is_playing'] ) {
