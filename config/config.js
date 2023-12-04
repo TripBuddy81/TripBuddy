@@ -86,6 +86,10 @@ var config = {
                 'id'   : '7IMTMDqc2NIzovRgtC1Imq'
             },
             {
+                'label': 'Shamanism',
+                'id'   : '5YbqrWZW98ZH0kksUAnzKb'
+            },
+            {
                 'label': 'Hangmatpop',
                 'id'   : '6ySAQd8K6BZt5tQ9M5wNAY'
             },
