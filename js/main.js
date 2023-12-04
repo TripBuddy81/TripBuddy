@@ -525,12 +525,6 @@ $( document ).ready( function () {
                 }
             }
 
-            // Mantras
-            $( '.mantra' ).click( function ( e ) {
-                /*      spotifyPlay( $( this ).attr( 'spotifyId' ) );
-                      repeat( 'off' );*/
-            } );
-
             // Disable all future reminders and guided thoughts
             $( '#disableAllReminders' ).click( function ( e ) {
                 $( '#disableAllReminders' ).hide();
@@ -1485,13 +1479,23 @@ $( document ).ready( function () {
                 setInterval( refreshDevices, 3000 );
                 setInterval( currentlyPlaying, 1000 );
 
-                $( '.spotifyPlaylistItem' ).click( function () {
+                // Playlist Selection
+                $( '.spotifyPlaylist' ).click( function () {
                     lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
                     $( '#spotifyPlaylists' ).html( '...' );
                     openDesktopApp();
                     shuffle();
                     repeat();
                     spotifyPlay( lastSelectedPlaylist );
+                    markYoutubeAsActiveAudioSource( false );
+                    mainSearchResultYoutubePlayer.mute();
+                } );
+
+                // Single Track Selection
+                $( '.spotifySingleTrack' ).click( function ( e ) {
+                    openDesktopApp();
+                    spotifyPlay( $( this ).attr( 'data-spotify-id' ) );
+                    repeat( 'off' );
                     markYoutubeAsActiveAudioSource( false );
                     mainSearchResultYoutubePlayer.mute();
                 } );

@@ -83,12 +83,6 @@
                                name="pizzaTimerMinutes"
                                value="18" min="1" max="600"> <span class="pizzaTimerMinutesSuffix">min)</span>
                     </span>
-                    <span id="mantraSelectionContainer">
-                        {{#mantras}}
-                        <li class="menuItem mantra" spotifyId="{{spotifyID}}" mantraText="{{text}}">{{name}}
-                        </li>
-                        {{/mantras}}
-                    </span>
                     <li class="menuItem menuvisibleAfterStarted" id="disableAllReminders">Disable all reminders</li>
                     <div class="mt-3">-- <b>LINKS</b>
                         ----------------------------------------------------------------------
@@ -190,20 +184,26 @@
         <div id="spotifyPlaylistsMenu">
             <div class="row spotifyPlaylistsMenuContent">
                 <div class="col">
+                    {{#singleTracks}}
+                    <div class="spotifyPlaylistItem spotifySingleTrack" data-spotify-id="spotify:track:{{id}}">{{label}}
+                    </div>
+                    {{/singleTracks}}
+                </div>
+                <div class="col">
                     {{#playlists.green}}
-                    <div class="spotifyPlaylistItem" data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    <div class="spotifyPlaylistItem spotifyPlaylist" data-spotify-id="spotify:playlist:{{id}}">{{label}}
                     </div>
                     {{/playlists.green}}
                 </div>
                 <div class="col">
                     {{#playlists.blue}}
-                    <div class="spotifyPlaylistItem" data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    <div class="spotifyPlaylistItem spotifyPlaylist" data-spotify-id="spotify:playlist:{{id}}">{{label}}
                     </div>
                     {{/playlists.blue}}
                 </div>
                 <div class="col">
                     {{#playlists.red}}
-                    <div class="spotifyPlaylistItem" data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    <div class="spotifyPlaylistItem spotifyPlaylist" data-spotify-id="spotify:playlist:{{id}}">{{label}}
                     </div>
                     {{/playlists.red}}
                 </div>
