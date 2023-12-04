@@ -1469,7 +1469,7 @@ $( document ).ready( function () {
             }
 
             // integrated Spotify player if succesfully logged in
-            if ( localStorage.getItem( 'refresh_token' ) != null ) {
+            if ( localStorage.getItem( 'access_token' ) != null ) {
                 $( '#spotifyLogin' ).hide();
 
                 refreshAccessToken();
@@ -1479,25 +1479,22 @@ $( document ).ready( function () {
                 setInterval( refreshDevices, 3000 );
                 setInterval( currentlyPlaying, 1000 );
 
-                // Playlist Selection
-                $( '.spotifyPlaylist' ).click( function () {
+
+                $( '.spotifyPlaylistItem' ).click( function () {
                     lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
                     $( '#spotifyPlaylists' ).html( '...' );
                     openDesktopApp();
-                    shuffle();
-                    repeat();
                     spotifyPlay( lastSelectedPlaylist );
                     markYoutubeAsActiveAudioSource( false );
                     mainSearchResultYoutubePlayer.mute();
-                } );
 
-                // Single Track Selection
-                $( '.spotifySingleTrack' ).click( function ( e ) {
-                    openDesktopApp();
-                    spotifyPlay( $( this ).attr( 'data-spotify-id' ) );
-                    repeat( 'off' );
-                    markYoutubeAsActiveAudioSource( false );
-                    mainSearchResultYoutubePlayer.mute();
+                    // Playlist Selection
+                    if ( $( this ).hasClass( 'spotifyPlaylist' ) ) {
+                        shuffle();
+                        repeat();
+                    } else { // Single Track Selection
+                        repeat( 'off' );
+                    }
                 } );
 
                 $( '#stopMusic' ).click( function () {
