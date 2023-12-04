@@ -295,7 +295,7 @@ $( document ).ready( function () {
             } );
 
             $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
-                if ( !isFullScreen ) {
+                if ( !isFullScreen && !e.target.classList.contains( 'externalVideoPreview' ) ) {
                     enableFullscreen();
                 }
             } );
