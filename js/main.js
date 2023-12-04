@@ -525,6 +525,12 @@ $( document ).ready( function () {
                 }
             }
 
+            // Mantras
+            $( '.mantra' ).click( function ( e ) {
+                /*      spotifyPlay( $( this ).attr( 'spotifyId' ) );
+                      repeat( 'off' );*/
+            } );
+
             // Disable all future reminders and guided thoughts
             $( '#disableAllReminders' ).click( function ( e ) {
                 $( '#disableAllReminders' ).hide();

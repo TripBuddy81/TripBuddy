@@ -151,19 +151,19 @@ var config = {
     },
     'mantras'            : [
         {
-            'spotifyID': '5RJrRNe2vcBI4zGMPGYrCy',
-            'name'     : 'So Ham',
-            'text'     : 'So Ham'
+            'spotifyID'  : 'spotify:track:5RJrRNe2vcBI4zGMPGYrCy',
+            'name'       : 'So Ham',
+            'text'       : 'So Ham'
         },
         {
-            'spotifyID': '5e5Y2BHQazqBahFMXObzzU',
-            'name'     : 'Om Namah Shivaya',
-            'text'     : 'Om Namah Shivaya'
+            'spotifyID'  : 'spotify:track:5e5Y2BHQazqBahFMXObzzU',
+            'name'       : 'Om Namah Shivaya',
+            'text'       : 'Om Na Ma Śi Vā Ya'
         },
         {
-            'spotifyID': '0vSa11w4WE7HHCdMwoVayz',
-            'name'     : 'Shivo Ham',
-            'text'     : 'Shivo Ham'
+            'spotifyID'  : 'spotify:track:0vSa11w4WE7HHCdMwoVayz',
+            'name'       : 'Shivo Ham',
+            'text'       : 'Shivo Ham'
         }
     ],
     'selectableVideoTags': [

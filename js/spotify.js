@@ -164,9 +164,12 @@ function removeAllItems( elementId ) {
 function spotifyPlay( playlist_id = '' ) {
     let body = {};
     if ( playlist_id != '' ) {
-        body.context_uri = playlist_id;
+        if ( !playlist_id.includes( 'track' ) ) {
+            body.context_uri = playlist_id;
+        } else {
+            body.uris = [playlist_id];
+        }
     }
-
     if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' || $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'überall' ) ) {
         callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
     } else {
@@ -190,8 +193,8 @@ function shuffle() {
     callApi( 'PUT', SHUFFLE + '?state=true', null, handleApiResponse );
 }
 
-function repeat() {
-    callApi( 'PUT', REPEAT + '?state=context', null, handleApiResponse );
+function repeat( state = 'context' ) {
+    callApi( 'PUT', REPEAT + '?state=' + state, null, handleApiResponse );
 }
 
 function spotifyPause() {
