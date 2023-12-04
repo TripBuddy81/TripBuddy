@@ -1480,10 +1480,9 @@ $( document ).ready( function () {
                 setInterval( currentlyPlaying, 1000 );
 
                 $( '.spotifyPlaylistItem' ).click( function () {
-                    lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
                     $( '#spotifyPlaylists' ).html( '...' );
                     openDesktopApp();
-                    spotifyPlay( lastSelectedPlaylist );
+                    spotifyPlay( $( this ).attr( 'data-spotify-id' ) );
                     markYoutubeAsActiveAudioSource( false );
                     mainSearchResultYoutubePlayer.mute();
 
