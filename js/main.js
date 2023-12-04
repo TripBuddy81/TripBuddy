@@ -148,7 +148,7 @@ $( document ).ready( function () {
             var alarmSound = document.getElementById( 'alarmSound' );
 
             // Init track progress bar
-            $( '#spotifyTrackProgress' ).hide();
+            $( '.spotifyTrackProgress' ).hide();
 
             // ***********************************
             // Main Menu
@@ -1490,8 +1490,10 @@ $( document ).ready( function () {
                     if ( $( this ).hasClass( 'spotifyPlaylist' ) ) {
                         shuffle();
                         repeat();
+                        $( '#spotifyTrackProgressContainerYoutubeOverlay' ).hide();
                     } else { // Single Track Selection
                         repeat( 'off' );
+                        $( '#spotifyTrackProgressContainerYoutubeOverlay' ).show();
                     }
                 } );
 

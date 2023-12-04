@@ -649,23 +649,27 @@ option {
     color: white;
 }
 
-#spotifyTrackProgressContainer {
+.spotifyTrackProgressContainer {
     width: 100%;
     text-align: center;
     position: fixed;
     top: 2px;
+    left: 0px;
     z-index: 10;
-    margin-left: -15px;
 }
 
-#spotifyTrackProgress {
+.spotifyTrackProgress {
     margin: 0px auto;
     position: sticky;
     transition: all 2s;
 }
 
-#spotifyTrackProgress .colorfulBorder {
+.spotifyTrackProgress .colorfulBorder {
     --borderWidth: 2px;
+}
+
+#spotifyTrackProgressContainerYoutubeOverlay {
+    display: none;
 }
 
 #spotifyPlaylists {
