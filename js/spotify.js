@@ -268,13 +268,17 @@ function handleCurrentlyPlayingResponse() {
 
         updateProgressBar( data['item']['duration_ms'], data['progress_ms'], data['is_playing'] );
 
-        var playlistNameRef = data['context']['href'];
-        lastSelectedPlaylist = data['context']['uri'];
+        if ( data['context'] != null ) { // Playlist
+            var playlistNameRef = data['context']['href'];
+            lastSelectedPlaylist = data['context']['uri'];
 
-        if ( lastPlaylistId != playlistNameRef || $( '#spotifyPlaylists' ).html() == '...' ) {
-            getPlaylist( playlistNameRef );
+            if ( lastPlaylistId != playlistNameRef || $( '#spotifyPlaylists' ).html() == '...' ) {
+                getPlaylist( playlistNameRef );
+            }
+            lastPlaylistId = playlistNameRef;
+        } else { // Single Track
+            $( '#spotifyPlaylists' ).html( data['item']['name'] );
         }
-        lastPlaylistId = playlistNameRef;
 
         if ( data['is_playing'] ) {
             playingTrack = true;

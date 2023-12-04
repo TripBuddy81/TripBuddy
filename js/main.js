@@ -1479,7 +1479,6 @@ $( document ).ready( function () {
                 setInterval( refreshDevices, 3000 );
                 setInterval( currentlyPlaying, 1000 );
 
-
                 $( '.spotifyPlaylistItem' ).click( function () {
                     lastSelectedPlaylist = $( this ).attr( 'data-spotify-id' );
                     $( '#spotifyPlaylists' ).html( '...' );
