@@ -650,13 +650,17 @@ option {
     color: white;
 }
 
-.spotifyTrackProgressContainer {
+.spotifyTrackProgressContainer, .spotifyTrackProgressContainerFullscreenVideo {
     width: 100%;
     text-align: center;
     position: fixed;
     top: 2px;
     left: 0px;
     z-index: 10;
+}
+
+.spotifyTrackProgressContainerFullscreenVideo {
+    display: none;
 }
 
 .spotifyTrackProgress {
@@ -667,10 +671,6 @@ option {
 
 .spotifyTrackProgress .colorfulBorder {
     --borderWidth: 2px;
-}
-
-#spotifyTrackProgressContainerYoutubeOverlay {
-    display: none;
 }
 
 #spotifyPlaylists {
@@ -1025,28 +1025,6 @@ video::-webkit-media-controls-fullscreen-button {
     -webkit-text-fill-color: transparent;
     z-index: 15;
     visibility: visible !important;
-}
-
-.disableVideoFullscreenIcon {
-    top: 380px;
-    left: 753px;
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
-    opacity: 0;
-    z-index: 2;
-}
-
-.disableVideoFullscreenIcon2 {
-    height: 45px;
-    width: 45px;
-    position: absolute;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-    opacity: 0;
-    bottom: 0px;
-    right: 0px;
-    z-index: 2;
 }
 
 .imageSlideshowControls {

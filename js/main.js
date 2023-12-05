@@ -896,16 +896,6 @@ $( document ).ready( function () {
             }
 
             // Youtube iFrame fullscreen button overlay
-            $( '.disableVideoFullscreenIcon, .disableVideoFullscreenIcon2' ).hover( function ( event ) {
-                $( '.disableVideoFullscreenIcon' ).attr( 'style', 'opacity:1' );
-                $( '.disableVideoFullscreenIcon2' ).attr( 'style', 'opacity:1' );
-                $( '.videoMenuOverlay' ).show();
-            }, function () {
-                $( '.disableVideoFullscreenIcon' ).attr( 'style', 'opacity:0' );
-                $( '.disableVideoFullscreenIcon2' ).attr( 'style', 'opacity:0' );
-                $( '.videoMenuOverlay' ).hide();
-            } );
-
             $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
                 blockScreenSaver = true;
                 const container = $( this ).closest( '.videoContainer' )[0];
@@ -959,8 +949,12 @@ $( document ).ready( function () {
                 clearTimeout( moveTimerFullscreenVideoOverlay );
                 moveTimerFullscreenVideoOverlay = setTimeout( function () {
                     $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
+                    $( '.spotifyTrackProgressContainerFullscreenVideo' ).hide();
+                    $( '.videoMenuOverlay' ).hide();
                 }, 1000 );
                 $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.spotifyTrackProgressContainerFullscreenVideo' ).show();
+                $( '.videoMenuOverlay' ).show();
             } );
 
             // Reset settings if user disengaged fullscreen via ESC or other means...
@@ -1490,10 +1484,8 @@ $( document ).ready( function () {
                     if ( $( this ).hasClass( 'spotifyPlaylist' ) ) {
                         shuffle();
                         repeat();
-                        $( '#spotifyTrackProgressContainerYoutubeOverlay' ).hide();
                     } else { // Single Track Selection
                         repeat( 'off' );
-                        $( '#spotifyTrackProgressContainerYoutubeOverlay' ).show();
                     }
                 } );
 
