@@ -940,7 +940,6 @@ $( document ).ready( function () {
 
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
-                $( '.spotifyTrackProgressContainerFullscreenVideo' ).hide();
                 $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
@@ -954,11 +953,9 @@ $( document ).ready( function () {
                 clearTimeout( moveTimerFullscreenVideoOverlay );
                 moveTimerFullscreenVideoOverlay = setTimeout( function () {
                     $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
-                    $( '.spotifyTrackProgressContainerFullscreenVideo' ).hide();
                     $( '.videoMenuOverlay' ).hide();
                 }, 2000 );
                 $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '.spotifyTrackProgressContainerFullscreenVideo' ).show();
                 $( '.videoMenuOverlay' ).show();
             } );
 
@@ -1003,15 +1000,15 @@ $( document ).ready( function () {
                     showScreensaverEnso();
                     $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices,.fullscreenImage' ).attr( 'style', 'cursor:none !important;' );
                     $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:none !important;' );
-                    $( '#spotifyPlaylistsMenu' ).addClass( 'hidden' );
-                    $( '#menu' ).addClass( 'hidden' );
+                    $( '#spotifyPlaylistsMenu' ).addClass( 'invisible' );
+                    $( '#menu' ).addClass( 'invisible' );
                 }
             }
 
             function showScreensaverEnso() {
                 $( '.mainSectionActive' ).each( function () {
                     if ( $( this ).attr( 'data-target' ) == 'videos' || $( this ).attr( 'data-target' ) == 'images' ) {
-                        $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'hidden' );
+                        $( '#' + $( this ).attr( 'data-target' ) ).addClass( 'invisible' );
                         $( '#globalEnsoContainer' ).removeClass( 'globalEnsoContainerHidden' );
                         $( '.videoFilterBtn' ).addClass( 'hiddenAndUnclickable' );
                         $( '.imageFilterBtn' ).addClass( 'hiddenAndUnclickable' );
@@ -1026,15 +1023,15 @@ $( document ).ready( function () {
                     $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#burgerContainer,#fullscreenIcon,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#devices,.fullscreenImage' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                     $( '#menu' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), pointer;' );
                     $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
-                    $( '#spotifyPlaylistsMenu' ).removeClass( 'hidden' );
-                    $( '#menu' ).removeClass( 'hidden' );
+                    $( '#spotifyPlaylistsMenu' ).removeClass( 'invisible' );
+                    $( '#menu' ).removeClass( 'invisible' );
                 }
                 screensaverSecondsIdle = 0;
             }
 
             function hideScreensaverEnso() {
                 $( '.mainSectionActive' ).each( function () {
-                    $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'hidden' );
+                    $( '#' + $( this ).attr( 'data-target' ) ).removeClass( 'invisible' );
                     $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
                     $( '.videoFilterBtn' ).removeClass( 'hiddenAndUnclickable' );
                     $( '.imageFilterBtn' ).removeClass( 'hiddenAndUnclickable' );
@@ -1107,11 +1104,9 @@ $( document ).ready( function () {
                         clearInterval( imageSlideshowInterval );
                         moveTimerFullscreenSlideshow = setTimeout( function () {
                             $( '.videoMenuOverlay' ).hide();
-                            $( '.spotifyTrackProgressContainerFullscreenVideo' ).hide();
                             $( '.displayedFullscreenImage' ).css( 'cursor', 'none' );
                         }, 1500 );
                         $( '.videoMenuOverlay' ).show();
-                        $( '.spotifyTrackProgressContainerFullscreenVideo' ).show();
                         $( '.displayedFullscreenImage' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                     }
                 } );
@@ -1183,7 +1178,6 @@ $( document ).ready( function () {
                 }, 3000 );
 
                 $( '.videoMenuOverlay' ).hide();
-                $( '.spotifyTrackProgressContainerFullscreenVideo' ).hide();
                 $( '.displayedFullscreenImage' ).css( 'cursor', 'none' );
                 shownImages = [];
                 imageSlideshowInterval = window.setInterval( function () {
