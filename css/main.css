@@ -656,7 +656,8 @@ option {
     position: fixed;
     top: 2px;
     left: 0px;
-    z-index: 10;
+    z-index: 15;
+    visibility: visible !important;
 }
 
 .spotifyTrackProgressContainerFullscreenVideo {

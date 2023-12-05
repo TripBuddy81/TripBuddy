@@ -1107,9 +1107,11 @@ $( document ).ready( function () {
                         clearInterval( imageSlideshowInterval );
                         moveTimerFullscreenSlideshow = setTimeout( function () {
                             $( '.videoMenuOverlay' ).hide();
+                            $( '.spotifyTrackProgressContainerFullscreenVideo' ).hide();
                             $( '.displayedFullscreenImage' ).css( 'cursor', 'none' );
                         }, 1500 );
                         $( '.videoMenuOverlay' ).show();
+                        $( '.spotifyTrackProgressContainerFullscreenVideo' ).show();
                         $( '.displayedFullscreenImage' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                     }
                 } );
@@ -1181,6 +1183,7 @@ $( document ).ready( function () {
                 }, 3000 );
 
                 $( '.videoMenuOverlay' ).hide();
+                $( '.spotifyTrackProgressContainerFullscreenVideo' ).hide();
                 $( '.displayedFullscreenImage' ).css( 'cursor', 'none' );
                 shownImages = [];
                 imageSlideshowInterval = window.setInterval( function () {
