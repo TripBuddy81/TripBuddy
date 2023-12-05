@@ -936,6 +936,8 @@ $( document ).ready( function () {
                 }
 
                 $( '#directYoutubePlayer' ).hide();
+                $( '.videoMenuOverlay' ).hide();
+                $( '.spotifyTrackProgressContainerFullscreenVideo' ).hide();
                 $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
@@ -951,7 +953,7 @@ $( document ).ready( function () {
                     $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
                     $( '.spotifyTrackProgressContainerFullscreenVideo' ).hide();
                     $( '.videoMenuOverlay' ).hide();
-                }, 1000 );
+                }, 2000 );
                 $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                 $( '.spotifyTrackProgressContainerFullscreenVideo' ).show();
                 $( '.videoMenuOverlay' ).show();
