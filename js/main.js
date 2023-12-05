@@ -620,10 +620,12 @@ $( document ).ready( function () {
                     $( '#directYoutubePlayer' ).hide();
                 }
 
+                if ( $( '#mainSearchResultYoutubeIframe' ).is( ':visible' ) ) {
+                    document.exitFullscreen();
+                }
+
                 if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
                     disableFullscreen();
-                    $( '.videoMenuOverlayMinimized' ).show();
-                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 }
 
                 if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
@@ -633,6 +635,7 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 $( '.videoMenuOverlay' ).hide();
+                $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 $( '#timedRecommendation' ).modal( 'show' );
                 $( '#topupRecommendation' ).html( recommendationText );
