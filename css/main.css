@@ -968,8 +968,8 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .addVideoToQueue {
-    right: 15px;
-    top: 2px;
+    right: 10px;
+    top: 5px;
     z-index: 2;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
     position: absolute;
