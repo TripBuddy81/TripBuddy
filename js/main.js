@@ -1268,10 +1268,15 @@ $( document ).ready( function () {
             } );
 
             document.getElementById( 'shrineStroboSpeed' ).addEventListener( 'input', function () {
+                targetStroboSpeed = 0;
+                if ( $( '#shrineStroboSpeed' ).val() > 0 ) {
+                    targetStroboSpeed = parseInt( $( '#shrineStroboSpeed' ).val() ) + 10; // plus 10 because in this lower range there is no visible effect otherwise
+                }
+
                 if ( stroboBGWhite ) {
-                    $( '#particles-js' ).css( 'animation', 'strobo2 ' + $( '#shrineStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
+                    $( '#particles-js' ).css( 'animation', 'strobo2 ' + targetStroboSpeed + 'ms steps(1,end) infinite' );
                 } else {
-                    $( '#particles-js' ).css( 'animation', 'strobo1 ' + $( '#shrineStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
+                    $( '#particles-js' ).css( 'animation', 'strobo1 ' + targetStroboSpeed + 'ms steps(1,end) infinite' );
                 }
                 if ( $( '#shrineStroboSpeed' ).val() > 0 ) {
                     $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 20ms steps(1,end) infinite' );
@@ -1283,12 +1288,17 @@ $( document ).ready( function () {
             } );
 
             $( '#shrineToggleBWStrobo' ).click( function ( event ) {
+                targetStroboSpeed = 0;
+                if ( $( '#shrineStroboSpeed' ).val() > 0 ) {
+                    targetStroboSpeed = parseInt( $( '#shrineStroboSpeed' ).val() ) + 10; // plus 10 because in this lower range there is no visible effect otherwise
+                }
+
                 if ( stroboBGWhite ) {
                     stroboBGWhite = false;
-                    $( '#particles-js' ).css( 'animation', 'strobo1 ' + $( '#shrineStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
+                    $( '#particles-js' ).css( 'animation', 'strobo1 ' + targetStroboSpeed + 'ms steps(1,end) infinite' );
                 } else {
                     stroboBGWhite = true;
-                    $( '#particles-js' ).css( 'animation', 'strobo2 ' + $( '#shrineStroboSpeed' ).val() + 'ms steps(1,end) infinite' );
+                    $( '#particles-js' ).css( 'animation', 'strobo2 ' + targetStroboSpeed + 'ms steps(1,end) infinite' );
                 }
             } );
 

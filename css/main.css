@@ -892,7 +892,7 @@ input[type=range] {
     height: 48px;
     -webkit-appearance: none;
     margin: 10px 0;
-    width: 300px;
+    width: 150px;
 }
 
 #shrineStroboSpeed {
