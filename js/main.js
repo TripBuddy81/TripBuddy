@@ -773,6 +773,9 @@ $( document ).ready( function () {
             }
 
             function onDirectYoutubePlayerStateChange( event ) {
+                // Always force CC off!
+                directYoutubePlayer.unloadModule( 'captions' );
+                directYoutubePlayer.unloadModule( 'cc' );
                 switch ( event.data ) {
                     case YT.PlayerState.UNSTARTED:
                         directYoutubePlayerState = 'unstarted';
@@ -815,6 +818,7 @@ $( document ).ready( function () {
                 }
                 lastPlayedDirectYoutubePlayerId = $( this ).attr( 'videoId' );
                 directYoutubePlayer.playVideo();
+
 
                 if ( $( this ).attr( 'mute' ) == 'false' ) {
                     spotifyPause();
@@ -1588,6 +1592,9 @@ $( document ).ready( function () {
             searchYoutube( youtubeIntitalSearchTerm );
 
             function onMainSearchResultPlayerStateChange( event ) {
+                // Always force CC off!
+                mainSearchResultYoutubePlayer.unloadModule( 'captions' );
+                mainSearchResultYoutubePlayer.unloadModule( 'cc' );
                 switch ( event.data ) {
                     case YT.PlayerState.UNSTARTED:
                         mainSearchResultYoutubePlayerState = 'unstarted';
