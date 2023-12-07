@@ -66,6 +66,12 @@
         }
 
         try {
+            document.getElementsByClassName("ytp-subtitles-button")[0].remove();
+        } catch(e) {
+        }
+
+
+        try {
             document.getElementsByClassName("html5-endscreen")[0].remove();
         } catch(e) {
         }
