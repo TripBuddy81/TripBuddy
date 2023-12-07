@@ -21,17 +21,17 @@
 
     function modifyIframe() {
         try {
-            document.getElementsByClassName("ytp-fullscreen-button")[0].style.opacity = "0";
+            document.getElementsByClassName("ytp-right-controls")[0].remove();
+        } catch(e) {
+        }
+
+        try {
+            document.getElementsByClassName("ytp-volume-panel")[0].remove();
         } catch(e) {
         }
 
         try {
             document.getElementsByClassName("fp-embed")[0].remove();
-        } catch(e) {
-        }
-
-        try {
-            // document.getElementsByClassName("ytp-volume-area")[0].remove();
         } catch(e) {
         }
 
@@ -62,11 +62,6 @@
 
         try {
             document.getElementsByClassName("ytp-large-play-button")[0].remove();
-        } catch(e) {
-        }
-
-        try {
-            document.getElementsByClassName("ytp-subtitles-button")[0].remove();
         } catch(e) {
         }
 
@@ -111,5 +106,6 @@
         }
 
     }
+
 
 })();
