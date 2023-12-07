@@ -130,6 +130,9 @@ $( document ).ready( function () {
                 $( this ).val( '' );
             } );
 
+            // Init number spinner ('.input-group') - https://www.jqueryscript.net/form/Input-Spinner-Plugin-Bootstrap-4.html
+            $( '#pizzaTimerMinutes' ).inputSpinner();
+
             // Init gradient background
             refreshGradientBackground();
 
