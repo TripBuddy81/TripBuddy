@@ -961,7 +961,7 @@ $( document ).ready( function () {
                 moveTimerFullscreenVideoOverlay = setTimeout( function () {
                     $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
                     $( '.videoMenuOverlay' ).hide();
-                }, 2000 );
+                }, 1000 );
                 $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                 $( '.videoMenuOverlay' ).show();
             } );
