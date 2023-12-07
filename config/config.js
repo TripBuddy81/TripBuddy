@@ -536,154 +536,179 @@ var config = {
             'tags'   : 'weird'
         },
         {
-            'videoId': '9_dgIfz876A',
-            'mute'   : false,
-            'tags'   : 'wisdom',
-            'label'  : 'Right where it belongs - NIN'
+            'videoId' : '9_dgIfz876A',
+            'mute'    : false,
+            'tags'    : 'wisdom',
+            'label'   : 'Right where it belongs - NIN',
+            'keywords': 'perspective change, music'
         },
         {
             'videoId': 'm-47paKizHM',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'Right where it belongs - Mumi'
+            'label'  : 'Right where it belongs - Mumi',
+            'keywords': 'perspective change, music'
         },
         {
             'videoId': 'ogLc7M9_hR8',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'The lie we live'
+            'label'  : 'The lie we live',
+            'keywords': ' '
         },
         {
             'videoId': 'rBpaUICxEhk',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'Das Leben ist keine Reise'
+            'label'  : 'Das Leben ist keine Reise',
+            'keywords': ' '
         },
         {
             'videoId': '4yaBJVfyy00',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'The false idea of who you are'
+            'label'  : 'The false idea of who you are',
+            'keywords': ' '
         },
         {
             'videoId': 'kl1fytRAMRE',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'Don\'t take life too seriously'
+            'label'  : 'Don\'t take life too seriously',
+            'keywords': ' '
         },
         {
             'videoId': '4vv93azMkDE',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'The rules to the game of life'
+            'label'  : 'The rules to the game of life',
+            'keywords': ' '
         },
         {
             'videoId': 'DIChudNdFQ8',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'The Mystery of falling in love'
+            'label'  : 'The Mystery of falling in love',
+            'keywords': ' '
         },
         {
             'videoId': 'pFH804qrIOU',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'What is Nirvana?'
+            'label'  : 'What is Nirvana?',
+            'keywords': ' '
         },
         {
             'videoId': '2u0rPBbn5G8',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'When you are ready to wake up, you are going to wake up'
+            'label'  : 'When you are ready to wake up, you are going to wake up',
+            'keywords': ' '
         },
         {
             'videoId': '4f5yF8GeCG4',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'It\'s time to wake up'
+            'label'  : 'It\'s time to wake up',
+            'keywords': ' '
         },
         {
             'videoId': 'uc8ceRYTbtU',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'Surrendering does not make sense, but it does'
+            'label'  : 'Surrendering does not make sense, but it does',
+            'keywords': ' '
         },
         {
             'videoId': 'h6fcK_fRYaI',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'The egg'
+            'label'  : 'The egg',
+            'keywords': 'big picture, oneness, connection, '
         },
         {
             'videoId': 'Jv79l1b-eoI',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'How to party at the end of meaning'
+            'label'  : 'How to party at the end of meaning',
+            'keywords': ' '
         },
         {
             'videoId': 'yXBiYk4hYm0',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'Dostoevsky - Timeless philosophy of a tormented genius'
+            'label'  : 'Dostoevsky - Timeless philosophy of a tormented genius',
+            'keywords': ' '
         },
         {
             'videoId': 'id0Kkq4VHDo',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'Socrates\' Trial: His historic defense in today\'s language'
+            'label'  : 'Socrates\' Trial: His historic defense in today\'s language',
+            'keywords': ' '
         },
         {
             'videoId': '4nHj3gL_JN0',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'The profound meaning of Plato\'s allegory of the cave'
+            'label'  : 'The profound meaning of Plato\'s allegory of the cave',
+            'keywords': ' '
         },
         {
             'videoId': 'lZ62b5JjO6Q',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'Carl Jung\'s life lessons men learn too late in life'
+            'label'  : 'Carl Jung\'s life lessons men learn too late in life',
+            'keywords': 'life wisdom '
         },
         {
             'videoId': 'Jbc0YVgI5Bo',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : '365 life lessons so you don\'t screw your life up like I did'
+            'label'  : '365 life lessons so you don\'t screw your life up like I did',
+            'keywords': 'life wisdom  '
         },
         {
             'videoId': 'DRc430cTkQk',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'Near death experience'
+            'label'  : 'Near death experience',
+            'keywords': 'NDE, DMT '
         },
         {
             'videoId': 'k3VCrlN_1OI',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'The most important question of your life'
+            'label'  : 'The most important question of your life',
+            'keywords': ' '
         },
         {
             'videoId': 'hZeoyYOYgg4',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'How to be completely carefree'
+            'label'  : 'How to be completely carefree',
+            'keywords': ' '
         },
         {
             'videoId': '9M56t0UoW5M',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'Aloneness to oneness'
+            'label'  : 'Aloneness to oneness',
+            'keywords': ' '
         },
         {
             'videoId': '9PnGNVJSN6Q',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'All along the watchtower'
+            'label'  : 'All along the watchtower',
+            'keywords': ' '
         },
         {
             'videoId': 'iC6DDvzM6Nc',
             'mute'   : false,
             'tags'   : 'wisdom',
-            'label'  : 'The Best-Kept Secret in History'
+            'label'  : 'The Best-Kept Secret in History',
+            'keywords': ' '
         },
         {
             'videoId': 'ZcfDzE3FCt4',
