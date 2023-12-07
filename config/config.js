@@ -508,6 +508,10 @@ var config = {
             'tags'   : 'weird'
         },
         {
+            'videoId': '7ZHfA-QRWgM',
+            'tags'   : 'weird'
+        },
+        {
             'videoId': 'fUWYgdmNscg',
             'tags'   : 'weird'
         },
