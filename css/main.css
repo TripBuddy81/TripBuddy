@@ -906,7 +906,7 @@ input[type=range] {
 
 .input-group .btn {
     height: 20px;
-    top: 15px;
+    top: 14px;
     line-height: 0px;
     font-weight: 800;
     background: black;
@@ -923,7 +923,7 @@ input[type=range] {
 
 .input-group > .form-control, .input-group > .form-select {
     height: 24px;
-    top: 12px;
+    top: 11px;
     width: 45px;
     padding: 0;
     background: transparent;
