@@ -967,7 +967,7 @@ $( document ).ready( function () {
             } );
 
             // Reset settings if user disengaged fullscreen via ESC or other means...
-            var intervalId = window.setInterval( function () {
+            window.setInterval( function () {
                 if ( window.innerHeight != screen.height ) {
                     $( '.videoMenuOverlayMinimized' ).show();
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
