@@ -450,9 +450,6 @@ $( document ).ready( function () {
             localStorage.setItem( 'minutesCountAtLastDisplayedThought', $( '#firstGuidedThoughtMin' ).val() );
             $( '.guidedThoughtsContainer' ).click( function () {
                 $( '.guidedThoughtsContainer' ).hide();
-                while ( allGuidedThoughts.length ) {
-                    allGuidedThoughts.pop();
-                }
             } );
             $( '.guidedThoughtsTextInput' ).change( function () {
                 localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
