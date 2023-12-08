@@ -7,6 +7,7 @@ var currentPlaylist = '';
 var radioButtons = [];
 var lastSelectedPlaylist = 'spotify:playlist:0O1C7wbOthIxBbai9pYvEH';
 var playingTrack = false;
+var playingTrackDetectionDoneOnce = false;
 var lastPlaylistId = '';
 
 const AUTHORIZE = 'https://accounts.spotify.com/authorize'
@@ -283,6 +284,10 @@ function handleCurrentlyPlayingResponse() {
 
         if ( data['is_playing'] ) {
             playingTrack = true;
+            if ( !playingTrackDetectionDoneOnce ) {
+                playingTrackDetectionDoneOnce = true;
+                spotifyHasBeenPlayingBeforePause = true;
+            }
         } else {
             playingTrack = false;
         }

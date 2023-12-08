@@ -7,7 +7,6 @@ $( document ).ready( function () {
             window.directYoutubePlayer;
             window.directYoutubePlayerState = 'undefined';
             var pizzaTimerStart = '';
-            var minutesCountAtLastDisplayedThought = 0;
             var isFullScreen = false;
             var lastDisplayedImage = config['images'][0]['image'];
             var minutesTillNextThought = 0;
@@ -447,7 +446,7 @@ $( document ).ready( function () {
             localStorage.setItem( 'guidedThought3', '' );
             localStorage.setItem( 'guidedThoughtMinMinutes', $( '#guidedThoughtMinMinutes' ).val() );
             localStorage.setItem( 'guidedThoughtMaxMinutes', $( '#guidedThoughtMaxMinutes' ).val() );
-            localStorage.setItem( 'minutesCountAtLastDisplayedThought', $( '#firstGuidedThoughtMin' ).val() );
+            localStorage.setItem( 'minutesCountAtLastDisplayedThought', -1 );
             $( '.guidedThoughtsContainer' ).click( function () {
                 $( '.guidedThoughtsContainer' ).hide();
             } );
@@ -467,7 +466,7 @@ $( document ).ready( function () {
                 if ( $( '#guidedThoughtTimingContainer' ).is( ':visible' ) ) {
                     localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( $( '#firstGuidedThoughtMin' ).val() ) );
                 } else {
-                    localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( '999999999' ) );
+                    localStorage.setItem( 'minutesCountAtLastDisplayedThought', -1 );
                 }
             } );
 
