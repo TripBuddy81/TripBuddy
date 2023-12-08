@@ -40,6 +40,7 @@ $( document ).ready( function () {
             var directYoutubePlayerState = 'undefined';
             var youtubeIntitalSearchTerm = 'Psychill';
             var lastPlayedDirectYoutubePlayerId = '';
+            var lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
             var lastSelectedAutocompleteItem = 0;
             var currentAutocompleteItem = 0;
             var allVideosLoaded = false;
@@ -785,7 +786,9 @@ $( document ).ready( function () {
                         break;
                     case YT.PlayerState.ENDED:
                         directYoutubePlayerState = 'ended';
-                        directYoutubePlayer.playVideo();
+                        if ( !lastPlayedDirectYoutubePlayerVideoIsWisdom ) {
+                            directYoutubePlayer.playVideo();
+                        }
                         break;
                     case YT.PlayerState.PLAYING:
                         directYoutubePlayerState = 'playing';
@@ -820,8 +823,14 @@ $( document ).ready( function () {
                     directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ) );
                 }
                 lastPlayedDirectYoutubePlayerId = $( this ).attr( 'videoId' );
-                directYoutubePlayer.playVideo();
 
+                if ( $( this ).closest( '.videoContainer' ).hasClass( 'wisdom' ) ) {
+                    lastPlayedDirectYoutubePlayerVideoIsWisdom = true;
+                } else {
+                    lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
+                }
+
+                directYoutubePlayer.playVideo();
 
                 if ( $( this ).attr( 'mute' ) == 'false' ) {
                     spotifyPause();
@@ -940,7 +949,7 @@ $( document ).ready( function () {
 
                 } else { // Direct youtube player
                     directYoutubePlayer.pauseVideo();
-                    if ( spotifyHasBeenPlayingBeforePause ) {
+                    if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom) {
                         spotifyPlay();
                     }
                 }
