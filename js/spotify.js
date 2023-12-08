@@ -294,13 +294,13 @@ function handleCurrentlyPlayingResponse() {
 
 function updateProgressBar( duration, progress, isPlaying ) {
     if ( isPlaying ) {
-        $( '.spotifyTrackProgress' ).show();
+        $( '.trackProgress' ).show();
         percentageProgress = progress / duration;
         percentageRemaining = 1 - percentageProgress;
         newWidth = $( window ).width() * percentageRemaining;
-        $( '.spotifyTrackProgress' ).attr( 'style', 'width:' + newWidth + 'px' );
+        $( '.trackProgress' ).attr( 'style', 'width:' + newWidth + 'px' );
     } else {
-        $( '.spotifyTrackProgress' ).hide();
+        $( '.trackProgress' ).hide();
     }
 }
 

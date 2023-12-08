@@ -654,7 +654,7 @@ option {
     color: white;
 }
 
-.spotifyTrackProgressContainer {
+.trackProgressContainer {
     width: 100%;
     text-align: center;
     position: fixed;
@@ -664,13 +664,13 @@ option {
     visibility: visible !important;
 }
 
-.spotifyTrackProgress {
+.trackProgress {
     margin: 0px auto;
     position: sticky;
     transition: all 2s;
 }
 
-.spotifyTrackProgress .colorfulBorder {
+.trackProgress .colorfulBorder {
     --borderWidth: 2px;
 }
 

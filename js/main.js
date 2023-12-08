@@ -152,7 +152,7 @@ $( document ).ready( function () {
             var alarmSound = document.getElementById( 'alarmSound' );
 
             // Init track progress bar
-            $( '.spotifyTrackProgress' ).hide();
+            $( '.trackProgress' ).hide();
 
             // ***********************************
             // Main Menu
@@ -838,6 +838,7 @@ $( document ).ready( function () {
                 } else {
                     directYoutubePlayer.mute();
                 }
+
             } );
 
             $( '.videoFilterBtn' ).click( function () {
