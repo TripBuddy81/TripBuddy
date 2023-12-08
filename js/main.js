@@ -542,6 +542,7 @@ $( document ).ready( function () {
                 while ( allGuidedThoughts.length ) {
                     allGuidedThoughts.pop();
                 }
+                displayedAbsoluteTruthIndex = [];
             } );
 
             // Timer && Graph && Time dependent actions
