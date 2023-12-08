@@ -462,6 +462,15 @@ $( document ).ready( function () {
                 localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( $( this ).val() ) );
             } );
 
+            $( '#guidedThoughtsShrineSectionOnly' ).change( function () {
+                $( '#guidedThoughtTimingContainer' ).toggle();
+                if ( $( '#guidedThoughtTimingContainer' ).is( ':visible' ) ) {
+                    localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( $( '#firstGuidedThoughtMin' ).val() ) );
+                } else {
+                    localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( '999999999' ) );
+                }
+            } );
+
             guidedThoughtPrefilTarget = 1;
             $( '.reminderSuggestion' ).click( function () {
                 $( '#guidedThought' + guidedThoughtPrefilTarget ).val( $( this ).html() );
