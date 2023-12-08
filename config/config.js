@@ -942,7 +942,6 @@ var config = {
         {'reminder': 'Dance!'},
         {'reminder': 'Drink Tea'},
         {'reminder': 'Deeptalk with plant'},
-        {'reminder': 'Inspect atomic structure of table'},
         {'reminder': 'Cuddle your friends!'},
         {'reminder': 'Eat some fruits'}
     ],
