@@ -2,6 +2,10 @@ $( document ).ready( function () {
             // ***********************************
             // Globals
             window.spotifyHasBeenPlayingBeforePause = false;
+            window.mainSearchResultYoutubePlayer;
+            window.mainSearchResultYoutubePlayerState = 'undefined';
+            window.directYoutubePlayer;
+            window.directYoutubePlayerState = 'undefined';
             var pizzaTimerStart = '';
             var minutesCountAtLastDisplayedThought = 0;
             var isFullScreen = false;
@@ -36,8 +40,6 @@ $( document ).ready( function () {
             var maxYoutubeSearchResults = 50;
             var youtubeApiKeyInUse = 1;
             var youtubeCurrentQueue = [];
-            var mainSearchResultYoutubePlayerState = 'undefined';
-            var directYoutubePlayerState = 'undefined';
             var youtubeIntitalSearchTerm = 'Psychill';
             var lastPlayedDirectYoutubePlayerId = '';
             var lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
@@ -735,8 +737,6 @@ $( document ).ready( function () {
             tag.src = 'https://www.youtube.com/iframe_api';
             var firstScriptTag = document.getElementsByTagName( 'script' )[0];
             firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
-            var mainSearchResultYoutubePlayer;
-            var directYoutubePlayer;
 
             window.onYouTubePlayerAPIReady = function () {
                 // Direct youtube player (for clicked preview images in video section)
@@ -838,7 +838,6 @@ $( document ).ready( function () {
                 } else {
                     directYoutubePlayer.mute();
                 }
-
             } );
 
             $( '.videoFilterBtn' ).click( function () {
@@ -950,7 +949,7 @@ $( document ).ready( function () {
 
                 } else { // Direct youtube player
                     directYoutubePlayer.pauseVideo();
-                    if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom) {
+                    if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom ) {
                         spotifyPlay();
                     }
                 }
@@ -982,6 +981,11 @@ $( document ).ready( function () {
                     $( '.videoMenuOverlayMinimized' ).show();
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                     $( '#directYoutubePlayer' ).hide();
+                    try {
+                        directYoutubePlayer.pauseVideo();
+                    } catch ( e ) {
+                    }
+
                     isFullScreen = false;
                     blockScreenSaver = false;
                 } else {

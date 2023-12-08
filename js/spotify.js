@@ -292,10 +292,18 @@ function handleCurrentlyPlayingResponse() {
     }
 }
 
-function updateProgressBar( duration, progress, isPlaying ) {
-    if ( isPlaying ) {
+function updateProgressBar( durationSpotify = 0, progressSpotify = 0, spotifyIsPlaying = false ) {
+    percentageProgress = 1;
+    if ( spotifyIsPlaying ) {
+        percentageProgress = progressSpotify / durationSpotify;
+    } else if ( directYoutubePlayerState == 'playing' ) {
+        percentageProgress = directYoutubePlayer.getCurrentTime() / directYoutubePlayer.getDuration();
+    } else if ( mainSearchResultYoutubePlayerState == 'playing' ) {
+        percentageProgress = mainSearchResultYoutubePlayer.getCurrentTime() / mainSearchResultYoutubePlayer.getDuration();
+    }
+
+    if ( spotifyIsPlaying || directYoutubePlayerState == 'playing' || mainSearchResultYoutubePlayerState == 'playing' ) {
         $( '.trackProgress' ).show();
-        percentageProgress = progress / duration;
         percentageRemaining = 1 - percentageProgress;
         newWidth = $( window ).width() * percentageRemaining;
         $( '.trackProgress' ).attr( 'style', 'width:' + newWidth + 'px' );
