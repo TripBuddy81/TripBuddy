@@ -390,6 +390,8 @@ $( document ).ready( function () {
                 if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
                     allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
                 }
+                displayedAbsoluteTruthIndex = [];
+
                 $( '.menuvisibleAfterStarted' ).show();
 
                 if ( allGuidedThoughts.length == 0 && localStorage.getItem( 'topupReminderInMinutes1' ) == '' && localStorage.getItem( 'topupReminderInMinutes2' ) == '' && localStorage.getItem( 'orderPizzaReminderInMinutes' ) == '' ) {
@@ -1377,16 +1379,25 @@ $( document ).ready( function () {
                 }
 
                 if ( displayedAbsoluteTruthIndex.length <= 0 ) {
-                    config['absoluteTruths'].forEach( function ( item ) {
-                        displayedAbsoluteTruthIndex.push( item );
-                    } );
+                    if ( allGuidedThoughts.length > 0 ) {
+                        allGuidedThoughts.forEach( function ( item ) {
+                            tempItem = [];
+                            tempItem['text'] = item;
+                            tempItem['tag'] = 'guided';
+                            displayedAbsoluteTruthIndex.push( tempItem );
+                        } );
+                    } else {
+                        config['absoluteTruths'].forEach( function ( item ) {
+                            displayedAbsoluteTruthIndex.push( item );
+                        } );
+                    }
                     shuffleArray( displayedAbsoluteTruthIndex );
                 }
                 nextTruth = displayedAbsoluteTruthIndex.pop();
 
-                if ( nextTruth['tag'] != 'XXX' && xxxVisible ) {
+                if ( nextTruth['tag'] != 'XXX' && xxxVisible && nextTruth['tag'] != 'guided' ) {
                     absoluteTruthsUpdate( quickSwap );
-                } else if ( nextTruth['tag'] == 'XXX' && !xxxVisible ) {
+                } else if ( nextTruth['tag'] == 'XXX' && !xxxVisible && nextTruth['tag'] != 'guided' ) {
                     absoluteTruthsUpdate( quickSwap );
                 } else {
                     $( '#absoluteTruthsOverlayText' ).fadeOut( fadeoutDuration, function () {
