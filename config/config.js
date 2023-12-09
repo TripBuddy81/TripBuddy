@@ -64,10 +64,6 @@ var config = {
                 'id'   : '0N1qMBk7vfvADy2odM1iG1'
             },
             {
-                'label': 'Ghetto Blaster Cowboy',
-                'id'   : '6RiLcbvU8CrNO7XsxcJmnE'
-            },
-            {
                 'label': 'Tokyo Glitter',
                 'id'   : '5oJ4jtBbf0y2ULYTJdcrHK'
             },
@@ -208,6 +204,10 @@ var config = {
         },
         {
             'videoId': 'dzJMbIdrpwI',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': 'cZ-2j3YixFc',
             'tags'   : 'trippy-3D'
         },
         {
