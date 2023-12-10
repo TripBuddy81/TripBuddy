@@ -408,7 +408,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     display: none;
 }
 
-#startPizzaTimer, #disableAllReminders {
+#startPizzaTimer, #disableAllReminders, #showPrivateContent, #hidePrivateContent {
     color: black;
     font-size: 30px;
     font-weight: bold;

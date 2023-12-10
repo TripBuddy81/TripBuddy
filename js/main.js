@@ -27,6 +27,7 @@ $( document ).ready( function () {
             var totalMins = 0;
             var veryFirstThoughtDisplayed = false;
             var xxxVisible = false;
+            var privateVisible = false;
             var slideshowJustStarted = false;
             var lastActiveBackgroundGradientKeyFrame = 1;
             var textShrinkFrameSeed = 1;
@@ -337,7 +338,38 @@ $( document ).ready( function () {
                 } else {
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
                 }
+
+                togglePrivateVisible();
             }
+
+            function togglePrivateVisible() {
+                if ( !xxxVisible || !privateVisible ) {
+                    $( '.private' ).each( function () {
+                        $( this ).hide();
+                    } );
+                } else {
+                    $( '.private' ).each( function () {
+                        $( this ).show();
+                    } );
+                    $( '#showPrivateContent' ).hide();
+                }
+            }
+
+            $( '#showPrivateContent' ).click( function ( e ) {
+                privateVisible = true;
+                $( '.private' ).each( function () {
+                    $( this ).show();
+                } );
+                $( '#showPrivateContent' ).hide();
+            } );
+
+            $( '#hidePrivateContent' ).click( function ( e ) {
+                privateVisible = false;
+                $( '.private' ).each( function () {
+                    $( this ).hide();
+                } );
+                $( '#showPrivateContent' ).show();
+            } );
 
             // Start button & preFlightChecklist & Reminders
             $( '#launchText' ).click( function ( e ) {
@@ -892,6 +924,8 @@ $( document ).ready( function () {
                         this.load();
                     } );
                 }
+
+                togglePrivateVisible();
             } );
 
             // Double clicking videos main button loads all videos if in fast mode
@@ -1115,6 +1149,8 @@ $( document ).ready( function () {
                         $( this ).show();
                     } );
                 }
+
+                togglePrivateVisible();
             } );
             Intense( document.querySelectorAll( '.fullscreenImage' ) );
 
