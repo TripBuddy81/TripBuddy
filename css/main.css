@@ -1137,6 +1137,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #notesOverlay .modal-content {
     height: 101vh;
+    width: 100.2vw;
 }
 
 #notesOverlay .modal-dialog {

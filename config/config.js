@@ -223,12 +223,20 @@ var config = {
             'tags'   : 'trippy-3D'
         },
         {
+            'videoId': '3Hr4OH3rq5k',
+            'tags'   : 'trippy-3D'
+        },
+        {
             'videoId': '5drq3OD19NQ',
             'tags'   : 'trippy-3D'
         },
         {
             'videoId': 'mCScNx6Oxe4',
             'tags'   : 'trippy-2D'
+        },
+        {
+            'videoId': 'Kz44V1BFoxc',
+            'tags'   : 'trippy-3D'
         },
         {
             'videoId': 'JKe0gryiCCw',
@@ -276,10 +284,6 @@ var config = {
         },
         {
             'videoId': '2QWlxqKneLs',
-            'tags'   : 'trippy-3D'
-        },
-        {
-            'videoId': 'd6gofPAru34',
             'tags'   : 'trippy-3D'
         },
         {
