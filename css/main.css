@@ -1129,6 +1129,25 @@ video::-webkit-media-controls-fullscreen-button {
     color: black;
 }
 
+#notesOverlay {
+    top: -2px;
+    left: -2px;
+    height: auto;
+}
+
+#notesOverlay .modal-content {
+    height: 101vh;
+}
+
+#notesOverlay .modal-dialog {
+    max-width: 100%;
+    margin: 0;
+}
+
+#notesOverlay .modal-body {
+    height: 100vh;
+}
+
 #notesSymbol {
     display: none;
     height: 45px;
