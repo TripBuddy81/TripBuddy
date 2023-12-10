@@ -1153,6 +1153,7 @@ video::-webkit-media-controls-fullscreen-button {
     box-shadow: none;
     resize: none;
     caret-color: #EF5553;
+    caret-shape: block;
     padding-left: 14px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
