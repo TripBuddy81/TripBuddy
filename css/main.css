@@ -8,8 +8,20 @@ html, body {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer;
     overflow-x: hidden;
+}
+
+cursorDefault {
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+.cursorAction {
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
+}
+
+.cursorNone {
+    cursor: none !important;
 }
 
 .row {
@@ -27,13 +39,13 @@ html, body {
     height: 20px;
     width: 25px;
     background-color: transparent;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
     border-radius: 25px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 @keyframes backgroundgradient0 {
@@ -65,7 +77,7 @@ body::-webkit-scrollbar {
 }
 
 input, .form-check-label, .menuItem {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 h1, h2, h3 {
@@ -79,7 +91,7 @@ a:link, a:visited, a:active, a:hover, p {
     color: #000000;
     text-decoration: none;
     font-size: 25px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .hidden {
@@ -145,14 +157,14 @@ p {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer;
 }
 
 .btn {
     background-color: #809bce;
     color: black;
     font-size: x-large;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .btn:hover {
@@ -165,7 +177,7 @@ p {
 }
 
 #showVideoSection, #showImageSection, #showShrineSection, #showGamesSection, #showSearchSection {
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     height: 65px;
     margin-top: 3px;
     margin-right: 30px;
@@ -215,7 +227,7 @@ p {
 }
 
 .iFrameContainer {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     z-index: 1;
     height: 100%;
     display: none;
@@ -255,7 +267,7 @@ p {
     position: absolute;
     top: -7px;
     left: -5px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     opacity: 0;
     z-index: 2;
     -webkit-touch-callout: none;
@@ -279,7 +291,7 @@ p {
 .menuItem > a {
     font-weight: normal;
     font-size: 25px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 a.menuItem:hover, .menuItem:hover, #menu li:hover {
@@ -380,7 +392,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
 #timedRecommendation .modal-body {
     height: 550px;
     font-size: 150px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #timedRecommendation .modal-dialog {
@@ -400,7 +412,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     z-index: 20;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.6);
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     display: none;
 }
 
@@ -409,7 +421,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     font-size: 30px;
     font-weight: bold;
     margin-right: 15px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .guidedThoughtsText {
@@ -432,11 +444,11 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     padding-right: 25px;
     font-size: 25px;
     font-style: italic;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #clearReminders {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .guidedThoughtMinutesLabel {
@@ -588,7 +600,7 @@ li, .options, .form-check-label {
 
 #fullscreenIcon, .playerIcon, #switchDesktopPhone {
     height: 45px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     position: relative;
     z-index: 5;
 }
@@ -604,14 +616,14 @@ li, .options, .form-check-label {
 }
 
 .fullscreenImage {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     width: 538.7px;
     margin-bottom: 25px;
     border-radius: 5px;
 }
 
 .externalVideoPreview {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     width: 100%;
     height: 100%;
     margin-right: 22px;
@@ -636,7 +648,7 @@ li, .options, .form-check-label {
     top: 16px;
     width: 300px;
     background: transparent;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     border: none;
     font-weight: bold;
     padding: 0;
@@ -674,7 +686,7 @@ option {
     position: sticky;
     top: 0px;
     width: 340px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     background-color: transparent;
     border: none;
     font-weight: bold;
@@ -718,7 +730,7 @@ option {
 }
 
 .spotifyPlaylistItem {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .spotifyPlaylistItem:hover {
@@ -759,7 +771,7 @@ option {
     font-weight: bold;
     height: 35px;
     width: 285px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     left: 0px;
     z-index: 2;
 }
@@ -769,7 +781,7 @@ option {
     top: -8px;
     padding-left: 0px;
     height: 55px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     left: -25px;
     z-index: 2;
 }
@@ -858,7 +870,7 @@ option {
 .shrineSetBGColor, .shrineSetBGColorful, .shrineToggleBWStrobo {
     padding: 25px 25px 0px 25px;
     display: inline;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     border-color: black;
     border-width: 3px;
     border-style: solid;
@@ -866,14 +878,14 @@ option {
 
 #shrineBGColorPickerContainer {
     display: inline;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #shrineBGColorPickerImage, #shrineToggleBWStrobo {
     width: 60px;
     height: 60px;
     margin-bottom: 30px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #shrineParticlesSwitchImage {
@@ -881,7 +893,7 @@ option {
     height: 50px;
     margin-bottom: 30px;
     margin-left: 15px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 input[type=range] {
@@ -944,7 +956,7 @@ input[type=range] {
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 30px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     animate: 0.2s;
     box-shadow: 0px 0px 1px transparent;
     background: #D8D8D8;
@@ -959,7 +971,7 @@ input[type=range]::-webkit-slider-thumb {
     width: 41px;
     border-radius: 50px;
     background: #000000;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     -webkit-appearance: none;
     margin-top: -5.5px;
 }
@@ -997,7 +1009,7 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 1;
     width: 100%;
     height: 100%;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     position: absolute;
 }
 
@@ -1005,7 +1017,7 @@ video::-webkit-media-controls-fullscreen-button {
     right: 10px;
     top: 5px;
     z-index: 2;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     position: absolute;
     width: 50px;
     opacity: 0;
@@ -1041,7 +1053,7 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 1;
     width: 35px;
     height: 35px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     position: absolute;
     display: none;
 }
@@ -1073,7 +1085,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-family: sans-serif;
     z-index: 15;
     visibility: visible !important;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #startSlideshow {
@@ -1106,7 +1118,7 @@ video::-webkit-media-controls-fullscreen-button {
     top: 5px;
     right: 360px;
     z-index: 10;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #pizzaTimerSymbol {
@@ -1148,7 +1160,7 @@ video::-webkit-media-controls-fullscreen-button {
 #notesSymbol {
     display: none;
     height: 45px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     position: absolute;
     right: 140px;
     top: 21px;
@@ -1171,7 +1183,7 @@ video::-webkit-media-controls-fullscreen-button {
     caret-color: #EF5553;
     caret-shape: block;
     padding-left: 14px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #absoluteTruthsOverlay {
@@ -1289,7 +1301,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .VRGameLinkContainer {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     width: 538px;
     height: 300px;
     display: inline-block;
@@ -1322,7 +1334,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .keyboard-action-button, .keyboard-key {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #directYoutubePlayer {
@@ -1360,7 +1372,7 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 1;
     width: 1061px;
     height: 547px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     position: absolute;
 }
 
@@ -1377,12 +1389,12 @@ video::-webkit-media-controls-fullscreen-button {
     height: 40px;
     top: 719px;
     opacity: 0.5;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
 }
 
 #switchAudioSource {
     height: 45px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
 }
 
 #mainSearchInput, #mainSearchInput:focus, #mainSearchInput:active {
@@ -1401,7 +1413,7 @@ video::-webkit-media-controls-fullscreen-button {
     right: 10px;
     top: 5px;
     opacity: 0.5;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .colorfulBorder {
@@ -1460,14 +1472,14 @@ video::-webkit-media-controls-fullscreen-button {
 .youtubeResultItemImage, .youtubeQueueItemImage {
     height: 180px;
     display: block;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     border-radius: 5px;
 }
 
 .youtubeResultItemDescription, .youtubeQueueItemDescription {
     display: table;
     position: relative;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     min-height: 50px;
     font-size: 17px;
     font-weight: 600;
@@ -1477,7 +1489,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #openVideoOnYouTube {
     position: fixed;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     height: 50px;
     left: 1065px;
     top: 413px;
@@ -1497,7 +1509,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     top: 413px;
     left: 580px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .youtubeQueueEmpty {
@@ -1524,7 +1536,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 800;
     top: 136px;
     right: -12px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     z-index: 10;
 }
 
@@ -1536,7 +1548,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .youtubeAutocompleteItem {
     font-size: 20px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .autocompleteSelected, .youtubeAutocompleteItem:hover {
@@ -1544,17 +1556,5 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #clearYoutubePlayedHistory {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-}
-
-cursorDefault {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-}
-
-.cursorAction {
-    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
-}
-
-.cursorNone {
-    cursor: none !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
