@@ -319,8 +319,6 @@ $( document ).ready( function () {
                 $( '.XXX' ).toggle();
                 defaultStyleXXXfilter = $( '.XXXfilter' ).attr( 'style' );
 
-                togglePrivateVisible();
-
                 if ( videoTagList == '' ) {
                     $( '.videoContainer' ).each( function () {
                         $( this ).hide();
@@ -343,6 +341,8 @@ $( document ).ready( function () {
                 } else {
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
                 }
+
+                togglePrivateVisible();
             }
 
             function togglePrivateVisible() {
@@ -360,6 +360,10 @@ $( document ).ready( function () {
                     $( '.privatefilter' ).show();
                     $( '#hidePrivateContent' ).show();
                     $( '#showPrivateContent' ).hide();
+  /*                  $( '.videoFilterBtn.videoFilterActive' ).each( function () {
+                        $( this ).trigger( 'click' );
+                        return false;
+                    } );*/
                 } else {
                     $( '.private' ).each( function () {
                         $( this ).hide();
@@ -933,8 +937,6 @@ $( document ).ready( function () {
                         this.load();
                     } );
                 }
-
-                togglePrivateVisible();
             } );
 
             // Double clicking videos main button loads all videos if in fast mode
