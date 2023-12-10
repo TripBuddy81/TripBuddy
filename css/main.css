@@ -12,6 +12,18 @@ html, body {
     overflow-x: hidden;
 }
 
+cursorDefault {
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+.cursorAction {
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
+}
+
+.cursorNone {
+    cursor: none !important;
+}
+
 .row {
     padding-left: 14px;
     padding-right: 15px;
@@ -62,10 +74,6 @@ html, body {
 
 body::-webkit-scrollbar {
     display: none;
-}
-
-.cursorNormal {
-    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
 }
 
 input, .form-check-label, .menuItem {

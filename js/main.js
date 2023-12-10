@@ -1077,6 +1077,7 @@ $( document ).ready( function () {
                     showScreensaverEnso();
                     $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).attr( 'style', 'cursor:none !important;' );
                     $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:none !important;' );
+                    $( '.fullscreenImage' ).addClass('cursorNone');
                     $( '#spotifyPlaylistsMenu' ).addClass( 'invisible' );
                     $( '#menu' ).addClass( 'invisible' );
                 }
@@ -1100,6 +1101,7 @@ $( document ).ready( function () {
                     $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#burgerContainer,#fullscreenIcon,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#devices' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
                     $( '#menu' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), pointer;' );
                     $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
+                    $( '.fullscreenImage' ).removeClass('cursorNone');
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'invisible' );
                     $( '#menu' ).removeClass( 'invisible' );
                 }
