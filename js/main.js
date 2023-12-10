@@ -396,6 +396,8 @@ $( document ).ready( function () {
                 if ( allGuidedThoughts.length == 0 && localStorage.getItem( 'topupReminderInMinutes1' ) == '' && localStorage.getItem( 'topupReminderInMinutes2' ) == '' && localStorage.getItem( 'orderPizzaReminderInMinutes' ) == '' ) {
                     $( '#disableAllReminders' ).hide();
                 }
+
+                screensaverStartAfterSeconds = 60;
             } );
 
             $( '#timedRecommendation' ).click( function ( event ) {
