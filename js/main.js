@@ -396,6 +396,8 @@ $( document ).ready( function () {
                 if ( allGuidedThoughts.length == 0 && localStorage.getItem( 'topupReminderInMinutes1' ) == '' && localStorage.getItem( 'topupReminderInMinutes2' ) == '' && localStorage.getItem( 'orderPizzaReminderInMinutes' ) == '' ) {
                     $( '#disableAllReminders' ).hide();
                 }
+
+                screensaverStartAfterSeconds = 60;
             } );
 
             $( '#timedRecommendation' ).click( function ( event ) {
@@ -446,7 +448,7 @@ $( document ).ready( function () {
             localStorage.setItem( 'guidedThought3', '' );
             localStorage.setItem( 'guidedThoughtMinMinutes', $( '#guidedThoughtMinMinutes' ).val() );
             localStorage.setItem( 'guidedThoughtMaxMinutes', $( '#guidedThoughtMaxMinutes' ).val() );
-            localStorage.setItem( 'minutesCountAtLastDisplayedThought', -1 );
+            localStorage.setItem( 'minutesCountAtLastDisplayedThought', 999999 );
             $( '.guidedThoughtsContainer' ).click( function () {
                 $( '.guidedThoughtsContainer' ).hide();
             } );
@@ -466,7 +468,7 @@ $( document ).ready( function () {
                 if ( $( '#guidedThoughtTimingContainer' ).is( ':visible' ) ) {
                     localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( $( '#firstGuidedThoughtMin' ).val() ) );
                 } else {
-                    localStorage.setItem( 'minutesCountAtLastDisplayedThought', -1 );
+                    localStorage.setItem( 'minutesCountAtLastDisplayedThought', 999999 );
                 }
             } );
 
