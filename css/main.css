@@ -12,18 +12,6 @@ html, body {
     overflow-x: hidden;
 }
 
-cursorDefault {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
-}
-
-.cursorAction {
-    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
-}
-
-.cursorNone {
-    cursor: none !important;
-}
-
 .row {
     padding-left: 14px;
     padding-right: 15px;
@@ -1557,4 +1545,16 @@ video::-webkit-media-controls-fullscreen-button {
 
 #clearYoutubePlayedHistory {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+cursorDefault {
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+.cursorAction {
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
+}
+
+.cursorNone {
+    cursor: none !important;
 }

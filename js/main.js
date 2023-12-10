@@ -317,7 +317,6 @@ $( document ).ready( function () {
                     privateVisible = false;
                 }
                 $( '.XXX' ).toggle();
-                defaultStyleXXXfilter = $( '.XXXfilter' ).attr( 'style' );
 
                 if ( videoTagList == '' ) {
                     $( '.videoContainer' ).each( function () {
@@ -1068,16 +1067,14 @@ $( document ).ready( function () {
             } );
 
             // Video section screensaver
-            var defaultStyleXXXfilter = $( '.XXXfilter' ).attr( 'style' );
-
             function startScreensaver( force = false ) {
                 screensaverSecondsIdle++;
                 if ( $( '.MageAIfilter.imageFilterActive' ).length == 0 && $( '.MageAIFavorites.imageFilterActive' ).length == 0 && (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
                     screensaverActive = true;
                     showScreensaverEnso();
-                    $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).attr( 'style', 'cursor:none !important;' );
-                    $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:none !important;' );
-                    $( '.fullscreenImage' ).addClass('cursorNone');
+                    $( 'body,#menu,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                        $( this ).addClass( 'cursorNone' );
+                    } );
                     $( '#spotifyPlaylistsMenu' ).addClass( 'invisible' );
                     $( '#menu' ).addClass( 'invisible' );
                 }
@@ -1098,10 +1095,9 @@ $( document ).ready( function () {
                 if ( screensaverActive ) {
                     screensaverActive = false;
                     hideScreensaverEnso();
-                    $( 'body,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#burgerContainer,#fullscreenIcon,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#devices' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
-                    $( '#menu' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), pointer;' );
-                    $( '.XXXfilter' ).attr( 'style', defaultStyleXXXfilter + 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer;' );
-                    $( '.fullscreenImage' ).removeClass('cursorNone');
+                    $( 'body,#menu,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                        $( this ).removeClass( 'cursorNone' );
+                    } );
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'invisible' );
                     $( '#menu' ).removeClass( 'invisible' );
                 }
