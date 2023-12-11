@@ -6,7 +6,6 @@ var refresh_token = null;
 var currentPlaylist = '';
 var radioButtons = [];
 var lastSelectedPlaylist = 'spotify:playlist:0O1C7wbOthIxBbai9pYvEH';
-var playingTrack = false;
 var playingTrackDetectionDoneOnce = false;
 var lastPlaylistId = '';
 
@@ -256,6 +255,10 @@ function addTrack( item, index ) {
 }
 
 function currentlyPlaying() {
+    // If Spotify is not playing, we can check if a youtube video is running and display its runtime instead
+    if ( !playingSpotifyTrack ) {
+        updateProgressBar();
+    }
     callApi( 'GET', PLAYER + '?market=US', null, handleCurrentlyPlayingResponse );
 }
 
@@ -283,13 +286,13 @@ function handleCurrentlyPlayingResponse() {
         }
 
         if ( data['is_playing'] ) {
-            playingTrack = true;
+            playingSpotifyTrack = true;
             if ( !playingTrackDetectionDoneOnce ) {
                 playingTrackDetectionDoneOnce = true;
                 spotifyHasBeenPlayingBeforePause = true;
             }
         } else {
-            playingTrack = false;
+            playingSpotifyTrack = false;
         }
     } catch ( e ) {
         return false;

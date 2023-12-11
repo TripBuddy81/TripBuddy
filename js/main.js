@@ -6,6 +6,7 @@ $( document ).ready( function () {
             window.mainSearchResultYoutubePlayerState = 'undefined';
             window.directYoutubePlayer;
             window.directYoutubePlayerState = 'undefined';
+            window.playingSpotifyTrack = false;
             var pizzaTimerStart = '';
             var isFullScreen = false;
             var lastDisplayedImage = config['images'][0]['image'];
@@ -2114,7 +2115,7 @@ $( document ).ready( function () {
 
                     }
 
-                    if ( playingTrack ) {
+                    if ( playingSpotifyTrack ) {
                         spotifyNext();
                     } else {
                         spotifyPlay();
