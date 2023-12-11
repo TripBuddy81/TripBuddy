@@ -60,6 +60,14 @@ var config = {
                 'id'   : '4ktxEZYVOky9D6eBKrmZ4g'
             },
             {
+                'label': 'Hangmatpop',
+                'id'   : '6ySAQd8K6BZt5tQ9M5wNAY'
+            },
+            {
+                'label': 'Happy vibes',
+                'id'   : '7wpTPSiCjLX6gffU5wHTEn'
+            },
+            {
                 'label': 'Soultrip',
                 'id'   : '0N1qMBk7vfvADy2odM1iG1'
             },
@@ -84,10 +92,6 @@ var config = {
             {
                 'label': 'Shamanism',
                 'id'   : '5YbqrWZW98ZH0kksUAnzKb'
-            },
-            {
-                'label': 'Hangmatpop',
-                'id'   : '6ySAQd8K6BZt5tQ9M5wNAY'
             },
             {
                 'label': 'Liquify',
