@@ -1398,7 +1398,7 @@ $( document ).ready( function () {
             } );
 
             $( '#shrine' ).mousemove( function ( event ) {
-                if ( event.pageY < 20 ) {
+                if ( event.pageY < 75 ) {
                     $( '#mainMenu' ).show();
                 }
             } );
