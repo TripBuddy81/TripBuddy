@@ -1575,7 +1575,10 @@ $( document ).ready( function () {
                     openDesktopApp();
                     spotifyPlay( $( this ).attr( 'data-spotify-id' ) );
                     markYoutubeAsActiveAudioSource( false );
-                    mainSearchResultYoutubePlayer.mute();
+                    try {
+                        mainSearchResultYoutubePlayer.mute();
+                    } catch ( e ) {
+                    }
 
                     // Playlist Selection
                     if ( $( this ).hasClass( 'spotifyPlaylist' ) ) {
@@ -1591,7 +1594,10 @@ $( document ).ready( function () {
                         spotifyPause();
                         spotifyHasBeenPlayingBeforePause = false;
                     }
-                    mainSearchResultYoutubePlayer.pauseVideo();
+                    try {
+                        mainSearchResultYoutubePlayer.pauseVideo();
+                    } catch ( e ) {
+                    }
                     markYoutubeAsActiveAudioSource( false );
                 } );
 
@@ -2089,7 +2095,12 @@ $( document ).ready( function () {
                 if ( youtubeCurrentQueue.length == 0 ) {
                     spotifyHasBeenPlayingBeforePause = true;
                     markYoutubeAsActiveAudioSource( false );
-                    mainSearchResultYoutubePlayer.mute();
+
+                    try {
+                        mainSearchResultYoutubePlayer.mute();
+                    } catch ( e ) {
+
+                    }
 
                     if ( playingTrack ) {
                         spotifyNext();
@@ -2098,6 +2109,7 @@ $( document ).ready( function () {
                     }
                 } else {
                     videoItem = youtubeCurrentQueue.shift();
+
                     if ( !mainSearchResultYoutubePlayer.isMuted() ) {
                         markYoutubeAsActiveAudioSource( true );
                         spotifyPause();
