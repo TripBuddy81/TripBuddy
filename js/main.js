@@ -11,6 +11,7 @@ $( document ).ready( function () {
             var isFullScreen = false;
             var lastDisplayedImage = config['images'][0]['image'];
             var minutesTillNextThought = 0;
+            var showParticles = true;
             var allGuidedThoughts = [];
             var guidedThoughtsNext = 0;
             var timer = '';
@@ -112,6 +113,15 @@ $( document ).ready( function () {
                 $( '#launchSymbol' ).attr( 'src', './assets/ufo.png' );
                 $( '.iFrameContainer ' ).show();
                 hideScreensaverEnso();
+            }
+
+            // Check if some settings are ovewritten in local config
+            try {
+                showParticles = config['localSettingsOverwrite']['showParticles'];
+                if ( !config['localSettingsOverwrite']['showAbsoluteTruth'] ) {
+                    $( '#absoluteTruthsOverlay' ).hide()
+                }
+            } catch ( e ) {
             }
 
             // Show VRGames Tag if configured
@@ -442,6 +452,7 @@ $( document ).ready( function () {
                     $( '#disableAllReminders' ).hide();
                 }
 
+                // some settings get different start values after liftof
                 screensaverStartAfterSeconds = 60;
             } );
 
@@ -1330,7 +1341,6 @@ $( document ).ready( function () {
 
             // ******************************************
             // Shrine section
-            var showParticles = true;
             renderShrineSection( showParticles );
             absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
 
