@@ -41,6 +41,7 @@ $( document ).ready( function () {
             var youtubeApiKeyInUse = 1;
             var youtubeCurrentQueue = [];
             var youtubeIntitalSearchTerm = 'Psychill';
+            var directYoutubePlayerLoaded = false;
             var lastPlayedDirectYoutubePlayerId = '';
             var lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
             var lastSelectedAutocompleteItem = 0;
@@ -861,35 +862,46 @@ $( document ).ready( function () {
             }
 
             $( '.youtubeVideo' ).click( function ( event ) {
-                blockScreenSaver = true;
-                const container = $( '#directYoutubePlayerContainer' )[0];
-                const fullscreenApi = container.requestFullscreen
-                        || container.webkitRequestFullScreen
-                        || container.mozRequestFullScreen
-                        || container.msRequestFullscreen;
-                fullscreenApi.call( container );
-
-                $( '#directYoutubePlayer' ).show();
-                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
-
-                if ( lastPlayedDirectYoutubePlayerId != $( this ).attr( 'videoId' ) ) {
-                    directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ) );
-                }
-                lastPlayedDirectYoutubePlayerId = $( this ).attr( 'videoId' );
-
-                if ( $( this ).closest( '.videoContainer' ).hasClass( 'wisdom' ) ) {
-                    lastPlayedDirectYoutubePlayerVideoIsWisdom = true;
-                } else {
-                    lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
+                if ( !directYoutubePlayerLoaded ) {
+                    try {
+                        directYoutubePlayer.mute();
+                        directYoutubePlayerLoaded = true;
+                    } catch ( e ) {
+                        directYoutubePlayerLoaded = false;
+                    }
                 }
 
-                directYoutubePlayer.playVideo();
+                if ( directYoutubePlayerLoaded ) {
+                    blockScreenSaver = true;
+                    const container = $( '#directYoutubePlayerContainer' )[0];
+                    const fullscreenApi = container.requestFullscreen
+                            || container.webkitRequestFullScreen
+                            || container.mozRequestFullScreen
+                            || container.msRequestFullscreen;
+                    fullscreenApi.call( container );
 
-                if ( $( this ).attr( 'mute' ) == 'false' ) {
-                    spotifyPause();
-                    directYoutubePlayer.unMute();
-                } else {
-                    directYoutubePlayer.mute();
+                    $( '#directYoutubePlayer' ).show();
+                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+
+                    if ( lastPlayedDirectYoutubePlayerId != $( this ).attr( 'videoId' ) ) {
+                        directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ) );
+                    }
+                    lastPlayedDirectYoutubePlayerId = $( this ).attr( 'videoId' );
+
+                    if ( $( this ).closest( '.videoContainer' ).hasClass( 'wisdom' ) ) {
+                        lastPlayedDirectYoutubePlayerVideoIsWisdom = true;
+                    } else {
+                        lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
+                    }
+
+                    directYoutubePlayer.playVideo();
+
+                    if ( $( this ).attr( 'mute' ) == 'false' ) {
+                        spotifyPause();
+                        directYoutubePlayer.unMute();
+                    } else {
+                        directYoutubePlayer.mute();
+                    }
                 }
             } );
 
