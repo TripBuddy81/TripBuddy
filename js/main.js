@@ -196,6 +196,7 @@ $( document ).ready( function () {
                 $( this ).toggleClass( 'mainSectionActive' );
 
                 hideScreensaverEnso();
+                checkPrivateVisible();
                 enableFullscreen();
             } );
             $( '#showImageSection' ).click( function () {
@@ -219,6 +220,7 @@ $( document ).ready( function () {
                 }
 
                 hideScreensaverEnso();
+                checkPrivateVisible();
                 enableFullscreen();
             } );
             $( '#showShrineSection' ).click( function () {
@@ -353,14 +355,12 @@ $( document ).ready( function () {
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
                 }
 
-                togglePrivateVisible();
+                checkPrivateVisible();
             }
 
-            function togglePrivateVisible() {
+            function checkPrivateVisible() {
                 if ( !xxxVisible || !privateVisible ) {
-                    $( '.private' ).each( function () {
-                        $( this ).hide();
-                    } );
+                    $( '.private' ).hide();
                     $( '.privatefilter' ).hide();
                 }
                 if ( !xxxVisible ) {
@@ -368,16 +368,26 @@ $( document ).ready( function () {
                     $( '#hidePrivateContent' ).hide();
                 }
                 if ( privateVisible ) {
-                    if ( videoTagList == '.XXX' ) {
-                        $( '.XXX' ).show();
+                    $( '.private' ).hide();
+                    if ( $( '#videos' ).is( ':visible' ) ) {
+                        if ( videoTagList == '.XXX' ) {
+                            $( '.private' ).show();
+                        } else {
+                            $( '.private' ).hide();
+                        }
+                    }
+                    if ( $( '#images' ).is( ':visible' ) ) {
+                        if ( imageTagList == '.private' ) {
+                            $( '.private' ).show();
+                        } else {
+                            $( '.private' ).hide();
+                        }
                     }
                     $( '.privatefilter' ).show();
                     $( '#hidePrivateContent' ).show();
                     $( '#showPrivateContent' ).hide();
                 } else {
-                    $( '.private' ).each( function () {
-                        $( this ).hide();
-                    } );
+                    $( '.private' ).hide();
                     if ( xxxVisible ) {
                         $( '#showPrivateContent' ).show();
                     }
@@ -386,12 +396,12 @@ $( document ).ready( function () {
 
             $( '#showPrivateContent' ).click( function ( e ) {
                 privateVisible = true;
-                togglePrivateVisible();
+                checkPrivateVisible();
             } );
 
             $( '#hidePrivateContent' ).click( function ( e ) {
                 privateVisible = false;
-                togglePrivateVisible();
+                checkPrivateVisible();
             } );
 
             // Start button & preFlightChecklist & Reminders
@@ -960,7 +970,7 @@ $( document ).ready( function () {
                     } );
                 }
 
-                togglePrivateVisible();
+                checkPrivateVisible();
             } );
 
             // Double clicking videos main button loads all videos if in fast mode
