@@ -327,10 +327,15 @@ $( document ).ready( function () {
             function toggleXXXVisible() {
                 enableFullscreen();
                 xxxVisible = !xxxVisible;
-                if ( !xxxVisible ) {
+
+                if ( xxxVisible ) {
+                    $( '.XXX' ).show();
+                    $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
+                } else {
+                    $( '.XXX' ).hide();
+                    $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
                     privateVisible = false;
                 }
-                $( '.XXX' ).toggle();
 
                 if ( videoTagList == '' ) {
                     $( '.videoContainer' ).each( function () {
@@ -348,13 +353,6 @@ $( document ).ready( function () {
 
                 displayedAbsoluteTruthIndex = [];
                 absoluteTruthsUpdate( true );
-
-                if ( xxxVisible ) {
-                    $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
-                } else {
-                    $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
-                }
-
                 checkPrivateVisible();
             }
 
