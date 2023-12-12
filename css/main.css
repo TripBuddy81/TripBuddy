@@ -853,7 +853,7 @@ option {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 420px;
+    width: 360px;
     opacity: 0;
     z-index: 6;
 }
@@ -892,15 +892,16 @@ option {
     width: 50px;
     height: 50px;
     margin-bottom: 30px;
-    margin-left: 15px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
+    margin-left: 12px;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    margin-top: -15px;
 }
 
-input[type=range] {
+#shrineStroboSpeed {
     height: 48px;
     -webkit-appearance: none;
     margin: 10px 0;
-    width: 150px;
+    width: 168px;
 }
 
 .input-group {
