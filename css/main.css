@@ -161,15 +161,10 @@ p {
 }
 
 .btn {
-    background-color: #809bce;
+    background-color: #FFFFFF;
     color: black;
     font-size: x-large;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
-}
-
-.btn:hover {
-    color: black;
-    background-color: #d6eadf;
 }
 
 .btn-lg {
