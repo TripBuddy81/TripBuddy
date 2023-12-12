@@ -1428,7 +1428,9 @@ $( document ).ready( function () {
             } );
 
             $( window ).on( 'wheel', function ( event ) {
-                $( '#absoluteTruthsOverlay' ).show();
+                if ( $( '#shrine' ).is( ':visible' ) ) {
+                    $( '#absoluteTruthsOverlay' ).show();
+                }
                 stopScreensaver();
                 enableFullscreen();
                 clearInterval( absoluteTruthsTimer );
