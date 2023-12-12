@@ -13,11 +13,11 @@ html, body {
 }
 
 cursorDefault {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
 }
 
 .cursorAction {
-    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
 .cursorNone {
@@ -1142,6 +1142,7 @@ video::-webkit-media-controls-fullscreen-button {
     top: -2px;
     left: -2px;
     height: auto;
+    width: auto;
 }
 
 #notesOverlay .modal-content {
