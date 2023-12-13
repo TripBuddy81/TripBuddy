@@ -889,13 +889,22 @@ option {
     margin-bottom: 30px;
     margin-left: 12px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: -15px;
+    margin-top: -11px;
+}
+
+#toggleAbsoluteThruth {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 30px;
+    margin-left: 3px;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    margin-top: 26px;
 }
 
 #shrineStroboSpeed {
     height: 48px;
     -webkit-appearance: none;
-    margin: 10px 0;
+    margin: 7px 0;
     width: 168px;
 }
 

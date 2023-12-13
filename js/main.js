@@ -1428,17 +1428,20 @@ $( document ).ready( function () {
                         }
                     }
             );
+
             $( '#particles-js' ).click( function ( e ) {
-                if ( isFullScreen ) {
-                    $( '#absoluteTruthsOverlay' ).toggle();
-                }
+                enableFullscreen();
+            } );
+
+            $( '#toggleAbsoluteThruth' ).click( function ( e ) {
+                $( '#absoluteTruthsOverlay' ).toggle();
                 enableFullscreen();
             } );
 
             $( window ).on( 'wheel', function ( event ) {
-                if ( $( '#shrine' ).is( ':visible' ) ) {
-                    $( '#absoluteTruthsOverlay' ).show();
-                }
+                /*                if ( $( '#shrine' ).is( ':visible' ) ) {
+                                    $( '#absoluteTruthsOverlay' ).show();
+                                }*/
                 stopScreensaver();
                 enableFullscreen();
                 clearInterval( absoluteTruthsTimer );
@@ -2239,6 +2242,7 @@ $( document ).ready( function () {
             if ( urlParams.get( 'section' ) != undefined && urlParams.get( 'section' ) == 'shrine' ) {
                 $( '#meditativefilter' ).trigger( 'click' );
                 $( '#showShrineSection' ).trigger( 'click' );
+                $( '#mainMenu' ).hide();
             } else {
                 $( '#showVideoSection' ).trigger( 'click' );
                 if ( urlParams.get( 'tab' ) != undefined ) {
