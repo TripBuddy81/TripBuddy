@@ -1634,6 +1634,7 @@ $( document ).ready( function () {
                         repeat();
                     } else { // Single Track Selection
                         repeat( 'off' );
+                        spotifyHasBeenPlayingBeforePause = false;
                     }
                 } );
 
