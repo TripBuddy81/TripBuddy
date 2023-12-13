@@ -2236,12 +2236,17 @@ $( document ).ready( function () {
 
             // ******************************************
             // init initial view
-            $( '#showVideoSection' ).trigger( 'click' );
-            if ( urlParams.get( 'tab' ) != undefined ) {
-                $( '#' + urlParams.get( 'tab' ) + 'filter' ).trigger( 'click' );
-            } else {
+            if ( urlParams.get( 'section' ) != undefined && urlParams.get( 'section' ) == 'shrine' ) {
                 $( '#meditativefilter' ).trigger( 'click' );
+                $( '#showShrineSection' ).trigger( 'click' );
+            } else {
+                $( '#showVideoSection' ).trigger( 'click' );
+                if ( urlParams.get( 'tab' ) != undefined ) {
+                    $( '#' + urlParams.get( 'tab' ) + 'filter' ).trigger( 'click' );
+                } else {
+                    $( '#meditativefilter' ).trigger( 'click' );
+                }
+                showScreensaverEnso();
             }
-            showScreensaverEnso();
         }
 );
