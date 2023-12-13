@@ -234,6 +234,7 @@ $( document ).ready( function () {
                     $( this ).toggleClass( 'mainSectionActive' );
                 } );
                 $( this ).toggleClass( 'mainSectionActive' );
+                $( '#shrineSettingsContainer' ).addClass( 'visible' );
 
                 renderShrineSection( showParticles );
                 enableFullscreen();
@@ -1422,10 +1423,14 @@ $( document ).ready( function () {
             $( '#mainMenu' ).hover(
                     function () {
                         $( '#mainMenu' ).show();
+                        if ( $( '#shrine' ).is( ':visible' ) ) {
+                            $( '#shrineSettingsContainer' ).addClass( 'visible' );
+                        }
                     }, function () {
                         if ( $( '#shrine' ).is( ':visible' ) ) {
                             $( '#mainMenu' ).hide();
                         }
+                        $( '#shrineSettingsContainer' ).removeClass( 'visible' );
                     }
             );
 
@@ -1439,9 +1444,6 @@ $( document ).ready( function () {
             } );
 
             $( window ).on( 'wheel', function ( event ) {
-                /*                if ( $( '#shrine' ).is( ':visible' ) ) {
-                                    $( '#absoluteTruthsOverlay' ).show();
-                                }*/
                 stopScreensaver();
                 enableFullscreen();
                 clearInterval( absoluteTruthsTimer );
@@ -2243,6 +2245,7 @@ $( document ).ready( function () {
                 $( '#meditativefilter' ).trigger( 'click' );
                 $( '#showShrineSection' ).trigger( 'click' );
                 $( '#mainMenu' ).hide();
+                $( '#shrineSettingsContainer' ).removeClass( 'visible' );
             } else {
                 $( '#showVideoSection' ).trigger( 'click' );
                 if ( urlParams.get( 'tab' ) != undefined ) {
