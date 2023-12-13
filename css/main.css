@@ -789,7 +789,6 @@ option {
     position: relative;
     height: 975px;
     animation: strobo2 0ms steps(1, end) infinite;
-    cursor: none;
     z-index: 3;
     overflow: hidden;
 }

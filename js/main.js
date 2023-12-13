@@ -1434,6 +1434,16 @@ $( document ).ready( function () {
                     }
             );
 
+            // Show cursor when moving mouse
+            var moveTimerShrine;
+            $( '#particles-js' ).on( 'mousemove', function () {
+                clearTimeout( moveTimerShrine );
+                moveTimerShrine = setTimeout( function () {
+                    $( '#particles-js' ).css( 'cursor', 'none' );
+                }, 1000 );
+                $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+            } );
+
             $( '#particles-js' ).click( function ( e ) {
                 enableFullscreen();
             } );
