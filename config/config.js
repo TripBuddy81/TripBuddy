@@ -353,14 +353,12 @@ var config = {
         },
         {
             'videoId': 'JbJ0sYt9Nyk',
+            'mute'   : false,
             'tags'   : 'meditative'
         },
         {
             'videoId': 'J2kFChP2O2k',
-            'tags'   : 'meditative'
-        },
-        {
-            'videoId': 'W5KJsQMKbwM',
+            'mute'   : false,
             'tags'   : 'meditative'
         },
         {
