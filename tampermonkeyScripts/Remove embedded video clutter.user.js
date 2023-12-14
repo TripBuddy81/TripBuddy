@@ -25,10 +25,10 @@
         } catch(e) {
         }
 
-        try {
+/*        try {
             document.getElementsByClassName("ytp-volume-panel")[0].remove();
         } catch(e) {
-        }
+        }*/
 
         try {
             document.getElementsByClassName("fp-embed")[0].remove();
@@ -104,7 +104,6 @@
             document.getElementsByClassName("xv-logo")[0].remove();
         } catch(e) {
         }
-
     }
 
 
