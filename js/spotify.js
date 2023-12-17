@@ -286,12 +286,20 @@ function handleCurrentlyPlayingResponse() {
         }
 
         if ( data['is_playing'] ) {
+            $( '#spotifyCurrentlyPlayingContainer' ).show();
+            try {
+                $( '#spotifyCurrentlyPlayingTrack' ).html( data['item']['artists'][0]['name'] + ' - ' + data['item']['name'] );
+            } catch ( e ) {
+                $( '#spotifyCurrentlyPlayingTrack' ).html( '...' );
+            }
+
             playingSpotifyTrack = true;
             if ( !playingTrackDetectionDoneOnce ) {
                 playingTrackDetectionDoneOnce = true;
                 spotifyHasBeenPlayingBeforePause = true;
             }
         } else {
+            $( '#spotifyCurrentlyPlayingContainer' ).hide();
             playingSpotifyTrack = false;
         }
     } catch ( e ) {
