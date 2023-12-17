@@ -738,11 +738,18 @@ option {
 
 #spotifyCurrentlyPlayingContainer {
     margin-right: -7px;
-    display: none;
+    height: 0px;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+
+.spotifyCurrentlyPlayingContainerVisible {
+    height: 51px !important;
 }
 
 #spotifyCurrentlyPlayingTrack {
     text-align: center;
+    font-weight: 700;
 }
 
 #spotifyCurrentlyPlayingBorder {

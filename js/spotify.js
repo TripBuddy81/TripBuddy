@@ -286,7 +286,7 @@ function handleCurrentlyPlayingResponse() {
         }
 
         if ( data['is_playing'] ) {
-            $( '#spotifyCurrentlyPlayingContainer' ).show();
+            $( '#spotifyCurrentlyPlayingContainer' ).addClass( 'spotifyCurrentlyPlayingContainerVisible' );
             try {
                 $( '#spotifyCurrentlyPlayingTrack' ).html( data['item']['artists'][0]['name'] + ' - ' + data['item']['name'] );
             } catch ( e ) {
@@ -299,7 +299,7 @@ function handleCurrentlyPlayingResponse() {
                 spotifyHasBeenPlayingBeforePause = true;
             }
         } else {
-            $( '#spotifyCurrentlyPlayingContainer' ).hide();
+            $( '#spotifyCurrentlyPlayingContainer' ).removeClass( 'spotifyCurrentlyPlayingContainerVisible' );
             playingSpotifyTrack = false;
         }
     } catch ( e ) {

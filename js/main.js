@@ -1585,7 +1585,7 @@ $( document ).ready( function () {
             } );
 
             document.onclick = function ( e ) {
-                if ( e.target != document.getElementById( 'spotifyPlaylistsMenu' ) && e.target != document.getElementById( 'spotifyPlaylists' ) ) {
+                if ( e.target != document.getElementById( 'next' ) && e.target != document.getElementById( 'spotifyPlaylistsMenu' ) && e.target != document.getElementById( 'spotifyPlaylists' ) ) {
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
                 }
             }
