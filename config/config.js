@@ -959,18 +959,6 @@ var config = {
             'class': 'rockPaperSciccors'
         },
         {
-            'link': 'https://v6p9d9t4.ssl.hwcdn.net/html/4112368/index.html',
-            'name': 'Breakout'
-        },
-        {
-            'link': 'https://v6p9d9t4.ssl.hwcdn.net/html/4078855/index.html',
-            'name': 'Pinballs'
-        },
-        {
-            'link': 'https://v6p9d9t4.ssl.hwcdn.net/html/2732624/index.html',
-            'name': 'Shooter'
-        },
-        {
             'link': 'https://games.crazygames.com/en_US/blob-opera/index.html',
             'name': 'Blob Opera'
         },
