@@ -336,10 +336,6 @@ var config = {
             'tags'   : 'meditative space'
         },
         {
-            'videoId': 'Syyxe6PNLeQ',
-            'tags'   : 'meditative'
-        },
-        {
             'videoId': 'xAwB9lQnxAY',
             'tags'   : 'meditative'
         },
