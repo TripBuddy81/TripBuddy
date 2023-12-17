@@ -1698,9 +1698,13 @@ $( document ).ready( function () {
                     addTrackToPlaylist( config['spotifySaveToPlaylistId'], $( '#spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
                 } );
 
-                if ( config['spotifySaveToPlaylistId'] == undefined && config['spotifySaveToPlaylistId'] != '') {
+                if ( config['spotifySaveToPlaylistId'] == undefined && config['spotifySaveToPlaylistId'] != '' ) {
                     $( '#addToFavorites' ).hide();
                 }
+
+                $( '#createSongRadio' ).click( function ( e ) {
+                    createSongRadio( $( '#spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
+                } );
 
                 function openDesktopApp() {
                     if ( localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {

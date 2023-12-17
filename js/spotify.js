@@ -143,7 +143,6 @@ function handlePlaylistsResponse() {
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
-        /*        console.log( this.responseText );*/
     }
 }
 
@@ -154,15 +153,21 @@ function removeAllItems( elementId ) {
     }
 }
 
-function spotifyPlay( playlist_id = '' ) {
+function spotifyPlay( to_be_played = '' ) {
     let body = {};
-    if ( playlist_id != '' ) {
-        if ( !playlist_id.includes( 'track' ) ) {
-            body.context_uri = playlist_id;
+    if ( jQuery.isArray( to_be_played ) ) { // Array of Tracks
+        body.uris = [];
+        $.each( to_be_played, function ( key, value ) {
+            body.uris.push( value['uri'] );
+        } );
+    } else if ( to_be_played != '' ) {
+        if ( !to_be_played.includes( 'track' ) ) { // Playlist
+            body.context_uri = to_be_played;
         } else {
-            body.uris = [playlist_id];
+            body.uris = [to_be_played]; // Single Track
         }
     }
+
     if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' || $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'überall' ) ) {
         callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
     } else {
@@ -176,10 +181,14 @@ function spotifyNext( playlist_id = '' ) {
         if ( playlist_id != '' ) {
             body.context_uri = playlist_id;
         }
-        callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
+        callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleNextApiResponse );
     } else {
-        callApi( 'POST', NEXT, null, handleApiResponse );
+        callApi( 'POST', NEXT, null, handleNextApiResponse );
     }
+}
+
+function handleNextApiResponse() {
+    currentlyPlaying();
 }
 
 function shuffle() {
@@ -209,6 +218,12 @@ function handleTransferApiResponse() {
     refreshAccessToken();
 }
 
+function handleCreateSongRadioApiResponse() {
+    if ( this.status == 200 ) {
+        spotifyPlay( JSON.parse( this.responseText )['tracks'] );
+    }
+}
+
 function handleApiResponse() {
     if ( this.status == 200 ) {
     } else if ( this.status == 204 ) {
@@ -217,9 +232,9 @@ function handleApiResponse() {
     }
 }
 
-function deviceId() {
+/*function deviceId() {
     return document.getElementById( 'devices' ).value;
-}
+}*/
 
 function currentlyPlaying() {
     // If Spotify is not playing, we can check if a youtube video is running and display its runtime instead
@@ -258,7 +273,7 @@ function handleCurrentlyPlayingResponse() {
 
             try {
                 $( '#spotifyCurrentlyPlayingTrack' ).html( data['item']['artists'][0]['name'] + ' - ' + data['item']['name'] );
-                $( '#spotifyCurrentlyPlayingTrack' ).attr('data-spotify-id', data['item']['uri']);
+                $( '#spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id', data['item']['uri'] );
             } catch ( e ) {
                 $( '#spotifyCurrentlyPlayingTrack' ).html( '...' );
             }
@@ -282,6 +297,11 @@ function addTrackToPlaylist( playlist_id, track_id ) {
     let body = {};
     body.uris = [track_id];
     callApi( 'POST', 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks', JSON.stringify( body ), handleApiResponse );
+}
+
+function createSongRadio( track_id ) {
+    track_id = track_id.replace( 'spotify:track:', '' );
+    callApi( 'GET', 'https://api.spotify.com/v1/recommendations?limit=50&seed_tracks=' + track_id, null, handleCreateSongRadioApiResponse );
 }
 
 function updateProgressBar( durationSpotify = 0, progressSpotify = 0, spotifyIsPlaying = false ) {

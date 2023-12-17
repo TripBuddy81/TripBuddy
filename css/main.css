@@ -743,12 +743,16 @@ option {
     transition: all 1s ease;
 }
 
-#addToFavorites {
+#addToFavorites, #createSongRadio {
     height: 30px;
-    top: 12px;
+    top: 14px;
     position: absolute;
     right: 23px;
     transition: all 1s ease;
+}
+
+#createSongRadio {
+    right: 70px;
 }
 
 .spotifyCurrentlyPlayingContainerVisible {
