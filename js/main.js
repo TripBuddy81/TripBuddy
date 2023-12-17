@@ -51,7 +51,7 @@ $( document ).ready( function () {
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
             var screensaverSecondsIdle = 0;
-            var screensaverStartAfterSeconds = 15;
+            var screensaverStartAfterSeconds = 150000;
             var screensaverActive = false;
             var blockScreenSaver = false;
             var documentReady = false;
@@ -1693,6 +1693,14 @@ $( document ).ready( function () {
                 $( '#spotifyIcon' ).click( function ( e ) {
                     window.open( lastSelectedPlaylist, '_blank' );
                 } );
+
+                $( '#addToFavorites' ).click( function ( e ) {
+                    addTrackToPlaylist( config['spotifySaveToPlaylistId'], $( '#spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
+                } );
+
+                if ( config['spotifySaveToPlaylistId'] == undefined && config['spotifySaveToPlaylistId'] != '') {
+                    $( '#addToFavorites' ).hide();
+                }
 
                 function openDesktopApp() {
                     if ( localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {

@@ -743,6 +743,14 @@ option {
     transition: all 1s ease;
 }
 
+#addToFavorites {
+    height: 30px;
+    top: 12px;
+    position: absolute;
+    right: 23px;
+    transition: all 1s ease;
+}
+
 .spotifyCurrentlyPlayingContainerVisible {
     height: 51px !important;
 }
@@ -756,7 +764,6 @@ option {
     border-radius: 5px;
     border: solid 3px #000000;
 }
-
 
 #iFrameSpotifyPlayerContainer {
     position: fixed;

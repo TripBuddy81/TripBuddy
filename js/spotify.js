@@ -35,7 +35,7 @@ function requestAuthorization() {
     url += '&response_type=code';
     url += '&redirect_uri=' + encodeURI( redirect_uri );
     url += '&show_dialog=false';
-    url += '&scope=user-modify-playback-state user-read-playback-position streaming user-read-playback-state';
+    url += '&scope=user-modify-playback-state user-read-playback-position streaming user-read-playback-state playlist-modify-private';
     window.location.href = url; // Show Spotify's authorization screen
 }
 
@@ -147,13 +147,6 @@ function handlePlaylistsResponse() {
     }
 }
 
-function addPlaylist( item ) {
-    let node = document.createElement( 'option' );
-    node.value = item.id;
-    node.innerHTML = item.name + ' (' + item.tracks.total + ')';
-    document.getElementById( 'playlists' ).appendChild( node );
-}
-
 function removeAllItems( elementId ) {
     let node = document.getElementById( elementId );
     while ( node.firstChild ) {
@@ -228,32 +221,6 @@ function deviceId() {
     return document.getElementById( 'devices' ).value;
 }
 
-function fetchTracks() {
-    let playlist_id = document.getElementById( 'playlists' ).value;
-    if ( playlist_id.length > 0 ) {
-        url = TRACKS.replace( '{{PlaylistId}}', playlist_id );
-        callApi( 'GET', url, null, handleTracksResponse );
-    }
-}
-
-function handleTracksResponse() {
-    if ( this.status == 200 ) {
-        var data = JSON.parse( this.responseText );
-        removeAllItems( 'tracks' );
-        data.items.forEach( ( item, index ) => addTrack( item, index ) );
-    } else if ( this.status == 401 ) {
-        refreshAccessToken()
-    } else {
-    }
-}
-
-function addTrack( item, index ) {
-    let node = document.createElement( 'option' );
-    node.value = index;
-    node.innerHTML = item.track.name + ' (' + item.track.artists[0].name + ')';
-    document.getElementById( 'tracks' ).appendChild( node );
-}
-
 function currentlyPlaying() {
     // If Spotify is not playing, we can check if a youtube video is running and display its runtime instead
     if ( !playingSpotifyTrack ) {
@@ -287,8 +254,11 @@ function handleCurrentlyPlayingResponse() {
 
         if ( data['is_playing'] ) {
             $( '#spotifyCurrentlyPlayingContainer' ).addClass( 'spotifyCurrentlyPlayingContainerVisible' );
+            $( '.currentTrackAction' ).removeClass( 'invisible' );
+
             try {
                 $( '#spotifyCurrentlyPlayingTrack' ).html( data['item']['artists'][0]['name'] + ' - ' + data['item']['name'] );
+                $( '#spotifyCurrentlyPlayingTrack' ).attr('data-spotify-id', data['item']['uri']);
             } catch ( e ) {
                 $( '#spotifyCurrentlyPlayingTrack' ).html( '...' );
             }
@@ -300,11 +270,18 @@ function handleCurrentlyPlayingResponse() {
             }
         } else {
             $( '#spotifyCurrentlyPlayingContainer' ).removeClass( 'spotifyCurrentlyPlayingContainerVisible' );
+            $( '.currentTrackAction' ).addClass( 'invisible' );
             playingSpotifyTrack = false;
         }
     } catch ( e ) {
         return false;
     }
+}
+
+function addTrackToPlaylist( playlist_id, track_id ) {
+    let body = {};
+    body.uris = [track_id];
+    callApi( 'POST', 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks', JSON.stringify( body ), handleApiResponse );
 }
 
 function updateProgressBar( durationSpotify = 0, progressSpotify = 0, spotifyIsPlaying = false ) {
@@ -342,6 +319,4 @@ function searchSpotify( searchTerm, type = 'track' ) {
 
 function handleSearchResponse() {
     var data = JSON.parse( this.responseText );
-    /*console.info( data );*/
-
 }
