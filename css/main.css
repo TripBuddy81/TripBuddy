@@ -744,24 +744,27 @@ option {
 }
 
 #addToFavorites, #createSongRadio {
-    height: 35px;
-    top: 10px;
+    height: 45px;
+    top: 13px;
     position: absolute;
     right: 23px;
     transition: all 1s ease;
 }
 
 #createSongRadio {
-    right: 76px;
+    right: 90px;
 }
 
 .spotifyCurrentlyPlayingContainerVisible {
-    height: 51px !important;
+    height: 70px !important;
 }
 
 #spotifyCurrentlyPlayingTrack {
     text-align: center;
     font-weight: 700;
+    width: 92%;
+    height: 63px;
+    padding-top: 8px;
 }
 
 #spotifyCurrentlyPlayingBorder {
