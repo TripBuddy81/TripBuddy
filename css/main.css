@@ -715,6 +715,7 @@ option {
     background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055);
     border-radius: 5px;
     transition: all 0.5s ease;
+    min-height: 100%;
 }
 
 .spotifyPlaylistsMenuTransition {
