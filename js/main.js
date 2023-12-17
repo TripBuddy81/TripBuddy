@@ -2,6 +2,8 @@ $( document ).ready( function () {
             // ***********************************
             // Globals
             window.spotifyHasBeenPlayingBeforePause = false;
+            window.spotifySongRadioQueue = '';
+            window.spotifyPreviousProgressMs
             window.mainSearchResultYoutubePlayer;
             window.mainSearchResultYoutubePlayerState = 'undefined';
             window.directYoutubePlayer;
@@ -2164,7 +2166,10 @@ $( document ).ready( function () {
 
                     }
 
-                    if ( playingSpotifyTrack ) {
+                    if ( spotifySongRadioQueue != '' ) {
+                        spotifyPlay( spotifySongRadioQueue );
+                        spotifySongRadioQueue = '';
+                    } else if ( playingSpotifyTrack ) {
                         spotifyNext();
                     } else {
                         spotifyPlay();
