@@ -234,7 +234,6 @@ function handleApiResponse() {
 }
 
 function currentlyPlaying() {
-
     // If Spotify is not playing, we can check if a youtube video is running and display its runtime instead
     if ( !playingSpotifyTrack ) {
         updateProgressBar();
@@ -250,7 +249,10 @@ function handleCurrentlyPlayingResponse() {
     try {
         var data = JSON.parse( this.responseText );
 
-        updateProgressBar( data['item']['duration_ms'], data['progress_ms'], data['is_playing'] );
+        try {
+            updateProgressBar( data['item']['duration_ms'], data['progress_ms'], data['is_playing'] );
+        } catch ( e ) {
+        }
 
         if ( spotifySongRadioQueue != '' && spotifyPreviousProgressMs >= data['progress_ms'] ) {
             spotifyPlay( spotifySongRadioQueue );
@@ -258,7 +260,7 @@ function handleCurrentlyPlayingResponse() {
         }
         spotifyPreviousProgressMs = data['progress_ms'];
 
-        if ( data['context'] != null ) { // Playlist
+        if ( data['context'] != null && data['is_playing'] ) { // Playlist
             var playlistNameRef = data['context']['href'];
             lastSelectedPlaylist = data['context']['uri'];
 
@@ -266,9 +268,11 @@ function handleCurrentlyPlayingResponse() {
                 getPlaylist( playlistNameRef );
             }
             lastPlaylistId = playlistNameRef;
-        } else { // Single Track
-            $( '#spotifyPlaylists' ).html( 'Select Playlist' );
+        } else if ( data['is_playing'] != undefined && data['is_playing'] ) { // Single Track
+            $( '#spotifyPlaylists' ).html( 'Song Radio' );
             lastSelectedPlaylist = data['item']['uri'];
+        } else {
+            $( '#spotifyPlaylists' ).html( 'Select Playlist' );
         }
 
         if ( data['is_playing'] ) {
@@ -293,6 +297,7 @@ function handleCurrentlyPlayingResponse() {
             playingSpotifyTrack = false;
         }
     } catch ( e ) {
+        console.info( e );
         return false;
     }
 }
