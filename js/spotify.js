@@ -263,8 +263,7 @@ function handleCurrentlyPlayingResponse() {
         if ( data['context'] != null && data['is_playing'] ) { // Playlist
             var playlistNameRef = data['context']['href'];
             lastSelectedPlaylist = data['context']['uri'];
-
-            if ( lastPlaylistId != playlistNameRef || $( '#spotifyPlaylists' ).html() == '...' ) {
+            if ( lastPlaylistId == '' || lastPlaylistId != playlistNameRef || $( '#spotifyPlaylists' ).html() == '...' ) {
                 getPlaylist( playlistNameRef );
             }
             lastPlaylistId = playlistNameRef;
@@ -273,6 +272,7 @@ function handleCurrentlyPlayingResponse() {
             lastSelectedPlaylist = data['item']['uri'];
         } else {
             $( '#spotifyPlaylists' ).html( 'Select Playlist' );
+            lastPlaylistId = '';
         }
 
         if ( data['is_playing'] ) {
