@@ -174,7 +174,7 @@ var config = {
             'label': 'Healing Water'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/thunderNoiseGenerator.php?l=54777278747380753600&a=1&am=s&title=Distant%20Thunder&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/thunderNoiseGenerator.php?l=65777278747400005400&a=1&am=s&title=Distant%20Thunder&c=1',
             'label': 'Distant Thunder'
         },
         {
