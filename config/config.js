@@ -977,6 +977,10 @@ var config = {
             'name': 'Psychedelic Wisdom'
         },
         {
+            'link': 'https://mynoise.net/noiseMachines.php',
+            'name': 'Noise machines'
+        },
+        {
             'link': 'https://www.youtube.com/watch?v=ZKvW-YBG-Kk&list=PLRPHKhrYjYFtDefxNqjIJGf8WkOh1U-Ur',
             'name': 'Celebrity Deathmatch'
         },
