@@ -718,6 +718,15 @@ option {
     min-height: 100%;
 }
 
+.spotifyPlaylistMenuHeading {
+    font-weight: 700;
+}
+
+.noisegeneratorLink {
+    display: block;
+    font-size: 30px !important;
+}
+
 .spotifyPlaylistsMenuTransition {
     right: -5px !important;
 }

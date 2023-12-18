@@ -188,18 +188,26 @@
             <div id="spotifyCurrentlyPlayingContainer" class="row">
                 <div class="col">
                     <div id="spotifyCurrentlyPlayingTrack" data-spotify-id=''>...</div>
-                    <img id="createSongRadio" class="currentTrackAction invisible cursorAction" src="./assets/song_radio.png">
-                    <img id="addToFavorites" class="currentTrackAction invisible cursorAction" src="./assets/add_to_favorites.png">
+                    <img id="createSongRadio" class="currentTrackAction invisible cursorAction"
+                         src="./assets/song_radio.png">
+                    <img id="addToFavorites" class="currentTrackAction invisible cursorAction"
+                         src="./assets/add_to_favorites.png">
                     <div id="spotifyCurrentlyPlayingBorder"></div>
                 </div>
             </div>
 
             <div class="row spotifyPlaylistsMenuContent">
                 <div class="col">
+                    <div class="spotifyPlaylistMenuHeading">Single Tracks</div>
                     {{#singleTracks}}
                     <div class="spotifyPlaylistItem spotifySingleTrack" data-spotify-id="spotify:track:{{id}}">{{label}}
                     </div>
                     {{/singleTracks}}
+
+                    <div class="spotifyPlaylistMenuHeading mt-3">Noise generators</div>
+                    {{#noiseGenerators}}
+                    <a class="noisegeneratorLink" target="noisegenerator" href="{{link}}">{{label}}</a>
+                    {{/noiseGenerators}}
                 </div>
                 <div class="col">
                     {{#playlists.green}}

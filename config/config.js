@@ -1,19 +1,19 @@
 var config = {
-    'oAuthSpotify'       : [
+    'oAuthSpotify'           : [
         {
             'redirect_uri' : 'https://tripbuddy.vercel.app',
             'client_id'    : '',
             'client_secret': ''
         }
     ],
-    'youtubeApiKey1'     : 'AIzaSyCmE1ZP5k5e5B7SxgHhZ0B84S22gLtd5Qc',
-    'youtubeApiKey2'     : 'AIzaSyBPa1mJdcHURF1iXQnoXQbAmP4KJBV-99E',
-    'youtubeApiKey3'     : 'AIzaSyDQ-b7pUMihSfd-9axAJrvIJdpSkeocvB0',
-    'youtubeApiKey4'     : 'AIzaSyDzTfNL056PFCwHr8LCN28M2sxtqFhVcrk',
-    'youtubeApiKey5'     : 'AIzaSyDYbNZadsnrc3RdwxL9nPhKrg3oa8EbNoA',
-    'spotifyPhoneName'   : 'Pixel',
+    'youtubeApiKey1'         : 'AIzaSyCmE1ZP5k5e5B7SxgHhZ0B84S22gLtd5Qc',
+    'youtubeApiKey2'         : 'AIzaSyBPa1mJdcHURF1iXQnoXQbAmP4KJBV-99E',
+    'youtubeApiKey3'         : 'AIzaSyDQ-b7pUMihSfd-9axAJrvIJdpSkeocvB0',
+    'youtubeApiKey4'         : 'AIzaSyDzTfNL056PFCwHr8LCN28M2sxtqFhVcrk',
+    'youtubeApiKey5'         : 'AIzaSyDYbNZadsnrc3RdwxL9nPhKrg3oa8EbNoA',
+    'spotifyPhoneName'       : 'Pixel',
     'spotifySaveToPlaylistId': '',
-    'preFlightChecklist' : [
+    'preFlightChecklist'     : [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
         {'checklistItem': 'Mouse charged/VPN off?'},
         {'checklistItem': 'Start easy listening music'},
@@ -34,7 +34,7 @@ var config = {
         {'checklistItem': 'Something to eat set aside'},
         {'checklistItem': 'Backpack for outside? (Water, Tissues, something to eat)'}
     ],
-    'playlists'          : {
+    'playlists'              : {
         'green': [
             {
                 'label': 'Classic & Soft',
@@ -150,7 +150,7 @@ var config = {
             }
         ]
     },
-    'singleTracks'       : [
+    'singleTracks'           : [
         {
             'id'   : '5e5Y2BHQazqBahFMXObzzU',
             'label': 'Om Namah Shivaya'
@@ -164,7 +164,53 @@ var config = {
             'label': 'Shivo Ham'
         }
     ],
-    'selectableVideoTags': [
+    'noiseGenerators'        : [
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php?l=50505050505050505050&a=1&am=s&title=Japanese%20Garden&c=1',
+            'label': 'Japanese Garden'
+        },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/healingWaterSoundscapeGenerator.php?l=50503850715050836773&a=1&am=s&title=Healing%20Water&c=1',
+            'label': 'Healing Water'
+        },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/thunderNoiseGenerator.php?l=54777278747380758473&a=1&am=s&title=Distant%20Thunder&c=1',
+            'label': 'Distant Thunder'
+        },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/campingRainNoiseGenerator.php?l=25253958395839583925&a=1&am=s&title=Rain%20on%20a%20Tent&c=1',
+            'label': 'Rain on a Tent'
+        },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/customRainOnWindow.php?l=49494949313731624937&a=1&am=s&title=Cosy%20Rain&c=1',
+            'label': 'Cosy Rain'
+        },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/fireNoiseGenerator.php?l=50778079879799897462&a=1&am=s&title=The%20Fireplace&c=1',
+            'label': 'The Fireplace'
+        },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/gregorianChoirGenerator.php?l=00320058005800580000&a=1&am=s&title=Gregorian%20Voices&c=1',
+            'label': 'Gregorian Voices'
+        },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/riikkaVocalSoundscape.php?l=50505050505050505050&a=1&am=s&title=Oak%20Song&c=1',
+            'label': 'Oak Song'
+        },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/singingBowlsDroneGenerator.php?l=50505050505050505050&a=1&am=s&title=Singing%20Bowls&c=1',
+            'label': 'Singing Bowls'
+        },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/sleepingDragonToneGenerator.php?l=50505050505050505050&a=1&am=s&title=Sleeping%20Dragon&c=1',
+            'label': 'Sleeping Dragon'
+        },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/spaceshipNoiseGenerator.php?l=99999900000000000000&a=1&am=s&title=Warp%20Speed&c=1',
+            'label': 'Warp speed'
+        },
+    ],
+    'selectableVideoTags'    : [
         {'selectableTag': 'trippy-2D'},
         {'selectableTag': 'trippy-3D'},
         {'selectableTag': 'weird'},
@@ -178,7 +224,7 @@ var config = {
         {'selectableTag': 'wisdom'},
         {'selectableTag': 'nsfw'}
     ],
-    'videosYoutube'      : [
+    'videosYoutube'          : [
         {
             'videoId': 'TdU2Ab7y91w',
             'tags'   : 'trippy-3D'
@@ -697,12 +743,12 @@ var config = {
             'tags'   : 'nsfw'
         }
     ],
-    'selectableImageTags': [
+    'selectableImageTags'    : [
         {'selectableTag': 'trippy'},
         {'selectableTag': 'nature'},
         {'selectableTag': 'space'}
     ],
-    'images'             : [
+    'images'                 : [
         {
             'image': './media/images/40.jpg',
             'tags' : 'trippy'
@@ -932,23 +978,23 @@ var config = {
             'tags' : 'space'
         }
     ],
-    'searchEngines'      : [
+    'searchEngines'          : [
         {
             'link': 'https://www.google.de/search?q=',
             'name': 'Google',
             'tag' : ''
         }
     ],
-    'externalVideoLinks' : [],
-    'externalPicLinks'   : [],
-    'reminderSelection'  : [
+    'externalVideoLinks'     : [],
+    'externalPicLinks'       : [],
+    'reminderSelection'      : [
         {'reminder': 'Dance!'},
         {'reminder': 'Drink Tea'},
         {'reminder': 'Deeptalk with plant'},
         {'reminder': 'Cuddle your friends!'},
         {'reminder': 'Eat some fruits'}
     ],
-    'gameLinks'          : [
+    'gameLinks'              : [
         {
             'link': 'https://games.poki.com/458768/74b97156-f40b-11e9-859c-c6053849a814?tag=pg-v3.90.1&site_id=3&iso_lang=en&country=SE&poki_url=https://poki.com/en/g/sushi-party-io&categories=4,9,53,64,96,750,929,1120,1140,1143,1147,1156,1159&special_condition=landing',
             'name': 'Sushi Party'
@@ -967,7 +1013,7 @@ var config = {
             'name': 'Vacuum Rage'
         }
     ],
-    'menuLinks'          : [
+    'menuLinks'              : [
         {
             'link': 'https://www.youtube.com/playlist?list=PLcrVuDwOKu1eoYdyQxZAW7zA1gzO1GTEk',
             'name': 'Psychedelic Knowledge'
@@ -1009,8 +1055,8 @@ var config = {
             'name': 'The meaning of Enso'
         }
     ],
-    'mageAIFavoritesLink': '',
-    'absoluteTruths'     : [
+    'mageAIFavoritesLink'    : '',
+    'absoluteTruths'         : [
         {
             'text': 'Depression is the past, Anxiety is the future & Peace is the present',
             'tag' : ''
