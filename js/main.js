@@ -1105,15 +1105,19 @@ $( document ).ready( function () {
             // Video section screensaver
             function startScreensaver( force = false ) {
                 screensaverSecondsIdle++;
-                if ( $( '.MageAIfilter.imageFilterActive' ).length == 0 && $( '.MageAIFavorites.imageFilterActive' ).length == 0 && (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
-                    screensaverActive = true;
-                    showScreensaverEnso();
-                    $( 'body,#menu,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
-                        $( this ).addClass( 'cursorNone' );
-                    } );
-                    $( '#spotifyPlaylistsMenu' ).addClass( 'invisible' );
-                    $( '#menu' ).addClass( 'invisible' );
-                }
+                $( '.mainSectionActive' ).each( function () {
+                    if ( $( this ).attr( 'data-target' ) == 'videos' || $( this ).attr( 'data-target' ) == 'images' ) {
+                        if ( !$( '#spotifyPlaylistsMenu' ).hasClass( 'spotifyPlaylistsMenuTransition' ) && $( '.MageAIfilter.imageFilterActive' ).length == 0 && $( '.MageAIFavorites.imageFilterActive' ).length == 0 && (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
+                            screensaverActive = true;
+                            showScreensaverEnso();
+                            $( 'body,#menu,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                                $( this ).addClass( 'cursorNone' );
+                            } );
+                            $( '#spotifyPlaylistsMenu' ).addClass( 'invisible' );
+                            $( '#menu' ).addClass( 'invisible' );
+                        }
+                    }
+                } );
             }
 
             function showScreensaverEnso() {
