@@ -1700,6 +1700,12 @@ $( document ).ready( function () {
                     window.open( lastSelectedPlaylist, '_blank' );
                 } );
 
+                $( '.noisegeneratorLink' ).click( function ( e ) {
+                    spotifyPause();
+                    spotifyHasBeenPlayingBeforePause = false;
+                    mainSearchResultYoutubePlayer.pauseVideo();
+                } );
+
                 $( '#addToFavorites' ).click( function ( e ) {
                     addTrackToPlaylist( config['spotifySaveToPlaylistId'], $( '#spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
                 } );
