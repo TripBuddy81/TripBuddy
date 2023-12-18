@@ -209,6 +209,11 @@ var config = {
             'link' : 'https://mynoise.net/NoiseMachines/spaceshipNoiseGenerator.php?l=99999900000000000000&a=1&am=s&title=Warp%20Speed&c=1',
             'label': 'Warp speed'
         },
+        {
+            'link' : 'https://mynoise.net/NoiseMachines/notWhiteNoisePlayer.php?l=61565247423733292622&a=1&am=s&title=Brownish%20White&c=1',
+            'label': 'Brownish White'
+        },
+
     ],
     'selectableVideoTags'    : [
         {'selectableTag': 'trippy-2D'},
