@@ -444,10 +444,11 @@ $( document ).ready( function () {
                     $( '#progressGraphContainer' ).show();
                 }, 1000 );
 
-                if ( $(this).attr('id') == 'shroomsAndWeedLiftOff') {
-                    $('#WeedOnlyProgressGraph').remove();
+                if ( $( this ).attr( 'id' ) == 'shroomsAndWeedLiftOff' ) {
+                    $( '#WeedOnlyProgressGraph' ).remove();
                 } else {
-                    $('#shroomsPlusWeedProgressGraph').remove();
+                    $( '#timerMinutes' ).addClass( 'timerMinutesWeedOnly' );
+                    $( '#shroomsPlusWeedProgressGraph' ).remove();
                 }
 
                 minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );

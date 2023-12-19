@@ -175,6 +175,10 @@ p {
     font-size: xx-large;
 }
 
+.btn-primary:hover {
+    border: none;
+}
+
 #showVideoSection, #showImageSection, #showShrineSection, #showGamesSection, #showSearchSection {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     height: 65px;
@@ -515,16 +519,14 @@ li, .options, .form-check-label {
     margin: auto;
 }
 
-.liftOff:hover {
-    color: white;
-}
-
 #shroomsAndWeedLiftOff {
-    background: linear-gradient(to right, #89a7fb, #5259ff, #44ddff, #08aa32);
+    background: linear-gradient(to right, #7597f8, #7b81ff, #48ff56, #08aa32);
+    margin-left: 30%;
 }
 
 #weedOnlyLiftOff {
-    background: linear-gradient(to right, #8effab, #24d651, #008923);
+    background: linear-gradient(to right, #59ff84, #24d651, #00d336);
+    margin-right: 30%;
 }
 
 .menuvisibleAfterStarted {
@@ -550,6 +552,10 @@ li, .options, .form-check-label {
     display: none;
     z-index: 2;
     line-height: 80px;
+}
+
+.timerMinutesWeedOnly {
+    right: 187px !important;
 }
 
 #timerColon {
