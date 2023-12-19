@@ -1103,17 +1103,10 @@ $( document ).ready( function () {
             } );
 
             // XXX section within video
-            $( '.searchLink' ).click( function ( event ) {
-                event.preventDefault();
-                event.stopPropagation();
-                window.open( $( this ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
-            } );
             $( '.searchLink' ).on( 'mousedown', document, function ( e ) {
-                if ( $( e.target ).hasClass( 'searchLink' ) ) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    window.open( $( e.target ).attr( 'href' ) + $( '#searchInput' ).val(), '_blank' );
-                }
+                e.preventDefault();
+                e.stopPropagation();
+                window.open( $( e.target ).attr( 'href' ) + $( this ).parent().find( '.searchInput' ).val(), '_blank' );
             } );
 
             // Video section screensaver
@@ -1632,7 +1625,7 @@ $( document ).ready( function () {
                 try {
                     mainSearchResultYoutubePlayer.pauseVideo();
                     spotifyPause();
-                } catch (e) {
+                } catch ( e ) {
                 }
                 spotifyHasBeenPlayingBeforePause = false;
                 externalSoundTabOpened = true;
