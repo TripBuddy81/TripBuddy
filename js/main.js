@@ -725,6 +725,7 @@ $( document ).ready( function () {
 
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
+                renderShrineSection( showParticles );
                 $( '.videoMenuOverlay' ).hide();
                 $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
