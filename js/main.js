@@ -1628,6 +1628,17 @@ $( document ).ready( function () {
                 }, 3000 );
             }
 
+            $( '.noisegeneratorLink' ).click( function ( e ) {
+                try {
+                    mainSearchResultYoutubePlayer.pauseVideo();
+                    spotifyPause();
+                } catch (e) {
+                }
+                spotifyHasBeenPlayingBeforePause = false;
+                externalSoundTabOpened = true;
+                window.open( $( this ).attr( 'href' ), 'externalSoundTab' );
+            } );
+
             // integrated Spotify player if succesfully logged in
             if ( localStorage.getItem( 'access_token' ) != null ) {
                 $( '#spotifyLogin' ).hide();
@@ -1724,15 +1735,6 @@ $( document ).ready( function () {
                     window.open( lastSelectedPlaylist, '_blank' );
                 } );
 
-                $( '.noisegeneratorLink' ).click( function ( e ) {
-                    spotifyPause();
-                    spotifyHasBeenPlayingBeforePause = false;
-                    externalSoundTabOpened = true;
-                    mainSearchResultYoutubePlayer.pauseVideo();
-
-                    window.open( $( this ).attr( 'href' ), 'externalSoundTab' );
-                } );
-
                 $( '#addToFavorites' ).click( function ( e ) {
                     addTrackToPlaylist( config['spotifySaveToPlaylistId'], $( '#spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
                 } );
@@ -1773,6 +1775,11 @@ $( document ).ready( function () {
                                             EmbedController.play();
                                             markYoutubeAsActiveAudioSource( false );
                                             mainSearchResultYoutubePlayer.mute();
+
+                                            if ( externalSoundTabOpened ) {
+                                                externalSoundTabOpened = false;
+                                                window.open( './tabCloser.html', 'externalSoundTab' );
+                                            }
                                         } );
                                     } )
                         };
