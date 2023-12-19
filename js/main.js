@@ -444,7 +444,7 @@ $( document ).ready( function () {
                     $( '#progressGraphContainer' ).show();
                 }, 1000 );
 
-                if ( $(this).attr('tripType') == 'shroomsAndWeed') {
+                if ( $(this).attr('id') == 'shroomsAndWeedLiftOff') {
                     $('#WeedOnlyProgressGraph').remove();
                 } else {
                     $('#shroomsPlusWeedProgressGraph').remove();

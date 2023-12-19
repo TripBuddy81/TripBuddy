@@ -391,16 +391,16 @@
                                         <input class="form-check-input" type="checkbox" id="topupCheckbox1">
                                         <input type="number" id="topupReminderInMinutes1"
                                                name="topupReminderInMinutes1"
-                                               value="50" min="1" max="600">
+                                               value="55" min="1" max="600">
                                         <span>minutes</span>
                                     </div>
                                     <div class="options form-check form-switch">
-                                        <label class="form-check-label reminderLabel" for="topupCheckbox2">Take Weed
+                                        <label class="form-check-label reminderLabel" for="topupCheckbox2">Top Up Weed
                                             after </label>
                                         <input class="form-check-input" type="checkbox" id="topupCheckbox2">
                                         <input type="number" id="topupReminderInMinutes2"
                                                name="topupReminderInMinutes2"
-                                               value="60" min="1" max="600">
+                                               value="100" min="1" max="600">
                                         <span>minutes</span>
                                     </div>
 
@@ -410,7 +410,7 @@
                                         <input class="form-check-input" type="checkbox" id="orderPizzaCheckbox">
                                         <input type="number" id="orderPizzaReminderInMinutes"
                                                name="orderPizzaReminderInMinutes"
-                                               value="180" min="1" max="600">
+                                               value="240" min="1" max="600">
                                         <span>minutes</span>
                                     </div>
                                 </div>
@@ -478,8 +478,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <div class="liftOff" tripType="weedOnly" type="button" class="btn btn-primary cursorAction">Weed only</div>
-                    <div class="liftOff" tripType="shroomsAndWeed" type="button" class="btn btn-primary cursorAction">Shrooms & Weed</div>
+                    <div class="liftOff" id="weedOnlyLiftOff" type="button" class="btn btn-primary cursorAction">Weed only</div>
+                    <div class="liftOff" id="shroomsAndWeedLiftOff" type="button" class="btn btn-primary cursorAction">Shrooms & Weed</div>
                 </div>
             </div>
         </div>

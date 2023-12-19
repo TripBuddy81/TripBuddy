@@ -511,13 +511,20 @@ li, .options, .form-check-label {
     border-color: black;
     background: white;
     color: black;
-    padding: 0px 10px;
-    margin-right: 25px;
+    padding: 5px 20px;
+    margin: auto;
 }
 
 .liftOff:hover {
-    background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055);
     color: white;
+}
+
+#shroomsAndWeedLiftOff {
+    background: linear-gradient(to right, #89a7fb, #5259ff, #44ddff, #08aa32);
+}
+
+#weedOnlyLiftOff {
+    background: linear-gradient(to right, #8effab, #24d651, #008923);
 }
 
 .menuvisibleAfterStarted {
