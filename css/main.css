@@ -519,17 +519,26 @@ li, .options, .form-check-label {
 
 #shroomsAndWeedLiftOff {
     background: linear-gradient(to right, #7597f8, #7b81ff, #48ff56, #08aa32);
-    margin-left: 30%;
+    margin-right: 10px;
 }
 
 #weedOnlyLiftOff {
     background: linear-gradient(to right, #59ff84, #24d651, #00d336);
-    margin-right: 30%;
+    position: absolute;
+    right: 280px;
 }
 
 .liftOff:hover {
     color: white;
     border: solid 3px #FFFFFF;
+}
+
+.liftOffIcon {
+    height: 60px;
+}
+
+#liftOffIconMushroom {
+    margin-right: 20px;
 }
 
 .menuvisibleAfterStarted {
