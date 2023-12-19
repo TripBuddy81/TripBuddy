@@ -511,8 +511,13 @@
                 </div>
                 <div class="modal-footer">
                     <h2>Choose your spaceship</h2>
-                    <div id="shroomsAndWeedLiftOff" type="button" class="liftOff cursorAction"><img class="liftOffIcon" id="liftOffIconMushroom" src="./assets/mushrooms.png"><img class="liftOffIcon" src="./assets/weed.png"></div>
-                    <div id="weedOnlyLiftOff" type="button" class="liftOff cursorAction"><img class="liftOffIcon" src="./assets/weed.png"></div>
+                    <div id="shroomsAndWeedLiftOff" type="button" class="liftOff cursorAction"><img class="liftOffIcon"
+                                                                                                    id="liftOffIconMushroom"
+                                                                                                    src="./assets/mushrooms.png"><img
+                            class="liftOffIcon" src="./assets/weed.png"></div>
+                    <div id="weedOnlyLiftOff" type="button" class="liftOff cursorAction"><img class="liftOffIcon"
+                                                                                              src="./assets/weed.png">
+                    </div>
                 </div>
             </div>
         </div>
@@ -579,7 +584,8 @@
                 {{#videosYoutube}}
                 <div class="videoContainer {{tags}} col-3">
                     <div class="iFrameContainer">
-                        <img videoId="{{videoId}}" mute="{{mute}}" startSeconds="{{startSeconds}}" class="youtubeVideo videoSource"
+                        <img videoId="{{videoId}}" mute="{{mute}}" startSeconds="{{startSeconds}}"
+                             class="youtubeVideo videoSource"
                              src="https://i.ytimg.com/vi/{{videoId}}/mqdefault.jpg"/>
                         <div class="videoInfo mb-2">
                             <div>{{tags}} - {{videoId}}</div>
@@ -591,6 +597,38 @@
                     </div>
                 </div>
                 {{/videosYoutube}}
+
+                {{#videosLocal}}
+                <div class="videoContainer {{tags}} col-3">
+                    <div class="iFrameContainer">
+                        <video class="videoFrame localVideo" controls muted loop controlsList="nofullscreen">
+                            <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">
+                        </video>
+                        <div class="videoInfo mb-2">
+                            <div>{{tags}} - {{videoLink}}</div>
+                        </div>
+                        <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                        <div class="videoLabel">
+                            {{label}}
+                        </div>
+                        <div class="videoMenuOverlayMinimized">
+                        </div>
+                        <div class="videoMenuOverlayFullscreen">
+                        </div>
+                        <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                        </div>
+                        <div class="trackProgressContainer hidden videoMenuOverlay">
+                            <div class="trackProgress">
+                                <div class="colorfulBorder"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/videosLocal}}
+            </div>
+
+            <div class="row d-flex justify-content-between">
+                <div class="videoLinkTypeSeperator XXX videoContainer" id="miscVideoLinkTypeSeperator"></div>
 
                 {{#videosMisc}}
                 <div class="videoContainer {{tags}} col-3">
@@ -626,36 +664,10 @@
                     </div>
                 </div>
                 {{/videosMisc}}
-
-                {{#videosLocal}}
-                <div class="videoContainer {{tags}} col-3">
-                    <div class="iFrameContainer">
-                        <video class="videoFrame localVideo" controls muted loop controlsList="nofullscreen">
-                            <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">
-                        </video>
-                        <div class="videoInfo mb-2">
-                            <div>{{tags}} - {{videoLink}}</div>
-                        </div>
-                        <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
-                        <div class="videoLabel">
-                            {{label}}
-                        </div>
-                        <div class="videoMenuOverlayMinimized">
-                        </div>
-                        <div class="videoMenuOverlayFullscreen">
-                        </div>
-                        <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
-                        </div>
-                        <div class="trackProgressContainer hidden videoMenuOverlay">
-                            <div class="trackProgress">
-                                <div class="colorfulBorder"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{/videosLocal}}
             </div>
+
             <div class="row d-flex justify-content-between">
+                <div class="videoLinkTypeSeperator XXX videoContainer" id="externalVideoLinkTypeSeperator"></div>
                 {{#externalVideoLinks}}
                 <div class="videoContainer XXX col-3">
                     <a class="xxxLink mt-4 mb-4" href="{{link}}" target=_blank>{{name}}<img
