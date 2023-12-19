@@ -166,43 +166,43 @@ var config = {
     ],
     'noiseGenerators'        : [
         {
-            'link' : 'https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php?l=00003326353253250027&a=1&am=s&title=Japanese%20Garden&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php?l=00003326353253250027&title=Japanese%20Garden&c=1',
             'label': 'Japanese Garden'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/healingWaterSoundscapeGenerator.php?l=36000031343943524124&a=1&am=s&title=Healing%20Water&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/healingWaterSoundscapeGenerator.php?l=36000031343943524124&title=Healing%20Water&c=1',
             'label': 'Healing Water'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/thunderNoiseGenerator.php?l=65777278747400005400&a=1&am=s&title=Distant%20Thunder&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/thunderNoiseGenerator.php?l=65777278747400005400&title=Distant%20Thunder&c=1',
             'label': 'Distant Thunder'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/customRainOnWindow.php?l=71635719310031564932&a=1&am=s&title=Cosy%20Rain&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/customRainOnWindow.php?l=71635719310031564932&title=Cosy%20Rain&c=1',
             'label': 'Cosy Rain'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/fireNoiseGenerator.php?l=50778079879799897462&a=1&am=s&title=The%20Fireplace&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/fireNoiseGenerator.php?l=50778079879799897462&title=The%20Fireplace&c=1',
             'label': 'Fireplace'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/gregorianChoirGenerator.php?l=00320058005800580000&a=1&am=s&title=Gregorian%20Voices&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/gregorianChoirGenerator.php?l=00320058005800580000&title=Gregorian%20Voices&c=1',
             'label': 'Gregorian Voices'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/riikkaVocalSoundscape.php?l=99717340004400000007&a=1&am=s&title=Oak%20Song&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/riikkaVocalSoundscape.php?l=99717340004400000007&title=Oak%20Song&c=1',
             'label': 'Oak Song'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/singingBowlsDroneGenerator.php?l=50505050505050505050&a=1&am=s&title=Singing%20Bowls&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/singingBowlsDroneGenerator.php?l=69508673766583537974&title=Singing%20Bowls&c=1',
             'label': 'Singing Bowls'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/custom.php?l=38993099993128273118&a=1&am=s&m=SLEEPINGDRAGON0~SPACESHIP0~SLEEPINGDRAGON1~SPACESHIP1~SPACESHIP2~SLEEPINGDRAGON3~SLEEPINGDRAGON4~SLEEPINGDRAGON6~SLEEPINGDRAGON7~SLEEPINGDRAGON8&title=Warp%20Dragon&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/custom.php?l=38993099993128273118&m=SLEEPINGDRAGON0~SPACESHIP0~SLEEPINGDRAGON1~SPACESHIP1~SPACESHIP2~SLEEPINGDRAGON3~SLEEPINGDRAGON4~SLEEPINGDRAGON6~SLEEPINGDRAGON7~SLEEPINGDRAGON8&title=Warp%20Dragon&c=1',
             'label': 'Warp Dragon'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/notWhiteNoisePlayer.php?l=61565247423733292622&a=1&am=s&title=Brownish%20White&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/notWhiteNoisePlayer.php?l=61565247423733292622&title=Brownish%20White&c=1',
             'label': 'Brownish White'
         },
 
