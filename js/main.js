@@ -932,8 +932,6 @@ $( document ).ready( function () {
                     } else {
                         directYoutubePlayer.mute();
                     }
-
-
                 }
             } );
 
