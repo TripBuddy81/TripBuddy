@@ -510,13 +510,11 @@ li, .options, .form-check-label {
 .liftOff {
     font-size: 35px;
     font-weight: bold;
-    border-width: 5px;
     border-radius: 10px;
-    border-color: black;
-    background: white;
     color: black;
     padding: 5px 20px;
     margin: auto;
+    border: solid 3px #000000;
 }
 
 #shroomsAndWeedLiftOff {
@@ -527,6 +525,11 @@ li, .options, .form-check-label {
 #weedOnlyLiftOff {
     background: linear-gradient(to right, #59ff84, #24d651, #00d336);
     margin-right: 30%;
+}
+
+.liftOff:hover {
+    color: white;
+    border: solid 3px #FFFFFF;
 }
 
 .menuvisibleAfterStarted {
