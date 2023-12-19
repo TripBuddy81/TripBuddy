@@ -1716,6 +1716,8 @@ $( document ).ready( function () {
                     spotifyHasBeenPlayingBeforePause = false;
                     externalSoundTabOpened = true;
                     mainSearchResultYoutubePlayer.pauseVideo();
+
+                    window.open( $( this ).attr( 'href' ), 'externalSoundTab' );
                 } );
 
                 $( '#addToFavorites' ).click( function ( e ) {
