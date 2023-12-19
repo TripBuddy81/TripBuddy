@@ -738,11 +738,11 @@ option {
     padding-bottom: 10px;
 }
 
-.spotifyPlaylistItem {
+.spotifyPlaylistItem, .noisegeneratorLink {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
-.spotifyPlaylistItem:hover {
+.spotifyPlaylistItem:hover, .noisegeneratorLink:hover {
     color: white;
 }
 
