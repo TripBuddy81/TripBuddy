@@ -9,6 +9,7 @@ $( document ).ready( function () {
             window.directYoutubePlayer;
             window.directYoutubePlayerState = 'undefined';
             window.playingSpotifyTrack = false;
+            var externalSoundTabOpened = false;
             var pizzaTimerStart = '';
             var isFullScreen = false;
             var lastDisplayedImage = config['images'][0]['image'];
@@ -1643,6 +1644,11 @@ $( document ).ready( function () {
                         repeat( 'off' );
                         spotifyHasBeenPlayingBeforePause = false;
                     }
+
+                    if ( externalSoundTabOpened ) {
+                        externalSoundTabOpened = false;
+                        window.open( './tabCloser.html', 'externalSoundTab' );
+                    }
                 } );
 
                 $( '#stopMusic' ).click( function () {
@@ -1655,6 +1661,11 @@ $( document ).ready( function () {
                     } catch ( e ) {
                     }
                     markYoutubeAsActiveAudioSource( false );
+
+                    if ( externalSoundTabOpened ) {
+                        externalSoundTabOpened = false;
+                        window.open( './tabCloser.html', 'externalSoundTab' );
+                    }
                 } );
 
                 $( document ).on( 'mousedown', document, function ( e ) {
@@ -1703,6 +1714,7 @@ $( document ).ready( function () {
                 $( '.noisegeneratorLink' ).click( function ( e ) {
                     spotifyPause();
                     spotifyHasBeenPlayingBeforePause = false;
+                    externalSoundTabOpened = true;
                     mainSearchResultYoutubePlayer.pauseVideo();
                 } );
 
@@ -2193,6 +2205,11 @@ $( document ).ready( function () {
                     }
                     mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
                     displayYoutubeQueue();
+                }
+
+                if ( externalSoundTabOpened ) {
+                    externalSoundTabOpened = false;
+                    window.open( './tabCloser.html', 'externalSoundTab' );
                 }
             }
 
