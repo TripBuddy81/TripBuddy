@@ -204,7 +204,7 @@ var config = {
         {
             'link' : 'https://mynoise.net/NoiseMachines/notWhiteNoisePlayer.php?l=61565247423733292622&title=Brownish%20White&c=1',
             'label': 'Brownish White'
-        },
+        }
 
     ],
     'selectableVideoTags'    : [
@@ -227,12 +227,14 @@ var config = {
             'tags'   : 'trippy-3D'
         },
         {
-            'videoId': '8N1qXnx7PyY',
-            'tags'   : 'trippy-3D'
+            'videoId'     : '8N1qXnx7PyY',
+            'tags'        : 'trippy-3D',
+            'startSeconds': '22'
         },
         {
-            'videoId': 'moTy7FA7UO4',
-            'tags'   : 'trippy-3D'
+            'videoId'     : 'moTy7FA7UO4',
+            'tags'        : 'trippy-3D',
+            'startSeconds': '20'
         },
         {
             'videoId': 'oCi2JpkEZbo',
@@ -247,23 +249,26 @@ var config = {
             'tags'   : 'trippy-3D'
         },
         {
+            'videoId'     : 'E6m3OvB819s',
+            'tags'        : 'trippy-3D',
+            'startSeconds': '18'
+        },
+        {
+            'videoId'     : 'MwclKrfdGmU',
+            'tags'        : 'trippy-3D',
+            'startSeconds': '18'
+        },
+        {
+            'videoId'     : 'souHC7H43wg',
+            'tags'        : 'trippy-3D',
+            'startSeconds': '18'
+        },
+        {
             'videoId': 'CLypKcaBhLY',
             'tags'   : 'trippy-3D'
         },
         {
-            'videoId': 'E6m3OvB819s',
-            'tags'   : 'trippy-3D'
-        },
-        {
             'videoId': '2-7s2BHSoRk',
-            'tags'   : 'trippy-3D'
-        },
-        {
-            'videoId': 'MwclKrfdGmU',
-            'tags'   : 'trippy-3D'
-        },
-        {
-            'videoId': 'souHC7H43wg',
             'tags'   : 'trippy-3D'
         },
         {
@@ -291,8 +296,9 @@ var config = {
             'tags'   : 'trippy-3D'
         },
         {
-            'videoId': 'HTHj_pvEYYE',
-            'tags'   : 'space'
+            'videoId'     : 'HTHj_pvEYYE',
+            'tags'        : 'space',
+            'startSeconds': '27'
         },
         {
             'videoId': '5drq3OD19NQ',
@@ -335,8 +341,9 @@ var config = {
             'tags'   : 'trippy-2D'
         },
         {
-            'videoId': 'msnYBMdaB08',
-            'tags'   : 'trippy-2D'
+            'videoId'     : 'msnYBMdaB08',
+            'tags'        : 'trippy-2D',
+            'startSeconds': '7'
         },
         {
             'videoId': 'XICnl77dchU',
@@ -383,16 +390,19 @@ var config = {
             'tags'   : 'trippy-3D'
         },
         {
-            'videoId': '-mnUfQ3Ji9I',
-            'tags'   : 'trippy-3D'
+            'videoId'     : '-mnUfQ3Ji9I',
+            'tags'        : 'trippy-3D',
+            'startSeconds': '13'
         },
         {
-            'videoId': 'vmGDO0eU1n0',
-            'tags'   : 'meditative'
+            'videoId'     : 'vmGDO0eU1n0',
+            'tags'        : 'meditative',
+            'startSeconds': '3600'
         },
         {
-            'videoId': 'Y_plhk1FUQA',
-            'tags'   : 'space'
+            'videoId'     : 'Y_plhk1FUQA',
+            'tags'        : 'space',
+            'startSeconds': '30'
         },
         {
             'videoId': 'RhlQvbvMg-0',
@@ -412,28 +422,32 @@ var config = {
             'tags'   : 'meditative'
         },
         {
-            'videoId': 'XHprvRGY2aA',
-            'tags'   : 'meditative'
+            'videoId'     : 'XHprvRGY2aA',
+            'tags'        : 'meditative',
+            'startSeconds': '5462'
         },
         {
             'videoId': 'tI2ucenn6hM',
             'tags'   : 'meditative nature'
         },
         {
-            'videoId': 'B5unCXpegAw',
-            'tags'   : 'meditative space'
+            'videoId'     : 'B5unCXpegAw',
+            'tags'        : 'meditative space',
+            'startSeconds': '300'
         },
         {
             'videoId': 'xAwB9lQnxAY',
             'tags'   : 'meditative'
         },
         {
-            'videoId': 'jNyvfvDFFPk',
-            'tags'   : 'space'
+            'videoId'     : 'jNyvfvDFFPk',
+            'tags'        : 'space',
+            'startSeconds': '25'
         },
         {
-            'videoId': 'lkUuCgNkSsk',
-            'tags'   : 'meditative'
+            'videoId'     : 'lkUuCgNkSsk',
+            'tags'        : 'meditative',
+            'startSeconds': '10'
         },
         {
             'videoId': 'JbJ0sYt9Nyk',
@@ -466,12 +480,14 @@ var config = {
             'tags'   : 'nature'
         },
         {
-            'videoId': '683p4Ubg2NU',
-            'tags'   : 'nature'
+            'videoId'     : '683p4Ubg2NU',
+            'tags'        : 'nature',
+            'startSeconds': '14'
         },
         {
-            'videoId': 'AKeUssuu3Is',
-            'tags'   : 'nature'
+            'videoId'     : 'AKeUssuu3Is',
+            'tags'        : 'nature',
+            'startSeconds': '11'
         },
         {
             'videoId': 'BNTs6-pNFRk',
@@ -546,24 +562,28 @@ var config = {
             'tags'   : 'festival'
         },
         {
-            'videoId': '5I69DCxYbBg',
-            'tags'   : 'slideshow'
+            'videoId'     : '5I69DCxYbBg',
+            'tags'        : 'slideshow',
+            'startSeconds': '5'
         },
         {
-            'videoId': 'rgZfmWXTqas',
-            'tags'   : 'slideshow'
+            'videoId'     : 'rgZfmWXTqas',
+            'tags'        : 'slideshow',
+            'startSeconds': '7'
         },
         {
             'videoId': '934tHxQ_-3U',
             'tags'   : 'slideshow nsfw'
         },
         {
-            'videoId': '2wGUWpwrZMM',
-            'tags'   : 'slideshow nsfw'
+            'videoId'     : '2wGUWpwrZMM',
+            'tags'        : 'slideshow nsfw',
+            'startSeconds': '14'
         },
         {
-            'videoId': 'rlwYbRZzS7A',
-            'tags'   : 'slideshow'
+            'videoId'     : 'rlwYbRZzS7A',
+            'tags'        : 'slideshow',
+            'startSeconds': '10'
         },
         {
             'videoId': 'zLgWjiHv3_U',
@@ -590,8 +610,9 @@ var config = {
             'tags'   : 'weird'
         },
         {
-            'videoId': 'ZmxiaXvIotQ',
-            'tags'   : 'weird'
+            'videoId'     : 'ZmxiaXvIotQ',
+            'tags'        : 'weird',
+            'startSeconds': '34'
         },
         {
             'videoId': 'JYfnhKnl7_s',

@@ -908,8 +908,13 @@ $( document ).ready( function () {
                     $( '#directYoutubePlayer' ).show();
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
 
+                    var startSeconds = 0;
+                    if ( $( this ).attr( 'startSeconds' ) != '' ) {
+                        startSeconds = $( this ).attr( 'startSeconds' );
+                    }
+
                     if ( lastPlayedDirectYoutubePlayerId != $( this ).attr( 'videoId' ) ) {
-                        directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ) );
+                        directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ), startSeconds );
                     }
                     lastPlayedDirectYoutubePlayerId = $( this ).attr( 'videoId' );
 
@@ -927,6 +932,8 @@ $( document ).ready( function () {
                     } else {
                         directYoutubePlayer.mute();
                     }
+
+
                 }
             } );
 
