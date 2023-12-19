@@ -247,15 +247,43 @@ var config = {
             'tags'   : 'trippy-3D'
         },
         {
+            'videoId': 'CLypKcaBhLY',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': 'E6m3OvB819s',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': '2-7s2BHSoRk',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': 'MwclKrfdGmU',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': 'souHC7H43wg',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': 'cZ-2j3YixFc',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': '3Hr4OH3rq5k',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': '-eO43qWUu6I',
+            'tags'   : 'trippy-3D'
+        },
+        {
             'videoId': 'QxLV23bApTA',
             'tags'   : 'trippy-3D'
         },
         {
             'videoId': 'dzJMbIdrpwI',
-            'tags'   : 'trippy-3D'
-        },
-        {
-            'videoId': 'cZ-2j3YixFc',
             'tags'   : 'trippy-3D'
         },
         {
@@ -265,14 +293,6 @@ var config = {
         {
             'videoId': 'HTHj_pvEYYE',
             'tags'   : 'space'
-        },
-        {
-            'videoId': '-eO43qWUu6I',
-            'tags'   : 'trippy-3D'
-        },
-        {
-            'videoId': '3Hr4OH3rq5k',
-            'tags'   : 'trippy-3D'
         },
         {
             'videoId': '5drq3OD19NQ',
@@ -288,6 +308,14 @@ var config = {
         },
         {
             'videoId': '4J46iitcZK4',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': 'YJXkSFOVZZw',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': 'NDuAh3KkLRE',
             'tags'   : 'trippy-3D'
         },
         {
@@ -307,6 +335,10 @@ var config = {
             'tags'   : 'trippy-2D'
         },
         {
+            'videoId': 'msnYBMdaB08',
+            'tags'   : 'trippy-2D'
+        },
+        {
             'videoId': 'XICnl77dchU',
             'tags'   : 'trippy-2D meditative'
         },
@@ -317,6 +349,10 @@ var config = {
         {
             'videoId': 'S7TUe5w6RHo',
             'tags'   : 'meditative'
+        },
+        {
+            'videoId': 'IMRPKeKBa5A',
+            'tags'   : 'trippy-2D'
         },
         {
             'videoId': 'bx-0YlFprqc',
@@ -340,6 +376,14 @@ var config = {
         },
         {
             'videoId': 'fzpi8ozG-pQ',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': 'sjKIrW0mvns',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': '-mnUfQ3Ji9I',
             'tags'   : 'trippy-3D'
         },
         {
