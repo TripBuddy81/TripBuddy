@@ -162,7 +162,11 @@ var config = {
         {
             'id'   : '0vSa11w4WE7HHCdMwoVayz',
             'label': 'Shivo Ham'
-        }
+        },
+        {
+            'id'   : '0ovMU36BOg3UqBekaTQEER',
+            'label': 'Rain & Thunder'
+        },
     ],
     'noiseGenerators'        : [
         {
