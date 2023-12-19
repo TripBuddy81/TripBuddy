@@ -503,18 +503,21 @@ li, .options, .form-check-label {
     margin-left: -3px;
 }
 
-#liftOff {
+.liftOff {
     font-size: 35px;
     font-weight: bold;
-    margin-left: auto;
     border-width: 5px;
     border-radius: 10px;
     border-color: black;
     background: white;
+    color: black;
+    padding: 0px 10px;
+    margin-right: 25px;
 }
 
-#liftOff:hover {
+.liftOff:hover {
     background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055);
+    color: white;
 }
 
 .menuvisibleAfterStarted {
@@ -554,7 +557,7 @@ li, .options, .form-check-label {
     display: none;
 }
 
-#progressGraph {
+.progressGraph {
     margin: 0;
     padding: 0;
     border: 0;
@@ -562,7 +565,7 @@ li, .options, .form-check-label {
     max-width: var(--chart-width, 600px);
 }
 
-#progressGraph tbody {
+.progressGraph tbody {
     width: 100%;
     height: var(--chart-height, 50px);
     display: flex;
@@ -571,14 +574,14 @@ li, .options, .form-check-label {
     flex-direction: row;
 }
 
-#progressGraph tr {
+.progressGraph tr {
     position: relative;
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0;
 }
 
-#progressGraph td {
+.progressGraph td {
     position: absolute;
     top: -16px;
     right: 0;
@@ -593,7 +596,7 @@ li, .options, .form-check-label {
     );
 }
 
-#progressGraph td:nth-of-type(1) {
+.progressGraph td:nth-of-type(1) {
     --color: rgba(0, 0, 0, 0.2);
 }
 

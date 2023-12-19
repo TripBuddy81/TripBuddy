@@ -432,7 +432,7 @@ $( document ).ready( function () {
             } );
 
             // Lift off - initialize a lot of stuff
-            $( '#liftOff' ).click( function ( e ) {
+            $( '.liftOff' ).click( function ( e ) {
                 timer = setInterval( tripTimer, 1000 );
                 start = new Date();
                 setTimeout( function () {
@@ -443,6 +443,12 @@ $( document ).ready( function () {
                     $( '#launchText' ).hide();
                     $( '#progressGraphContainer' ).show();
                 }, 1000 );
+
+                if ( $(this).attr('tripType') == 'shroomsAndWeed') {
+                    $('#WeedOnlyProgressGraph').remove();
+                } else {
+                    $('#shroomsPlusWeedProgressGraph').remove();
+                }
 
                 minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
 
