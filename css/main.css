@@ -175,10 +175,6 @@ p {
     font-size: xx-large;
 }
 
-.btn-primary:hover {
-    border: none;
-}
-
 #showVideoSection, #showImageSection, #showShrineSection, #showGamesSection, #showSearchSection {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     height: 65px;
@@ -554,20 +550,20 @@ li, .options, .form-check-label {
 }
 
 #timerMinutes {
-    font-size: 60px;
+    font-size: 55px;
     font-weight: bold;
     display: inline-block;
     color: #000000;
     position: absolute;
     top: 2px;
-    right: 200px;
+    right: 230px;
     display: none;
     z-index: 2;
     line-height: 80px;
 }
 
 .timerMinutesWeedOnly {
-    right: 187px !important;
+    right: 194px !important;
 }
 
 #timerColon {
