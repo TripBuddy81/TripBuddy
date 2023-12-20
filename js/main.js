@@ -1106,7 +1106,11 @@ $( document ).ready( function () {
             $( '.searchLink' ).on( 'mousedown', document, function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
-                window.open( $( e.target ).attr( 'href' ) + $( this ).parent().find( '.searchInput' ).val(), '_blank' );
+                if ( $( this ).parent().find( '.searchInput' ).val() != '' ) {
+                    window.open( $( e.target ).attr( 'searchLink' ) + $( this ).parent().find( '.searchInput' ).val(), '_blank' );
+                } else {
+                    window.open( $( e.target ).attr( 'href' ), '_blank' );
+                }
             } );
 
             // Video section screensaver
