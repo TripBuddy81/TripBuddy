@@ -71,9 +71,12 @@ $( document ).ready( function () {
 
             // Disable right click context menu and show playlist selection instead
             $( document ).bind( 'contextmenu', function ( e ) {
-                disableAllOverlaysAndFullscreenVideos();
-                $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
-                $( '#mainMenu' ).show();
+                if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' ) {
+                    disableAllOverlaysAndFullscreenVideos();
+                    $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
+                    $( '#mainMenu' ).show();
+                }
+
                 if ( $( e.target ).attr( 'type' ) != 'text' ) {
                     return false;
                 }
