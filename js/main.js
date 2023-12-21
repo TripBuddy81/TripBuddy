@@ -71,6 +71,7 @@ $( document ).ready( function () {
 
             // Disable right click context menu and show playlist selection instead
             $( document ).bind( 'contextmenu', function ( e ) {
+                disableAllOverlaysOrFullscreens();
                 $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
                 $( '#mainMenu' ).show();
                 if ( $( e.target ).attr( 'type' ) != 'text' ) {
@@ -709,6 +710,25 @@ $( document ).ready( function () {
             }
 
             function showTimedRecommendation( recommendationText ) {
+                disableAllOverlaysOrFullscreens();
+
+                $( '#timedRecommendation' ).modal( 'show' );
+                $( '#topupRecommendation' ).html( recommendationText );
+                $( '#topupRecommendation' ).show();
+            }
+
+            function randomIntFromInterval( min, max ) {
+                return Math.floor( Math.random() * (parseInt( max ) - parseInt( min ) + 1) + parseInt( min ) )
+            }
+
+            function updateprogressGraphColor( color ) {
+                $( '.activeprogressGraphElement' ).each( function () {
+                    newStyle = $( this ).attr( 'style' ).replace( /;--color:.*/, '' );
+                    $( this ).attr( 'style', newStyle + ';--color: ' + color );
+                } );
+            }
+
+            function disableAllOverlaysOrFullscreens() {
                 if ( $( '#directYoutubePlayer' ).is( ':visible' ) ) {
                     document.exitFullscreen();
                     $( '#directYoutubePlayer' ).hide();
@@ -726,26 +746,14 @@ $( document ).ready( function () {
                     document.elementFromPoint( 0, 0 ).click();
                 }
 
+                $( '#preFlightChecklist' ).modal( 'hide' );
+
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 renderShrineSection( showParticles );
                 $( '.videoMenuOverlay' ).hide();
                 $( '.videoMenuOverlayMinimized' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
-                $( '#timedRecommendation' ).modal( 'show' );
-                $( '#topupRecommendation' ).html( recommendationText );
-                $( '#topupRecommendation' ).show();
-            }
-
-            function randomIntFromInterval( min, max ) {
-                return Math.floor( Math.random() * (parseInt( max ) - parseInt( min ) + 1) + parseInt( min ) )
-            }
-
-            function updateprogressGraphColor( color ) {
-                $( '.activeprogressGraphElement' ).each( function () {
-                    newStyle = $( this ).attr( 'style' ).replace( /;--color:.*/, '' );
-                    $( this ).attr( 'style', newStyle + ';--color: ' + color );
-                } );
             }
 
             // Toggle Fullscreen button
