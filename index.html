@@ -326,34 +326,34 @@
 
             <div class="row spotifyPlaylistsMenuContent">
                 <div class="col">
-                    <div class="spotifyPlaylistMenuHeading">Noise Generators</div>
+                   <!-- <div class="spotifyPlaylistMenuHeading">Noise Generators</div>-->
                     {{#noiseGenerators}}
                     <div class="noisegeneratorLink" target="externalSoundTab" href="{{link}}">{{label}}</div>
                     {{/noiseGenerators}}
                 </div>
                 <div class="col">
-                    <div class="spotifyPlaylistMenuHeading">Single Tracks</div>
+                  <!--  <div class="spotifyPlaylistMenuHeading">Single Tracks</div>-->
                     {{#singleTracks}}
                     <div class="spotifyPlaylistItem spotifySingleTrack" data-spotify-id="spotify:track:{{id}}">{{label}}
                     </div>
                     {{/singleTracks}}
                 </div>
                 <div class="col">
-                    <div class="spotifyPlaylistMenuHeading">Soft</div>
+                  <!--  <div class="spotifyPlaylistMenuHeading">Soft</div>-->
                     {{#playlists.green}}
                     <div class="spotifyPlaylistItem spotifyPlaylist" data-spotify-id="spotify:playlist:{{id}}">{{label}}
                     </div>
                     {{/playlists.green}}
                 </div>
                 <div class="col">
-                    <div class="spotifyPlaylistMenuHeading">Medium</div>
+                  <!--  <div class="spotifyPlaylistMenuHeading">Medium</div>-->
                     {{#playlists.blue}}
                     <div class="spotifyPlaylistItem spotifyPlaylist" data-spotify-id="spotify:playlist:{{id}}">{{label}}
                     </div>
                     {{/playlists.blue}}
                 </div>
                 <div class="col">
-                    <div class="spotifyPlaylistMenuHeading">Hard</div>
+                    <!--<div class="spotifyPlaylistMenuHeading">Hard</div>-->
                     {{#playlists.red}}
                     <div class="spotifyPlaylistItem spotifyPlaylist" data-spotify-id="spotify:playlist:{{id}}">{{label}}
                     </div>

@@ -99,7 +99,7 @@ var config = {
                 'id'   : '1aJ2MgVqNh3MC7ZcpEn6yM'
             },
             {
-                'label': 'Of the Wand and the Moon',
+                'label': 'Wand and the Moon',
                 'id'   : '41pYoxyRHKKuqqSXcUnlHI'
             },
             {
@@ -293,6 +293,10 @@ var config = {
         },
         {
             'videoId': 'QxLV23bApTA',
+            'tags'   : 'trippy-3D'
+        },
+        {
+            'videoId': 'fOVXUnDsWgs',
             'tags'   : 'trippy-3D'
         },
         {
@@ -621,6 +625,10 @@ var config = {
             'videoId'     : 'ZmxiaXvIotQ',
             'tags'        : 'weird',
             'startSeconds': '34'
+        },
+        {
+            'videoId'     : 'yudEY5fTFKg',
+            'tags'        : 'weird',
         },
         {
             'videoId': 'JYfnhKnl7_s',
