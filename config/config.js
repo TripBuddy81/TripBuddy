@@ -190,7 +190,7 @@ var config = {
             'label': 'Cosy Rain'
         },
         {
-            'link' : 'https://mynoise.net/NoiseMachines/fireNoiseGenerator.php?l=50778079879799897462&title=The%20Fireplace&c=1',
+            'link' : 'https://mynoise.net/NoiseMachines/fireNoiseGenerator.php?l=34535554606668615142&title=Fireplace&c=1',
             'label': 'Fireplace'
         },
         {
@@ -463,12 +463,12 @@ var config = {
         },
         {
             'videoId': 'JbJ0sYt9Nyk',
-            'mute'   : false,
+            'mute'   : 'mixed',
             'tags'   : 'meditative'
         },
         {
             'videoId': 'J2kFChP2O2k',
-            'mute'   : false,
+            'mute'   : 'mixed',
             'tags'   : 'meditative'
         },
         {
