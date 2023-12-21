@@ -78,6 +78,12 @@ body::-webkit-scrollbar {
 
 input, .form-check-label, .menuItem {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
+    border: none;
+}
+
+input:focus-visible {
+    border: none;
+    outline: none;
 }
 
 h1, h2, h3 {
