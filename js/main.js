@@ -1641,15 +1641,21 @@ $( document ).ready( function () {
                 }, 3000 );
             }
 
-            $( '.noisegeneratorLink' ).click( function ( e ) {
-                try {
-                    mainSearchResultYoutubePlayer.pauseVideo();
-                    spotifyPause();
-                } catch ( e ) {
+            $( '.noisegeneratorLink' ).on( 'mousedown', document, function ( e ) {
+                // on middle mouse button just open in new tab
+                if ( e.which == 2 ) {
+                    window.open( $( this ).attr( 'href' ), '_blank' );
                 }
-                spotifyHasBeenPlayingBeforePause = false;
-                externalSoundTabOpened = true;
-                window.open( $( this ).attr( 'href' ), 'externalSoundTab' );
+                if ( e.which == 1 ) {
+                    try {
+                        mainSearchResultYoutubePlayer.pauseVideo();
+                        spotifyPause();
+                    } catch ( e ) {
+                    }
+                    spotifyHasBeenPlayingBeforePause = false;
+                    externalSoundTabOpened = true;
+                    window.open( $( this ).attr( 'href' ), 'externalSoundTab' );
+                }
             } );
 
             // integrated Spotify player if succesfully logged in
@@ -1712,6 +1718,7 @@ $( document ).ready( function () {
                             !$( event.target ).hasClass( 'menuItem' ) &&
                             !$( event.target ).hasClass( 'xxxLink' ) &&
                             !$( event.target ).hasClass( 'searchLink' ) &&
+                            !$( event.target ).hasClass( 'noisegeneratorLink' ) &&
                             !$( event.target ).hasClass( 'externalVideoPreview' )
                     ) {
                         e.preventDefault();
