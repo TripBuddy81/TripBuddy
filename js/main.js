@@ -69,15 +69,20 @@ $( document ).ready( function () {
                 config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
             }
 
-            // Disable right click context menu and show playlist selection instead
             $( document ).bind( 'contextmenu', function ( e ) {
-                if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' ) {
+                // Disable right click context menu and show playlist selection instead
+                if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' ) {
                     disableAllOverlaysAndFullscreenVideos();
                     $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
                     $( '#mainMenu' ).show();
-                }
-
-                if ( $( e.target ).attr( 'type' ) != 'text' ) {
+                    return false;
+                } else if ( $( e.target ).attr( 'type' ) == 'text' ) { // paste text into text filed
+                    navigator.clipboard.readText()
+                    .then( text => {
+                        $( e.target ).val( text );
+                    } );
+                    return false;
+                } else { // block right click
                     return false;
                 }
             } );
