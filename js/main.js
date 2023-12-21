@@ -71,7 +71,7 @@ $( document ).ready( function () {
 
             // Disable right click context menu and show playlist selection instead
             $( document ).bind( 'contextmenu', function ( e ) {
-                disableAllOverlaysOrFullscreens();
+                disableAllOverlaysAndFullscreenVideos();
                 $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
                 $( '#mainMenu' ).show();
                 if ( $( e.target ).attr( 'type' ) != 'text' ) {
@@ -710,7 +710,7 @@ $( document ).ready( function () {
             }
 
             function showTimedRecommendation( recommendationText ) {
-                disableAllOverlaysOrFullscreens();
+                disableAllOverlaysAndFullscreenVideos();
 
                 $( '#timedRecommendation' ).modal( 'show' );
                 $( '#topupRecommendation' ).html( recommendationText );
@@ -728,7 +728,7 @@ $( document ).ready( function () {
                 } );
             }
 
-            function disableAllOverlaysOrFullscreens() {
+            function disableAllOverlaysAndFullscreenVideos() {
                 if ( $( '#directYoutubePlayer' ).is( ':visible' ) ) {
                     document.exitFullscreen();
                     $( '#directYoutubePlayer' ).hide();
@@ -747,6 +747,7 @@ $( document ).ready( function () {
                 }
 
                 $( '#preFlightChecklist' ).modal( 'hide' );
+                $( '#notesOverlay' ).modal( 'hide' );
 
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
