@@ -955,6 +955,8 @@ $( document ).ready( function () {
                     if ( $( this ).attr( 'mute' ) == 'false' ) {
                         spotifyPause();
                         directYoutubePlayer.unMute();
+                    } else if ( $( this ).attr( 'mute' ) == 'mixed' ) {
+                        directYoutubePlayer.unMute();
                     } else {
                         directYoutubePlayer.mute();
                     }

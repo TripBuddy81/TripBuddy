@@ -170,7 +170,7 @@ var config = {
         {
             'id'   : '0ovMU36BOg3UqBekaTQEER',
             'label': 'Rain & Thunder'
-        },
+        }
     ],
     'noiseGenerators'        : [
         {
@@ -362,8 +362,9 @@ var config = {
             'tags'   : 'meditative'
         },
         {
-            'videoId'     : 'hKdHFPSUcho',
-            'tags'        : 'meditative'
+            'videoId': 'TpQWifH237s',
+            'tags'   : 'meditative',
+            'mute'   : 'mixed'
         },
         {
             'videoId': '1PiXGku9QpI',
@@ -626,8 +627,8 @@ var config = {
             'startSeconds': '34'
         },
         {
-            'videoId'     : 'yudEY5fTFKg',
-            'tags'        : 'weird',
+            'videoId': 'yudEY5fTFKg',
+            'tags'   : 'weird'
         },
         {
             'videoId': 'JYfnhKnl7_s',
