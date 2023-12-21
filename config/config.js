@@ -12,6 +12,7 @@ var config = {
     'youtubeApiKey4'         : 'AIzaSyDzTfNL056PFCwHr8LCN28M2sxtqFhVcrk',
     'youtubeApiKey5'         : 'AIzaSyDYbNZadsnrc3RdwxL9nPhKrg3oa8EbNoA',
     'spotifyPhoneName'       : 'Pixel',
+    'spotifyBedroom'         : '',
     'spotifySaveToPlaylistId': '',
     'preFlightChecklist'     : [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
@@ -462,9 +463,10 @@ var config = {
             'startSeconds': '10'
         },
         {
-            'videoId': 'JbJ0sYt9Nyk',
-            'mute'   : 'mixed',
-            'tags'   : 'meditative'
+            'videoId'     : 'JbJ0sYt9Nyk',
+            'mute'        : 'mixed',
+            'tags'        : 'meditative',
+            'startSeconds': '60'
         },
         {
             'videoId': 'J2kFChP2O2k',

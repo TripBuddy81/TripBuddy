@@ -681,6 +681,13 @@ li, .options, .form-check-label {
     top: -17px;
 }
 
+#sleep {
+    position: absolute;
+    height: 40px;
+    top: 13px;
+    display: none;
+}
+
 #devices {
     position: relative;
     top: 16px;
@@ -693,6 +700,7 @@ li, .options, .form-check-label {
     font-size: 30px;
     color: black;
     margin-bottom: 20px;
+    left: 70px;
 }
 
 option {

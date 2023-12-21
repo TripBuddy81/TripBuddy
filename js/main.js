@@ -1774,6 +1774,12 @@ $( document ).ready( function () {
                     createSongRadio( $( '#spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
                 } );
 
+                // Transfer sound into bedroom and disable fullscreen
+                $( '#sleep' ).click( function () {
+                    transfer( $( '#devices option:contains("' + config['spotifyBedroom'] + '")' ).val() );
+                    disableFullscreen();
+                } );
+
                 function openDesktopApp() {
                     if ( localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
                         window.open( lastSelectedPlaylist, '_blank' );

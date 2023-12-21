@@ -103,6 +103,13 @@ function handleDevicesResponse() {
         } else {
             $( '#switchDesktopPhone' ).hide();
         }
+
+        if ( typeof $( '#devices option:contains("' + config['spotifyBedroom'] + '")' ).val() != 'undefined' ) {
+            $( '#sleep' ).show();
+        } else {
+            $( '#sleep' ).hide();
+        }
+
     } else if ( this.status == 401 ) {
         refreshAccessToken()
     } else {
