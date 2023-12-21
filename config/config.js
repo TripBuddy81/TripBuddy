@@ -99,6 +99,10 @@ var config = {
                 'id'   : '1aJ2MgVqNh3MC7ZcpEn6yM'
             },
             {
+                'label': 'Of the Wand and the Moon',
+                'id'   : '41pYoxyRHKKuqqSXcUnlHI'
+            },
+            {
                 'label': 'Psychedelic Rock',
                 'id'   : '1J2Q32HV4PbVhlhNTensBV'
             },
