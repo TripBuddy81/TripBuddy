@@ -152,7 +152,11 @@ $( document ).ready( function () {
             } );
             $( '*[data-trigger-keyboard]' ).click( function () {
                 $( window ).trigger( 'resize' );
-                $( this ).val( '' );
+            } );
+
+            $( '.searchClear' ).click( function () {
+                $( this ).parent().find( '.searchInput' ).val( '' );
+                $( this ).parent().find( '.searchInput' ).trigger( 'click' );
             } );
 
             // Init number spinner ('.input-group') - https://www.jqueryscript.net/form/Input-Spinner-Plugin-Bootstrap-4.html
