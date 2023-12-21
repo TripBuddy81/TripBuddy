@@ -71,6 +71,7 @@ $( document ).ready( function () {
 
             // Disable right click context menu
             $( document ).bind( 'contextmenu', function ( e ) {
+                $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
                 if ( $( e.target ).attr( 'type' ) != 'text' ) {
                     return false;
                 }
@@ -1601,11 +1602,9 @@ $( document ).ready( function () {
                 $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
             } );
 
-            document.onclick = function ( e ) {
-                if ( e.target != document.getElementById( 'next' ) && e.target != document.getElementById( 'spotifyPlaylistsMenu' ) && e.target != document.getElementById( 'spotifyPlaylists' ) ) {
-                    $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
-                }
-            }
+            $( '.spotifyPlaylistItem,.currentTrackAction' ).click( function () {
+                $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
+            } );
 
             $( '#spotifyLogin' ).click( function ( e ) {
                 requestAuthorization();
