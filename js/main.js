@@ -69,9 +69,10 @@ $( document ).ready( function () {
                 config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
             }
 
-            // Disable right click context menu
+            // Disable right click context menu and show playlist selection instead
             $( document ).bind( 'contextmenu', function ( e ) {
-                $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
+                $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
+                $( '#mainMenu' ).show();
                 if ( $( e.target ).attr( 'type' ) != 'text' ) {
                     return false;
                 }
