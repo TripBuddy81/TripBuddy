@@ -312,12 +312,13 @@ var config = {
         {
             'videoId'     : 'yNeprtMyAAg',
             'tags'        : 'space',
-            'startSeconds': '9'
+            'startSeconds': '28',
+            'playbackrate': '0.8'
         },
         {
             'videoId'     : 'OZ8qYubLRWM',
             'tags'        : 'space',
-            'startSeconds': '62'
+            'startSeconds': '62',
         },
         {
             'videoId': 'dJoXVILGeKQ',

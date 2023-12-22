@@ -965,6 +965,12 @@ $( document ).ready( function () {
                     } else {
                         directYoutubePlayer.mute();
                     }
+
+                    if ( $( this ).attr( 'playbackrate' ) != '' ) {
+                        directYoutubePlayer.setPlaybackRate( parseInt( $( this ).attr( 'playbackrate' ) ) );
+                    } else {
+                        directYoutubePlayer.setPlaybackRate( 1 );
+                    }
                 }
             } );
 
