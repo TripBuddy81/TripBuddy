@@ -273,10 +273,6 @@ var config = {
             'startSeconds': '18'
         },
         {
-            'videoId': 'CLypKcaBhLY',
-            'tags'   : 'trippy-3D'
-        },
-        {
             'videoId': '2-7s2BHSoRk',
             'tags'   : 'trippy-3D'
         },
@@ -312,6 +308,20 @@ var config = {
             'videoId'     : 'HTHj_pvEYYE',
             'tags'        : 'space',
             'startSeconds': '27'
+        },
+        {
+            'videoId'     : 'yNeprtMyAAg',
+            'tags'        : 'space',
+            'startSeconds': '9'
+        },
+        {
+            'videoId'     : 'OZ8qYubLRWM',
+            'tags'        : 'space',
+            'startSeconds': '62'
+        },
+        {
+            'videoId': 'dJoXVILGeKQ',
+            'tags'   : 'meditative'
         },
         {
             'videoId': '5drq3OD19NQ',
@@ -423,13 +433,18 @@ var config = {
             'tags'   : 'meditative'
         },
         {
-            'videoId': 'dJoXVILGeKQ',
-            'tags'   : 'meditative'
-        },
-
-        {
             'videoId': 'AHzek64M6jY',
             'tags'   : 'meditative'
+        },
+        {
+            'videoId'     : '6tmbeLTHC_0',
+            'tags'        : 'meditative space',
+            'startSeconds': '50'
+        },
+        {
+            'videoId'     : 'yDiD8F9ItX0',
+            'tags'        : 'meditative space',
+            'startSeconds': '80'
         },
         {
             'videoId': 'tI2ucenn6hM',
