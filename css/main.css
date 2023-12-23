@@ -683,9 +683,14 @@ li, .options, .form-check-label {
 
 #sleep {
     position: absolute;
-    height: 40px;
-    top: 13px;
+    height: 48px;
+    top: 17px;
     display: none;
+}
+
+#menuActionHeader {
+    margin-top: 73px;
+    display: block;
 }
 
 #devices {
@@ -701,6 +706,7 @@ li, .options, .form-check-label {
     color: black;
     margin-bottom: 28px;
     left: 70px;
+    display: none;
 }
 
 option {
