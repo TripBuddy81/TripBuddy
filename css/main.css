@@ -351,6 +351,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     color: black;
     font-weight: 600;
+    height: 100vH;
 }
 
 #menu li, .pizzaTimerMinutesSuffix {
