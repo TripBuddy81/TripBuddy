@@ -1782,7 +1782,7 @@ $( document ).ready( function () {
 
                 // Transfer sound into bedroom and disable fullscreen
                 $( '#sleep' ).click( function () {
-                    transfer( $( '#devices option:contains("' + config['spotifyBedroom'] + '")' ).val() );
+                    transfer( $( '#devices option:contains("' + config['spotifyBedroomName'] + '")' ).val() );
                     disableFullscreen();
                 } );
 

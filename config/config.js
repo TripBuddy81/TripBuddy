@@ -12,7 +12,7 @@ var config = {
     'youtubeApiKey4'         : 'AIzaSyDzTfNL056PFCwHr8LCN28M2sxtqFhVcrk',
     'youtubeApiKey5'         : 'AIzaSyDYbNZadsnrc3RdwxL9nPhKrg3oa8EbNoA',
     'spotifyPhoneName'       : 'Pixel',
-    'spotifyBedroom'         : '',
+    'spotifyBedroomName'         : '',
     'spotifySaveToPlaylistId': '',
     'preFlightChecklist'     : [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},

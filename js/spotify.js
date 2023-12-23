@@ -104,7 +104,7 @@ function handleDevicesResponse() {
             $( '#switchDesktopPhone' ).hide();
         }
 
-        if ( typeof $( '#devices option:contains("' + config['spotifyBedroom'] + '")' ).val() != 'undefined' ) {
+        if ( typeof $( '#devices option:contains("' + config['spotifyBedroomName'] + '")' ).val() != 'undefined' ) {
             $( '#sleep' ).show();
         } else {
             $( '#sleep' ).hide();
