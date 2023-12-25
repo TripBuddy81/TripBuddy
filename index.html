@@ -71,10 +71,11 @@
                 <span class="burgerMenu"></span>
                 <span class="burgerMenu"></span>
                 <ul id="menu">
-                    <img id="sleep" class="cursorAction" src="./assets/sleep.png">
-                    <select id="devices"
-                            class="form-control"
-                            style=""></select>
+                    <span id="menuTopActions">
+                        <img id="sleep" class="cursorAction float-start" src="./assets/sleep.png">
+                        <select id="devices" class="form-control" style=""></select>
+                    </span>
+
                     <span id="menuActionHeader">-- <b>Actions</b> --------------------------------------------------------------------</span>
                     <span id="pizzaTimerMinutesContainer">
                         <li class="menuItem" id="startPizzaTimer">Start Pizza Timer
@@ -582,7 +583,8 @@
                 {{#videosYoutube}}
                 <div class="videoContainer {{tags}} col-3">
                     <div class="iFrameContainer">
-                        <img videoId="{{videoId}}" mute="{{mute}}" playbackrate="{{playbackrate}}" startSeconds="{{startSeconds}}"
+                        <img videoId="{{videoId}}" mute="{{mute}}" playbackrate="{{playbackrate}}"
+                             startSeconds="{{startSeconds}}"
                              class="youtubeVideo videoSource"
                              src="https://i.ytimg.com/vi/{{videoId}}/mqdefault.jpg"/>
                         <div class="videoInfo mb-2">
