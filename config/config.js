@@ -438,6 +438,10 @@ var config = {
             'tags'   : 'meditative'
         },
         {
+            'videoId'     : 'miqbNFmbN2Q',
+            'tags'        : 'meditative nature',
+        },
+        {
             'videoId'     : '6tmbeLTHC_0',
             'tags'        : 'meditative space',
             'startSeconds': '50'
