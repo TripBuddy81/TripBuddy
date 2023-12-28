@@ -444,7 +444,36 @@ $( document ).ready( function () {
                 if ( !allVideosLoaded ) {
                     loadAllVideos();
                 }
+
+                preFlightCheckListAnimationTimer = setInterval( preFlightCheckListAnimation, 1000 );
+                preFlightCheckListAnimation();
             } );
+
+            function preFlightCheckListAnimation() {
+                var highlightedFound = false;
+                var isLastElement = false;
+                $( '.checkListItem' ).each( function ( index, value ) {
+                    if ( highlightedFound ) {
+                        $( this ).addClass( 'checkListItemHighlighted' );
+                        return false;
+                    }
+
+                    if ( $( this ).hasClass( 'checkListItemHighlighted' ) ) {
+                        $( this ).removeClass( 'checkListItemHighlighted' );
+                        highlightedFound = true;
+                    }
+                    if ( index == $( '.checkListItem' ).length - 1 ) {
+                        isLastElement = true;
+                    }
+
+                } );
+                if ( !highlightedFound || isLastElement ) {
+                    $( '.checkListItem' ).each( function () {
+                        $( this ).addClass( 'checkListItemHighlighted' );
+                        return false;
+                    } );
+                }
+            }
 
             // Lift off - initialize a lot of stuff
             $( '.liftOff' ).click( function ( e ) {
@@ -458,6 +487,8 @@ $( document ).ready( function () {
                     $( '#launchText' ).hide();
                     $( '#progressGraphContainer' ).show();
                 }, 1000 );
+
+                clearInterval( preFlightCheckListAnimationTimer );
 
                 if ( $( this ).attr( 'id' ) == 'shroomsAndWeedLiftOff' ) {
                     $( '#WeedOnlyProgressGraph' ).remove();
