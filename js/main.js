@@ -445,7 +445,7 @@ $( document ).ready( function () {
                     loadAllVideos();
                 }
 
-                preFlightCheckListAnimationTimer = setInterval( preFlightCheckListAnimation, 1000 );
+                preFlightCheckListAnimationTimer = setInterval( preFlightCheckListAnimation, 1500 );
                 preFlightCheckListAnimation();
             } );
 
