@@ -1080,9 +1080,10 @@ var config = {
     ],
     'searchEngines'          : [
         {
-            'link': 'https://www.google.de/search?q=',
-            'name': 'Google',
-            'tag' : ''
+            'searchLink': 'https://www.google.de/search?q=##searchTerm##',
+            'link'      : 'https://www.google.de/',
+            'name'      : 'Google',
+            'tag'       : ''
         }
     ],
     'externalVideoLinks'     : [],

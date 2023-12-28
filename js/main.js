@@ -1169,7 +1169,7 @@ $( document ).ready( function () {
                 e.preventDefault();
                 e.stopPropagation();
                 if ( $( this ).parent().find( '.searchInput' ).val() != '' ) {
-                    window.open( $( e.target ).attr( 'searchLink' ) + $( this ).parent().find( '.searchInput' ).val(), '_blank' );
+                    window.open( $( e.target ).attr( 'searchLink' ) .replace( /##searchTerm##/, $( this ).parent().find( '.searchInput' ).val() ), '_blank' );
                 } else {
                     window.open( $( e.target ).attr( 'href' ), '_blank' );
                 }
