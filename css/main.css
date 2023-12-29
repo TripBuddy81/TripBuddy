@@ -1470,10 +1470,10 @@ video::-webkit-media-controls-fullscreen-button {
     line-height: 3.5;
 }
 
-#searchBar {
+.searchBar {
     width: auto;
     height: auto;
-    display: inline-block;;
+    display: inline-block;
 }
 
 .keyboard-action-button, .keyboard-key {
