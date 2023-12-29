@@ -772,10 +772,7 @@ $( document ).ready( function () {
             }
 
             function disableAllOverlaysAndFullscreenVideos() {
-                if ( $( '#directYoutubePlayer' ).is( ':visible' ) ) {
-                    document.exitFullscreen();
-                    $( '#directYoutubePlayer' ).hide();
-                }
+                $( '#directYoutubePlayer' ).hide();
 
                 $( '.videoContainerFullscreen' ).each( function () {
                     $( this ).removeClass( 'videoContainerFullscreen' );
@@ -946,58 +943,6 @@ $( document ).ready( function () {
                 }
             }
 
-            $( '.youtubeVideo' ).click( function ( event ) {
-                if ( !directYoutubePlayerLoaded ) {
-                    try {
-                        directYoutubePlayer.mute();
-                        directYoutubePlayerLoaded = true;
-                    } catch ( e ) {
-                        directYoutubePlayerLoaded = false;
-                    }
-                }
-
-                if ( directYoutubePlayerLoaded ) {
-                    blockScreenSaver = true;
-                    enableFullscreen();
-
-                    $( '#directYoutubePlayer' ).show();
-                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
-
-                    var startSeconds = 0;
-                    if ( $( this ).attr( 'startSeconds' ) != '' ) {
-                        startSeconds = $( this ).attr( 'startSeconds' );
-                    }
-
-                    if ( lastPlayedDirectYoutubePlayerId != $( this ).attr( 'videoId' ) ) {
-                        directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ), startSeconds );
-                    }
-                    lastPlayedDirectYoutubePlayerId = $( this ).attr( 'videoId' );
-
-                    if ( $( this ).closest( '.videoContainer' ).hasClass( 'wisdom' ) ) {
-                        lastPlayedDirectYoutubePlayerVideoIsWisdom = true;
-                    } else {
-                        lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
-                    }
-
-                    directYoutubePlayer.playVideo();
-
-                    if ( $( this ).attr( 'mute' ) == 'false' ) {
-                        spotifyPause();
-                        directYoutubePlayer.unMute();
-                    } else if ( $( this ).attr( 'mute' ) == 'mixed' ) {
-                        directYoutubePlayer.unMute();
-                    } else {
-                        directYoutubePlayer.mute();
-                    }
-
-                    if ( $( this ).attr( 'playbackrate' ) != '' ) {
-                        directYoutubePlayer.setPlaybackRate( parseInt( $( this ).attr( 'playbackrate' ) ) );
-                    } else {
-                        directYoutubePlayer.setPlaybackRate( 1 );
-                    }
-                }
-            } );
-
             $( '.videoFilterBtn' ).click( function () {
                 enableFullscreen();
                 $( 'html, body' ).animate( {scrollTop: 0}, 'fast' );
@@ -1074,6 +1019,59 @@ $( document ).ready( function () {
                 allVideosLoaded = true;
             }
 
+            // Youtube video minimized overlay
+            $( '.youtubeVideo' ).click( function ( event ) {
+                if ( !directYoutubePlayerLoaded ) {
+                    try {
+                        directYoutubePlayer.mute();
+                        directYoutubePlayerLoaded = true;
+                    } catch ( e ) {
+                        directYoutubePlayerLoaded = false;
+                    }
+                }
+
+                if ( directYoutubePlayerLoaded ) {
+                    blockScreenSaver = true;
+                    enableFullscreen();
+
+                    $( '#directYoutubePlayer' ).show();
+                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+
+                    var startSeconds = 0;
+                    if ( $( this ).attr( 'startSeconds' ) != '' ) {
+                        startSeconds = $( this ).attr( 'startSeconds' );
+                    }
+
+                    if ( lastPlayedDirectYoutubePlayerId != $( this ).attr( 'videoId' ) ) {
+                        directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ), startSeconds );
+                    }
+                    lastPlayedDirectYoutubePlayerId = $( this ).attr( 'videoId' );
+
+                    if ( $( this ).closest( '.videoContainer' ).hasClass( 'wisdom' ) ) {
+                        lastPlayedDirectYoutubePlayerVideoIsWisdom = true;
+                    } else {
+                        lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
+                    }
+
+                    directYoutubePlayer.playVideo();
+
+                    if ( $( this ).attr( 'mute' ) == 'false' ) {
+                        spotifyPause();
+                        directYoutubePlayer.unMute();
+                    } else if ( $( this ).attr( 'mute' ) == 'mixed' ) {
+                        directYoutubePlayer.unMute();
+                    } else {
+                        directYoutubePlayer.mute();
+                    }
+
+                    if ( $( this ).attr( 'playbackrate' ) != '' ) {
+                        directYoutubePlayer.setPlaybackRate( parseInt( $( this ).attr( 'playbackrate' ) ) );
+                    } else {
+                        directYoutubePlayer.setPlaybackRate( 1 );
+                    }
+                }
+            } );
+
             // Local Video minimized iFrame overlay
             $( '.localVideo' ).click( function ( event ) {
                 blockScreenSaver = true;
@@ -1116,15 +1114,9 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
 
-                try {
-                    $( this ).closest( '.iFrameContainer' ).removeClass( 'videoContainerFullscreen' );
-                } catch ( e ) {
-                }
-
-                try {
-                    $( this ).closest( '.iFrameContainer' ).find( '#mainSearchResultYoutubeIframe' ).removeClass( 'videoContainerFullscreen' );
-                } catch ( e ) {
-                }
+                $( '.videoContainerFullscreen' ).each( function () {
+                    $( this ).removeClass( 'videoContainerFullscreen' );
+                } );
 
                 // Local video player
                 try {
