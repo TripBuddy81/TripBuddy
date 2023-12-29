@@ -1163,7 +1163,6 @@ $( document ).ready( function () {
                 }
             }
 
-
             $( '.videoFrame' ).click( function ( event ) {
                 this.paused ? this.play() : this.pause();
             } );

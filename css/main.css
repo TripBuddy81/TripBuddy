@@ -1239,7 +1239,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #MageAIExternalPage {
-    height: 1080px;
+    height: 110vh;
     margin-left: -16px;
     width: 100.2vW;
     top: -210px;
