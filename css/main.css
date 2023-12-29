@@ -705,6 +705,7 @@ li, .options, .form-check-label {
 #menuTopActions {
     margin-top: 10px;
     display: block;
+    min-height: 55px;
 }
 
 #sleep {
@@ -715,7 +716,7 @@ li, .options, .form-check-label {
 
 #devices {
     position: relative;
-    top: 9px;
+    top: 8px;
     width: 300px;
     background: transparent;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
@@ -906,7 +907,7 @@ option {
 
 #particles-js {
     position: relative;
-    height: 975px;
+    height: 100vh;
     animation: strobo2 0ms steps(1, end) infinite;
     z-index: 3;
     overflow: hidden;

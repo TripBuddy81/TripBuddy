@@ -304,7 +304,6 @@ function handleCurrentlyPlayingResponse() {
             playingSpotifyTrack = false;
         }
     } catch ( e ) {
-        /*console.info( e );*/
         return false;
     }
 }
