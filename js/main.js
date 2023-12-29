@@ -1154,6 +1154,7 @@ $( document ).ready( function () {
 
             function exitHandler() {
                 if ( !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement ) {
+                    isFullScreen = false;
                     disableAllOverlaysAndFullscreenVideos();
                 }
             }
