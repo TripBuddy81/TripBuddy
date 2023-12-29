@@ -777,26 +777,38 @@ $( document ).ready( function () {
                 $( '.videoContainerFullscreen' ).each( function () {
                     $( this ).removeClass( 'videoContainerFullscreen' );
                 } );
-                $( '.localVideo' ).each( function () {
-                    try {
-                        $( this ).get( 0 ).pause();
-                    } catch (e) {
+
+                // Local video player
+                try {
+                    $( this ).parent().find( '.videoFrame' ).get( 0 ).pause();
+                } catch ( e ) {
+                }
+                // Main Youtube search player
+                if ( $( this ).parent().find( '#mainSearchResultYoutubeIframe' ).length > 0 ) {
+
+                } else { // Direct youtube player
+                    directYoutubePlayer.pauseVideo();
+                    if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom ) {
+                        spotifyPlay();
                     }
-                } );
+                }
 
                 if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
                     document.elementFromPoint( 0, 0 ).click();
                 }
 
-                $( '#preFlightChecklist' ).modal( 'hide' );
-                $( '#notesOverlay' ).modal( 'hide' );
-
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 renderShrineSection( showParticles );
+                $( '#preFlightChecklist' ).modal( 'hide' );
+                $( '#notesOverlay' ).modal( 'hide' );
+                $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
                 $( '.miscVideoOverlay' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                if ( mainYoutubePlayerIsActiveSoundSource ) {
+                    $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
+                }
             }
 
             // Toggle Fullscreen button
@@ -1117,35 +1129,7 @@ $( document ).ready( function () {
             } );
 
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
-                blockScreenSaver = false;
-                screensaverSecondsIdle = 0;
-
-                $( '.videoContainerFullscreen' ).each( function () {
-                    $( this ).removeClass( 'videoContainerFullscreen' );
-                } );
-
-                // Local video player
-                try {
-                    $( this ).parent().find( '.videoFrame' ).get( 0 ).pause();
-                } catch ( e ) {
-                }
-                // Main Youtube search player
-                if ( $( this ).parent().find( '#mainSearchResultYoutubeIframe' ).length > 0 ) {
-
-                } else { // Direct youtube player
-                    directYoutubePlayer.pauseVideo();
-                    if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom ) {
-                        spotifyPlay();
-                    }
-                }
-
-                $( '#directYoutubePlayer' ).hide();
-                $( '.videoMenuOverlay' ).hide();
-                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
-                $( '.miscVideoOverlay' ).show();
-                if ( mainYoutubePlayerIsActiveSoundSource ) {
-                    $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
-                }
+                disableAllOverlaysAndFullscreenVideos();
             } );
 
             // Show cursor when moving mouse
