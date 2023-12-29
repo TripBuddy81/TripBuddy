@@ -809,10 +809,12 @@ $( document ).ready( function () {
                 event.preventDefault();
                 event.stopPropagation();
                 clearSelection();
-                if ( window.innerHeight != screen.height ) {
+                if ( !isFullScreen ) {
                     enableFullscreen();
+                    isFullScreen = true;
                 } else {
                     disableFullscreen();
+                    isFullScreen = false;
                 }
             }
 
@@ -960,12 +962,15 @@ $( document ).ready( function () {
 
                 if ( directYoutubePlayerLoaded ) {
                     blockScreenSaver = true;
-                    const container = $( '#directYoutubePlayerContainer' )[0];
+
+                    enableFullscreen();
+
+/*                    const container = $( '#directYoutubePlayerContainer' )[0];
                     const fullscreenApi = container.requestFullscreen
                             || container.webkitRequestFullScreen
                             || container.mozRequestFullScreen
                             || container.msRequestFullscreen;
-                    fullscreenApi.call( container );
+                    fullscreenApi.call( container );*/
 
                     $( '#directYoutubePlayer' ).show();
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
@@ -1084,12 +1089,12 @@ $( document ).ready( function () {
             // Youtube iFrame fullscreen button overlay
             $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
                 blockScreenSaver = true;
-                const container = $( this ).closest( '.videoContainer' )[0];
+/*                const container = $( this ).closest( '.videoContainer' )[0];
                 const fullscreenApi = container.requestFullscreen
                         || container.webkitRequestFullScreen
                         || container.mozRequestFullScreen
                         || container.msRequestFullscreen;
-                fullscreenApi.call( container );
+                fullscreenApi.call( container );*/
 
                 try {
                     $( this ).parent().find( '.videoFrame' ).get( 0 ).play();
@@ -1104,7 +1109,6 @@ $( document ).ready( function () {
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
-                document.exitFullscreen();
 
                 // Local video player
                 try {
@@ -1144,7 +1148,7 @@ $( document ).ready( function () {
 
             // Reset settings if user disengaged fullscreen via ESC or other means...
             window.setInterval( function () {
-                if ( window.innerHeight != screen.height ) {
+/*                if ( window.innerHeight != screen.height ) {
                     $( '.videoMenuOverlayMinimized' ).show();
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                     $( '#directYoutubePlayer' ).hide();
@@ -1157,7 +1161,7 @@ $( document ).ready( function () {
                     blockScreenSaver = false;
                 } else {
                     isFullScreen = true;
-                }
+                }*/
             }, 1000 );
 
             $( '.videoFrame' ).click( function ( event ) {
