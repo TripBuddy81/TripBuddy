@@ -318,10 +318,10 @@ $( document ).ready( function () {
             // Global key captures
             var rightMouseClicked = false;
             $( '#activateHiddenMenue' ).mousedown( function ( event ) {
-                enableFullscreen();
                 switch ( event.which ) {
                     case 1:
                         if ( rightMouseClicked ) {
+                            enableFullscreen();
                             toggleXXXVisible();
                             if ( !allVideosLoaded ) {
                                 loadAllVideos();
