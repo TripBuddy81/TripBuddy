@@ -122,6 +122,8 @@ a:link, a:visited, a:active, a:hover, p {
     font-size: 35px !important;
     background: none;
     border: none;
+    display: inline;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
 .searchClear {
