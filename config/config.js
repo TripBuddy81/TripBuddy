@@ -1,9 +1,9 @@
 var config = {
-    'oAuthSpotify'           : [
+    'oAuthSpotify'          : [
         {
-            'redirect_uri' : 'https://tripbuddy.vercel.app',
-            'client_id'    : '',
-            'client_secret': ''
+            'redirect_uri' : 'http://localhost/',
+            'client_id'    : '239e89be105a4707b00b79bab260cdc1',
+            'client_secret': 'a648b8cc0b5947eb9f235f663fe65b92'
         }
     ],
     'youtubeApiKey1'         : 'AIzaSyCmE1ZP5k5e5B7SxgHhZ0B84S22gLtd5Qc',

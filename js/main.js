@@ -783,10 +783,13 @@ $( document ).ready( function () {
                 } );
 
                 // Local video player
-                try {
-                    $( this ).parent().find( '.videoFrame' ).get( 0 ).pause();
-                } catch ( e ) {
-                }
+                $( '.localVideo' ).each( function () {
+                    try {
+                        $( this ).get( 0 ).pause();
+                    } catch ( e ) {
+                    }
+                } );
+
                 // Main Youtube search player
                 if ( $( this ).parent().find( '#mainSearchResultYoutubeIframe' ).length > 0 ) {
 
