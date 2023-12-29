@@ -72,7 +72,8 @@
                 <span class="burgerMenu"></span>
                 <ul id="menu">
                     <span id="menuTopActions">
-                        <img id="sleep" class="cursorAction float-start" src="./assets/sleep.png">
+                        <img id="notesSymbol2" class="cursorAction float-start" src="assets/notes.png">
+                        <img id="sleep" class="cursorAction " src="./assets/sleep.png">
                         <select id="devices" class="form-control" style=""></select>
                     </span>
 
@@ -117,7 +118,7 @@
             <img id="pizzaTimerSymbol" src="assets/pizza.png">
             <span id="pizzaTimerProgress">00</span>
         </span>
-        <img id="notesSymbol" src="assets/notes.png">
+        <img id="notesSymbol1" src="assets/notes.png">
         <div id="launchText" class="float-end me-3 mt-3" data-bs-toggle="modal" data-bs-target="#preFlightChecklist">
             <img id="launchSymbol" class="" src="./assets/loading.gif">
         </div>
@@ -577,7 +578,8 @@
                     <label class="searchLabel form-check-label me-2" for="searchInput1">=></label>
 
                     {{#searchEngines}}
-                    <div class="searchLink {{tag}}" searchLink="{{searchLink}}" href={{link}} target=_blank>{{name}}</div>
+                    <div class="searchLink {{tag}}" searchLink="{{searchLink}}" href={{link}} target=_blank>{{name}}
+                    </div>
                     {{/searchEngines}}
                     <br>
                 </div>

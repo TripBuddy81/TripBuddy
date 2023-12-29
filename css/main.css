@@ -698,7 +698,7 @@ li, .options, .form-check-label {
 
 
 #menuActionHeader {
-    margin-top: 73px;
+    margin-top: 8px;
     display: block;
 }
 
@@ -710,12 +710,12 @@ li, .options, .form-check-label {
 #sleep {
     height: 48px;
     display: none;
-    margin-right: 30px;
+    margin-right: 25px;
 }
 
 #devices {
-    position: absolute;
-    top: 17px;
+    position: relative;
+    top: 9px;
     width: 300px;
     background: transparent;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
@@ -724,7 +724,8 @@ li, .options, .form-check-label {
     padding: 0;
     font-size: 30px;
     color: black;
-    left: 109px;
+    left: 0px;
+    display: inline;
 }
 
 option {
@@ -1291,7 +1292,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100vh;
 }
 
-#notesSymbol {
+#notesSymbol1 {
     display: none;
     height: 45px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
@@ -1299,6 +1300,13 @@ video::-webkit-media-controls-fullscreen-button {
     right: 140px;
     top: 21px;
     z-index: 11;
+}
+
+#notesSymbol2 {
+    height: 45px;
+    position: relative;
+    top: 10px;
+    margin-right: 25px;
 }
 
 #notesTextarea {

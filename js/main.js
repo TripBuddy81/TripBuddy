@@ -483,7 +483,7 @@ $( document ).ready( function () {
                     if ( !$( '#pizzaTimerContainer' ).is( ':visible' ) ) {
                         $( '#timerMinutes' ).show();
                     }
-                    $( '#notesSymbol' ).show();
+                    $( '#notesSymbol1' ).show();
                     $( '#launchText' ).hide();
                     $( '#progressGraphContainer' ).show();
                 }, 1000 );
@@ -849,7 +849,7 @@ $( document ).ready( function () {
             }
 
             // Show notes overlay
-            $( '#notesSymbol' ).click( function () {
+            $( '#notesSymbol1,#notesSymbol2' ).click( function () {
                 enableFullscreen();
                 $( '#notesOverlay' ).modal( 'show' );
 
