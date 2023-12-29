@@ -644,8 +644,8 @@
 
                 {{#videosMisc}}
                 <div class="videoContainer {{tags}} col-3">
-                    <div class="iFrameContainer miscVideo">
-                        <iframe width="554" height="315" class="videoFrame videoSource"
+                    <div class="iFrameContainer">
+                        <iframe width="554" height="315" class="videoFrame videoSource miscVideo"
                                 src="NOLOAD{{videoLink}}&rel=0&cc_load_policy=0&hd=1"
                                 frameborder="0"
                                 allow=""
@@ -660,6 +660,8 @@
                             {{label}}
                         </div>
                         <img class="addVideoToQueue" src="./assets/addToQueue.png">
+                        <div class="miscVideoOverlay">
+                        </div>
                         <div class="videoMenuOverlayFullscreen">
                         </div>
                         <div class="videoMenuOverlayFullscreen2">

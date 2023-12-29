@@ -1077,7 +1077,7 @@ $( document ).ready( function () {
                 allVideosLoaded = true;
             }
 
-            // MISC and LOCAL Video iFrame fullscreen button overlay
+            // Local Video minimized iFrame overlay
             $( '.localVideo' ).click( function ( event ) {
                 blockScreenSaver = true;
                 enableFullscreen();
@@ -1087,7 +1087,21 @@ $( document ).ready( function () {
                     $( this ).play();
                 } catch ( e ) {
                 }
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+            } );
 
+            // Misc Video minimized iFrame overlay
+            $( '.miscVideoOverlay' ).click( function ( event ) {
+                blockScreenSaver = true;
+                enableFullscreen();
+                $( this ).closest( '.iFrameContainer' ).addClass( 'videoContainerFullscreen' );
+
+                try {
+                    $( this ).play();
+                    $( this ).mute();
+                } catch ( e ) {
+                }
+                $( '.miscVideoOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
             } );
 
@@ -1104,7 +1118,6 @@ $( document ).ready( function () {
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
-
 
                 try {
                     $( this ).closest( '.iFrameContainer' ).removeClass( 'videoContainerFullscreen' );
@@ -1134,6 +1147,7 @@ $( document ).ready( function () {
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                $( '.miscVideoOverlay' ).show();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
