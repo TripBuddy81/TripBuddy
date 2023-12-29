@@ -796,7 +796,7 @@ $( document ).ready( function () {
                 screensaverSecondsIdle = 0;
                 renderShrineSection( showParticles );
                 $( '.videoMenuOverlay' ).hide();
-                $( '.videoMenuOverlayMinimized' ).show();
+/*                $( '.videoMenuOverlayMinimized' ).show();*/
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
             }
 
@@ -962,15 +962,7 @@ $( document ).ready( function () {
 
                 if ( directYoutubePlayerLoaded ) {
                     blockScreenSaver = true;
-
                     enableFullscreen();
-
-/*                    const container = $( '#directYoutubePlayerContainer' )[0];
-                    const fullscreenApi = container.requestFullscreen
-                            || container.webkitRequestFullScreen
-                            || container.mozRequestFullScreen
-                            || container.msRequestFullscreen;
-                    fullscreenApi.call( container );*/
 
                     $( '#directYoutubePlayer' ).show();
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
@@ -1101,7 +1093,7 @@ $( document ).ready( function () {
                 } catch ( e ) {
                 }
 
-                $( '.videoMenuOverlayMinimized' ).hide();
+      /*          $( '.videoMenuOverlayMinimized' ).hide();*/
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
                 $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
             } );
@@ -1127,7 +1119,7 @@ $( document ).ready( function () {
 
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
-                $( '.videoMenuOverlayMinimized' ).show();
+        /*        $( '.videoMenuOverlayMinimized' ).show();*/
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
