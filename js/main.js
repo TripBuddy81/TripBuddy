@@ -1116,11 +1116,6 @@ $( document ).ready( function () {
                 enableFullscreen();
                 $( this ).closest( '.iFrameContainer' ).addClass( 'videoContainerFullscreen' );
 
-                try {
-                    $( this ).play();
-                    $( this ).mute();
-                } catch ( e ) {
-                }
                 $( '.miscVideoOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
             } );
@@ -1282,9 +1277,7 @@ $( document ).ready( function () {
             $( '.fullscreenImage' ).click( function ( event ) {
                 var clickedImageSrc = $( this ).attr( 'src' );
                 lastDisplayedImage = clickedImageSrc;
-                if ( !isFullScreen ) {
-                    enableFullscreen();
-                }
+                enableFullscreen();
             } );
 
             // Show timer in image when moving mouse
