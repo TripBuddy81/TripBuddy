@@ -772,11 +772,11 @@ option {
 #spotifyPlaylistsMenu {
     position: fixed;
     top: 80px;
-    right: -1715px;
+    right: -100.3vW;
     background: black;
     font-size: 30px;
     color: black;
-    width: 1715px;
+    width: 100.3vW;
     padding: 5px 15px;
     display: block;
     font-weight: 600;
