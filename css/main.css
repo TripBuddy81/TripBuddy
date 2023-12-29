@@ -1471,7 +1471,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .searchBar {
-    width: auto;
+    width: -webkit-fill-available;
     height: auto;
     display: inline-block;
 }
