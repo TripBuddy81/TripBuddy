@@ -778,11 +778,11 @@ $( document ).ready( function () {
                 }
 
                 if ( $( '#mainSearchResultYoutubeIframe' ).is( ':visible' ) ) {
-                    document.exitFullscreen();
+                    /*         document.exitFullscreen();*/
                 }
 
                 if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
-                    disableFullscreen();
+                    /*     disableFullscreen();*/
                 }
 
                 if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
@@ -796,7 +796,7 @@ $( document ).ready( function () {
                 screensaverSecondsIdle = 0;
                 renderShrineSection( showParticles );
                 $( '.videoMenuOverlay' ).hide();
-/*                $( '.videoMenuOverlayMinimized' ).show();*/
+                /*                $( '.videoMenuOverlayMinimized' ).show();*/
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
             }
 
@@ -1078,22 +1078,35 @@ $( document ).ready( function () {
                 allVideosLoaded = true;
             }
 
-            // Youtube iFrame fullscreen button overlay
+            // MISC and LOCAL Video iFrame fullscreen button overlay
             $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
                 blockScreenSaver = true;
-/*                const container = $( this ).closest( '.videoContainer' )[0];
+                enableFullscreen();
+                /*           $( this ).closest( '.iFrameContainer' ).addClass( 'videoContainerFullscreen' );*/
+                const container = $( this ).closest( '.videoContainer' )[0];
                 const fullscreenApi = container.requestFullscreen
                         || container.webkitRequestFullScreen
                         || container.mozRequestFullScreen
                         || container.msRequestFullscreen;
-                fullscreenApi.call( container );*/
+                fullscreenApi.call( container );
 
                 try {
                     $( this ).parent().find( '.videoFrame' ).get( 0 ).play();
                 } catch ( e ) {
                 }
 
-      /*          $( '.videoMenuOverlayMinimized' ).hide();*/
+                /*          $( '.videoMenuOverlayMinimized' ).hide();*/
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+      /*          $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );*/
+            } );
+
+            // mainSearchResultYoutube Video iFrame fullscreen button overlay
+            $( '#mainSearchResultYoutubeContainerOverlayMinimized' ).click( function ( event ) {
+                console.info("test1");
+                blockScreenSaver = true;
+                enableFullscreen();
+                $( this ).closest('.iFrameContainer').find( '#mainSearchResultYoutubeIframe' ).addClass( 'videoContainerFullscreen' );
+
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
                 $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
             } );
@@ -1101,6 +1114,13 @@ $( document ).ready( function () {
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
+
+
+                try {
+                    $( this ).closest('.iFrameContainer').find( '#mainSearchResultYoutubeIframe' ).removeClass( 'videoContainerFullscreen' );
+                } catch ( e ) {
+                }
+
 
                 // Local video player
                 try {
@@ -1119,7 +1139,7 @@ $( document ).ready( function () {
 
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
-        /*        $( '.videoMenuOverlayMinimized' ).show();*/
+                /*        $( '.videoMenuOverlayMinimized' ).show();*/
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -1140,20 +1160,20 @@ $( document ).ready( function () {
 
             // Reset settings if user disengaged fullscreen via ESC or other means...
             window.setInterval( function () {
-/*                if ( window.innerHeight != screen.height ) {
-                    $( '.videoMenuOverlayMinimized' ).show();
-                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
-                    $( '#directYoutubePlayer' ).hide();
-                    try {
-                        directYoutubePlayer.pauseVideo();
-                    } catch ( e ) {
-                    }
+                /*                if ( window.innerHeight != screen.height ) {
+                                    $( '.videoMenuOverlayMinimized' ).show();
+                                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                                    $( '#directYoutubePlayer' ).hide();
+                                    try {
+                                        directYoutubePlayer.pauseVideo();
+                                    } catch ( e ) {
+                                    }
 
-                    isFullScreen = false;
-                    blockScreenSaver = false;
-                } else {
-                    isFullScreen = true;
-                }*/
+                                    isFullScreen = false;
+                                    blockScreenSaver = false;
+                                } else {
+                                    isFullScreen = true;
+                                }*/
             }, 1000 );
 
             $( '.videoFrame' ).click( function ( event ) {
@@ -1165,7 +1185,7 @@ $( document ).ready( function () {
                 e.preventDefault();
                 e.stopPropagation();
                 if ( $( this ).parent().find( '.searchInput' ).val() != '' ) {
-                    window.open( $( e.target ).attr( 'searchLink' ) .replace( /##searchTerm##/, $( this ).parent().find( '.searchInput' ).val() ), '_blank' );
+                    window.open( $( e.target ).attr( 'searchLink' ).replace( /##searchTerm##/, $( this ).parent().find( '.searchInput' ).val() ), '_blank' );
                 } else {
                     window.open( $( e.target ).attr( 'href' ), '_blank' );
                 }

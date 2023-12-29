@@ -1498,7 +1498,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #mainSearchResultYoutubeContainer {
-    position: fixed;
+    position: relative;
     top: 90px;
     left: 320px;
     display: block !important;
@@ -1506,7 +1506,8 @@ video::-webkit-media-controls-fullscreen-button {
     height: 597px;
 }
 
-.mainSearchResultYoutubeContainerFullscreen {
+.videoContainerFullscreen {
+    border-radius: 0px !important;
     width: 100vW;
     height: 100vH;
     position: fixed;
