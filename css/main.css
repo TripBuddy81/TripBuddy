@@ -1114,23 +1114,17 @@ input[type=range]::-webkit-slider-thumb {
     width: 100%;
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    z-index: 5;
     background-color: black;
     border-radius: 5px;
 }
 
-video::-webkit-media-controls-fullscreen-button {
-    display: none;
+.videoContainerFullscreen > .videoFrame {
+    border-radius: 0px !important;
 }
 
-.videoMenuOverlayMinimized {
-    left: 0px;
-    top: 0px;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
-    position: absolute;
+video::-webkit-media-controls-fullscreen-button {
+    display: none;
 }
 
 .addVideoToQueue {

@@ -796,7 +796,6 @@ $( document ).ready( function () {
                 screensaverSecondsIdle = 0;
                 renderShrineSection( showParticles );
                 $( '.videoMenuOverlay' ).hide();
-                /*                $( '.videoMenuOverlayMinimized' ).show();*/
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
             }
 
@@ -1079,33 +1078,24 @@ $( document ).ready( function () {
             }
 
             // MISC and LOCAL Video iFrame fullscreen button overlay
-            $( '.videoMenuOverlayMinimized' ).click( function ( event ) {
+            $( '.localVideo' ).click( function ( event ) {
                 blockScreenSaver = true;
                 enableFullscreen();
-                /*           $( this ).closest( '.iFrameContainer' ).addClass( 'videoContainerFullscreen' );*/
-                const container = $( this ).closest( '.videoContainer' )[0];
-                const fullscreenApi = container.requestFullscreen
-                        || container.webkitRequestFullScreen
-                        || container.mozRequestFullScreen
-                        || container.msRequestFullscreen;
-                fullscreenApi.call( container );
+                $( this ).closest( '.iFrameContainer' ).addClass( 'videoContainerFullscreen' );
 
                 try {
-                    $( this ).parent().find( '.videoFrame' ).get( 0 ).play();
+                    $( this ).play();
                 } catch ( e ) {
                 }
 
-                /*          $( '.videoMenuOverlayMinimized' ).hide();*/
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
-      /*          $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );*/
             } );
 
             // mainSearchResultYoutube Video iFrame fullscreen button overlay
             $( '#mainSearchResultYoutubeContainerOverlayMinimized' ).click( function ( event ) {
-                console.info("test1");
                 blockScreenSaver = true;
                 enableFullscreen();
-                $( this ).closest('.iFrameContainer').find( '#mainSearchResultYoutubeIframe' ).addClass( 'videoContainerFullscreen' );
+                $( this ).closest( '.iFrameContainer' ).find( '#mainSearchResultYoutubeIframe' ).addClass( 'videoContainerFullscreen' );
 
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
                 $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
@@ -1117,10 +1107,14 @@ $( document ).ready( function () {
 
 
                 try {
-                    $( this ).closest('.iFrameContainer').find( '#mainSearchResultYoutubeIframe' ).removeClass( 'videoContainerFullscreen' );
+                    $( this ).closest( '.iFrameContainer' ).removeClass( 'videoContainerFullscreen' );
                 } catch ( e ) {
                 }
 
+                try {
+                    $( this ).closest( '.iFrameContainer' ).find( '#mainSearchResultYoutubeIframe' ).removeClass( 'videoContainerFullscreen' );
+                } catch ( e ) {
+                }
 
                 // Local video player
                 try {
@@ -1139,7 +1133,6 @@ $( document ).ready( function () {
 
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
-                /*        $( '.videoMenuOverlayMinimized' ).show();*/
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -1161,7 +1154,6 @@ $( document ).ready( function () {
             // Reset settings if user disengaged fullscreen via ESC or other means...
             window.setInterval( function () {
                 /*                if ( window.innerHeight != screen.height ) {
-                                    $( '.videoMenuOverlayMinimized' ).show();
                                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                                     $( '#directYoutubePlayer' ).hide();
                                     try {
@@ -1199,7 +1191,7 @@ $( document ).ready( function () {
                         if ( !$( '#spotifyPlaylistsMenu' ).hasClass( 'spotifyPlaylistsMenuTransition' ) && $( '.MageAIfilter.imageFilterActive' ).length == 0 && $( '.MageAIFavorites.imageFilterActive' ).length == 0 && (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
                             screensaverActive = true;
                             showScreensaverEnso();
-                            $( 'body,#menu,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                            $( 'body,#menu,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
                                 $( this ).addClass( 'cursorNone' );
                             } );
                             $( '#spotifyPlaylistsMenu' ).addClass( 'invisible' );
@@ -1224,7 +1216,7 @@ $( document ).ready( function () {
                 if ( screensaverActive ) {
                     screensaverActive = false;
                     hideScreensaverEnso();
-                    $( 'body,#menu,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,.videoMenuOverlayMinimized,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                    $( 'body,#menu,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
                         $( this ).removeClass( 'cursorNone' );
                     } );
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'invisible' );
