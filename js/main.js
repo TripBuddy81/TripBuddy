@@ -777,13 +777,9 @@ $( document ).ready( function () {
                     $( '#directYoutubePlayer' ).hide();
                 }
 
-                if ( $( '#mainSearchResultYoutubeIframe' ).is( ':visible' ) ) {
-                    /*         document.exitFullscreen();*/
-                }
-
-                if ( document.elementFromPoint( 40, 40 ).classList.contains( 'videoFrame' ) ) {
-                    /*     disableFullscreen();*/
-                }
+                $( '.videoContainerFullscreen' ).each( function () {
+                    $( this ).removeClass( 'videoContainerFullscreen' );
+                } );
 
                 if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
                     document.elementFromPoint( 0, 0 ).click();
@@ -796,6 +792,7 @@ $( document ).ready( function () {
                 screensaverSecondsIdle = 0;
                 renderShrineSection( showParticles );
                 $( '.videoMenuOverlay' ).hide();
+                $( '.miscVideoOverlay' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
             }
 
