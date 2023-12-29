@@ -777,6 +777,12 @@ $( document ).ready( function () {
                 $( '.videoContainerFullscreen' ).each( function () {
                     $( this ).removeClass( 'videoContainerFullscreen' );
                 } );
+                $( '.localVideo' ).each( function () {
+                    try {
+                        $( this ).get( 0 ).pause();
+                    } catch (e) {
+                    }
+                } );
 
                 if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
                     document.elementFromPoint( 0, 0 ).click();
