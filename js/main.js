@@ -72,7 +72,7 @@ $( document ).ready( function () {
             $( document ).bind( 'contextmenu', function ( e ) {
                 // Disable right click context menu and show playlist selection instead
                 if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' ) {
-                    disableAllOverlaysAndFullscreenVideos();
+                    disableAllOverlaysAndFullscreenVideos( false );
                     $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
                     $( '#mainMenu' ).show();
                     return false;
@@ -771,8 +771,12 @@ $( document ).ready( function () {
                 } );
             }
 
-            function disableAllOverlaysAndFullscreenVideos() {
+            function disableAllOverlaysAndFullscreenVideos( hidePlaylistSelection = true ) {
                 $( '#directYoutubePlayer' ).hide();
+
+                if ( hidePlaylistSelection ) {
+                    $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
+                }
 
                 $( '.videoContainerFullscreen' ).each( function () {
                     $( this ).removeClass( 'videoContainerFullscreen' );
@@ -1145,21 +1149,17 @@ $( document ).ready( function () {
             } );
 
             // Reset settings if user disengaged fullscreen via ESC or other means...
-            window.setInterval( function () {
-                /*                if ( window.innerHeight != screen.height ) {
-                                    $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
-                                    $( '#directYoutubePlayer' ).hide();
-                                    try {
-                                        directYoutubePlayer.pauseVideo();
-                                    } catch ( e ) {
-                                    }
+            document.addEventListener( 'fullscreenchange', exitHandler, false );
+            document.addEventListener( 'mozfullscreenchange', exitHandler, false );
+            document.addEventListener( 'MSFullscreenChange', exitHandler, false );
+            document.addEventListener( 'webkitfullscreenchange', exitHandler, false );
 
-                                    isFullScreen = false;
-                                    blockScreenSaver = false;
-                                } else {
-                                    isFullScreen = true;
-                                }*/
-            }, 1000 );
+            function exitHandler() {
+                if ( !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement ) {
+                    disableAllOverlaysAndFullscreenVideos();
+                }
+            }
+
 
             $( '.videoFrame' ).click( function ( event ) {
                 this.paused ? this.play() : this.pause();
