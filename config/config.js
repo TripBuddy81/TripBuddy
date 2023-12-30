@@ -1,5 +1,5 @@
 var config = {
-    'oAuthSpotify'          : [
+    'oAuthSpotify'           : [
         {
             'redirect_uri' : 'https://tripbuddy.vercel.app',
             'client_id'    : '239e89be105a4707b00b79bab260cdc1',
@@ -12,7 +12,7 @@ var config = {
     'youtubeApiKey4'         : 'AIzaSyDzTfNL056PFCwHr8LCN28M2sxtqFhVcrk',
     'youtubeApiKey5'         : 'AIzaSyDYbNZadsnrc3RdwxL9nPhKrg3oa8EbNoA',
     'spotifyPhoneName'       : 'Pixel',
-    'spotifyBedroomName'         : '',
+    'spotifyBedroomName'     : '',
     'spotifySaveToPlaylistId': '',
     'preFlightChecklist'     : [
         {'checklistItem': 'Prepare everything else BEFORE preparing the Tek itself!'},
@@ -322,7 +322,7 @@ var config = {
         {
             'videoId'     : 'OZ8qYubLRWM',
             'tags'        : 'space',
-            'startSeconds': '62',
+            'startSeconds': '62'
         },
         {
             'videoId': 'dJoXVILGeKQ',
@@ -442,8 +442,8 @@ var config = {
             'tags'   : 'meditative'
         },
         {
-            'videoId'     : 'miqbNFmbN2Q',
-            'tags'        : 'meditative nature',
+            'videoId': 'miqbNFmbN2Q',
+            'tags'   : 'meditative nature'
         },
         {
             'videoId'     : '6tmbeLTHC_0',
@@ -529,10 +529,12 @@ var config = {
         },
         {
             'videoId': 'BNTs6-pNFRk',
+            'mute'   : 'mixed',
             'tags'   : 'nature'
         },
         {
             'videoId': 'yvd8PObLWsg',
+            'mute'   : 'mixed',
             'tags'   : 'nature'
         },
         {
