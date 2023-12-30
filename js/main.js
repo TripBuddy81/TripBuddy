@@ -783,10 +783,6 @@ $( document ).ready( function () {
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
                 }
 
-                $( '.videoContainerFullscreen' ).each( function () {
-                    $( this ).removeClass( 'videoContainerFullscreen' );
-                } );
-
                 $( '.localVideo' ).each( function () {
                     try {
                         $( this ).get( 0 ).pause();
@@ -795,16 +791,18 @@ $( document ).ready( function () {
                 } );
 
                 // Main Youtube search player
-                $( '#mainSearchResultYoutubeIframe' ).removeClass( 'videoContainerFullscreen' );
-
-                if ( $( this ).parent().find( '#mainSearchResultYoutubeIframe' ).length > 0 ) {
+                if ( $( '#mainSearchResultYoutubeContainer' ).hasClass( 'videoContainerFullscreen' ) ) {
 
                 } else { // Direct youtube player
                     directYoutubePlayer.pauseVideo();
-                    if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom ) {
+                    if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom && !mainYoutubePlayerIsActiveSoundSource ) {
                         spotifyPlay();
                     }
                 }
+
+                $( '.videoContainerFullscreen' ).each( function () {
+                    $( this ).removeClass( 'videoContainerFullscreen' );
+                } );
 
                 if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
                     document.elementFromPoint( 0, 0 ).click();

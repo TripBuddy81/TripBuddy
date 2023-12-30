@@ -1500,7 +1500,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100%;
 }
 
-#mainSearchResultYoutubeContainer > #mainSearchResultYoutubeIframe {
+.videoContainerFullscreen > #mainSearchResultYoutubeIframe {
     border-radius: 0px;
 }
 
