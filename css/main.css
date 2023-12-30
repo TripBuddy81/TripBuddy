@@ -1543,7 +1543,8 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #mainSearchBar {
-    height: 40px;
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
 #showYoutubePlayedHistory {
@@ -1561,7 +1562,7 @@ video::-webkit-media-controls-fullscreen-button {
     padding-left: 10px;
     font-weight: bold;
     font-size: 25px !important;
-    width: 900px;
+    width: 48vw;
     outline: none;
     border: none;
     border-radius: 5px;
