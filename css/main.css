@@ -238,7 +238,6 @@ p {
 
 #videos, #images, #shrine, #games, #search {
     display: none;
-    transition: all 1s ease;
     margin-left: 14px;
 }
 
@@ -1501,6 +1500,10 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100%;
 }
 
+#mainSearchResultYoutubeContainer > #mainSearchResultYoutubeIframe {
+    border-radius: 0px;
+}
+
 #mainSearchResultSpotifyContainer {
     position: fixed;
     top: 90px;
@@ -1513,17 +1516,17 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100%;
     min-height: 64vh;
     position: relative;
-    z-index: 10;
+    z-index: 9;
 }
 
 .videoContainerFullscreen {
     border-radius: 0px !important;
-    width: 100vW;
-    height: 100vH;
-    position: fixed;
+    width: 100vW !important;
+    height: 100vH !important;
+    position: fixed !important;
     top: 0;
     left: 0;
-    z-index: 20;
+    z-index: 20 !important;
 }
 
 .miscVideoOverlay, .mainSearchResultVideoOverlay {

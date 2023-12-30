@@ -1132,7 +1132,7 @@ $( document ).ready( function () {
             $( '.mainSearchResultVideoOverlay' ).click( function ( event ) {
                 blockScreenSaver = true;
                 enableFullscreen();
-                $( this ).closest( '#mainSearchResultYoutubeContainer' ).find( '#mainSearchResultYoutubeIframe' ).addClass( 'videoContainerFullscreen' );
+                $( this ).closest( '#mainSearchResultYoutubeContainer' ).addClass( 'videoContainerFullscreen' );
 
                 $( '.mainSearchResultVideoOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
