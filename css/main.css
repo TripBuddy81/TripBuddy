@@ -1552,12 +1552,17 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #mainSearchBar {
+    position: relative;
+    display: block;
 }
 
 #showYoutubePlayedHistory {
     height: 40px;
     opacity: 0.5;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    position: relative;
+    right: 20px;
+    top: -2px;
 }
 
 #switchAudioSource {
@@ -1573,12 +1578,16 @@ video::-webkit-media-controls-fullscreen-button {
     outline: none;
     border: none;
     border-radius: 5px;
+    position: relative;
 }
 
 #clearMainSearchInput {
     height: 30px;
     opacity: 0.5;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }
 
 .colorfulBorder {
