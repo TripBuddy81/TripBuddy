@@ -1543,8 +1543,6 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #mainSearchBar {
-    margin-left: 5vw;
-    margin-right: 5vw;
 }
 
 #showYoutubePlayedHistory {
@@ -1620,7 +1618,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #currentYoutubeQueue {
     margin-right: -20px;
-    padding-right: 18px;
+    padding-right: 6px;
 }
 
 .youtubeResult, .youtubeQueueItem {
@@ -1669,8 +1667,8 @@ video::-webkit-media-controls-fullscreen-button {
 
 .youtubeItemDuration {
     position: relative;
-    top: -104px;
-    right: -128px;
+    top: -60px;
+    right: -140px;
     color: white;
     font-size: 30px;
     font-weight: 400;
@@ -1687,18 +1685,17 @@ video::-webkit-media-controls-fullscreen-button {
     top: 136px;
     right: -12px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
-    z-index: 10;
+    z-index: 5;
 }
 
 #mainSearchAutocompleteSuggestions {
-    /*    position: fixed;
-        left: 410px;
-        top: 765px;*/
+
 }
 
 .youtubeAutocompleteItem {
     font-size: 20px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
+    padding-left: 10px;
 }
 
 .autocompleteSelected, .youtubeAutocompleteItem:hover {
