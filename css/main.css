@@ -242,6 +242,11 @@ p {
     margin-left: 14px;
 }
 
+#search {
+    margin-left: 28px;
+    margin-top: 10vh;
+}
+
 .iFrameContainer {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     z-index: 1;
@@ -1502,12 +1507,9 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #mainSearchResultYoutubeContainer {
-    position: relative;
-    top: 90px;
-    left: 320px;
     display: block !important;
-    width: 1061px;
-    height: 597px;
+    width: 100%;
+    height: 64vh;
 }
 
 .videoContainerFullscreen {
@@ -1541,17 +1543,11 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #mainSearchBar {
-    position: fixed;
-    left: 400px;
     height: 40px;
-    top: 720px;
 }
 
 #showYoutubePlayedHistory {
-    position: fixed;
-    left: 337px;
     height: 40px;
-    top: 719px;
     opacity: 0.5;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
 }
@@ -1572,10 +1568,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #clearMainSearchInput {
-    position: absolute;
     height: 30px;
-    right: 10px;
-    top: 5px;
     opacity: 0.5;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
@@ -1614,23 +1607,26 @@ video::-webkit-media-controls-fullscreen-button {
     }
 }
 
+#youtubeResults, #currentYoutubeQueue {
+    height: 90vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 #youtubeResults {
-    position: fixed;
-    top: 90px;
-    height: 870px;
-    overflow: auto;
-    width: 285px;
-    left: 15px;
     direction: rtl;
+}
+
+#currentYoutubeQueue {
+    margin-right: -20px;
+    padding-right: 18px;
 }
 
 .youtubeResult, .youtubeQueueItem {
     display: inline-table;
     position: relative;
-    margin-bottom: 15px;
-    height: 255px;
-    width: 245px;
     direction: ltr;
+    margin-bottom: 25px
 }
 
 .youtubeResultItemImage, .youtubeQueueItemImage {
@@ -1641,10 +1637,8 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .youtubeResultItemDescription, .youtubeQueueItemDescription {
-    display: table;
-    position: relative;
+    position: absolute;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
-    min-height: 50px;
     font-size: 17px;
     font-weight: 600;
     padding-top: 5px;
@@ -1657,15 +1651,6 @@ video::-webkit-media-controls-fullscreen-button {
     height: 50px;
     left: 1065px;
     top: 413px;
-}
-
-#currentYoutubeQueue {
-    position: fixed;
-    top: 90px;
-    height: 870px;
-    overflow: auto;
-    width: 284px;
-    left: 1405px;
 }
 
 #nextVideo {
@@ -1682,9 +1667,9 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .youtubeItemDuration {
-    position: absolute;
-    top: 121px;
-    right: 15px;
+    position: relative;
+    top: -104px;
+    right: -128px;
     color: white;
     font-size: 30px;
     font-weight: 400;
@@ -1705,9 +1690,9 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #mainSearchAutocompleteSuggestions {
-    position: fixed;
-    left: 410px;
-    top: 765px;
+    /*    position: fixed;
+        left: 410px;
+        top: 765px;*/
 }
 
 .youtubeAutocompleteItem {

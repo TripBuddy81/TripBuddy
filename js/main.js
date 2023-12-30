@@ -2206,6 +2206,7 @@ $( document ).ready( function () {
                     youtubeCurrentQueue.forEach( function ( item ) {
                         let youtubeQueueItemContainer = document.createElement( 'span' );
                         youtubeQueueItemContainer.classList.add( 'youtubeQueueItem' );
+                        youtubeQueueItemContainer.classList.add( 'float-end' );
                         document.getElementById( 'currentYoutubeQueue' ).appendChild( youtubeQueueItemContainer );
 
                         let youtubeQueueItem = document.createElement( 'img' );

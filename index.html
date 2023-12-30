@@ -820,44 +820,69 @@
     </div>
 
     <div id="search" class="">
-        <div id="mainSearchResultYoutubeContainer" class="videoContainer">
-            <div class="iFrameContainer">
-                <div id="mainSearchResultYoutubeIframe" width="554" height="315" class="videoFrame"
-                     allowfullscreen=false></div>
-                <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
-                <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
-                <div class="videoLabel">
-                    {{label}}
+        <div class="row d-flex justify-content-between">
+            <div class="col-2">
+                <div id="youtubeResults" class="row d-flex justify-content-between">
                 </div>
-                <div id="mainSearchResultYoutubeContainerOverlayMinimized">
+            </div>
+
+            <div class="col-8">
+                <div class="row d-flex justify-content-between">
+                    <div class="col">
+                        <div id="mainSearchResultYoutubeContainer" class="videoContainer">
+                            <div class="iFrameContainer">
+                                <div id="mainSearchResultYoutubeIframe" width="554" height="315" class="videoFrame"
+                                     allowfullscreen=false></div>
+                                <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                                <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                                <div class="videoLabel">
+                                    {{label}}
+                                </div>
+                                <div id="mainSearchResultYoutubeContainerOverlayMinimized">
+                                </div>
+                                <div class="videoMenuOverlayFullscreen">
+                                </div>
+                                <div class="videoMenuOverlayFullscreen2">
+                                </div>
+                                <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                                </div>
+                                <div class="trackProgressContainer hidden videoMenuOverlay">
+                                    <div class="trackProgress">
+                                        <div class="colorfulBorder"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="mainYoutubePlayerActiveSoundBorder" class=""></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="videoMenuOverlayFullscreen">
+                <div class="row d-flex justify-content-between">
+                    <div class="col">
+                    <span id="mainSearchBar">
+                        <img id="showYoutubePlayedHistory" class="" src="./assets/history.png">
+                        <input type="text" class="sharedBackground" id="mainSearchInput" name="mainSearchInput"
+                               placeholder="search Youtube... " autocomplete="off" spellcheck="false">
+                        <img id="clearMainSearchInput" class="" src="./assets/x.png">
+                        <!--       <div class="colorfulBorder"></div>-->
+                    </span>
+                    </div>
                 </div>
-                <div class="videoMenuOverlayFullscreen2">
-                </div>
-                <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
-                </div>
-                <div class="trackProgressContainer hidden videoMenuOverlay">
-                    <div class="trackProgress">
-                        <div class="colorfulBorder"></div>
+
+                <div class="row d-flex justify-content-between">
+                    <div class="col">
+                    <span id="mainSearchAutocompleteSuggestions">
+                    </span>
                     </div>
                 </div>
             </div>
-            <div id="mainYoutubePlayerActiveSoundBorder" class=""></div>
+
+            <div class="col-2">
+                <div class="row d-flex justify-content-end" style="padding-left:0px">
+                    <div id="currentYoutubeQueue" class="col float-end">
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <span id="mainSearchBar">
-            <input type="text" class="sharedBackground" id="mainSearchInput" name="mainSearchInput"
-                   placeholder="search Youtube... " autocomplete="off" spellcheck="false">
-            <img id="clearMainSearchInput" class="" src="./assets/x.png">
-            <div class="colorfulBorder"></div>
-        </span>
-        <img id="showYoutubePlayedHistory" class="" src="./assets/history.png">
-        <span id="mainSearchAutocompleteSuggestions">
-        </span>
-
-        <span id="currentYoutubeQueue"></span>
-        <span id="youtubeResults"></span>
     </div>
 
 </script>
