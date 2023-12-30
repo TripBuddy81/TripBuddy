@@ -239,11 +239,12 @@ p {
 #videos, #images, #shrine, #games, #search {
     display: none;
     margin-left: 14px;
+    transition: all 1s ease;
 }
 
 #search {
     margin-left: 28px;
-    margin-top: 10vh;
+    margin-top: 95px;
 }
 
 .iFrameContainer {
@@ -1423,6 +1424,7 @@ video::-webkit-media-controls-fullscreen-button {
     transition: all 1s ease;
     left: 23vw;
     padding: 50px;
+    z-index: 25;
 }
 
 .globalEnsoContainerHidden {
