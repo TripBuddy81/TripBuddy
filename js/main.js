@@ -1705,6 +1705,7 @@ $( document ).ready( function () {
                     externalSoundTabOpened = true;
                     window.open( $( this ).attr( 'href' ), 'externalSoundTab' );
                 }
+                $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
             } );
 
             // integrated Spotify player if succesfully logged in
@@ -2022,6 +2023,10 @@ $( document ).ready( function () {
                     mainSearchResultYoutubePlayer.mute();
                     spotifyPlay();
                 }
+                if ( externalSoundTabOpened ) {
+                    externalSoundTabOpened = false;
+                    window.open( './tabCloser.html', 'externalSoundTab' );
+                }
             } );
 
             $( '#showYoutubePlayedHistory' ).click( function ( event ) {
@@ -2276,7 +2281,7 @@ $( document ).ready( function () {
             }
 
             function playNextYoutubeVideoOrSpotifyTrack() {
-                if ( youtubeCurrentQueue.length == 0 ) {
+                if ( youtubeCurrentQueue.length == 0 || externalSoundTabOpened ) {
                     spotifyHasBeenPlayingBeforePause = true;
                     markYoutubeAsActiveAudioSource( false );
 
