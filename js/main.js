@@ -787,7 +787,6 @@ $( document ).ready( function () {
                     $( this ).removeClass( 'videoContainerFullscreen' );
                 } );
 
-                // Local video player
                 $( '.localVideo' ).each( function () {
                     try {
                         $( this ).get( 0 ).pause();
@@ -796,6 +795,8 @@ $( document ).ready( function () {
                 } );
 
                 // Main Youtube search player
+                $( '#mainSearchResultYoutubeIframe' ).removeClass( 'videoContainerFullscreen' );
+
                 if ( $( this ).parent().find( '#mainSearchResultYoutubeIframe' ).length > 0 ) {
 
                 } else { // Direct youtube player
@@ -817,6 +818,7 @@ $( document ).ready( function () {
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
                 $( '.miscVideoOverlay' ).show();
+                $( '.mainSearchResultVideoOverlay' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -1127,11 +1129,12 @@ $( document ).ready( function () {
             } );
 
             // mainSearchResultYoutube Video iFrame fullscreen button overlay
-            $( '#mainSearchResultYoutubeContainerOverlayMinimized' ).click( function ( event ) {
+            $( '.mainSearchResultVideoOverlay' ).click( function ( event ) {
                 blockScreenSaver = true;
                 enableFullscreen();
-                $( this ).closest( '.iFrameContainer' ).find( '#mainSearchResultYoutubeIframe' ).addClass( 'videoContainerFullscreen' );
+                $( this ).closest( '#mainSearchResultYoutubeContainer' ).find( '#mainSearchResultYoutubeIframe' ).addClass( 'videoContainerFullscreen' );
 
+                $( '.mainSearchResultVideoOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
                 $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
             } );

@@ -1497,6 +1497,8 @@ video::-webkit-media-controls-fullscreen-button {
 
 #mainSearchResultYoutubeIframe {
     border-radius: 5px;
+    width: 100%;
+    height: 100%;
 }
 
 #mainSearchResultSpotifyContainer {
@@ -1509,7 +1511,9 @@ video::-webkit-media-controls-fullscreen-button {
 #mainSearchResultYoutubeContainer {
     display: block !important;
     width: 100%;
-    height: 64vh;
+    min-height: 64vh;
+    position: relative;
+    z-index: 10;
 }
 
 .videoContainerFullscreen {
@@ -1522,7 +1526,7 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 20;
 }
 
-.miscVideoOverlay {
+.miscVideoOverlay, .mainSearchResultVideoOverlay {
     left: 0px;
     top: 0px;
     z-index: 10;
