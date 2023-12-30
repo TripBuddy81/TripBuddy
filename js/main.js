@@ -39,6 +39,7 @@ $( document ).ready( function () {
             var spotifyOpened = false;
             var displayedAbsoluteTruthIndex = [];
             var stroboBGWhite = false;
+            var preFlightCheckListAnimationTimer = undefined;
             var absoluteTruthsTimer = undefined;
             var absoluteTruthsTimerDuration = 20000;
             var videoTagList = '';
@@ -522,6 +523,10 @@ $( document ).ready( function () {
                 screensaverStartAfterSeconds = 60;
             } );
 
+            $( '#preFlightChecklist' ).on( 'hide.bs.modal', function () {
+                clearInterval( preFlightCheckListAnimationTimer );
+            } );
+
             $( '#timedRecommendation' ).click( function ( event ) {
                 $( '#timedRecommendation' ).modal( 'hide' );
                 alarmSound.pause();
@@ -816,6 +821,7 @@ $( document ).ready( function () {
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
+                clearInterval( preFlightCheckListAnimationTimer );
             }
 
             // Toggle Fullscreen button
