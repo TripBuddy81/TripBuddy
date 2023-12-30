@@ -1632,7 +1632,7 @@ video::-webkit-media-controls-fullscreen-button {
     display: inline-table;
     position: relative;
     direction: ltr;
-    margin-bottom: 25px
+    margin-bottom: 35px
 }
 
 .youtubeResultItemImage, .youtubeQueueItemImage {
@@ -1649,6 +1649,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 600;
     padding-top: 5px;
     width: 240px;
+    line-height: normal;
 }
 
 #openVideoOnYouTube {
