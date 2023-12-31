@@ -321,8 +321,8 @@ $( document ).ready( function () {
             $( '#activateHiddenMenue' ).mousedown( function ( event ) {
                 switch ( event.which ) {
                     case 1:
+                        enableFullscreen();
                         if ( rightMouseClicked ) {
-                            enableFullscreen();
                             toggleXXXVisible();
                             if ( !allVideosLoaded ) {
                                 loadAllVideos();
