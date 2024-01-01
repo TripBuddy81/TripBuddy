@@ -188,13 +188,17 @@ $( document ).ready( function () {
             // TODO needs more love...
             detectScaling();
             $( window ).on( 'resize', function () {
-                detectScaling();
+             /*   document.body.style.zoom = 1;*/
             } );
 
+            detectScaling();
             function detectScaling() {
-                zoom = window.innerWidth / window.outerWidth;
-                console.info(zoom)
-                document.body.style.zoom = (zoom)
+                if (window.devicePixelRatio <= 1.5) {
+                    document.body.style.zoom = 0.75;
+                }
+          /*      else {
+                    document.body.style.zoom = 0.8;
+                }*/
             }
 
             // Init global alarm sounds

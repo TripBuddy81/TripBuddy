@@ -117,19 +117,6 @@ a:link, a:visited, a:active, a:hover, p {
     pointer-events: none;
 }
 
-#resizeHint {
-    position: static;
-    background: black;
-    color: red;
-    font-size: 30px;
-    display: none;
-    z-index: 50;
-    float: inline-end;
-    margin-right: 14px;
-    padding: 0 15px;
-    border-radius: 5px;
-}
-
 .xxxLink, .searchLink, .searchLabel, .searchInput, .searchInput:focus, .searchInput:active {
     font-weight: bold;
     font-size: 35px !important;
