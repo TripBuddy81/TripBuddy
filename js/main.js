@@ -186,9 +186,9 @@ $( document ).ready( function () {
 
             // detect if scaling is too large and suggest reducing it
             // TODO needs more love...
-            detectScaling();
+/*            detectScaling();
             $( window ).on( 'resize', function () {
-             /*   document.body.style.zoom = 1;*/
+             /!*   document.body.style.zoom = 1;*!/
             } );
 
             detectScaling();
@@ -196,10 +196,10 @@ $( document ).ready( function () {
                 if (window.devicePixelRatio <= 1.5) {
                     document.body.style.zoom = 0.75;
                 }
-          /*      else {
+          /!*      else {
                     document.body.style.zoom = 0.8;
-                }*/
-            }
+                }*!/
+            }*/
 
             // Init global alarm sounds
             var alarmSound = document.getElementById( 'alarmSound' );
