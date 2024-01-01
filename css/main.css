@@ -1569,7 +1569,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 40px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     position: relative;
-    right: -7px;
+    right: -6px;
     top: 0px;
     opacity: 0.5;
 }
