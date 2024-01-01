@@ -104,7 +104,9 @@ $( document ).ready( function () {
                     } );
                     $( '.iFrameContainer ' ).delay( 200 ).fadeIn();
                     hideScreensaverEnso();
-                    loadAllVideos();
+                    if ( !allVideosLoaded ) {
+                        loadAllVideos();
+                    }
                 }
             };
 
