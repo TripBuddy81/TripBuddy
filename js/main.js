@@ -818,6 +818,7 @@ $( document ).ready( function () {
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
                 $( '.miscVideoOverlay' ).show();
+                $( '.localVideoOverlay' ).show();
                 $( '.mainSearchResultVideoOverlay' ).show();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
@@ -1106,15 +1107,16 @@ $( document ).ready( function () {
             } );
 
             // Local Video minimized iFrame overlay
-            $( '.localVideo' ).click( function ( event ) {
+            $( '.localVideoOverlay' ).click( function ( event ) {
                 blockScreenSaver = true;
                 enableFullscreen();
                 $( this ).closest( '.iFrameContainer' ).addClass( 'videoContainerFullscreen' );
 
                 try {
-                    $( this ).play();
+                    $( this ).closest( '.iFrameContainer' ).find('.localVideo')[0].play();
                 } catch ( e ) {
                 }
+                $( '.localVideoOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
             } );
 

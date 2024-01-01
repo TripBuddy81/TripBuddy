@@ -1531,7 +1531,7 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 20 !important;
 }
 
-.miscVideoOverlay, .mainSearchResultVideoOverlay {
+.miscVideoOverlay, .mainSearchResultVideoOverlay, .localVideoOverlay {
     left: 0px;
     top: 0px;
     z-index: 10;
