@@ -192,7 +192,8 @@ $( document ).ready( function () {
             } );
 
             function detectScaling() {
-                /*console.info(window.screen.width );*/
+                console.info(window.screen.width );
+                console.info(window.devicePixelRatio );
                 if ( window.devicePixelRatio > 2.25 ) {
                     $( '#resizeHint' ).show();
                 } else {
