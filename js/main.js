@@ -184,23 +184,6 @@ $( document ).ready( function () {
                 } );
             }
 
-            // detect if scaling is too large and suggest reducing it
-            // TODO needs more love...
-/*            detectScaling();
-            $( window ).on( 'resize', function () {
-             /!*   document.body.style.zoom = 1;*!/
-            } );
-
-            detectScaling();
-            function detectScaling() {
-                if (window.devicePixelRatio <= 1.5) {
-                    document.body.style.zoom = 0.75;
-                }
-          /!*      else {
-                    document.body.style.zoom = 0.8;
-                }*!/
-            }*/
-
             // Init global alarm sounds
             var alarmSound = document.getElementById( 'alarmSound' );
 
