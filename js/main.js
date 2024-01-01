@@ -2014,10 +2014,6 @@ $( document ).ready( function () {
 
             $( '#switchAudioSource' ).click( function ( event ) {
                 if ( mainSearchResultYoutubePlayer.isMuted() || mainSearchResultYoutubePlayerState != 'playing' ) {
-                    if ( !$( '#search' ).is( ':visible' ) ) {
-                        $( '#showSearchSection' ).trigger( 'click' );
-                    }
-
                     markYoutubeAsActiveAudioSource( true );
                     spotifyPause();
                     mainSearchResultYoutubePlayer.unMute();
