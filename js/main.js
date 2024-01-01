@@ -1836,6 +1836,7 @@ $( document ).ready( function () {
             } else {
                 // Stand alone iFrame Spotify Player
                 $( '#oAuthPlayerControl' ).remove();
+                $( '#switchAudioSource' ).remove();
                 $( '#devices' ).attr( 'style', 'visibility:hidden' );
                 $( '#spotifyLogout' ).hide();
 
