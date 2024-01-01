@@ -192,16 +192,10 @@ $( document ).ready( function () {
             } );
 
             function detectScaling() {
-
-                if ( window.devicePixelRatio > 2.25 ) {
-                    $( '#resizeHint' ).show();
-                } else {
-                    $( '#resizeHint' ).hide();
-                }
+                zoom = window.innerWidth / window.outerWidth;
+                console.info(zoom)
+                document.body.style.zoom = (zoom)
             }
-
-    /*    document.body.style.zoom = 1.0*/
-    document.body.style.zoom = (window.innerWidth / window.outerWidth)
 
             // Init global alarm sounds
             var alarmSound = document.getElementById( 'alarmSound' );
