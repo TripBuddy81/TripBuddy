@@ -196,6 +196,11 @@ $( document ).ready( function () {
                 } else {
                     $( '#resizeHint' ).hide();
                 }
+                toggleZoomScreen();
+            }
+
+            function toggleZoomScreen() {
+                document.body.style.zoom = (2.25 / window.devicePixelRatio);
             }
 
             // Init global alarm sounds
