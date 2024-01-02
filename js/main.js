@@ -178,6 +178,9 @@ $( document ).ready( function () {
 
                 /*https://cssgradient.io/*/
 
+                // Fallback value. Only relevant if your pc is a piece of garbage and cant handle changing backgrounds very well
+                $('body').css('background-color', 'rgb(143 181 255)');
+
                 multiple = new Multiple( {
                     selector  : '.sharedBackground',
                     background: 'linear-gradient(-45deg, rgba(245,255,115,1) 0%, rgba(155,255,107,1) 26%, rgba(72,205,255,1) 71%, rgba(144,107,255,1) 100%);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
