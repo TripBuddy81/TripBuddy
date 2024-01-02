@@ -1556,16 +1556,6 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
 }
 
-#mainSearchResultYoutubeContainerOverlayMinimized {
-    left: 0px;
-    top: 0px;
-    z-index: 1;
-    width: 1061px;
-    height: 547px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
-    position: absolute;
-}
-
 #mainSearchBar {
     position: relative;
     display: block;
