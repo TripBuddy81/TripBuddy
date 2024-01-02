@@ -90,6 +90,13 @@ $( document ).ready( function () {
             } );
 
             // Handlebar renderer - takes config within config/config.js
+            Handlebars.registerHelper( 'if', function ( v1, v2, options ) {
+                if ( v1 === v2 ) {
+                    return options.fn( this );
+                }
+                return options.inverse( this );
+            } );
+
             $( 'body' ).html(
                     Handlebars.compile( $( '#mainTemplate' ).html() )( config )
             );

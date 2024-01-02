@@ -1163,6 +1163,15 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
 
+.videoHasSound {
+    right: 10px;
+    bottom: 10px;
+    z-index: 5;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    position: absolute;
+    width: 45px;
+}
+
 .videoMenuOverlayFullscreen {
     left: 0;
     top: 0;

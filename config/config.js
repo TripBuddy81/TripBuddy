@@ -178,8 +178,12 @@ var config = {
         },
         {
             'id'   : '0ovMU36BOg3UqBekaTQEER',
-            'label': 'Rain & Thunder'
-        }
+            'label': 'Rain & Thunder I'
+        },
+        {
+            'id'   : '32N71aqSB1j5skwhEi2hmL',
+            'label': 'Rain & Thunder II'
+        },
     ],
     'noiseGenerators'        : [
         {
