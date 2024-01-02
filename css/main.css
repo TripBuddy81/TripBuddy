@@ -264,6 +264,7 @@ p {
     z-index: 10;
     width: 100%;
     height: 80px;
+    background-color: rgb(143 181 255);
 }
 
 #burgerContainer {
@@ -387,6 +388,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     padding-top: 10px;
     padding-bottom: 15px;
     padding-left: 16px;
+    background-color: rgb(143 181 255);
 }
 
 .modal {
@@ -1583,6 +1585,7 @@ video::-webkit-media-controls-fullscreen-button {
     border: none;
     border-radius: 5px;
     position: relative;
+    background-color: rgb(143 181 255);
 }
 
 #clearMainSearchInput {
