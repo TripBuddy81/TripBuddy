@@ -1214,7 +1214,7 @@ $( document ).ready( function () {
                         if ( !$( '#spotifyPlaylistsMenu' ).hasClass( 'spotifyPlaylistsMenuTransition' ) && $( '.MageAIfilter.imageFilterActive' ).length == 0 && $( '.MageAIFavorites.imageFilterActive' ).length == 0 && (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
                             screensaverActive = true;
                             showScreensaverEnso();
-                            $( 'body,#menu,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                            $( 'body,#menu,.videoSource,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
                                 $( this ).addClass( 'cursorNone' );
                             } );
                             $( '#spotifyPlaylistsMenu' ).addClass( 'invisible' );
@@ -1239,7 +1239,7 @@ $( document ).ready( function () {
                 if ( screensaverActive ) {
                     screensaverActive = false;
                     hideScreensaverEnso();
-                    $( 'body,#menu,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                    $( 'body,#menu,.XXXfilter,.videoSource,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
                         $( this ).removeClass( 'cursorNone' );
                     } );
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'invisible' );
