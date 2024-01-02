@@ -134,6 +134,10 @@ var config = {
         ],
         'red'  : [
             {
+                'label': 'Melodic Noise',
+                'id'   : '7xkCTcJWJGTR9VhM0nvvKa'
+            },
+            {
                 'label': 'Electro',
                 'id'   : '0ZigR4WogVGwftQA7GAMhu'
             },
