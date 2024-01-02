@@ -179,9 +179,6 @@ $( document ).ready( function () {
 
                 /*https://cssgradient.io/*/
 
-                // Fallback value. Only relevant if your pc is a piece of garbage and cant handle changing backgrounds very well
-                $( 'body' ).css( 'background-color', 'rgb(143 181 255)' );
-
                 if ( fluidBackground ) {
                     multiple = new Multiple( {
                         selector  : '.sharedBackground',
