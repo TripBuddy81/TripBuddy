@@ -54,7 +54,7 @@ $( document ).ready( function () {
             var lastSelectedAutocompleteItem = 0;
             var currentAutocompleteItem = 0;
             var allVideosLoaded = false;
-            var mainYoutubePlayerIsActiveSoundSource = false;
+            var mainYoutubePlayerIsActiveSoundSource = true;
             var screensaverSecondsIdle = 0;
             var screensaverStartAfterSeconds = 15;
             var screensaverActive = false;
@@ -2323,7 +2323,7 @@ $( document ).ready( function () {
                 } else {
                     videoItem = youtubeCurrentQueue.shift();
 
-                    if ( !mainSearchResultYoutubePlayer.isMuted() ) {
+                    if ( !mainSearchResultYoutubePlayer.isMuted() || mainYoutubePlayerIsActiveSoundSource ) {
                         markYoutubeAsActiveAudioSource( true );
                         spotifyPause();
                     }
