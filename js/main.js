@@ -1696,6 +1696,7 @@ $( document ).ready( function () {
 
             $( '#spotifyPlaylists' ).click( function () {
                 $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
+                disableAllOverlaysAndFullscreenVideos( false );
             } );
 
             $( '.spotifyPlaylistItem,.currentTrackAction' ).click( function () {
@@ -1821,6 +1822,8 @@ $( document ).ready( function () {
                     }
                 } );
                 $( '#menuClose' ).click( function () {
+                    enableFullscreen();
+                    $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                     refreshAccessToken();
                     refreshDevices();
                 } );
