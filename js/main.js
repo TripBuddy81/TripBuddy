@@ -374,6 +374,7 @@ $( document ).ready( function () {
                 if ( !xxxVisible ) {
                     $( '#showPrivateContent' ).hide();
                     $( '#hidePrivateContent' ).hide();
+                    $( '.XXX' ).hide();
                 }
                 if ( privateVisible ) {
                     $( '.private' ).hide();
