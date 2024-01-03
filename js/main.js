@@ -803,7 +803,10 @@ $( document ).ready( function () {
                 if ( $( '#mainSearchResultYoutubeContainer' ).hasClass( 'videoContainerFullscreen' ) ) {
 
                 } else { // Direct youtube player
-                    directYoutubePlayer.pauseVideo();
+                    try {
+                        directYoutubePlayer.pauseVideo();
+                    } catch ( e ) {
+                    }
                     if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom && !mainYoutubePlayerIsActiveSoundSource ) {
                         spotifyPlay();
                     }
@@ -1756,10 +1759,8 @@ $( document ).ready( function () {
                 } );
 
                 $( '#stopMusic' ).click( function () {
-                    if ( mainSearchResultYoutubePlayerState != 'playing' ) {
-                        spotifyPause();
-                        spotifyHasBeenPlayingBeforePause = false;
-                    }
+                    spotifyHasBeenPlayingBeforePause = false;
+                    spotifyPause();
                     try {
                         mainSearchResultYoutubePlayer.pauseVideo();
                     } catch ( e ) {
@@ -2304,7 +2305,6 @@ $( document ).ready( function () {
                     try {
                         mainSearchResultYoutubePlayer.mute();
                     } catch ( e ) {
-
                     }
 
                     if ( spotifySongRadioQueue != '' ) {
