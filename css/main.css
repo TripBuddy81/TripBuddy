@@ -259,6 +259,17 @@ p {
     position: relative;
 }
 
+.menuTransition {
+    right: -5px !important;
+}
+
+.menuContent {
+    background-color: transparent;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 #mainMenu {
     position: fixed;
     top: 0px;
@@ -806,17 +817,6 @@ option {
 .noisegeneratorLink {
     display: block;
     font-size: 30px !important;
-}
-
-.spotifyPlaylistsMenuTransition {
-    right: -5px !important;
-}
-
-.spotifyPlaylistsMenuContent {
-    background-color: transparent;
-    border-radius: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .spotifyPlaylistItem, .noisegeneratorLink {

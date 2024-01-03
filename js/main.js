@@ -74,7 +74,7 @@ $( document ).ready( function () {
                 // Disable right click context menu and show playlist selection instead
                 if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' ) {
                     disableAllOverlaysAndFullscreenVideos( false );
-                    $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
+                    $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
                     $( '#mainMenu' ).show();
                     return false;
                 } else if ( $( e.target ).attr( 'type' ) == 'text' ) { // paste text into text filed
@@ -322,8 +322,12 @@ $( document ).ready( function () {
             } );
 
             $( '.menuItem' ).click( function () {
-                $( '#menuClose' ).trigger( 'click' );
+                closeRightMenu();
             } );
+
+            function closeRightMenu() {
+                $( '#menuClose' ).prop( 'checked', false )
+            }
 
             // Global key captures
             var rightMouseClicked = false;
@@ -789,7 +793,7 @@ $( document ).ready( function () {
                 $( '#directYoutubePlayer' ).hide();
 
                 if ( hidePlaylistSelection ) {
-                    $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
+                    $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                 }
 
                 $( '.localVideo' ).each( function () {
@@ -823,6 +827,7 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 renderShrineSection( showParticles );
+                closeRightMenu();
                 $( '#preFlightChecklist' ).modal( 'hide' );
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
@@ -1201,7 +1206,7 @@ $( document ).ready( function () {
                 screensaverSecondsIdle++;
                 $( '.mainSectionActive' ).each( function () {
                     if ( $( this ).attr( 'data-target' ) == 'videos' || $( this ).attr( 'data-target' ) == 'images' ) {
-                        if ( !$( '#spotifyPlaylistsMenu' ).hasClass( 'spotifyPlaylistsMenuTransition' ) && $( '.MageAIfilter.imageFilterActive' ).length == 0 && $( '.MageAIFavorites.imageFilterActive' ).length == 0 && (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
+                        if ( !$( '#spotifyPlaylistsMenu' ).hasClass( 'menuTransition' ) && $( '.MageAIfilter.imageFilterActive' ).length == 0 && $( '.MageAIFavorites.imageFilterActive' ).length == 0 && (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
                             screensaverActive = true;
                             showScreensaverEnso();
                             $( 'body,#menu,.videoSource,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
@@ -1679,11 +1684,11 @@ $( document ).ready( function () {
             client_secret = config['oAuthSpotify'][0]['client_secret'];
 
             $( '#spotifyPlaylists' ).click( function () {
-                $( '#spotifyPlaylistsMenu' ).toggleClass( 'spotifyPlaylistsMenuTransition' );
+                $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
             } );
 
             $( '.spotifyPlaylistItem,.currentTrackAction' ).click( function () {
-                $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
+                $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
             } );
 
             $( '#spotifyLogin' ).click( function ( e ) {
@@ -1719,7 +1724,7 @@ $( document ).ready( function () {
                     externalSoundTabOpened = true;
                     window.open( $( this ).attr( 'href' ), 'externalSoundTab' );
                 }
-                $( '#spotifyPlaylistsMenu' ).removeClass( 'spotifyPlaylistsMenuTransition' );
+                $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
             } );
 
             // integrated Spotify player if succesfully logged in
@@ -1810,7 +1815,7 @@ $( document ).ready( function () {
                 } );
                 $( '#devices' ).change( function () {
                     transfer( $( '#devices' ).find( ':selected' ).val() );
-                    $( '#menuClose' ).trigger( 'click' );
+                    closeRightMenu();
                 } );
 
                 $( '#spotifyIcon' ).click( function ( e ) {
