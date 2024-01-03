@@ -2250,28 +2250,34 @@ $( document ).ready( function () {
             function displayYoutubeSearchResultsOrHistory( searchYoutubeResult, getVideoDurationsFromYoutubeResult = '' ) {
                 $( '#youtubeResults' ).empty();
 
+                var tempDuplicateDump = {};
                 searchYoutubeResult.items.forEach( function ( item ) {
-                    let youtubeResult = document.createElement( 'span' );
-                    youtubeResult.id = typeof item.id == 'string' ? item.id : item.id.videoId;
-                    youtubeResult.classList.add( 'youtubeResult' );
-                    document.getElementById( 'youtubeResults' ).appendChild( youtubeResult );
+                    if ( !tempDuplicateDump[item.id.videoId] || !tempDuplicateDump1[item.id] ) {
+                        tempDuplicateDump[item.id.videoId] = true;
+                        tempDuplicateDump[item.id] = true;
 
-                    let youtubeResultItemImage = document.createElement( 'img' );
-                    youtubeResultItemImage.src = typeof item.img !== 'undefined' ? item.img : item.snippet.thumbnails.high.url;
-                    youtubeResultItemImage.classList.add( 'youtubeResultItemImage' );
-                    youtubeResult.appendChild( youtubeResultItemImage );
+                        let youtubeResult = document.createElement( 'span' );
+                        youtubeResult.id = typeof item.id == 'string' ? item.id : item.id.videoId;
+                        youtubeResult.classList.add( 'youtubeResult' );
+                        document.getElementById( 'youtubeResults' ).appendChild( youtubeResult );
 
-                    let youtubeResultDescription = document.createElement( 'span' );
-                    youtubeResultDescription.innerHTML = typeof item.description !== 'undefined' ? item.description : item.snippet.title;
-                    youtubeResultDescription.classList.add( 'youtubeResultItemDescription' );
-                    youtubeResult.appendChild( youtubeResultDescription );
+                        let youtubeResultItemImage = document.createElement( 'img' );
+                        youtubeResultItemImage.src = typeof item.img !== 'undefined' ? item.img : item.snippet.thumbnails.high.url;
+                        youtubeResultItemImage.classList.add( 'youtubeResultItemImage' );
+                        youtubeResult.appendChild( youtubeResultItemImage );
 
-                    if ( typeof item.duration !== 'undefined' ) {
-                        duration = convertYoutubeTime( item.duration );
-                        let videoDuration = document.createElement( 'span' );
-                        videoDuration.innerHTML = duration;
-                        videoDuration.classList.add( 'youtubeItemDuration' );
-                        document.getElementById( item.id ).appendChild( videoDuration );
+                        let youtubeResultDescription = document.createElement( 'span' );
+                        youtubeResultDescription.innerHTML = typeof item.description !== 'undefined' ? item.description : item.snippet.title;
+                        youtubeResultDescription.classList.add( 'youtubeResultItemDescription' );
+                        youtubeResult.appendChild( youtubeResultDescription );
+
+                        if ( typeof item.duration !== 'undefined' ) {
+                            duration = convertYoutubeTime( item.duration );
+                            let videoDuration = document.createElement( 'span' );
+                            videoDuration.innerHTML = duration;
+                            videoDuration.classList.add( 'youtubeItemDuration' );
+                            document.getElementById( item.id ).appendChild( videoDuration );
+                        }
                     }
                 } );
 
@@ -2353,37 +2359,38 @@ $( document ).ready( function () {
             }
 
             function convertYoutubeTime( duration ) {
-                var a = duration.match( /\d+/g );
-                if ( duration.indexOf( 'M' ) >= 0 && duration.indexOf( 'H' ) == -1 && duration.indexOf( 'S' ) == -1 ) {
-                    a = [0, a[0], 0];
-                }
-                if ( duration.indexOf( 'H' ) >= 0 && duration.indexOf( 'M' ) == -1 ) {
-                    a = [a[0], 0, a[1]];
-                }
-                if ( duration.indexOf( 'H' ) >= 0 && duration.indexOf( 'M' ) == -1 && duration.indexOf( 'S' ) == -1 ) {
-                    a = [a[0], 0, 0];
-                }
-
-                duration = 0;
-                if ( a.length == 3 ) {
-                    duration = duration + parseInt( a[0] ) * 3600;
-                    duration = duration + parseInt( a[1] ) * 60;
-                    duration = duration + parseInt( a[2] );
-                }
-                if ( a.length == 2 ) {
-                    duration = duration + parseInt( a[0] ) * 60;
-                    duration = duration + parseInt( a[1] );
-                }
-                if ( a.length == 1 ) {
-                    duration = duration + parseInt( a[0] );
-                }
-                var h = Math.floor( duration / 3600 );
-                var m = Math.floor( duration % 3600 / 60 );
-                var s = Math.floor( duration % 3600 % 60 );
-
-                duration = ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
-                if ( duration == '0:00' ) {
+                if ( duration == '0:00' || duration == 'stream' ) {
                     duration = 'stream';
+                } else {
+                    var a = duration.match( /\d+/g );
+                    if ( duration.indexOf( 'M' ) >= 0 && duration.indexOf( 'H' ) == -1 && duration.indexOf( 'S' ) == -1 ) {
+                        a = [0, a[0], 0];
+                    }
+                    if ( duration.indexOf( 'H' ) >= 0 && duration.indexOf( 'M' ) == -1 ) {
+                        a = [a[0], 0, a[1]];
+                    }
+                    if ( duration.indexOf( 'H' ) >= 0 && duration.indexOf( 'M' ) == -1 && duration.indexOf( 'S' ) == -1 ) {
+                        a = [a[0], 0, 0];
+                    }
+
+                    duration = 0;
+                    if ( a.length == 3 ) {
+                        duration = duration + parseInt( a[0] ) * 3600;
+                        duration = duration + parseInt( a[1] ) * 60;
+                        duration = duration + parseInt( a[2] );
+                    }
+                    if ( a.length == 2 ) {
+                        duration = duration + parseInt( a[0] ) * 60;
+                        duration = duration + parseInt( a[1] );
+                    }
+                    if ( a.length == 1 ) {
+                        duration = duration + parseInt( a[0] );
+                    }
+                    var h = Math.floor( duration / 3600 );
+                    var m = Math.floor( duration % 3600 / 60 );
+                    var s = Math.floor( duration % 3600 % 60 );
+
+                    duration = ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
                 }
                 return duration;
             }
