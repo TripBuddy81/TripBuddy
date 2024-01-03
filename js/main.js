@@ -2252,7 +2252,7 @@ $( document ).ready( function () {
 
                 var tempDuplicateDump = {};
                 searchYoutubeResult.items.forEach( function ( item ) {
-                    if ( !tempDuplicateDump[item.id.videoId] || !tempDuplicateDump1[item.id] ) {
+                    if ( !tempDuplicateDump[item.id.videoId] || !tempDuplicateDump[item.id] ) {
                         tempDuplicateDump[item.id.videoId] = true;
                         tempDuplicateDump[item.id] = true;
 
@@ -2287,7 +2287,9 @@ $( document ).ready( function () {
                         let videoDuration = document.createElement( 'span' );
                         videoDuration.innerHTML = duration;
                         videoDuration.classList.add( 'youtubeItemDuration' );
-                        document.getElementById( item.id ).appendChild( videoDuration );
+                        if ( document.getElementById( item.id ) !== null ) {
+                            document.getElementById( item.id ).appendChild( videoDuration );
+                        }
                     } );
                 }
 
@@ -2359,7 +2361,7 @@ $( document ).ready( function () {
             }
 
             function convertYoutubeTime( duration ) {
-                if ( duration == '0:00' || duration == 'stream'|| duration == 'P0D'  ) {
+                if ( duration == '0:00' || duration == 'stream' || duration == 'P0D' ) {
                     duration = 'stream';
                 } else {
                     var a = duration.match( /\d+/g );
