@@ -46,7 +46,7 @@ $( document ).ready( function () {
             var maxYoutubeSearchResults = 50;
             var youtubeApiKeyInUse = 1;
             var youtubeCurrentQueue = [];
-            var youtubeIntitalSearchTerm = 'Psychill';
+            var youtubeIntitalSearchTerm = 'goa festival';
             var directYoutubePlayerLoaded = false;
             var lastPlayedDirectYoutubePlayerId = '';
             var lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
