@@ -222,15 +222,6 @@ $( document ).ready( function () {
                 $( '#shrine' ).hide();
                 $( '#games' ).hide();
                 $( '#search' ).hide();
-
-                $( '.mainSectionActive' ).each( function () {
-                    $( this ).toggleClass( 'mainSectionActive' );
-                } );
-                $( this ).toggleClass( 'mainSectionActive' );
-
-                hideScreensaverEnso();
-                checkPrivateVisible();
-                enableFullscreen();
             } );
             $( '#showImageSection' ).click( function () {
                 $( '#videos' ).hide();
@@ -239,11 +230,6 @@ $( document ).ready( function () {
                 $( '#games' ).hide();
                 $( '#search' ).hide();
 
-                $( '.mainSectionActive' ).each( function () {
-                    $( this ).toggleClass( 'mainSectionActive' );
-                } );
-                $( this ).toggleClass( 'mainSectionActive' );
-
                 if ( !imageSectionShown ) {
                     $( '.imageFilterBtn' ).each( function () {
                         $( this ).trigger( 'click' );
@@ -251,10 +237,6 @@ $( document ).ready( function () {
                     } );
                     imageSectionShown = true;
                 }
-
-                hideScreensaverEnso();
-                checkPrivateVisible();
-                enableFullscreen();
             } );
             $( '#showShrineSection' ).click( function () {
                 $( '#videos' ).hide();
@@ -263,14 +245,9 @@ $( document ).ready( function () {
                 $( '#games' ).hide();
                 $( '#search' ).hide();
 
-                $( '.mainSectionActive' ).each( function () {
-                    $( this ).toggleClass( 'mainSectionActive' );
-                } );
-                $( this ).toggleClass( 'mainSectionActive' );
                 $( '#shrineSettingsContainer' ).addClass( 'visible' );
 
                 renderShrineSection( showParticles );
-                enableFullscreen();
 
                 if ( typeof absoluteTruthsTimer !== 'undefined' ) {
                     clearInterval( absoluteTruthsTimer );
@@ -278,7 +255,6 @@ $( document ).ready( function () {
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
 
                 absoluteTruthsUpdate( true );
-                hideScreensaverEnso();
             } );
             $( '#showGamesSection' ).click( function () {
                 $( '#videos' ).hide();
@@ -286,14 +262,6 @@ $( document ).ready( function () {
                 $( '#shrine' ).hide();
                 $( '#games' ).show();
                 $( '#search' ).hide();
-
-                $( '.mainSectionActive' ).each( function () {
-                    $( this ).toggleClass( 'mainSectionActive' );
-                } );
-                $( this ).toggleClass( 'mainSectionActive' );
-
-                enableFullscreen();
-                hideScreensaverEnso();
 
                 if ( !gameSectionShown ) {
                     $( '.gameLink' ).each( function () {
@@ -312,17 +280,21 @@ $( document ).ready( function () {
                 $( '#games' ).hide();
                 $( '#search' ).show();
 
+                setTimeout( function () {
+                    $( '#mainSearchInput' ).focus();
+                }, 500 );
+            } );
+
+            $( '.mainSectionBtn' ).click( function () {
                 $( '.mainSectionActive' ).each( function () {
                     $( this ).toggleClass( 'mainSectionActive' );
                 } );
                 $( this ).toggleClass( 'mainSectionActive' );
 
-                setTimeout( function () {
-                    $( '#mainSearchInput' ).focus();
-                }, 500 );
-
-                hideScreensaverEnso();
+                disableAllOverlaysAndFullscreenVideos();
+                checkPrivateVisible();
                 enableFullscreen();
+                hideScreensaverEnso();
             } );
 
             $( '.menuItem' ).click( function () {
