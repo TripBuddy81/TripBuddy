@@ -73,8 +73,12 @@ $( document ).ready( function () {
             $( document ).bind( 'contextmenu', function ( e ) {
                 // Disable right click context menu and show playlist selection instead
                 if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' ) {
-                    disableAllOverlaysAndFullscreenVideos( false );
-                    $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
+                    if ( $( '#menuClose' ).prop( 'checked' ) ) {
+                        disableAllOverlaysAndFullscreenVideos();
+                    } else {
+                        $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
+                        disableAllOverlaysAndFullscreenVideos( false );
+                    }
                     $( '#mainMenu' ).show();
                     return false;
                 } else if ( $( e.target ).attr( 'type' ) == 'text' ) { // paste text into text filed
@@ -326,7 +330,7 @@ $( document ).ready( function () {
             } );
 
             function closeRightMenu() {
-                $( '#menuClose' ).prop( 'checked', false )
+                $( '#menuClose' ).prop( 'checked', false );
             }
 
             // Global key captures
@@ -790,11 +794,13 @@ $( document ).ready( function () {
             }
 
             function disableAllOverlaysAndFullscreenVideos( hidePlaylistSelection = true ) {
-                $( '#directYoutubePlayer' ).hide();
-
                 if ( hidePlaylistSelection ) {
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                 }
+
+                closeRightMenu();
+
+                $( '#directYoutubePlayer' ).hide();
 
                 $( '.localVideo' ).each( function () {
                     try {
@@ -827,7 +833,6 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 renderShrineSection( showParticles );
-                closeRightMenu();
                 $( '#preFlightChecklist' ).modal( 'hide' );
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
@@ -840,6 +845,7 @@ $( document ).ready( function () {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
                 clearInterval( preFlightCheckListAnimationTimer );
+                stopScreensaver();
             }
 
             // Toggle Fullscreen button
@@ -1206,7 +1212,12 @@ $( document ).ready( function () {
                 screensaverSecondsIdle++;
                 $( '.mainSectionActive' ).each( function () {
                     if ( $( this ).attr( 'data-target' ) == 'videos' || $( this ).attr( 'data-target' ) == 'images' ) {
-                        if ( !$( '#spotifyPlaylistsMenu' ).hasClass( 'menuTransition' ) && $( '.MageAIfilter.imageFilterActive' ).length == 0 && $( '.MageAIFavorites.imageFilterActive' ).length == 0 && (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) && !screensaverActive && !blockScreenSaver ) {
+                        if ( !$( '#spotifyPlaylistsMenu' ).hasClass( 'menuTransition' ) &&
+                                $( '.MageAIfilter.imageFilterActive' ).length == 0 &&
+                                $( '.MageAIFavorites.imageFilterActive' ).length == 0 &&
+                                (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) &&
+                                !screensaverActive && !blockScreenSaver &&
+                                !$( '#menuClose' ).prop( 'checked' ) ) {
                             screensaverActive = true;
                             showScreensaverEnso();
                             $( 'body,#menu,.videoSource,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
