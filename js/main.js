@@ -12,7 +12,6 @@ $( document ).ready( function () {
             var externalSoundTabOpened = false;
             var pizzaTimerStart = '';
             var isFullScreen = false;
-            var fluidBackground = true;
             var lastDisplayedImage = config['images'][0]['image'];
             var minutesTillNextThought = 0;
             var showParticles = true;
@@ -186,16 +185,10 @@ $( document ).ready( function () {
 
                 /*https://cssgradient.io/*/
 
-                if ( fluidBackground ) {
-                    multiple = new Multiple( {
-                        selector  : '.sharedBackground',
-                        background: 'linear-gradient(-45deg, rgba(245,255,115,1) 0%, rgba(155,255,107,1) 26%, rgba(72,205,255,1) 71%, rgba(144,107,255,1) 100%);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
-                    } );
-                } else {
-                    $( '.multiple-desktop' ).each( function () {
-                        $( this ).removeClass( 'multiple-desktop' );
-                    } );
-                }
+                multiple = new Multiple( {
+                    selector  : '.sharedBackground',
+                    background: 'linear-gradient(-45deg, rgba(245,255,115,1) 0%, rgba(155,255,107,1) 26%, rgba(72,205,255,1) 71%, rgba(144,107,255,1) 100%);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
+                } );
             }
 
             // Init global alarm sounds
@@ -908,12 +901,6 @@ $( document ).ready( function () {
             $( '#notesTextarea' ).on( 'blur', function () {
                 localStorage.setItem( 'notes', $( '#notesTextarea' ).val() );
             } );
-
-            // Info Tag toggle setting
-            $( '#toggleBackground' ).click( function () {
-                fluidBackground = !fluidBackground;
-                refreshGradientBackground();
-            } )
 
             // Info Tag toggle setting
             $( '#toggleInfo' ).click( function () {
