@@ -2359,7 +2359,7 @@ $( document ).ready( function () {
             }
 
             function convertYoutubeTime( duration ) {
-                if ( duration == '0:00' || duration == 'stream' ) {
+                if ( duration == '0:00' || duration == 'stream'|| duration == 'P0D'  ) {
                     duration = 'stream';
                 } else {
                     var a = duration.match( /\d+/g );

@@ -1695,12 +1695,15 @@ video::-webkit-media-controls-fullscreen-button {
 .youtubeItemDuration {
     position: relative;
     top: -60px;
-    right: -140px;
+    right: -127px;
     color: white;
     font-size: 30px;
     font-weight: 400;
     pointer-events: none;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    width: 110px;
+    display: block;
+    text-align: end;
 }
 
 .youtubeQueueItemDeleteSymbol:after {
