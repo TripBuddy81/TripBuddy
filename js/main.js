@@ -296,6 +296,7 @@ $( document ).ready( function () {
                 checkPrivateVisible();
                 enableFullscreen();
                 hideScreensaverEnso();
+                refreshGradientBackground();
             } );
 
             $( '.menuItem' ).click( function () {
@@ -1235,7 +1236,6 @@ $( document ).ready( function () {
                     $( '#globalEnsoContainer' ).addClass( 'globalEnsoContainerHidden' );
                     $( '.videoFilterBtn' ).removeClass( 'hiddenAndUnclickable' );
                     $( '.imageFilterBtn' ).removeClass( 'hiddenAndUnclickable' );
-                    refreshGradientBackground();
                 } );
             }
 
