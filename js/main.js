@@ -1698,6 +1698,7 @@ $( document ).ready( function () {
                 // on middle mouse button just open in new tab
                 if ( e.which == 2 ) {
                     window.open( $( this ).attr( 'href' ), '_blank' );
+                    $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                 }
                 if ( e.which == 1 ) {
                     try {
@@ -1708,8 +1709,8 @@ $( document ).ready( function () {
                     spotifyHasBeenPlayingBeforePause = false;
                     externalSoundTabOpened = true;
                     window.open( $( this ).attr( 'href' ), 'externalSoundTab' );
+                    $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                 }
-                $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
             } );
 
             // integrated Spotify player if succesfully logged in
