@@ -1103,11 +1103,10 @@ var config = {
     'externalVideoLinks'     : [],
     'externalPicLinks'       : [],
     'reminderSelection'      : [
-        {'reminder': 'Dance!'},
+        {'reminder': 'Write a letter'},
         {'reminder': 'Drink Tea'},
-        {'reminder': 'Deeptalk with plant'},
-        {'reminder': 'Cuddle your friends!'},
-        {'reminder': 'Eat some fruits'}
+        {'reminder': 'Dance'},
+        {'reminder': 'Listen to Alans wisdom'}
     ],
     'gameLinks'              : [
         {
