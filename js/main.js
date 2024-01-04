@@ -303,6 +303,13 @@ $( document ).ready( function () {
                 closeRightMenu();
             } );
 
+            $( '#menuClose' ).click( function () {
+                enableFullscreen();
+                $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                refreshAccessToken();
+                refreshDevices();
+            } );
+
             function closeRightMenu() {
                 $( '#menuClose' ).prop( 'checked', false );
             }
@@ -1794,12 +1801,6 @@ $( document ).ready( function () {
                         openDesktopApp();
                         transfer( $( '#devices option:contains("DESKTOP")' ).val() );
                     }
-                } );
-                $( '#menuClose' ).click( function () {
-                    enableFullscreen();
-                    $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
-                    refreshAccessToken();
-                    refreshDevices();
                 } );
                 $( '#devices' ).change( function () {
                     transfer( $( '#devices' ).find( ':selected' ).val() );
