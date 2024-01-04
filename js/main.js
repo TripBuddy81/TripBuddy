@@ -818,6 +818,7 @@ $( document ).ready( function () {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
                 clearInterval( preFlightCheckListAnimationTimer );
+                hideScreensaverEnso();
                 stopScreensaver();
             }
 
