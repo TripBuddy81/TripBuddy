@@ -39,6 +39,7 @@ $( document ).ready( function () {
             var spotifyOpened = false;
             var displayedAbsoluteTruthIndex = [];
             var stroboBGWhite = false;
+            var stroboSpeed = 0;
             var preFlightCheckListAnimationTimer = undefined;
             var absoluteTruthsTimer = undefined;
             var absoluteTruthsTimerDuration = 20000;
@@ -1460,18 +1461,21 @@ $( document ).ready( function () {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
             } );
 
-            document.getElementById( 'shrineStroboSpeed' ).addEventListener( 'input', function () {
-                targetStroboSpeed = 0;
-                if ( $( '#shrineStroboSpeed' ).val() > 0 ) {
-                    targetStroboSpeed = parseInt( $( '#shrineStroboSpeed' ).val() ) + 10; // plus 10 because in this lower range there is no visible effect otherwise
+            $( '#shrineStroboSpeed' ).click( function ( event ) {
+                if ( stroboSpeed == 0 ) {
+                    stroboSpeed = 15;
+                } else if ( stroboSpeed == 15 ) {
+                    stroboSpeed = 20;
+                } else {
+                    stroboSpeed = 0;
                 }
 
                 if ( stroboBGWhite ) {
-                    $( '#particles-js' ).css( 'animation', 'strobo2 ' + targetStroboSpeed + 'ms steps(1,end) infinite' );
+                    $( '#particles-js' ).css( 'animation', 'strobo2 ' + stroboSpeed + 'ms steps(1,end) infinite' );
                 } else {
-                    $( '#particles-js' ).css( 'animation', 'strobo1 ' + targetStroboSpeed + 'ms steps(1,end) infinite' );
+                    $( '#particles-js' ).css( 'animation', 'strobo1 ' + stroboSpeed + 'ms steps(1,end) infinite' );
                 }
-                if ( $( '#shrineStroboSpeed' ).val() > 0 ) {
+                if ( stroboSpeed > 0 ) {
                     $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 20ms steps(1,end) infinite' );
                     $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 55ms steps(1,end) infinite' );
                 } else {
@@ -1481,17 +1485,12 @@ $( document ).ready( function () {
             } );
 
             $( '#shrineToggleBWStrobo' ).click( function ( event ) {
-                targetStroboSpeed = 0;
-                if ( $( '#shrineStroboSpeed' ).val() > 0 ) {
-                    targetStroboSpeed = parseInt( $( '#shrineStroboSpeed' ).val() ) + 10; // plus 10 because in this lower range there is no visible effect otherwise
-                }
-
                 if ( stroboBGWhite ) {
                     stroboBGWhite = false;
-                    $( '#particles-js' ).css( 'animation', 'strobo1 ' + targetStroboSpeed + 'ms steps(1,end) infinite' );
+                    $( '#particles-js' ).css( 'animation', 'strobo1 ' + stroboSpeed + 'ms steps(1,end) infinite' );
                 } else {
                     stroboBGWhite = true;
-                    $( '#particles-js' ).css( 'animation', 'strobo2 ' + targetStroboSpeed + 'ms steps(1,end) infinite' );
+                    $( '#particles-js' ).css( 'animation', 'strobo2 ' + stroboSpeed + 'ms steps(1,end) infinite' );
                 }
             } );
 
@@ -1556,8 +1555,8 @@ $( document ).ready( function () {
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
-                $( '#shrineStroboSpeed' ).val( 0 );
                 $( '.particles-js-canvas-el' ).remove();
+                stroboSpeed = 0;
                 particlesInit( showParticles );
             }
 

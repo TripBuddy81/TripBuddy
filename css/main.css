@@ -1007,19 +1007,17 @@ option {
 }
 
 #shrineBGColorPickerImage, #shrineToggleBWStrobo {
-    width: 60px;
     height: 60px;
     margin-bottom: 30px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
 }
 
 #shrineParticlesSwitch {
-    width: 50px;
-    height: 50px;
+    height: 59px;
     margin-bottom: 30px;
-    margin-left: 12px;
+    margin-left: 16px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: -11px;
+    margin-top: 3px;
 }
 
 #toggleAbsoluteThruth {
@@ -1029,13 +1027,6 @@ option {
     margin-left: 3px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     margin-top: 13px;
-}
-
-#shrineStroboSpeed {
-    height: 48px;
-    -webkit-appearance: none;
-    margin: 7px 0;
-    width: 168px;
 }
 
 .input-group {
@@ -1077,11 +1068,16 @@ option {
 }
 
 #shrineStroboSpeed {
-    background: transparent;
+    height: 58px;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    margin-bottom: 30px;
+    margin-left: 15px;
+    margin-top: 0px;
 }
 
 #shrineStroboSpeedContainer {
     height: 60px;
+    margin-bottom: 25px;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
