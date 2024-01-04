@@ -54,7 +54,7 @@ $( document ).ready( function () {
             var lastSelectedAutocompleteItem = 0;
             var currentAutocompleteItem = 0;
             var allVideosLoaded = false;
-            var mainYoutubePlayerIsActiveSoundSource = true;
+            var mainYoutubePlayerIsActiveSoundSource = false;
             var screensaverSecondsIdle = 0;
             var screensaverStartAfterSeconds = 15;
             var screensaverActive = false;
