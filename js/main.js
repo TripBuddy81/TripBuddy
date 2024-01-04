@@ -303,16 +303,17 @@ $( document ).ready( function () {
                 closeRightMenu();
             } );
 
-            $( '#menuClose' ).click( function () {
-                enableFullscreen();
-                $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
-                refreshAccessToken();
-                refreshDevices();
-            } );
-
             function closeRightMenu() {
                 $( '#menuClose' ).prop( 'checked', false );
             }
+
+            $( '#menuClose' ).click( function () {
+                enableFullscreen();
+                $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                hideScreensaverEnso();
+                refreshAccessToken();
+                refreshDevices();
+            } );
 
             // Global key captures
             var rightMouseClicked = false;
