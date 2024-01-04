@@ -875,13 +875,6 @@ option {
     height: 80px;
 }
 
-#iFrameSpotifyPlayerContainer iframe:hover {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 600px;
-}
-
 .form-control:focus {
     border-color: inherit;
     -webkit-box-shadow: none;
