@@ -616,12 +616,12 @@ var config = {
         {
             'videoId'     : '5I69DCxYbBg',
             'tags'        : 'slideshow',
-            'startSeconds': '5'
+            'startSeconds': '35'
         },
         {
             'videoId'     : 'rgZfmWXTqas',
             'tags'        : 'slideshow',
-            'startSeconds': '7'
+            'startSeconds': '24'
         },
         {
             'videoId': '934tHxQ_-3U',
