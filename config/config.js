@@ -183,7 +183,7 @@ var config = {
         {
             'id'   : '32N71aqSB1j5skwhEi2hmL',
             'label': 'Rain & Thunder II'
-        },
+        }
     ],
     'noiseGenerators'        : [
         {
@@ -442,12 +442,19 @@ var config = {
             'startSeconds': '30'
         },
         {
-            'videoId': 'RhlQvbvMg-0',
+            'videoId': 'AHzek64M6jY',
             'tags'   : 'meditative'
         },
         {
-            'videoId': 'AHzek64M6jY',
-            'tags'   : 'meditative'
+            'videoId': 'g-Tu2-B4-0o',
+            'mute'   : 'mixed',
+            'tags'   : 'meditative nature'
+        },
+        {
+            'videoId': 'YN6wj5NfOnM',
+            'mute'   : 'mixed',
+            'tags'   : 'meditative nature',
+            'startSeconds': '60'
         },
         {
             'videoId': 'miqbNFmbN2Q',
@@ -469,7 +476,7 @@ var config = {
         },
         {
             'videoId': 'XICnl77dchU',
-            'tags'   : 'trippy-2D meditative'
+            'tags'   : 'trippy-2D'
         },
         {
             'videoId'     : 'B5unCXpegAw',
@@ -481,29 +488,20 @@ var config = {
             'tags'   : 'meditative'
         },
         {
-            'videoId': 'xAwB9lQnxAY',
-            'tags'   : 'meditative'
-        },
-        {
             'videoId'     : 'jNyvfvDFFPk',
             'tags'        : 'space',
             'startSeconds': '25'
         },
         {
             'videoId'     : 'lkUuCgNkSsk',
-            'tags'        : 'meditative',
+            'tags'        : 'meditative nature',
             'startSeconds': '10'
         },
         {
             'videoId'     : 'JbJ0sYt9Nyk',
             'mute'        : 'mixed',
-            'tags'        : 'meditative',
+            'tags'        : 'meditative nature',
             'startSeconds': '60'
-        },
-        {
-            'videoId': 'J2kFChP2O2k',
-            'mute'   : 'mixed',
-            'tags'   : 'meditative'
         },
         {
             'videoId': 'z5JdoygbFCE',
