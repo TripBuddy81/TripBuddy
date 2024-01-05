@@ -386,9 +386,10 @@ var config = {
             'tags'   : 'meditative'
         },
         {
-            'videoId': 'TpQWifH237s',
-            'tags'   : 'meditative',
-            'mute'   : 'mixed'
+            'videoId': 'x53TkyA78qI',
+            'tags'   : 'meditative nature',
+            'mute'   : 'mixed',
+            'startSeconds': '130'
         },
         {
             'videoId': 'grn4reYBYb0',
