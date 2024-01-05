@@ -391,6 +391,11 @@ var config = {
             'mute'   : 'mixed'
         },
         {
+            'videoId': 'grn4reYBYb0',
+            'tags'   : 'meditative',
+            'mute'   : 'mixed'
+        },
+        {
             'videoId': '1PiXGku9QpI',
             'tags'   : 'trippy-2D'
         },
