@@ -258,6 +258,10 @@ function getPlaylist( playlistNameRef ) {
     callApi( 'GET', playlistNameRef, null, handleCurrentPlaylistResponse );
 }
 
+function getPlaylistContent( playlistNameRef ) {
+    callApi( 'GET', 'https://api.spotify.com/v1/playlists/' + playlistNameRef, null, handlePlaylistContentResponse );
+}
+
 function handleCurrentlyPlayingResponse() {
     try {
         var data = JSON.parse( this.responseText );
@@ -353,6 +357,15 @@ function handleCurrentPlaylistResponse() {
         $( '#spotifyPlaylists' ).html( 'Select Playlist' );
     }
 }
+
+function handlePlaylistContentResponse() {
+    var data = JSON.parse( this.responseText );
+    if ( this.status == 200 ) {
+        clearInterval(populateTrackSelectionInterval);
+    }
+    console.info(data);
+}
+
 
 function searchSpotify( searchTerm, type = 'track' ) {
     callApi( 'GET', SEARCH + '?q=' + searchTerm + '&type=' + type, null, handleSearchResponse );

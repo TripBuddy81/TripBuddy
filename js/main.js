@@ -9,6 +9,7 @@ $( document ).ready( function () {
             window.directYoutubePlayer;
             window.directYoutubePlayerState = 'undefined';
             window.playingSpotifyTrack = false;
+            window.populateTrackSelectionInterval = '';
             var externalSoundTabOpened = false;
             var pizzaTimerStart = '';
             var isFullScreen = false;
@@ -1741,6 +1742,11 @@ $( document ).ready( function () {
                 setInterval( refreshAccessToken, 60000 );
                 setInterval( refreshDevices, 3000 );
                 setInterval( currentlyPlaying, 1000 );
+                populateTrackSelectionInterval = setInterval( populateTrackSelectionMenu, 3000 );
+
+                function populateTrackSelectionMenu() {
+                    getPlaylistContent( '3cI5LgUXoJoDlUiPRbDudF' );
+                }
 
                 $( '.spotifyPlaylistItem' ).click( function () {
                     $( '#spotifyPlaylists' ).html( '...' );
@@ -2444,5 +2450,13 @@ $( document ).ready( function () {
                 }
                 showScreensaverEnso();
             }
+
+            // TEMP
+            $( '#quickTrackSelectionMenu' ).addClass( 'menuTransition' );
+
+
+
+
+
         }
 );
