@@ -801,12 +801,12 @@ option {
 
 .spotifyTrackContainer {
     display: block;
-    line-height: 25px;
-    margin-bottom: 10px;
+    line-height: 100%;
+    padding: 5px 15px;
 }
 
 .spotifyTrackName {
-    font-size: 25px;
+    font-size: 30px;
     pointer-events: none;
 }
 
