@@ -803,7 +803,6 @@ option {
     display: block;
     line-height: 25px;
     margin-bottom: 10px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
 .spotifyTrackName {
@@ -845,11 +844,11 @@ option {
     font-size: 30px !important;
 }
 
-.spotifyPlaylistItem, .noisegeneratorLink {
+.spotifyPlaylistItem, .noisegeneratorLink, .spotifyTrackContainer {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
-.spotifyPlaylistItem:hover, .noisegeneratorLink:hover {
+.spotifyPlaylistItem:hover, .noisegeneratorLink:hover, .spotifyTrackContainer:hover {
     color: white;
 }
 

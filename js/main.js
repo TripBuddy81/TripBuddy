@@ -1735,15 +1735,15 @@ $( document ).ready( function () {
 
             // integrated Spotify player if succesfully logged in
             if ( localStorage.getItem( 'access_token' ) != null ) {
-                $( '#spotifyLogin' ).hide();
-
                 refreshAccessToken();
                 shuffle();
                 repeat();
                 setInterval( refreshAccessToken, 60000 );
                 setInterval( refreshDevices, 3000 );
                 setInterval( currentlyPlaying, 1000 );
-                populateTrackSelectionInterval = setInterval( populateTrackSelectionMenu, 1000 );
+                populateTrackSelectionInterval = setInterval( populateTrackSelectionMenu, 2000 );
+
+                $( '#spotifyLogin' ).hide();
 
                 $( document ).on( 'click', '.spotifyTrackContainer', function ( e ) {
                     spotifyAddToQueue( $( this ).attr( 'id' ) );

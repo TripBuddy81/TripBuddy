@@ -374,26 +374,25 @@ function handlePlaylistContentResponse() {
 
 function insertTracksIntoTrackSelectionMenu( data ) {
     $.each( data['tracks']['items'], function ( key, value ) {
-        let playlistContainer = document.createElement( 'div' );
-        playlistContainer.classList.add( 'spotifyTrackContainer' );
-        playlistContainer.classList.add( 'col-6' );
+        if ( value['track']['id'] != undefined ) {
+            let trackContainer = document.createElement( 'div' );
+            trackContainer.classList.add( 'spotifyTrackContainer' );
+            trackContainer.classList.add( 'col-6' );
 
-        let trackContainer = document.createElement( 'div' );
-        trackContainer.classList.add( 'spotifyTrackContainer' );
-        trackContainer.classList.add( 'col-6' );
-        trackContainer.id = value['track']['uri'];
+            trackContainer.id = value['track']['uri'];
 
-        document.getElementById( data['uri'] ).appendChild( trackContainer );
+            document.getElementById( data['uri'] ).appendChild( trackContainer );
 
-        let trackName = document.createElement( 'span' );
-        trackName.classList.add( 'spotifyTrackName' );
-        trackName.innerHTML = value['track']['name'];
-        trackContainer.appendChild( trackName );
+            let trackName = document.createElement( 'span' );
+            trackName.classList.add( 'spotifyTrackName' );
+            trackName.innerHTML = value['track']['name'];
+            trackContainer.appendChild( trackName );
 
-        let trackArtist = document.createElement( 'span' );
-        trackArtist.classList.add( 'spotifyTrackArtist' );
-        trackArtist.innerHTML = value['track']['artists'][0]['name'];
-        trackContainer.appendChild( trackArtist );
+            let trackArtist = document.createElement( 'span' );
+            trackArtist.classList.add( 'spotifyTrackArtist' );
+            trackArtist.innerHTML = value['track']['artists'][0]['name'];
+            trackContainer.appendChild( trackArtist );
+        }
     } );
 }
 
