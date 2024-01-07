@@ -194,20 +194,13 @@ var config = {
     ],
     'trackSelectionPlaylists': [
         {
-            'playlistId': '6o73th3171U7GWh6YF4fHE'
+            'playlistId': '7g8rnKlz6bcoVxwp6Rxwt1',
+            'label': 'Evergreens'
         },
         {
-            'playlistId': '4Ni8WfUb4NBONlL3nt32jR'
-        },
-        {
-            'playlistId': '4oAVWP3d7CzHADk7ThGmsa'
-        },
-        {
-            'playlistId': '0ySoMLvwy6MBsc4uTmJ7DM'
-        },
-        {
-            'playlistId': '3ANrzqWtV3xONVqk7y5tHV'
-        },
+            'playlistId': '6fB9PJQ7Hy8SDvcRmBeKwr',
+            'label': 'Force'
+        }
     ],
 
 

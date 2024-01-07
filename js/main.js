@@ -785,6 +785,7 @@ $( document ).ready( function () {
                 if ( quickTrackSelection ) {
                     $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                 }
+                $( '.spotifyTrackContainer' ).show();
 
                 closeRightMenu();
 
@@ -1744,15 +1745,10 @@ $( document ).ready( function () {
                 setInterval( currentlyPlaying, 1000 );
                 populateTrackSelectionInterval = setInterval( populateTrackSelectionMenu, 1000 );
 
-                $( '#testbutton' ).click( function () {
-                    spotifyAddToQueue( 'spotify:track:3zk6HbMWzieQpzxDhUI1kQ' );
+                $( document ).on( 'click', '.spotifyTrackContainer', function ( e ) {
+                    spotifyAddToQueue( $( this ).attr( 'id' ) );
+                    $( this ).hide();
                 } );
-
-                function populateTrackSelectionMenu() {
-                    config['trackSelectionPlaylists'].forEach( function ( item ) {
-                        getPlaylistContent( item['playlistId'] );
-                    } );
-                }
 
                 $( '.spotifyPlaylistItem' ).click( function () {
                     $( '#spotifyPlaylists' ).html( '...' );
@@ -1865,6 +1861,12 @@ $( document ).ready( function () {
                         window.open( lastSelectedPlaylist, '_blank' );
                         spotifyOpened = true;
                     }
+                }
+
+                function populateTrackSelectionMenu() {
+                    config['trackSelectionPlaylists'].forEach( function ( item ) {
+                        getPlaylistContent( item['playlistId'] );
+                    } );
                 }
             } else {
                 // Stand alone iFrame Spotify Player
@@ -2456,10 +2458,5 @@ $( document ).ready( function () {
                 }
                 showScreensaverEnso();
             }
-
-            // TEMP
-            $( '#quickTrackSelectionMenu' ).addClass( 'menuTransition' );
-
-
         }
 );

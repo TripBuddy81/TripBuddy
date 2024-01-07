@@ -799,6 +799,24 @@ option {
     overflow: hidden;
 }
 
+.spotifyTrackContainer {
+    display: block;
+    line-height: 25px;
+    margin-bottom: 10px;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+.spotifyTrackName {
+    font-size: 25px;
+    pointer-events: none;
+}
+
+.spotifyTrackArtist {
+    font-size: 15px;
+    display: block;
+    pointer-events: none;
+}
+
 .largeMenu {
     position: fixed;
     top: 80px;

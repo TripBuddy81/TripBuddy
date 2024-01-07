@@ -374,21 +374,21 @@ function handlePlaylistContentResponse() {
 
 function insertTracksIntoTrackSelectionMenu( data ) {
     $.each( data['tracks']['items'], function ( key, value ) {
-        let trackContainer = document.createElement( 'span' );
+        let trackContainer = document.createElement( 'div' );
         trackContainer.classList.add( 'spotifyTrackContainer' );
         trackContainer.id = value['track']['uri'];
 
         document.getElementById( data['uri'] ).appendChild( trackContainer );
 
-        let trackArtist = document.createElement( 'span' );
-        trackArtist.classList.add( 'spotifyTrackArtist' );
-        trackArtist.innerHTML = value['track']['artists'][0]['name'];
-        trackContainer.appendChild( trackArtist );
-
         let trackName = document.createElement( 'span' );
         trackName.classList.add( 'spotifyTrackName' );
         trackName.innerHTML = value['track']['name'];
         trackContainer.appendChild( trackName );
+
+        let trackArtist = document.createElement( 'span' );
+        trackArtist.classList.add( 'spotifyTrackArtist' );
+        trackArtist.innerHTML = value['track']['artists'][0]['name'];
+        trackContainer.appendChild( trackArtist );
     } );
 }
 
