@@ -370,26 +370,16 @@
                 <div class="col">
                     Current Intensity Level?
                     Select Intensity Level?
+                    <div id="testbutton">ADD TO QUEUE</div>
                 </div>
             </div>
 
             <div class="row menuContent">
-                <div id="quickTrackSelectLevel1" class="col">
-                    LVL 1
+                {{#trackSelectionPlaylists}}
+                <div id='spotify:playlist:{{playlistId}}' class="col quickTrackSelectionPlaylist">
+
                 </div>
-                <div id="quickTrackSelectLevel2" class="col">
-                    LVL 2
-                </div>
-                <div id="quickTrackSelectLevel3" class="col">
-                    LVL 3
-                </div>
-                <div id="quickTrackSelectLevel4" class="col">
-                    LVL 4
-                </div>
-                <div id="quickTrackSelectLevel5" class="col">
-                    LVL 5
-                    <div id="testbutton">ADD TO QUEUE</div>
-                </div>
+                {{/trackSelectionPlaylists}}
             </div>
         </div>
 

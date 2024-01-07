@@ -192,13 +192,25 @@ var config = {
             'label': 'Rain & Thunder II'
         }
     ],
-    'trackSelectionPlaylists': {
-        'level1': '3ANrzqWtV3xONVqk7y5tHV',
-        'level2': '3ANrzqWtV3xONVqk7y5tHV',
-        'level3': '3ANrzqWtV3xONVqk7y5tHV',
-        'level4': '3ANrzqWtV3xONVqk7y5tHV',
-        'level5': '3ANrzqWtV3xONVqk7y5tHV'
-    },
+    'trackSelectionPlaylists': [
+        {
+            'playlistId': '6o73th3171U7GWh6YF4fHE'
+        },
+        {
+            'playlistId': '4Ni8WfUb4NBONlL3nt32jR'
+        },
+        {
+            'playlistId': '4oAVWP3d7CzHADk7ThGmsa'
+        },
+        {
+            'playlistId': '0ySoMLvwy6MBsc4uTmJ7DM'
+        },
+        {
+            'playlistId': '3ANrzqWtV3xONVqk7y5tHV'
+        },
+    ],
+
+
     'noiseGenerators'        : [
         {
             'link' : 'https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php?l=00003326353253250027&title=Japanese%20Garden&c=1',

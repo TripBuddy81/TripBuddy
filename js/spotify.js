@@ -199,7 +199,6 @@ function spotifyNext( playlist_id = '' ) {
 function spotifyAddToQueue( track ) {
     let body = {};
     body.uri = track;
-
     callApi( 'POST', 'https://api.spotify.com/v1/me/player/queue?uri=' + track, JSON.stringify( body ), handleApiResponse );
 }
 
@@ -369,10 +368,29 @@ function handlePlaylistContentResponse() {
     var data = JSON.parse( this.responseText );
     if ( this.status == 200 ) {
         clearInterval( populateTrackSelectionInterval );
+        insertTracksIntoTrackSelectionMenu( data )
     }
-    console.info( data );
 }
 
+function insertTracksIntoTrackSelectionMenu( data ) {
+    $.each( data['tracks']['items'], function ( key, value ) {
+        let trackContainer = document.createElement( 'span' );
+        trackContainer.classList.add( 'spotifyTrackContainer' );
+        trackContainer.id = value['track']['uri'];
+
+        document.getElementById( data['uri'] ).appendChild( trackContainer );
+
+        let trackArtist = document.createElement( 'span' );
+        trackArtist.classList.add( 'spotifyTrackArtist' );
+        trackArtist.innerHTML = value['track']['artists'][0]['name'];
+        trackContainer.appendChild( trackArtist );
+
+        let trackName = document.createElement( 'span' );
+        trackName.classList.add( 'spotifyTrackName' );
+        trackName.innerHTML = value['track']['name'];
+        trackContainer.appendChild( trackName );
+    } );
+}
 
 function searchSpotify( searchTerm, type = 'track' ) {
     callApi( 'GET', SEARCH + '?q=' + searchTerm + '&type=' + type, null, handleSearchResponse );

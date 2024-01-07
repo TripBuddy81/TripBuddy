@@ -1742,14 +1742,16 @@ $( document ).ready( function () {
                 setInterval( refreshAccessToken, 60000 );
                 setInterval( refreshDevices, 3000 );
                 setInterval( currentlyPlaying, 1000 );
-                populateTrackSelectionInterval = setInterval( populateTrackSelectionMenu, 3000 );
+                populateTrackSelectionInterval = setInterval( populateTrackSelectionMenu, 1000 );
 
                 $( '#testbutton' ).click( function () {
                     spotifyAddToQueue( 'spotify:track:3zk6HbMWzieQpzxDhUI1kQ' );
                 } );
 
                 function populateTrackSelectionMenu() {
-                    getPlaylistContent( '3cI5LgUXoJoDlUiPRbDudF' );
+                    config['trackSelectionPlaylists'].forEach( function ( item ) {
+                        getPlaylistContent( item['playlistId'] );
+                    } );
                 }
 
                 $( '.spotifyPlaylistItem' ).click( function () {
