@@ -92,6 +92,12 @@ var config = {
         ],
         'blue' : [
             {
+                'label'  : 'Shroom Journey',
+                'id'     : '3cI5LgUXoJoDlUiPRbDudF',
+                'shuffle': false,
+                'repeat' : false
+            },
+            {
                 'label': 'Celtic',
                 'id'   : '7IMTMDqc2NIzovRgtC1Imq'
             },
@@ -386,9 +392,9 @@ var config = {
             'tags'   : 'meditative'
         },
         {
-            'videoId': 'x53TkyA78qI',
-            'tags'   : 'meditative nature',
-            'mute'   : 'mixed',
+            'videoId'     : 'x53TkyA78qI',
+            'tags'        : 'meditative nature',
+            'mute'        : 'mixed',
             'startSeconds': '130'
         },
         {
@@ -457,14 +463,15 @@ var config = {
             'tags'   : 'meditative nature'
         },
         {
-            'videoId': 'YN6wj5NfOnM',
-            'mute'   : 'mixed',
-            'tags'   : 'meditative nature',
+            'videoId'     : 'YN6wj5NfOnM',
+            'mute'        : 'mixed',
+            'tags'        : 'meditative nature',
             'startSeconds': '60'
         },
         {
             'videoId': 'miqbNFmbN2Q',
-            'tags'   : 'meditative nature'
+            'tags'   : 'meditative nature',
+            'startSeconds': '17'
         },
         {
             'videoId'     : '6tmbeLTHC_0',
