@@ -74,7 +74,7 @@ $( document ).ready( function () {
             $( document ).bind( 'contextmenu', function ( e ) {
                 // Disable right click context menu and show playlist selection instead
                 if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' ) {
-                    if ( $( '#menuClose' ).prop( 'checked' ) ) {
+                    if ( $( '#menuClose' ).prop( 'checked' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ) {
                         disableAllOverlaysAndFullscreenVideos();
                     } else {
                         $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
@@ -310,6 +310,7 @@ $( document ).ready( function () {
             $( '#menuClose' ).click( function () {
                 enableFullscreen();
                 $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                 hideScreensaverEnso();
                 refreshAccessToken();
                 refreshDevices();
@@ -776,9 +777,12 @@ $( document ).ready( function () {
                 } );
             }
 
-            function disableAllOverlaysAndFullscreenVideos( hidePlaylistSelection = true ) {
+            function disableAllOverlaysAndFullscreenVideos( hidePlaylistSelection = true, quickTrackSelection = true ) {
                 if ( hidePlaylistSelection ) {
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                }
+                if ( quickTrackSelection ) {
+                    $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                 }
 
                 closeRightMenu();
@@ -1197,6 +1201,7 @@ $( document ).ready( function () {
                 $( '.mainSectionActive' ).each( function () {
                     if ( $( this ).attr( 'data-target' ) == 'videos' || $( this ).attr( 'data-target' ) == 'images' ) {
                         if ( !$( '#spotifyPlaylistsMenu' ).hasClass( 'menuTransition' ) &&
+                                !$( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) &&
                                 $( '.MageAIfilter.imageFilterActive' ).length == 0 &&
                                 $( '.MageAIFavorites.imageFilterActive' ).length == 0 &&
                                 (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) &&
@@ -1674,6 +1679,11 @@ $( document ).ready( function () {
             redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
             client_id = config['oAuthSpotify'][0]['client_id'];
             client_secret = config['oAuthSpotify'][0]['client_secret'];
+
+            $( '#openAddToQueueMenu' ).click( function () {
+                disableAllOverlaysAndFullscreenVideos( true, false );
+                $( '#quickTrackSelectionMenu' ).toggleClass( 'menuTransition' );
+            } );
 
             $( '#spotifyPlaylists' ).click( function () {
                 $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );

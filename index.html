@@ -316,7 +316,7 @@
             Select Playlist
         </button>
 
-        <div id="spotifyPlaylistsMenu">
+        <div id="spotifyPlaylistsMenu" class="largeMenu">
             <div id="spotifyCurrentlyPlayingContainer" class="row">
                 <div class="col">
                     <div id="spotifyCurrentlyPlayingTrack" data-spotify-id=''>...</div>
@@ -343,21 +343,51 @@
                 </div>
                 <div class="col">
                     {{#playlists.green}}
-                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}" data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                         data-spotify-id="spotify:playlist:{{id}}">{{label}}
                     </div>
                     {{/playlists.green}}
                 </div>
                 <div class="col">
                     {{#playlists.blue}}
-                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}" data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                         data-spotify-id="spotify:playlist:{{id}}">{{label}}
                     </div>
                     {{/playlists.blue}}
                 </div>
                 <div class="col">
                     {{#playlists.red}}
-                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}" data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                         data-spotify-id="spotify:playlist:{{id}}">{{label}}
                     </div>
                     {{/playlists.red}}
+                </div>
+            </div>
+        </div>
+
+        <div id="quickTrackSelectionMenu" class="largeMenu">
+            <div class="row">
+                <div class="col">
+                    Current Intensity Level?
+                    Select Intensity Level?
+                </div>
+            </div>
+
+            <div class="row menuContent">
+                <div id="quickTrackSelectLevel1" class="col">
+                    LVL 1
+                </div>
+                <div id="quickTrackSelectLevel2" class="col">
+                    LVL 2
+                </div>
+                <div id="quickTrackSelectLevel3" class="col">
+                    LVL 3
+                </div>
+                <div id="quickTrackSelectLevel4" class="col">
+                    LVL 4
+                </div>
+                <div id="quickTrackSelectLevel5" class="col">
+                    LVL 5
                 </div>
             </div>
         </div>
@@ -370,6 +400,7 @@
             <img id="next" class="float-end playerIcon me-3 mt-3" src="./assets/next.png">
             <img id="stopMusic" class="float-end playerIcon me-3 mt-3" src="./assets/pause.png">
             <img id="spotifyIcon" class="float-end playerIcon me-3 mt-3" src="./assets/spotify.png">
+            <img id="openAddToQueueMenu" class="float-end playerIcon me-3 mt-3" src="./assets/addToQueueBlack.png">
             <img id="switchDesktopPhone" class="float-end me-3 mt-3" src="">
         </div>
     </div>

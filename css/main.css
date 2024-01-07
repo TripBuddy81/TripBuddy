@@ -683,6 +683,13 @@ li, .options, .form-check-label {
     position: inherit;
 }
 
+#openAddToQueueMenu {
+    height: 40px;
+    top: 0px;
+    position: inherit;
+    right: 3px;
+}
+
 #switchDesktopPhone {
     display: none;
 }
@@ -792,7 +799,7 @@ option {
     overflow: hidden;
 }
 
-#spotifyPlaylistsMenu {
+.largeMenu {
     position: fixed;
     top: 80px;
     right: -100.3vW;
