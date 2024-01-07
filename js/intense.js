@@ -150,7 +150,7 @@ var Intense = (function () {
             'top'             : '0px',
             'left'            : '0px',
             'overflow'        : 'hidden',
-            'zIndex'          : '10',
+            'zIndex'          : '30',
             'margin'          : '0px',
             'webkitTransition': 'opacity 150ms cubic-bezier( 0, 0, .26, 1 )',
             'MozTransition'   : 'opacity 150ms cubic-bezier( 0, 0, .26, 1 )',
