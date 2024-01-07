@@ -1744,6 +1744,10 @@ $( document ).ready( function () {
                 setInterval( currentlyPlaying, 1000 );
                 populateTrackSelectionInterval = setInterval( populateTrackSelectionMenu, 3000 );
 
+                $( '#testbutton' ).click( function () {
+                    spotifyAddToQueue( 'spotify:track:3zk6HbMWzieQpzxDhUI1kQ' );
+                } );
+
                 function populateTrackSelectionMenu() {
                     getPlaylistContent( '3cI5LgUXoJoDlUiPRbDudF' );
                 }
@@ -2453,9 +2457,6 @@ $( document ).ready( function () {
 
             // TEMP
             $( '#quickTrackSelectionMenu' ).addClass( 'menuTransition' );
-
-
-
 
 
         }

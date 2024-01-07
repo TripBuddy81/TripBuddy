@@ -196,6 +196,13 @@ function spotifyNext( playlist_id = '' ) {
     }
 }
 
+function spotifyAddToQueue( track ) {
+    let body = {};
+    body.uri = track;
+
+    callApi( 'POST', 'https://api.spotify.com/v1/me/player/queue?uri=' + track, JSON.stringify( body ), handleApiResponse );
+}
+
 function handleNextApiResponse() {
     currentlyPlaying();
 }
@@ -361,9 +368,9 @@ function handleCurrentPlaylistResponse() {
 function handlePlaylistContentResponse() {
     var data = JSON.parse( this.responseText );
     if ( this.status == 200 ) {
-        clearInterval(populateTrackSelectionInterval);
+        clearInterval( populateTrackSelectionInterval );
     }
-    console.info(data);
+    console.info( data );
 }
 
 
