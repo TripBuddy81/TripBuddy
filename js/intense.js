@@ -150,7 +150,7 @@ var Intense = (function () {
             'top'             : '0px',
             'left'            : '0px',
             'overflow'        : 'hidden',
-            'zIndex'          : '30',
+            'zIndex'          : '10',
             'margin'          : '0px',
             'webkitTransition': 'opacity 150ms cubic-bezier( 0, 0, .26, 1 )',
             'MozTransition'   : 'opacity 150ms cubic-bezier( 0, 0, .26, 1 )',
@@ -233,6 +233,7 @@ var Intense = (function () {
         $('#mainMenu').css('visibility', 'visible');
         $( 'html' ).attr( 'style', 'cursor:url(\'../assets/rainbow-gradient-pointer-32x32.png\'), pointer !important' );
         $( '.videoMenuOverlay' ).hide();
+        blockScreenSaver = false;
         document.body.style.overflow = 'auto';
     }
 

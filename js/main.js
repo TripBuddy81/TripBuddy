@@ -11,6 +11,7 @@ $( document ).ready( function () {
             window.playingSpotifyTrack = false;
             window.populateTrackSelectionInterval = '';
             window.populateTrackSelectionData = {};
+            window.blockScreenSaver = false;
             var externalSoundTabOpened = false;
             var pizzaTimerStart = '';
             var isFullScreen = false;
@@ -60,7 +61,6 @@ $( document ).ready( function () {
             var screensaverSecondsIdle = 0;
             var screensaverStartAfterSeconds = 15;
             var screensaverActive = false;
-            var blockScreenSaver = false;
             var documentReady = false;
 
             const urlParams = new URLSearchParams( window.location.search );
@@ -1315,6 +1315,7 @@ $( document ).ready( function () {
                 var clickedImageSrc = $( this ).attr( 'src' );
                 lastDisplayedImage = clickedImageSrc;
                 enableFullscreen();
+                blockScreenSaver = true;
             } );
 
             // Show timer in image when moving mouse
