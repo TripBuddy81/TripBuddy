@@ -139,8 +139,7 @@ $( document ).ready( function () {
             } );
 
             // Firefox does not want to play along
-            userAgentString = navigator.userAgent;
-            if ( userAgentString.indexOf( 'Firefox' ) > -1 ) {
+            if ( navigator.userAgent.indexOf( 'Firefox' ) > -1 ) {
                 documentReady = true;
                 $( '#launchSymbol' ).attr( 'src', './assets/ufo.png' );
                 $( '.iFrameContainer ' ).show();
