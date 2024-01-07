@@ -859,23 +859,31 @@ $( document ).ready( function () {
 
             function enableFullscreen() {
                 isFullScreen = true;
-                if ( document.documentElement.webkitRequestFullscreen ) {
+                try {
                     document.documentElement.webkitRequestFullscreen();
-                } else if ( document.documentElement.msRequestFullscreen ) {
-                    document.documentElement.msRequestFullscreen();
-                } else if ( document.documentElement.msRequestFullscreen ) {
-                    document.documentElement.requestFullscreen();
+                } catch ( e ) {
+                    try {
+                        document.documentElement.msRequestFullscreen();
+                    } catch ( e ) {
+                        try {
+                            document.documentElement.requestFullscreen();
+                        } catch ( e ) {
+                        }
+                    }
                 }
             }
 
             function disableFullscreen() {
                 isFullScreen = false;
-                if ( document.exitFullscreen ) {
-                    document.exitFullscreen();
-                } else if ( document.webkitExitFullscreen ) {
-                    document.webkitExitFullscreen();
-                } else if ( document.msExitFullscreen ) {
-                    document.msExitFullscreen();
+                try {
+                    if ( document.exitFullscreen ) {
+                        document.exitFullscreen();
+                    } else if ( document.webkitExitFullscreen ) {
+                        document.webkitExitFullscreen();
+                    } else if ( document.msExitFullscreen ) {
+                        document.msExitFullscreen();
+                    }
+                } catch ( e ) {
                 }
             }
 
