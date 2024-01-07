@@ -39,6 +39,10 @@ cursorDefault {
     padding-left: 0;
 }
 
+.firefoxScrollbar {
+    scrollbar-color: #97f0ff #000;
+}
+
 ::-webkit-scrollbar {
     height: 20px;
     width: 25px;
