@@ -367,8 +367,7 @@ function handleCurrentPlaylistResponse() {
 function handlePlaylistContentResponse() {
     var data = JSON.parse( this.responseText );
     if ( this.status == 200 ) {
-        clearInterval( populateTrackSelectionInterval );
-        insertTracksIntoTrackSelectionMenu( data )
+        populateTrackSelectionData[data['uri']] = data;
     }
 }
 

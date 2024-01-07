@@ -10,6 +10,7 @@ $( document ).ready( function () {
             window.directYoutubePlayerState = 'undefined';
             window.playingSpotifyTrack = false;
             window.populateTrackSelectionInterval = '';
+            window.populateTrackSelectionData = {};
             var externalSoundTabOpened = false;
             var pizzaTimerStart = '';
             var isFullScreen = false;
@@ -1741,7 +1742,7 @@ $( document ).ready( function () {
                 setInterval( refreshAccessToken, 60000 );
                 setInterval( refreshDevices, 3000 );
                 setInterval( currentlyPlaying, 1000 );
-                populateTrackSelectionInterval = setInterval( populateTrackSelectionMenu, 2000 );
+                populateTrackSelectionInterval = setInterval( populateTrackSelectionMenu, 1000 );
 
                 $( '#spotifyLogin' ).hide();
 
@@ -1867,7 +1868,14 @@ $( document ).ready( function () {
                     config['trackSelectionPlaylists'].forEach( function ( item ) {
                         getPlaylistContent( item['playlistId'] );
                     } );
+                    if ( Object.keys( populateTrackSelectionData ).length == config['trackSelectionPlaylists'].length ) {
+                        clearInterval( populateTrackSelectionInterval );
+                        $.each( populateTrackSelectionData, function ( key, value ) {
+                            insertTracksIntoTrackSelectionMenu( value )
+                        } );
+                    }
                 }
+
             } else {
                 // Stand alone iFrame Spotify Player
                 $( '#oAuthPlayerControl' ).remove();
