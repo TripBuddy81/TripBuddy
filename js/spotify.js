@@ -94,10 +94,12 @@ function handleDevicesResponse() {
             return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         } ).forEach( item => addDevice( item ) );
 
-        if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
+        if ( ($( '#devices' ).find( ':selected' ).text().toLowerCase().includes( config['spotifyMainPlayerName'].toLowerCase() ) || typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'].toUpperCase() + '")' ).val() == 'undefined') &&
+                typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
             $( '#switchDesktopPhone' ).attr( 'src', './assets/phone.png' );
             $( '#switchDesktopPhone' ).show();
-        } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
+        } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( config['spotifyMainPlayerName'].toLowerCase() ) &&
+                typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'].toUpperCase() + '")' ).val() != 'undefined' ) {
             $( '#switchDesktopPhone' ).attr( 'src', './assets/desktop.png' );
             $( '#switchDesktopPhone' ).show();
         } else {
@@ -176,7 +178,7 @@ function spotifyPlay( to_be_played = '' ) {
     }
 
     if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' || $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'überall' ) ) {
-        callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleApiResponse );
+        callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("' + config['spotifyMainPlayerName'].toUpperCase() + '")' ).val(), JSON.stringify( body ), handleApiResponse );
     } else {
         callApi( 'PUT', PLAY + '?device_id=' + $( '#devices' ).find( ':selected' ).val(), JSON.stringify( body ), handleApiResponse );
     }
@@ -188,7 +190,7 @@ function spotifyNext( playlist_id = '' ) {
         if ( playlist_id != '' ) {
             body.context_uri = playlist_id;
         }
-        callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("DESKTOP")' ).val(), JSON.stringify( body ), handleNextApiResponse );
+        callApi( 'PUT', PLAY + '?device_id=' + $( '#devices option:contains("' + config['spotifyMainPlayerName'].toUpperCase() + '")' ).val(), JSON.stringify( body ), handleNextApiResponse );
     } else {
         callApi( 'POST', NEXT, null, handleNextApiResponse );
     }

@@ -1796,11 +1796,11 @@ $( document ).ready( function () {
                     playNextYoutubeVideoOrSpotifyTrack();
                 } );
                 $( '#switchDesktopPhone' ).click( function () {
-                    if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
+                    if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( config['spotifyMainPlayerName'].toLowerCase() ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
                         transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
-                    } else if ( !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'desktop' ) ) {
+                    } else if ( config['spotifyMainPlayerName'] != '' && !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( config['spotifyMainPlayerName'].toLowerCase() ) ) {
                         openDesktopApp();
-                        transfer( $( '#devices option:contains("DESKTOP")' ).val() );
+                        transfer( $( '#devices option:contains("' + config['spotifyMainPlayerName'].toUpperCase() + '")' ).val() );
                     }
                 } );
                 $( '#devices' ).change( function () {
@@ -1831,7 +1831,7 @@ $( document ).ready( function () {
                 } );
 
                 function openDesktopApp() {
-                    if ( localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("DESKTOP")' ).val() == 'undefined' && spotifyOpened == false ) {
+                    if ( config['spotifyMainPlayerName'] != '' && config['spotifyMainPlayerName'].toLowerCase().indexOf( 'desktop' ) >= 0 && localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'].toUpperCase() + '")' ).val() == 'undefined' && spotifyOpened == false ) {
                         window.open( lastSelectedPlaylist, '_blank' );
                         spotifyOpened = true;
                     }
