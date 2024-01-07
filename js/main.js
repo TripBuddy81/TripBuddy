@@ -1800,7 +1800,7 @@ $( document ).ready( function () {
                         transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
                     } else if ( config['spotifyMainPlayerName'] != '' && !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( config['spotifyMainPlayerName'].toLowerCase() ) ) {
                         openDesktopApp();
-                        transfer( $( '#devices option:contains("' + config['spotifyMainPlayerName'].toUpperCase() + '")' ).val() );
+                        transfer( $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val() );
                     }
                 } );
                 $( '#devices' ).change( function () {
@@ -1831,7 +1831,11 @@ $( document ).ready( function () {
                 } );
 
                 function openDesktopApp() {
-                    if ( config['spotifyMainPlayerName'] != '' && config['spotifyMainPlayerName'].toLowerCase().indexOf( 'desktop' ) >= 0 && localStorage.getItem( 'access_token' ) != null && typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'].toUpperCase() + '")' ).val() == 'undefined' && spotifyOpened == false ) {
+                    if ( config['spotifyMainPlayerName'] != '' &&
+                            config['spotifyMainPlayerName'].toLowerCase().indexOf( 'desktop' ) >= 0 &&
+                            localStorage.getItem( 'access_token' ) != null &&
+                            typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val() == 'undefined' &&
+                            spotifyOpened == false ) {
                         window.open( lastSelectedPlaylist, '_blank' );
                         spotifyOpened = true;
                     }

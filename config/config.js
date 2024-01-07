@@ -11,7 +11,7 @@ var config = {
     'youtubeApiKey3'         : 'AIzaSyDQ-b7pUMihSfd-9axAJrvIJdpSkeocvB0',
     'youtubeApiKey4'         : 'AIzaSyDzTfNL056PFCwHr8LCN28M2sxtqFhVcrk',
     'youtubeApiKey5'         : 'AIzaSyDYbNZadsnrc3RdwxL9nPhKrg3oa8EbNoA',
-    'spotifyMainPlayerName'  : '',
+    'spotifyMainPlayerName'  : 'Web Player',
     'spotifyPhoneName'       : 'Pixel',
     'spotifyBedroomName'     : '',
     'spotifySaveToPlaylistId': '',
