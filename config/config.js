@@ -202,8 +202,6 @@ var config = {
             'label': 'Force'
         }
     ],
-
-
     'noiseGenerators'        : [
         {
             'link' : 'https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php?l=00003326353253250027&title=Japanese%20Garden&c=1',
