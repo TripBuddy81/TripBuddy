@@ -831,8 +831,9 @@ option {
     z-index: 20;
     background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055);
     transition: all 0.5s ease;
-    min-height: 100%;
+    height: 94vh;
     line-height: 140%;
+    overflow-y: auto;
 }
 
 .spotifyPlaylistMenuHeading {

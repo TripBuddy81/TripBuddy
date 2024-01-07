@@ -374,8 +374,13 @@ function handlePlaylistContentResponse() {
 
 function insertTracksIntoTrackSelectionMenu( data ) {
     $.each( data['tracks']['items'], function ( key, value ) {
+        let playlistContainer = document.createElement( 'div' );
+        playlistContainer.classList.add( 'spotifyTrackContainer' );
+        playlistContainer.classList.add( 'col-6' );
+
         let trackContainer = document.createElement( 'div' );
         trackContainer.classList.add( 'spotifyTrackContainer' );
+        trackContainer.classList.add( 'col-6' );
         trackContainer.id = value['track']['uri'];
 
         document.getElementById( data['uri'] ).appendChild( trackContainer );
