@@ -684,10 +684,10 @@ li, .options, .form-check-label {
 }
 
 #openAddToQueueMenu {
-    height: 40px;
+    height: 45px;
     top: 0px;
     position: inherit;
-    right: 1px;
+    left: 2px;
 }
 
 #switchDesktopPhone {
@@ -783,7 +783,7 @@ option {
 #spotifyPlaylists {
     position: sticky;
     top: 0px;
-    width: 340px;
+    width: 310px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     background-color: transparent;
     border: none;
@@ -791,7 +791,7 @@ option {
     padding: 0 0 0 5px;
     font-size: 33px;
     color: black;
-    margin-left: 10px;
+    margin-left: 0px;
     margin-right: 0px;
     margin-top: 10px;
     text-align-last: center;
