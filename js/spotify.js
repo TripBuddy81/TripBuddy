@@ -200,8 +200,12 @@ function handleNextApiResponse() {
     currentlyPlaying();
 }
 
-function shuffle() {
-    callApi( 'PUT', SHUFFLE + '?state=true', null, handleApiResponse );
+function shuffle( shuffle = true ) {
+    if ( shuffle ) {
+        callApi( 'PUT', SHUFFLE + '?state=true', null, handleApiResponse );
+    } else {
+        callApi( 'PUT', SHUFFLE + '?state=false', null, handleApiResponse );
+    }
 }
 
 function repeat( state = 'context' ) {

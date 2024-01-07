@@ -1744,8 +1744,16 @@ $( document ).ready( function () {
 
                     // Playlist Selection
                     if ( $( this ).hasClass( 'spotifyPlaylist' ) ) {
-                        shuffle();
-                        repeat();
+                        if ( $( this ).attr( 'shuffle' ) == 'false' ) {
+                            shuffle( false );
+                        } else {
+                            shuffle();
+                        }
+                        if ( $( this ).attr( 'repeat' ) == 'false' ) {
+                            repeat( 'off' );
+                        } else {
+                            repeat();
+                        }
                     } else { // Single Track Selection
                         repeat( 'off' );
                         spotifyHasBeenPlayingBeforePause = false;
@@ -1784,15 +1792,11 @@ $( document ).ready( function () {
                     ) {
                         e.preventDefault();
                         openDesktopApp();
-                        shuffle();
-                        repeat();
                         playNextYoutubeVideoOrSpotifyTrack();
                     }
                 } );
                 $( '#next' ).click( function () {
                     openDesktopApp();
-                    shuffle();
-                    repeat();
                     playNextYoutubeVideoOrSpotifyTrack();
                 } );
                 $( '#switchDesktopPhone' ).click( function () {
