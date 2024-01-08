@@ -76,6 +76,8 @@ function handleAuthorizationResponse() {
             access_token = data.access_token;
             localStorage.setItem( 'access_token', access_token );
         }
+    } else if ( this.status == 401 ) {
+        logoutSpotify();
     }
 }
 
@@ -368,8 +370,6 @@ function handlePlaylistContentResponse() {
     var data = JSON.parse( this.responseText );
     if ( this.status == 200 ) {
         populateTrackSelectionData[data['uri']] = data;
-    } else if ( this.status == 401 ) {
-        logoutSpotify();
     }
 }
 

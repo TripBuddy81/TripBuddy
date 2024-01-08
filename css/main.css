@@ -691,7 +691,7 @@ li, .options, .form-check-label {
     height: 45px;
     top: 0px;
     position: inherit;
-    left: 2px;
+    left: 0px;
 }
 
 #switchDesktopPhone {
@@ -792,7 +792,7 @@ option {
     background-color: transparent;
     border: none;
     font-weight: bold;
-    padding: 0 0 0 5px;
+    padding: 0;
     font-size: 30px;
     color: black;
     margin-left: 0px;
