@@ -99,6 +99,10 @@ var config = {
                 'repeat' : false
             },
             {
+                'label': 'Evergreens',
+                'id'   : '7g8rnKlz6bcoVxwp6Rxwt1'
+            },
+            {
                 'label': 'Celtic',
                 'id'   : '7IMTMDqc2NIzovRgtC1Imq'
             },
