@@ -1118,8 +1118,10 @@ $( document ).ready( function () {
                     if ( $( clickedElement ).attr( 'mute' ) == 'false' ) { // Videos where sound is important, wisdom e.g.
                         spotifyPause();
                         directYoutubePlayer.unMute();
+                        directYoutubePlayer.setVolume( 100 );
                     } else if ( $( clickedElement ).attr( 'mute' ) == 'mixed' && unmuted ) { // Videos with optional sound, e.g. some river or rain video
                         directYoutubePlayer.unMute();
+                        directYoutubePlayer.setVolume( 100 );
                     } else {
                         directYoutubePlayer.mute();
                     }
