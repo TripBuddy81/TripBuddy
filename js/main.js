@@ -80,6 +80,7 @@ $( document ).ready( function () {
                         disableAllOverlaysAndFullscreenVideos();
                     } else {
                         $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
+                        $( '#spotifyPlaylistsMenu' ).animate( {scrollTop: 0}, 'fast' );
                         disableAllOverlaysAndFullscreenVideos( false );
                     }
                     $( '#mainMenu' ).show();
@@ -1703,10 +1704,12 @@ $( document ).ready( function () {
             $( '#openAddToQueueMenu' ).click( function () {
                 disableAllOverlaysAndFullscreenVideos( true, false );
                 $( '#quickTrackSelectionMenu' ).toggleClass( 'menuTransition' );
+                $( '#quickTrackSelectionMenu' ).animate( {scrollTop: 0}, 'fast' );
             } );
 
             $( '#spotifyPlaylists' ).click( function () {
                 $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
+                $( '#spotifyPlaylistsMenu' ).animate( {scrollTop: 0}, 'fast' );
                 disableAllOverlaysAndFullscreenVideos( false );
             } );
 
