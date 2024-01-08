@@ -1134,7 +1134,6 @@ $( document ).ready( function () {
                 }
             }
 
-
             // Local Video minimized iFrame overlay
             $( '.localVideoOverlay' ).click( function ( event ) {
                 blockScreenSaver = true;
