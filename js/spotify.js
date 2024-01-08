@@ -301,14 +301,14 @@ function handleCurrentlyPlayingResponse() {
         }
 
         if ( data['is_playing'] ) {
-            $( '#spotifyCurrentlyPlayingContainer' ).addClass( 'spotifyCurrentlyPlayingContainerVisible' );
+            $( '.spotifyCurrentlyPlayingContainer' ).addClass( 'spotifyCurrentlyPlayingContainerVisible' );
             $( '.currentTrackAction' ).removeClass( 'invisible' );
 
             try {
-                $( '#spotifyCurrentlyPlayingTrack' ).html( data['item']['artists'][0]['name'] + ' - ' + data['item']['name'] );
-                $( '#spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id', data['item']['uri'] );
+                $( '.spotifyCurrentlyPlayingTrack' ).html( data['item']['artists'][0]['name'] + ' - ' + data['item']['name'] );
+                $( '.spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id', data['item']['uri'] );
             } catch ( e ) {
-                $( '#spotifyCurrentlyPlayingTrack' ).html( '...' );
+                $( '.spotifyCurrentlyPlayingTrack' ).html( '...' );
             }
 
             playingSpotifyTrack = true;
@@ -317,7 +317,7 @@ function handleCurrentlyPlayingResponse() {
                 spotifyHasBeenPlayingBeforePause = true;
             }
         } else {
-            $( '#spotifyCurrentlyPlayingContainer' ).removeClass( 'spotifyCurrentlyPlayingContainerVisible' );
+            $( '.spotifyCurrentlyPlayingContainer' ).removeClass( 'spotifyCurrentlyPlayingContainerVisible' );
             $( '.currentTrackAction' ).addClass( 'invisible' );
             playingSpotifyTrack = false;
         }

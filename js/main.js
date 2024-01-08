@@ -1712,6 +1712,7 @@ $( document ).ready( function () {
 
             $( '.spotifyPlaylistItem,.currentTrackAction' ).click( function () {
                 $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
             } );
 
             $( '#spotifyLogin' ).click( function ( e ) {
@@ -1848,16 +1849,16 @@ $( document ).ready( function () {
                     window.open( lastSelectedPlaylist, '_blank' );
                 } );
 
-                $( '#addToFavorites' ).click( function ( e ) {
-                    addTrackToPlaylist( config['spotifySaveToPlaylistId'], $( '#spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
+                $( '.addToFavorites' ).click( function ( e ) {
+                    addTrackToPlaylist( config['spotifySaveToPlaylistId'], $( '.spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
                 } );
 
                 if ( config['spotifySaveToPlaylistId'] == undefined && config['spotifySaveToPlaylistId'] != '' ) {
-                    $( '#addToFavorites' ).hide();
+                    $( '.addToFavorites' ).hide();
                 }
 
-                $( '#createSongRadio' ).click( function ( e ) {
-                    createSongRadio( $( '#spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
+                $( '.createSongRadio' ).click( function ( e ) {
+                    createSongRadio( $( '.spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
                 } );
 
                 // Transfer sound into bedroom and disable fullscreen
