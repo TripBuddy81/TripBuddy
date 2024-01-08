@@ -378,7 +378,7 @@ function insertTracksIntoTrackSelectionMenu( data ) {
         if ( value['track']['id'] != undefined ) {
             let trackContainer = document.createElement( 'div' );
             trackContainer.classList.add( 'spotifyTrackContainer' );
-            trackContainer.classList.add( 'col-6' );
+            trackContainer.classList.add( 'col-12' );
 
             trackContainer.id = value['track']['uri'];
 
@@ -389,10 +389,10 @@ function insertTracksIntoTrackSelectionMenu( data ) {
             trackName.innerHTML = value['track']['name'];
             trackContainer.appendChild( trackName );
 
-            let trackArtist = document.createElement( 'span' );
+/*            let trackArtist = document.createElement( 'span' );
             trackArtist.classList.add( 'spotifyTrackArtist' );
             trackArtist.innerHTML = value['track']['artists'][0]['name'];
-            trackContainer.appendChild( trackArtist );
+            trackContainer.appendChild( trackArtist );*/
         }
     } );
 }

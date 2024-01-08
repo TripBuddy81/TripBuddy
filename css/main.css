@@ -271,7 +271,7 @@ p {
     background-color: transparent;
     border-radius: 5px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
 }
 
 #mainMenu {
@@ -803,10 +803,15 @@ option {
     overflow: hidden;
 }
 
+.trackSelectionRow {
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
 .spotifyTrackContainer {
     display: block;
-    line-height: 100%;
     padding: 5px 5px 5px 0;
+    text-align: center;
 }
 
 .spotifyTrackName {
@@ -850,6 +855,8 @@ option {
 
 .spotifyPlaylistItem, .noisegeneratorLink, .spotifyTrackContainer {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .spotifyPlaylistItem:hover, .noisegeneratorLink:hover, .spotifyTrackContainer:hover {
