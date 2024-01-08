@@ -1185,7 +1185,13 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     position: absolute;
     width: 45px;
-    pointer-events: none;
+    background: black;
+    border-radius: 100px;
+}
+
+.videoHasSound:hover {
+    background: #43a047;
+    border-radius: 100px;
 }
 
 .videoMenuOverlayFullscreen {

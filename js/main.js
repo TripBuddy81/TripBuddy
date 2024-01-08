@@ -1074,6 +1074,13 @@ $( document ).ready( function () {
 
             // Youtube video minimized overlay
             $( '.youtubeVideo' ).click( function ( event ) {
+                playYoutubeVideo( this );
+            } );
+            $( '.videoHasSound' ).click( function ( event ) {
+                playYoutubeVideo( $( this ).closest( '.iFrameContainer' ).find( '.youtubeVideo ' ), true );
+            } );
+
+            function playYoutubeVideo( clickedElement, unmuted = false ) {
                 if ( !directYoutubePlayerLoaded ) {
                     try {
                         directYoutubePlayer.mute();
@@ -1091,16 +1098,16 @@ $( document ).ready( function () {
                     $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
 
                     var startSeconds = 0;
-                    if ( $( this ).attr( 'startSeconds' ) != '' ) {
-                        startSeconds = $( this ).attr( 'startSeconds' );
+                    if ( $( clickedElement ).attr( 'startSeconds' ) != '' ) {
+                        startSeconds = $( clickedElement ).attr( 'startSeconds' );
                     }
 
-                    if ( lastPlayedDirectYoutubePlayerId != $( this ).attr( 'videoId' ) ) {
-                        directYoutubePlayer.loadVideoById( $( this ).attr( 'videoId' ), startSeconds );
+                    if ( lastPlayedDirectYoutubePlayerId != $( clickedElement ).attr( 'videoId' ) ) {
+                        directYoutubePlayer.loadVideoById( $( clickedElement ).attr( 'videoId' ), startSeconds );
                     }
-                    lastPlayedDirectYoutubePlayerId = $( this ).attr( 'videoId' );
+                    lastPlayedDirectYoutubePlayerId = $( clickedElement ).attr( 'videoId' );
 
-                    if ( $( this ).closest( '.videoContainer' ).hasClass( 'wisdom' ) ) {
+                    if ( $( clickedElement ).closest( '.videoContainer' ).hasClass( 'wisdom' ) ) {
                         lastPlayedDirectYoutubePlayerVideoIsWisdom = true;
                     } else {
                         lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
@@ -1108,22 +1115,23 @@ $( document ).ready( function () {
 
                     directYoutubePlayer.playVideo();
 
-                    if ( $( this ).attr( 'mute' ) == 'false' ) {
+                    if ( $( clickedElement ).attr( 'mute' ) == 'false' ) { // Videos where sound is important, wisdom e.g.
                         spotifyPause();
                         directYoutubePlayer.unMute();
-                    } else if ( $( this ).attr( 'mute' ) == 'mixed' ) {
+                    } else if ( $( clickedElement ).attr( 'mute' ) == 'mixed' && unmuted ) { // Videos with optional sound, e.g. some river or rain video
                         directYoutubePlayer.unMute();
                     } else {
                         directYoutubePlayer.mute();
                     }
 
-                    if ( $( this ).attr( 'playbackrate' ) != '' ) {
-                        directYoutubePlayer.setPlaybackRate( parseInt( $( this ).attr( 'playbackrate' ) ) );
+                    if ( $( clickedElement ).attr( 'playbackrate' ) != '' ) {
+                        directYoutubePlayer.setPlaybackRate( parseInt( $( clickedElement ).attr( 'playbackrate' ) ) );
                     } else {
                         directYoutubePlayer.setPlaybackRate( 1 );
                     }
                 }
-            } );
+            }
+
 
             // Local Video minimized iFrame overlay
             $( '.localVideoOverlay' ).click( function ( event ) {
