@@ -368,6 +368,8 @@ function handlePlaylistContentResponse() {
     var data = JSON.parse( this.responseText );
     if ( this.status == 200 ) {
         populateTrackSelectionData[data['uri']] = data;
+    } else if ( this.status == 401 ) {
+        logoutSpotify();
     }
 }
 
@@ -401,4 +403,13 @@ function searchSpotify( searchTerm, type = 'track' ) {
 
 function handleSearchResponse() {
     var data = JSON.parse( this.responseText );
+}
+
+function logoutSpotify() {
+    window.history.pushState( '', '', redirect_uri );
+    localStorage.setItem( 'refresh_token', null );
+    localStorage.removeItem( 'refresh_token' );
+    localStorage.setItem( 'access_token', null );
+    localStorage.removeItem( 'access_token' );
+    location.reload();
 }

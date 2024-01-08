@@ -1709,13 +1709,9 @@ $( document ).ready( function () {
                 requestAuthorization();
             } );
             $( '#spotifyLogout' ).click( function ( e ) {
-                window.history.pushState( '', '', redirect_uri );
-                localStorage.setItem( 'refresh_token', null );
-                localStorage.removeItem( 'refresh_token' );
-                localStorage.setItem( 'access_token', null );
-                localStorage.removeItem( 'access_token' );
-                location.reload();
+                logoutSpotify();
             } );
+
             if ( urlParams.get( 'code' ) != undefined ) {
                 handleRedirect( urlParams.get( 'code' ) );
                 setTimeout( function () {
