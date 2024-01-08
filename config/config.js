@@ -55,8 +55,8 @@ var config = {
                 'id'   : '5toyuNP4ZjYIxnfBrtNF45'
             },
             {
-                'label': 'Lofi Sleep',
-                'id'   : '37i9dQZF1DX2PQDq3PdrHQ'
+                'label': 'Lofi sleep',
+                'id'   : '7vZWEAsniWYK15n4FPj8zt'
             },
             {
                 'label': 'Lofi Favorites',
