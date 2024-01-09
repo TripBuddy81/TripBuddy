@@ -1872,11 +1872,18 @@ $( document ).ready( function () {
 
                 function openDesktopApp() {
                     if ( config['spotifyMainPlayerName'] != '' &&
-                            config['spotifyMainPlayerName'].toLowerCase().indexOf( 'desktop' ) >= 0 &&
+                            config['spotifyMainPlayerName'].indexOf( 'DESKTOP' ) >= 0 &&
                             localStorage.getItem( 'access_token' ) != null &&
                             typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val() == 'undefined' &&
                             spotifyOpened == false ) {
                         window.open( lastSelectedPlaylist, '_blank' );
+                        spotifyOpened = true;
+                    } else if ( config['spotifyMainPlayerName'] != '' &&
+                            config['spotifyMainPlayerName'].indexOf( 'Web Player' ) >= 0 &&
+                            localStorage.getItem( 'access_token' ) != null &&
+                            typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val() == 'undefined' &&
+                            spotifyOpened == false ) {
+                        window.open( 'https://open.spotify.com/', 'spotifyWebPlayer' );
                         spotifyOpened = true;
                     }
                 }
