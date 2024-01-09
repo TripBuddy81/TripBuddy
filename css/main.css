@@ -219,6 +219,7 @@ p {
     border-width: 3px;
     border-color: black;
     border-radius: 10px;
+    transition: all 0.5s ease;
 }
 
 .btn.videoFilterBtn.videoFilterActive,
@@ -229,6 +230,7 @@ p {
 .btn.gameLink.gameLinkActive:hover {
     background-color: black;
     color: white;
+    transition: all 0.5s ease;
 }
 
 .btn.videoFilterBtn:hover, .btn.imageFilterBtn:hover, .btn.gameLink:hover {
@@ -797,7 +799,7 @@ option {
     color: black;
     margin-left: 0px;
     margin-right: 0px;
-    margin-top: 10px;
+    margin-top: 13px;
     text-align-last: center;
     max-height: 50px;
     overflow: hidden;
@@ -1192,13 +1194,15 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     position: absolute;
     width: 45px;
-    background: black;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 100px;
+    transition: all 0.5s ease;
 }
 
 .videoHasSound:hover {
-    background: #43a047;
+    background: rgba(67, 160, 71, 1);
     border-radius: 100px;
+    transition: all 0.5s ease;
 }
 
 .videoMenuOverlayFullscreen {
