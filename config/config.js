@@ -403,6 +403,16 @@ var config = {
             'startSeconds': '7'
         },
         {
+            'videoId'     : 'lkVt0HLPqQU',
+            'tags'        : 'trippy-2D',
+            'startSeconds': '7'
+        },
+        {
+            'videoId'     : 'ju7DeIpH9hA',
+            'tags'        : 'trippy-2D',
+            'startSeconds': '7'
+        },
+        {
             'videoId': 'K2BoRq70QeU',
             'tags'   : 'meditative'
         },
