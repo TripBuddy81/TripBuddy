@@ -1588,6 +1588,10 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
 }
 
+.miscVideoOverlay, .localVideoOverlay {
+    height: 100%;
+}
+
 #mainSearchBar {
     position: relative;
     display: block;
