@@ -705,30 +705,6 @@ var config = {
             'tags'   : 'weird'
         },
         {
-            'videoId': 'ClVqVohatEk',
-            'tags'   : 'weird'
-        },
-        {
-            'videoId': 'FOEYsueJsEg',
-            'tags'   : 'weird'
-        },
-        {
-            'videoId': '770SdGs803A',
-            'tags'   : 'weird'
-        },
-        {
-            'videoId': 'mhTobDEY9fI',
-            'tags'   : 'weird'
-        },
-        {
-            'videoId': 'sKo-vjhAkQs',
-            'tags'   : 'weird'
-        },
-        {
-            'videoId': '8vMhr3HeyMQ',
-            'tags'   : 'weird'
-        },
-        {
             'videoId': '9_dgIfz876A',
             'mute'   : false,
             'tags'   : 'wisdom',
