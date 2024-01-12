@@ -3,6 +3,7 @@ $( document ).ready( function () {
             // Globals
             window.spotifyHasBeenPlayingBeforePause = false;
             window.spotifySongRadioQueue = '';
+            window.stopAfterTrack = false;
             window.spotifyPreviousProgressMs
             window.mainSearchResultYoutubePlayer;
             window.mainSearchResultYoutubePlayerState = 'undefined';
@@ -1862,6 +1863,10 @@ $( document ).ready( function () {
 
                 $( '.createSongRadio' ).click( function ( e ) {
                     createSongRadio( $( '.spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
+                } );
+
+                $( '.stopAfterTrack' ).click( function ( e ) {
+                    stopAfterTrack = true;
                 } );
 
                 // Transfer sound into bedroom and disable fullscreen

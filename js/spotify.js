@@ -279,7 +279,11 @@ function handleCurrentlyPlayingResponse() {
         } catch ( e ) {
         }
 
-        if ( spotifySongRadioQueue != '' && spotifyPreviousProgressMs >= data['progress_ms'] ) {
+        if ( stopAfterTrack && spotifyPreviousProgressMs >= data['progress_ms'] ) {
+            stopAfterTrack = false;
+            spotifyPause();
+            spotifyHasBeenPlayingBeforePause = false;
+        } else if ( spotifySongRadioQueue != '' && spotifyPreviousProgressMs >= data['progress_ms'] ) {
             spotifyPlay( spotifySongRadioQueue );
             spotifySongRadioQueue = '';
         }
@@ -389,10 +393,10 @@ function insertTracksIntoTrackSelectionMenu( data ) {
             trackName.innerHTML = value['track']['name'];
             trackContainer.appendChild( trackName );
 
-/*            let trackArtist = document.createElement( 'span' );
-            trackArtist.classList.add( 'spotifyTrackArtist' );
-            trackArtist.innerHTML = value['track']['artists'][0]['name'];
-            trackContainer.appendChild( trackArtist );*/
+            /*            let trackArtist = document.createElement( 'span' );
+                        trackArtist.classList.add( 'spotifyTrackArtist' );
+                        trackArtist.innerHTML = value['track']['artists'][0]['name'];
+                        trackContainer.appendChild( trackArtist );*/
         }
     } );
 }

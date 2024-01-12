@@ -872,7 +872,7 @@ option {
     transition: all 1s ease;
 }
 
-.addToFavorites, .createSongRadio {
+.addToFavorites, .createSongRadio, .stopAfterTrack {
     height: 45px;
     top: 13px;
     position: absolute;
@@ -882,6 +882,10 @@ option {
 
 .createSongRadio {
     right: 90px;
+}
+
+.stopAfterTrack {
+    right: 157px;
 }
 
 .spotifyCurrentlyPlayingContainerVisible {
