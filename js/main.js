@@ -4,6 +4,7 @@ $( document ).ready( function () {
             window.spotifyHasBeenPlayingBeforePause = false;
             window.spotifySongRadioQueue = '';
             window.stopAfterTrack = false;
+            window.nextPlaylistToPlay = '';
             window.spotifyPreviousProgressMs
             window.mainSearchResultYoutubePlayer;
             window.mainSearchResultYoutubePlayerState = 'undefined';
@@ -1769,37 +1770,44 @@ $( document ).ready( function () {
                     $( this ).hide();
                 } );
 
-                $( '.spotifyPlaylistItem' ).click( function () {
-                    $( '#spotifyPlaylists' ).html( '...' );
-                    openDesktopApp();
-                    markYoutubeAsActiveAudioSource( false );
-                    try {
-                        mainSearchResultYoutubePlayer.mute();
-                    } catch ( e ) {
-                    }
-
-                    // Playlist Selection
-                    if ( $( this ).hasClass( 'spotifyPlaylist' ) ) {
-                        if ( $( this ).attr( 'shuffle' ) == 'false' ) {
-                            shuffle( false, false );
-                        } else {
-                            shuffle();
+                $( '.spotifyPlaylistItem' ).on( 'mousedown', document, function ( e ) {
+                    // on middle mouse button put playlist into queue
+                    if ( e.which == 2 ) {
+                        e.preventDefault();
+                        nextPlaylistToPlay = $( this ).attr( 'data-spotify-id' );
+                        $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                    } else if ( e.which == 1 ) {
+                        $( '#spotifyPlaylists' ).html( '...' );
+                        openDesktopApp();
+                        markYoutubeAsActiveAudioSource( false );
+                        try {
+                            mainSearchResultYoutubePlayer.mute();
+                        } catch ( e ) {
                         }
-                        if ( $( this ).attr( 'repeat' ) == 'false' ) {
+
+                        // Playlist Selection
+                        if ( $( this ).hasClass( 'spotifyPlaylist' ) ) {
+                            if ( $( this ).attr( 'shuffle' ) == 'false' ) {
+                                shuffle( false, false );
+                            } else {
+                                shuffle();
+                            }
+                            if ( $( this ).attr( 'repeat' ) == 'false' ) {
+                                repeat( 'off' );
+                            } else {
+                                repeat();
+                            }
+                        } else { // Single Track Selection
                             repeat( 'off' );
-                        } else {
-                            repeat();
+                            spotifyHasBeenPlayingBeforePause = false;
                         }
-                    } else { // Single Track Selection
-                        repeat( 'off' );
-                        spotifyHasBeenPlayingBeforePause = false;
-                    }
 
-                    spotifyPlay( $( this ).attr( 'data-spotify-id' ) );
+                        spotifyPlay( $( this ).attr( 'data-spotify-id' ) );
 
-                    if ( externalSoundTabOpened ) {
-                        externalSoundTabOpened = false;
-                        window.open( './tabCloser.html', 'externalSoundTab' );
+                        if ( externalSoundTabOpened ) {
+                            externalSoundTabOpened = false;
+                            window.open( './tabCloser.html', 'externalSoundTab' );
+                        }
                     }
                 } );
 
@@ -1826,7 +1834,9 @@ $( document ).ready( function () {
                             !$( event.target ).hasClass( 'xxxLink' ) &&
                             !$( event.target ).hasClass( 'searchLink' ) &&
                             !$( event.target ).hasClass( 'noisegeneratorLink' ) &&
-                            !$( event.target ).hasClass( 'externalVideoPreview' )
+                            !$( event.target ).hasClass( 'spotifyPlaylistItem' ) &&
+                            !$( event.target ).hasClass( 'spotifyTrackContainer' ) &&
+                        !$( event.target ).hasClass( 'externalVideoPreview' )
                     ) {
                         e.preventDefault();
                         openDesktopApp();

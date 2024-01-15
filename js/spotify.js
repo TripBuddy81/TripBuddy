@@ -212,7 +212,7 @@ function shuffle( shuffle = true, async = true ) {
     if ( shuffle ) {
         callApi( 'PUT', SHUFFLE + '?state=true', null, handleApiResponse, async );
     } else {
-        callApi( 'PUT', SHUFFLE + '?state=false', null, handleApiResponse, async);
+        callApi( 'PUT', SHUFFLE + '?state=false', null, handleApiResponse, async );
     }
 }
 
@@ -283,6 +283,9 @@ function handleCurrentlyPlayingResponse() {
             stopAfterTrack = false;
             spotifyPause();
             spotifyHasBeenPlayingBeforePause = false;
+        } else if ( nextPlaylistToPlay != '' && spotifyPreviousProgressMs >= data['progress_ms'] ) {
+            spotifyPlay( nextPlaylistToPlay );
+            nextPlaylistToPlay = '';
         } else if ( spotifySongRadioQueue != '' && spotifyPreviousProgressMs >= data['progress_ms'] ) {
             spotifyPlay( spotifySongRadioQueue );
             spotifySongRadioQueue = '';
