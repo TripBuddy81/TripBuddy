@@ -808,9 +808,9 @@ $( document ).ready( function () {
                         directYoutubePlayer.pauseVideo();
                     } catch ( e ) {
                     }
- /*                   if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom && !mainYoutubePlayerIsActiveSoundSource ) {
-                        spotifyPlay();
-                    }*/
+                    /*                   if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom && !mainYoutubePlayerIsActiveSoundSource ) {
+                                           spotifyPlay();
+                                       }*/
                 }
 
                 $( '.videoContainerFullscreen' ).each( function () {
@@ -1772,7 +1772,6 @@ $( document ).ready( function () {
                 $( '.spotifyPlaylistItem' ).click( function () {
                     $( '#spotifyPlaylists' ).html( '...' );
                     openDesktopApp();
-                    spotifyPlay( $( this ).attr( 'data-spotify-id' ) );
                     markYoutubeAsActiveAudioSource( false );
                     try {
                         mainSearchResultYoutubePlayer.mute();
@@ -1782,7 +1781,7 @@ $( document ).ready( function () {
                     // Playlist Selection
                     if ( $( this ).hasClass( 'spotifyPlaylist' ) ) {
                         if ( $( this ).attr( 'shuffle' ) == 'false' ) {
-                            shuffle( false );
+                            shuffle( false, false );
                         } else {
                             shuffle();
                         }
@@ -1795,6 +1794,8 @@ $( document ).ready( function () {
                         repeat( 'off' );
                         spotifyHasBeenPlayingBeforePause = false;
                     }
+
+                    spotifyPlay( $( this ).attr( 'data-spotify-id' ) );
 
                     if ( externalSoundTabOpened ) {
                         externalSoundTabOpened = false;

@@ -133,9 +133,9 @@ function addDevice( item ) {
     document.getElementById( 'devices' ).appendChild( node );
 }
 
-function callApi( method, url, body, callback ) {
+function callApi( method, url, body, callback, async = true ) {
     let xhr = new XMLHttpRequest();
-    xhr.open( method, url, true );
+    xhr.open( method, url, async );
     xhr.setRequestHeader( 'Content-Type', 'application/json' );
     xhr.setRequestHeader( 'Authorization', 'Bearer ' + access_token );
     xhr.send( body );
@@ -208,11 +208,11 @@ function handleNextApiResponse() {
     currentlyPlaying();
 }
 
-function shuffle( shuffle = true ) {
+function shuffle( shuffle = true, async = true ) {
     if ( shuffle ) {
-        callApi( 'PUT', SHUFFLE + '?state=true', null, handleApiResponse );
+        callApi( 'PUT', SHUFFLE + '?state=true', null, handleApiResponse, async );
     } else {
-        callApi( 'PUT', SHUFFLE + '?state=false', null, handleApiResponse );
+        callApi( 'PUT', SHUFFLE + '?state=false', null, handleApiResponse, async);
     }
 }
 
