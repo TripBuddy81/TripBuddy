@@ -730,7 +730,7 @@ $( document ).ready( function () {
                     color = '#ee6055';
                     updateprogressGraphColor( color );
                 } else {
-                    color = '#53cf58';
+                    color = '#60d394';
                     updateprogressGraphColor( color );
                 }
 
