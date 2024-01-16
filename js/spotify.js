@@ -76,7 +76,7 @@ function handleAuthorizationResponse() {
             access_token = data.access_token;
             localStorage.setItem( 'access_token', access_token );
         }
-    } else if ( this.status == 401 || this.status == 403 ) {
+    } else if ( this.status == 400 || this.status == 401 || this.status == 403 ) {
         logoutSpotify();
     }
 }
