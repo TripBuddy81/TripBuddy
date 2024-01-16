@@ -1833,8 +1833,7 @@ $( document ).ready( function () {
                             !$( event.target ).hasClass( 'searchLink' ) &&
                             !$( event.target ).hasClass( 'noisegeneratorLink' ) &&
                             !$( event.target ).hasClass( 'spotifyPlaylistItem' ) &&
-                            !$( event.target ).hasClass( 'spotifyTrackContainer' ) &&
-                        !$( event.target ).hasClass( 'externalVideoPreview' )
+                            !$( event.target ).hasClass( 'externalVideoPreview' )
                     ) {
                         e.preventDefault();
                         openDesktopApp();
