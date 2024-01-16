@@ -316,8 +316,6 @@ $( document ).ready( function () {
                 $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                 $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                 hideScreensaverEnso();
-                refreshAccessToken();
-                refreshDevices();
             } );
 
             // Global key captures
