@@ -199,11 +199,11 @@ var config = {
     'trackSelectionPlaylists': [
         {
             'playlistId': '7g8rnKlz6bcoVxwp6Rxwt1',
-            'label': 'Evergreens'
+            'label'     : 'Evergreens'
         },
         {
             'playlistId': '6fB9PJQ7Hy8SDvcRmBeKwr',
-            'label': 'Force'
+            'label'     : 'Force'
         }
     ],
     'noiseGenerators'        : [
@@ -464,11 +464,6 @@ var config = {
             'tags'   : 'trippy-3D'
         },
         {
-            'videoId'     : '-mnUfQ3Ji9I',
-            'tags'        : 'trippy-3D',
-            'startSeconds': '13'
-        },
-        {
             'videoId'     : 'vmGDO0eU1n0',
             'tags'        : 'meditative',
             'startSeconds': '3600'
@@ -494,8 +489,8 @@ var config = {
             'startSeconds': '60'
         },
         {
-            'videoId': 'miqbNFmbN2Q',
-            'tags'   : 'meditative nature',
+            'videoId'     : 'miqbNFmbN2Q',
+            'tags'        : 'meditative nature',
             'startSeconds': '17'
         },
         {
@@ -531,15 +526,12 @@ var config = {
             'startSeconds': '25'
         },
         {
-            'videoId'     : 'lkUuCgNkSsk',
-            'tags'        : 'meditative nature',
-            'startSeconds': '10'
+            'videoId': 't_S_cN2re4g',
+            'tags'   : 'nature'
         },
         {
-            'videoId'     : 'JbJ0sYt9Nyk',
-            'mute'        : 'mixed',
-            'tags'        : 'meditative nature',
-            'startSeconds': '60'
+            'videoId': 'hXD8itTKdY0',
+            'tags'   : 'nature'
         },
         {
             'videoId': 'z5JdoygbFCE',
@@ -558,10 +550,6 @@ var config = {
             'tags'   : 'breathing'
         },
         {
-            'videoId': 't_S_cN2re4g',
-            'tags'   : 'nature'
-        },
-        {
             'videoId'     : '683p4Ubg2NU',
             'tags'        : 'nature',
             'startSeconds': '14'
@@ -573,11 +561,6 @@ var config = {
         },
         {
             'videoId': 'BNTs6-pNFRk',
-            'mute'   : 'mixed',
-            'tags'   : 'nature'
-        },
-        {
-            'videoId': 'yvd8PObLWsg',
             'mute'   : 'mixed',
             'tags'   : 'nature'
         },
@@ -619,30 +602,37 @@ var config = {
         },
         {
             'videoId': '123Z5KLLiO8',
+            'mute'   : 'mixed',
             'tags'   : 'festival'
         },
         {
             'videoId': '8eYEW4q42y8',
+            'mute'   : 'mixed',
             'tags'   : 'festival'
         },
         {
             'videoId': 'G59Tm7KqEnY',
+            'mute'   : 'mixed',
             'tags'   : 'festival'
         },
         {
             'videoId': '6GHiYo3530o',
+            'mute'   : 'mixed',
             'tags'   : 'festival'
         },
         {
             'videoId': 'R4LKjRJUGkk',
+            'mute'   : 'mixed',
             'tags'   : 'festival'
         },
         {
             'videoId': 'R1CyKwtCDr8',
+            'mute'   : 'mixed',
             'tags'   : 'festival'
         },
         {
             'videoId': 'KtXphUrwQtA',
+            'mute'   : 'mixed',
             'tags'   : 'festival'
         },
         {
