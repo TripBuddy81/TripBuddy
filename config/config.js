@@ -67,6 +67,10 @@ var config = {
                 'id'   : '5pQUmaKxS0DXaVc7I4La0o'
             },
             {
+                'label': 'Garden Chill',
+                'id'   : '3gy2czyHKqtO1fFeI181oo'
+            },
+            {
                 'label': 'Hangmatpop',
                 'id'   : '6ySAQd8K6BZt5tQ9M5wNAY'
             },
@@ -155,10 +159,6 @@ var config = {
             {
                 'label': 'Progressive Psy',
                 'id'   : '5RYT8fTg6Pq9JrS0lcG12p'
-            },
-            {
-                'label': 'Spiritual Science Radio',
-                'id'   : '37i9dQZF1E8HeYqfMXnTma'
             },
             {
                 'label': 'Psy-Trance',

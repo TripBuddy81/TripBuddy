@@ -115,7 +115,7 @@ function handleDevicesResponse() {
         }
 
     } else if ( this.status == 401 ) {
-        refreshAccessToken()
+       /* refreshAccessToken()*/
     } else {
     }
 }
@@ -152,7 +152,7 @@ function handlePlaylistsResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
     } else if ( this.status == 401 ) {
-        refreshAccessToken()
+     /*   refreshAccessToken()*/
     } else {
     }
 }
@@ -237,7 +237,7 @@ function transfer( deviceId ) {
 }
 
 function handleTransferApiResponse() {
-    refreshAccessToken();
+/*    refreshAccessToken();*/
 }
 
 function handleCreateSongRadioApiResponse() {
@@ -250,7 +250,7 @@ function handleApiResponse() {
     if ( this.status == 200 ) {
     } else if ( this.status == 204 ) {
     } else if ( this.status == 401 ) {
-        refreshAccessToken()
+        /*refreshAccessToken()*/
     } else {
     }
 }
