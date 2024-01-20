@@ -61,7 +61,7 @@ $( document ).ready( function () {
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
             var screensaverSecondsIdle = 0;
-            var screensaverStartAfterSeconds = 1500;
+            var screensaverStartAfterSeconds = 15;
             var screensaverActive = false;
             var documentReady = false;
             var searchEditClicked = false;
