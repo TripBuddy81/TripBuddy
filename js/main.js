@@ -1751,6 +1751,41 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( document ).on( 'mousedown', document, function ( e ) {
+                // on middle mouse button play next track
+                if (
+                        e.which == 2 &&
+                        !$( event.target ).hasClass( 'menuItem' ) &&
+                        !$( event.target ).hasClass( 'xxxLink' ) &&
+                        !$( event.target ).hasClass( 'searchLink' ) &&
+                        !$( event.target ).hasClass( 'noisegeneratorLink' ) &&
+                        !$( event.target ).hasClass( 'spotifyPlaylistItem' ) &&
+                        !$( event.target ).hasClass( 'externalVideoPreview' )
+                ) {
+                    e.preventDefault();
+                    openDesktopApp();
+                    playNextYoutubeVideoOrSpotifyTrack();
+                }
+            } );
+
+            function openDesktopApp() {
+                if ( config['spotifyMainPlayerName'] != '' &&
+                        config['spotifyMainPlayerName'].indexOf( 'DESKTOP' ) >= 0 &&
+                        localStorage.getItem( 'access_token' ) != null &&
+                        typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val() == 'undefined' &&
+                        spotifyOpened == false ) {
+                    window.open( lastSelectedPlaylist, '_blank' );
+                    spotifyOpened = true;
+                } else if ( config['spotifyMainPlayerName'] != '' &&
+                        config['spotifyMainPlayerName'].indexOf( 'Web Player' ) >= 0 &&
+                        localStorage.getItem( 'access_token' ) != null &&
+                        typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val() == 'undefined' &&
+                        spotifyOpened == false ) {
+                    window.open( 'https://open.spotify.com/', 'spotifyWebPlayer' );
+                    spotifyOpened = true;
+                }
+            }
+
             // integrated Spotify player if succesfully logged in
             if ( localStorage.getItem( 'access_token' ) != null ) {
                 refreshAccessToken();
@@ -1824,22 +1859,6 @@ $( document ).ready( function () {
                     }
                 } );
 
-                $( document ).on( 'mousedown', document, function ( e ) {
-                    // on middle mouse button play next track
-                    if (
-                            e.which == 2 &&
-                            !$( event.target ).hasClass( 'menuItem' ) &&
-                            !$( event.target ).hasClass( 'xxxLink' ) &&
-                            !$( event.target ).hasClass( 'searchLink' ) &&
-                            !$( event.target ).hasClass( 'noisegeneratorLink' ) &&
-                            !$( event.target ).hasClass( 'spotifyPlaylistItem' ) &&
-                            !$( event.target ).hasClass( 'externalVideoPreview' )
-                    ) {
-                        e.preventDefault();
-                        openDesktopApp();
-                        playNextYoutubeVideoOrSpotifyTrack();
-                    }
-                } );
                 $( '#next' ).click( function () {
                     openDesktopApp();
                     playNextYoutubeVideoOrSpotifyTrack();
@@ -1882,24 +1901,6 @@ $( document ).ready( function () {
                     transfer( $( '#devices option:contains("' + config['spotifyBedroomName'] + '")' ).val() );
                     disableFullscreen();
                 } );
-
-                function openDesktopApp() {
-                    if ( config['spotifyMainPlayerName'] != '' &&
-                            config['spotifyMainPlayerName'].indexOf( 'DESKTOP' ) >= 0 &&
-                            localStorage.getItem( 'access_token' ) != null &&
-                            typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val() == 'undefined' &&
-                            spotifyOpened == false ) {
-                        window.open( lastSelectedPlaylist, '_blank' );
-                        spotifyOpened = true;
-                    } else if ( config['spotifyMainPlayerName'] != '' &&
-                            config['spotifyMainPlayerName'].indexOf( 'Web Player' ) >= 0 &&
-                            localStorage.getItem( 'access_token' ) != null &&
-                            typeof $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val() == 'undefined' &&
-                            spotifyOpened == false ) {
-                        window.open( 'https://open.spotify.com/', 'spotifyWebPlayer' );
-                        spotifyOpened = true;
-                    }
-                }
 
                 function populateTrackSelectionMenu() {
                     config['trackSelectionPlaylists'].forEach( function ( item ) {
