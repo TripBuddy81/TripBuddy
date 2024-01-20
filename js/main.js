@@ -1083,11 +1083,12 @@ $( document ).ready( function () {
             $( '.youtubeVideo' ).click( function ( event ) {
                 playYoutubeVideo( this );
 
-                $( '.colorfulBorder' ).each( function () {
+                $( '.lastPlayedVideo' ).each( function () {
                     $( this ).remove();
                 } );
                 colorfulBorder = document.createElement( 'div' );
                 colorfulBorder.classList.add( 'colorfulBorder' );
+                colorfulBorder.classList.add( 'lastPlayedVideo' );
                 $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
             $( '.videoHasSound' ).click( function ( event ) {
@@ -1161,11 +1162,12 @@ $( document ).ready( function () {
                 $( '.localVideoOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
 
-                $( '.colorfulBorder' ).each( function () {
+                $( '.lastPlayedVideo' ).each( function () {
                     $( this ).remove();
                 } );
                 colorfulBorder = document.createElement( 'div' );
                 colorfulBorder.classList.add( 'colorfulBorder' );
+                colorfulBorder.classList.add( 'lastPlayedVideo' );
                 $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
 
@@ -1178,11 +1180,12 @@ $( document ).ready( function () {
                 $( '.miscVideoOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
 
-                $( '.colorfulBorder' ).each( function () {
+                $( '.lastPlayedVideo' ).each( function () {
                     $( this ).remove();
                 } );
                 colorfulBorder = document.createElement( 'div' );
                 colorfulBorder.classList.add( 'colorfulBorder' );
+                colorfulBorder.classList.add( 'lastPlayedVideo' );
                 $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
 
