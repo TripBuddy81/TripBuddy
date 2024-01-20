@@ -405,7 +405,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     width: 100%;
     z-index: 3;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     padding-left: 16px;
 }
 
@@ -596,7 +596,7 @@ li, .options, .form-check-label {
 }
 
 #displayedVideos {
-    padding-top: 150px;
+    padding-top: 145px;
 }
 
 #displayedVideos .row,
@@ -605,7 +605,7 @@ li, .options, .form-check-label {
 }
 
 #displayedImages {
-    padding-top: 135px;
+    padding-top: 130px;
 }
 
 #timerMinutes {
@@ -1499,7 +1499,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .VRGames {
     position: absolute;
-    top: 155px;
+    top: 150px;
     font-size: larger;
 }
 
