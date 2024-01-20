@@ -1076,6 +1076,13 @@ $( document ).ready( function () {
             // Youtube video minimized overlay
             $( '.youtubeVideo' ).click( function ( event ) {
                 playYoutubeVideo( this );
+
+                $( '.colorfulBorder' ).each( function () {
+                    $( this ).remove();
+                } );
+                colorfulBorder = document.createElement( 'div' );
+                colorfulBorder.classList.add( 'colorfulBorder' );
+                $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
             $( '.videoHasSound' ).click( function ( event ) {
                 playYoutubeVideo( $( this ).closest( '.iFrameContainer' ).find( '.youtubeVideo ' ), true );
@@ -1147,6 +1154,13 @@ $( document ).ready( function () {
                 }
                 $( '.localVideoOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+
+                $( '.colorfulBorder' ).each( function () {
+                    $( this ).remove();
+                } );
+                colorfulBorder = document.createElement( 'div' );
+                colorfulBorder.classList.add( 'colorfulBorder' );
+                $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
 
             // Misc Video minimized iFrame overlay

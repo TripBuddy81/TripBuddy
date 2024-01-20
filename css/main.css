@@ -406,7 +406,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     width: 100%;
     z-index: 3;
     padding-top: 10px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     padding-left: 16px;
 }
 
@@ -597,11 +597,16 @@ li, .options, .form-check-label {
 }
 
 #displayedVideos {
-    padding-top: 155px;
+    padding-top: 150px;
+}
+
+#displayedVideos .row,
+#displayedImages .row {
+    margin-top: 5px;
 }
 
 #displayedImages {
-    padding-top: 140px;
+    padding-top: 135px;
 }
 
 #timerMinutes {
