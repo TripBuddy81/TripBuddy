@@ -1171,6 +1171,13 @@ $( document ).ready( function () {
 
                 $( '.miscVideoOverlay' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
+
+                $( '.colorfulBorder' ).each( function () {
+                    $( this ).remove();
+                } );
+                colorfulBorder = document.createElement( 'div' );
+                colorfulBorder.classList.add( 'colorfulBorder' );
+                $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
 
             // mainSearchResultYoutube Video iFrame fullscreen button overlay
