@@ -61,9 +61,10 @@ $( document ).ready( function () {
             var allVideosLoaded = false;
             var mainYoutubePlayerIsActiveSoundSource = false;
             var screensaverSecondsIdle = 0;
-            var screensaverStartAfterSeconds = 15;
+            var screensaverStartAfterSeconds = 1500;
             var screensaverActive = false;
             var documentReady = false;
+            var searchEditClicked = false;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -174,12 +175,17 @@ $( document ).ready( function () {
                 blackoutColor      : '25, 25, 25, 0.75',
                 specifiedFieldsOnly: true
             } );
+
             $( '*[data-trigger-keyboard]' ).click( function () {
                 $( window ).trigger( 'resize' );
+                if ( !searchEditClicked ) {
+                    $( this ).parent().find( '.searchInput' ).val( '' );
+                }
+                searchEditClicked = false;
             } );
 
-            $( '.searchClear' ).click( function () {
-                $( this ).parent().find( '.searchInput' ).val( '' );
+            $( '.searchEdit' ).click( function () {
+                searchEditClicked = true;
                 $( this ).parent().find( '.searchInput' ).trigger( 'click' );
             } );
 
