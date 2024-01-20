@@ -115,7 +115,7 @@ function handleDevicesResponse() {
         }
 
     } else if ( this.status == 401 ) {
-       /* refreshAccessToken()*/
+        /* refreshAccessToken()*/
     } else {
     }
 }
@@ -152,7 +152,7 @@ function handlePlaylistsResponse() {
     if ( this.status == 200 ) {
         var data = JSON.parse( this.responseText );
     } else if ( this.status == 401 ) {
-     /*   refreshAccessToken()*/
+        /*   refreshAccessToken()*/
     } else {
     }
 }
@@ -165,6 +165,10 @@ function removeAllItems( elementId ) {
 }
 
 function spotifyPlay( to_be_played = '' ) {
+    try {
+        document.querySelector( 'iframe[src*="spotify.com/embed"]' ).contentWindow.postMessage( {command: 'play'}, '*' );
+    } catch ( e ) {
+    }
     let body = {};
     if ( jQuery.isArray( to_be_played ) ) { // Array of Tracks
         body.uris = [];
@@ -221,6 +225,10 @@ function repeat( state = 'context' ) {
 }
 
 function spotifyPause() {
+    try {
+        document.querySelector( 'iframe[src*="spotify.com/embed"]' ).contentWindow.postMessage( {command: 'pause'}, '*' );
+    } catch ( e ) {
+    }
     spotifySongRadioQueue = '';
     callApi( 'PUT', PAUSE, null, handleApiResponse );
 }
@@ -237,7 +245,7 @@ function transfer( deviceId ) {
 }
 
 function handleTransferApiResponse() {
-/*    refreshAccessToken();*/
+    /*    refreshAccessToken();*/
 }
 
 function handleCreateSongRadioApiResponse() {
