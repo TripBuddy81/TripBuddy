@@ -1209,8 +1209,9 @@ video::-webkit-media-controls-fullscreen-button {
 .XXXMagicVideo {
     margin: 0;
     padding: 0;
-    width: 33.3vW;
-    height: 33.3vH;
+    width: 50vW;
+    height: 50vH;
+    pointer-events: none;
 }
 
 .XXXMagicVideo .videoFrame {

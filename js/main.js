@@ -306,7 +306,7 @@ $( document ).ready( function () {
 
                 var videoCounter = 1;
                 $( '.videoContainer.XXX' ).each( function () {
-                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' && videoCounter <= 9 ) {
+                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' && videoCounter <= 4 ) {
                         $( this ).clone().appendTo( '#XXXMagicContainer' );
                         videoCounter++;
                     }
