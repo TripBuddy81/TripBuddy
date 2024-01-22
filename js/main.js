@@ -298,12 +298,26 @@ $( document ).ready( function () {
             $( '#showXXXMagic' ).click( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
-                $( '#XXXMagic' ).show();
+                $( '#XXXMagicContainer' ).empty();
+                $( '#XXXMagicContainer' ).show();
 
                 checkPrivateVisible();
                 refreshGradientBackground();
 
-/*                hideScreensaverEnso();*/
+                var videoCounter = 1;
+                $( '.videoContainer.XXX' ).each( function () {
+                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' && videoCounter <= 9 ) {
+                        $( this ).clone().appendTo( '#XXXMagicContainer' );
+                        videoCounter++;
+                    }
+                } );
+                $( '#XXXMagicContainer .videoContainer.XXX' ).each( function () {
+                    $( this ).addClass( 'XXXMagicVideo' );
+                    $( this ).show();
+                    $( this ).find( '.localVideo' )[0].play();
+                } );
+
+                /*                hideScreensaverEnso();*/
 
                 /* disableAllOverlaysAndFullscreenVideos();*/
 
@@ -844,7 +858,7 @@ $( document ).ready( function () {
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
-                $( '#XXXMagic' ).hide();
+                $( '#XXXMagicContainer' ).hide();
                 $( '.miscVideoOverlay' ).show();
                 $( '.localVideoOverlay' ).show();
                 $( '.mainSearchResultVideoOverlay' ).show();
@@ -1162,7 +1176,7 @@ $( document ).ready( function () {
             }
 
             // Local Video minimized iFrame overlay
-            $( '.localVideoOverlay' ).click( function ( event ) {
+            $( document ).on( 'click', '.localVideoOverlay', function ( event ) {
                 blockScreenSaver = true;
                 enableFullscreen();
                 $( this ).closest( '.iFrameContainer' ).addClass( 'videoContainerFullscreen' );
@@ -2545,7 +2559,5 @@ $( document ).ready( function () {
                 }
                 showScreensaverEnso();
             }
-
-            $( '#showXXXMagic' ).trigger( 'click' );
         }
 );
