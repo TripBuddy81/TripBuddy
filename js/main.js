@@ -813,9 +813,6 @@ $( document ).ready( function () {
                         directYoutubePlayer.pauseVideo();
                     } catch ( e ) {
                     }
-                    /*                   if ( spotifyHasBeenPlayingBeforePause && !lastPlayedDirectYoutubePlayerVideoIsWisdom && !mainYoutubePlayerIsActiveSoundSource ) {
-                                           spotifyPlay();
-                                       }*/
                 }
 
                 $( '.videoContainerFullscreen' ).each( function () {
