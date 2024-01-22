@@ -295,6 +295,20 @@ $( document ).ready( function () {
                     $( '#mainSearchInput' ).focus();
                 }, 500 );
             } );
+            $( '#showXXXMagic' ).click( function () {
+                enableFullscreen();
+                blockScreenSaver = true;
+                $( '#XXXMagic' ).show();
+
+                checkPrivateVisible();
+                refreshGradientBackground();
+
+/*                hideScreensaverEnso();*/
+
+                /* disableAllOverlaysAndFullscreenVideos();*/
+
+            } );
+
 
             $( '.mainSectionBtn' ).click( function () {
                 $( '.mainSectionActive' ).each( function () {
@@ -830,6 +844,7 @@ $( document ).ready( function () {
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
+                $( '#XXXMagic' ).hide();
                 $( '.miscVideoOverlay' ).show();
                 $( '.localVideoOverlay' ).show();
                 $( '.mainSearchResultVideoOverlay' ).show();
@@ -2530,5 +2545,7 @@ $( document ).ready( function () {
                 }
                 showScreensaverEnso();
             }
+
+            $( '#showXXXMagic' ).trigger( 'click' );
         }
 );
