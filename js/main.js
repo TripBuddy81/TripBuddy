@@ -304,6 +304,29 @@ $( document ).ready( function () {
                 checkPrivateVisible();
                 refreshGradientBackground();
 
+                var totalVideoCounter = 0;
+                $( '.videoContainer.XXX' ).each( function () {
+                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                        totalVideoCounter++;
+                    }
+                } );
+
+                console.info( totalVideoCounter );
+
+                var videosToShow = [];
+                while ( videosToShow.length < 3 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( totalVideoCounter ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+                    if ( !videosToShow.indexOf( randomNumber ) > -1 ) {
+                        videosToShow.push( randomNumber );
+                    }
+                }
+                console.info( videosToShow );
+
+                number1 =
+                        number2 = Math.floor( Math.random() * (parseInt( totalVideoCounter ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+                number3 = Math.floor( Math.random() * (parseInt( totalVideoCounter ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+                number4 = Math.floor( Math.random() * (parseInt( totalVideoCounter ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+
                 var videoCounter = 1;
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' && videoCounter <= 4 ) {
@@ -322,7 +345,6 @@ $( document ).ready( function () {
                 /* disableAllOverlaysAndFullscreenVideos();*/
 
             } );
-
 
             $( '.mainSectionBtn' ).click( function () {
                 $( '.mainSectionActive' ).each( function () {
