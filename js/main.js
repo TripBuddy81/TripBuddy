@@ -66,7 +66,8 @@ $( document ).ready( function () {
             var screensaverActive = false;
             var documentReady = false;
             var searchEditClicked = false;
-            var selectableVideosVideodrome = 0;
+            var numberOfSelectableVideosVideodrome = 0;
+            var alreadySelectedVideosVideodrome = [];
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -81,7 +82,7 @@ $( document ).ready( function () {
             $( document ).bind( 'contextmenu', function ( e ) {
                 // Disable right click context menu and show playlist selection instead
                 if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' ) {
-                    if ( $( '#menuClose' ).prop( 'checked' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ) {
+                    if ( $( '#menuClose' ).prop( 'checked' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) || $( '#videodrome' ).is( ':visible' ) ) {
                         disableAllOverlaysAndFullscreenVideos();
                     } else {
                         $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
@@ -2525,18 +2526,25 @@ $( document ).ready( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
-
                 videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );
-
             } );
 
             $( document ).on( 'click', '.videodromeVideoContainer', function ( event ) {
-                console.info( 'test3' );
-
-
                 $( this ).empty();
                 videodromeVideoContainer = $( this );
-                randomNumber = Math.floor( Math.random() * (parseInt( selectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
+
+                randomNumber = Math.floor( Math.random() * (parseInt( numberOfSelectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
+                while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( numberOfSelectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
+                    if ( alreadySelectedVideosVideodrome.length == numberOfSelectableVideosVideodrome - 1 ) {
+                        alreadySelectedVideosVideodrome = [];
+                        console.info( 'reset' );
+                    }
+                }
+                alreadySelectedVideosVideodrome.push( randomNumber );
+
+                console.info( alreadySelectedVideosVideodrome );
+
                 counter = 0;
                 console.info( 'randomNumberNew', randomNumber );
                 $( '.videoContainer.XXX' ).each( function () {
@@ -2565,27 +2573,23 @@ $( document ).ready( function () {
 
             function initVideodrome() {
                 $( '#videodrome' ).empty();
-
-                selectableVideosVideodrome = 0;
+                numberOfSelectableVideosVideodrome = 0;
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        selectableVideosVideodrome++;
+                        numberOfSelectableVideosVideodrome++;
                     }
                 } );
 
-                console.info( selectableVideosVideodrome );
+                console.info( numberOfSelectableVideosVideodrome );
 
                 var videosToShow = [];
                 while ( videosToShow.length < 4 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
+                    randomNumber = Math.floor( Math.random() * (parseInt( numberOfSelectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
 
                     console.info( 'random number', randomNumber );
 
-                    if ( !videosToShow.indexOf( toString( randomNumber ) ) > -1 ) {
-
+                    if ( videosToShow.indexOf( randomNumber ) == -1 ) {
                         videosToShow.push( randomNumber );
-                    } else {
-                        console.info( 'in array', randomNumber );
                     }
                 }
                 console.info( videosToShow );
