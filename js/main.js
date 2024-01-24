@@ -2522,6 +2522,17 @@ $( document ).ready( function () {
             // ******************************************
             // Videodrome section
             initVideodrome();
+            var moveTimerVideodrome;
+            $( '.videodromeVideoContainer' ).on( 'mousemove', function () {
+                clearTimeout( moveTimerVideodrome );
+                moveTimerVideodrome = setTimeout( function () {
+                    $( '.videodromeVideoContainer' ).css( 'cursor', 'none' );
+                   /* $( '.videoMenuOverlay' ).hide();*/
+                }, 1000 );
+                $( '.videodromeVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+            /*    $( '.videoMenuOverlay' ).show();*/
+            } );
+
             $( '#showVideodrome' ).click( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
