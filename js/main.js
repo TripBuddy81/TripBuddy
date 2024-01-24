@@ -1172,6 +1172,14 @@ $( document ).ready( function () {
                 $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
 
+            $( '.videoMenuOverlayFullscreen' ).on( 'wheel', function ( event ) {
+                if ( event.originalEvent.deltaY > 0 ) { // going down
+                    $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime = $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime - 10;
+                } else { // going up
+                    $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime = $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime + 10;
+                }
+            } );
+
             // Misc Video minimized iFrame overlay
             $( '.miscVideoOverlay' ).click( function ( event ) {
                 blockScreenSaver = true;
@@ -2617,6 +2625,7 @@ $( document ).ready( function () {
                     }
                 } );
             }
+
             // END Videodrome section
             // ******************************************
 
