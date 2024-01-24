@@ -490,6 +490,8 @@ $( document ).ready( function () {
 
             // Lift off - initialize a lot of stuff
             $( '.liftOff' ).click( function ( e ) {
+                $( '#menuSettingsSection' ).remove();
+
                 timer = setInterval( tripTimer, 1000 );
                 start = new Date();
                 setTimeout( function () {

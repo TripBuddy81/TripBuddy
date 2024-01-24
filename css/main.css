@@ -382,7 +382,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
 }
 
 #menu li, .pizzaTimerMinutesSuffix {
-    padding: 3px 0;
+    padding: 5px 0;
     font-size: 25px;
 }
 
@@ -741,6 +741,34 @@ li, .options, .form-check-label {
     margin-top: 10px;
     display: block;
     min-height: 55px;
+}
+
+#videodromeIcon, #pizzaTimerIcon, #disableReminderIcon, #showPrivateContentIcon, #hidePrivateContentIcon {
+    height: 40px;
+    position: relative;
+    top: -2px;
+    margin-right: 10px;
+}
+
+#videodromeIcon {
+    margin-right: 16px;
+    margin-left: 6px;
+}
+
+#showPrivateContentIcon {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+#hidePrivateContentIcon {
+    margin-left: 11px;
+    margin-right: 19px;
+}
+
+#disableReminderIcon {
+    height: 35px;
+    margin-left: 13px;
+    margin-right: 22px;
 }
 
 #sleep {

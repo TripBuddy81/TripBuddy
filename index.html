@@ -81,17 +81,17 @@
 
                     <span id="menuActionHeader">-- <b>Actions</b> --------------------------------------------------------------------</span>
                     <span id="pizzaTimerMinutesContainer">
-                        <li class="menuItem fw-bold" id="startPizzaTimer">Start Pizza Timer
+                        <li class="menuItem fw-bold" id="startPizzaTimer"><img id="pizzaTimerIcon" src="./assets/pizza.png">Start Pizza Timer
                         </li>
                         <span class="pizzaTimerMinutesPrefix"></span>
                         <input type="number" id="pizzaTimerMinutes"
                                name="pizzaTimerMinutes"
                                value="20" min="1" max="600"> <span class="pizzaTimerMinutesSuffix">minutes</span>
                     </span>
-                    <li class="menuItem menuvisibleAfterStarted fw-bold" id="disableAllReminders">Disable all reminders</li>
-                    <li class="menuItem XXX fw-bold" id="showVideodrome">Show Videodrome</li>
-                    <li class="menuItem XXX fw-bold" id="showPrivateContent">KEEP OUT! - Show private content</li>
-                    <li class="menuItem XXX private fw-bold" id="hidePrivateContent">Hide private content</li>
+                    <li class="menuItem XXX fw-bold" id="showVideodrome"><img id="videodromeIcon" src="./assets/videodrome.png">Show Videodrome</li>
+                    <li class="menuItem XXX fw-bold" id="showPrivateContent"><img id="showPrivateContentIcon" src="./assets/private.png">KEEP OUT! - Show private content</li>
+                    <li class="menuItem XXX private fw-bold" id="hidePrivateContent"><img id="hidePrivateContentIcon" src="./assets/hide.png">Hide private content</li>
+                    <li class="menuItem menuvisibleAfterStarted fw-bold" id="disableAllReminders"><img id="disableReminderIcon" src="./assets/x.png">Disable all reminders</li>
                     <div class="mt-2">-- <b>LINKS</b>
                         ----------------------------------------------------------------------
                     </div>
@@ -101,14 +101,16 @@
                     </li>
                     {{/menuLinks}}
 
-                    <div class="mt-2">-- <b>SETTINGS</b>
-                        -----------------------------------------------------------------
-                    </div>
-                    <li><a class="menuItem" href="help.html" target="_blank">Help/Info</a></li>
-                    <li class="menuItem" id="toggleInfo">Toggle video info</li>
-                    <li class="menuItem" id="spotifyLogin">Login to Spotify (admin only)</li>
-                    <li class="menuItem" id="spotifyLogout">Logout Spotify</li>
-                    <li class="menuItem" id="clearYoutubePlayedHistory">Clear Youtube history</li>
+                    <span id="menuSettingsSection">
+                        <div class="mt-2">-- <b>SETTINGS</b>
+                            -----------------------------------------------------------------
+                        </div>
+                        <li><a class="menuItem" href="help.html" target="_blank">Help/Info</a></li>
+                        <li class="menuItem" id="toggleInfo">Toggle video info</li>
+                        <li class="menuItem" id="spotifyLogin">Login to Spotify (admin only)</li>
+                        <li class="menuItem" id="spotifyLogout">Logout Spotify</li>
+                        <li class="menuItem" id="clearYoutubePlayedHistory">Clear Youtube history</li>
+                    </span>
                 </ul>
             </div>
         </div>
