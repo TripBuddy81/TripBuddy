@@ -1791,10 +1791,13 @@ video::-webkit-media-controls-fullscreen-button {
     background: black;
 }
 
-
 #videodrome .videoFrame {
-    width: 50vW;
-    height: 50Vh;
     pointer-events: none;
+}
+
+.videodromeVideoContainer {
+    width: 50vW;
+    height: 50vH;
+    float: inline-end;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }

@@ -2552,7 +2552,7 @@ $( document ).ready( function () {
 
                     if ( !jQuery.inArray( randomNumber, videosToShow ) !== -1 ) {
 
-                            videosToShow.push( randomNumber );
+                        videosToShow.push( randomNumber );
 
                     }
                 }
@@ -2563,7 +2563,11 @@ $( document ).ready( function () {
                     if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
                         if ( videosToShow.indexOf( counter ) > -1 ) {
                             console.info( 'test2' );
-                            $( this ).find( '.localVideo' ).clone().appendTo( '#videodrome' );
+
+                            var $videodromeVideoContainer = $( '<div>', {'class': 'videodromeVideoContainer'} );
+                            $( '#videodrome' ).append( $videodromeVideoContainer );
+
+                            $( this ).find( '.localVideo' ).clone().appendTo( $videodromeVideoContainer );
                         }
                         counter++;
                     }
