@@ -2527,10 +2527,10 @@ $( document ).ready( function () {
                 clearTimeout( moveTimerVideodrome );
                 moveTimerVideodrome = setTimeout( function () {
                     $( '.videodromeVideoContainer' ).css( 'cursor', 'none' );
-                   /* $( '.videoMenuOverlay' ).hide();*/
+                    $( '.videoMenuOverlay' ).hide();
                 }, 1000 );
                 $( '.videodromeVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-            /*    $( '.videoMenuOverlay' ).show();*/
+                $( '.videoMenuOverlay' ).show();
             } );
 
             $( '#showVideodrome' ).click( function () {
@@ -2569,21 +2569,20 @@ $( document ).ready( function () {
             } );
 
             function startPlaybackVideodrome() {
-                $( '#videodrome .videoFrame' ).each( function () {
+                $( '#videodromeContainer .videoFrame' ).each( function () {
                     $( this )[0].play();
                 } );
             }
 
             function stopPlaybackVideodrome() {
                 $( '#videodrome' ).hide();
-                $( '#videodrome .videoFrame' ).each( function () {
+                $( '#videodromeContainer .videoFrame' ).each( function () {
                     $( this )[0].pause();
                 } );
                 clearInterval( videodromePlayInterval );
             }
 
             function initVideodrome() {
-                $( '#videodrome' ).empty();
                 numberOfSelectableVideosVideodrome = 0;
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
@@ -2611,10 +2610,10 @@ $( document ).ready( function () {
                         if ( videosToShow.indexOf( counter ) > -1 ) {
                             console.info( 'adding video', counter );
 
-                            var $videodromeVideoContainer = $( '<div>', {'class': 'videodromeVideoContainer'} );
-                            $( '#videodrome' ).append( $videodromeVideoContainer );
+                            var videodromeVideoContainer = $( '<div>', {'class': 'videodromeVideoContainer'} );
+                            $( '#videodromeContainer' ).append( videodromeVideoContainer );
 
-                            $( this ).find( '.localVideo' ).clone().appendTo( $videodromeVideoContainer );
+                            $( this ).find( '.localVideo' ).clone().appendTo( videodromeVideoContainer );
                         }
                         counter++;
                     }
