@@ -2536,8 +2536,9 @@ $( document ).ready( function () {
 
                 $( this ).empty();
                 videodromeVideoContainer = $( this );
-                randomNumber = Math.floor( Math.random() * (parseInt( selectableVideosVideodrome ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+                randomNumber = Math.floor( Math.random() * (parseInt( selectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
                 counter = 0;
+                console.info( 'randomNumberNew', randomNumber );
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
                         if ( randomNumber == counter ) {
@@ -2576,7 +2577,7 @@ $( document ).ready( function () {
 
                 var videosToShow = [];
                 while ( videosToShow.length < 4 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideosVideodrome ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
 
                     console.info( 'random number', randomNumber );
 
