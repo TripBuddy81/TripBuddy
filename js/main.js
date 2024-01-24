@@ -2568,6 +2568,14 @@ $( document ).ready( function () {
                 } );
             } );
 
+            $( '.videodromeVideoContainer' ).on( 'wheel', function ( event ) {
+                if ( event.originalEvent.deltaY > 0 ) { // going down
+                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime - 10;
+                } else { // going up
+                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime + 10;
+                }
+            } );
+
             function startPlaybackVideodrome() {
                 $( '#videodromeContainer .videoFrame' ).each( function () {
                     $( this )[0].play();
