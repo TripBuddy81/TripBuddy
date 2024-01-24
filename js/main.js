@@ -66,6 +66,7 @@ $( document ).ready( function () {
             var screensaverActive = false;
             var documentReady = false;
             var searchEditClicked = false;
+            var selectableVideosVideodrome = 0;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -827,10 +828,7 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 renderShrineSection( showParticles );
-
-
                 stopPlaybackVideodrome();
-
                 $( '#preFlightChecklist' ).modal( 'hide' );
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
@@ -2532,8 +2530,22 @@ $( document ).ready( function () {
 
             } );
 
-            $( document ).on( 'click', '#videodrome .localVideo', function ( event ) {
+            $( document ).on( 'click', '.videodromeVideoContainer', function ( event ) {
                 console.info( 'test3' );
+
+
+                $( this ).empty();
+                videodromeVideoContainer = $( this );
+                randomNumber = Math.floor( Math.random() * (parseInt( selectableVideosVideodrome ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+                counter = 0;
+                $( '.videoContainer.XXX' ).each( function () {
+                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                        if ( randomNumber == counter ) {
+                            $( this ).find( '.localVideo' ).clone().appendTo( videodromeVideoContainer );
+                        }
+                        counter++;
+                    }
+                } );
             } );
 
             function startPlaybackVideodrome() {
@@ -2553,22 +2565,22 @@ $( document ).ready( function () {
             function initVideodrome() {
                 $( '#videodrome' ).empty();
 
-                var selectableVideos = 0;
+                selectableVideosVideodrome = 0;
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        selectableVideos++;
+                        selectableVideosVideodrome++;
                     }
                 } );
 
-                console.info( selectableVideos );
+                console.info( selectableVideosVideodrome );
 
                 var videosToShow = [];
                 while ( videosToShow.length < 4 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideos ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideosVideodrome ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
 
                     console.info( 'random number', randomNumber );
 
-                    if ( !videosToShow.indexOf( toString(randomNumber) ) > -1 ) {
+                    if ( !videosToShow.indexOf( toString( randomNumber ) ) > -1 ) {
 
                         videosToShow.push( randomNumber );
                     } else {
@@ -2587,8 +2599,6 @@ $( document ).ready( function () {
                             $( '#videodrome' ).append( $videodromeVideoContainer );
 
                             $( this ).find( '.localVideo' ).clone().appendTo( $videodromeVideoContainer );
-                        } else {
-                            /*console.info( 'test1', counter );*/
                         }
                         counter++;
                     }
