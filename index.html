@@ -930,23 +930,24 @@
     </div>
 
     <div id="videodrome">
+        <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+        </div>
+        <div class="trackProgressContainer hidden videoMenuOverlay">
+            <div class="trackProgress">
+                <div class="colorfulBorder"></div>
+            </div>
+        </div>
+
         {{#videodrome}}
-        <div class="videoContainer videodromeVideo">
+        <div class="videodromeContainer">
             <div class="iFrameContainer">
-                <video class="videoFrame localVideo" controls muted loop controlsList="nofullscreen">
-                    <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">
+                <video class="videoFrame localVideo videodromeVideo" controls muted loop controlsList="nofullscreen">
+                    <source class="videoSource" src="" type="video/mp4">
                 </video>
-                <div class="localVideoOverlay">
+<!--                <div class="localVideoOverlay">
                 </div>
                 <div class="videoMenuOverlayFullscreen">
-                </div>
-                <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
-                </div>
-                <div class="trackProgressContainer hidden videoMenuOverlay">
-                    <div class="trackProgress">
-                        <div class="colorfulBorder"></div>
-                    </div>
-                </div>
+                </div>-->
             </div>
         </div>
         {{/videodrome}}

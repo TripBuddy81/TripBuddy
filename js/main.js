@@ -307,7 +307,7 @@ $( document ).ready( function () {
                     }
                 } );
 
-                console.info( selectableVideos );
+                /*console.info( selectableVideos );*/
 
                 var videosToShow = [];
                 while ( videosToShow.length < 4 ) {
@@ -316,21 +316,36 @@ $( document ).ready( function () {
                         videosToShow.push( randomNumber );
                     }
                 }
-                   console.info( videosToShow );
+                console.info( videosToShow );
 
-                $.each( videosToShow, function ( val ) {
-                    console.info( selectableVideos[val]);
+                /*                $.each( videosToShow, function ( val ) {
+                                    console.info( selectableVideos[val] );
 
-                } );
+                                } );*/
 
 
+                $( '#videodrome .videodromeContainer' ).each( function () {
+                    selectedVideo = videosToShow.pop();
+                    console.info( selectableVideos[selectedVideo] );
+                    $( this ).find( '.videoSource' ).attr( 'src', selectableVideos[selectedVideo] );
 
-                $( '#videodrome .videoContainer' ).each( function () {
                     $( this ).show();
-                    $( this ).find( '.localVideo' )[0].play();
+                    $( this ).find( '.videodromeVideo' )[0].play()
                 } );
-
+                /*setInterval( playVideodromVideos(), 1000 );*/
             } );
+
+            function playVideodromVideos() {
+                try {
+                    $( '.videodromeVideo' ).each( function () {
+                        $( this )[0].play()
+                    } );
+
+
+                } catch ( e ) {
+                }
+            }
+
 
             $( '.mainSectionBtn' ).click( function () {
                 $( '.mainSectionActive' ).each( function () {
