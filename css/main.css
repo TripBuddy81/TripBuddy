@@ -472,7 +472,6 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
 #startPizzaTimer, #disableAllReminders, #showPrivateContent, #hidePrivateContent {
     color: black;
     font-size: 30px;
-    font-weight: bold;
     margin-right: 15px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
@@ -1195,29 +1194,6 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
 
-#XXXMagicContainer {
-    display: none;
-    width: 100%;
-    height: 100vH;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    background: black;
-}
-
-.XXXMagicVideo {
-    margin: 0;
-    padding: 0;
-    width: 50vW;
-    height: 50vH;
-    pointer-events: none;
-}
-
-.XXXMagicVideo .videoFrame {
-    border-radius: 0;
-}
-
 .videoHasSound {
     right: 10px;
     bottom: 10px;
@@ -1802,4 +1778,27 @@ video::-webkit-media-controls-fullscreen-button {
 
 #clearYoutubePlayedHistory {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
+}
+
+#videodrome {
+    display: none;
+    width: 100%;
+    height: 100vH;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background: black;
+}
+
+.XXXMagicVideo {
+    margin: 0;
+    padding: 0;
+    width: 50vW;
+    height: 50vH;
+    pointer-events: none;
+}
+
+.XXXMagicVideo .videoFrame {
+    border-radius: 0;
 }

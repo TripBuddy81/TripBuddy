@@ -295,14 +295,11 @@ $( document ).ready( function () {
                     $( '#mainSearchInput' ).focus();
                 }, 500 );
             } );
-            $( '#showXXXMagic' ).click( function () {
+            $( '#showVideodrome' ).click( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
-                $( '#XXXMagicContainer' ).empty();
-                $( '#XXXMagicContainer' ).show();
-
-                checkPrivateVisible();
-                refreshGradientBackground();
+                $( '#videodrome' ).empty();
+                $( '#videodrome' ).show();
 
                 var totalVideoCounter = 0;
                 $( '.videoContainer.XXX' ).each( function () {
@@ -322,27 +319,18 @@ $( document ).ready( function () {
                 }
                 console.info( videosToShow );
 
-                number1 =
-                        number2 = Math.floor( Math.random() * (parseInt( totalVideoCounter ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
-                number3 = Math.floor( Math.random() * (parseInt( totalVideoCounter ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
-                number4 = Math.floor( Math.random() * (parseInt( totalVideoCounter ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
-
                 var videoCounter = 1;
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' && videoCounter <= 4 ) {
-                        $( this ).clone().appendTo( '#XXXMagicContainer' );
+                        $( this ).clone().appendTo( '#videodrome' );
                         videoCounter++;
                     }
                 } );
-                $( '#XXXMagicContainer .videoContainer.XXX' ).each( function () {
+                $( '#videodrome .videoContainer.XXX' ).each( function () {
                     $( this ).addClass( 'XXXMagicVideo' );
                     $( this ).show();
                     $( this ).find( '.localVideo' )[0].play();
                 } );
-
-                /*                hideScreensaverEnso();*/
-
-                /* disableAllOverlaysAndFullscreenVideos();*/
 
             } );
 
@@ -879,8 +867,8 @@ $( document ).ready( function () {
                 $( '#preFlightChecklist' ).modal( 'hide' );
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
+                $( '#videodrome' ).hide();
                 $( '.videoMenuOverlay' ).hide();
-                $( '#XXXMagicContainer' ).hide();
                 $( '.miscVideoOverlay' ).show();
                 $( '.localVideoOverlay' ).show();
                 $( '.mainSearchResultVideoOverlay' ).show();
