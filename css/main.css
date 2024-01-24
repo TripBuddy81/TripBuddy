@@ -1791,7 +1791,7 @@ video::-webkit-media-controls-fullscreen-button {
     background: black;
 }
 
-#videodrome .videoContainer {
+#videodrome .videoFrame {
     width: 50vW;
     height: 50Vh;
 }

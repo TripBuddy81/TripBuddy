@@ -296,55 +296,6 @@ $( document ).ready( function () {
                 }, 500 );
             } );
 
-            initVideodrome();
-            $( '#showVideodrome' ).click( function () {
-                enableFullscreen();
-                blockScreenSaver = true;
-                $( '#videodrome' ).show();
-
-
-                $( '#videodrome .videoContainer' ).each( function () {
-                    $( this ).show();
-                    $( this ).find( '.localVideo' )[0].play()
-                } );
-
-            } );
-
-            function initVideodrome() {
-                $( '#videodrome' ).empty();
-
-                var selectableVideos = 0;
-                $( '.videoContainer.XXX' ).each( function () {
-                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        selectableVideos++;
-                    }
-                } );
-
-                /*console.info( selectableVideos );*/
-
-                var videosToShow = [];
-                while ( videosToShow.length < 4 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideos ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
-                    if ( !videosToShow.indexOf( randomNumber ) > -1 ) {
-                        videosToShow.push( randomNumber );
-                    }
-                }
-                console.info( videosToShow );
-
-                counter = 0;
-                $( '.videoContainer.XXX' ).each( function () {
-                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        counter++;
-                        console.info( 'test1' );
-                        if ( videosToShow.indexOf( counter ) > -1 ) {
-                            console.info( 'test2' );
-                            $( this ).clone().appendTo( '#videodrome' );
-                        }
-                    }
-                } );
-            }
-
-
             $( '.mainSectionBtn' ).click( function () {
                 $( '.mainSectionActive' ).each( function () {
                     $( this ).toggleClass( 'mainSectionActive' );
@@ -2563,6 +2514,58 @@ $( document ).ready( function () {
 
             // END Search section
             // ******************************************
+
+
+            // ******************************************
+            // Videodrome section
+            initVideodrome();
+            $( '#showVideodrome' ).click( function () {
+                enableFullscreen();
+                blockScreenSaver = true;
+                $( '#videodrome' ).show();
+
+                $( '#videodrome .videoFrame' ).each( function () {
+                    $( this )[0].play();
+                } );
+
+            } );
+
+            function initVideodrome() {
+                $( '#videodrome' ).empty();
+
+                var selectableVideos = 0;
+                $( '.videoContainer.XXX' ).each( function () {
+                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                        selectableVideos++;
+                    }
+                } );
+
+                /*console.info( selectableVideos );*/
+
+                var videosToShow = [];
+                while ( videosToShow.length < 4 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideos ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+                    if ( !videosToShow.indexOf( randomNumber ) > -1 ) {
+                        videosToShow.push( randomNumber );
+                    }
+                }
+                console.info( videosToShow );
+
+                counter = 0;
+                $( '.videoContainer.XXX' ).each( function () {
+                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                        counter++;
+                        console.info( 'test1' );
+                        if ( videosToShow.indexOf( counter ) > -1 ) {
+                            console.info( 'test2' );
+                            $( this ).find( '.localVideo' ).clone().appendTo( '#videodrome' );
+                        }
+                    }
+                } );
+            }
+            // END Videodrome section
+            // ******************************************
+
 
             // ******************************************
             // init initial view
