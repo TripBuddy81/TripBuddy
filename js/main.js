@@ -300,33 +300,31 @@ $( document ).ready( function () {
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
 
-
-
-               /* var totalVideoCounter = 0;
+                var selectableVideos = [];
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        totalVideoCounter++;
+                        selectableVideos.push( $( this ).find( '.videoSource' ).attr( 'src' ).replace( /NOLOAD/, '' ) );
                     }
-                } );*/
+                } );
 
-               /* console.info( totalVideoCounter );*/
+                console.info( selectableVideos );
 
-          /*      var videosToShow = [];
-                while ( videosToShow.length < 3 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( totalVideoCounter ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+                var videosToShow = [];
+                while ( videosToShow.length < 4 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideos.length ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
                     if ( !videosToShow.indexOf( randomNumber ) > -1 ) {
                         videosToShow.push( randomNumber );
                     }
                 }
-                console.info( videosToShow );*/
+                   console.info( videosToShow );
 
-/*                var videoCounter = 1;
-                $( '.videoContainer.XXX' ).each( function () {
-                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' && videoCounter <= 4 ) {
-                        $( this ).clone().appendTo( '#videodrome' );
-                        videoCounter++;
-                    }
-                } );*/
+                $.each( videosToShow, function ( val ) {
+                    console.info( selectableVideos[val]);
+
+                } );
+
+
+
                 $( '#videodrome .videoContainer' ).each( function () {
                     $( this ).show();
                     $( this ).find( '.localVideo' )[0].play();
