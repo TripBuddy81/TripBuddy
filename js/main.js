@@ -99,7 +99,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            // Handlebar renderer - takes config within config/config.js
+            // Handlebar renderer and helper functions - takes config within config/config.js
             Handlebars.registerHelper( 'if', function ( v1, v2, options ) {
                 if ( v1 === v2 ) {
                     return options.fn( this );
@@ -298,36 +298,36 @@ $( document ).ready( function () {
             $( '#showVideodrome' ).click( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
-                $( '#videodrome' ).empty();
                 $( '#videodrome' ).show();
 
-                var totalVideoCounter = 0;
+
+
+               /* var totalVideoCounter = 0;
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
                         totalVideoCounter++;
                     }
-                } );
+                } );*/
 
-                console.info( totalVideoCounter );
+               /* console.info( totalVideoCounter );*/
 
-                var videosToShow = [];
+          /*      var videosToShow = [];
                 while ( videosToShow.length < 3 ) {
                     randomNumber = Math.floor( Math.random() * (parseInt( totalVideoCounter ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
                     if ( !videosToShow.indexOf( randomNumber ) > -1 ) {
                         videosToShow.push( randomNumber );
                     }
                 }
-                console.info( videosToShow );
+                console.info( videosToShow );*/
 
-                var videoCounter = 1;
+/*                var videoCounter = 1;
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' && videoCounter <= 4 ) {
                         $( this ).clone().appendTo( '#videodrome' );
                         videoCounter++;
                     }
-                } );
-                $( '#videodrome .videoContainer.XXX' ).each( function () {
-                    $( this ).addClass( 'XXXMagicVideo' );
+                } );*/
+                $( '#videodrome .videoContainer' ).each( function () {
                     $( this ).show();
                     $( this ).find( '.localVideo' )[0].play();
                 } );

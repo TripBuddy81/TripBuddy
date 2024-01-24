@@ -249,6 +249,7 @@ var config = {
         }
 
     ],
+    'videodrome'             : [1, 2, 3, 4],
     'selectableVideoTags'    : [
         {'selectableTag': 'trippy-2D'},
         {'selectableTag': 'trippy-3D'},

@@ -1791,14 +1791,15 @@ video::-webkit-media-controls-fullscreen-button {
     background: black;
 }
 
-.XXXMagicVideo {
+.videodromeVideo {
     margin: 0;
     padding: 0;
     width: 50vW;
     height: 50vH;
+    float: inline-start;
     pointer-events: none;
 }
 
-.XXXMagicVideo .videoFrame {
+.videodromeVideo .videoFrame {
     border-radius: 0;
 }
