@@ -2530,6 +2530,10 @@ $( document ).ready( function () {
 
             } );
 
+            $( document ).on( 'click', '#videodrome .localVideo', function ( event ) {
+                console.info( 'test3' );
+            } );
+
             function initVideodrome() {
                 $( '#videodrome' ).empty();
 
@@ -2545,8 +2549,11 @@ $( document ).ready( function () {
                 var videosToShow = [];
                 while ( videosToShow.length < 4 ) {
                     randomNumber = Math.floor( Math.random() * (parseInt( selectableVideos ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
-                    if ( !videosToShow.indexOf( randomNumber ) > -1 ) {
-                        videosToShow.push( randomNumber );
+
+                    if ( !jQuery.inArray( randomNumber, videosToShow ) !== -1 ) {
+
+                            videosToShow.push( randomNumber );
+
                     }
                 }
                 console.info( videosToShow );
@@ -2562,6 +2569,7 @@ $( document ).ready( function () {
                     }
                 } );
             }
+
             // END Videodrome section
             // ******************************************
 
