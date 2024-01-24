@@ -295,15 +295,28 @@ $( document ).ready( function () {
                     $( '#mainSearchInput' ).focus();
                 }, 500 );
             } );
+
+            initVideodrome();
             $( '#showVideodrome' ).click( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
 
-                var selectableVideos = [];
+
+                $( '#videodrome .videoContainer' ).each( function () {
+                    $( this ).show();
+                    $( this ).find( '.localVideo' )[0].play()
+                } );
+
+            } );
+
+            function initVideodrome() {
+                $( '#videodrome' ).empty();
+
+                var selectableVideos = 0;
                 $( '.videoContainer.XXX' ).each( function () {
-                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        selectableVideos.push( $( this ).find( '.videoSource' ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                        selectableVideos++;
                     }
                 } );
 
@@ -311,39 +324,24 @@ $( document ).ready( function () {
 
                 var videosToShow = [];
                 while ( videosToShow.length < 4 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideos.length ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
+                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideos ) - parseInt( 0 ) + 1) + parseInt( 0 ) );
                     if ( !videosToShow.indexOf( randomNumber ) > -1 ) {
                         videosToShow.push( randomNumber );
                     }
                 }
                 console.info( videosToShow );
 
-                /*                $.each( videosToShow, function ( val ) {
-                                    console.info( selectableVideos[val] );
-
-                                } );*/
-
-
-                $( '#videodrome .videodromeContainer' ).each( function () {
-                    selectedVideo = videosToShow.pop();
-                    console.info( selectableVideos[selectedVideo] );
-                    $( this ).find( '.videoSource' ).attr( 'src', selectableVideos[selectedVideo] );
-
-                    $( this ).show();
-                    $( this ).find( '.videodromeVideo' )[0].play()
+                counter = 0;
+                $( '.videoContainer.XXX' ).each( function () {
+                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                        counter++;
+                        console.info( 'test1' );
+                        if ( videosToShow.indexOf( counter ) > -1 ) {
+                            console.info( 'test2' );
+                            $( this ).clone().appendTo( '#videodrome' );
+                        }
+                    }
                 } );
-                /*setInterval( playVideodromVideos(), 1000 );*/
-            } );
-
-            function playVideodromVideos() {
-                try {
-                    $( '.videodromeVideo' ).each( function () {
-                        $( this )[0].play()
-                    } );
-
-
-                } catch ( e ) {
-                }
             }
 
 
