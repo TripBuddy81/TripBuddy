@@ -2554,12 +2554,11 @@ $( document ).ready( function () {
                 counter = 0;
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        counter++;
-                        console.info( 'test1' );
                         if ( videosToShow.indexOf( counter ) > -1 ) {
                             console.info( 'test2' );
                             $( this ).find( '.localVideo' ).clone().appendTo( '#videodrome' );
                         }
+                        counter++;
                     }
                 } );
             }
