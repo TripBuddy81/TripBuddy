@@ -2529,7 +2529,7 @@ $( document ).ready( function () {
 
             // ******************************************
             // Videodrome section
-            if ( config['localSettingsOverwrite']['showVideodrome'] != undefined && config['localSettingsOverwrite']['showVideodrome'] ) {
+            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showVideodrome'] != undefined && config['localSettingsOverwrite']['showVideodrome'] ) {
                 initVideodrome();
             } else {
                 $( '#showVideodrome' ).remove();
