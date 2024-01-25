@@ -382,12 +382,16 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
 }
 
 #menu li, .pizzaTimerMinutesSuffix {
-    padding: 5px 0;
+    padding: 2px 0;
     font-size: 25px;
 }
 
 #menuClose:checked ~ ul {
     transform: none;
+}
+
+.actionItem {
+    padding: 5px 0;
 }
 
 @media screen and (max-width: 768px) {
