@@ -1273,6 +1273,7 @@ video::-webkit-media-controls-fullscreen-button {
     -webkit-text-fill-color: transparent;
     z-index: 15;
     visibility: visible !important;
+    pointer-events: none;
 }
 
 .videoLinkTypeSeperator {
