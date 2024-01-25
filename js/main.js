@@ -82,7 +82,12 @@ $( document ).ready( function () {
             $( document ).bind( 'contextmenu', function ( e ) {
                 // Disable right click context menu and show playlist selection instead
                 if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' ) {
-                    if ( $( '#menuClose' ).prop( 'checked' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) || $( '#videodrome' ).is( ':visible' ) ) {
+                    if ( $( '#menuClose' ).prop( 'checked' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
+                            $( '#videodrome' ).is( ':visible' ) ||
+                            $( '#notesOverlay' ).is( ':visible' ) ||
+                            $( '.videoMenuOverlayFullscreen' ).is( ':visible' ) ||
+                            $( '#preFlightChecklist' ).is( ':visible' ) ||
+                            $( '.displayedFullscreenImage' ).is( ':visible' ) ) {
                         disableAllOverlaysAndFullscreenVideos();
                     } else {
                         $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
