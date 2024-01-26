@@ -2591,7 +2591,11 @@ $( document ).ready( function () {
 
             $( '.videodromeRefreshVideo' ).click( function () {
                 target = $( this ).attr( 'target' );
+
+                $( '.' + target ).find('.videoFrame').get( 0 ).pause();
+                $( '.' + target ).find('.videoSource').attr('src', '');
                 $( '.' + target ).empty();
+
                 videodromeVideoContainer = $( '.' + target );
 
                 randomNumber = Math.floor( Math.random() * (parseInt( numberOfSelectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
