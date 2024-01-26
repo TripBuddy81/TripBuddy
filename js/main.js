@@ -2546,6 +2546,7 @@ $( document ).ready( function () {
                 initVideodrome();
             } else {
                 $( '#showVideodrome' ).remove();
+                $( '.startVideodrome' ).remove();
             }
             var moveTimerVideodrome;
             $( '.videodromeVideoContainer' ).on( 'mousemove', function () {
@@ -2558,7 +2559,7 @@ $( document ).ready( function () {
                 $( '.videoMenuOverlay' ).show();
             } );
 
-            $( '#showVideodrome' ).click( function () {
+            $( '#showVideodrome,.startVideoDrome' ).click( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
