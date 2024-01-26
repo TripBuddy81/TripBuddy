@@ -87,7 +87,9 @@ $( document ).ready( function () {
                             $( '#notesOverlay' ).is( ':visible' ) ||
                             $( '.videoMenuOverlayFullscreen' ).is( ':visible' ) ||
                             $( '#preFlightChecklist' ).is( ':visible' ) ||
-                            $( '.displayedFullscreenImage' ).is( ':visible' ) ) {
+                            $( '.displayedFullscreenImage' ).is( ':visible' ) ||
+                            $( '.keyboard-cancel-button' ).is( ':visible' )
+                    ) {
                         disableAllOverlaysAndFullscreenVideos();
                     } else {
                         $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
@@ -805,6 +807,11 @@ $( document ).ready( function () {
                 $( '.spotifyTrackContainer' ).show();
 
                 closeRightMenu();
+
+                try {
+                    $( '.keyboard-cancel-button' ).trigger( 'click' );
+                } catch ( e ) {
+                }
 
                 $( '#directYoutubePlayer' ).hide();
 
