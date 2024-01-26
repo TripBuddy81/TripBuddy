@@ -1992,7 +1992,10 @@ $( document ).ready( function () {
                                             EmbedController.loadUri( episode.getAttribute( 'data-spotify-id' ) );
                                             $( '#spotifyPlaylists' ).html( episode.innerHTML );
 
-                                            EmbedController.play();
+                                            setTimeout( function () {
+                                                EmbedController.play();
+                                            }, 1500 );
+                                            
                                             markYoutubeAsActiveAudioSource( false );
                                             mainSearchResultYoutubePlayer.mute();
 
