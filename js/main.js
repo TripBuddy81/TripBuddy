@@ -817,6 +817,7 @@ $( document ).ready( function () {
 
                 $( '.localVideo' ).each( function () {
                     try {
+                        $( this ).removeAttr( 'controls' );
                         $( this ).get( 0 ).pause();
                     } catch ( e ) {
                     }
@@ -1172,6 +1173,7 @@ $( document ).ready( function () {
 
                 try {
                     $( this ).closest( '.iFrameContainer' ).find( '.localVideo' )[0].play();
+                    $( this ).closest( '.iFrameContainer' ).find( '.localVideo' ).prop( 'controls', 'controls' );
                 } catch ( e ) {
                 }
                 $( '.localVideoOverlay' ).hide();
@@ -1995,7 +1997,7 @@ $( document ).ready( function () {
                                             setTimeout( function () {
                                                 EmbedController.play();
                                             }, 1500 );
-                                            
+
                                             markYoutubeAsActiveAudioSource( false );
                                             mainSearchResultYoutubePlayer.mute();
 
@@ -2592,8 +2594,8 @@ $( document ).ready( function () {
             $( '.videodromeRefreshVideo' ).click( function () {
                 target = $( this ).attr( 'target' );
 
-                $( '.' + target ).find('.videoFrame').get( 0 ).pause();
-                $( '.' + target ).find('.videoSource').attr('src', '');
+                $( '.' + target ).find( '.videoFrame' ).get( 0 ).pause();
+                $( '.' + target ).find( '.videoSource' ).attr( 'src', '' );
                 $( '.' + target ).empty();
 
                 videodromeVideoContainer = $( '.' + target );
