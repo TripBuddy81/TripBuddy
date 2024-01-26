@@ -1831,3 +1831,51 @@ video::-webkit-media-controls-fullscreen-button {
     height: 50vH;
     float: inline-end;
 }
+
+.videodromeRefreshContainer {
+    position: fixed;
+    width: 10vW;
+    height: 15vH;
+    top: 43vH;
+    left: 45vW;
+    opacity: 0;
+}
+
+.videodromeRefreshContainer:hover {
+    opacity: 1;
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    animation: animatedgradient 3s ease alternate infinite;
+    border-radius: 5px;
+    z-index: 20;
+}
+
+#refreshVideoDromeVideo1, #refreshVideoDromeVideo2, #refreshVideoDromeVideo3, #refreshVideoDromeVideo4 {
+    height: 50px;
+    position: absolute;
+}
+
+#refreshVideoDromeVideo1 {
+    top: 10px;
+    right: 15px;
+}
+
+#refreshVideoDromeVideo2 {
+    top: 10px;
+    left: 15px;
+}
+
+#refreshVideoDromeVideo3 {
+    bottom: 10px;
+    right: 15px;
+}
+
+#refreshVideoDromeVideo4 {
+    bottom: 10px;
+    left: 15px;
+}
+
+.videodromeFullscreen {
+    width: 100vW;
+    height: 100vH;
+    position: fixed;
+}

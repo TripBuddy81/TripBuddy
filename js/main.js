@@ -1180,6 +1180,7 @@ $( document ).ready( function () {
             } );
 
             $( '.videoMenuOverlayFullscreen' ).on( 'wheel', function ( event ) {
+                event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 ) { // going down
                     $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime = $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime - 10;
                 } else { // going up
@@ -1260,6 +1261,11 @@ $( document ).ready( function () {
                     window.open( $( e.target ).attr( 'href' ), '_blank' );
                 }
             } );
+
+            // only show misc video section if there are videos configured
+            if ( config['videosMisc'] == undefined ) {
+                $( '#videosMiscSection' ).remove();
+            }
 
             // Video section screensaver
             function startScreensaver( force = false ) {
@@ -2560,8 +2566,22 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videodromeVideoContainer', function ( event ) {
-                $( this ).empty();
-                videodromeVideoContainer = $( this );
+                $( this ).toggleClass( 'videodromeFullscreen' );
+            } );
+
+            $( '.videodromeVideoContainer' ).on( 'wheel', function ( event ) {
+                event.preventDefault();
+                if ( event.originalEvent.deltaY > 0 ) { // going down
+                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime - 10;
+                } else { // going up
+                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime + 10;
+                }
+            } );
+
+            $( '.videodromeRefreshVideo' ).click( function () {
+                target = $( this ).attr( 'target' );
+                $( '.' + target ).empty();
+                videodromeVideoContainer = $( '.' + target );
 
                 randomNumber = Math.floor( Math.random() * (parseInt( numberOfSelectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
                 while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
@@ -2581,14 +2601,6 @@ $( document ).ready( function () {
                         counter++;
                     }
                 } );
-            } );
-
-            $( '.videodromeVideoContainer' ).on( 'wheel', function ( event ) {
-                if ( event.originalEvent.deltaY > 0 ) { // going down
-                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime - 10;
-                } else { // going up
-                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime + 10;
-                }
             } );
 
             function startPlaybackVideodrome() {
@@ -2621,10 +2633,12 @@ $( document ).ready( function () {
                 }
 
                 counter = 0;
+                videodromeFrameCounter = 0;
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
                         if ( videosToShow.indexOf( counter ) > -1 ) {
-                            var videodromeVideoContainer = $( '<div>', {'class': 'videodromeVideoContainer'} );
+                            videodromeFrameCounter++;
+                            var videodromeVideoContainer = $( '<div>', {'class': 'videodromeVideoContainer videoDromeVideo' + videodromeFrameCounter} );
                             $( '#videodromeContainer' ).append( videodromeVideoContainer );
                             $( this ).find( '.localVideo' ).clone().appendTo( videodromeVideoContainer );
                         }

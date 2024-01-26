@@ -81,17 +81,28 @@
 
                     <span id="menuActionHeader" class="mb-1">-- <b>Actions</b> --------------------------------------------------------------------</span>
                     <span id="pizzaTimerMinutesContainer">
-                        <li class="menuItem fw-bold" id="startPizzaTimer"><img id="pizzaTimerIcon" src="./assets/pizza.png">Start Pizza Timer
+                        <li class="menuItem fw-bold" id="startPizzaTimer"><img id="pizzaTimerIcon"
+                                                                               src="./assets/pizza.png">Start Pizza Timer
                         </li>
                         <span class="pizzaTimerMinutesPrefix"></span>
                         <input type="number" id="pizzaTimerMinutes"
                                name="pizzaTimerMinutes"
                                value="20" min="1" max="600"> <span class="pizzaTimerMinutesSuffix">minutes</span>
                     </span>
-                    <li class="menuItem actionItem XXX fw-bold" id="showVideodrome"><img id="videodromeIcon" src="./assets/videodrome.png">Show Videodrome</li>
-                    <li class="menuItem actionItem XXX fw-bold" id="showPrivateContent"><img id="showPrivateContentIcon" src="./assets/private.png">KEEP OUT! - Show private content</li>
-                    <li class="menuItem actionItem XXX private fw-bold" id="hidePrivateContent"><img id="hidePrivateContentIcon" src="./assets/hide.png">Hide private content</li>
-                    <li class="menuItem actionItem menuvisibleAfterStarted fw-bold" id="disableAllReminders"><img id="disableReminderIcon" src="./assets/x.png">Disable all reminders</li>
+                    <li class="menuItem actionItem XXX fw-bold" id="showVideodrome"><img id="videodromeIcon"
+                                                                                         src="./assets/videodrome.png">Show
+                        Videodrome
+                    </li>
+                    <li class="menuItem actionItem XXX fw-bold" id="showPrivateContent"><img id="showPrivateContentIcon"
+                                                                                             src="./assets/private.png">KEEP
+                        OUT! - Show private content
+                    </li>
+                    <li class="menuItem actionItem XXX private fw-bold" id="hidePrivateContent"><img
+                            id="hidePrivateContentIcon" src="./assets/hide.png">Hide private content
+                    </li>
+                    <li class="menuItem actionItem menuvisibleAfterStarted fw-bold" id="disableAllReminders"><img
+                            id="disableReminderIcon" src="./assets/x.png">Disable all reminders
+                    </li>
                     <div class="">-- <b>LINKS</b>
                         ----------------------------------------------------------------------
                     </div>
@@ -670,7 +681,7 @@
                 {{/videosLocal}}
             </div>
 
-            <div class="row d-flex justify-content-between">
+            <div id="videosMiscSection" class="row d-flex justify-content-between">
                 <div class="videoLinkTypeSeperator XXX videoContainer" id="miscVideoLinkTypeSeperator"></div>
                 <div class="videoContainer XXX searchBar col-12">
                     <img class="searchEdit cursorAction" src="./assets/edit.png">
@@ -939,6 +950,18 @@
                 <div class="colorfulBorder"></div>
             </div>
         </div>
+
+        <div class="videodromeRefreshContainer">
+            <img id="refreshVideoDromeVideo1" target="videoDromeVideo1" class="videodromeRefreshVideo cursorAction"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeVideo2" target="videoDromeVideo2" class="videodromeRefreshVideo cursorAction"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeVideo3" target="videoDromeVideo3" class="videodromeRefreshVideo cursorAction"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeVideo4" target="videoDromeVideo4" class="videodromeRefreshVideo cursorAction"
+                 src="./assets/refresh.png">
+        </div>
+
         <div id="videodromeContainer">
         </div>
     </div>
