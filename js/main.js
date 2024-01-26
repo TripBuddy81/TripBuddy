@@ -2553,7 +2553,7 @@ $( document ).ready( function () {
                 initVideodrome();
             } else {
                 $( '#showVideodrome' ).remove();
-                $( '.startVideodrome' ).remove();
+                $( '.startVideoDrome' ).remove();
             }
             var moveTimerVideodrome;
             $( '.videodromeVideoContainer' ).on( 'mousemove', function () {
