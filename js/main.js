@@ -1575,11 +1575,9 @@ $( document ).ready( function () {
             function changeStroboSpeed( stroboSpeed ) {
                 $( '#particles-js' ).css( 'animation', 'strobo1 ' + stroboSpeed + 'ms steps(1,end) infinite' );
                 if ( stroboSpeed > 0 ) {
-                    $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 20ms steps(1,end) infinite' );
-                    $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 55ms steps(1,end) infinite' );
+                    $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 15ms steps(1,end) infinite' );
                 } else {
                     $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
-                    $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 }
             }
 
@@ -1696,7 +1694,6 @@ $( document ).ready( function () {
                 stopShrineDisco();
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
-                $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 $( '.particles-js-canvas-el' ).remove();
                 particlesInit( showParticles );
             }
