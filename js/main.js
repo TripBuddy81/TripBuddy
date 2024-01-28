@@ -2641,7 +2641,11 @@ $( document ).ready( function () {
                 } );
 
                 $( '.' + target ).find( '.videoFrame' ).find( '.videoSource' ).attr( 'src', '' );
-                $( '.' + target ).find( '.videoFrame' ).get( 0 ).load();
+                try {
+                    $( '.' + target ).find( '.videoFrame' ).get( 0 ).load();
+                } catch ( e ) {
+                }
+
 
                 videodromeVideoContainer = $( '.' + target );
 
@@ -2659,7 +2663,10 @@ $( document ).ready( function () {
                     if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
                         if ( randomNumber == counter ) {
                             $( '.' + target ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ) );
-                            $( '.' + target ).find( '.videoFrame' ).get( 0 ).load();
+                            try {
+                                $( '.' + target ).find( '.videoFrame' ).get( 0 ).load();
+                            } catch ( e ) {
+                            }
                         }
                         counter++;
                     }
