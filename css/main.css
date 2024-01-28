@@ -1828,13 +1828,10 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodrome {
     display: none;
-    width: 100vW;
-    height: 100vH;
     position: fixed;
     z-index: 15;
     top: 0;
     left: 0;
-    background: black;
 }
 
 #videodrome .videoFrame {
@@ -1845,7 +1842,8 @@ video::-webkit-media-controls-fullscreen-button {
 .videodromeVideoContainer {
     width: 50vW;
     height: 50vH;
-    float: inline-end;
+    z-index: 20;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .videodromeRefreshContainer {
@@ -1855,14 +1853,13 @@ video::-webkit-media-controls-fullscreen-button {
     top: 43vH;
     left: 45vW;
     opacity: 0;
+    z-index: 25;
 }
 
 .videodromeRefreshContainer:hover {
     opacity: 1;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-    animation: animatedgradient 3s ease alternate infinite;
     border-radius: 5px;
-    z-index: 20;
 }
 
 #refreshVideoDromeVideo1, #refreshVideoDromeVideo2, #refreshVideoDromeVideo3, #refreshVideoDromeVideo4 {
@@ -1894,4 +1891,29 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100vW;
     height: 100vH;
     position: fixed;
+    z-index: 30;
+}
+
+.videoDromeVideo1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.videoDromeVideo2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.videoDromeVideo3 {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.videoDromeVideo4 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }

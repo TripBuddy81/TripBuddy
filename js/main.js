@@ -2601,6 +2601,7 @@ $( document ).ready( function () {
                 $( '#showVideodrome' ).remove();
                 $( '.startVideoDrome' ).hide();
             }
+
             var moveTimerVideodrome;
             $( '.videodromeVideoContainer' ).on( 'mousemove', function () {
                 clearTimeout( moveTimerVideodrome );
@@ -2616,8 +2617,7 @@ $( document ).ready( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
-                startPlaybackVideodrome();
-                /*videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );*/
+                videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );
             } );
 
             $( document ).on( 'click', '.videodromeVideoContainer', function ( event ) {
