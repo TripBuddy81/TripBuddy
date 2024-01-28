@@ -1650,12 +1650,14 @@ $( document ).ready( function () {
             } );
 
             function stopShrineDisco() {
+                if ( shrineDiscoActive ) {
+                    $( '.shrineColorfulBackground' ).trigger( 'click' );
+                }
                 shrineDiscoActive = false;
                 clearTimeout( shrineColorChangeTimer );
                 clearTimeout( shrineStroboChangeTimer );
                 stroboSpeed = 0;
                 changeStroboSpeed( stroboSpeed );
-                $( '.shrineColorfulBackground' ).trigger( 'click' );
                 $( '.particles-js-canvas-el' ).remove();
                 particlesInit( showParticles );
             }
