@@ -1820,7 +1820,8 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodrome {
     display: none;
-    width: 100%;
+    width: 100vW;
+    height: 100vH;
     position: fixed;
     z-index: 15;
     top: 0;

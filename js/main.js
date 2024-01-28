@@ -2575,7 +2575,8 @@ $( document ).ready( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
-                videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );
+                startPlaybackVideodrome();
+                /*videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );*/
             } );
 
             $( document ).on( 'click', '.videodromeVideoContainer', function ( event ) {
@@ -2594,9 +2595,12 @@ $( document ).ready( function () {
             $( '.videodromeRefreshVideo' ).click( function () {
                 target = $( this ).attr( 'target' );
 
-                $( '.' + target ).find( '.videoFrame' ).get( 0 ).pause();
-                $( '.' + target ).find( '.videoSource' ).attr( 'src', '' );
-                $( '.' + target ).empty();
+                $( '#videodromeContainer .videoFrame' ).each( function () {
+                    $( this )[0].pause();
+                } );
+
+                $( '.' + target ).find( '.videoFrame' ).find( '.videoSource' ).attr( 'src', '' );
+                $( '.' + target ).find( '.videoFrame' ).get( 0 ).load();
 
                 videodromeVideoContainer = $( '.' + target );
 
@@ -2613,10 +2617,14 @@ $( document ).ready( function () {
                 $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
                         if ( randomNumber == counter ) {
-                            $( this ).find( '.localVideo' ).clone().appendTo( videodromeVideoContainer );
+                            $( '.' + target ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ) );
+                            $( '.' + target ).find( '.videoFrame' ).get( 0 ).load();
                         }
                         counter++;
                     }
+                } );
+                $( '#videodromeContainer .videoFrame' ).each( function () {
+                    $( this )[0].play();
                 } );
             } );
 
