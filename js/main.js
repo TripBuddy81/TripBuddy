@@ -69,6 +69,9 @@ $( document ).ready( function () {
             var numberOfSelectableVideosVideodrome = 0;
             var alreadySelectedVideosVideodrome = [];
             var alreadySelectedColorsDisco = [];
+            var shrineColorChangeTimer = '';
+            var shrineStroboChangeTimer = '';
+            var shrineDiscoActive = false;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -1565,7 +1568,10 @@ $( document ).ready( function () {
                 } else {
                     stroboSpeed = 0;
                 }
+                changeStroboSpeed( stroboSpeed );
+            } );
 
+            function changeStroboSpeed( stroboSpeed ) {
                 if ( stroboBGWhite ) {
                     $( '#particles-js' ).css( 'animation', 'strobo2 ' + stroboSpeed + 'ms steps(1,end) infinite' );
                 } else {
@@ -1578,7 +1584,7 @@ $( document ).ready( function () {
                     $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                     $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 }
-            } );
+            }
 
             $( '#shrineToggleBWStrobo' ).click( function ( event ) {
                 if ( stroboBGWhite ) {
@@ -1646,8 +1652,32 @@ $( document ).ready( function () {
             } );
 
             $( '#shrineDiscoMode' ).click( function ( event ) {
-                shrineDiscoModeInterval = setInterval( switchDiscoColor, 3000 );
+                if ( shrineDiscoActive ) {
+                    stopShrineDisco();
+                } else {
+                    shrineDiscoActive = true;
+                    switchDiscoColor();
+                    triggerStrobo();
+                }
             } );
+
+            function stopShrineDisco() {
+                shrineDiscoActive = false;
+                clearTimeout( shrineColorChangeTimer );
+                clearTimeout(shrineStroboChangeTimer);
+                changeStroboSpeed( 0 );
+            }
+
+            function triggerStrobo() {
+                stroboSpeeds = [15,20];
+                stroboSpeedToSelect = Math.floor( Math.random() * (1 - 0 + 1) + 0 );
+                changeStroboSpeed( stroboSpeeds[stroboSpeedToSelect]);
+
+                max = 4;
+                min = 1;
+                nextStroboChange = Math.floor( Math.random() * (max - min + 1) + min );
+                shrineStroboChangeTimer = setTimeout( triggerStrobo, nextStroboChange * 1000 );
+            }
 
             function switchDiscoColor() {
                 randomNumber = Math.floor( Math.random() * (parseInt( config['shrineColors'].length + 1 ) - parseInt( 0 )) + parseInt( 0 ) ) + 1;
@@ -1665,16 +1695,21 @@ $( document ).ready( function () {
                     }
                     counter++;
                 } );
+
+                max = 4;
+                min = 1;
+                nextColorRefresh = Math.floor( Math.random() * (max - min + 1) + min );
+                shrineColorChangeTimer = setTimeout( switchDiscoColor, nextColorRefresh * 1000 );
             }
 
             function renderShrineSection( showParticles ) {
+                stopShrineDisco();
                 // reset strobo to default
                 stroboBGWhite = false;
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 $( '.particles-js-canvas-el' ).remove();
-                stroboSpeed = 0;
                 particlesInit( showParticles );
             }
 
