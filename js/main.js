@@ -91,7 +91,9 @@ $( document ).ready( function () {
                             $( '.videoMenuOverlayFullscreen' ).is( ':visible' ) ||
                             $( '#preFlightChecklist' ).is( ':visible' ) ||
                             $( '.displayedFullscreenImage' ).is( ':visible' ) ||
-                            $( '.keyboard-cancel-button' ).is( ':visible' )
+                            $( '.keyboard-cancel-button' ).is( ':visible' ) ||
+                            shrineDiscoActive ||
+                            stroboSpeed > 0
                     ) {
                         disableAllOverlaysAndFullscreenVideos();
                     } else {
@@ -1651,7 +1653,8 @@ $( document ).ready( function () {
                 shrineDiscoActive = false;
                 clearTimeout( shrineColorChangeTimer );
                 clearTimeout( shrineStroboChangeTimer );
-                changeStroboSpeed( 0 );
+                stroboSpeed = 0;
+                changeStroboSpeed( stroboSpeed );
                 $( '.shrineColorfulBackground' ).trigger( 'click' );
                 $( '.particles-js-canvas-el' ).remove();
                 particlesInit( showParticles );
@@ -2645,7 +2648,6 @@ $( document ).ready( function () {
                     $( '.' + target ).find( '.videoFrame' ).get( 0 ).load();
                 } catch ( e ) {
                 }
-
 
                 videodromeVideoContainer = $( '.' + target );
 
