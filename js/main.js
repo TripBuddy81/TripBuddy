@@ -44,7 +44,6 @@ $( document ).ready( function () {
             var textShrinkFrameSeed = 1;
             var spotifyOpened = false;
             var displayedAbsoluteTruthIndex = [];
-            var stroboBGWhite = false;
             var stroboSpeed = 0;
             var preFlightCheckListAnimationTimer = undefined;
             var absoluteTruthsTimer = undefined;
@@ -1572,11 +1571,7 @@ $( document ).ready( function () {
             } );
 
             function changeStroboSpeed( stroboSpeed ) {
-                if ( stroboBGWhite ) {
-                    $( '#particles-js' ).css( 'animation', 'strobo2 ' + stroboSpeed + 'ms steps(1,end) infinite' );
-                } else {
-                    $( '#particles-js' ).css( 'animation', 'strobo1 ' + stroboSpeed + 'ms steps(1,end) infinite' );
-                }
+                $( '#particles-js' ).css( 'animation', 'strobo1 ' + stroboSpeed + 'ms steps(1,end) infinite' );
                 if ( stroboSpeed > 0 ) {
                     $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 20ms steps(1,end) infinite' );
                     $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 55ms steps(1,end) infinite' );
@@ -1585,16 +1580,6 @@ $( document ).ready( function () {
                     $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 }
             }
-
-            $( '#shrineToggleBWStrobo' ).click( function ( event ) {
-                if ( stroboBGWhite ) {
-                    stroboBGWhite = false;
-                    $( '#particles-js' ).css( 'animation', 'strobo1 ' + stroboSpeed + 'ms steps(1,end) infinite' );
-                } else {
-                    stroboBGWhite = true;
-                    $( '#particles-js' ).css( 'animation', 'strobo2 ' + stroboSpeed + 'ms steps(1,end) infinite' );
-                }
-            } );
 
             $( '#shrine' ).mousemove( function ( event ) {
                 if ( event.pageY < 75 ) {
@@ -1658,6 +1643,7 @@ $( document ).ready( function () {
                     shrineDiscoActive = true;
                     switchDiscoColor();
                     triggerStrobo();
+                    particlesInit( true );
                 }
             } );
 
@@ -1666,6 +1652,9 @@ $( document ).ready( function () {
                 clearTimeout( shrineColorChangeTimer );
                 clearTimeout( shrineStroboChangeTimer );
                 changeStroboSpeed( 0 );
+                $( '.shrineColorfulBackground' ).trigger( 'click' );
+                $( '.particles-js-canvas-el' ).remove();
+                particlesInit( showParticles );
             }
 
             function triggerStrobo() {
@@ -1698,9 +1687,8 @@ $( document ).ready( function () {
             }
 
             function renderShrineSection( showParticles ) {
-                stopShrineDisco();
                 // reset strobo to default
-                stroboBGWhite = false;
+                stopShrineDisco();
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 $( '#absoluteTruthsOverlayText' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );

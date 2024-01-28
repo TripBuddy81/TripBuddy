@@ -1121,14 +1121,14 @@ var config = {
                 ],
                 'stroboSwitchTimings':
                         {
-                            'max': '5',
-                            'min': '1'
+                            'max': '45',
+                            'min': '15'
                         }
                 ,
                 'colorSwitchTimings':
                         {
-                            'max': '5',
-                            'min': '1'
+                            'max': '45',
+                            'min': '15'
                         }
             },
             'reminderSelection'      :

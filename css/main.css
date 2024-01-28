@@ -1068,7 +1068,7 @@ option {
     padding-left: 15px;
 }
 
-.shrineSetBGColor, .shrineSetBGColorful, .shrineToggleBWStrobo {
+.shrineSetBGColor, .shrineSetBGColorful {
     padding: 25px 25px 0px 25px;
     display: inline;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
@@ -1082,14 +1082,14 @@ option {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
-#shrineBGColorPickerImage, #shrineToggleBWStrobo {
+#shrineBGColorPickerImage {
     height: 60px;
     margin-bottom: 30px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
 }
 
 #shrineParticlesSwitch {
-    height: 59px;
+    height: 57px;
     margin-bottom: 30px;
     margin-left: 16px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
@@ -1105,12 +1105,12 @@ option {
 }
 
 #toggleAbsoluteThruth {
-    width: 50px;
-    height: 50px;
+    width: 55px;
     margin-bottom: 30px;
     margin-left: 3px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: 13px;
+    margin-top: 3px;
+    margin-right: 5px;
 }
 
 .input-group {
