@@ -1664,26 +1664,23 @@ $( document ).ready( function () {
             function stopShrineDisco() {
                 shrineDiscoActive = false;
                 clearTimeout( shrineColorChangeTimer );
-                clearTimeout(shrineStroboChangeTimer);
+                clearTimeout( shrineStroboChangeTimer );
                 changeStroboSpeed( 0 );
             }
 
             function triggerStrobo() {
-                stroboSpeeds = [15,20];
+                stroboSpeeds = [15, 20];
                 stroboSpeedToSelect = Math.floor( Math.random() * (1 - 0 + 1) + 0 );
-                changeStroboSpeed( stroboSpeeds[stroboSpeedToSelect]);
-
-                max = 4;
-                min = 1;
-                nextStroboChange = Math.floor( Math.random() * (max - min + 1) + min );
+                changeStroboSpeed( stroboSpeeds[stroboSpeedToSelect] );
+                nextStroboChange = Math.floor( Math.random() * (config['shrine']['stroboSwitchTimings']['max'] - config['shrine']['stroboSwitchTimings']['min'] + 1) + config['shrine']['stroboSwitchTimings']['min'] );
                 shrineStroboChangeTimer = setTimeout( triggerStrobo, nextStroboChange * 1000 );
             }
 
             function switchDiscoColor() {
-                randomNumber = Math.floor( Math.random() * (parseInt( config['shrineColors'].length + 1 ) - parseInt( 0 )) + parseInt( 0 ) ) + 1;
+                randomNumber = Math.floor( Math.random() * (parseInt( config['shrine']['shrineColors'].length + 1 ) - parseInt( 0 )) + parseInt( 0 ) ) + 1;
                 while ( alreadySelectedColorsDisco.indexOf( randomNumber ) !== -1 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( config['shrineColors'].length + 1 ) - parseInt( 0 )) + parseInt( 0 ) ) + 1;
-                    if ( alreadySelectedColorsDisco.length >= config['shrineColors'].length ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( config['shrine']['shrineColors'].length + 1 ) - parseInt( 0 )) + parseInt( 0 ) ) + 1;
+                    if ( alreadySelectedColorsDisco.length >= config['shrine']['shrineColors'].length ) {
                         alreadySelectedColorsDisco = [];
                     }
                 }
@@ -1696,9 +1693,7 @@ $( document ).ready( function () {
                     counter++;
                 } );
 
-                max = 4;
-                min = 1;
-                nextColorRefresh = Math.floor( Math.random() * (max - min + 1) + min );
+                nextColorRefresh = Math.floor( Math.random() * (config['shrine']['colorSwitchTimings']['max'] - config['shrine']['colorSwitchTimings']['min'] + 1) + config['shrine']['colorSwitchTimings']['min'] );
                 shrineColorChangeTimer = setTimeout( switchDiscoColor, nextColorRefresh * 1000 );
             }
 

@@ -813,9 +813,11 @@
                             <input type="color" id="shrineBGColorPicker" style="display: none">
                         </label>
                         <div class="shrineSetBGColor" style="background-color:#000000;">&nbsp;</div>
+                        {{#shrine}}
                         {{#shrineColors}}
                         <div class="shrineSetBGColor shrineDiscoColor" style="background-color:{{value}};">&nbsp;</div>
                         {{/shrineColors}}
+                        {{/shrine}}
                         <div class="shrineSetBGColorful shrineDiscoColor shrineColorfulBackground">&nbsp;</div>
                     </div>
                 </div>
