@@ -1054,7 +1054,7 @@ option {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 360px;
+    width: 480px;
     opacity: 0;
     z-index: 6;
 }
@@ -1089,6 +1089,14 @@ option {
 }
 
 #shrineParticlesSwitch {
+    height: 59px;
+    margin-bottom: 30px;
+    margin-left: 16px;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    margin-top: 3px;
+}
+
+#shrineDiscoMode {
     height: 59px;
     margin-bottom: 30px;
     margin-left: 16px;

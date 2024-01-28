@@ -123,6 +123,10 @@ var config = {
                 'id'   : '41pYoxyRHKKuqqSXcUnlHI'
             },
             {
+                'label': 'Vietnam Era',
+                'id'   : '5FG7eCXIzFJVbhar5OpjtM'
+            },
+            {
                 'label': 'Psychedelic Rock',
                 'id'   : '1J2Q32HV4PbVhlhNTensBV'
             },
@@ -1100,6 +1104,20 @@ var config = {
     ],
     'externalVideoLinks'     : [],
     'externalPicLinks'       : [],
+    'shrineColors'           : [
+        {
+            'value': '#FF5729'
+        },
+        {
+            'value': '#3940FE'
+        },
+        {
+            'value': '#FFF82E'
+        },
+        {
+            'value': '#24FF65'
+        }
+    ],
     'reminderSelection'      : [
         {'reminder': 'Write a letter'},
         {'reminder': 'Drink Tea'},

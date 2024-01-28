@@ -68,6 +68,7 @@ $( document ).ready( function () {
             var searchEditClicked = false;
             var numberOfSelectableVideosVideodrome = 0;
             var alreadySelectedVideosVideodrome = [];
+            var alreadySelectedColorsDisco = [];
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -1643,6 +1644,28 @@ $( document ).ready( function () {
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
                 absoluteTruthsUpdate( true );
             } );
+
+            $( '#shrineDiscoMode' ).click( function ( event ) {
+                shrineDiscoModeInterval = setInterval( switchDiscoColor, 3000 );
+            } );
+
+            function switchDiscoColor() {
+                randomNumber = Math.floor( Math.random() * (parseInt( config['shrineColors'].length + 1 ) - parseInt( 0 )) + parseInt( 0 ) ) + 1;
+                while ( alreadySelectedColorsDisco.indexOf( randomNumber ) !== -1 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( config['shrineColors'].length + 1 ) - parseInt( 0 )) + parseInt( 0 ) ) + 1;
+                    if ( alreadySelectedColorsDisco.length >= config['shrineColors'].length ) {
+                        alreadySelectedColorsDisco = [];
+                    }
+                }
+                alreadySelectedColorsDisco.push( randomNumber );
+                counter = 1;
+                $( '.shrineDiscoColor' ).each( function () {
+                    if ( counter == randomNumber ) {
+                        $( this ).trigger( 'click' );
+                    }
+                    counter++;
+                } );
+            }
 
             function renderShrineSection( showParticles ) {
                 // reset strobo to default

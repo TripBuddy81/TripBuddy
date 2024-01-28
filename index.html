@@ -813,9 +813,10 @@
                             <input type="color" id="shrineBGColorPicker" style="display: none">
                         </label>
                         <div class="shrineSetBGColor" style="background-color:#000000;">&nbsp;</div>
-                        <div class="shrineSetBGColor" style="background-color:#FE2020;">&nbsp;</div>
-                        <div class="shrineSetBGColor" style="background-color:#6f42c1;">&nbsp;</div>
-                        <div class="shrineSetBGColorful shrineColorfulBackground">&nbsp;</div>
+                        {{#shrineColors}}
+                        <div class="shrineSetBGColor shrineDiscoColor" style="background-color:{{value}};">&nbsp;</div>
+                        {{/shrineColors}}
+                        <div class="shrineSetBGColorful shrineDiscoColor shrineColorfulBackground">&nbsp;</div>
                     </div>
                 </div>
                 <div class="row">
@@ -824,6 +825,7 @@
                             <img id="shrineToggleBWStrobo" src="./assets/blackAndWhite.png">
                             <img id="shrineStroboSpeed" src="./assets/strobo.png">
                             <img id="shrineParticlesSwitch" src="./assets/particle.png">
+                            <img id="shrineDiscoMode" src="./assets/sparkle.png">
                         </div>
                     </div>
                 </div>
