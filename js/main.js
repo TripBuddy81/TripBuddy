@@ -342,7 +342,9 @@ $( document ).ready( function () {
                 hideScreensaverEnso();
             } );
 
-            // Global key captures
+            // Main Menu END
+            // ***********************************
+
             var rightMouseClicked = false;
             $( '#activateHiddenMenue' ).mousedown( function ( event ) {
                 switch ( event.which ) {
@@ -358,12 +360,6 @@ $( document ).ready( function () {
                     case 3:
                         rightMouseClicked = true;
                         break;
-                }
-            } );
-
-            $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
-                if ( !isFullScreen && !e.target.classList.contains( 'externalVideoPreview' ) ) {
-                    enableFullscreen();
                 }
             } );
 
@@ -450,8 +446,15 @@ $( document ).ready( function () {
                 checkPrivateVisible();
             } );
 
+            $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
+                if ( !isFullScreen && !e.target.classList.contains( 'externalVideoPreview' ) ) {
+                    enableFullscreen();
+                }
+            } );
+
             // Start button & preFlightChecklist & Reminders
             $( '#launchText' ).click( function ( e ) {
+                enableFullscreen();
                 if ( $( '#topupCheckbox1' ).is( ':checked' ) ) {
                     localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
                 } else {
@@ -467,7 +470,6 @@ $( document ).ready( function () {
                 } else {
                     localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
                 }
-                enableFullscreen();
 
                 if ( !allVideosLoaded ) {
                     loadAllVideos();
@@ -2611,7 +2613,6 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showVideodrome'] != undefined && config['localSettingsOverwrite']['showVideodrome'] ) {
                 initVideodrome();
             } else {
-                $( '#showVideodrome' ).remove();
                 $( '.startVideoDrome' ).hide();
             }
 
@@ -2626,7 +2627,7 @@ $( document ).ready( function () {
                 $( '.videoMenuOverlay' ).show();
             } );
 
-            $( '#showVideodrome,.startVideoDrome' ).click( function () {
+            $( '.startVideoDrome' ).click( function () {
                 enableFullscreen();
                 videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );
             } );
