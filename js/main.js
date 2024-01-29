@@ -178,6 +178,10 @@ $( document ).ready( function () {
                 $( '#launchSymbol' ).attr( 'src', './assets/ufo.png' );
                 $( '.iFrameContainer ' ).show();
                 hideScreensaverEnso();
+            } else {
+                $( '.firefoxScrollbar' ).each( function () {
+                    $( this ).removeClass( 'firefoxScrollbar' );
+                } );
             }
 
             // Check if some settings are ovewritten in local config
