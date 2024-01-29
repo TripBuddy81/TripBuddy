@@ -1088,12 +1088,12 @@ $( document ).ready( function () {
                 checkPrivateVisible();
             } );
 
-            // Double clicking videos main button loads all videos if in fast mode
+            // Double clicking videos main button reloads all videos
             $( '#showVideoSection' ).dblclick( function ( e ) {
                 loadAllVideos();
             } );
 
-            // reload videos of given tag if double clicking on video tag
+            // Reload videos of given tag if double clicking on video tag
             $( '.videoFilterBtn' ).dblclick( function ( e ) {
                 $( videoTagList ).each( function () {
                     if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
@@ -1130,6 +1130,7 @@ $( document ).ready( function () {
                 colorfulBorder.classList.add( 'lastPlayedVideo' );
                 $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
+
             $( '.videoHasSound' ).click( function ( event ) {
                 playYoutubeVideo( $( this ).closest( '.iFrameContainer' ).find( '.youtubeVideo ' ), true );
             } );
@@ -1188,7 +1189,7 @@ $( document ).ready( function () {
                 }
             }
 
-            // Local Video minimized iFrame overlay
+            // Local Video minimized overlay
             $( document ).on( 'click', '.localVideoOverlay', function ( event ) {
                 blockScreenSaver = true;
                 enableFullscreen();
@@ -1220,7 +1221,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            // Misc Video minimized iFrame overlay
+            // Misc Video minimized overlay
             $( '.miscVideoOverlay' ).click( function ( event ) {
                 blockScreenSaver = true;
                 enableFullscreen();
@@ -1238,7 +1239,7 @@ $( document ).ready( function () {
                 $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
 
-            // mainSearchResultYoutube Video iFrame fullscreen button overlay
+            // mainSearchResultYoutube Video fullscreen overlay
             $( '.mainSearchResultVideoOverlay' ).click( function ( event ) {
                 blockScreenSaver = true;
                 enableFullscreen();
@@ -1278,10 +1279,6 @@ $( document ).ready( function () {
                     stopAllActions();
                 }
             }
-
-            $( '.videoFrame' ).click( function ( event ) {
-                this.paused ? this.play() : this.pause();
-            } );
 
             // XXX section within video
             $( '.searchLink' ).on( 'mousedown', document, function ( e ) {
