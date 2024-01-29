@@ -1,5 +1,17 @@
 $( document ).ready( function () {
+            // Index:
+            // #0 - Main section
+            // #1 - Video section
+            // #2 - Image section
+            // #3 - Shrine section
+            // #4 - Game section
+            // #5 - Music section
+            // #6 - Search Youtube section
+            // #7 - Videodrome section
+            // #9 - initial init section
+
             // ***********************************
+            // #0 - Main section
             // Globals
             window.spotifyHasBeenPlayingBeforePause = false;
             window.spotifySongRadioQueue = '';
@@ -98,11 +110,11 @@ $( document ).ready( function () {
                             shrineDiscoActive ||
                             stroboSpeed > 0
                     ) {
-                        disableAllOverlaysAndFullscreenVideos();
+                        stopAllActions();
                     } else {
                         $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
                         $( '#spotifyPlaylistsMenu' ).animate( {scrollTop: 0}, 'fast' );
-                        disableAllOverlaysAndFullscreenVideos( false );
+                        stopAllActions( false );
                     }
                     $( '#mainMenu' ).show();
                     return false;
@@ -320,7 +332,7 @@ $( document ).ready( function () {
                 } );
                 $( this ).toggleClass( 'mainSectionActive' );
 
-                disableAllOverlaysAndFullscreenVideos();
+                stopAllActions();
                 checkPrivateVisible();
                 enableFullscreen();
                 hideScreensaverEnso();
@@ -550,7 +562,7 @@ $( document ).ready( function () {
                     $( '#disableAllReminders' ).hide();
                 }
 
-                // some settings get different start values after liftof
+                // after liftoff the screensaver takes longer to start
                 screensaverStartAfterSeconds = 60;
             } );
 
@@ -789,7 +801,7 @@ $( document ).ready( function () {
             }
 
             function showTimedRecommendation( recommendationText ) {
-                disableAllOverlaysAndFullscreenVideos();
+                stopAllActions();
 
                 $( '#timedRecommendation' ).modal( 'show' );
                 $( '#topupRecommendation' ).html( recommendationText );
@@ -807,7 +819,8 @@ $( document ).ready( function () {
                 } );
             }
 
-            function disableAllOverlaysAndFullscreenVideos( hidePlaylistSelection = true, quickTrackSelection = true ) {
+            // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
+            function stopAllActions( hidePlaylistSelection = true, quickTrackSelection = true ) {
                 if ( hidePlaylistSelection ) {
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                 }
@@ -953,7 +966,7 @@ $( document ).ready( function () {
             } )
 
             // ***********************************
-            // Video section
+            // #1 - Video section
             // Youtube Player API init
             var tag = document.createElement( 'script' );
             tag.src = 'https://www.youtube.com/iframe_api';
@@ -1238,7 +1251,7 @@ $( document ).ready( function () {
             } );
 
             $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
-                disableAllOverlaysAndFullscreenVideos();
+                stopAllActions();
             } );
 
             // Show cursor when moving mouse
@@ -1262,7 +1275,7 @@ $( document ).ready( function () {
             function exitHandler() {
                 if ( !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement ) {
                     isFullScreen = false;
-                    disableAllOverlaysAndFullscreenVideos();
+                    stopAllActions();
                 }
             }
 
@@ -1347,7 +1360,7 @@ $( document ).ready( function () {
             // ******************************************
 
             // ******************************************
-            // Image section
+            // #2 - Image section
             var numberOfImagesWithTag = {};
             $.each( config['images'], function ( index, val ) {
                 if ( numberOfImagesWithTag[val['tags']] == undefined ) {
@@ -1542,7 +1555,7 @@ $( document ).ready( function () {
             // ******************************************
 
             // ******************************************
-            // Shrine section
+            // #3 - Shrine section
             renderShrineSection( showParticles );
             absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
 
@@ -1776,7 +1789,7 @@ $( document ).ready( function () {
             // ******************************************
 
             // ******************************************
-            // Game section
+            // #4 - Game section
             $( '#gamesFrame' ).mousemove( function ( event ) {
                 $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                 $( '#gamesLinks' ).hide();
@@ -1813,13 +1826,13 @@ $( document ).ready( function () {
             // ******************************************
 
             // ******************************************
-            // Music section
+            // #5 - Music section
             redirect_uri = config['oAuthSpotify'][0]['redirect_uri'];
             client_id = config['oAuthSpotify'][0]['client_id'];
             client_secret = config['oAuthSpotify'][0]['client_secret'];
 
             $( '#openAddToQueueMenu' ).click( function () {
-                disableAllOverlaysAndFullscreenVideos( true, false );
+                stopAllActions( true, false );
                 $( '#quickTrackSelectionMenu' ).toggleClass( 'menuTransition' );
                 $( '#quickTrackSelectionMenu' ).animate( {scrollTop: 0}, 'fast' );
             } );
@@ -1827,7 +1840,7 @@ $( document ).ready( function () {
             $( '#spotifyPlaylists' ).click( function () {
                 $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
                 $( '#spotifyPlaylistsMenu' ).animate( {scrollTop: 0}, 'fast' );
-                disableAllOverlaysAndFullscreenVideos( false );
+                stopAllActions( false );
             } );
 
             $( '.spotifyPlaylistItem,.currentTrackAction' ).click( function () {
@@ -2073,7 +2086,7 @@ $( document ).ready( function () {
             // ******************************************
 
             // ******************************************
-            // Search Youtube section
+            // #6 - Search Youtube section
             displayYoutubeQueue();
             searchYoutube( youtubeIntitalSearchTerm );
 
@@ -2609,7 +2622,7 @@ $( document ).ready( function () {
 
 
             // ******************************************
-            // Videodrome section
+            // #7 - Videodrome section
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showVideodrome'] != undefined && config['localSettingsOverwrite']['showVideodrome'] ) {
                 initVideodrome();
             } else {
@@ -2739,7 +2752,7 @@ $( document ).ready( function () {
 
 
             // ******************************************
-            // init initial view
+            // #9 - initial init section
             if ( urlParams.get( 'section' ) != undefined && urlParams.get( 'section' ) == 'shrine' ) {
                 $( '#meditativefilter' ).trigger( 'click' );
                 $( '#showShrineSection' ).trigger( 'click' );
