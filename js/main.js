@@ -1585,6 +1585,7 @@ $( document ).ready( function () {
             } );
 
             $( '#shrineStroboSpeed' ).click( function ( event ) {
+                enableFullscreen();
                 if ( stroboSpeed == 0 ) {
                     stroboSpeed = 15;
                 } else if ( stroboSpeed == 15 ) {
@@ -1660,6 +1661,7 @@ $( document ).ready( function () {
             } );
 
             $( '#shrineDiscoMode' ).click( function ( event ) {
+                enableFullscreen();
                 if ( shrineDiscoActive ) {
                     stopShrineDisco();
                 } else {
