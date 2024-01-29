@@ -1417,7 +1417,7 @@ $( document ).ready( function () {
             } );
 
             // Image selection via mouse wheel
-            $( window ).on( 'wheel', function ( event ) {
+            $( document ).on( 'wheel', '.displayedFullscreenImage', function ( event ) {
                 if ( $( 'body figure' ).length == 1 ) {
                     event.preventDefault();
                     event.stopPropagation();
