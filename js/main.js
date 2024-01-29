@@ -1563,11 +1563,10 @@ $( document ).ready( function () {
             $( '#shrineParticlesSwitch' ).click( function ( event ) {
                 if ( !showParticles ) {
                     showParticles = true;
-                    $( '.particles-js-canvas-el' ).remove();
-                    particlesInit( showParticles );
+                    $( '.particles-js-canvas-el' ).show();
                 } else {
                     showParticles = false;
-                    $( '.particles-js-canvas-el' ).remove();
+                    $( '.particles-js-canvas-el' ).hide();
                 }
             } );
 
@@ -1665,13 +1664,10 @@ $( document ).ready( function () {
                     stopShrineDisco();
                 } else {
                     shrineDiscoActive = true;
+                    showParticles = true;
+                    $( '.particles-js-canvas-el' ).show();
                     switchDiscoColor();
                     triggerStrobo();
-                    if ( !showParticles ) {
-                        showParticles = true;
-                        $( '.particles-js-canvas-el' ).remove();
-                        particlesInit( showParticles );
-                    }
                 }
             } );
 
@@ -1720,10 +1716,14 @@ $( document ).ready( function () {
                 stopShrineDisco();
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
-                if ( showParticles && showParticlesFirstTime ) {
+                if ( showParticlesFirstTime ) {
                     showParticlesFirstTime = false;
-                    $( '.particles-js-canvas-el' ).remove();
-                    particlesInit( showParticles );
+                    particlesInit( true );
+                }
+                if ( !showParticles ) {
+                    $( '.particles-js-canvas-el' ).hide();
+                } else {
+                    $( '.particles-js-canvas-el' ).show();
                 }
             }
 
