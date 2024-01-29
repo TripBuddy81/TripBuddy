@@ -1927,6 +1927,10 @@ $( document ).ready( function () {
 
                 $( '#spotifyLogin' ).hide();
 
+                if ( config['spotifySaveToPlaylistId'] == undefined && config['spotifySaveToPlaylistId'] != '' ) {
+                    $( '.addToFavorites' ).hide();
+                }
+
                 $( document ).on( 'click', '.spotifyTrackContainer', function ( e ) {
                     spotifyAddToQueue( $( this ).attr( 'id' ) );
                     $( this ).hide();
@@ -1992,6 +1996,7 @@ $( document ).ready( function () {
                     openSpotifyApp();
                     playNextYoutubeVideoOrSpotifyTrack();
                 } );
+
                 $( '#switchDesktopPhone' ).click( function () {
                     if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( config['spotifyMainPlayerName'].toLowerCase() ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
                         transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
@@ -2000,6 +2005,7 @@ $( document ).ready( function () {
                         transfer( $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val() );
                     }
                 } );
+
                 $( '#devices' ).change( function () {
                     transfer( $( '#devices' ).find( ':selected' ).val() );
                     closeRightMenu();
@@ -2012,10 +2018,6 @@ $( document ).ready( function () {
                 $( '.addToFavorites' ).click( function ( e ) {
                     addTrackToPlaylist( config['spotifySaveToPlaylistId'], $( '.spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
                 } );
-
-                if ( config['spotifySaveToPlaylistId'] == undefined && config['spotifySaveToPlaylistId'] != '' ) {
-                    $( '.addToFavorites' ).hide();
-                }
 
                 $( '.createSongRadio' ).click( function ( e ) {
                     createSongRadio( $( '.spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id' ) );
@@ -2044,7 +2046,7 @@ $( document ).ready( function () {
                 }
 
             } else {
-                // Stand alone iFrame Spotify Player
+                // Stand alone embedded iFrame Spotify Player
                 $( '#oAuthPlayerControl' ).remove();
                 $( '#devices' ).attr( 'style', 'visibility:hidden' );
                 $( '#spotifyLogout' ).hide();
@@ -2644,7 +2646,7 @@ $( document ).ready( function () {
                 videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );
             } );
 
-            $( document ).on( 'click', '.videodromeVideoContainer', function ( event ) {
+            $( '.videodromeVideoContainer' ).click( function () {
                 $( this ).toggleClass( 'videodromeFullscreen' );
             } );
 
@@ -2694,6 +2696,7 @@ $( document ).ready( function () {
                         counter++;
                     }
                 } );
+
                 $( '#videodromeContainer .videoFrame' ).each( function () {
                     $( this )[0].play();
                 } );
