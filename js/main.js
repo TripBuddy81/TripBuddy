@@ -1571,10 +1571,12 @@ $( document ).ready( function () {
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
             } );
+
             document.getElementById( 'shrineBGColorPicker' ).addEventListener( 'input', function () {
                 $( '#shrine' ).css( 'background-color', $( '#shrineBGColorPicker' ).val() );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
             } );
+
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
             } );
@@ -1642,11 +1644,11 @@ $( document ).ready( function () {
             } );
 
             $( '#toggleAbsoluteThruth' ).click( function ( e ) {
-                $( '#absoluteTruthsOverlay' ).toggle();
                 enableFullscreen();
+                $( '#absoluteTruthsOverlay' ).toggle();
             } );
 
-            $( window ).on( 'wheel', function ( event ) {
+            $( '#particles-js' ).on( 'wheel', function ( event ) {
                 stopScreensaver();
                 enableFullscreen();
                 clearInterval( absoluteTruthsTimer );
