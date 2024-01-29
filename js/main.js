@@ -1892,12 +1892,12 @@ $( document ).ready( function () {
                         !$( event.target ).hasClass( 'externalVideoPreview' )
                 ) {
                     e.preventDefault();
-                    openDesktopApp();
+                    openSpotifyApp();
                     playNextYoutubeVideoOrSpotifyTrack();
                 }
             } );
 
-            function openDesktopApp() {
+            function openSpotifyApp() {
                 if ( config['spotifyMainPlayerName'] != '' &&
                         config['spotifyMainPlayerName'].indexOf( 'DESKTOP' ) >= 0 &&
                         localStorage.getItem( 'access_token' ) != null &&
@@ -1940,7 +1940,7 @@ $( document ).ready( function () {
                         $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                     } else if ( e.which == 1 ) {
                         $( '#spotifyPlaylists' ).html( '...' );
-                        openDesktopApp();
+                        openSpotifyApp();
                         markYoutubeAsActiveAudioSource( false );
                         try {
                             mainSearchResultYoutubePlayer.mute();
@@ -1989,14 +1989,14 @@ $( document ).ready( function () {
                 } );
 
                 $( '#next' ).click( function () {
-                    openDesktopApp();
+                    openSpotifyApp();
                     playNextYoutubeVideoOrSpotifyTrack();
                 } );
                 $( '#switchDesktopPhone' ).click( function () {
                     if ( $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( config['spotifyMainPlayerName'].toLowerCase() ) && typeof $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() != 'undefined' ) {
                         transfer( $( '#devices option:contains("' + config['spotifyPhoneName'] + '")' ).val() );
                     } else if ( config['spotifyMainPlayerName'] != '' && !$( '#devices' ).find( ':selected' ).text().toLowerCase().includes( config['spotifyMainPlayerName'].toLowerCase() ) ) {
-                        openDesktopApp();
+                        openSpotifyApp();
                         transfer( $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val() );
                     }
                 } );
