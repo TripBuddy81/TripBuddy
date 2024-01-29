@@ -75,6 +75,7 @@ $( document ).ready( function () {
 
             const urlParams = new URLSearchParams( window.location.search );
 
+            // Merge optionalConfig with global config
             Object.assign( config, optionalConfig );
             if ( optionalConfig['imagesXXX'] != undefined ) {
                 config['images'] = config['images'].concat( optionalConfig['imagesXXX'] );
@@ -84,7 +85,8 @@ $( document ).ready( function () {
             }
 
             $( document ).bind( 'contextmenu', function ( e ) {
-                // Disable right click context menu and show playlist selection instead
+                // Disable right click context menu
+                // Stops current action or shows playlist selection if nothing else going in right now
                 if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#videodrome' ).is( ':visible' ) ||
@@ -104,7 +106,7 @@ $( document ).ready( function () {
                     }
                     $( '#mainMenu' ).show();
                     return false;
-                } else if ( $( e.target ).attr( 'type' ) == 'text' ) { // paste text into text filed
+                } else if ( $( e.target ).attr( 'type' ) == 'text' ) { // paste text into text field
                     navigator.clipboard.readText()
                     .then( text => {
                         $( e.target ).val( text );
@@ -115,7 +117,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            // Handlebar renderer and helper functions - takes config within config/config.js
+            // Handlebar renderer and helper functions - takes combined config within config/config.js
             Handlebars.registerHelper( 'if', function ( v1, v2, options ) {
                 if ( v1 === v2 ) {
                     return options.fn( this );
@@ -1397,23 +1399,21 @@ $( document ).ready( function () {
 
             // Show timer in image when moving mouse
             var moveTimerFullscreenSlideshow;
-            $( document ).mousemove( function () {
-                $( '.displayedFullscreenImage' ).on( 'mousemove', function () {
-                    if ( !slideshowJustStarted ) {
-                        clearTimeout( moveTimerFullscreenSlideshow );
-                        clearInterval( imageSlideshowInterval );
-                        moveTimerFullscreenSlideshow = setTimeout( function () {
-                            $( '.videoMenuOverlay' ).hide();
-                            $( '.displayedFullscreenImage' ).css( 'cursor', 'none' );
-                        }, 1500 );
-                        $( '.videoMenuOverlay' ).show();
-                        $( '.displayedFullscreenImage' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                    }
-                } );
-
-                $( '.imageSlideshowControls' ).on( 'mousemove', function () {
+            $( document ).on( 'mousemove', '.displayedFullscreenImage', function () {
+                if ( !slideshowJustStarted ) {
                     clearTimeout( moveTimerFullscreenSlideshow );
-                } );
+                    clearInterval( imageSlideshowInterval );
+                    moveTimerFullscreenSlideshow = setTimeout( function () {
+                        $( '.videoMenuOverlay' ).hide();
+                        $( '.displayedFullscreenImage' ).css( 'cursor', 'none' );
+                    }, 1500 );
+                    $( '.videoMenuOverlay' ).show();
+                    $( '.displayedFullscreenImage' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                }
+            } );
+
+            $( document ).on( 'mousemove', '.imageSlideshowControls', function () {
+                clearTimeout( moveTimerFullscreenSlideshow );
             } );
 
             // Image selection via mouse wheel
@@ -2628,8 +2628,6 @@ $( document ).ready( function () {
 
             $( '#showVideodrome,.startVideoDrome' ).click( function () {
                 enableFullscreen();
-                blockScreenSaver = true;
-                $( '#videodrome' ).show();
                 videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );
             } );
 
@@ -2689,12 +2687,15 @@ $( document ).ready( function () {
             } );
 
             function startPlaybackVideodrome() {
+                blockScreenSaver = true;
+                $( '#videodrome' ).show();
                 $( '#videodromeContainer .videoFrame' ).each( function () {
                     $( this )[0].play();
                 } );
             }
 
             function stopPlaybackVideodrome() {
+                blockScreenSaver = false;
                 $( '#videodrome' ).hide();
                 clearInterval( videodromePlayInterval );
                 $( '#videodromeContainer .videoFrame' ).each( function () {
