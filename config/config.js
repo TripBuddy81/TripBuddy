@@ -91,6 +91,10 @@ var config = {
                         'id'   : '7rDDQh788CX392cb9oWSL7'
                     },
                     {
+                        'label': 'Psychamber',
+                        'id'   : '1z2HVIgmaCbPmro2oprLf5'
+                    },
+                    {
                         'label': 'Psybass',
                         'id'   : '0O1C7wbOthIxBbai9pYvEH'
                     }
@@ -101,10 +105,6 @@ var config = {
                         'id'     : '3cI5LgUXoJoDlUiPRbDudF',
                         'shuffle': false,
                         'repeat' : false
-                    },
-                    {
-                        'label': 'Evergreens',
-                        'id'   : '7g8rnKlz6bcoVxwp6Rxwt1'
                     },
                     {
                         'label': 'Celtic',

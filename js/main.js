@@ -352,7 +352,6 @@ $( document ).ready( function () {
             }
 
             $( '#menuClose' ).click( function () {
-                enableFullscreen();
                 $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                 $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                 hideScreensaverEnso();
