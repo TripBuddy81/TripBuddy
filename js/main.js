@@ -1722,10 +1722,16 @@ $( document ).ready( function () {
                     particlesInit( true );
                 }
                 if ( !showParticles ) {
-                    $( '.particles-js-canvas-el' ).hide();
+                    setTimeout( function () {
+                        $( '.particles-js-canvas-el' ).hide();
+                    }, 100 );
+
                 } else {
-                    $( '.particles-js-canvas-el' ).show();
+                    setTimeout( function () {
+                        $( '.particles-js-canvas-el' ).show();
+                    }, 100 );
                 }
+                $( '.particles-js-canvas-el' ).show();
             }
 
             function absoluteTruthsUpdate( quickSwap = false ) {
