@@ -238,29 +238,36 @@ $( document ).ready( function () {
                     case 37: // left
                         if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
                             spotifyPause();
+                            e.preventDefault();
                         }
                         break;
                     case 38: // up
-                        $( '#openAddToQueueMenu' ).trigger( 'click' );
+                        if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
+                            $( '#openAddToQueueMenu' ).trigger( 'click' );
+                            e.preventDefault();
+                        }
                         break;
                     case 39: // right
                         if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
                             playNextYoutubeVideoOrSpotifyTrack();
+                            e.preventDefault();
                         }
                         break;
                     case 40: // down
-                        if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
-                            $( '#showShrineSection' ).trigger( 'click' );
-                            $( '#mainMenu' ).attr( 'style', 'opacity:0' );
-                            $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                        if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
+                            if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
+                                $( '#showShrineSection' ).trigger( 'click' );
+                                $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                                $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                            }
+                            startDiscoMode();
+                            nextDiscoMode();
+                            e.preventDefault();
                         }
-                        startDiscoMode();
-                        nextDiscoMode();
                         break;
                     default:
-                        return; // exit this handler for other keys
+                        return;
                 }
-                e.preventDefault();
             };
 
             // Init gradient background
