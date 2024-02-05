@@ -241,6 +241,7 @@ $( document ).ready( function () {
                         }
                         break;
                     case 38: // up
+                        nextDiscoMode();
                         break;
                     case 39: // right
                         if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
@@ -248,6 +249,7 @@ $( document ).ready( function () {
                         }
                         break;
                     case 40: // down
+                        nextDiscoMode();
                         break;
                     default:
                         return; // exit this handler for other keys
@@ -1695,13 +1697,17 @@ $( document ).ready( function () {
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
                 absoluteTruthsUpdate( true );
 
+                nextDiscoMode();
+            } );
+
+            function nextDiscoMode() {
                 if ( shrineDiscoActive ) {
                     clearTimeout( shrineColorChangeTimer );
                     clearTimeout( shrineStroboChangeTimer );
                     switchDiscoColor();
                     triggerStrobo();
                 }
-            } );
+            }
 
             $( '#shrineDiscoMode' ).click( function ( event ) {
                 enableFullscreen();
@@ -1713,8 +1719,7 @@ $( document ).ready( function () {
                     showParticlesBeforeDisco = showParticles;
                     showParticles = true;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
-                    switchDiscoColor();
-                    triggerStrobo();
+                    nextDiscoMode();
                 }
             } );
 
@@ -1724,9 +1729,7 @@ $( document ).ready( function () {
                 } else {
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                 }
-                if ( shrineDiscoActive ) {
-                    $( '.shrineColorfulBackground' ).trigger( 'click' );
-                }
+                $( '.shrineColorfulBackground' ).trigger( 'click' );
                 shrineDiscoActive = false;
                 clearTimeout( shrineColorChangeTimer );
                 clearTimeout( shrineStroboChangeTimer );
