@@ -892,6 +892,8 @@ $( document ).ready( function () {
                 clearInterval( preFlightCheckListAnimationTimer );
                 hideScreensaverEnso();
                 stopScreensaver();
+
+                $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
             }
 
             // Toggle Fullscreen button
