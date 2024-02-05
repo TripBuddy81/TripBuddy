@@ -1717,7 +1717,6 @@ $( document ).ready( function () {
             $( '#shrineDiscoMode' ).click( function ( event ) {
                 enableFullscreen();
                 if ( shrineDiscoActive ) {
-                    showParticles = showParticlesBeforeDisco;
                     stopShrineDisco();
                 } else {
                     startDiscoMode();
@@ -1733,6 +1732,7 @@ $( document ).ready( function () {
             }
 
             function stopShrineDisco() {
+                showParticles = showParticlesBeforeDisco;
                 if ( !showParticles ) {
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
                 } else {
