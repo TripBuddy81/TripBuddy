@@ -241,6 +241,12 @@ $( document ).ready( function () {
                         }
                         break;
                     case 38: // up
+                        if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
+                            $( '#showShrineSection' ).trigger( 'click' );
+                            $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                            $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                        }
+                        startDiscoMode();
                         nextDiscoMode();
                         break;
                     case 39: // right
@@ -249,6 +255,12 @@ $( document ).ready( function () {
                         }
                         break;
                     case 40: // down
+                        if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
+                            $( '#showShrineSection' ).trigger( 'click' );
+                            $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                            $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                        }
+                        startDiscoMode();
                         nextDiscoMode();
                         break;
                     default:
@@ -1696,7 +1708,6 @@ $( document ).ready( function () {
                 clearInterval( absoluteTruthsTimer );
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
                 absoluteTruthsUpdate( true );
-
                 nextDiscoMode();
             } );
 
@@ -1715,13 +1726,17 @@ $( document ).ready( function () {
                     showParticles = showParticlesBeforeDisco;
                     stopShrineDisco();
                 } else {
-                    shrineDiscoActive = true;
-                    showParticlesBeforeDisco = showParticles;
-                    showParticles = true;
-                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
+                    startDiscoMode();
                     nextDiscoMode();
                 }
             } );
+
+            function startDiscoMode() {
+                shrineDiscoActive = true;
+                showParticlesBeforeDisco = showParticles;
+                showParticles = true;
+                $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
+            }
 
             function stopShrineDisco() {
                 if ( !showParticles ) {
