@@ -1001,6 +1001,7 @@ option {
     height: 99.4% !important;
     position: absolute;
     top: 0;
+    display: block;
 }
 
 @keyframes strobo1 {

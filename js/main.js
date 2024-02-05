@@ -292,6 +292,11 @@ $( document ).ready( function () {
 
                 $( '#shrineSettingsContainer' ).addClass( 'visible' );
 
+                if ( showParticlesFirstTime ) {
+                    showParticlesFirstTime = false;
+                    particlesInit();
+                }
+
                 renderShrineSection( showParticles );
 
                 if ( typeof absoluteTruthsTimer !== 'undefined' ) {
@@ -336,9 +341,9 @@ $( document ).ready( function () {
                 } );
                 $( this ).toggleClass( 'mainSectionActive' );
 
+                enableFullscreen();
                 stopAllActions();
                 checkPrivateVisible();
-                enableFullscreen();
                 hideScreensaverEnso();
                 refreshGradientBackground();
             } );
@@ -1556,16 +1561,15 @@ $( document ).ready( function () {
 
             // ******************************************
             // #3 - Shrine section
-            renderShrineSection( showParticles );
             absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
 
             $( '#shrineParticlesSwitch' ).click( function ( event ) {
                 if ( !showParticles ) {
                     showParticles = true;
-                    $( '.particles-js-canvas-el' ).show();
+                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                 } else {
                     showParticles = false;
-                    $( '.particles-js-canvas-el' ).hide();
+                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
                 }
             } );
 
@@ -1666,7 +1670,7 @@ $( document ).ready( function () {
                 } else {
                     shrineDiscoActive = true;
                     showParticles = true;
-                    $( '.particles-js-canvas-el' ).show();
+                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                     switchDiscoColor();
                     triggerStrobo();
                 }
@@ -1717,21 +1721,12 @@ $( document ).ready( function () {
                 stopShrineDisco();
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
-                if ( showParticlesFirstTime ) {
-                    showParticlesFirstTime = false;
-                    particlesInit( true );
-                }
-                if ( !showParticles ) {
-                    setTimeout( function () {
-                        $( '.particles-js-canvas-el' ).hide();
-                    }, 100 );
 
+                if ( !showParticles ) {
+                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
                 } else {
-                    setTimeout( function () {
-                        $( '.particles-js-canvas-el' ).show();
-                    }, 100 );
+                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                 }
-                $( '.particles-js-canvas-el' ).show();
             }
 
             function absoluteTruthsUpdate( quickSwap = false ) {
