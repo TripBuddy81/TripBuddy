@@ -32,6 +32,7 @@ $( document ).ready( function () {
             window.isFullScreen = false;
             window.lastDisplayedImage = config['images'][0]['image'];
             window.minutesTillNextThought = 0;
+            window.showParticlesBeforeDisco = false;
             window.showParticles = true;
             window.showParticlesFirstTime = true;
             window.allGuidedThoughts = [];
@@ -1666,9 +1667,16 @@ $( document ).ready( function () {
             $( '#shrineDiscoMode' ).click( function ( event ) {
                 enableFullscreen();
                 if ( shrineDiscoActive ) {
+                    showParticles = showParticlesBeforeDisco;
+                    if ( !showParticles ) {
+                        $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
+                    } else {
+                        $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
+                    }
                     stopShrineDisco();
                 } else {
                     shrineDiscoActive = true;
+                    showParticlesBeforeDisco = showParticles;
                     showParticles = true;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                     switchDiscoColor();
