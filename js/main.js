@@ -117,7 +117,6 @@ $( document ).ready( function () {
                         $( '#spotifyPlaylistsMenu' ).animate( {scrollTop: 0}, 'fast' );
                         stopAllActions( false );
                     }
-                    $( '#mainMenu' ).show();
                     return false;
                 } else if ( $( e.target ).attr( 'type' ) == 'text' ) { // paste text into text field
                     navigator.clipboard.readText()
@@ -292,6 +291,7 @@ $( document ).ready( function () {
                 $( '#search' ).hide();
 
                 $( '#shrineSettingsContainer' ).addClass( 'visible' );
+                $( '#mainMenu' ).attr( 'style', 'opacity:1' );
 
                 if ( showParticlesFirstTime ) {
                     showParticlesFirstTime = false;
@@ -304,7 +304,6 @@ $( document ).ready( function () {
                     clearInterval( absoluteTruthsTimer );
                 }
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
-
                 absoluteTruthsUpdate( true );
             } );
             $( '#showGamesSection' ).click( function () {
@@ -1613,27 +1612,27 @@ $( document ).ready( function () {
 
             $( '#shrine' ).mousemove( function ( event ) {
                 if ( event.pageY < 75 ) {
-                    $( '#mainMenu' ).show();
+                    $( '#mainMenu' ).attr( 'style', 'opacity:1' );
                 }
             } );
             $( '#shrineSettingsContainer' ).hover(
                     function () {
-                        $( '#mainMenu' ).show();
+                        $( '#mainMenu' ).attr( 'style', 'opacity:1' );
                     }, function () {
                         if ( $( '#shrine' ).is( ':visible' ) ) {
-                            $( '#mainMenu' ).hide();
+                            $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                         }
                     }
             );
             $( '#mainMenu' ).hover(
                     function () {
-                        $( '#mainMenu' ).show();
+                        $( '#mainMenu' ).attr( 'style', 'opacity:1' );
                         if ( $( '#shrine' ).is( ':visible' ) ) {
                             $( '#shrineSettingsContainer' ).addClass( 'visible' );
                         }
                     }, function () {
                         if ( $( '#shrine' ).is( ':visible' ) ) {
-                            $( '#mainMenu' ).hide();
+                            $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                         }
                         $( '#shrineSettingsContainer' ).removeClass( 'visible' );
                     }
@@ -2781,7 +2780,7 @@ $( document ).ready( function () {
             if ( urlParams.get( 'section' ) != undefined && urlParams.get( 'section' ) == 'shrine' ) {
                 $( '#meditativefilter' ).trigger( 'click' );
                 $( '#showShrineSection' ).trigger( 'click' );
-                $( '#mainMenu' ).hide();
+                $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                 $( '#shrineSettingsContainer' ).removeClass( 'visible' );
             } else {
                 $( '#showVideoSection' ).trigger( 'click' );
