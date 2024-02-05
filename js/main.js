@@ -1662,6 +1662,13 @@ $( document ).ready( function () {
                 clearInterval( absoluteTruthsTimer );
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
                 absoluteTruthsUpdate( true );
+
+                if ( shrineDiscoActive ) {
+                    clearTimeout( shrineColorChangeTimer );
+                    clearTimeout( shrineStroboChangeTimer );
+                    switchDiscoColor();
+                    triggerStrobo();
+                }
             } );
 
             $( '#shrineDiscoMode' ).click( function ( event ) {
