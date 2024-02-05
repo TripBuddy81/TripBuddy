@@ -98,9 +98,14 @@ $( document ).ready( function () {
             }
 
             $( document ).bind( 'contextmenu', function ( e ) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
+
                 // Disable right click context menu
                 // Stops current action or shows playlist selection if nothing else going in right now
-                if ( $( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' ) {
+                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text') || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#videodrome' ).is( ':visible' ) ||
                             $( '#notesOverlay' ).is( ':visible' ) ||
@@ -225,6 +230,28 @@ $( document ).ready( function () {
 
             // Init number spinner ('.input-group') - https://www.jqueryscript.net/form/Input-Spinner-Plugin-Bootstrap-4.html
             $( '#pizzaTimerMinutes' ).inputSpinner();
+
+            // Init airmouse and reassign some buttons
+            // Right button for context menu is e.which == 0 and 'contextmenu' -> is handled in contextmenu section
+            document.onkeydown = function ( e ) {
+                switch ( e.which ) {
+                    case 37: // left
+                        break;
+
+                    case 38: // up
+                        break;
+                    case 39: // right
+                        if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
+                            playNextYoutubeVideoOrSpotifyTrack();
+                        }
+                        break;
+                    case 40: // down
+                        break;
+                    default:
+                        return; // exit this handler for other keys
+                }
+                e.preventDefault();
+            };
 
             // Init gradient background
             refreshGradientBackground();
@@ -2775,7 +2802,6 @@ $( document ).ready( function () {
 
             // END Videodrome section
             // ******************************************
-
 
             // ******************************************
             // #9 - initial init section
