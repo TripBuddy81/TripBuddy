@@ -875,6 +875,8 @@ $( document ).ready( function () {
 
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
+                showParticles = showParticlesBeforeDisco;
+                stopShrineDisco();
                 renderShrineSection( showParticles );
                 stopPlaybackVideodrome();
                 $( '#preFlightChecklist' ).modal( 'hide' );
@@ -1675,11 +1677,6 @@ $( document ).ready( function () {
                 enableFullscreen();
                 if ( shrineDiscoActive ) {
                     showParticles = showParticlesBeforeDisco;
-                    if ( !showParticles ) {
-                        $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
-                    } else {
-                        $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
-                    }
                     stopShrineDisco();
                 } else {
                     shrineDiscoActive = true;
@@ -1692,6 +1689,11 @@ $( document ).ready( function () {
             } );
 
             function stopShrineDisco() {
+                if ( !showParticles ) {
+                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
+                } else {
+                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
+                }
                 if ( shrineDiscoActive ) {
                     $( '.shrineColorfulBackground' ).trigger( 'click' );
                 }
