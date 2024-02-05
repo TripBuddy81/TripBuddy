@@ -241,13 +241,7 @@ $( document ).ready( function () {
                         }
                         break;
                     case 38: // up
-                        if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
-                            $( '#showShrineSection' ).trigger( 'click' );
-                            $( '#mainMenu' ).attr( 'style', 'opacity:0' );
-                            $( '#shrineSettingsContainer' ).removeClass( 'visible' );
-                        }
-                        startDiscoMode();
-                        nextDiscoMode();
+                        $( '#openAddToQueueMenu' ).trigger( 'click' );
                         break;
                     case 39: // right
                         if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
