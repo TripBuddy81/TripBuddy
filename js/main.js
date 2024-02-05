@@ -335,8 +335,6 @@ $( document ).ready( function () {
                     particlesInit();
                 }
 
-                renderShrineSection( showParticles );
-
                 if ( typeof absoluteTruthsTimer !== 'undefined' ) {
                     clearInterval( absoluteTruthsTimer );
                 }
@@ -911,9 +909,7 @@ $( document ).ready( function () {
 
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
-                showParticles = showParticlesBeforeDisco;
                 stopShrineDisco();
-                renderShrineSection( showParticles );
                 stopPlaybackVideodrome();
                 $( '#preFlightChecklist' ).modal( 'hide' );
                 $( '#notesOverlay' ).modal( 'hide' );
@@ -1654,6 +1650,7 @@ $( document ).ready( function () {
                     $( '#mainMenu' ).attr( 'style', 'opacity:1' );
                 }
             } );
+
             $( '#shrineSettingsContainer' ).hover(
                     function () {
                         $( '#mainMenu' ).attr( 'style', 'opacity:1' );
@@ -1663,6 +1660,7 @@ $( document ).ready( function () {
                         }
                     }
             );
+
             $( '#mainMenu' ).hover(
                     function () {
                         $( '#mainMenu' ).attr( 'style', 'opacity:1' );
@@ -1705,15 +1703,6 @@ $( document ).ready( function () {
                 nextDiscoMode();
             } );
 
-            function nextDiscoMode() {
-                if ( shrineDiscoActive ) {
-                    clearTimeout( shrineColorChangeTimer );
-                    clearTimeout( shrineStroboChangeTimer );
-                    switchDiscoColor();
-                    triggerStrobo();
-                }
-            }
-
             $( '#shrineDiscoMode' ).click( function ( event ) {
                 enableFullscreen();
                 if ( shrineDiscoActive ) {
@@ -1731,7 +1720,19 @@ $( document ).ready( function () {
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
             }
 
+            function nextDiscoMode() {
+                if ( shrineDiscoActive ) {
+                    clearTimeout( shrineColorChangeTimer );
+                    clearTimeout( shrineStroboChangeTimer );
+                    switchDiscoColor();
+                    triggerStrobo();
+                }
+            }
+
             function stopShrineDisco() {
+                clearTimeout( shrineColorChangeTimer );
+                clearTimeout( shrineStroboChangeTimer );
+                shrineDiscoActive = false;
                 showParticles = showParticlesBeforeDisco;
                 if ( !showParticles ) {
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
@@ -1739,11 +1740,10 @@ $( document ).ready( function () {
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                 }
                 $( '.shrineColorfulBackground' ).trigger( 'click' );
-                shrineDiscoActive = false;
-                clearTimeout( shrineColorChangeTimer );
-                clearTimeout( shrineStroboChangeTimer );
                 stroboSpeed = 0;
                 changeStroboSpeed( stroboSpeed );
+                $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
+                $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
             }
 
             function triggerStrobo() {
@@ -1773,19 +1773,6 @@ $( document ).ready( function () {
 
                 nextColorRefresh = Math.floor( Math.random() * (config['shrine']['colorSwitchTimings']['max'] - config['shrine']['colorSwitchTimings']['min'] + 1) + config['shrine']['colorSwitchTimings']['min'] );
                 shrineColorChangeTimer = setTimeout( switchDiscoColor, nextColorRefresh * 1000 );
-            }
-
-            function renderShrineSection( showParticles ) {
-                // reset strobo to default
-                stopShrineDisco();
-                $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
-                $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
-
-                if ( !showParticles ) {
-                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
-                } else {
-                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
-                }
             }
 
             function absoluteTruthsUpdate( quickSwap = false ) {
