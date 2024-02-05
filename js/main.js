@@ -236,8 +236,10 @@ $( document ).ready( function () {
             document.onkeydown = function ( e ) {
                 switch ( e.which ) {
                     case 37: // left
+                        if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
+                            spotifyPause();
+                        }
                         break;
-
                     case 38: // up
                         break;
                     case 39: // right
