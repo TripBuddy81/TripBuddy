@@ -272,8 +272,8 @@ p {
 .menuContent {
     background-color: transparent;
     border-radius: 5px;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    padding-top: 5px;
+    padding-bottom: 25px;
 }
 
 #mainMenu {
@@ -885,7 +885,7 @@ option {
     background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055);
     transition: all 0.5s ease;
     height: 94vh;
-    line-height: 140%;
+    line-height: 135%;
     overflow-y: auto;
 }
 

@@ -43,6 +43,10 @@ var config = {
                         'id'   : '4ILChY5F4Hn08ikt0rfHhW'
                     },
                     {
+                        'label': 'Cello music',
+                        'id'   : '6dBmtGXkU8pfMAgmxpUxth'
+                    },
+                    {
                         'label': 'Binaural Beats',
                         'id'   : '6wQ07R92xkvztkwjhxUup3'
                     },
