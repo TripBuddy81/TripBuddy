@@ -334,10 +334,6 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId': 'fOVXUnDsWgs',
-                    'tags'   : 'trippy-3D'
-                },
-                {
                     'videoId': 'dzJMbIdrpwI',
                     'tags'   : 'trippy-3D'
                 },
@@ -1125,14 +1121,14 @@ var config = {
                 ],
                 'stroboSwitchTimings':
                         {
-                            'max': '45',
-                            'min': '15'
+                            'max': '90',
+                            'min': '45'
                         }
                 ,
                 'colorSwitchTimings':
                         {
-                            'max': '45',
-                            'min': '15'
+                            'max': '90',
+                            'min': '45'
                         }
             },
             'reminderSelection'      :
