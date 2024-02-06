@@ -417,6 +417,25 @@ var config = {
                     'startSeconds': '7'
                 },
                 {
+                    'videoId': 'hXD8itTKdY0',
+                    'tags'   : 'nature'
+                },
+                {
+                    'videoId'     : '683p4Ubg2NU',
+                    'tags'        : 'nature',
+                    'startSeconds': '14'
+                },
+                {
+                    'videoId'     : 'AKeUssuu3Is',
+                    'tags'        : 'nature',
+                    'startSeconds': '11'
+                },
+                {
+                    'videoId': 'BNTs6-pNFRk',
+                    'mute'   : 'mixed',
+                    'tags'   : 'nature'
+                },
+                {
                     'videoId': 'K2BoRq70QeU',
                     'tags'   : 'meditative'
                 },
@@ -437,7 +456,7 @@ var config = {
                 },
                 {
                     'videoId': 'RAX_I4AgjiU',
-                    'tags'   : 'meditative',
+                    'tags'   : 'meditative nature',
                     'mute'   : 'mixed'
                 },
                 {
@@ -493,11 +512,6 @@ var config = {
                     'startSeconds': '60'
                 },
                 {
-                    'videoId'     : 'miqbNFmbN2Q',
-                    'tags'        : 'meditative nature',
-                    'startSeconds': '17'
-                },
-                {
                     'videoId'     : '6tmbeLTHC_0',
                     'tags'        : 'meditative space',
                     'startSeconds': '50'
@@ -508,17 +522,26 @@ var config = {
                     'startSeconds': '80'
                 },
                 {
+                    'videoId'     : 'B5unCXpegAw',
+                    'tags'        : 'meditative space',
+                    'startSeconds': '300'
+                },
+                {
+                    'videoId'     : 'miqbNFmbN2Q',
+                    'tags'        : 'meditative nature',
+                    'startSeconds': '17'
+                },
+                {
                     'videoId': 'tI2ucenn6hM',
                     'tags'   : 'meditative nature'
                 },
                 {
-                    'videoId': 'XICnl77dchU',
-                    'tags'   : 'trippy-2D'
+                    'videoId': 't_S_cN2re4g',
+                    'tags'   : 'nature'
                 },
                 {
-                    'videoId'     : 'B5unCXpegAw',
-                    'tags'        : 'meditative space',
-                    'startSeconds': '300'
+                    'videoId': 'XICnl77dchU',
+                    'tags'   : 'trippy-2D'
                 },
                 {
                     'videoId': 'S7TUe5w6RHo',
@@ -528,14 +551,6 @@ var config = {
                     'videoId'     : 'jNyvfvDFFPk',
                     'tags'        : 'space',
                     'startSeconds': '25'
-                },
-                {
-                    'videoId': 't_S_cN2re4g',
-                    'tags'   : 'nature'
-                },
-                {
-                    'videoId': 'hXD8itTKdY0',
-                    'tags'   : 'nature'
                 },
                 {
                     'videoId': 'z5JdoygbFCE',
@@ -552,21 +567,6 @@ var config = {
                 {
                     'videoId': 'Wm9MfQMuoIY',
                     'tags'   : 'breathing'
-                },
-                {
-                    'videoId'     : '683p4Ubg2NU',
-                    'tags'        : 'nature',
-                    'startSeconds': '14'
-                },
-                {
-                    'videoId'     : 'AKeUssuu3Is',
-                    'tags'        : 'nature',
-                    'startSeconds': '11'
-                },
-                {
-                    'videoId': 'BNTs6-pNFRk',
-                    'mute'   : 'mixed',
-                    'tags'   : 'nature'
                 },
                 {
                     'videoId': 'hld4uaO1MDE',
