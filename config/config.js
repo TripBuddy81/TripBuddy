@@ -51,6 +51,10 @@ var config = {
                         'id'   : '3ogKJHz0eQMVe9rouV12Zj'
                     },
                     {
+                        'label': 'Yoga',
+                        'id'   : '08dReIUXjXFtHaMsULjYMc'
+                    },
+                    {
                         'label': 'Handpan',
                         'id'   : '5toyuNP4ZjYIxnfBrtNF45'
                     },
@@ -59,8 +63,12 @@ var config = {
                         'id'   : '7vZWEAsniWYK15n4FPj8zt'
                     },
                     {
-                        'label': 'Lofi Favorites',
+                        'label': 'Lofi favorites',
                         'id'   : '4ktxEZYVOky9D6eBKrmZ4g'
+                    },
+                    {
+                        'label': 'Bake & Chill',
+                        'id'   : '6MVDihZohGpTl03Oxn7jNB'
                     },
                     {
                         'label': 'Hermanos Gutiérrez',
