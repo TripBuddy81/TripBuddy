@@ -22,15 +22,19 @@
             border-width: 1px 0;
             box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, .1), inset 0 0.125em 0.5em rgba(0, 0, 0, .15)
         }
+
         body {
             background: black;
             color: white;
         }
+
         #watchingAlan {
             width: 200px;
             float: right;
             margin-right: 50px;
+            border-radius: 100px;
         }
+
         h1, h2, h3 {
             font-family: sans-serif;
             background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
@@ -43,17 +47,33 @@
 
 <div class="px-4 my-5">
     <img id="watchingAlan" class="" src="./assets/alan.gif">
-    <h1 class="display-5 fw-bold">Important Info / Hotkeys / hidden functionality</h1>
+    <h1 class="display-5 fw-bold">Important Info</h1>
     <div class="col-lg-6">
-        <p class="">Login into the <a href="https://open.spotify.com/" target="_blank">Spotify Web player</a> to fully use the embedded player (take care of possible privacy addons so your browser can detect that you are logged in within other tabs)</p>
-        <p class="">Middle Mouse button plays next track (if Spotify is used in integrated mode )</p>
-        <p class="">Don't use Firefox (might give it some love later)</p>
+        <p class="">Login into the <a href="https://open.spotify.com/" target="_blank">Spotify Web player</a> to fully
+            use the embedded player (take care of possible privacy addons so your browser can detect that you are logged
+            in within other tabs)</p>
+        <p class="">Don't use Firefox! (might give it some love later)</p>
     </div>
+
+    <div class="b-example-divider"></div>
+
+    <h1 class="display-5 fw-bold">Hotkeys</h1>
+    <ul>
+        <li class=""><b>Middle Mouse button:</b> Play next track</li>
+        <li class=""><b>Right Mouse button:</b> Close current video/popup or show playlist selection</li>
+        <li class=""><b>Scroll Wheel within Shrine Section:</b> Show next absolute truth if absolute truth is active
+        </li>
+        <li class=""><b>Scroll Wheel within Shrine Section:</b> Trigger next disco setting if disco is active</li>
+        <li class=""><b>Cursor right:</b> Play next track</li>
+        <li class=""><b>Cursor left:</b> Pause current track</li>
+        <li class=""><b>Cursor up:</b> Show favorite track selection if Spotify is used in integrated mode</li>
+        <li class=""><b>Cursor down:</b> Switch to shrine section and start disco</li>
+    </ul>
 </div>
 
 <div class="b-example-divider"></div>
 
-<div class="px-4 py-2 my-5">
+<div class="px-4">
     <h1 class="display-5 fw-bold">Suggestions or want to drop a thx? Contact me via:</h1>
     <a href="mailto:tripbuddy81@gmail.com">tripbuddy81@gmail.com</a>
 
@@ -65,12 +85,14 @@
 
     <h1 class="fw-bold mt-4">Get Tampermonkey:</h1>
     <div class="col-lg-6">
-        <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank">Install
+        <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo"
+           target="_blank">Install
             Tampermonkey Browser extension</a>
     </div>
     <h1 class="fw-bold mt-4">Install Tampermonkey script for no age validation on Youtube videos:</h1>
     <div class="col-lg-6">
-        <a href="tampermonkeyScripts/Simple YouTube Age Restriction Bypass.user.js" target="_blank">script 1 download</a>
+        <a href="tampermonkeyScripts/Simple YouTube Age Restriction Bypass.user.js" target="_blank">script 1
+            download</a>
     </div>
     <h1 class="fw-bold mt-4">Install Tampermonkey script for removing various clutter from embedded videos:</h1>
     <div class="col-lg-6">
@@ -81,7 +103,7 @@
 
 <div class="b-example-divider"></div>
 
-<div class="px-4 py-5 my-5">
+<div class="px-4">
     <h1 class="display-5 fw-bold">Use your own config</h1>
     <div class="col-lg-6">
         <p class="lead mb-4">You can overwrite any setting (e.g. displayed videos, playlists etc.) by duplicating the
@@ -108,7 +130,7 @@
 </div>
 
 <div class="b-example-divider"></div>
-<div class="px-4 py-5 my-5">
+<div class="px-4">
     <h1 class="display-5 fw-bold">Known issues:</h1>
     <div class="col-lg-6">
         <li>Firefox does not play local mp4 videos</li>
@@ -123,12 +145,13 @@
 
 <div class="b-example-divider"></div>
 
-<div class="px-4 py-5 my-5">
+<div class="px-4">
     <h1 class="display-5 fw-bold">Use Spotify oAuth API</h1>
     <div class="col-lg-6">
         <p class="lead mb-4">A little bit more trickier... Spotify won't allow my app to access their API outside of
             developer mode. So you will need to register your own developer account if you want to use it.
-            Go to <a href="https://developer.spotify.com/dashboard/" target="_blank">Spotify Dashboard</a> and create a simple App. Use
+            Go to <a href="https://developer.spotify.com/dashboard/" target="_blank">Spotify Dashboard</a> and create a
+            simple App. Use
             the given id and secret to fill out the settings within the optionalConfig.js.
         </p>
         <pre>
