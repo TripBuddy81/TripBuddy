@@ -366,10 +366,6 @@ var config = {
                     'startSeconds': '62'
                 },
                 {
-                    'videoId': 'dJoXVILGeKQ',
-                    'tags'   : 'meditative'
-                },
-                {
                     'videoId': '5drq3OD19NQ',
                     'tags'   : 'trippy-3D'
                 },
@@ -425,6 +421,15 @@ var config = {
                     'tags'   : 'meditative'
                 },
                 {
+                    'videoId': 'AHzek64M6jY',
+                    'tags'   : 'meditative'
+                },
+                {
+                    'videoId'     : 'vmGDO0eU1n0',
+                    'tags'        : 'meditative',
+                    'startSeconds': '3600'
+                },
+                {
                     'videoId'     : 'x53TkyA78qI',
                     'tags'        : 'meditative nature',
                     'mute'        : 'mixed',
@@ -472,18 +477,9 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId'     : 'vmGDO0eU1n0',
-                    'tags'        : 'meditative',
-                    'startSeconds': '3600'
-                },
-                {
                     'videoId'     : 'Y_plhk1FUQA',
                     'tags'        : 'space',
                     'startSeconds': '30'
-                },
-                {
-                    'videoId': 'AHzek64M6jY',
-                    'tags'   : 'meditative'
                 },
                 {
                     'videoId': 'g-Tu2-B4-0o',
