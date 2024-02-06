@@ -75,6 +75,10 @@
     margin: 20px 0
 }
 
+.keyboard-action-button,.keyboard-key {
+    cursor: url('../../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
 .keyboard-key {
     font-family: inherit;
     font-size: 24px;
