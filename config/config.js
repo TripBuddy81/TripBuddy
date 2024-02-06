@@ -47,15 +47,15 @@ var config = {
                         'id'   : '6dBmtGXkU8pfMAgmxpUxth'
                     },
                     {
+                        'label': 'Hermanos Gutiérrez',
+                        'id'   : '5pQUmaKxS0DXaVc7I4La0o'
+                    },
+                    {
                         'label': 'Binaural Beats',
                         'id'   : '6wQ07R92xkvztkwjhxUup3'
                     },
                     {
-                        'label': 'Meditation',
-                        'id'   : '3ogKJHz0eQMVe9rouV12Zj'
-                    },
-                    {
-                        'label': 'Yoga',
+                        'label': 'Yoga & Meditation',
                         'id'   : '08dReIUXjXFtHaMsULjYMc'
                     },
                     {
@@ -71,20 +71,12 @@ var config = {
                         'id'   : '4ktxEZYVOky9D6eBKrmZ4g'
                     },
                     {
-                        'label': 'Bake & Chill',
-                        'id'   : '6MVDihZohGpTl03Oxn7jNB'
-                    },
-                    {
-                        'label': 'Hermanos Gutiérrez',
-                        'id'   : '5pQUmaKxS0DXaVc7I4La0o'
-                    },
-                    {
                         'label': 'Garden Chill',
                         'id'   : '3gy2czyHKqtO1fFeI181oo'
                     },
                     {
-                        'label': 'Hangmatpop',
-                        'id'   : '6ySAQd8K6BZt5tQ9M5wNAY'
+                        'label': 'Bake & Chill',
+                        'id'   : '6MVDihZohGpTl03Oxn7jNB'
                     },
                     {
                         'label': 'Happy vibes',
@@ -1264,7 +1256,12 @@ var config = {
                         {
                             'text': 'Life is not a problem to be solved, but a reality to be experienced.',
                             'tag' : ''
-                        }
+                        },
+                        {
+                            'text': 'Happiness is only real when shared.',
+                            'tag' : ''
+                        },
+
                     ]
         }
 ;
