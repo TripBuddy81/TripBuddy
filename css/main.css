@@ -1153,15 +1153,7 @@ option {
     margin-left: -5px !important;
 }
 
-#shrineStroboSpeed {
-    height: 58px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-bottom: 30px;
-    margin-left: 15px;
-    margin-top: 0px;
-}
-
-#shrineStroboSpeedContainer {
+#discoSettingContainer {
     height: 60px;
     margin-bottom: 25px;
 }

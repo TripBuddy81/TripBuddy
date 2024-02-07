@@ -1631,18 +1631,6 @@ $( document ).ready( function () {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
             } );
 
-            $( '#shrineStroboSpeed' ).click( function ( event ) {
-                enableFullscreen();
-                if ( stroboSpeed == 0 ) {
-                    stroboSpeed = 15;
-                } else if ( stroboSpeed == 15 ) {
-                    stroboSpeed = 20;
-                } else {
-                    stroboSpeed = 0;
-                }
-                changeStroboSpeed( stroboSpeed );
-            } );
-
             function changeStroboSpeed( stroboSpeed ) {
                 $( '#particles-js' ).css( 'animation', 'strobo1 ' + stroboSpeed + 'ms steps(1,end) infinite' );
                 if ( stroboSpeed > 0 ) {
