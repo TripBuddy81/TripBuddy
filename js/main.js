@@ -751,6 +751,7 @@ $( document ).ready( function () {
                 if ( pizzaTimerStart != '' && totalMinsPizzaTimerPassed >= parseInt( localStorage.getItem( 'pizzaTimerMinutesTillReady' ) ) && pizzaTimerShown == false ) {
                     pizzaTimerShown = true;
                     showTimedRecommendation( 'Pizza is ready!!!' );
+                    $( '#pizzaTimerContainer' ).trigger( 'click' );
                     /* alarmSound.play();*/
                 }
             }

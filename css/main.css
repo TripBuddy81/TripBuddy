@@ -20,7 +20,7 @@ cursorDefault {
     cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
 }
 
-.cursorAction {
+.cursorAction, .btn {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
