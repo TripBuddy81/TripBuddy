@@ -1615,11 +1615,6 @@ $( document ).ready( function () {
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
             } );
 
-            document.getElementById( 'shrineBGColorPicker' ).addEventListener( 'input', function () {
-                $( '#shrine' ).css( 'background-color', $( '#shrineBGColorPicker' ).val() );
-                $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
-            } );
-
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
             } );
