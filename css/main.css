@@ -1078,6 +1078,7 @@ option {
     border-width: 3px;
     border-style: solid;
     margin-left: 12px;
+    border-radius: 10px;
 }
 
 .shrineCustomColors, .shrineSetBGColorful {
