@@ -1056,7 +1056,7 @@ option {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 250px;
+    width: 400px;
     opacity: 0;
     z-index: 6;
 }
@@ -1070,10 +1070,6 @@ option {
     padding-left: 15px;
 }
 
-.shrineSettingsRow1 {
-    height: 73px;
-}
-
 .shrineSetBGColor, .shrineSetBGColorful {
     padding: 25px 25px 0px 25px;
     display: inline;
@@ -1084,7 +1080,7 @@ option {
     margin-left: 12px;
 }
 
-.shrineCustomColors {
+.shrineCustomColors, .shrineSetBGColorful {
     display: none;
 }
 
@@ -1100,27 +1096,24 @@ option {
 }
 
 #shrineParticlesSwitch {
-    height: 57px;
-    margin-bottom: 30px;
-    margin-left: 8px;
+    height: 52px;
+    margin-left: 9px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: 3px;
+    margin-top: -29px;
 }
 
 #shrineDiscoMode {
-    height: 59px;
-    margin-bottom: 30px;
-    margin-left: 16px;
+    height: 55px;
+    margin-left: 12px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: 3px;
+    margin-top: -29px;
 }
 
 #toggleAbsoluteThruth {
-    width: 55px;
-    margin-bottom: 30px;
-    margin-left: 3px;
+    height: 52px;
+    margin-left: 17px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: 3px;
+    margin-top: -29px;
     margin-right: 5px;
 }
 
