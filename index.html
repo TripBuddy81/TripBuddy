@@ -77,6 +77,7 @@
                         <img id="notesSymbol2" class="cursorAction float-start" src="assets/notes.png">
                         <img id="sleep" class="cursorAction " src="./assets/sleep.png">
                         <select id="devices" class="form-control" style=""></select>
+                        <img id="showApplicationSettings" class="cursorAction " src="./assets/settings.png">
                     </span>
 
                     <span id="menuActionHeader" class="mb-1">-- <b>Actions</b> --------------------------------------------------------------------</span>
@@ -102,22 +103,12 @@
                     <div class="">-- <b>LINKS</b>
                         ----------------------------------------------------------------------
                     </div>
+                    <div class="menuItem"><a class="menuItem" href="help.html" target="_blank">Help & Info</a></div>
                     {{#menuLinks}}
                     <li class="{{tag}}">
                         <a class="menuItem" href="{{link}}" target=_blank>{{name}}</a>
                     </li>
                     {{/menuLinks}}
-
-                    <span id="menuSettingsSection">
-                        <div class="mt-2">-- <b>SETTINGS</b>
-                            -----------------------------------------------------------------
-                        </div>
-                        <li><a class="menuItem" href="help.html" target="_blank">Help/Info</a></li>
-                        <li class="menuItem" id="toggleInfo">Toggle video info</li>
-                        <li class="menuItem" id="spotifyLogin">Login to Spotify (admin only)</li>
-                        <li class="menuItem" id="spotifyLogout">Logout Spotify</li>
-                        <li class="menuItem" id="clearYoutubePlayedHistory">Clear Youtube history</li>
-                    </span>
                 </ul>
             </div>
         </div>
@@ -398,6 +389,20 @@
                     </div>
                 </div>
                 {{/trackSelectionPlaylists}}
+            </div>
+        </div>
+
+        <div id="applicationSettingsMenu" class="largeMenu">
+            <div class="row">
+                <div class="col">
+                    <span id="menuSettingsSection">
+                        <div class=""><b>SETTINGS</b></div>
+                        <div class="menuItem" id="toggleInfo">Toggle video info</div>
+                        <div class="menuItem" id="spotifyLogin">Login to Spotify (admin only)</div>
+                        <div class="menuItem" id="spotifyLogout">Logout Spotify</div>
+                        <div class="menuItem" id="clearYoutubePlayedHistory">Clear Youtube history</div>
+                    </span>
+                </div>
             </div>
         </div>
 
@@ -807,7 +812,9 @@
                         <div class="shrineSetBGColor" style="background-color:#000000;">&nbsp;</div>
                         {{#shrine}}
                         {{#shrineColors}}
-                        <div class="shrineSetBGColor shrineDiscoColor shrineCustomColors" style="background-color:{{value}};">&nbsp;</div>
+                        <div class="shrineSetBGColor shrineDiscoColor shrineCustomColors"
+                             style="background-color:{{value}};">&nbsp;
+                        </div>
                         {{/shrineColors}}
                         {{/shrine}}
                         <div class="shrineSetBGColorful shrineDiscoColor shrineColorfulBackground">&nbsp;</div>

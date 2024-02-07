@@ -331,8 +331,7 @@ p {
 }
 
 .menuItem > a {
-    font-weight: normal;
-    font-size: 25px;
+    font-weight: 600;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
@@ -789,10 +788,17 @@ li, .options, .form-check-label {
     margin-right: 15px;
 }
 
+#showApplicationSettings {
+    height: 44px;
+    margin-right: 85px;
+    float: inline-end;
+    margin-top: 10px;
+}
+
 #devices {
     position: relative;
     top: 8px;
-    width: 300px;
+    width: 134px !important;
     background: transparent;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     border: none;

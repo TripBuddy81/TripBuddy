@@ -108,7 +108,9 @@ $( document ).ready( function () {
                 // Disable right click context menu
                 // Stops current action or shows playlist selection if nothing else going in right now
                 if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text') || e.which == 0 ) {
-                    if ( $( '#menuClose' ).prop( 'checked' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
+                    if ( $( '#menuClose' ).prop( 'checked' ) ||
+                            $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
+                            $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#videodrome' ).is( ':visible' ) ||
                             $( '#notesOverlay' ).is( ':visible' ) ||
                             $( '.videoMenuOverlayFullscreen' ).is( ':visible' ) ||
@@ -387,6 +389,7 @@ $( document ).ready( function () {
 
             $( '.menuItem' ).click( function () {
                 closeRightMenu();
+                $( '#applicationSettingsMenu' ).removeClass( 'menuTransition' );
             } );
 
             function closeRightMenu() {
@@ -396,11 +399,18 @@ $( document ).ready( function () {
             $( '#menuClose' ).click( function () {
                 $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                 $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
+                $( '#applicationSettingsMenu' ).removeClass( 'menuTransition' );
                 hideScreensaverEnso();
             } );
 
             // Main Menu END
             // ***********************************
+
+            $( '#showApplicationSettings' ).click( function () {
+                stopAllActions( true, false );
+                $( '#applicationSettingsMenu' ).addClass( 'menuTransition' );
+                $( '#applicationSettingsMenu' ).animate( {scrollTop: 0}, 'fast' );
+            } );
 
             var rightMouseClicked = false;
             $( '#activateHiddenMenue' ).mousedown( function ( event ) {
@@ -564,8 +574,6 @@ $( document ).ready( function () {
 
             // Lift off - initialize a lot of stuff
             $( '.liftOff' ).click( function ( e ) {
-                $( '#menuSettingsSection' ).remove();
-
                 timer = setInterval( tripTimer, 1000 );
                 start = new Date();
                 setTimeout( function () {
@@ -873,6 +881,8 @@ $( document ).ready( function () {
                 if ( quickTrackSelection ) {
                     $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                 }
+                $( '#applicationSettingsMenu' ).removeClass( 'menuTransition' );
+
                 $( '.spotifyTrackContainer' ).show();
 
                 closeRightMenu();
@@ -992,6 +1002,7 @@ $( document ).ready( function () {
             // Show notes overlay
             $( '#notesSymbol1,#notesSymbol2' ).click( function () {
                 enableFullscreen();
+                stopAllActions();
                 $( '#notesOverlay' ).modal( 'show' );
 
                 setTimeout( function () {
@@ -1351,6 +1362,7 @@ $( document ).ready( function () {
                     if ( $( this ).attr( 'data-target' ) == 'videos' || $( this ).attr( 'data-target' ) == 'images' ) {
                         if ( !$( '#spotifyPlaylistsMenu' ).hasClass( 'menuTransition' ) &&
                                 !$( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) &&
+                                !$( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) &&
                                 $( '.MageAIfilter.imageFilterActive' ).length == 0 &&
                                 $( '.MageAIFavorites.imageFilterActive' ).length == 0 &&
                                 (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) &&
