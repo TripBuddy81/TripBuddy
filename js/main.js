@@ -95,6 +95,9 @@ $( document ).ready( function () {
             if ( optionalConfig['absoluteTruthsXXX'] != undefined ) {
                 config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
             }
+            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['allVideosLoaded'] != undefined ) {
+                allVideosLoaded = config['localSettingsOverwrite']['allVideosLoaded'];
+            }
 
             $( document ).bind( 'contextmenu', function ( e ) {
                 e.preventDefault();
