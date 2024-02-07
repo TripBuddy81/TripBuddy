@@ -2672,9 +2672,8 @@ $( document ).ready( function () {
 
             // ******************************************
             // #7 - Videodrome section
-            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showVideodrome'] != undefined && config['localSettingsOverwrite']['showVideodrome'] ) {
-                initVideodrome();
-            } else {
+            initVideodrome();
+            if ( numberOfSelectableVideosVideodrome == 0 ) {
                 $( '.startVideoDrome' ).hide();
             }
 
