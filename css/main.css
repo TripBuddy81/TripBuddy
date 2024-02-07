@@ -1438,6 +1438,7 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: none;
     pointer-events: none;
     z-index: 3;
+    display: none;
 }
 
 #absoluteTruthsOverlayContainer {

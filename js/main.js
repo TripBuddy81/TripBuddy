@@ -33,7 +33,7 @@ $( document ).ready( function () {
             window.lastDisplayedImage = config['images'][0]['image'];
             window.minutesTillNextThought = 0;
             window.showParticlesBeforeDisco = false;
-            window.showParticles = true;
+            window.showParticles = false;
             window.showParticlesFirstTime = true;
             window.allGuidedThoughts = [];
             window.guidedThoughtsNext = 0;
@@ -114,7 +114,9 @@ $( document ).ready( function () {
                             $( '.displayedFullscreenImage' ).is( ':visible' ) ||
                             $( '.keyboard-cancel-button' ).is( ':visible' ) ||
                             shrineDiscoActive ||
-                            stroboSpeed > 0
+                            stroboSpeed > 0 ||
+                            !$( '#shrine' ).hasClass( 'shrineColorfulBackground' ) ||
+                            showParticles
                     ) {
                         stopAllActions();
                     } else {
@@ -187,15 +189,6 @@ $( document ).ready( function () {
                 $( '.firefoxScrollbar' ).each( function () {
                     $( this ).removeClass( 'firefoxScrollbar' );
                 } );
-            }
-
-            // Check if some settings are ovewritten in local config
-            try {
-                showParticles = config['localSettingsOverwrite']['showParticles'];
-                if ( !config['localSettingsOverwrite']['showAbsoluteTruth'] ) {
-                    $( '#absoluteTruthsOverlay' ).hide()
-                }
-            } catch ( e ) {
             }
 
             // Show VRGames Tag if configured
