@@ -522,6 +522,7 @@ $( document ).ready( function () {
             // Start button & preFlightChecklist & Reminders
             $( '#launchText' ).click( function ( e ) {
                 enableFullscreen();
+                stopAllActions();
                 if ( $( '#topupCheckbox1' ).is( ':checked' ) ) {
                     localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
                 } else {
