@@ -804,7 +804,7 @@ li, .options, .form-check-label {
 #devices {
     position: relative;
     top: 8px;
-    width: 134px !important;
+    width: 275px !important;
     background: transparent;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     border: none;
