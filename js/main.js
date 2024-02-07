@@ -32,7 +32,6 @@ $( document ).ready( function () {
             window.isFullScreen = false;
             window.lastDisplayedImage = config['images'][0]['image'];
             window.minutesTillNextThought = 0;
-            window.showParticlesBeforeDisco = false;
             window.showParticles = false;
             window.showParticlesFirstTime = true;
             window.allGuidedThoughts = [];
@@ -1698,7 +1697,6 @@ $( document ).ready( function () {
 
             function startDiscoMode() {
                 shrineDiscoActive = true;
-                showParticlesBeforeDisco = showParticles;
                 showParticles = true;
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
             }
@@ -1716,12 +1714,8 @@ $( document ).ready( function () {
                 clearTimeout( shrineColorChangeTimer );
                 clearTimeout( shrineStroboChangeTimer );
                 shrineDiscoActive = false;
-                showParticles = showParticlesBeforeDisco;
-                if ( !showParticles ) {
-                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
-                } else {
-                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
-                }
+                showParticles = false;
+                $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
                 $( '.shrineColorfulBackground' ).trigger( 'click' );
                 stroboSpeed = 0;
                 changeStroboSpeed( stroboSpeed );
