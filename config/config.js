@@ -342,10 +342,6 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId': '2xAd2Q9Z_Jc',
-                    'tags'   : 'trippy-3D'
-                },
-                {
                     'videoId'     : 'HTHj_pvEYYE',
                     'tags'        : 'space',
                     'startSeconds': '27'
