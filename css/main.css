@@ -1056,7 +1056,7 @@ option {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 480px;
+    width: 250px;
     opacity: 0;
     z-index: 6;
 }
@@ -1070,6 +1070,10 @@ option {
     padding-left: 15px;
 }
 
+.shrineSettingsRow1 {
+    height: 73px;
+}
+
 .shrineSetBGColor, .shrineSetBGColorful {
     padding: 25px 25px 0px 25px;
     display: inline;
@@ -1077,6 +1081,7 @@ option {
     border-color: black;
     border-width: 3px;
     border-style: solid;
+    margin-left: 12px;
 }
 
 .shrineCustomColors {
@@ -1097,7 +1102,7 @@ option {
 #shrineParticlesSwitch {
     height: 57px;
     margin-bottom: 30px;
-    margin-left: 16px;
+    margin-left: 8px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     margin-top: 3px;
 }
