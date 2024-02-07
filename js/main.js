@@ -1926,6 +1926,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mousedown', document, function ( e ) {
+                e.preventDefault();
                 // on middle mouse button play next track
                 if (
                         e.which == 2 &&
@@ -1936,7 +1937,7 @@ $( document ).ready( function () {
                         !$( event.target ).hasClass( 'spotifyPlaylistItem' ) &&
                         !$( event.target ).hasClass( 'externalVideoPreview' )
                 ) {
-                    e.preventDefault();
+
                     openSpotifyApp();
                     playNextYoutubeVideoOrSpotifyTrack();
                 }
