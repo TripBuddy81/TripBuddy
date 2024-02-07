@@ -1079,6 +1079,10 @@ option {
     border-style: solid;
 }
 
+.shrineCustomColors {
+    display: none;
+}
+
 #shrineBGColorPickerContainer {
     display: inline;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
