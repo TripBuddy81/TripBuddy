@@ -2673,9 +2673,6 @@ $( document ).ready( function () {
             // ******************************************
             // #7 - Videodrome section
             initVideodrome();
-            if ( numberOfSelectableVideosVideodrome == 0 ) {
-                $( '.startVideoDrome' ).hide();
-            }
 
             var moveTimerVideodrome;
             $( '.videodromeVideoContainer' ).on( 'mousemove', function () {
@@ -2772,6 +2769,11 @@ $( document ).ready( function () {
                         numberOfSelectableVideosVideodrome++;
                     }
                 } );
+
+                if ( numberOfSelectableVideosVideodrome == 0 ) {
+                    $( '.startVideoDrome' ).hide();
+                    return;
+                }
 
                 var videosToShow = [];
                 while ( videosToShow.length < 4 ) {
