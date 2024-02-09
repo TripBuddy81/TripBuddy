@@ -868,6 +868,108 @@ var config = {
                     'label'  : 'The Best-Kept Secret in History'
                 },
                 {
+                    'videoId': 'Z827luwoXmA',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Things That Happen When You\'re Spiritually Awakening'
+                },
+                {
+                    'videoId': '3LCBvP62kog',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Signs You\'re Progressing Spiritually and Don\'t Even Know It'
+                },
+                {
+                    'videoId': '3O61I0pNPg8',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The great free will debate'
+                },
+                {
+                    'videoId': 'Ikyx6t1VQEU',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Addiction is Your Greatest Gift'
+                },
+                {
+                    'videoId': 'QgEqQAIpLoo',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Time is speeding up'
+                },
+                {
+                    'videoId': '-CbBgcpz3b0',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'How to Find Meaning in a Meaningless World'
+                },
+                {
+                    'videoId': 'g9GyWy5MNwo',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The Truth about this World'
+                },
+                {
+                    'videoId': 'pf7ZePNuus0',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Let Go of Attachment'
+                },
+                {
+                    'videoId': 'qK1BJkBJdtY',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Acceptance of Death'
+                },
+                {
+                    'videoId': 'sHWIQzd8bVw',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The Four Noble Truths Of Buddhism'
+                },
+                {
+                    'videoId': '_IGgGQZth08',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Don\'t Fall For This Trap'
+                },
+                {
+                    'videoId': '-Pl4ELdieIk',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Source of Love'
+                },
+                {
+                    'videoId': 'PK2SMIOHYig',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The Answer is Not a Hut in the Woods'
+                },
+                {
+                    'videoId': 'hqtzpED1y-I',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'How to Stop Wasting Your Life'
+                },
+                {
+                    'videoId': 'F2RousymNt0',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'There’s Nothing To Do But Let Go'
+                },
+                {
+                    'videoId': 'Q5J9i97Cyc8',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'How to Find Your Soul'
+                },
+                {
+                    'videoId': 'hSFIicFoiW4',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : '5 Stages of Spiritual Awakening'
+                },
+                {
                     'videoId': 'ZcfDzE3FCt4',
                     'tags'   : 'nsfw'
                 }
