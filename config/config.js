@@ -183,6 +183,10 @@ var config = {
                         'id'   : '7xkCTcJWJGTR9VhM0nvvKa'
                     },
                     {
+                        'label': 'Dark Electro',
+                        'id'   : '5gPPonwwaoaPtWaoaceceo'
+                    },
+                    {
                         'label': 'Electro',
                         'id'   : '0ZigR4WogVGwftQA7GAMhu'
                     },
