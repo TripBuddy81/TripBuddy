@@ -1262,7 +1262,7 @@ $( document ).ready( function () {
                         startSeconds = $( clickedElement ).attr( 'startSeconds' );
                     }
 
-                    if ( lastPlayedDirectYoutubePlayerId != $( clickedElement ).attr( 'videoId' ) ) {
+                    if ( lastPlayedDirectYoutubePlayerId != $( clickedElement ).attr( 'videoId' ) || lastPlayedDirectYoutubePlayerVideoIsWisdom ) {
                         directYoutubePlayer.loadVideoById( $( clickedElement ).attr( 'videoId' ), startSeconds );
                     }
                     lastPlayedDirectYoutubePlayerId = $( clickedElement ).attr( 'videoId' );
@@ -2304,6 +2304,7 @@ $( document ).ready( function () {
                     markYoutubeAsActiveAudioSource( true );
                     spotifyPause();
                     mainSearchResultYoutubePlayer.unMute();
+                    mainSearchResultYoutubePlayer.setVolume( 100 );
                     mainSearchResultYoutubePlayer.playVideo();
                 } else {
                     markYoutubeAsActiveAudioSource( false );
@@ -2392,8 +2393,12 @@ $( document ).ready( function () {
                         getVideoDurationsFromYoutube( searchYoutubeResult );
                     },
                     error  : function ( response ) {
-                        if ( response.responseJSON.error.errors[0].reason == 'quotaExceeded' ) {
-                            searchYoutube( searchTerm, true );
+                        try {
+                            console.info( response, 'debug quotaExceeded' );
+                            if ( response.responseJSON.error.errors[0].reason == 'quotaExceeded' ) {
+                                searchYoutube( searchTerm, true );
+                            }
+                        } catch ( e ) {
                         }
                     }
                 } );
@@ -2610,6 +2615,7 @@ $( document ).ready( function () {
                         spotifyPause();
                     }
                     mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
+                    mainSearchResultYoutubePlayer.setVolume( 100 );
                     displayYoutubeQueue();
                 }
 
