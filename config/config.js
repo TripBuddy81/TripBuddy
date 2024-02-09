@@ -133,12 +133,6 @@ var config = {
                 ],
                 'blue' : [
                     {
-                        'label'  : 'Shroom Journey',
-                        'id'     : '3cI5LgUXoJoDlUiPRbDudF',
-                        'shuffle': false,
-                        'repeat' : false
-                    },
-                    {
                         'label': 'Celtic',
                         'id'   : '7IMTMDqc2NIzovRgtC1Imq'
                     },
