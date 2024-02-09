@@ -779,7 +779,7 @@ $( document ).ready( function () {
                 youtubeCurrentQueue = [];
                 videosInQueue = 0;
                 allWisdomVideoIds.forEach( function ( videoId ) {
-                    if ( videosInQueue >= 3 ) {
+                    if ( videosInQueue >= 4 ) {
                         return;
                     }
                     videoToQueue = {
@@ -792,7 +792,7 @@ $( document ).ready( function () {
                     youtubeCurrentQueue.push( videoToQueue );
                     videosInQueue++;
                 } );
-                displayYoutubeQueue();
+
                 $( '.mainSearchResultVideoOverlay' ).trigger( 'click' );
 
                 videoItem = youtubeCurrentQueue.shift();
@@ -802,6 +802,8 @@ $( document ).ready( function () {
                 mainSearchResultYoutubePlayer.unMute();
                 mainSearchResultYoutubePlayer.setVolume( 100 );
                 mainSearchResultYoutubePlayer.playVideo();
+
+                displayYoutubeQueue();
             } );
 
             // Disable all future reminders and guided thoughts
