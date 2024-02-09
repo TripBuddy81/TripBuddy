@@ -272,7 +272,7 @@ var config = {
                 {
                     'link' : 'https://mynoise.net/NoiseMachines/custom.php?l=38993099993128273118&m=SLEEPINGDRAGON0~SPACESHIP0~SLEEPINGDRAGON1~SPACESHIP1~SPACESHIP2~SLEEPINGDRAGON3~SLEEPINGDRAGON4~SLEEPINGDRAGON6~SLEEPINGDRAGON7~SLEEPINGDRAGON8&title=Warp%20Dragon&c=1',
                     'label': 'Warp Dragon'
-                },
+                }
             ],
             'selectableVideoTags'    : [
                 {'selectableTag': 'trippy-2D'},
