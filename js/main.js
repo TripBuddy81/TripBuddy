@@ -735,6 +735,7 @@ $( document ).ready( function () {
                 pizzaTimerStart = new Date();
                 setInterval( pizzaTimer, 1000 );
             } );
+
             $( '#pizzaTimerContainer' ).click( function ( e ) {
                 $( '#pizzaTimerContainer' ).hide();
                 pizzaTimerStart = '';
@@ -764,6 +765,39 @@ $( document ).ready( function () {
                     /* alarmSound.play();*/
                 }
             }
+
+            // Add all wisdom videos to queue at random and play
+            $( '#playRandomWisdom' ).click( function ( e ) {
+                $( '#showSearchSection' ).trigger( 'click' );
+
+                var allWisdomVideoIds = [];
+                $( '.videoContainer.wisdom' ).each( function () {
+                    allWisdomVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) )
+                } );
+
+                shuffleArray( allWisdomVideoIds );
+
+                youtubeCurrentQueue = [];
+                allWisdomVideoIds.forEach( function ( videoId ) {
+                    videoToQueue = {
+                        'id'         : videoId,
+                        'img'        : 'https://img.youtube.com/vi/' + videoId + '/0.jpg',
+                        'description': '',
+                        'duration'   : ''
+                    };
+
+                    youtubeCurrentQueue.push( videoToQueue );
+                } );
+                displayYoutubeQueue();
+                $( '.mainSearchResultVideoOverlay' ).trigger( 'click' );
+
+                videoItem = youtubeCurrentQueue.shift();
+                mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
+                markYoutubeAsActiveAudioSource( true );
+                spotifyPause();
+/*                mainSearchResultYoutubePlayer.unMute();*/
+                mainSearchResultYoutubePlayer.playVideo();
+            } );
 
             // Disable all future reminders and guided thoughts
             $( '#disableAllReminders' ).click( function ( e ) {
