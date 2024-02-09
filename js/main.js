@@ -1128,6 +1128,7 @@ $( document ).ready( function () {
                             directYoutubePlayer.playVideo();
                         } else {
                             stopAllActions();
+                            startScreensaver( true );
                         }
                         break;
                     case YT.PlayerState.PLAYING:
