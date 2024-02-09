@@ -84,6 +84,7 @@ $( document ).ready( function () {
             window.shrineColorChangeTimer = '';
             window.shrineStroboChangeTimer = '';
             window.shrineDiscoActive = false;
+            window.playingRandomWisdom = false;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -768,6 +769,7 @@ $( document ).ready( function () {
 
             // Add four wisdom videos to queue at random and play
             $( '#playRandomWisdom' ).click( function ( e ) {
+                playingRandomWisdom = true;
                 $( '#showSearchSection' ).trigger( 'click' );
 
                 var allWisdomVideoIds = [];
@@ -2573,6 +2575,15 @@ $( document ).ready( function () {
 
             function playNextYoutubeVideoOrSpotifyTrack() {
                 if ( youtubeCurrentQueue.length == 0 || externalSoundTabOpened ) {
+                    if ( $( '#mainSearchResultYoutubeContainer' ).hasClass( 'videoContainerFullscreen' ) && playingRandomWisdom ) {
+                        playingRandomWisdom = false;
+                        $( '#showShrineSection' ).trigger( 'click' );
+                        $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                        $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                    } else if ( $( '#mainSearchResultYoutubeContainer' ).hasClass( 'videoContainerFullscreen' ) ) {
+                        $( '#showSearchSection' ).trigger( 'click' );
+                    }
+
                     spotifyHasBeenPlayingBeforePause = true;
                     markYoutubeAsActiveAudioSource( false );
 
