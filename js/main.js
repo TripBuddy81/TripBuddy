@@ -1126,6 +1126,8 @@ $( document ).ready( function () {
                         directYoutubePlayerState = 'ended';
                         if ( !lastPlayedDirectYoutubePlayerVideoIsWisdom ) {
                             directYoutubePlayer.playVideo();
+                        } else {
+                            stopAllActions();
                         }
                         break;
                     case YT.PlayerState.PLAYING:
