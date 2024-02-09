@@ -642,10 +642,6 @@ var config = {
                     'startSeconds': '24'
                 },
                 {
-                    'videoId': '934tHxQ_-3U',
-                    'tags'   : 'slideshow nsfw'
-                },
-                {
                     'videoId'     : '2wGUWpwrZMM',
                     'tags'        : 'slideshow nsfw',
                     'startSeconds': '14'
