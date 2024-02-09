@@ -1224,29 +1224,6 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
 
-.addVideoToQueue {
-    right: 10px;
-    top: 10px;
-    z-index: 5;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    position: absolute;
-    width: 50px;
-    opacity: 0;
-    transition: all 0.1s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-}
-
-.addVideoToQueue:hover {
-    opacity: 1;
-}
-
-.addVideoToQueueClicked {
-    width: 45px;
-}
-
-.videoContainer.XXX .addVideoToQueue {
-    display: none;
-}
-
 .videoHasSound {
     right: 10px;
     bottom: 10px;

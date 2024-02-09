@@ -2223,27 +2223,6 @@ $( document ).ready( function () {
                 enableFullscreen();
             } );
 
-            $( '.addVideoToQueue' ).click( function ( event ) {
-                $( this ).addClass( 'addVideoToQueueClicked' );
-                addToQueueElement = this;
-                setTimeout( function () {
-                    $( addToQueueElement ).removeClass( 'addVideoToQueueClicked' );
-                }, 150 );
-
-                var videoId = $( this ).attr( 'videoId' );
-                var description = searchYoutubeSpecificVideoId( videoId );
-
-                videoToQueue = {
-                    'id'         : videoId,
-                    'img'        : 'https://img.youtube.com/vi/' + videoId + '/0.jpg',
-                    'description': description,
-                    'duration'   : ''
-                };
-
-                youtubeCurrentQueue.push( videoToQueue );
-                displayYoutubeQueue();
-            } );
-
             $( document ).on( 'click', '.youtubeAutocompleteItem', function ( e ) {
                 $( '#mainSearchInput' ).val( $( this ).html() );
                 searchYoutube( $( this ).html() );
