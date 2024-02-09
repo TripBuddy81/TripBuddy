@@ -1125,9 +1125,9 @@ $( document ).ready( function () {
                     case YT.PlayerState.ENDED:
                         directYoutubePlayerState = 'ended';
                         if ( !lastPlayedDirectYoutubePlayerVideoIsWisdom ) {
-                            directYoutubePlayer.playVideo();
+                            directYoutubePlayer.playVideo(); // normal videos are repeated
                         } else {
-                            stopAllActions();
+                            stopAllActions(); // Wisdom videos are stopped at the end and we change to the screensaver
                             startScreensaver( true );
                         }
                         break;
