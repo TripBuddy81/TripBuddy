@@ -766,7 +766,7 @@ $( document ).ready( function () {
                 }
             }
 
-            // Add all wisdom videos to queue at random and play
+            // Add four wisdom videos to queue at random and play
             $( '#playRandomWisdom' ).click( function ( e ) {
                 $( '#showSearchSection' ).trigger( 'click' );
 
@@ -774,11 +774,14 @@ $( document ).ready( function () {
                 $( '.videoContainer.wisdom' ).each( function () {
                     allWisdomVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) )
                 } );
-
                 shuffleArray( allWisdomVideoIds );
 
                 youtubeCurrentQueue = [];
+                videosInQueue = 0;
                 allWisdomVideoIds.forEach( function ( videoId ) {
+                    if ( videosInQueue >= 3 ) {
+                        return;
+                    }
                     videoToQueue = {
                         'id'         : videoId,
                         'img'        : 'https://img.youtube.com/vi/' + videoId + '/0.jpg',
@@ -787,15 +790,17 @@ $( document ).ready( function () {
                     };
 
                     youtubeCurrentQueue.push( videoToQueue );
+                    videosInQueue++;
                 } );
                 displayYoutubeQueue();
                 $( '.mainSearchResultVideoOverlay' ).trigger( 'click' );
 
                 videoItem = youtubeCurrentQueue.shift();
+                spotifyPause();
                 mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
                 markYoutubeAsActiveAudioSource( true );
-                spotifyPause();
-/*                mainSearchResultYoutubePlayer.unMute();*/
+                mainSearchResultYoutubePlayer.unMute();
+                mainSearchResultYoutubePlayer.setVolume( 100 );
                 mainSearchResultYoutubePlayer.playVideo();
             } );
 
