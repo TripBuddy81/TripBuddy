@@ -337,6 +337,14 @@
                     <div class="noisegeneratorLink" target="externalSoundTab" href="{{link}}">{{label}}
                     </div>
                     {{/noiseGenerators}}
+
+                    <div class="journeyPlaylistSpacer">
+                        {{#playlists.journey}}
+                        <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                             data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                        </div>
+                        {{/playlists.journey}}
+                    </div>
                 </div>
                 <div class="col">
                     {{#singleTracks}}

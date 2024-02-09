@@ -396,7 +396,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
 }
 
 .menuLinksSeperator {
-    margin-top:15px;
+    margin-top: 15px;
 }
 
 @media screen and (max-width: 768px) {
@@ -908,6 +908,10 @@ option {
 .noisegeneratorLink {
     display: block;
     font-size: 30px !important;
+}
+
+.journeyPlaylistSpacer {
+    margin-top: 42px;
 }
 
 .spotifyPlaylistItem, .noisegeneratorLink, .spotifyTrackContainer {
