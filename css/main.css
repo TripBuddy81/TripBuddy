@@ -959,7 +959,7 @@ option {
     height: 70px !important;
 }
 
-.spotifyCurrentlyPlayingTrack {
+.spotifyCurrentlyPlayingTrack, .settingsHeading {
     text-align: center;
     font-weight: 700;
     height: 63px;
@@ -967,7 +967,7 @@ option {
     font-size: 35px;
 }
 
-.spotifyCurrentlyPlayingBorder {
+.menuTopBorder {
     border-radius: 5px;
     border: solid 3px #000000;
 }

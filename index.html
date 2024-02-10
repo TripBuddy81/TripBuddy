@@ -91,7 +91,8 @@
                                value="20" min="1" max="600"> <span class="pizzaTimerMinutesSuffix">minutes</span>
                     </span>
                     <li class="menuItem actionItem fw-bold" id="playRandomWisdom"><img id="playRandomWisdomIcon"
-                                                                                             src="./assets/blackAndWhite.png">Play Wisdom
+                                                                                       src="./assets/blackAndWhite.png">Play
+                        Wisdom
                     </li>
 
                     <li class="menuItem actionItem XXX fw-bold" id="showPrivateContent"><img id="showPrivateContentIcon"
@@ -331,7 +332,7 @@
                          src="./assets/song_radio.png">
                     <img class="addToFavorites currentTrackAction invisible cursorAction"
                          src="./assets/add_to_favorites.png">
-                    <div class="spotifyCurrentlyPlayingBorder"></div>
+                    <div class="menuTopBorder"></div>
                 </div>
             </div>
 
@@ -390,7 +391,7 @@
                          src="./assets/song_radio.png">
                     <img class="addToFavorites currentTrackAction invisible cursorAction"
                          src="./assets/add_to_favorites.png">
-                    <div class="spotifyCurrentlyPlayingBorder"></div>
+                    <div class="menuTopBorder"></div>
                 </div>
             </div>
 
@@ -407,13 +408,24 @@
         <div id="applicationSettingsMenu" class="largeMenu">
             <div class="row">
                 <div class="col">
-                    <span id="menuSettingsSection">
-                        <div class=""><b>SETTINGS</b></div>
-                        <div class="menuItem" id="toggleInfo">Toggle video info</div>
-                        <div class="menuItem" id="spotifyLogin">Login to Spotify (admin only)</div>
-                        <div class="menuItem" id="spotifyLogout">Logout Spotify</div>
-                        <div class="menuItem" id="clearYoutubePlayedHistory">Clear Youtube history</div>
-                    </span>
+                    <div class="settingsHeading">SETTINGS</div>
+                    <div class="menuTopBorder"></div>
+                </div>
+            </div>
+
+            <div class="row menuContent">
+                <div class="col">
+                    <div class="menuItem" id="spotifyLogin">Login to Spotify (admin & friends only)</div>
+                    <div class="menuItem" id="spotifyLogout">Logout Spotify</div>
+                    <p>If you send me your email-address associated with your spotify account I can grant you access to the spotify embedded player features (<a style="font-size: 16px;" href="mailto:tripbuddy81@gmail.com">tripbuddy81@gmail.com</a>). <br>First come first serve...</p>
+                </div>
+                <div class="col">
+                </div>
+                <div class="col">
+                </div>
+                <div class="col">
+                    <div class="menuItem" id="toggleInfo">Toggle video info</div>
+                    <div class="menuItem" id="clearYoutubePlayedHistory">Clear Youtube history</div>
                 </div>
             </div>
         </div>
