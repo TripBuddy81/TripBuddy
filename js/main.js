@@ -2727,6 +2727,12 @@ $( document ).ready( function () {
 
             $( '.startVideoDrome' ).click( function () {
                 enableFullscreen();
+                $( '.videodromeVideoContainer' ).each( function () {
+                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                        $( this ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+                        $( this ).find( '.localVideo' )[0].load();
+                    }
+                } );
                 videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );
             } );
 
