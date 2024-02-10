@@ -868,18 +868,6 @@ var config = {
                     'label'  : 'The Best-Kept Secret in History'
                 },
                 {
-                    'videoId': 'Z827luwoXmA',
-                    'mute'   : false,
-                    'tags'   : 'wisdom',
-                    'label'  : 'Things That Happen When You\'re Spiritually Awakening'
-                },
-                {
-                    'videoId': '3LCBvP62kog',
-                    'mute'   : false,
-                    'tags'   : 'wisdom',
-                    'label'  : 'Signs You\'re Progressing Spiritually and Don\'t Even Know It'
-                },
-                {
                     'videoId': '3O61I0pNPg8',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -962,12 +950,6 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'How to Find Your Soul'
-                },
-                {
-                    'videoId': 'hSFIicFoiW4',
-                    'mute'   : false,
-                    'tags'   : 'wisdom',
-                    'label'  : '5 Stages of Spiritual Awakening'
                 },
                 {
                     'videoId': 'ZcfDzE3FCt4',
