@@ -532,7 +532,21 @@ $( document ).ready( function () {
                             }
                         } );
 
-                        console.info( externalFiles, 'blub1' );
+                        /*                        console.info( externalFiles, 'blub1' );*/
+
+                        localVideosMainNode = '';
+                        rawVideoElement = '';
+                        $( '.localVideoTemplate' ).each( function ( index, value ) {
+                            localVideosMainNode = $( this ).parent();
+                            rawVideoElement = this;
+                            return;
+                        } );
+
+                        externalFiles.forEach( function ( url ) {
+                            /*                         console.info( url, 1 );*/
+                            $( rawVideoElement ).find( '.videoSource' ).attr( 'src', url );
+                            $( rawVideoElement ).clone().appendTo( localVideosMainNode );
+                        } );
 
                     }
                 } );
@@ -1342,7 +1356,7 @@ $( document ).ready( function () {
                 $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
 
-            $( '.videoMenuOverlayFullscreen' ).on( 'wheel', function ( event ) {
+            $( document ).on( 'wheel', '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2', function ( event ) {
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 ) { // going down
                     $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime = $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime - 10;
@@ -1381,13 +1395,13 @@ $( document ).ready( function () {
                 $( '#mainYoutubePlayerActiveSoundBorder' ).removeClass( 'colorfulBorder' );
             } );
 
-            $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).click( function ( event ) {
+            $( document ).on( 'click', '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2', function () {
                 stopAllActions();
             } );
 
             // Show cursor when moving mouse
             var moveTimerFullscreenVideoOverlay;
-            $( '.videoMenuOverlayFullscreen' ).on( 'mousemove', function () {
+            $( document ).on( 'mousemove', '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2', function () {
                 clearTimeout( moveTimerFullscreenVideoOverlay );
                 moveTimerFullscreenVideoOverlay = setTimeout( function () {
                     $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
