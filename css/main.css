@@ -753,7 +753,7 @@ li, .options, .form-check-label {
     min-height: 55px;
 }
 
-#videodromeIcon, #pizzaTimerIcon, #disableReminderIcon, #showPrivateContentIcon, #hidePrivateContentIcon, #playRandomWisdomIcon {
+#videodromeIcon, #pizzaTimerIcon, #disableReminderIcon, #showPrivateContentIcon, #hidePrivateContentIcon, #playRandomWisdomIcon, #loadExternalVideosIcon {
     height: 40px;
     position: relative;
     top: -2px;

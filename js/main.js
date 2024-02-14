@@ -514,6 +514,30 @@ $( document ).ready( function () {
                 checkPrivateVisible();
             } );
 
+            $( '#loadExternalVideos' ).click( function ( e ) {
+                processExternalFiles( 'external/' );
+            } );
+
+            function processExternalFiles( url ) {
+                externalFiles = [];
+                $.ajax( {
+                    url    : url,
+                    success: function ( data ) {
+                        $( data ).find( 'td > a' ).each( function () {
+                            tempFilename = $( this ).attr( 'href' );
+                            if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
+                                /*   processExternalFiles( url + tempFilename );*/
+                            } else if ( tempFilename != '/' ) {
+                                externalFiles.push( url + tempFilename );
+                            }
+                        } );
+
+                        console.info( externalFiles, 'blub1' );
+
+                    }
+                } );
+            }
+
             $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
                 if ( !isFullScreen && !e.target.classList.contains( 'externalVideoPreview' ) ) {
                     enableFullscreen();
@@ -2863,5 +2887,6 @@ $( document ).ready( function () {
                 }
                 showScreensaverEnso();
             }
+            $( '#loadExternalVideos' ).trigger( 'click' );
         }
 );
