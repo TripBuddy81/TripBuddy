@@ -165,7 +165,7 @@ $( document ).ready( function () {
                     $( '.iFrameContainer ' ).delay( 200 ).fadeIn();
                     hideScreensaverEnso();
                     if ( loadAllVideos ) {
-                        loadAllVideos();
+                        loadVideos();
                     }
                 }
             };
@@ -421,7 +421,7 @@ $( document ).ready( function () {
                         if ( rightMouseClicked ) {
                             toggleXXXVisible();
                             if ( loadAllVideos ) {
-                                loadAllVideos();
+                                loadVideos();
                             }
                         }
                         break;
@@ -519,11 +519,22 @@ $( document ).ready( function () {
                 $( '#loadExternalVideos' ).remove();
             }
             $( '#loadExternalVideos' ).click( function ( e ) {
+                alreadyLoadedExternalFiles = [];
+                $.each( config['videosLocal'], function ( index, val ) {
+
+                    if ( val['videoLink'].indexOf( 'external/' ) >= 0 ) {
+                        console.info( val['videoLink'] );
+                    }
+                } );
+
                 processExternalFiles( 'external/' );
                 $( '#loadExternalVideos' ).remove();
             } );
 
             function processExternalFiles( url ) {
+
+
+
                 externalFiles = [];
                 $.ajax( {
                     url    : url,
@@ -533,7 +544,7 @@ $( document ).ready( function () {
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                                 processExternalFiles( url + tempFilename );
                             } else if ( tempFilename != '/' ) {
-                                externalFiles.push( url + tempFilename + '#t=90' );
+                                externalFiles.push( url + tempFilename );
                             }
                         } );
 
@@ -546,7 +557,7 @@ $( document ).ready( function () {
                         } );
 
                         externalFiles.forEach( function ( url ) {
-                            $( rawVideoElement ).find( '.videoSource' ).attr( 'src', url );
+                            $( rawVideoElement ).find( '.videoSource' ).attr( 'src', url + '#t=90' );
                             $( rawVideoElement ).clone().appendTo( localVideosMainNode ).find( '.localVideo' ).addClass( 'externalVideo' );
                         } );
 
@@ -585,7 +596,7 @@ $( document ).ready( function () {
                 }
 
                 if ( loadAllVideos ) {
-                    loadAllVideos();
+                    loadVideos();
                 }
 
                 preFlightCheckListAnimationTimer = setInterval( preFlightCheckListAnimation, 1500 );
@@ -1240,7 +1251,7 @@ $( document ).ready( function () {
 
             // Double clicking videos main button reloads all videos
             $( '#showVideoSection' ).dblclick( function ( e ) {
-                loadAllVideos();
+                loadVideos();
             } );
 
             // Reload videos of given tag if double clicking on video tag
@@ -1255,7 +1266,7 @@ $( document ).ready( function () {
                 } );
             } );
 
-            function loadAllVideos() {
+            function loadVideos() {
                 $( '.videoSource' ).each( function () {
                     if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
                         $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
@@ -2909,6 +2920,6 @@ $( document ).ready( function () {
                 }
                 showScreensaverEnso();
             }
-            /*  $( '#loadExternalVideos' ).trigger( 'click' );*/
+            $( '#loadExternalVideos' ).trigger( 'click' );
         }
 );
