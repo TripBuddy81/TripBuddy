@@ -532,9 +532,6 @@ $( document ).ready( function () {
             } );
 
             function processExternalFiles( url ) {
-
-
-
                 externalFiles = [];
                 $.ajax( {
                     url    : url,
@@ -552,7 +549,7 @@ $( document ).ready( function () {
                         rawVideoElement = '';
                         $( '.XXX.localVideoTemplate' ).each( function ( index, value ) {
                             localVideosMainNode = $( this ).parent();
-                            rawVideoElement = this;
+                            rawVideoElement = $( this ).clone();
                             return false;
                         } );
 
