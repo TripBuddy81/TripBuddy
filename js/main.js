@@ -516,6 +516,7 @@ $( document ).ready( function () {
 
             $( '#loadExternalVideos' ).click( function ( e ) {
                 processExternalFiles( 'external/' );
+                $( '#loadExternalVideos' ).remove();
             } );
 
             function processExternalFiles( url ) {

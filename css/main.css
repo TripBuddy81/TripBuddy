@@ -796,6 +796,10 @@ li, .options, .form-check-label {
     margin-right: 22px;
 }
 
+#loadExternalVideosIcon {
+    margin-right: 7px;
+ }
+
 #sleep {
     height: 48px;
     display: none;
