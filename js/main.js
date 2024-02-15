@@ -71,7 +71,7 @@ $( document ).ready( function () {
             window.lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
             window.lastSelectedAutocompleteItem = 0;
             window.currentAutocompleteItem = 0;
-            window.allVideosLoaded = false;
+            window.loadAllVideos = true;
             window.mainYoutubePlayerIsActiveSoundSource = false;
             window.screensaverSecondsIdle = 0;
             window.screensaverStartAfterSeconds = 15;
@@ -96,8 +96,8 @@ $( document ).ready( function () {
             if ( optionalConfig['absoluteTruthsXXX'] != undefined ) {
                 config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
             }
-            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['allVideosLoaded'] != undefined ) {
-                allVideosLoaded = config['localSettingsOverwrite']['allVideosLoaded'];
+            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['loadAllVideos'] != undefined ) {
+                loadAllVideos = config['localSettingsOverwrite']['loadAllVideos'];
             }
 
             $( document ).bind( 'contextmenu', function ( e ) {
@@ -164,7 +164,7 @@ $( document ).ready( function () {
                     } );
                     $( '.iFrameContainer ' ).delay( 200 ).fadeIn();
                     hideScreensaverEnso();
-                    if ( !allVideosLoaded ) {
+                    if ( loadAllVideos ) {
                         loadAllVideos();
                     }
                 }
@@ -420,7 +420,7 @@ $( document ).ready( function () {
                         enableFullscreen();
                         if ( rightMouseClicked ) {
                             toggleXXXVisible();
-                            if ( !allVideosLoaded ) {
+                            if ( loadAllVideos ) {
                                 loadAllVideos();
                             }
                         }
@@ -584,7 +584,7 @@ $( document ).ready( function () {
                     localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
                 }
 
-                if ( !allVideosLoaded ) {
+                if ( loadAllVideos ) {
                     loadAllVideos();
                 }
 
@@ -1265,7 +1265,7 @@ $( document ).ready( function () {
                     this.load();
                 } );
 
-                allVideosLoaded = true;
+                loadAllVideos = false;
             }
 
             // Youtube video minimized overlay
