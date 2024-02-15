@@ -542,13 +542,12 @@ $( document ).ready( function () {
                         $( '.XXX.localVideoTemplate' ).each( function ( index, value ) {
                             localVideosMainNode = $( this ).parent();
                             rawVideoElement = this;
-                            $( rawVideoElement ).find( '.localVideo' ).addClass( 'externalVideo' );
-                            return;
+                            return false;
                         } );
 
                         externalFiles.forEach( function ( url ) {
                             $( rawVideoElement ).find( '.videoSource' ).attr( 'src', url );
-                            $( rawVideoElement ).clone().appendTo( localVideosMainNode );
+                            $( rawVideoElement ).clone().appendTo( localVideosMainNode ).find( '.localVideo' ).addClass( 'externalVideo' );
                         } );
 
                         initVideodrome();
