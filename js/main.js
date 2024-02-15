@@ -514,6 +514,10 @@ $( document ).ready( function () {
                 checkPrivateVisible();
             } );
 
+
+            if ( config['localSettingsOverwrite'] == undefined || config['localSettingsOverwrite']['allowLoadOfExternalFiles'] == undefined || !config['localSettingsOverwrite']['allowLoadOfExternalFiles'] ) {
+                $( '#loadExternalVideos' ).remove();
+            }
             $( '#loadExternalVideos' ).click( function ( e ) {
                 processExternalFiles( 'external/' );
                 $( '#loadExternalVideos' ).remove();
@@ -535,9 +539,10 @@ $( document ).ready( function () {
 
                         localVideosMainNode = '';
                         rawVideoElement = '';
-                        $( '.localVideoTemplate' ).each( function ( index, value ) {
+                        $( '.XXX.localVideoTemplate' ).each( function ( index, value ) {
                             localVideosMainNode = $( this ).parent();
                             rawVideoElement = this;
+                            $( rawVideoElement ).find( '.localVideo' ).addClass( 'externalVideo' );
                             return;
                         } );
 
@@ -547,7 +552,7 @@ $( document ).ready( function () {
                         } );
 
                         initVideodrome();
-                        $( '.localVideo' ).each( function () {
+                        $( '.externalVideo' ).each( function () {
                             this.load();
                         } );
                     }
@@ -2905,6 +2910,6 @@ $( document ).ready( function () {
                 }
                 showScreensaverEnso();
             }
-       /*     $( '#loadExternalVideos' ).trigger( 'click' );*/
+            /*  $( '#loadExternalVideos' ).trigger( 'click' );*/
         }
 );
