@@ -430,6 +430,11 @@ var config = {
                     'startSeconds': '7'
                 },
                 {
+                    'videoId'     : 'a7zNYn25Z8Q',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '60'
+                },
+                {
                     'videoId': 'hXD8itTKdY0',
                     'tags'   : 'nature'
                 },
