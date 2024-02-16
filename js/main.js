@@ -85,6 +85,7 @@ $( document ).ready( function () {
             window.shrineStroboChangeTimer = '';
             window.shrineDiscoActive = false;
             window.playingRandomWisdom = false;
+            window.alreadyLoadedExternalFiles = [];
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -519,14 +520,12 @@ $( document ).ready( function () {
                 $( '#loadExternalVideos' ).remove();
             }
             $( '#loadExternalVideos' ).click( function ( e ) {
-                alreadyLoadedExternalFiles = [];
                 $.each( config['videosLocal'], function ( index, val ) {
-
-                    if ( val['videoLink'].indexOf( 'external/' ) >= 0 ) {
-                        console.info( val['videoLink'] );
+                    var matches = val['videoLink'].match( /external\/(.*)\.mp4.*/ );
+                    if ( matches != undefined && matches[1] != undefined ) {
+                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
                     }
                 } );
-
                 processExternalFiles( 'external/' );
                 $( '#loadExternalVideos' ).remove();
             } );
@@ -541,7 +540,12 @@ $( document ).ready( function () {
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                                 processExternalFiles( url + tempFilename );
                             } else if ( tempFilename != '/' ) {
-                                externalFiles.push( url + tempFilename );
+                                var matches = tempFilename.match( /(.*)\.mp4.*/ );
+                                if ( matches != undefined && matches[1] != undefined ) {
+                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
+                                        externalFiles.push( url + tempFilename );
+                                    }
+                                }
                             }
                         } );
 
@@ -2917,6 +2921,5 @@ $( document ).ready( function () {
                 }
                 showScreensaverEnso();
             }
-            $( '#loadExternalVideos' ).trigger( 'click' );
         }
 );
