@@ -1379,10 +1379,26 @@ $( document ).ready( function () {
 
             $( document ).on( 'wheel', '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2', function ( event ) {
                 event.preventDefault();
-                if ( event.originalEvent.deltaY > 0 ) { // going down
-                    $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime = $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime - 10;
-                } else { // going up
-                    $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime = $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime + 10;
+                if ( $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0] != undefined ) { // local videos
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime = $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime - 30;
+                    } else { // going up
+                        $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime = $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime + 30;
+                    }
+                }
+                if ( $( '#directYoutubePlayer' ).is( ':visible' ) ) { // youtube direct player
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        directYoutubePlayer.seekTo( directYoutubePlayer.getCurrentTime() - 30 );
+                    } else { // going up
+                        directYoutubePlayer.seekTo( directYoutubePlayer.getCurrentTime() + 30 );
+                    }
+                }
+                if ( $( '#mainSearchResultYoutubeIframe' ).is( ':visible' ) ) { // youtube search player
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        mainSearchResultYoutubePlayer.seekTo( mainSearchResultYoutubePlayer.getCurrentTime() - 30 );
+                    } else { // going up
+                        mainSearchResultYoutubePlayer.seekTo( mainSearchResultYoutubePlayer.getCurrentTime() + 30 );
+                    }
                 }
             } );
 
@@ -2802,9 +2818,9 @@ $( document ).ready( function () {
             $( document ).on( 'wheel', '.videodromeVideoContainer', function ( event ) {
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 ) { // going down
-                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime - 10;
+                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime - 30;
                 } else { // going up
-                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime + 10;
+                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime + 30;
                 }
             } );
 
