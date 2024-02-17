@@ -1033,6 +1033,7 @@ $( document ).ready( function () {
                 $( '.miscVideoOverlay' ).show();
                 $( '.localVideoOverlay' ).show();
                 $( '.mainSearchResultVideoOverlay' ).show();
+                $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
