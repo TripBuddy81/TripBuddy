@@ -953,6 +953,12 @@ var config = {
                     'label'  : 'How to Find Your Soul'
                 },
                 {
+                    'videoId': 'dl25jrHfPhQ',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'On the Ego'
+                },
+                {
                     'videoId': 'ZcfDzE3FCt4',
                     'tags'   : 'nsfw'
                 }
@@ -1208,7 +1214,7 @@ var config = {
                         'value': '#FFFFFF'
                     },
                     {
-                        'value': '#FF5729'
+                        'value': '#f99999'
                     },
                     {
                         'value': '#FFF82E'

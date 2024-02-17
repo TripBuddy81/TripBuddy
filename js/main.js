@@ -72,6 +72,7 @@ $( document ).ready( function () {
             window.lastSelectedAutocompleteItem = 0;
             window.currentAutocompleteItem = 0;
             window.loadAllVideos = true;
+            window.allVideosLoaded = false;
             window.mainYoutubePlayerIsActiveSoundSource = false;
             window.screensaverSecondsIdle = 0;
             window.screensaverStartAfterSeconds = 15;
@@ -421,7 +422,7 @@ $( document ).ready( function () {
                         enableFullscreen();
                         if ( rightMouseClicked ) {
                             toggleXXXVisible();
-                            if ( loadAllVideos ) {
+                            if ( !allVideosLoaded ) {
                                 loadVideos();
                             }
                         }
@@ -597,7 +598,7 @@ $( document ).ready( function () {
                     localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
                 }
 
-                if ( loadAllVideos ) {
+                if ( !allVideosLoaded ) {
                     loadVideos();
                 }
 
@@ -1278,7 +1279,7 @@ $( document ).ready( function () {
                     this.load();
                 } );
 
-                loadAllVideos = false;
+                allVideosLoaded = true;
             }
 
             // Youtube video minimized overlay
