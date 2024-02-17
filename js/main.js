@@ -2940,6 +2940,17 @@ $( document ).ready( function () {
                         counter++;
                     }
                 } );
+                $( '.videoContainer.private' ).each( function () {
+                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                        if ( videosToShow.indexOf( counter ) > -1 ) {
+                            videodromeFrameCounter++;
+                            var videodromeVideoContainer = $( '<div>', {'class': 'videodromeVideoContainer videoDromeVideo' + videodromeFrameCounter} );
+                            $( '#videodromeContainer' ).append( videodromeVideoContainer );
+                            $( this ).find( '.localVideo' ).clone().appendTo( videodromeVideoContainer );
+                        }
+                        counter++;
+                    }
+                } );
             }
 
             // END Videodrome section
