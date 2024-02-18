@@ -1739,6 +1739,7 @@ $( document ).ready( function () {
             absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
 
             $( '#shrineParticlesSwitch' ).click( function ( event ) {
+                enableFullscreen();
                 if ( !showParticles ) {
                     showParticles = true;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
@@ -1749,6 +1750,7 @@ $( document ).ready( function () {
             } );
 
             $( '.shrineSetBGColor' ).click( function ( event ) {
+                enableFullscreen();
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
             } );
