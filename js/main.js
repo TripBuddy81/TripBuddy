@@ -123,7 +123,8 @@ $( document ).ready( function () {
                             shrineDiscoActive ||
                             stroboSpeed > 0 ||
                             !$( '#shrine' ).hasClass( 'shrineColorfulBackground' ) ||
-                            showParticles
+                            showParticles ||
+                            $( '#absoluteTruthsOverlay' ).is( ':visible' )
                     ) {
                         stopAllActions();
                     } else {
@@ -1857,6 +1858,7 @@ $( document ).ready( function () {
                 $( '.shrineColorfulBackground' ).trigger( 'click' );
                 stroboSpeed = 0;
                 changeStroboSpeed( stroboSpeed );
+                $( '#absoluteTruthsOverlay' ).hide();
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
             }
