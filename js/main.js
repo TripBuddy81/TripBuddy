@@ -71,7 +71,7 @@ $( document ).ready( function () {
             window.lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
             window.lastSelectedAutocompleteItem = 0;
             window.currentAutocompleteItem = 0;
-            window.loadAllVideos = true;
+            window.loadAllVideos = false;
             window.allVideosLoaded = false;
             window.mainYoutubePlayerIsActiveSoundSource = false;
             window.screensaverSecondsIdle = 0;
@@ -1476,6 +1476,9 @@ $( document ).ready( function () {
             // only show misc video section if there are videos configured
             if ( config['videosMisc'] == undefined ) {
                 $( '#videosMiscSection' ).remove();
+            }
+            if ( config['externalVideoLinks'] == undefined ) {
+                $( '#videosExternalSection' ).remove();
             }
 
             // Video section screensaver
