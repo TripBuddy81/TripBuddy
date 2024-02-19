@@ -100,7 +100,7 @@ var config = {
                     },
                     {
                         'label': 'Garden Chill',
-                        'id'   : '3gy2czyHKqtO1fFeI181oo'
+                        'id'   : '5eg7oGQAKZZUrhsT7AnGVg'
                     },
                     {
                         'label': 'Bake & Chill',
