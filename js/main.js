@@ -1738,7 +1738,7 @@ $( document ).ready( function () {
             // #3 - Shrine section
             absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
 
-            $( '#shrineParticlesSwitch' ).click( function ( event ) {
+            $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite' ).click( function ( event ) {
                 enableFullscreen();
                 if ( !showParticles ) {
                     showParticles = true;
@@ -1753,10 +1753,18 @@ $( document ).ready( function () {
                 enableFullscreen();
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
+                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite').show();
+                $( '#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode').hide();
+                $( '#shrineSetBGBlack').hide();
+                $( '.shrineSetBGColorful').attr('style', 'display: inline');
             } );
 
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
+                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite').hide();
+                $( '#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode').show();
+                $( '#shrineSetBGBlack').show();
+                $( '.shrineSetBGColorful').hide();
             } );
 
             function changeStroboSpeed( stroboSpeed ) {
@@ -1812,7 +1820,7 @@ $( document ).ready( function () {
                 enableFullscreen();
             } );
 
-            $( '#toggleAbsoluteThruth' ).click( function ( e ) {
+            $( '#toggleAbsoluteThruth,#toggleAbsoluteThruthWhite' ).click( function ( e ) {
                 enableFullscreen();
                 $( '#absoluteTruthsOverlay' ).toggle();
             } );
@@ -1826,7 +1834,7 @@ $( document ).ready( function () {
                 nextDiscoMode();
             } );
 
-            $( '#shrineDiscoMode' ).click( function ( event ) {
+            $( '#shrineDiscoMode,#shrineDiscoModeWhite' ).click( function ( event ) {
                 enableFullscreen();
                 if ( shrineDiscoActive ) {
                     stopShrineDisco();
