@@ -2807,11 +2807,9 @@ $( document ).ready( function () {
                 moveTimerVideodrome = setTimeout( function () {
                     $( '.videodromeVideoContainer' ).css( 'cursor', 'none' );
                     $( '.videoMenuOverlay' ).hide();
-                    $( '.videodromeRefreshContainerFullscreen' ).hide();
                 }, 1000 );
                 $( '.videodromeVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                 $( '.videoMenuOverlay' ).show();
-                $( '.videodromeRefreshContainerFullscreen' ).show();
             } );
 
             $( '#showVideodrome' ).click( function () {
