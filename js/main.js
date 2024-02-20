@@ -109,7 +109,7 @@ $( document ).ready( function () {
 
                 // Disable right click context menu
                 // Stops current action or shows playlist selection if nothing else going in right now
-                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).hasClass( 'videodromeFullscreen' )) || e.which == 0 ) {
+                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
@@ -138,7 +138,8 @@ $( document ).ready( function () {
                         $( e.target ).val( text );
                     } );
                     return false;
-                } else if ( $( e.target ).hasClass( 'videodromeFullscreen' ) ) {
+                } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) {
+                    $( e.target ).removeAttr( 'controls' );
                     $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 } else { // block right click
                     return false;
@@ -2819,9 +2820,14 @@ $( document ).ready( function () {
                 } );
             } );
 
-            $( document ).on( 'click', '.videodromeVideoContainer', function () {
-                $( this ).find( '.localVideo' ).prop( 'controls', 'controls' );
-                $( this ).toggleClass( 'videodromeFullscreen' );
+            $( document ).on( 'click', '.videoDromeFrame', function () {
+                if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
+                    $( this ).removeAttr( 'controls' );
+                    $( this ).parent().removeClass( 'videodromeFullscreen' );
+                } else {
+                    $( this ).prop( 'controls', 'controls' );
+                    $( this ).parent().addClass( 'videodromeFullscreen' );
+                }
             } );
 
             $( document ).on( 'wheel', '.videodromeVideoContainer', function ( event ) {

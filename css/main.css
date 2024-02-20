@@ -1837,11 +1837,6 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100%;
 }
 
-.videoDromeFrame {
-    pointer-events: none;
-    border-radius: 0;
-}
-
 .videodromeVideoContainer {
     width: 50vW;
     height: 50vH;
