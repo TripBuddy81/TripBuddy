@@ -79,7 +79,6 @@ $( document ).ready( function () {
             window.screensaverActive = false;
             window.documentReady = false;
             window.searchEditClicked = false;
-            window.numberOfSelectableVideosVideodrome = 0;
             window.alreadySelectedVideosVideodrome = [];
             window.alreadySelectedColorsDisco = [];
             window.shrineColorChangeTimer = '';
@@ -510,13 +509,11 @@ $( document ).ready( function () {
             $( '#showPrivateContent' ).click( function ( e ) {
                 privateVisible = true;
                 checkPrivateVisible();
-                initVideodrome();
             } );
 
             $( '#hidePrivateContent' ).click( function ( e ) {
                 privateVisible = false;
                 checkPrivateVisible();
-                initVideodrome();
             } );
 
             if ( config['localSettingsOverwrite'] == undefined || config['localSettingsOverwrite']['allowLoadOfExternalFiles'] == undefined || !config['localSettingsOverwrite']['allowLoadOfExternalFiles'] ) {
@@ -553,11 +550,8 @@ $( document ).ready( function () {
                         } );
 
                         externalFiles.forEach( function ( url ) {
-                            console.info(url);
                             config['videosVideodrome'].push( url );
                         } );
-
-                        initVideodrome();
                     }
                 } );
             }
@@ -2791,7 +2785,9 @@ $( document ).ready( function () {
 
             // ******************************************
             // #7 - Videodrome section
-            initVideodrome();
+            if ( config['videosVideodrome'].length == 0 ) {
+                $( '.startVideoDrome' ).hide();
+            }
 
             var moveTimerVideodrome;
             $( document ).on( 'mousemove', '.videodromeVideoContainer', function () {
@@ -2808,7 +2804,7 @@ $( document ).ready( function () {
                 enableFullscreen();
                 var videosToShow = [];
                 while ( videosToShow.length < 4 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( numberOfSelectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
+                    randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
                     if ( videosToShow.indexOf( randomNumber ) == -1 ) {
                         videosToShow.push( randomNumber );
                         $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
@@ -2851,10 +2847,10 @@ $( document ).ready( function () {
 
                 /*   videodromeVideoContainer = $( '.' + target );*/
 
-                randomNumber = Math.floor( Math.random() * (parseInt( numberOfSelectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
+                randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
                 while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( numberOfSelectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
-                    if ( alreadySelectedVideosVideodrome.length == numberOfSelectableVideosVideodrome - 1 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                    if ( alreadySelectedVideosVideodrome.length == config['videosVideodrome'].length - 1 ) {
                         alreadySelectedVideosVideodrome = [];
                     }
                 }
@@ -2884,17 +2880,6 @@ $( document ).ready( function () {
                 $( '#videodromeContainer .videoFrame' ).each( function () {
                     $( this )[0].pause();
                 } );
-            }
-
-            function initVideodrome() {
-                numberOfSelectableVideosVideodrome = config['videosVideodrome'].length;
-
-                if ( numberOfSelectableVideosVideodrome == 0 ) {
-                    $( '.startVideoDrome' ).hide();
-                    return;
-                }
-
-
             }
 
             // END Videodrome section
