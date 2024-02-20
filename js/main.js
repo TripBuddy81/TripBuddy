@@ -38,6 +38,7 @@ $( document ).ready( function () {
             window.timer = '';
             window.imageSlideshowInterval = undefined;
             window.imageSlideshowIntervalLength = 1000;
+            window.videodromePlayInterval = '';
             window.start = '';
             window.currentState = 'ignition';
             window.lastState = '';
@@ -479,7 +480,7 @@ $( document ).ready( function () {
                     $( '.privatefilter' ).hide();
                 }
                 if ( !xxxVisible ) {
-                    $( '#showPrivateContent' ).hide();
+                    $( '.showPrivateContent' ).hide();
                     $( '.XXX' ).hide();
                 }
                 if ( privateVisible ) {
@@ -499,16 +500,16 @@ $( document ).ready( function () {
                         }
                     }
                     $( '.privatefilter' ).show();
-                    $( '#showPrivateContent' ).hide();
+                    $( '.showPrivateContent' ).hide();
                 } else {
                     $( '.private' ).hide();
                     if ( xxxVisible ) {
-                        $( '#showPrivateContent' ).show();
+                        $( '.showPrivateContent' ).show();
                     }
                 }
             }
 
-            $( '#showPrivateContent' ).click( function ( e ) {
+            $( '.showPrivateContent' ).click( function ( e ) {
                 privateVisible = true;
                 checkPrivateVisible();
 
@@ -2815,9 +2816,8 @@ $( document ).ready( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
-                $( '#videodromeContainer .localVideo' ).each( function () {
-                    $( this )[0].play();
-                } );
+                forcePlaybackVideodrome();
+                videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
             } );
 
             $( document ).on( 'click', '.videoDromeFrame', function () {
@@ -2874,12 +2874,20 @@ $( document ).ready( function () {
                 }
             }
 
+            function forcePlaybackVideodrome() {
+                $( '#videodromeContainer .localVideo' ).each( function () {
+                    $( this )[0].play();
+                } );
+            }
+
             function stopPlaybackVideodrome() {
                 blockScreenSaver = false;
                 $( '#videodrome' ).hide();
                 $( '#videodromeContainer .localVideo' ).each( function () {
                     $( this )[0].pause();
                 } );
+
+                clearInterval( videodromePlayInterval );
             }
 
             // END Videodrome section
