@@ -476,7 +476,6 @@ $( document ).ready( function () {
                 }
                 if ( !xxxVisible ) {
                     $( '#showPrivateContent' ).hide();
-                    $( '#hidePrivateContent' ).hide();
                     $( '.XXX' ).hide();
                 }
                 if ( privateVisible ) {
@@ -496,7 +495,6 @@ $( document ).ready( function () {
                         }
                     }
                     $( '.privatefilter' ).show();
-                    $( '#hidePrivateContent' ).show();
                     $( '#showPrivateContent' ).hide();
                 } else {
                     $( '.private' ).hide();
@@ -518,11 +516,6 @@ $( document ).ready( function () {
                         }
                     } );
                 }
-            } );
-
-            $( '#hidePrivateContent' ).click( function ( e ) {
-                privateVisible = false;
-                checkPrivateVisible();
             } );
 
             if ( config['localSettingsOverwrite'] == undefined || config['localSettingsOverwrite']['allowLoadOfExternalFiles'] == undefined || !config['localSettingsOverwrite']['allowLoadOfExternalFiles'] ) {
