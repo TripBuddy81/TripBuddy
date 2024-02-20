@@ -52,6 +52,7 @@ $( document ).ready( function () {
             window.veryFirstThoughtDisplayed = false;
             window.xxxVisible = false;
             window.privateVisible = false;
+            window.privateLoaded = false;
             window.slideshowJustStarted = false;
             window.lastActiveBackgroundGradientKeyFrame = 1;
             window.textShrinkFrameSeed = 1;
@@ -509,6 +510,15 @@ $( document ).ready( function () {
             $( '#showPrivateContent' ).click( function ( e ) {
                 privateVisible = true;
                 checkPrivateVisible();
+
+                if ( !privateLoaded ) {
+                    privateLoaded = true;
+                    $.each( config['videosLocal'], function ( index, val ) {
+                        if ( val['tags'] == 'private' ) {
+                            config['videosVideodrome'].push( val['videoLink'] );
+                        }
+                    } );
+                }
             } );
 
             $( '#hidePrivateContent' ).click( function ( e ) {
@@ -529,7 +539,6 @@ $( document ).ready( function () {
                 } );
 
                 $.each( config['videosVideodrome'], function ( val ) {
-                    console.info( config['videosVideodrome'][val] );
                     var matches = config['videosVideodrome'][val].match( /external\/(.*)\.mp4.*/ );
                     if ( matches != undefined && matches[1] != undefined ) {
                         alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
@@ -2845,18 +2854,6 @@ $( document ).ready( function () {
             $( '.videodromeRefreshVideo' ).click( function () {
                 target = $( this ).attr( 'target' );
 
-                /*                $( '#videodromeContainer .videoFrame' ).each( function () {
-                                    $( this )[0].pause();
-                                } );*/
-
-                /*                $( '.' + target ).find( '.videoFrame' ).find( '.videoSource' ).attr( 'src', '' );
-                                try {
-                                    $( '.' + target ).find( '.videoFrame' ).get( 0 ).load();
-                                } catch ( e ) {
-                                }*/
-
-                /*   videodromeVideoContainer = $( '.' + target );*/
-
                 randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
                 while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
                     randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
@@ -2869,10 +2866,6 @@ $( document ).ready( function () {
                 $( '.' + target ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
                 $( '.' + target ).find( '.localVideo' )[0].load();
                 $( '.' + target ).find( '.videoFrame' )[0].play();
-
-                /*                $( '#videodromeContainer .videoFrame' ).each( function () {
-                                    $( this )[0].play();
-                                } );*/
             } );
 
             function startPlaybackVideodrome() {
