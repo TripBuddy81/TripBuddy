@@ -519,6 +519,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] == undefined || config['localSettingsOverwrite']['allowLoadOfExternalFiles'] == undefined || !config['localSettingsOverwrite']['allowLoadOfExternalFiles'] ) {
                 $( '#loadExternalVideos' ).remove();
             }
+
             $( '#loadExternalVideos' ).click( function ( e ) {
                 $.each( config['videosLocal'], function ( index, val ) {
                     var matches = val['videoLink'].match( /external\/(.*)\.mp4.*/ );
@@ -526,6 +527,15 @@ $( document ).ready( function () {
                         alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
                     }
                 } );
+
+                $.each( config['videosVideodrome'], function ( val ) {
+                    console.info( config['videosVideodrome'][val] );
+                    var matches = config['videosVideodrome'][val].match( /external\/(.*)\.mp4.*/ );
+                    if ( matches != undefined && matches[1] != undefined ) {
+                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
+                    }
+                } );
+
                 processExternalFiles( 'external/' );
                 $( '#loadExternalVideos' ).remove();
             } );
