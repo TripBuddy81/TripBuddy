@@ -1222,14 +1222,14 @@ input[type=range]::-webkit-slider-thumb {
     margin-bottom: 50px !important;
 }
 
-.videoFrame, .youtubeVideo {
+.videoFrame, .youtubeVideo, .videoDromeFrame {
     height: 100%;
     width: 100%;
     background-color: black;
     border-radius: 5px;
 }
 
-.videoContainerFullscreen > .videoFrame {
+.videoContainerFullscreen > .videoFrame, .videoDromeFrame {
     border-radius: 0px !important;
 }
 
@@ -1837,7 +1837,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100%;
 }
 
-#videodrome .videoFrame {
+.videoDromeFrame {
     pointer-events: none;
     border-radius: 0;
 }

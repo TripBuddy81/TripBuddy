@@ -2814,21 +2814,22 @@ $( document ).ready( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
-                $( '#videodromeContainer .videoFrame' ).each( function () {
+                $( '#videodromeContainer .localVideo' ).each( function () {
                     $( this )[0].play();
                 } );
             } );
 
             $( document ).on( 'click', '.videodromeVideoContainer', function () {
+                $( this ).find( '.localVideo' ).prop( 'controls', 'controls' );
                 $( this ).toggleClass( 'videodromeFullscreen' );
             } );
 
             $( document ).on( 'wheel', '.videodromeVideoContainer', function ( event ) {
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 ) { // going down
-                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime - 30;
+                    $( this ).find( '.localVideo' )[0].currentTime = $( this ).find( '.localVideo' )[0].currentTime - 30;
                 } else { // going up
-                    $( this ).find( '.videoFrame' )[0].currentTime = $( this ).find( '.videoFrame' )[0].currentTime + 30;
+                    $( this ).find( '.localVideo' )[0].currentTime = $( this ).find( '.localVideo' )[0].currentTime + 30;
                 }
             } );
 
@@ -2846,7 +2847,7 @@ $( document ).ready( function () {
 
                 $( '.' + target ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
                 $( '.' + target ).find( '.localVideo' )[0].load();
-                $( '.' + target ).find( '.videoFrame' )[0].play();
+                $( '.' + target ).find( '.localVideo' )[0].play();
             } );
 
             function initVideodrome() {
@@ -2870,7 +2871,7 @@ $( document ).ready( function () {
             function stopPlaybackVideodrome() {
                 blockScreenSaver = false;
                 $( '#videodrome' ).hide();
-                $( '#videodromeContainer .videoFrame' ).each( function () {
+                $( '#videodromeContainer .localVideo' ).each( function () {
                     $( this )[0].pause();
                 } );
             }
