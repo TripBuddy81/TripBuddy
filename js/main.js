@@ -109,7 +109,7 @@ $( document ).ready( function () {
 
                 // Disable right click context menu
                 // Stops current action or shows playlist selection if nothing else going in right now
-                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text') || e.which == 0 ) {
+                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).hasClass( 'videodromeFullscreen' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
@@ -138,6 +138,8 @@ $( document ).ready( function () {
                         $( e.target ).val( text );
                     } );
                     return false;
+                } else if ( $( e.target ).hasClass( 'videodromeFullscreen' ) ) {
+                    $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 } else { // block right click
                     return false;
                 }
