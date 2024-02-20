@@ -96,7 +96,8 @@
                     </li>
 
                     <li class="menuItem actionItem XXX fw-bold" id="showPrivateContent"><img id="showPrivateContentIcon"
-                                                                                             src="./assets/private.png">Show private content
+                                                                                             src="./assets/private.png">Show
+                        private content
                     </li>
                     <li class="menuItem actionItem XXX private fw-bold" id="hidePrivateContent"><img
                             id="hidePrivateContentIcon" src="./assets/hide.png">Hide private content
@@ -756,7 +757,7 @@
                 {{/videosMisc}}
             </div>
 
-            <div id="videosExternalSection"  class="row d-flex justify-content-between">
+            <div id="videosExternalSection" class="row d-flex justify-content-between">
                 <div class="videoLinkTypeSeperator XXX videoContainer" id="externalVideoLinkTypeSeperator"></div>
                 <div class="videoContainer XXX searchBar col-12">
                     <img class="searchEdit cursorAction" src="./assets/edit.png">
@@ -832,7 +833,8 @@
             <div id="shrineSettings">
                 <div class="row">
                     <div class="col">
-                        <div id="shrineSetBGBlack" class="shrineSetBGColor" style="background-color:#000000;">&nbsp;</div>
+                        <div id="shrineSetBGBlack" class="shrineSetBGColor" style="background-color:#000000;">&nbsp;
+                        </div>
                         {{#shrine}}
                         {{#shrineColors}}
                         <div class="shrineSetBGColor shrineDiscoColor shrineCustomColors"
@@ -980,30 +982,29 @@
         </div>
 
         <div id="videodromeContainer">
-            <div class="videoContainer {{tags}} localVideoTemplate col-3">
-                <div class="iFrameContainer">
-                    <video class="videoFrame localVideo" muted loop controlsList="nofullscreen" preload="none">
-                        <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">
-                    </video>
-                    <div class="videoInfo mb-2">
-                        <div>{{tags}} - {{videoLink}}</div>
-                    </div>
-                    <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
-                    <div class="videoLabel">
-                        {{label}}
-                    </div>
-                    <div class="localVideoOverlay">
-                    </div>
-                    <div class="videoMenuOverlayFullscreen">
-                    </div>
-                    <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
-                    </div>
-                    <div class="trackProgressContainer hidden videoMenuOverlay">
-                        <div class="trackProgress">
-                            <div class="colorfulBorder"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="videodromeVideoContainer videoDromeVideo1">
+                <video class="videoFrame localVideo" muted="" loop="" controlslist="nofullscreen" preload="none">
+                    <source class="videoSource cursorNone"
+                            src="" type="video/mp4">
+                </video>
+            </div>
+            <div class="videodromeVideoContainer videoDromeVideo2">
+                <video class="videoFrame localVideo" muted="" loop="" controlslist="nofullscreen" preload="none">
+                    <source class="videoSource cursorNone"
+                            src="" type="video/mp4">
+                </video>
+            </div>
+            <div class="videodromeVideoContainer videoDromeVideo3">
+                <video class="videoFrame localVideo" muted="" loop="" controlslist="nofullscreen" preload="none">
+                    <source class="videoSource cursorNone"
+                            src="" type="video/mp4">
+                </video>
+            </div>
+            <div class="videodromeVideoContainer videoDromeVideo4">
+                <video class="videoFrame localVideo" muted="" loop="" controlslist="nofullscreen" preload="none">
+                    <source class="videoSource cursorNone"
+                            src="" type="video/mp4">
+                </video>
             </div>
         </div>
     </div>

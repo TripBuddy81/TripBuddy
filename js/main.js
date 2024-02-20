@@ -2817,12 +2817,15 @@ $( document ).ready( function () {
 
             $( '.startVideoDrome' ).click( function () {
                 enableFullscreen();
-                $( '.videodromeVideoContainer' ).each( function () {
-                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        $( this ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ).replace( /NOLOAD/, '' ) );
-                        $( this ).find( '.localVideo' )[0].load();
+                var videosToShow = [];
+                while ( videosToShow.length < 4 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( numberOfSelectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
+                    if ( videosToShow.indexOf( randomNumber ) == -1 ) {
+                        videosToShow.push( randomNumber );
+                        $('.videoDromeVideo' + videosToShow.length ).find('.videoSource').attr('src', config['videosVideodrome'][randomNumber]);
+                        $('.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].load();
                     }
-                } );
+                }
                 videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );
             } );
 
@@ -2863,32 +2866,8 @@ $( document ).ready( function () {
                 }
                 alreadySelectedVideosVideodrome.push( randomNumber );
 
-                counter = 0;
-                $( '.videoContainer.XXX' ).each( function () {
-                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        if ( randomNumber == counter ) {
-                            $( '.' + target ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ) );
-                            try {
-                                $( '.' + target ).find( '.videoFrame' ).get( 0 ).load();
-                            } catch ( e ) {
-                            }
-                        }
-                        counter++;
-                    }
-                } );
-
-                $( '.videoContainer.private' ).each( function () {
-                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        if ( randomNumber == counter ) {
-                            $( '.' + target ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ) );
-                            try {
-                                $( '.' + target ).find( '.videoFrame' ).get( 0 ).load();
-                            } catch ( e ) {
-                            }
-                        }
-                        counter++;
-                    }
-                } );
+                $( '.' + target ).find('.videoSource').attr('src', config['videosVideodrome'][randomNumber]);
+                $( '.' + target ).find( '.localVideo' )[0].load();
 
                 $( '#videodromeContainer .videoFrame' ).each( function () {
                     $( this )[0].play();
@@ -2913,11 +2892,16 @@ $( document ).ready( function () {
             }
 
             function initVideodrome() {
-                numberOfSelectableVideosVideodrome = 0;
+                numberOfSelectableVideosVideodrome = config['videosVideodrome'].length;
 
+                console.info(numberOfSelectableVideosVideodrome);
+/*
                 $.each( config['videosVideodrome'], function ( index, val ) {
                     numberOfSelectableVideosVideodrome++;
                 } );
+*/
+
+
 
                /* val['videoLink']*/
 
@@ -2940,39 +2924,39 @@ $( document ).ready( function () {
                     return;
                 }
 
-                var videosToShow = [];
+/*                var videosToShow = [];
                 while ( videosToShow.length < 4 ) {
                     randomNumber = Math.floor( Math.random() * (parseInt( numberOfSelectableVideosVideodrome ) - parseInt( 0 )) + parseInt( 0 ) );
                     if ( videosToShow.indexOf( randomNumber ) == -1 ) {
                         videosToShow.push( randomNumber );
                     }
-                }
-
-                counter = 0;
-                videodromeFrameCounter = 0;
-                $( '#videodromeContainer' ).empty();
-                $( '.videoContainer.XXX' ).each( function () {
-                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        if ( videosToShow.indexOf( counter ) > -1 ) {
-                            videodromeFrameCounter++;
-                            var videodromeVideoContainer = $( '<div>', {'class': 'videodromeVideoContainer videoDromeVideo' + videodromeFrameCounter} );
-                            $( '#videodromeContainer' ).append( videodromeVideoContainer );
-                            $( this ).find( '.localVideo' ).clone().appendTo( videodromeVideoContainer );
-                        }
-                        counter++;
-                    }
-                } );
-                $( '.videoContainer.private' ).each( function () {
-                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        if ( videosToShow.indexOf( counter ) > -1 ) {
-                            videodromeFrameCounter++;
-                            var videodromeVideoContainer = $( '<div>', {'class': 'videodromeVideoContainer videoDromeVideo' + videodromeFrameCounter} );
-                            $( '#videodromeContainer' ).append( videodromeVideoContainer );
-                            $( this ).find( '.localVideo' ).clone().appendTo( videodromeVideoContainer );
-                        }
-                        counter++;
-                    }
-                } );
+                }*/
+                /*
+                                counter = 0;
+                                videodromeFrameCounter = 0;
+                                $( '#videodromeContainer' ).empty();
+                                $( '.videoContainer.XXX' ).each( function () {
+                                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                                        if ( videosToShow.indexOf( counter ) > -1 ) {
+                                            videodromeFrameCounter++;
+                                            var videodromeVideoContainer = $( '<div>', {'class': 'videodromeVideoContainer videoDromeVideo' + videodromeFrameCounter} );
+                                            $( '#videodromeContainer' ).append( videodromeVideoContainer );
+                                            $( this ).find( '.localVideo' ).clone().appendTo( videodromeVideoContainer );
+                                        }
+                                        counter++;
+                                    }
+                                } );
+                                $( '.videoContainer.private' ).each( function () {
+                                    if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
+                                        if ( videosToShow.indexOf( counter ) > -1 ) {
+                                            videodromeFrameCounter++;
+                                            var videodromeVideoContainer = $( '<div>', {'class': 'videodromeVideoContainer videoDromeVideo' + videodromeFrameCounter} );
+                                            $( '#videodromeContainer' ).append( videodromeVideoContainer );
+                                            $( this ).find( '.localVideo' ).clone().appendTo( videodromeVideoContainer );
+                                        }
+                                        counter++;
+                                    }
+                                } );*/
             }
 
             // END Videodrome section
