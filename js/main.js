@@ -2800,6 +2800,18 @@ $( document ).ready( function () {
             // #7 - Videodrome section
             if ( config['videosVideodrome'].length == 0 ) {
                 $( '.startVideoDrome' ).hide();
+            } else {
+                var videosToShow = [];
+                while ( videosToShow.length < 4 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                    if ( videosToShow.indexOf( randomNumber ) == -1 ) {
+                        videosToShow.push( randomNumber );
+                        alreadySelectedVideosVideodrome.push( randomNumber );
+                        $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
+                        $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].load();
+                        $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
+                    }
+                }
             }
 
             var moveTimerVideodrome;
@@ -2817,17 +2829,9 @@ $( document ).ready( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
-                var videosToShow = [];
-                while ( videosToShow.length < 4 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                    if ( videosToShow.indexOf( randomNumber ) == -1 ) {
-                        videosToShow.push( randomNumber );
-                        alreadySelectedVideosVideodrome.push( randomNumber );
-                        $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
-                        $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].load();
-                        $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
-                    }
-                }
+                $( '#videodromeContainer .videoFrame' ).each( function () {
+                    $( this )[0].play();
+                } );
             } );
 
             $( document ).on( 'click', '.videodromeVideoContainer', function () {
