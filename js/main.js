@@ -446,6 +446,7 @@ $( document ).ready( function () {
                 if ( xxxVisible ) {
                     $( '.XXX' ).show();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
+                    initVideodrome();
                 } else {
                     $( '.XXX' ).hide();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
@@ -2798,22 +2799,6 @@ $( document ).ready( function () {
 
             // ******************************************
             // #7 - Videodrome section
-            if ( config['videosVideodrome'].length == 0 ) {
-                $( '.startVideoDrome' ).hide();
-            } else {
-                var videosToShow = [];
-                while ( videosToShow.length < 4 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                    if ( videosToShow.indexOf( randomNumber ) == -1 ) {
-                        videosToShow.push( randomNumber );
-                        alreadySelectedVideosVideodrome.push( randomNumber );
-                        $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
-                        $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].load();
-                        $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
-                    }
-                }
-            }
-
             var moveTimerVideodrome;
             $( document ).on( 'mousemove', '.videodromeVideoContainer', function () {
                 clearTimeout( moveTimerVideodrome );
@@ -2863,6 +2848,24 @@ $( document ).ready( function () {
                 $( '.' + target ).find( '.localVideo' )[0].load();
                 $( '.' + target ).find( '.videoFrame' )[0].play();
             } );
+
+            function initVideodrome() {
+                if ( config['videosVideodrome'].length == 0 ) {
+                    $( '.startVideoDrome' ).hide();
+                } else {
+                    var videosToShow = [];
+                    while ( videosToShow.length < 4 ) {
+                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        if ( videosToShow.indexOf( randomNumber ) == -1 ) {
+                            videosToShow.push( randomNumber );
+                            alreadySelectedVideosVideodrome.push( randomNumber );
+                            $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
+                            $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].load();
+                            $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
+                        }
+                    }
+                }
+            }
 
             function stopPlaybackVideodrome() {
                 blockScreenSaver = false;
