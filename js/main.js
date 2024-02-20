@@ -24,7 +24,6 @@ $( document ).ready( function () {
             window.directYoutubePlayerState = 'undefined';
             window.playingSpotifyTrack = false;
             window.populateTrackSelectionInterval = '';
-            window.videodromePlayInterval = '';
             window.populateTrackSelectionData = {};
             window.blockScreenSaver = false;
             window.externalSoundTabOpened = false;
@@ -2821,21 +2820,19 @@ $( document ).ready( function () {
 
             $( '.startVideoDrome' ).click( function () {
                 enableFullscreen();
+                blockScreenSaver = true;
+                $( '#videodrome' ).show();
                 var videosToShow = [];
                 while ( videosToShow.length < 4 ) {
                     randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
                     if ( videosToShow.indexOf( randomNumber ) == -1 ) {
                         videosToShow.push( randomNumber );
+                        alreadySelectedVideosVideodrome.push( randomNumber );
                         $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
                         $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].load();
+                        $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
                     }
                 }
-                blockScreenSaver = true;
-                $( '#videodrome' ).show();
-                $( '#videodromeContainer .videoFrame' ).each( function () {
-                    $( this )[0].play();
-                } );
-                /*videodromePlayInterval = setInterval( startPlaybackVideodrome, 1000 );*/
             } );
 
             $( document ).on( 'click', '.videodromeVideoContainer', function () {
@@ -2868,18 +2865,9 @@ $( document ).ready( function () {
                 $( '.' + target ).find( '.videoFrame' )[0].play();
             } );
 
-            function startPlaybackVideodrome() {
-                blockScreenSaver = true;
-                $( '#videodrome' ).show();
-                $( '#videodromeContainer .videoFrame' ).each( function () {
-                    $( this )[0].play();
-                } );
-            }
-
             function stopPlaybackVideodrome() {
                 blockScreenSaver = false;
                 $( '#videodrome' ).hide();
-                clearInterval( videodromePlayInterval );
                 $( '#videodromeContainer .videoFrame' ).each( function () {
                     $( this )[0].pause();
                 } );
