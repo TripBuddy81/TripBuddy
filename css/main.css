@@ -125,7 +125,7 @@ a:link, a:visited, a:active, a:hover, p {
     pointer-events: none;
 }
 
-.xxxLink, .searchLink, .searchLabel, .searchInput, .searchInput:focus, .searchInput:active {
+.xxxLink, .xxxAction, .searchLink, .searchLabel, .searchInput, .searchInput:focus, .searchInput:active {
     font-weight: bold;
     font-size: 35px !important;
     background: none;
@@ -133,6 +133,11 @@ a:link, a:visited, a:active, a:hover, p {
     display: inline;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
+
+.xxxAction {
+    display: block;
+}
+
 
 .searchEdit {
     height: 45px;
@@ -159,7 +164,7 @@ a:hover {
     color: white;
 }
 
-.xxxLink:hover, .searchLink:hover {
+.xxxLink:hover, .searchLink:hover, .xxxAction:hover {
     color: #ffffff;
 }
 
@@ -478,7 +483,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     display: none;
 }
 
-#startPizzaTimer, #disableAllReminders, #showPrivateContent {
+#startPizzaTimer, #disableAllReminders {
     color: black;
     font-size: 30px;
     margin-right: 15px;
@@ -772,6 +777,12 @@ li, .options, .form-check-label {
     margin-top: 4px;
 }
 
+#startVideoDromeIcon {
+    height: 104px;
+    margin-right: 20px;
+    margin-left: -2px;
+}
+
 #playRandomWisdomIcon {
     margin-left: 8px;
     margin-right: 17px;
@@ -780,7 +791,7 @@ li, .options, .form-check-label {
 
 #showPrivateContentIcon {
     margin-left: 8px;
-    margin-right: 17px;
+    margin-right: 25px;
     height: 45px;
 }
 
@@ -791,7 +802,7 @@ li, .options, .form-check-label {
 }
 
 #loadExternalVideosIcon {
-    margin-right: 7px;
+    margin-right: 14px;
  }
 
 #sleep {
@@ -1564,7 +1575,7 @@ video::-webkit-media-controls-fullscreen-button {
     line-height: 3.5;
 }
 
-.searchBar {
+.xxxToolbar {
     width: -webkit-fill-available;
     height: auto;
     display: inline-block;

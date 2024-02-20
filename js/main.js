@@ -2810,7 +2810,7 @@ $( document ).ready( function () {
                 $( '.videoMenuOverlay' ).show();
             } );
 
-            $( '.startVideoDrome' ).click( function () {
+            $( '#showVideodrome' ).click( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
@@ -2851,7 +2851,7 @@ $( document ).ready( function () {
 
             function initVideodrome() {
                 if ( config['videosVideodrome'].length == 0 ) {
-                    $( '.startVideoDrome' ).hide();
+                    $( '#showVideodrome' ).hide();
                 } else {
                     var videosToShow = [];
                     while ( videosToShow.length < 4 ) {

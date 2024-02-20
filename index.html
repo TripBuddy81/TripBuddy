@@ -94,14 +94,6 @@
                                                                                        src="./assets/blackAndWhite.png">Play
                         Wisdom
                     </li>
-
-                    <li class="menuItem actionItem XXX fw-bold" id="showPrivateContent"><img id="showPrivateContentIcon"
-                                                                                             src="./assets/private.png">Show
-                        private content
-                    </li>
-                    <li class="menuItem actionItem XXX fw-bold" id="loadExternalVideos"><img
-                            id="loadExternalVideosIcon" src="./assets/video.png">Load external Videos
-                    </li>
                     <li class="menuItem actionItem menuvisibleAfterStarted fw-bold" id="disableAllReminders"><img
                             id="disableReminderIcon" src="./assets/x.png">Disable all reminders
                     </li>
@@ -639,7 +631,7 @@
             </div>
 
             <div class="row d-flex justify-content-between">
-                <div class="videoContainer XXX searchBar col-12">
+                <div class="videoContainer XXX xxxToolbar col-12">
                     <img class="searchEdit cursorAction" src="./assets/edit.png">
                     <input type="text" class="searchInput me-2" id="searchInput1" name="searchInput1" value=""
                            placeholder="search text" data-trigger-keyboard="true" autocomplete="off"
@@ -650,7 +642,26 @@
                     <div class="searchLink {{tag}}" searchLink="{{searchLink}}" href={{link}} target=_blank>{{name}}
                     </div>
                     {{/searchEngines}}
-                    <img class="startVideoDrome cursorAction" src="./assets/videodrome.png">
+                </div>
+                <div class="videoContainer XXX xxxToolbar col-12">
+                    <div class="row">
+                        <div class="col">
+                             <div class="xxxAction" id="showVideodrome">
+                                <img id="startVideoDromeIcon" src="./assets/videodrome.png">Start Videodrome
+                            </div>
+                        </div>
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+                            <div class="xxxAction" id="showPrivateContent">
+                                <img id="showPrivateContentIcon" src="./assets/private.png">Show private content
+                            </div>
+                            <div class="xxxAction" id="loadExternalVideos">
+                                <img id="loadExternalVideosIcon" src="./assets/video.png">Load external Videos
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {{#videosYoutube}}
