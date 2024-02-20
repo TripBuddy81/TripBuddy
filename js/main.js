@@ -2914,19 +2914,26 @@ $( document ).ready( function () {
 
             function initVideodrome() {
                 numberOfSelectableVideosVideodrome = 0;
-                $( '.videoContainer.XXX' ).each( function () {
+
+                $.each( config['videosVideodrome'], function ( index, val ) {
+                    numberOfSelectableVideosVideodrome++;
+                } );
+
+               /* val['videoLink']*/
+
+/*                $( '.videoContainer.XXX' ).each( function () {
                     if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
                         numberOfSelectableVideosVideodrome++;
                     }
-                } );
+                } );*/
 
-                if ( privateVisible ) {
+/*                if ( privateVisible ) {
                     $( '.videoContainer.private' ).each( function () {
                         if ( typeof $( this ).find( '.localVideo' ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
                             numberOfSelectableVideosVideodrome++;
                         }
                     } );
-                }
+                }*/
 
                 if ( numberOfSelectableVideosVideodrome == 0 ) {
                     $( '.startVideoDrome' ).hide();

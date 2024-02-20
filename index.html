@@ -677,7 +677,7 @@
                 </div>
                 {{/videosYoutube}}
 
-                {{#videosLocal}}
+                <!--{{#videosLocal}}
                 <div class="videoContainer {{tags}} localVideoTemplate col-3">
                     <div class="iFrameContainer">
                         <video class="videoFrame localVideo" muted loop controlsList="nofullscreen" preload="none">
@@ -703,7 +703,7 @@
                         </div>
                     </div>
                 </div>
-                {{/videosLocal}}
+                {{/videosLocal}}-->
             </div>
 
             <div id="videosMiscSection" class="row d-flex justify-content-between">
@@ -980,6 +980,31 @@
         </div>
 
         <div id="videodromeContainer">
+            <div class="videoContainer {{tags}} localVideoTemplate col-3">
+                <div class="iFrameContainer">
+                    <video class="videoFrame localVideo" muted loop controlsList="nofullscreen" preload="none">
+                        <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">
+                    </video>
+                    <div class="videoInfo mb-2">
+                        <div>{{tags}} - {{videoLink}}</div>
+                    </div>
+                    <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
+                    <div class="videoLabel">
+                        {{label}}
+                    </div>
+                    <div class="localVideoOverlay">
+                    </div>
+                    <div class="videoMenuOverlayFullscreen">
+                    </div>
+                    <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+                    </div>
+                    <div class="trackProgressContainer hidden videoMenuOverlay">
+                        <div class="trackProgress">
+                            <div class="colorfulBorder"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
