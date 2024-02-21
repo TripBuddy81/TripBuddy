@@ -566,7 +566,7 @@ $( document ).ready( function () {
                         } );
 
                         externalFiles.forEach( function ( url ) {
-                            config['videosVideodrome'].push( url );
+                            config['videosVideodrome'].push( url + '#t=90' );
                         } );
                     }
                 } );
@@ -2846,6 +2846,13 @@ $( document ).ready( function () {
                 $( '.' + target ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
                 $( '.' + target ).find( '.localVideo' )[0].load();
                 $( '.' + target ).find( '.localVideo' )[0].play();
+            } );
+
+            $( '#refreshVideoDromeVideoAll' ).click( function () {
+                $( '#refreshVideoDromeVideo1' ).trigger( 'click' );
+                $( '#refreshVideoDromeVideo2' ).trigger( 'click' );
+                $( '#refreshVideoDromeVideo3' ).trigger( 'click' );
+                $( '#refreshVideoDromeVideo4' ).trigger( 'click' );
             } );
 
             function initVideodrome() {
