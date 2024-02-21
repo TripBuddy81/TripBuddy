@@ -419,6 +419,14 @@ $( document ).ready( function () {
                 $( '#applicationSettingsMenu' ).animate( {scrollTop: 0}, 'fast' );
             } );
 
+            $( document ).on( 'mouseover', '.iconAlternating', function () {
+                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '.png', '_alt.png' ) );
+            } );
+
+            $( document ).on( 'mouseout', '.iconAlternating', function () {
+                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_alt.png', '.png' ) );
+            } );
+
             var rightMouseClicked = false;
             $( '#activateHiddenMenue' ).mousedown( function ( event ) {
                 switch ( event.which ) {
@@ -1021,6 +1029,10 @@ $( document ).ready( function () {
                 if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
                     document.elementFromPoint( 0, 0 ).click();
                 }
+
+                $( '.iconAlternating' ).each( function () {
+                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_alt.png', '.png' ) );
+                } );
 
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
