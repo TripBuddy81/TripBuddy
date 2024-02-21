@@ -1472,14 +1472,6 @@ $( document ).ready( function () {
                 }
             } );
 
-            // only show misc video section if there are videos configured
-            if ( config['videosMisc'] == undefined ) {
-                $( '#videosMiscSection' ).remove();
-            }
-            if ( config['externalVideoLinks'] == undefined ) {
-                $( '#videosExternalSection' ).remove();
-            }
-
             // Video section screensaver
             function startScreensaver( force = false ) {
                 screensaverSecondsIdle++;

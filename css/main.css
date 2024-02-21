@@ -1307,16 +1307,6 @@ video::-webkit-media-controls-fullscreen-button {
     margin-bottom: 10px;
 }
 
-#miscVideoLinkTypeSeperator {
-    border-bottom: solid 10px #8577ff;
-    border-radius: 10px;
-}
-
-#externalVideoLinkTypeSeperator {
-    border-bottom: solid 10px #ff5454;
-    border-radius: 10px;
-}
-
 .imageSlideshowControls {
     left: 0px;
     bottom: 0px;
