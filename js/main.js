@@ -1,6 +1,8 @@
 $( document ).ready( function () {
             // Index:
-            // #0 - Main section
+            // #0 - Main/global section
+            // #0.2 - Global key bindings, misc functionality
+            // #0.5 - Main Menu
             // #1 - Video section
             // #2 - Image section
             // #3 - Shrine section
@@ -8,10 +10,11 @@ $( document ).ready( function () {
             // #5 - Music section
             // #6 - Search Youtube section
             // #7 - Videodrome section
+            // #8 - Hidden section
             // #9 - initial init section
 
             // ***********************************
-            // #0 - Main section
+            // #0 - Main/global section
             // Globals
             window.spotifyHasBeenPlayingBeforePause = false;
             window.spotifySongRadioQueue = '';
@@ -102,51 +105,6 @@ $( document ).ready( function () {
                 loadAllVideos = config['localSettingsOverwrite']['loadAllVideos'];
             }
 
-            $( document ).bind( 'contextmenu', function ( e ) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
-
-                // Disable right click context menu
-                // Stops current action or shows playlist selection if nothing else going in right now
-                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' )) || e.which == 0 ) {
-                    if ( $( '#menuClose' ).prop( 'checked' ) ||
-                            $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
-                            $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
-                            $( '#videodrome' ).is( ':visible' ) ||
-                            $( '#notesOverlay' ).is( ':visible' ) ||
-                            $( '.videoMenuOverlayFullscreen' ).is( ':visible' ) ||
-                            $( '#preFlightChecklist' ).is( ':visible' ) ||
-                            $( '.displayedFullscreenImage' ).is( ':visible' ) ||
-                            $( '.keyboard-cancel-button' ).is( ':visible' ) ||
-                            shrineDiscoActive ||
-                            stroboSpeed > 0 ||
-                            !$( '#shrine' ).hasClass( 'shrineColorfulBackground' ) ||
-                            showParticles ||
-                            $( '#absoluteTruthsOverlay' ).is( ':visible' )
-                    ) {
-                        stopAllActions();
-                    } else {
-                        $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
-                        $( '#spotifyPlaylistsMenu' ).animate( {scrollTop: 0}, 'fast' );
-                        stopAllActions( false );
-                    }
-                    return false;
-                } else if ( $( e.target ).attr( 'type' ) == 'text' ) { // paste text into text field
-                    navigator.clipboard.readText()
-                    .then( text => {
-                        $( e.target ).val( text );
-                    } );
-                    return false;
-                } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) {
-                    $( e.target ).removeAttr( 'controls' );
-                    $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                } else { // block right click
-                    return false;
-                }
-            } );
-
             // Handlebar renderer and helper functions - takes combined config within config/config.js
             Handlebars.registerHelper( 'if', function ( v1, v2, options ) {
                 if ( v1 === v2 ) {
@@ -235,6 +193,74 @@ $( document ).ready( function () {
             // Init number spinner ('.input-group') - https://www.jqueryscript.net/form/Input-Spinner-Plugin-Bootstrap-4.html
             $( '#pizzaTimerMinutes' ).inputSpinner();
 
+            // Init gradient background
+            refreshGradientBackground();
+
+            function refreshGradientBackground() {
+                lastActiveBackgroundGradientKeyFrame = (lastActiveBackgroundGradientKeyFrame + 1) % 2;
+
+                /*https://cssgradient.io/*/
+
+                multiple = new Multiple( {
+                    selector  : '.sharedBackground',
+                    background: 'linear-gradient(-45deg, rgba(245,255,115,1) 0%, rgba(155,255,107,1) 26%, rgba(72,205,255,1) 71%, rgba(144,107,255,1) 100%);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
+                } );
+            }
+
+            // Init global alarm sounds
+            var alarmSound = document.getElementById( 'alarmSound' );
+
+            // Init track progress bar
+            $( '.trackProgress' ).hide();
+
+            // ***********************************
+            // #0.2 - Global key bindings, misc functionality
+
+            // Configure or disable right click context menu
+            $( document ).bind( 'contextmenu', function ( e ) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
+
+                // Stops current action or shows playlist selection if nothing else going in right now
+                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' )) || e.which == 0 ) {
+                    if ( $( '#menuClose' ).prop( 'checked' ) ||
+                            $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
+                            $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
+                            $( '#videodrome' ).is( ':visible' ) ||
+                            $( '#notesOverlay' ).is( ':visible' ) ||
+                            $( '.videoMenuOverlayFullscreen' ).is( ':visible' ) ||
+                            $( '#preFlightChecklist' ).is( ':visible' ) ||
+                            $( '.displayedFullscreenImage' ).is( ':visible' ) ||
+                            $( '.keyboard-cancel-button' ).is( ':visible' ) ||
+                            shrineDiscoActive ||
+                            stroboSpeed > 0 ||
+                            !$( '#shrine' ).hasClass( 'shrineColorfulBackground' ) ||
+                            showParticles ||
+                            $( '#absoluteTruthsOverlay' ).is( ':visible' )
+                    ) {
+                        stopAllActions();
+                    } else {
+                        $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
+                        $( '#spotifyPlaylistsMenu' ).animate( {scrollTop: 0}, 'fast' );
+                        stopAllActions( false );
+                    }
+                    return false;
+                } else if ( $( e.target ).attr( 'type' ) == 'text' ) { // paste text into text field
+                    navigator.clipboard.readText()
+                    .then( text => {
+                        $( e.target ).val( text );
+                    } );
+                    return false;
+                } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) {
+                    $( e.target ).removeAttr( 'controls' );
+                    $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                } else { // block right click
+                    return false;
+                }
+            } );
+
             // Init airmouse and reassign some buttons
             // Right button for context menu is e.which == 0 and 'contextmenu' -> is handled in contextmenu section
             document.onkeydown = function ( e ) {
@@ -274,28 +300,126 @@ $( document ).ready( function () {
                 }
             };
 
-            // Init gradient background
-            refreshGradientBackground();
+            $( '#showApplicationSettings' ).click( function () {
+                stopAllActions( true, false );
+                $( '#applicationSettingsMenu' ).addClass( 'menuTransition' );
+                $( '#applicationSettingsMenu' ).animate( {scrollTop: 0}, 'fast' );
+            } );
 
-            function refreshGradientBackground() {
-                lastActiveBackgroundGradientKeyFrame = (lastActiveBackgroundGradientKeyFrame + 1) % 2;
+            $( document ).on( 'mouseover', '.iconAlternating', function () {
+                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '.png', '_alt.png' ) );
+            } );
 
-                /*https://cssgradient.io/*/
+            $( document ).on( 'mouseout', '.iconAlternating', function () {
+                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_alt.png', '.png' ) );
+            } );
 
-                multiple = new Multiple( {
-                    selector  : '.sharedBackground',
-                    background: 'linear-gradient(-45deg, rgba(245,255,115,1) 0%, rgba(155,255,107,1) 26%, rgba(72,205,255,1) 71%, rgba(144,107,255,1) 100%);background-size: 400% 400%;animation: backgroundgradient' + lastActiveBackgroundGradientKeyFrame + ' 10s ease infinite;'
+            var rightMouseClicked = false;
+            $( '#activateHiddenMenue' ).mousedown( function ( event ) {
+                switch ( event.which ) {
+                    case 1:
+                        enableFullscreen();
+                        if ( rightMouseClicked ) {
+                            toggleXXXVisible();
+                            if ( !allVideosLoaded ) {
+                                loadVideos();
+                            }
+                        }
+                        break;
+                    case 3:
+                        rightMouseClicked = true;
+                        break;
+                }
+            } );
+
+            // Add four wisdom videos to queue at random and play
+            $( '#playRandomWisdom' ).click( function ( e ) {
+                playingRandomWisdom = true;
+                $( '#showSearchSection' ).trigger( 'click' );
+
+                var allWisdomVideoIds = [];
+                $( '.videoContainer.wisdom' ).each( function () {
+                    allWisdomVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) )
                 } );
-            }
+                shuffleArray( allWisdomVideoIds );
 
-            // Init global alarm sounds
-            var alarmSound = document.getElementById( 'alarmSound' );
+                youtubeCurrentQueue = [];
+                videosInQueue = 0;
+                allWisdomVideoIds.forEach( function ( videoId ) {
+                    if ( videosInQueue >= 4 ) {
+                        return;
+                    }
+                    videoToQueue = {
+                        'id'         : videoId,
+                        'img'        : 'https://img.youtube.com/vi/' + videoId + '/0.jpg',
+                        'description': '',
+                        'duration'   : ''
+                    };
 
-            // Init track progress bar
-            $( '.trackProgress' ).hide();
+                    youtubeCurrentQueue.push( videoToQueue );
+                    videosInQueue++;
+                } );
+
+                $( '.mainSearchResultVideoOverlay' ).trigger( 'click' );
+
+                videoItem = youtubeCurrentQueue.shift();
+                spotifyPause();
+                mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
+                markYoutubeAsActiveAudioSource( true );
+                mainSearchResultYoutubePlayer.unMute();
+                mainSearchResultYoutubePlayer.setVolume( 100 );
+                mainSearchResultYoutubePlayer.playVideo();
+
+                displayYoutubeQueue();
+            } );
+
+            // Disable all future reminders and guided thoughts
+            $( '#disableAllReminders' ).click( function ( e ) {
+                $( '#disableAllReminders' ).hide();
+                $( '.guidedThoughtsContainer' ).hide();
+
+                localStorage.setItem( 'topupReminderInMinutes1', '' );
+                localStorage.setItem( 'topupReminderInMinutes2', '' );
+                localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
+
+                while ( allGuidedThoughts.length ) {
+                    allGuidedThoughts.pop();
+                }
+                displayedAbsoluteTruthIndex = [];
+            } );
+
+            // Toggle Fullscreen button
+            $( '.toggleFullscreen' ).click( function ( event ) {
+                toggleFullScreen( event );
+            } );
+
+            // Show notes overlay
+            $( '#notesSymbol1,#notesSymbol2' ).click( function () {
+                enableFullscreen();
+                stopAllActions();
+                $( '#notesOverlay' ).modal( 'show' );
+
+                setTimeout( function () {
+                    $( '#notesTextarea' ).focus().val( '' ).val( localStorage.getItem( 'notes' ) );
+                }, 500 );
+
+                var textarea = document.getElementById( 'notesTextarea' );
+                setTimeout( function () {
+                    textarea.scrollTop = textarea.scrollHeight;
+                }, 500 );
+            } );
+
+            $( '#notesTextarea' ).on( 'blur', function () {
+                localStorage.setItem( 'notes', $( '#notesTextarea' ).val() );
+            } );
+
+            // Info Tag toggle setting
+            $( '#toggleInfo' ).click( function () {
+                $( '.videoInfo' ).toggle();
+            } )
 
             // ***********************************
-            // Main Menu
+            // #0.5 - Main Menu
             $( '.XXX' ).hide();
             $( '#mainMenu' ).hover(
                     function ( event ) {
@@ -413,207 +537,6 @@ $( document ).ready( function () {
             // Main Menu END
             // ***********************************
 
-            $( '#showApplicationSettings' ).click( function () {
-                stopAllActions( true, false );
-                $( '#applicationSettingsMenu' ).addClass( 'menuTransition' );
-                $( '#applicationSettingsMenu' ).animate( {scrollTop: 0}, 'fast' );
-            } );
-
-            $( document ).on( 'mouseover', '.iconAlternating', function () {
-                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '.png', '_alt.png' ) );
-            } );
-
-            $( document ).on( 'mouseout', '.iconAlternating', function () {
-                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_alt.png', '.png' ) );
-            } );
-
-            var rightMouseClicked = false;
-            $( '#activateHiddenMenue' ).mousedown( function ( event ) {
-                switch ( event.which ) {
-                    case 1:
-                        enableFullscreen();
-                        if ( rightMouseClicked ) {
-                            toggleXXXVisible();
-                            if ( !allVideosLoaded ) {
-                                loadVideos();
-                            }
-                        }
-                        break;
-                    case 3:
-                        rightMouseClicked = true;
-                        break;
-                }
-            } );
-
-            // Hidden Section Start
-            // ***********************************
-
-            $( '#activateHiddenMenue' ).mouseout( function ( event ) {
-                rightMouseClicked = false;
-            } );
-
-            function toggleXXXVisible() {
-                enableFullscreen();
-                xxxVisible = !xxxVisible;
-
-                if ( xxxVisible ) {
-                    $( '.XXX' ).show();
-                    $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
-                    initVideodrome();
-                } else {
-                    $( '.XXX' ).hide();
-                    $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
-                    privateVisible = false;
-                }
-
-                if ( videoTagList == '' ) {
-                    $( '.videoContainer' ).each( function () {
-                        $( this ).hide();
-                    } );
-                } else if ( videoTagList != '.XXX' ) {
-                    $( '.videoFilterBtn.videoFilterActive' ).each( function () {
-                        $( this ).trigger( 'click' );
-                    } );
-                }
-
-                $( '.imageFilterBtn.imageFilterActive' ).each( function () {
-                    $( this ).trigger( 'click' );
-                } );
-
-                displayedAbsoluteTruthIndex = [];
-                absoluteTruthsUpdate( true );
-                checkPrivateVisible();
-            }
-
-            function checkPrivateVisible() {
-                if ( !xxxVisible || !privateVisible ) {
-                    $( '.private' ).hide();
-                    $( '.privatefilter' ).hide();
-                }
-                if ( !xxxVisible ) {
-                    $( '.showPrivateContent' ).hide();
-                    $( '.XXX' ).hide();
-                }
-                if ( privateVisible ) {
-                    $( '.private' ).hide();
-                    if ( $( '#videos' ).is( ':visible' ) ) {
-                        if ( videoTagList == '.XXX' ) {
-                            $( '.private' ).show();
-                        } else {
-                            $( '.private' ).hide();
-                        }
-                    }
-                    if ( $( '#images' ).is( ':visible' ) ) {
-                        if ( imageTagList == '.private' ) {
-                            $( '.private' ).show();
-                        } else {
-                            $( '.private' ).hide();
-                        }
-                    }
-                    $( '.privatefilter' ).show();
-                    $( '.showPrivateContent' ).hide();
-                } else {
-                    $( '.private' ).hide();
-                    if ( xxxVisible ) {
-                        $( '.showPrivateContent' ).show();
-                    }
-                }
-            }
-
-            $( '.showPrivateContent' ).click( function ( e ) {
-                privateVisible = true;
-                checkPrivateVisible();
-
-                if ( !privateLoaded ) {
-                    privateLoaded = true;
-                    $.each( config['videosLocal'], function ( index, val ) {
-                        if ( val['tags'] == 'private' ) {
-                            config['videosVideodrome'].push( val['videoLink'] );
-                        }
-                    } );
-                }
-            } );
-
-            if ( config['localSettingsOverwrite'] == undefined || config['localSettingsOverwrite']['allowLoadOfExternalFiles'] == undefined || !config['localSettingsOverwrite']['allowLoadOfExternalFiles'] ) {
-                $( '#loadExternalVideos' ).remove();
-            }
-
-            $( '#loadExternalVideos' ).click( function ( e ) {
-                $.each( config['videosLocal'], function ( index, val ) {
-                    var matches = val['videoLink'].match( /external\/(.*)\.mp4.*/ );
-                    if ( matches != undefined && matches[1] != undefined ) {
-                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
-                    }
-                } );
-
-                $.each( config['videosVideodrome'], function ( val ) {
-                    var matches = config['videosVideodrome'][val].match( /external\/(.*)\.mp4.*/ );
-                    if ( matches != undefined && matches[1] != undefined ) {
-                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
-                    }
-                } );
-
-                processExternalFiles( 'external/' );
-                $( '#loadExternalVideos' ).remove();
-            } );
-
-            $( '#displayAllVideos' ).click( function ( e ) {
-                $( '.XXX.localVideoTemplate' ).each( function ( index, value ) {
-                    $( this ).remove();
-                } );
-
-                localVideosMainNode = '';
-                rawVideoElement = '';
-                $( '.nsfw.localVideoTemplate' ).each( function ( index, value ) {
-                    localVideosMainNode = $( this ).parent();
-                    rawVideoElement = $( this ).clone();
-                    $( rawVideoElement ).removeClass( 'nsfw' ).addClass( 'XXX' );
-                    return false;
-                } );
-
-                $.each( config['videosVideodrome'], function ( val ) {
-                    $( rawVideoElement ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][val] );
-                    $( rawVideoElement ).find( '.videoInfo' ).find( '>:first-child' ).html( config['videosVideodrome'][val] );
-                    $( rawVideoElement ).clone().appendTo( localVideosMainNode );
-                } );
-                loadVideos();
-                $( '.XXX' ).show();
-            } );
-
-            function processExternalFiles( url ) {
-                externalFiles = [];
-                $.ajax( {
-                    url    : url,
-                    success: function ( data ) {
-                        $( data ).find( 'td > a' ).each( function () {
-                            tempFilename = $( this ).attr( 'href' );
-                            if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
-                                processExternalFiles( url + tempFilename );
-                            } else if ( tempFilename != '/' ) {
-                                var matches = tempFilename.match( /(.*)\.mp4.*/ );
-                                if ( matches != undefined && matches[1] != undefined ) {
-                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
-                                        externalFiles.push( url + tempFilename );
-                                    }
-                                }
-                            }
-                        } );
-
-                        externalFiles.forEach( function ( url ) {
-                            config['videosVideodrome'].push( url + '#t=90' );
-                        } );
-                    }
-                } );
-            }
-
-            $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
-                if ( !isFullScreen && !e.target.classList.contains( 'externalVideoPreview' ) ) {
-                    enableFullscreen();
-                }
-            } );
-
-            // Hidden Section End
-            // ***********************************
 
             // Start button & preFlightChecklist & Reminders
             $( '#launchText' ).click( function ( e ) {
@@ -862,62 +785,6 @@ $( document ).ready( function () {
                 }
             }
 
-            // Add four wisdom videos to queue at random and play
-            $( '#playRandomWisdom' ).click( function ( e ) {
-                playingRandomWisdom = true;
-                $( '#showSearchSection' ).trigger( 'click' );
-
-                var allWisdomVideoIds = [];
-                $( '.videoContainer.wisdom' ).each( function () {
-                    allWisdomVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) )
-                } );
-                shuffleArray( allWisdomVideoIds );
-
-                youtubeCurrentQueue = [];
-                videosInQueue = 0;
-                allWisdomVideoIds.forEach( function ( videoId ) {
-                    if ( videosInQueue >= 4 ) {
-                        return;
-                    }
-                    videoToQueue = {
-                        'id'         : videoId,
-                        'img'        : 'https://img.youtube.com/vi/' + videoId + '/0.jpg',
-                        'description': '',
-                        'duration'   : ''
-                    };
-
-                    youtubeCurrentQueue.push( videoToQueue );
-                    videosInQueue++;
-                } );
-
-                $( '.mainSearchResultVideoOverlay' ).trigger( 'click' );
-
-                videoItem = youtubeCurrentQueue.shift();
-                spotifyPause();
-                mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
-                markYoutubeAsActiveAudioSource( true );
-                mainSearchResultYoutubePlayer.unMute();
-                mainSearchResultYoutubePlayer.setVolume( 100 );
-                mainSearchResultYoutubePlayer.playVideo();
-
-                displayYoutubeQueue();
-            } );
-
-            // Disable all future reminders and guided thoughts
-            $( '#disableAllReminders' ).click( function ( e ) {
-                $( '#disableAllReminders' ).hide();
-                $( '.guidedThoughtsContainer' ).hide();
-
-                localStorage.setItem( 'topupReminderInMinutes1', '' );
-                localStorage.setItem( 'topupReminderInMinutes2', '' );
-                localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
-
-                while ( allGuidedThoughts.length ) {
-                    allGuidedThoughts.pop();
-                }
-                displayedAbsoluteTruthIndex = [];
-            } );
-
             // Timer && Graph && Time dependent actions
             function tripTimer() {
                 var now = new Date();
@@ -1086,11 +953,6 @@ $( document ).ready( function () {
                 $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
             }
 
-            // Toggle Fullscreen button
-            $( '.toggleFullscreen' ).click( function ( event ) {
-                toggleFullScreen( event );
-            } );
-
             function toggleFullScreen( event ) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -1142,31 +1004,6 @@ $( document ).ready( function () {
                     sel.removeAllRanges();
                 }
             }
-
-            // Show notes overlay
-            $( '#notesSymbol1,#notesSymbol2' ).click( function () {
-                enableFullscreen();
-                stopAllActions();
-                $( '#notesOverlay' ).modal( 'show' );
-
-                setTimeout( function () {
-                    $( '#notesTextarea' ).focus().val( '' ).val( localStorage.getItem( 'notes' ) );
-                }, 500 );
-
-                var textarea = document.getElementById( 'notesTextarea' );
-                setTimeout( function () {
-                    textarea.scrollTop = textarea.scrollHeight;
-                }, 500 );
-            } );
-
-            $( '#notesTextarea' ).on( 'blur', function () {
-                localStorage.setItem( 'notes', $( '#notesTextarea' ).val() );
-            } );
-
-            // Info Tag toggle setting
-            $( '#toggleInfo' ).click( function () {
-                $( '.videoInfo' ).toggle();
-            } )
 
             // ***********************************
             // #1 - Video section
@@ -2932,6 +2769,176 @@ $( document ).ready( function () {
 
             // END Videodrome section
             // ******************************************
+
+            // ***********************************
+            // #8 - Hidden Section Start
+
+            $( '#activateHiddenMenue' ).mouseout( function ( event ) {
+                rightMouseClicked = false;
+            } );
+
+            function toggleXXXVisible() {
+                enableFullscreen();
+                xxxVisible = !xxxVisible;
+
+                if ( xxxVisible ) {
+                    $( '.XXX' ).show();
+                    $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
+                    initVideodrome();
+                } else {
+                    $( '.XXX' ).hide();
+                    $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
+                    privateVisible = false;
+                }
+
+                if ( videoTagList == '' ) {
+                    $( '.videoContainer' ).each( function () {
+                        $( this ).hide();
+                    } );
+                } else if ( videoTagList != '.XXX' ) {
+                    $( '.videoFilterBtn.videoFilterActive' ).each( function () {
+                        $( this ).trigger( 'click' );
+                    } );
+                }
+
+                $( '.imageFilterBtn.imageFilterActive' ).each( function () {
+                    $( this ).trigger( 'click' );
+                } );
+
+                displayedAbsoluteTruthIndex = [];
+                absoluteTruthsUpdate( true );
+                checkPrivateVisible();
+            }
+
+            function checkPrivateVisible() {
+                if ( !xxxVisible || !privateVisible ) {
+                    $( '.private' ).hide();
+                    $( '.privatefilter' ).hide();
+                }
+                if ( !xxxVisible ) {
+                    $( '.showPrivateContent' ).hide();
+                    $( '.XXX' ).hide();
+                }
+                if ( privateVisible ) {
+                    $( '.private' ).hide();
+                    if ( $( '#videos' ).is( ':visible' ) ) {
+                        if ( videoTagList == '.XXX' ) {
+                            $( '.private' ).show();
+                        } else {
+                            $( '.private' ).hide();
+                        }
+                    }
+                    if ( $( '#images' ).is( ':visible' ) ) {
+                        if ( imageTagList == '.private' ) {
+                            $( '.private' ).show();
+                        } else {
+                            $( '.private' ).hide();
+                        }
+                    }
+                    $( '.privatefilter' ).show();
+                    $( '.showPrivateContent' ).hide();
+                } else {
+                    $( '.private' ).hide();
+                    if ( xxxVisible ) {
+                        $( '.showPrivateContent' ).show();
+                    }
+                }
+            }
+
+            $( '.showPrivateContent' ).click( function ( e ) {
+                privateVisible = true;
+                checkPrivateVisible();
+
+                if ( !privateLoaded ) {
+                    privateLoaded = true;
+                    $.each( config['videosLocal'], function ( index, val ) {
+                        if ( val['tags'] == 'private' ) {
+                            config['videosVideodrome'].push( val['videoLink'] );
+                        }
+                    } );
+                }
+            } );
+
+            if ( config['localSettingsOverwrite'] == undefined || config['localSettingsOverwrite']['allowLoadOfExternalFiles'] == undefined || !config['localSettingsOverwrite']['allowLoadOfExternalFiles'] ) {
+                $( '#loadExternalVideos' ).remove();
+            }
+
+            $( '#loadExternalVideos' ).click( function ( e ) {
+                $.each( config['videosLocal'], function ( index, val ) {
+                    var matches = val['videoLink'].match( /external\/(.*)\.mp4.*/ );
+                    if ( matches != undefined && matches[1] != undefined ) {
+                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
+                    }
+                } );
+
+                $.each( config['videosVideodrome'], function ( val ) {
+                    var matches = config['videosVideodrome'][val].match( /external\/(.*)\.mp4.*/ );
+                    if ( matches != undefined && matches[1] != undefined ) {
+                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
+                    }
+                } );
+
+                processExternalFiles( 'external/' );
+                $( '#loadExternalVideos' ).remove();
+            } );
+
+            $( '#displayAllVideos' ).click( function ( e ) {
+                $( '.XXX.localVideoTemplate' ).each( function ( index, value ) {
+                    $( this ).remove();
+                } );
+
+                localVideosMainNode = '';
+                rawVideoElement = '';
+                $( '.nsfw.localVideoTemplate' ).each( function ( index, value ) {
+                    localVideosMainNode = $( this ).parent();
+                    rawVideoElement = $( this ).clone();
+                    $( rawVideoElement ).removeClass( 'nsfw' ).addClass( 'XXX' );
+                    return false;
+                } );
+
+                $.each( config['videosVideodrome'], function ( val ) {
+                    $( rawVideoElement ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][val] );
+                    $( rawVideoElement ).find( '.videoInfo' ).find( '>:first-child' ).html( config['videosVideodrome'][val] );
+                    $( rawVideoElement ).clone().appendTo( localVideosMainNode );
+                } );
+                loadVideos();
+                $( '.XXX' ).show();
+            } );
+
+            function processExternalFiles( url ) {
+                externalFiles = [];
+                $.ajax( {
+                    url    : url,
+                    success: function ( data ) {
+                        $( data ).find( 'td > a' ).each( function () {
+                            tempFilename = $( this ).attr( 'href' );
+                            if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
+                                processExternalFiles( url + tempFilename );
+                            } else if ( tempFilename != '/' ) {
+                                var matches = tempFilename.match( /(.*)\.mp4.*/ );
+                                if ( matches != undefined && matches[1] != undefined ) {
+                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
+                                        externalFiles.push( url + tempFilename );
+                                    }
+                                }
+                            }
+                        } );
+
+                        externalFiles.forEach( function ( url ) {
+                            config['videosVideodrome'].push( url + '#t=90' );
+                        } );
+                    }
+                } );
+            }
+
+            $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
+                if ( !isFullScreen && !e.target.classList.contains( 'externalVideoPreview' ) ) {
+                    enableFullscreen();
+                }
+            } );
+
+            // Hidden Section End
+            // ***********************************
 
             // ******************************************
             // #9 - initial init section
