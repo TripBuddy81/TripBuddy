@@ -1,8 +1,10 @@
 $( document ).ready( function () {
             // Index:
-            // #0 - Main/global section
-            // #0.2 - Global key bindings, misc functionality
-            // #0.5 - Main Menu
+            // #0.0 - global init section
+            // #0.1 - Global key bindings, Global misc functionalities
+            // #0.2 - Main Menu
+            // #0.3 - Start button & preFlightChecklist & Reminders
+            // #0.4 - Hidden Section config
             // #1 - Video section
             // #2 - Image section
             // #3 - Shrine section
@@ -10,11 +12,10 @@ $( document ).ready( function () {
             // #5 - Music section
             // #6 - Search Youtube section
             // #7 - Videodrome section
-            // #8 - Hidden section
             // #9 - initial init section
 
             // ***********************************
-            // #0 - Main/global section
+            // #0.0 - global init section
             // Globals
             window.spotifyHasBeenPlayingBeforePause = false;
             window.spotifySongRadioQueue = '';
@@ -214,7 +215,7 @@ $( document ).ready( function () {
             $( '.trackProgress' ).hide();
 
             // ***********************************
-            // #0.2 - Global key bindings, misc functionality
+            // #0.1 - Global key bindings, Global misc functionalities
 
             // Configure or disable right click context menu
             $( document ).bind( 'contextmenu', function ( e ) {
@@ -339,7 +340,7 @@ $( document ).ready( function () {
 
                 var allWisdomVideoIds = [];
                 $( '.videoContainer.wisdom' ).each( function () {
-                    allWisdomVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) )
+                    allWisdomVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) );
                 } );
                 shuffleArray( allWisdomVideoIds );
 
@@ -418,8 +419,134 @@ $( document ).ready( function () {
                 $( '.videoInfo' ).toggle();
             } )
 
+            // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
+            function stopAllActions( hidePlaylistSelection = true, quickTrackSelection = true ) {
+                if ( hidePlaylistSelection ) {
+                    $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                }
+                if ( quickTrackSelection ) {
+                    $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
+                }
+                $( '#applicationSettingsMenu' ).removeClass( 'menuTransition' );
+
+                $( '.spotifyTrackContainer' ).show();
+
+                closeRightMenu();
+
+                try {
+                    $( '.keyboard-cancel-button' ).trigger( 'click' );
+                } catch ( e ) {
+                }
+
+                $( '#directYoutubePlayer' ).hide();
+
+                $( '.localVideo' ).each( function () {
+                    try {
+                        $( this ).removeAttr( 'controls' );
+                        $( this ).get( 0 ).pause();
+                    } catch ( e ) {
+                    }
+                } );
+
+                // Main Youtube search player
+                if ( $( '#mainSearchResultYoutubeContainer' ).hasClass( 'videoContainerFullscreen' ) ) {
+
+                } else { // Direct youtube player
+                    try {
+                        directYoutubePlayer.pauseVideo();
+                    } catch ( e ) {
+                    }
+                }
+
+                $( '.videoContainerFullscreen' ).each( function () {
+                    $( this ).removeClass( 'videoContainerFullscreen' );
+                } );
+
+                if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
+                    document.elementFromPoint( 0, 0 ).click();
+                }
+
+                $( '.iconAlternating' ).each( function () {
+                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_alt.png', '.png' ) );
+                } );
+
+                blockScreenSaver = false;
+                screensaverSecondsIdle = 0;
+                stopShrineDisco();
+                stopPlaybackVideodrome();
+                $( '#preFlightChecklist' ).modal( 'hide' );
+                $( '#notesOverlay' ).modal( 'hide' );
+                $( '#directYoutubePlayer' ).hide();
+                $( '.videoMenuOverlay' ).hide();
+                $( '.miscVideoOverlay' ).show();
+                $( '.localVideoOverlay' ).show();
+                $( '.mainSearchResultVideoOverlay' ).show();
+                $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                if ( mainYoutubePlayerIsActiveSoundSource ) {
+                    $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
+                }
+                clearInterval( preFlightCheckListAnimationTimer );
+                hideScreensaverEnso();
+                stopScreensaver();
+
+                $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+            }
+
+            function toggleFullScreen( event ) {
+                event.preventDefault();
+                event.stopPropagation();
+                clearSelection();
+                if ( !isFullScreen ) {
+                    enableFullscreen();
+                    isFullScreen = true;
+                } else {
+                    disableFullscreen();
+                    isFullScreen = false;
+                }
+            }
+
+            function enableFullscreen() {
+                isFullScreen = true;
+                try {
+                    document.documentElement.webkitRequestFullscreen();
+                } catch ( e ) {
+                    try {
+                        document.documentElement.msRequestFullscreen();
+                    } catch ( e ) {
+                        try {
+                            document.documentElement.requestFullscreen();
+                        } catch ( e ) {
+                        }
+                    }
+                }
+            }
+
+            function disableFullscreen() {
+                isFullScreen = false;
+                try {
+                    if ( document.exitFullscreen ) {
+                        document.exitFullscreen();
+                    } else if ( document.webkitExitFullscreen ) {
+                        document.webkitExitFullscreen();
+                    } else if ( document.msExitFullscreen ) {
+                        document.msExitFullscreen();
+                    }
+                } catch ( e ) {
+                }
+            }
+
+            function clearSelection() {
+                if ( document.selection && document.selection.empty ) {
+                    document.selection.empty();
+                } else if ( window.getSelection ) {
+                    var sel = window.getSelection();
+                    sel.removeAllRanges();
+                }
+            }
+
             // ***********************************
-            // #0.5 - Main Menu
+            // #0.2 - Main Menu
             $( '.XXX' ).hide();
             $( '#mainMenu' ).hover(
                     function ( event ) {
@@ -537,8 +664,8 @@ $( document ).ready( function () {
             // Main Menu END
             // ***********************************
 
-
-            // Start button & preFlightChecklist & Reminders
+            // ***********************************
+            // #0.3 - Start button & preFlightChecklist & Reminders
             $( '#launchText' ).click( function ( e ) {
                 enableFullscreen();
                 stopAllActions();
@@ -592,7 +719,7 @@ $( document ).ready( function () {
                 }
             }
 
-            // Lift off - initialize a lot of stuff
+            // Lift off button - initialize a lot of stuff
             $( '.liftOff' ).click( function ( e ) {
                 timer = setInterval( tripTimer, 1000 );
                 start = new Date();
@@ -862,7 +989,6 @@ $( document ).ready( function () {
 
             function showTimedRecommendation( recommendationText ) {
                 stopAllActions();
-
                 $( '#timedRecommendation' ).modal( 'show' );
                 $( '#topupRecommendation' ).html( recommendationText );
                 $( '#topupRecommendation' ).show();
@@ -879,131 +1005,177 @@ $( document ).ready( function () {
                 } );
             }
 
-            // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
-            function stopAllActions( hidePlaylistSelection = true, quickTrackSelection = true ) {
-                if ( hidePlaylistSelection ) {
-                    $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
-                }
-                if ( quickTrackSelection ) {
-                    $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
-                }
-                $( '#applicationSettingsMenu' ).removeClass( 'menuTransition' );
+            // Start button & preFlightChecklist & Reminders End
+            // ***********************************
 
-                $( '.spotifyTrackContainer' ).show();
+            // ***********************************
+            // #0.4 - Hidden Section config
+            $( '#activateHiddenMenue' ).mouseout( function ( event ) {
+                rightMouseClicked = false;
+            } );
 
-                closeRightMenu();
+            function toggleXXXVisible() {
+                enableFullscreen();
+                xxxVisible = !xxxVisible;
 
-                try {
-                    $( '.keyboard-cancel-button' ).trigger( 'click' );
-                } catch ( e ) {
-                }
-
-                $( '#directYoutubePlayer' ).hide();
-
-                $( '.localVideo' ).each( function () {
-                    try {
-                        $( this ).removeAttr( 'controls' );
-                        $( this ).get( 0 ).pause();
-                    } catch ( e ) {
-                    }
-                } );
-
-                // Main Youtube search player
-                if ( $( '#mainSearchResultYoutubeContainer' ).hasClass( 'videoContainerFullscreen' ) ) {
-
-                } else { // Direct youtube player
-                    try {
-                        directYoutubePlayer.pauseVideo();
-                    } catch ( e ) {
-                    }
-                }
-
-                $( '.videoContainerFullscreen' ).each( function () {
-                    $( this ).removeClass( 'videoContainerFullscreen' );
-                } );
-
-                if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
-                    document.elementFromPoint( 0, 0 ).click();
-                }
-
-                $( '.iconAlternating' ).each( function () {
-                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_alt.png', '.png' ) );
-                } );
-
-                blockScreenSaver = false;
-                screensaverSecondsIdle = 0;
-                stopShrineDisco();
-                stopPlaybackVideodrome();
-                $( '#preFlightChecklist' ).modal( 'hide' );
-                $( '#notesOverlay' ).modal( 'hide' );
-                $( '#directYoutubePlayer' ).hide();
-                $( '.videoMenuOverlay' ).hide();
-                $( '.miscVideoOverlay' ).show();
-                $( '.localVideoOverlay' ).show();
-                $( '.mainSearchResultVideoOverlay' ).show();
-                $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
-                if ( mainYoutubePlayerIsActiveSoundSource ) {
-                    $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
-                }
-                clearInterval( preFlightCheckListAnimationTimer );
-                hideScreensaverEnso();
-                stopScreensaver();
-
-                $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
-            }
-
-            function toggleFullScreen( event ) {
-                event.preventDefault();
-                event.stopPropagation();
-                clearSelection();
-                if ( !isFullScreen ) {
-                    enableFullscreen();
-                    isFullScreen = true;
+                if ( xxxVisible ) {
+                    $( '.XXX' ).show();
+                    $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
+                    initVideodrome();
                 } else {
-                    disableFullscreen();
-                    isFullScreen = false;
+                    $( '.XXX' ).hide();
+                    $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
+                    privateVisible = false;
                 }
+
+                if ( videoTagList == '' ) {
+                    $( '.videoContainer' ).each( function () {
+                        $( this ).hide();
+                    } );
+                } else if ( videoTagList != '.XXX' ) {
+                    $( '.videoFilterBtn.videoFilterActive' ).each( function () {
+                        $( this ).trigger( 'click' );
+                    } );
+                }
+
+                $( '.imageFilterBtn.imageFilterActive' ).each( function () {
+                    $( this ).trigger( 'click' );
+                } );
+
+                displayedAbsoluteTruthIndex = [];
+                absoluteTruthsUpdate( true );
+                checkPrivateVisible();
             }
 
-            function enableFullscreen() {
-                isFullScreen = true;
-                try {
-                    document.documentElement.webkitRequestFullscreen();
-                } catch ( e ) {
-                    try {
-                        document.documentElement.msRequestFullscreen();
-                    } catch ( e ) {
-                        try {
-                            document.documentElement.requestFullscreen();
-                        } catch ( e ) {
+            function checkPrivateVisible() {
+                if ( !xxxVisible || !privateVisible ) {
+                    $( '.private' ).hide();
+                    $( '.privatefilter' ).hide();
+                }
+                if ( !xxxVisible ) {
+                    $( '.showPrivateContent' ).hide();
+                    $( '.XXX' ).hide();
+                }
+                if ( privateVisible ) {
+                    $( '.private' ).hide();
+                    if ( $( '#videos' ).is( ':visible' ) ) {
+                        if ( videoTagList == '.XXX' ) {
+                            $( '.private' ).show();
+                        } else {
+                            $( '.private' ).hide();
                         }
                     }
-                }
-            }
-
-            function disableFullscreen() {
-                isFullScreen = false;
-                try {
-                    if ( document.exitFullscreen ) {
-                        document.exitFullscreen();
-                    } else if ( document.webkitExitFullscreen ) {
-                        document.webkitExitFullscreen();
-                    } else if ( document.msExitFullscreen ) {
-                        document.msExitFullscreen();
+                    if ( $( '#images' ).is( ':visible' ) ) {
+                        if ( imageTagList == '.private' ) {
+                            $( '.private' ).show();
+                        } else {
+                            $( '.private' ).hide();
+                        }
                     }
-                } catch ( e ) {
+                    $( '.privatefilter' ).show();
+                    $( '.showPrivateContent' ).hide();
+                } else {
+                    $( '.private' ).hide();
+                    if ( xxxVisible ) {
+                        $( '.showPrivateContent' ).show();
+                    }
                 }
             }
 
-            function clearSelection() {
-                if ( document.selection && document.selection.empty ) {
-                    document.selection.empty();
-                } else if ( window.getSelection ) {
-                    var sel = window.getSelection();
-                    sel.removeAllRanges();
+            $( '.showPrivateContent' ).click( function ( e ) {
+                privateVisible = true;
+                checkPrivateVisible();
+
+                if ( !privateLoaded ) {
+                    privateLoaded = true;
+                    $.each( config['videosLocal'], function ( index, val ) {
+                        if ( val['tags'] == 'private' ) {
+                            config['videosVideodrome'].push( val['videoLink'] );
+                        }
+                    } );
                 }
+            } );
+
+            if ( config['localSettingsOverwrite'] == undefined || config['localSettingsOverwrite']['allowLoadOfExternalFiles'] == undefined || !config['localSettingsOverwrite']['allowLoadOfExternalFiles'] ) {
+                $( '#loadExternalVideos' ).remove();
             }
+
+            $( '#loadExternalVideos' ).click( function ( e ) {
+                $.each( config['videosLocal'], function ( index, val ) {
+                    var matches = val['videoLink'].match( /external\/(.*)\.mp4.*/ );
+                    if ( matches != undefined && matches[1] != undefined ) {
+                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
+                    }
+                } );
+
+                $.each( config['videosVideodrome'], function ( val ) {
+                    var matches = config['videosVideodrome'][val].match( /external\/(.*)\.mp4.*/ );
+                    if ( matches != undefined && matches[1] != undefined ) {
+                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
+                    }
+                } );
+
+                processExternalFiles( 'external/' );
+                $( '#loadExternalVideos' ).remove();
+            } );
+
+            $( '#displayAllVideos' ).click( function ( e ) {
+                $( '.XXX.localVideoTemplate' ).each( function ( index, value ) {
+                    $( this ).remove();
+                } );
+
+                localVideosMainNode = '';
+                rawVideoElement = '';
+                $( '.nsfw.localVideoTemplate' ).each( function ( index, value ) {
+                    localVideosMainNode = $( this ).parent();
+                    rawVideoElement = $( this ).clone();
+                    $( rawVideoElement ).removeClass( 'nsfw' ).addClass( 'XXX' );
+                    return false;
+                } );
+
+                $.each( config['videosVideodrome'], function ( val ) {
+                    $( rawVideoElement ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][val] );
+                    $( rawVideoElement ).find( '.videoInfo' ).find( '>:first-child' ).html( config['videosVideodrome'][val] );
+                    $( rawVideoElement ).clone().appendTo( localVideosMainNode );
+                } );
+                loadVideos();
+                $( '.XXX' ).show();
+            } );
+
+            function processExternalFiles( url ) {
+                externalFiles = [];
+                $.ajax( {
+                    url    : url,
+                    success: function ( data ) {
+                        $( data ).find( 'td > a' ).each( function () {
+                            tempFilename = $( this ).attr( 'href' );
+                            if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
+                                processExternalFiles( url + tempFilename );
+                            } else if ( tempFilename != '/' ) {
+                                var matches = tempFilename.match( /(.*)\.mp4.*/ );
+                                if ( matches != undefined && matches[1] != undefined ) {
+                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
+                                        externalFiles.push( url + tempFilename );
+                                    }
+                                }
+                            }
+                        } );
+
+                        externalFiles.forEach( function ( url ) {
+                            config['videosVideodrome'].push( url + '#t=90' );
+                        } );
+                    }
+                } );
+            }
+
+            $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
+                if ( !isFullScreen && !e.target.classList.contains( 'externalVideoPreview' ) ) {
+                    enableFullscreen();
+                }
+            } );
+
+            // Hidden Section End
+            // ***********************************
 
             // ***********************************
             // #1 - Video section
@@ -2769,176 +2941,6 @@ $( document ).ready( function () {
 
             // END Videodrome section
             // ******************************************
-
-            // ***********************************
-            // #8 - Hidden Section Start
-
-            $( '#activateHiddenMenue' ).mouseout( function ( event ) {
-                rightMouseClicked = false;
-            } );
-
-            function toggleXXXVisible() {
-                enableFullscreen();
-                xxxVisible = !xxxVisible;
-
-                if ( xxxVisible ) {
-                    $( '.XXX' ).show();
-                    $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
-                    initVideodrome();
-                } else {
-                    $( '.XXX' ).hide();
-                    $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
-                    privateVisible = false;
-                }
-
-                if ( videoTagList == '' ) {
-                    $( '.videoContainer' ).each( function () {
-                        $( this ).hide();
-                    } );
-                } else if ( videoTagList != '.XXX' ) {
-                    $( '.videoFilterBtn.videoFilterActive' ).each( function () {
-                        $( this ).trigger( 'click' );
-                    } );
-                }
-
-                $( '.imageFilterBtn.imageFilterActive' ).each( function () {
-                    $( this ).trigger( 'click' );
-                } );
-
-                displayedAbsoluteTruthIndex = [];
-                absoluteTruthsUpdate( true );
-                checkPrivateVisible();
-            }
-
-            function checkPrivateVisible() {
-                if ( !xxxVisible || !privateVisible ) {
-                    $( '.private' ).hide();
-                    $( '.privatefilter' ).hide();
-                }
-                if ( !xxxVisible ) {
-                    $( '.showPrivateContent' ).hide();
-                    $( '.XXX' ).hide();
-                }
-                if ( privateVisible ) {
-                    $( '.private' ).hide();
-                    if ( $( '#videos' ).is( ':visible' ) ) {
-                        if ( videoTagList == '.XXX' ) {
-                            $( '.private' ).show();
-                        } else {
-                            $( '.private' ).hide();
-                        }
-                    }
-                    if ( $( '#images' ).is( ':visible' ) ) {
-                        if ( imageTagList == '.private' ) {
-                            $( '.private' ).show();
-                        } else {
-                            $( '.private' ).hide();
-                        }
-                    }
-                    $( '.privatefilter' ).show();
-                    $( '.showPrivateContent' ).hide();
-                } else {
-                    $( '.private' ).hide();
-                    if ( xxxVisible ) {
-                        $( '.showPrivateContent' ).show();
-                    }
-                }
-            }
-
-            $( '.showPrivateContent' ).click( function ( e ) {
-                privateVisible = true;
-                checkPrivateVisible();
-
-                if ( !privateLoaded ) {
-                    privateLoaded = true;
-                    $.each( config['videosLocal'], function ( index, val ) {
-                        if ( val['tags'] == 'private' ) {
-                            config['videosVideodrome'].push( val['videoLink'] );
-                        }
-                    } );
-                }
-            } );
-
-            if ( config['localSettingsOverwrite'] == undefined || config['localSettingsOverwrite']['allowLoadOfExternalFiles'] == undefined || !config['localSettingsOverwrite']['allowLoadOfExternalFiles'] ) {
-                $( '#loadExternalVideos' ).remove();
-            }
-
-            $( '#loadExternalVideos' ).click( function ( e ) {
-                $.each( config['videosLocal'], function ( index, val ) {
-                    var matches = val['videoLink'].match( /external\/(.*)\.mp4.*/ );
-                    if ( matches != undefined && matches[1] != undefined ) {
-                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
-                    }
-                } );
-
-                $.each( config['videosVideodrome'], function ( val ) {
-                    var matches = config['videosVideodrome'][val].match( /external\/(.*)\.mp4.*/ );
-                    if ( matches != undefined && matches[1] != undefined ) {
-                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
-                    }
-                } );
-
-                processExternalFiles( 'external/' );
-                $( '#loadExternalVideos' ).remove();
-            } );
-
-            $( '#displayAllVideos' ).click( function ( e ) {
-                $( '.XXX.localVideoTemplate' ).each( function ( index, value ) {
-                    $( this ).remove();
-                } );
-
-                localVideosMainNode = '';
-                rawVideoElement = '';
-                $( '.nsfw.localVideoTemplate' ).each( function ( index, value ) {
-                    localVideosMainNode = $( this ).parent();
-                    rawVideoElement = $( this ).clone();
-                    $( rawVideoElement ).removeClass( 'nsfw' ).addClass( 'XXX' );
-                    return false;
-                } );
-
-                $.each( config['videosVideodrome'], function ( val ) {
-                    $( rawVideoElement ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][val] );
-                    $( rawVideoElement ).find( '.videoInfo' ).find( '>:first-child' ).html( config['videosVideodrome'][val] );
-                    $( rawVideoElement ).clone().appendTo( localVideosMainNode );
-                } );
-                loadVideos();
-                $( '.XXX' ).show();
-            } );
-
-            function processExternalFiles( url ) {
-                externalFiles = [];
-                $.ajax( {
-                    url    : url,
-                    success: function ( data ) {
-                        $( data ).find( 'td > a' ).each( function () {
-                            tempFilename = $( this ).attr( 'href' );
-                            if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
-                                processExternalFiles( url + tempFilename );
-                            } else if ( tempFilename != '/' ) {
-                                var matches = tempFilename.match( /(.*)\.mp4.*/ );
-                                if ( matches != undefined && matches[1] != undefined ) {
-                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
-                                        externalFiles.push( url + tempFilename );
-                                    }
-                                }
-                            }
-                        } );
-
-                        externalFiles.forEach( function ( url ) {
-                            config['videosVideodrome'].push( url + '#t=90' );
-                        } );
-                    }
-                } );
-            }
-
-            $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
-                if ( !isFullScreen && !e.target.classList.contains( 'externalVideoPreview' ) ) {
-                    enableFullscreen();
-                }
-            } );
-
-            // Hidden Section End
-            // ***********************************
 
             // ******************************************
             // #9 - initial init section
