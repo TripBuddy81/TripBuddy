@@ -445,6 +445,9 @@ $( document ).ready( function () {
                 }
             } );
 
+            // Hidden Section Start
+            // ***********************************
+
             $( '#activateHiddenMenue' ).mouseout( function ( event ) {
                 rightMouseClicked = false;
             } );
@@ -554,6 +557,29 @@ $( document ).ready( function () {
                 $( '#loadExternalVideos' ).remove();
             } );
 
+            $( '#displayAllVideos' ).click( function ( e ) {
+                $( '.XXX.localVideoTemplate' ).each( function ( index, value ) {
+                    $( this ).remove();
+                } );
+
+                localVideosMainNode = '';
+                rawVideoElement = '';
+                $( '.nsfw.localVideoTemplate' ).each( function ( index, value ) {
+                    localVideosMainNode = $( this ).parent();
+                    rawVideoElement = $( this ).clone();
+                    $( rawVideoElement ).removeClass( 'nsfw' ).addClass( 'XXX' );
+                    return false;
+                } );
+
+                $.each( config['videosVideodrome'], function ( val ) {
+                    $( rawVideoElement ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][val] );
+                    $( rawVideoElement ).find( '.videoInfo' ).find( '>:first-child' ).html( config['videosVideodrome'][val] );
+                    $( rawVideoElement ).clone().appendTo( localVideosMainNode );
+                } );
+                loadVideos();
+                $( '.XXX' ).show();
+            } );
+
             function processExternalFiles( url ) {
                 externalFiles = [];
                 $.ajax( {
@@ -585,6 +611,9 @@ $( document ).ready( function () {
                     enableFullscreen();
                 }
             } );
+
+            // Hidden Section End
+            // ***********************************
 
             // Start button & preFlightChecklist & Reminders
             $( '#launchText' ).click( function ( e ) {
