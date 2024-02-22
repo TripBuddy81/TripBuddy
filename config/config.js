@@ -1205,7 +1205,6 @@ var config = {
                     'tag'       : ''
                 }
             ],
-            'externalPicLinks'       : [],
             'shrine'                 : {
                 'shrineColors'       : [
                     {
