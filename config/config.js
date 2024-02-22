@@ -39,12 +39,6 @@ var config = {
             'playlists'              : {
                 'journey': [
                     {
-                        'label'  : 'Shroom Journey',
-                        'id'     : '3cI5LgUXoJoDlUiPRbDudF',
-                        'shuffle': false,
-                        'repeat' : false
-                    },
-                    {
                         'label': 'LvL 1 - Landing',
                         'id'   : '6o73th3171U7GWh6YF4fHE'
                     },
@@ -330,20 +324,16 @@ var config = {
                     'startSeconds': '18'
                 },
                 {
-                    'videoId'     : 'souHC7H43wg',
-                    'tags'        : 'trippy-3D',
-                    'startSeconds': '18'
-                },
-                {
-                    'videoId': '2-7s2BHSoRk',
-                    'tags'   : 'trippy-3D'
-                },
-                {
                     'videoId': 'cZ-2j3YixFc',
                     'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId': '3Hr4OH3rq5k',
+                    'videoId': 'fM4V6c8xpVE',
+                    'tags'   : 'trippy-3D',
+                    'startSeconds': '32'
+                },
+                {
+                    'videoId': 'QxLV23bApTA',
                     'tags'   : 'trippy-3D'
                 },
                 {
@@ -351,17 +341,30 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId': 'QxLV23bApTA',
-                    'tags'   : 'trippy-3D'
-                },
-                {
-                    'videoId': 'dzJMbIdrpwI',
-                    'tags'   : 'trippy-3D'
-                },
-                {
                     'videoId': '9dv3-TUMcRE',
                     'tags'   : 'trippy-3D'
                 },
+                {
+                    'videoId': 'uJ2FJh3SGhU',
+                    'tags'   : 'trippy-3D',
+                    'startSeconds': '3'
+                },
+                {
+                    'videoId': 'SFC3qe3yuOo',
+                    'tags'   : 'trippy-3D',
+                    'startSeconds': '4'
+                },
+                {
+                    'videoId': 'MkCdrmakqQY',
+                    'tags'   : 'trippy-3D',
+                    'startSeconds': '3'
+                },
+                {
+                    'videoId': 'CluwRiEh5g4',
+                    'tags'   : 'trippy-3D'
+                },
+
+
                 {
                     'videoId'     : 'HTHj_pvEYYE',
                     'tags'        : 'space',
@@ -377,10 +380,6 @@ var config = {
                     'videoId'     : 'OZ8qYubLRWM',
                     'tags'        : 'space',
                     'startSeconds': '62'
-                },
-                {
-                    'videoId': '5drq3OD19NQ',
-                    'tags'   : 'trippy-3D'
                 },
                 {
                     'videoId': 'Kz44V1BFoxc',
