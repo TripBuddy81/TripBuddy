@@ -165,8 +165,8 @@ var pJS = function(tag_id, params){
       pJS.tmp.retina = false;
     }
 
-    pJS.canvas.w = pJS.canvas.el.offsetWidth * pJS.canvas.pxratio;
-    pJS.canvas.h = pJS.canvas.el.offsetHeight * pJS.canvas.pxratio;
+    pJS.canvas.w = screen.width * window.devicePixelRatio;
+    pJS.canvas.h = screen.height * window.devicePixelRatio;
 
     pJS.particles.size.value = pJS.tmp.obj.size_value * pJS.canvas.pxratio;
     pJS.particles.size.anim.speed = pJS.tmp.obj.size_anim_speed * pJS.canvas.pxratio;
@@ -193,14 +193,14 @@ var pJS = function(tag_id, params){
     pJS.canvas.el.width = pJS.canvas.w;
     pJS.canvas.el.height = pJS.canvas.h;
 
-    if(pJS && pJS.interactivity.events.resize){
+   /* if(pJS && pJS.interactivity.events.resize){
 
       window.addEventListener('resize', function(){
 
           pJS.canvas.w = pJS.canvas.el.offsetWidth;
           pJS.canvas.h = pJS.canvas.el.offsetHeight;
 
-          /* resize canvas */
+          /!* resize canvas *!/
           if(pJS.tmp.retina){
             pJS.canvas.w *= pJS.canvas.pxratio;
             pJS.canvas.h *= pJS.canvas.pxratio;
@@ -209,7 +209,7 @@ var pJS = function(tag_id, params){
           pJS.canvas.el.width = pJS.canvas.w;
           pJS.canvas.el.height = pJS.canvas.h;
 
-          /* repaint canvas on anim disabled */
+          /!* repaint canvas on anim disabled *!/
           if(!pJS.particles.move.enable){
             pJS.fn.particlesEmpty();
             pJS.fn.particlesCreate();
@@ -217,12 +217,12 @@ var pJS = function(tag_id, params){
             pJS.fn.vendors.densityAutoParticles();
           }
 
-        /* density particles enabled */
+        /!* density particles enabled *!/
         pJS.fn.vendors.densityAutoParticles();
 
       });
 
-    }
+    }*/
 
   };
 
