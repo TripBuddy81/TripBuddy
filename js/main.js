@@ -251,7 +251,7 @@ $( document ).ready( function () {
                 } else if ( $( e.target ).attr( 'type' ) == 'text' ) { // paste text into text field
                     navigator.clipboard.readText()
                     .then( text => {
-                        $( e.target ).val( text );
+                        $( e.target ).val( $( e.target ).val() + text );
                     } );
                     return false;
                 } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) {
