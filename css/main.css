@@ -1907,7 +1907,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     min-width: 110px;
     min-height: 100px;
-    padding:25px;
+    padding: 25px;
     bottom: 77px;
     left: 39px;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
@@ -1919,6 +1919,20 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodromeFullscreenMenuContainer:hover {
     opacity: 1;
+}
+
+.showFullscreenVideoInfo {
+    height: 40px;
+    position: fixed;
+    bottom: 88px;
+    left: 155px;
+}
+
+#videodromeFullscreenFilename {
+    position: initial;
+    margin-left: 145px;
+    margin-top: 26px;
+    font-weight: 700;
 }
 
 .videodromeFullscreen {
@@ -1950,4 +1964,6 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     bottom: 0;
     left: 0;
+}
+
 }

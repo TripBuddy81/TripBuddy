@@ -2894,6 +2894,14 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( document ).on( 'mouseover', '.showFullscreenVideoInfo', function ( event ) {
+                $( '#videodromeFullscreenFilename' ).html( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
+            } );
+
+            $( document ).on( 'mouseout', '.showFullscreenVideoInfo', function ( event ) {
+                $( '#videodromeFullscreenFilename' ).html( '' );
+            } );
+
             $( '.videodromeRefreshVideo' ).click( function () {
                 target = $( this ).attr( 'target' );
 
@@ -2911,6 +2919,11 @@ $( document ).ready( function () {
                 $( '.' + target ).find( '.localVideo' )[0].play();
             } );
 
+            $( '.showFullscreenVideoInfo' ).click( function () {
+                $( '.refreshVideoDromeVideoFullscreenIcon' ).trigger( 'click' );
+                $( '#videodromeFullscreenFilename' ).html( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
+            } );
+
             $( '.refreshVideoDromeVideoFullscreenIcon' ).click( function () {
                 target = '';
                 $( '.videodromeFullscreen' ).each( function () {
@@ -2926,7 +2939,6 @@ $( document ).ready( function () {
                     }
                 }
                 alreadySelectedVideosVideodrome.push( randomNumber );
-
                 $( target ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
                 $( target ).find( '.localVideo' )[0].load();
                 $( target ).find( '.localVideo' )[0].play();
