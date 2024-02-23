@@ -102,9 +102,6 @@ $( document ).ready( function () {
             if ( optionalConfig['absoluteTruthsXXX'] != undefined ) {
                 config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
             }
-            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['loadAllVideos'] != undefined ) {
-                loadAllVideos = config['localSettingsOverwrite']['loadAllVideos'];
-            }
 
             // Handlebar renderer and helper functions - takes combined config within config/config.js
             Handlebars.registerHelper( 'if', function ( v1, v2, options ) {
@@ -318,19 +315,21 @@ $( document ).ready( function () {
 
             var rightMouseClicked = false;
             $( '#activateHiddenMenue' ).mousedown( function ( event ) {
-                switch ( event.which ) {
-                    case 1:
-                        enableFullscreen();
-                        if ( rightMouseClicked ) {
-                            toggleXXXVisible();
-                            if ( !allVideosLoaded ) {
-                                loadVideos();
+                if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] ) {
+                    switch ( event.which ) {
+                        case 1:
+                            enableFullscreen();
+                            if ( rightMouseClicked ) {
+                                toggleXXXVisible();
+                                if ( !allVideosLoaded ) {
+                                    loadVideos();
+                                }
                             }
-                        }
-                        break;
-                    case 3:
-                        rightMouseClicked = true;
-                        break;
+                            break;
+                        case 3:
+                            rightMouseClicked = true;
+                            break;
+                    }
                 }
             } );
 
@@ -1097,10 +1096,6 @@ $( document ).ready( function () {
                     } );
                 }
             } );
-
-            if ( config['localSettingsOverwrite'] == undefined || config['localSettingsOverwrite']['allowLoadOfExternalFiles'] == undefined || !config['localSettingsOverwrite']['allowLoadOfExternalFiles'] ) {
-                $( '#loadExternalVideos' ).remove();
-            }
 
             $( '#loadExternalVideos' ).click( function ( e ) {
                 $.each( config['videosLocal'], function ( index, val ) {
