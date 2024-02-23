@@ -257,6 +257,7 @@ $( document ).ready( function () {
                 } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( e.target ).removeAttr( 'controls' );
                     $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                    $( '#videodromeFullscreenMenuContainer' ).hide();
                 } else { // block right click
                     return false;
                 }
@@ -482,6 +483,7 @@ $( document ).ready( function () {
                 $( '.localVideoOverlay' ).show();
                 $( '.mainSearchResultVideoOverlay' ).show();
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                $( '#videodromeFullscreenMenuContainer' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -2866,9 +2868,11 @@ $( document ).ready( function () {
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).removeAttr( 'controls' );
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
+                    $( '#videodromeFullscreenMenuContainer' ).hide();
                 } else {
                     $( this ).prop( 'controls', 'controls' );
                     $( this ).parent().addClass( 'videodromeFullscreen' );
+                    $( '#videodromeFullscreenMenuContainer' ).show();
                 }
             } );
 
@@ -2896,6 +2900,27 @@ $( document ).ready( function () {
                 $( '.' + target ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
                 $( '.' + target ).find( '.localVideo' )[0].load();
                 $( '.' + target ).find( '.localVideo' )[0].play();
+            } );
+
+            $( '.refreshVideoDromeVideoFullscreenIcon' ).click( function () {
+                target = '';
+                $( '.videodromeFullscreen' ).each( function () {
+                    target = this;
+                    return;
+                } );
+
+                randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                    if ( alreadySelectedVideosVideodrome.length == config['videosVideodrome'].length - 1 ) {
+                        alreadySelectedVideosVideodrome = [];
+                    }
+                }
+                alreadySelectedVideosVideodrome.push( randomNumber );
+
+                $( target ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
+                $( target ).find( '.localVideo' )[0].load();
+                $( target ).find( '.localVideo' )[0].play();
             } );
 
             $( '#refreshVideoDromeVideoAll' ).click( function () {
