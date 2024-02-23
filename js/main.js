@@ -2885,6 +2885,15 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( document ).on( 'wheel', '#videodromeFullscreenMenuContainer', function ( event ) {
+                event.preventDefault();
+                if ( event.originalEvent.deltaY > 0 ) { // going down
+                    $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime = $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime - 30;
+                } else { // going up
+                    $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime = $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime + 30;
+                }
+            } );
+
             $( '.videodromeRefreshVideo' ).click( function () {
                 target = $( this ).attr( 'target' );
 
