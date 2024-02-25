@@ -1869,7 +1869,7 @@ video::-webkit-media-controls-fullscreen-button {
     border-radius: 5px;
 }
 
-.videodromeRefreshVideo, .videodromeStreamRefreshVideo {
+.videodromeRefreshVideo, .videodromeStreamRefreshVideo, #refreshVideoDromeVideoAll, #refreshVideoDromeStreamVideoAll {
     height: 50px;
     position: absolute;
 }
