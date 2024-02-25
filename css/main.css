@@ -1846,7 +1846,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100%;
 }
 
-.videodromeVideoContainer {
+.videodromeVideoContainer, .videodromeStreamVideoContainer {
     width: 50vW;
     height: 50vH;
     z-index: 15;
@@ -1968,6 +1968,4 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     bottom: 0;
     left: 0;
-}
-
 }
