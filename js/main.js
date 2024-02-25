@@ -228,6 +228,7 @@ $( document ).ready( function () {
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#videodrome' ).is( ':visible' ) ||
+                            $( '#videodromeStream' ).is( ':visible' ) ||
                             $( '#notesOverlay' ).is( ':visible' ) ||
                             $( '.videoMenuOverlayFullscreen' ).is( ':visible' ) ||
                             $( '#preFlightChecklist' ).is( ':visible' ) ||
@@ -484,6 +485,7 @@ $( document ).ready( function () {
                 $( '.mainSearchResultVideoOverlay' ).show();
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '#videodromeFullscreenMenuContainer' ).hide();
+                $( '.videodromeStream' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -2985,19 +2987,24 @@ $( document ).ready( function () {
             // ******************************************
             // #8 - VideodromeVideoJS section
             var videoJSUrls = [];
-            getVideoJSUrls();
+            var startVideoJSStreamInterval = '';
             var player = '';
 
             $( '#showVideodromeStream' ).click( function () {
-                /*                enableFullscreen();*/
+                enableFullscreen();
                 blockScreenSaver = true;
                 $( '#videodromeStream' ).show();
 
-
-                console.info( videoJSUrls );
-                playVideoJsStream( 'videoJSPlayer1' );
-
+                getVideoJSUrls();
+                startVideoJSStreamInterval = setInterval( startVideoJSStream, 1000 );
             } );
+
+            function startVideoJSStream() {
+                if ( videoJSUrls.length > 0 ) {
+                    playVideoJsStream( 'videoJSPlayer1' );
+                    clearInterval( startVideoJSStreamInterval );
+                }
+            }
 
 
             $( '.videodromeStreamRefreshVideo' ).click( function () {
@@ -3007,15 +3014,15 @@ $( document ).ready( function () {
             $( document ).on( 'wheel', '.videodromeStreamVideoContainer', function ( event ) {
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 ) { // going down
-                    player.currentTime( player.currentTime( ) - 30 );
+                    player.currentTime( player.currentTime() - 30 );
                 } else { // going up
-                    player.currentTime( player.currentTime( ) + 30 );
+                    player.currentTime( player.currentTime() + 30 );
                 }
             } );
 
             function getVideoJSUrls() {
                 var activeVideoCrawls = 0;
-                while ( activeVideoCrawls < 4 && videoJSUrls.length < 5 ) {
+                while ( activeVideoCrawls < 2 && videoJSUrls.length < 5 ) {
                     activeVideoCrawls++;
                     console.info( 'crawl', activeVideoCrawls );
                     getNextVideoStreamUrl();
@@ -3029,9 +3036,9 @@ $( document ).ready( function () {
                     if ( matches != undefined && matches[1] != undefined ) {
                         url = matches[1].replaceAll( '\\', '' );
                         videoJSUrls.push( url );
-                        if ( videoJSUrls.length > 0 ) {
-                            $( '#showVideodromeStream, .videodromeStreamRefreshVideo' ).show();
-                        }
+                        /*            if ( videoJSUrls.length > 0 ) {
+                                        $( '#showVideodromeStream, .videodromeStreamRefreshVideo' ).show();
+                                    }*/
                     }
                 } );
             }
@@ -3039,10 +3046,6 @@ $( document ).ready( function () {
 
             function playVideoJsStream( playerId ) {
                 url = videoJSUrls.pop();
-
-                if ( videoJSUrls.length <= 0 ) {
-                    $( '#showVideodromeStream, .videodromeStreamRefreshVideo' ).hide();
-                }
 
                 console.info( url, 'playing' );
 
@@ -3053,7 +3056,7 @@ $( document ).ready( function () {
                 } );
                 player.load();
                 player.play();
-                player.currentTime( 10 );
+                player.currentTime( 30 );
 
                 getVideoJSUrls();
             }
