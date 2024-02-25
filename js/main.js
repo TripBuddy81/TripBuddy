@@ -2999,14 +2999,6 @@ $( document ).ready( function () {
                 startVideoJSStreamInterval = setInterval( startVideoJSStream, 1000 );
             } );
 
-            function startVideoJSStream() {
-                if ( videoJSUrls.length > 0 ) {
-                    playVideoJsStream( 'videoJSPlayer1' );
-                    clearInterval( startVideoJSStreamInterval );
-                }
-            }
-
-
             $( '.videodromeStreamRefreshVideo' ).click( function () {
                 playVideoJsStream( $( this ).attr( 'target' ) );
             } );
@@ -3019,6 +3011,13 @@ $( document ).ready( function () {
                     player.currentTime( player.currentTime() + 30 );
                 }
             } );
+
+            function startVideoJSStream() {
+                if ( videoJSUrls.length > 0 ) {
+                    playVideoJsStream( 'videoJSPlayer1' );
+                    clearInterval( startVideoJSStreamInterval );
+                }
+            }
 
             function getVideoJSUrls() {
                 var activeVideoCrawls = 0;
@@ -3036,9 +3035,6 @@ $( document ).ready( function () {
                     if ( matches != undefined && matches[1] != undefined ) {
                         url = matches[1].replaceAll( '\\', '' );
                         videoJSUrls.push( url );
-                        /*            if ( videoJSUrls.length > 0 ) {
-                                        $( '#showVideodromeStream, .videodromeStreamRefreshVideo' ).show();
-                                    }*/
                     }
                 } );
             }
