@@ -138,7 +138,7 @@ $( document ).ready( function () {
                     $( '.iFrameContainer ' ).delay( 200 ).fadeIn();
                     hideScreensaverEnso();
                 }
-            }, 5000 );
+            }, 100 );
 
             // Init screensaver
             setInterval( startScreensaver, 1000 );
@@ -2981,6 +2981,54 @@ $( document ).ready( function () {
                 clearInterval( videodromePlayInterval );
             }
 
+            $( '#showVideodromeStream' ).click( function () {
+                /*                enableFullscreen();*/
+                blockScreenSaver = true;
+                $( '#videodromeStream' ).show();
+
+
+                content = getNextVideoStreamUrl();
+                console.info( content );
+
+
+                /*                forcePlaybackVideodrome();
+                                videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );*/
+            } );
+
+            function getNextVideoStreamUrl() {
+                console.info( 'get content' );
+
+                /*                $.ajax({
+                                    url: "https://api.dailymotion.com/video/x28j5hv?fields=title",
+                                    type: "POST",
+                                    dataType: "json",
+                                    crossDomain: true,
+                                    format: "json",
+                                    success:function(json){
+                                        console.log('message: ' + "success"+ JSON.stringify(json));
+                                    },
+                                    error:function(error){
+                                        console.log('message Error' + JSON.stringify(error));
+                                    }
+                                });*/
+
+/*                $.ajax( {
+                    url     : 'https://www.pornhub.com/',
+                    dataType: 'jsonp',
+                    success : function ( response ) {
+                        console.log( response ); // server response
+                    },
+                    error   : function ( error ) {
+                        console.log( 'message Error' + JSON.stringify( error ) );
+                    }
+                } );*/
+
+                             $.get( "https://ww#w.pornhub.com/view_video.php?viewkey=66e2481f805d01d2c0d2", function( data ) {
+                                 console.log(data);
+                             });
+                /*                fetch( 'https://www.pornhub.com/view_video.php?viewkey=66e2481f805d01d2c0d2', {redirect: 'follow'} ).then( data => console.log( data ) );*/
+            }
+
             // END Videodrome section
             // ******************************************
 
@@ -3000,5 +3048,10 @@ $( document ).ready( function () {
                 }
                 showScreensaverEnso();
             }
+
+            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+            $( '#showVideodromeStream' ).trigger( 'click' );
+
         }
 );

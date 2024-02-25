@@ -1835,7 +1835,7 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
-#videodrome {
+#videodrome, #videodromeStream {
     display: none;
     position: fixed;
     z-index: 10;

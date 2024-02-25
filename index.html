@@ -36,6 +36,9 @@
     <script src="./js/intense.js"></script>
     <script src="./js/spotify.js"></script>
 
+    <link defer href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <script defer src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
     <link rel="stylesheet" href="./libs/bootstrap-5.0.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./libs/multiple/multiple.css">
@@ -654,6 +657,10 @@
                             <div class="xxxAction" id="showVideodrome">
                                 <img id="startVideoDromeIcon" src="./assets/videodrome.png">Start Videodrome
                             </div>
+
+                            <div class="xxxAction" id="showVideodromeStream">
+                                <img id="startVideoDromeIcon" src="./assets/videodrome.png">Start Videodrome Stream
+                            </div>
                         </div>
                         <div class="col">
 
@@ -954,6 +961,69 @@
                             src="" type="video/mp4">
                 </video>
             </div>
+        </div>
+    </div>
+
+    <div id="videodromeStream">
+        <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+        </div>
+        <div class="trackProgressContainer hidden videoMenuOverlay">
+            <div class="trackProgress">
+                <div class="colorfulBorder"></div>
+            </div>
+        </div>
+
+        <div class="videodromeRefreshContainer">
+            <img id="refreshVideoDromeStreamVideo1" target="videoDromeStreamVideo1" class="iconAlternating videodromeStreamRefreshVideo cursorAction"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeStreamVideo2" target="videoDromeStreamVideo2" class="iconAlternating videodromeStreamRefreshVideo cursorAction"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeStreamVideo3" target="videoDromeStreamVideo3" class="iconAlternating videodromeStreamRefreshVideo cursorAction"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeStreamVideo4" target="videoDromeStreamVideo4" class="iconAlternating videodromeStreamRefreshVideo cursorAction"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeStreamVideoAll" class="iconAlternating cursorAction"
+                 src="./assets/refresh.png">
+        </div>
+
+        <div id="videodromeStreamContainer">
+            <div id="videodromeStreamFullscreenMenuContainer">
+                <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon cursorAction"
+                     src="./assets/refresh.png">
+            </div>
+
+            <div class="videodromeStreamVideoContainer videoDromeStreamVideo1" >
+<!--                <video class="videoDromeFrame videoFrame localVideo" muted="" loop="" controlslist="nofullscreen"
+                       preload="none">
+                    <source class="videoSource cursorNone"
+                            src="" type="video/mp4">
+                </video>-->
+
+                <video class="video-js videoDromeFrame" width="400" height="300" controls preload="auto" data-setup="{}">
+                    <source class="videoDromeStreamSource" type="application/x-mpegURL" src="">
+                </video>
+            </div>
+
+
+
+           <!-- <div class="videodromeVideoContainer videoDromeVideo2">
+                <video class="videoDromeFrame localVideo" muted="" loop="" controlslist="nofullscreen" preload="none">
+                    <source class="videoSource cursorNone"
+                            src="" type="video/mp4">
+                </video>
+            </div>
+            <div class="videodromeVideoContainer videoDromeVideo3">
+                <video class="videoDromeFrame localVideo" muted="" loop="" controlslist="nofullscreen" preload="none">
+                    <source class="videoSource cursorNone"
+                            src="" type="video/mp4">
+                </video>
+            </div>
+            <div class="videodromeVideoContainer videoDromeVideo4">
+                <video class="videoDromeFrame localVideo" muted="" loop="" controlslist="nofullscreen" preload="none">
+                    <source class="videoSource cursorNone"
+                            src="" type="video/mp4">
+                </video>
+            </div>-->
         </div>
     </div>
 
