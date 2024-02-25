@@ -2997,12 +2997,13 @@ $( document ).ready( function () {
             } );
 
             var videoJSUrls = [];
-            fillVideoJSUrls();
+            getVideoJSUrls();
 
-            function fillVideoJSUrls() {
+            function getVideoJSUrls() {
                 var activeVideoCrawls = 0;
                 while ( activeVideoCrawls < 4 && videoJSUrls.length < 5 ) {
                     activeVideoCrawls++;
+                    console.info( 'crawl', activeVideoCrawls );
                     getNextVideoStreamUrl();
                 }
                 activeVideoCrawls = 0;
@@ -3014,13 +3015,21 @@ $( document ).ready( function () {
                     if ( matches != undefined && matches[1] != undefined ) {
                         url = matches[1].replaceAll( '\\', '' );
                         videoJSUrls.push( url );
+                        if ( videoJSUrls.length > 0 ) {
+                            $( '#showVideodromeStream' ).show();
+                        }
                     }
                 } );
             }
 
             function playVideoJsStream( playerId, videoSource ) {
                 url = videoJSUrls.pop();
-                console.info(url);
+
+                if ( videoJSUrls.length <= 0 ) {
+                    $( '#showVideodromeStream' ).hide();
+                }
+
+                console.info( url );
                 var player = videojs( document.querySelector( '#' + playerId ) );
                 player.src( {
                     src : url,
@@ -3029,7 +3038,7 @@ $( document ).ready( function () {
                 player.load();
                 player.play();
 
-                fillVideoJSUrls();
+                getVideoJSUrls();
             }
 
             // END Videodrome section
