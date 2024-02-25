@@ -12,6 +12,7 @@ $( document ).ready( function () {
             // #5 - Music section
             // #6 - Search Youtube section
             // #7 - Videodrome section
+            // #8 - VideodromeVideoJS section
             // #9 - initial init section
 
             // ***********************************
@@ -2981,54 +2982,54 @@ $( document ).ready( function () {
                 clearInterval( videodromePlayInterval );
             }
 
+            // ******************************************
+            // #8 - VideodromeVideoJS section
+
             $( '#showVideodromeStream' ).click( function () {
                 /*                enableFullscreen();*/
                 blockScreenSaver = true;
                 $( '#videodromeStream' ).show();
 
 
-                content = getNextVideoStreamUrl();
-                console.info( content );
+                console.info( videoJSUrls );
+                playVideoJsStream( 'videoJSPlayer1' );
 
-
-                /*                forcePlaybackVideodrome();
-                                videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );*/
             } );
 
-            nextStreamVideoUrls = [];
+            var videoJSUrls = [];
+            fillVideoJSUrls();
+
+            function fillVideoJSUrls() {
+                var activeVideoCrawls = 0;
+                while ( activeVideoCrawls < 4 && videoJSUrls.length < 5 ) {
+                    activeVideoCrawls++;
+                    getNextVideoStreamUrl();
+                }
+                activeVideoCrawls = 0;
+            }
 
             function getNextVideoStreamUrl() {
-                console.info( 'get content' );
-
-                $.get( 'https://www.pornhub.com/view_video.php?viewkey=66e2481f805d01d2c0d2', function ( data ) {
-                    /*       console.log( data );*/
-
-
+                $.get( 'http://www.pornhub.com/random', function ( data ) {
                     var matches = data.match( /.*(https.*m3u8.*?)",/ );
                     if ( matches != undefined && matches[1] != undefined ) {
-                        /*console.log( matches[1]  );*/
                         url = matches[1].replaceAll( '\\', '' );
-                        console.log( url );
-                        nextStreamVideoUrls.push( url );
-
-                        playVideoJsStream( 'videoJSPlayer1', url );
-                        /*    $( '.videoDromeStreamSource' ).attr( 'src', url );*/
-                    } else {
-                        console.log( 'nix' );
+                        videoJSUrls.push( url );
                     }
-
                 } );
-                /*                fetch( 'https://www.pornhub.com/view_video.php?viewkey=66e2481f805d01d2c0d2', {redirect: 'follow'} ).then( data => console.log( data ) );*/
             }
 
             function playVideoJsStream( playerId, videoSource ) {
+                url = videoJSUrls.pop();
+                console.info(url);
                 var player = videojs( document.querySelector( '#' + playerId ) );
                 player.src( {
-                    src : videoSource,
+                    src : url,
                     type: 'application/x-mpegURL'
                 } );
                 player.load();
                 player.play();
+
+                fillVideoJSUrls();
             }
 
             // END Videodrome section
@@ -3053,7 +3054,7 @@ $( document ).ready( function () {
 
             toggleXXXVisible();
             $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
-            /*    $( '#showVideodromeStream' ).trigger( 'click' );*/
+            /*$( '#showVideodromeStream' ).trigger( 'click' );*/
 
         }
 );
