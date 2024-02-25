@@ -2984,6 +2984,8 @@ $( document ).ready( function () {
 
             // ******************************************
             // #8 - VideodromeVideoJS section
+            var videoJSUrls = [];
+            getVideoJSUrls();
 
             $( '#showVideodromeStream' ).click( function () {
                 /*                enableFullscreen();*/
@@ -2996,8 +2998,10 @@ $( document ).ready( function () {
 
             } );
 
-            var videoJSUrls = [];
-            getVideoJSUrls();
+
+            $( '.videodromeStreamRefreshVideo' ).click( function () {
+                playVideoJsStream( $( this ).attr( 'target' ) );
+            } );
 
             function getVideoJSUrls() {
                 var activeVideoCrawls = 0;
@@ -3022,14 +3026,15 @@ $( document ).ready( function () {
                 } );
             }
 
-            function playVideoJsStream( playerId, videoSource ) {
+            function playVideoJsStream( playerId ) {
                 url = videoJSUrls.pop();
 
                 if ( videoJSUrls.length <= 0 ) {
                     $( '#showVideodromeStream' ).hide();
                 }
 
-                console.info( url );
+                console.info( url, "playing" );
+
                 var player = videojs( document.querySelector( '#' + playerId ) );
                 player.src( {
                     src : url,
