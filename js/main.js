@@ -2986,6 +2986,7 @@ $( document ).ready( function () {
             // #8 - VideodromeVideoJS section
             var videoJSUrls = [];
             getVideoJSUrls();
+            var player = '';
 
             $( '#showVideodromeStream' ).click( function () {
                 /*                enableFullscreen();*/
@@ -3001,6 +3002,15 @@ $( document ).ready( function () {
 
             $( '.videodromeStreamRefreshVideo' ).click( function () {
                 playVideoJsStream( $( this ).attr( 'target' ) );
+            } );
+
+            $( document ).on( 'wheel', '.videodromeStreamVideoContainer', function ( event ) {
+                event.preventDefault();
+                if ( event.originalEvent.deltaY > 0 ) { // going down
+                    player.currentTime( player.currentTime( ) - 30 );
+                } else { // going up
+                    player.currentTime( player.currentTime( ) + 30 );
+                }
             } );
 
             function getVideoJSUrls() {
@@ -3020,28 +3030,30 @@ $( document ).ready( function () {
                         url = matches[1].replaceAll( '\\', '' );
                         videoJSUrls.push( url );
                         if ( videoJSUrls.length > 0 ) {
-                            $( '#showVideodromeStream' ).show();
+                            $( '#showVideodromeStream, .videodromeStreamRefreshVideo' ).show();
                         }
                     }
                 } );
             }
 
+
             function playVideoJsStream( playerId ) {
                 url = videoJSUrls.pop();
 
                 if ( videoJSUrls.length <= 0 ) {
-                    $( '#showVideodromeStream' ).hide();
+                    $( '#showVideodromeStream, .videodromeStreamRefreshVideo' ).hide();
                 }
 
-                console.info( url, "playing" );
+                console.info( url, 'playing' );
 
-                var player = videojs( document.querySelector( '#' + playerId ) );
+                player = videojs( document.querySelector( '#' + playerId ) );
                 player.src( {
                     src : url,
                     type: 'application/x-mpegURL'
                 } );
                 player.load();
                 player.play();
+                player.currentTime( 10 );
 
                 getVideoJSUrls();
             }
