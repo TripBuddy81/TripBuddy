@@ -65,10 +65,6 @@ var config = {
                         'id'   : '4ILChY5F4Hn08ikt0rfHhW'
                     },
                     {
-                        'label': 'Cello music',
-                        'id'   : '6dBmtGXkU8pfMAgmxpUxth'
-                    },
-                    {
                         'label': 'Hermanos Gutiérrez',
                         'id'   : '5pQUmaKxS0DXaVc7I4La0o'
                     },
@@ -117,13 +113,13 @@ var config = {
                         'id'   : '7rDDQh788CX392cb9oWSL7'
                     },
                     {
+                        'label': 'Psybass',
+                        'id'   : '0O1C7wbOthIxBbai9pYvEH'
+                    },
+                    {
                         'label': 'Psychamber',
                         'id'   : '1z2HVIgmaCbPmro2oprLf5'
                     },
-                    {
-                        'label': 'Psybass',
-                        'id'   : '0O1C7wbOthIxBbai9pYvEH'
-                    }
                 ],
                 'blue' : [
                     {
@@ -244,10 +240,6 @@ var config = {
                     'label': 'Healing Water'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/thunderNoiseGenerator.php?l=65777278747400005400&title=Distant%20Thunder&c=1',
-                    'label': 'Distant Thunder'
-                },
-                {
                     'link' : 'https://mynoise.net/NoiseMachines/customRainOnWindow.php?l=71635719310031564932&title=Cosy%20Rain&c=1',
                     'label': 'Cosy Rain'
                 },
@@ -260,7 +252,7 @@ var config = {
                     'label': 'Gregorian Voices'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/riikkaVocalSoundscape.php?l=99717340004400000007&title=Oak%20Song&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/riikkaVocalSoundscape.php?l=00003136554139295658&title=Oak%20Song&c=1',
                     'label': 'Oak Song'
                 },
                 {

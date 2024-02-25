@@ -971,6 +971,10 @@ option {
     transition: all 1s ease;
 }
 
+.playlistMenuCustomLink {
+    font-size: 30px !important;
+}
+
 .createSongRadio {
     right: 90px;
 }
