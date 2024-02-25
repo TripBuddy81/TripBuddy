@@ -3011,8 +3011,8 @@ $( document ).ready( function () {
                         console.log( url );
                         nextStreamVideoUrls.push( url );
 
-                        playVideo(url);
-                    /*    $( '.videoDromeStreamSource' ).attr( 'src', url );*/
+                        playVideoJsStream( 'videoJSPlayer1', url );
+                        /*    $( '.videoDromeStreamSource' ).attr( 'src', url );*/
                     } else {
                         console.log( 'nix' );
                     }
@@ -3021,28 +3021,14 @@ $( document ).ready( function () {
                 /*                fetch( 'https://www.pornhub.com/view_video.php?viewkey=66e2481f805d01d2c0d2', {redirect: 'follow'} ).then( data => console.log( data ) );*/
             }
 
-            function playVideo( videoSource ) {
-                console.log( "playing" );
-                var player = videojs(document.querySelector('.video-js'));
-                player.src({
-                    src: videoSource,
-                    type: "application/x-mpegURL"
-                });
+            function playVideoJsStream( playerId, videoSource ) {
+                var player = videojs( document.querySelector( '#' + playerId ) );
+                player.src( {
+                    src : videoSource,
+                    type: 'application/x-mpegURL'
+                } );
                 player.load();
                 player.play();
-
-
-/*                var videoElm = document.getElementById( 'videoJSPlayer1' );
-                var videoSourceElm = document.getElementById( 'videoJSPlayerSource1' );
-     /!*           if ( !videoElm.paused ) {
-                    videoElm.pause();
-                }*!/
-
-                videoSourceElm.src = videoSource;
-     /!*           videoSourceElm.type = type;*!/
-
-                videoElm.load();
-                videoElm.play();*/
             }
 
             // END Videodrome section
@@ -3067,7 +3053,7 @@ $( document ).ready( function () {
 
             toggleXXXVisible();
             $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
-        /*    $( '#showVideodromeStream' ).trigger( 'click' );*/
+            /*    $( '#showVideodromeStream' ).trigger( 'click' );*/
 
         }
 );
