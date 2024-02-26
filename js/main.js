@@ -2882,11 +2882,20 @@ $( document ).ready( function () {
                 e.stopPropagation();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).removeAttr( 'controls' );
-                    $( this ).parent().removeClass( 'videodromeFullscreen' );
+                    if ( $( this ).parent().hasClass( 'video-js' ) ) {
+                        $( '.video-js' ).removeClass( 'videodromeFullscreen' )
+                    } else {
+                        $( this ).parent().removeClass( 'videodromeFullscreen' );
+                    }
+
                     $( '#videodromeFullscreenMenuContainer' ).hide();
                 } else {
                     $( this ).prop( 'controls', 'controls' );
-                    $( this ).parent().addClass( 'videodromeFullscreen' );
+                    if ( $( this ).parent().hasClass( 'video-js' ) ) {
+                        $( '.video-js' ).addClass( 'videodromeFullscreen' )
+                    } else {
+                        $( this ).parent().addClass( 'videodromeFullscreen' );
+                    }
                     $( '#videodromeFullscreenMenuContainer' ).show();
                 }
             } );
