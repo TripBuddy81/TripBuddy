@@ -2990,7 +2990,6 @@ $( document ).ready( function () {
             var videoJSHubUrls = [];
             var videoJSPageCount = 0;
             var loadVideoJSStreamInterval1 = '';
-            var player = '';
             var activeVideoJSPlayer = 'videoJSPlayer1';
 
             if ( config['videoJSStreamSource'] != undefined ) {
@@ -3060,40 +3059,25 @@ $( document ).ready( function () {
                     videoJSPageCount++;
                     $.get( config['videoJSStreamSource'][0]['startURL'] + videoJSPageCount, function ( data ) {
                         matches = data.matchAll( config['videoJSStreamSource'][0]['videoPageRegex'] );
-                                console.info( matches );
                         for ( const match of matches ) {
                             url = config['videoJSStreamSource'][0]['platformBaseUrl'] + match[1];
-                            if (videoJSHubUrls.indexOf(url) === -1) {
+                            if ( videoJSHubUrls.indexOf( url ) === -1 ) {
                                 videoJSHubUrls.push( url );
                             }
-
-                                                        console.log(
-                                                                `Found ${match[1]} start=${match.index} end=${
-                                                                        match.index + match[0].length
-                                                                }.`
-                                                        );
                         }
                         getVideoJSUrls();
-                        /*     console.info( videoJSHubUrls );*/
-                        /*                   var matches = data.matchAll( config['videoJSStreamSource'][0]['videoSourceRegex'] );
-                                           console.info(matches);
-                                           if ( matches != undefined && matches[1] != undefined ) {
-                                               url = matches[1].replaceAll( '\\', '' );
-                                               videoJSHubUrls.push( url );
-                                           } else {
-                                               console.info("no match");
-                                           }*/
-
-
                     } );
                 }
                 if ( videoJSHubUrls.length >= 1 ) {
-                    $.get( videoJSHubUrls.pop(), function ( data ) {
+                    url = '';
+                    for ( var i = videoJSHubUrls.length - 1; i >= 0; i-- ) {
+                        url = videoJSHubUrls.splice( Math.floor( Math.random() * videoJSHubUrls.length ), 1 );
+                    }
+                    $.get( url, function ( data ) {
                         var matches = data.match( config['videoJSStreamSource'][0]['videoSourceRegex'] );
                         if ( matches != undefined && matches[1] != undefined ) {
                             url = matches[1].replaceAll( '\\', '' );
                             videoJSUrls.push( url );
-
                             if ( videoJSUrls.length < 5 ) {
                                 getVideoJSUrls();
                             }
@@ -3102,8 +3086,6 @@ $( document ).ready( function () {
                         }
                     } );
                 }
-
-
             }
 
             function playVideoJsStream( playerId ) {
