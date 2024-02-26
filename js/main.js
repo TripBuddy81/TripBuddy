@@ -3018,27 +3018,29 @@ $( document ).ready( function () {
 
             function startVideoJSStream() {
                 if ( videoJSUrls.length > 0 ) {
-                    playVideoJsStream( 'videoJSPlayer1' );
                     clearInterval( startVideoJSStreamInterval );
+                    playVideoJsStream( 'videoJSPlayer1' );
                 }
             }
 
             function getVideoJSUrls() {
                 var activeVideoCrawls = 0;
-                while ( activeVideoCrawls < 2 && videoJSUrls.length < 5 ) {
+                while ( activeVideoCrawls < 1 && videoJSUrls.length < 5 ) {
                     activeVideoCrawls++;
-                    console.info( 'crawl', activeVideoCrawls );
                     getNextVideoStreamUrl();
                 }
-                activeVideoCrawls = 0;
             }
 
             function getNextVideoStreamUrl() {
                 $.get( config['videoJSStreamSource'][0]['startURL'], function ( data ) {
-                    var matches = data.match( config['videoJSStreamSource'][0]['videoSourceRegex']);
+                    var matches = data.match( config['videoJSStreamSource'][0]['videoSourceRegex'] );
                     if ( matches != undefined && matches[1] != undefined ) {
                         url = matches[1].replaceAll( '\\', '' );
                         videoJSUrls.push( url );
+
+                        if ( videoJSUrls.length < 5 ) {
+                            getVideoJSUrls();
+                        }
                     }
                 } );
             }
