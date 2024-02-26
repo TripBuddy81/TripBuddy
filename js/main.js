@@ -92,7 +92,6 @@ $( document ).ready( function () {
             window.shrineDiscoActive = false;
             window.playingRandomWisdom = false;
             window.alreadyLoadedExternalFiles = [];
-            window.videoJSfirstLoadComplete = false;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -2861,19 +2860,14 @@ $( document ).ready( function () {
                 forcePlaybackVideodrome();
                 videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
 
-                $( '.videoDromeVideo2' ).hide();
-                $( '#refreshVideoDromeVideo2' ).hide();
+                $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
 
                 // to be toggled
+                $( '.videoDromeVideo2' ).hide();
+                $( '#refreshVideoDromeVideo2' ).hide();
                 /*                $('.videoDromeStreamVideo1').show();
                                 $('#videodromeStreamRefreshVideo').show();*/
 
-                if ( !videoJSfirstLoadComplete ) {
-                    videoJSfirstLoadComplete = true;
-                    getVideoJSUrls();
-                    loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
-                    loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
-                }
 
             } );
 
@@ -2995,6 +2989,9 @@ $( document ).ready( function () {
                             $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
                         }
                     }
+                    getVideoJSUrls();
+                    loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
+                    loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
                 }
             }
 
@@ -3018,7 +3015,7 @@ $( document ).ready( function () {
             // #8 - VideodromeVideoJS section
             var videoJSUrls = [];
             var videoJSHubUrls = [];
-            var videoJSPageCount = randomIntFromInterval(1, 300);
+            var videoJSPageCount = randomIntFromInterval( 1, 300 );
             var loadVideoJSStreamInterval1 = '';
             var activeVideoJSPlayer = 'videoJSPlayer1';
 
