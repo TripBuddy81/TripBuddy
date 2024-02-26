@@ -2876,6 +2876,7 @@ $( document ).ready( function () {
                 e.stopPropagation();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).removeAttr( 'controls' );
+                    $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).removeAttr( 'controls', 'controls' );
                     if ( $( this ).parent().hasClass( 'video-js' ) ) {
                         $( '.video-js' ).removeClass( 'videodromeFullscreen' )
                     } else {
@@ -2885,6 +2886,7 @@ $( document ).ready( function () {
                     $( '#videodromeFullscreenMenuContainer' ).hide();
                 } else {
                     $( this ).prop( 'controls', 'controls' );
+                    $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).prop( 'controls', 'controls' );
                     if ( $( this ).parent().hasClass( 'video-js' ) ) {
                         $( '.video-js' ).addClass( 'videodromeFullscreen' )
                     } else {
@@ -3015,7 +3017,6 @@ $( document ).ready( function () {
             // #8 - VideodromeVideoJS section
             var videoJSUrls = [];
             var videoJSHubUrls = [];
-            var videoJSPageCount = randomIntFromInterval( 1, 300 );
             var loadVideoJSStreamInterval1 = '';
             var activeVideoJSPlayer = 'videoJSPlayer1';
             var player = '';
@@ -3074,8 +3075,7 @@ $( document ).ready( function () {
 
             function getNextVideoStreamUrl() {
                 if ( videoJSHubUrls.length <= 0 ) {
-                    videoJSPageCount++;
-                    $.get( config['videoJSStreamSource'][0]['startURL'] + videoJSPageCount, function ( data ) {
+                    $.get( config['videoJSStreamSource'][0]['startURL'] + randomIntFromInterval( 1, 10 ), function ( data ) {
                         matches = data.matchAll( config['videoJSStreamSource'][0]['videoPageRegex'] );
                         for ( const match of matches ) {
                             if ( match[1] != undefined ) {
