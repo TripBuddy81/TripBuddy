@@ -1969,3 +1969,7 @@ video::-webkit-media-controls-fullscreen-button {
     bottom: 0;
     left: 0;
 }
+
+#showVideodromeStream {
+    display: none;
+}

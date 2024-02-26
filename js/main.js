@@ -2990,6 +2990,10 @@ $( document ).ready( function () {
             var startVideoJSStreamInterval = '';
             var player = '';
 
+            if ( config['videoJSStreamSource'] != undefined ) {
+                $( '#showVideodromeStream' ).show();
+            }
+
             $( '#showVideodromeStream' ).click( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
@@ -3030,15 +3034,14 @@ $( document ).ready( function () {
             }
 
             function getNextVideoStreamUrl() {
-                $.get( 'http://www.pornhub.com/random', function ( data ) {
-                    var matches = data.match( /.*(https.*m3u8.*?)",/ );
+                $.get( config['videoJSStreamSource'][0]['startURL'], function ( data ) {
+                    var matches = data.match( config['videoJSStreamSource'][0]['videoSourceRegex']);
                     if ( matches != undefined && matches[1] != undefined ) {
                         url = matches[1].replaceAll( '\\', '' );
                         videoJSUrls.push( url );
                     }
                 } );
             }
-
 
             function playVideoJsStream( playerId ) {
                 url = videoJSUrls.pop();
