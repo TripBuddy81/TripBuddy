@@ -2877,7 +2877,7 @@ $( document ).ready( function () {
 
             } );
 
-            $( document ).on( 'click', '.videoDromeFrame,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function (e) {
+            $( document ).on( 'click', '.videoDromeFrame,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
@@ -2946,17 +2946,21 @@ $( document ).ready( function () {
                     return;
                 } );
 
-                randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
+                if ( $( target ).hasClass( 'video-js' ) ) {
+                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                } else {
                     randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                    if ( alreadySelectedVideosVideodrome.length == config['videosVideodrome'].length - 1 ) {
-                        alreadySelectedVideosVideodrome = [];
+                    while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
+                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        if ( alreadySelectedVideosVideodrome.length == config['videosVideodrome'].length - 1 ) {
+                            alreadySelectedVideosVideodrome = [];
+                        }
                     }
+                    alreadySelectedVideosVideodrome.push( randomNumber );
+                    $( target ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
+                    $( target ).find( '.localVideo' )[0].load();
+                    $( target ).find( '.localVideo' )[0].play();
                 }
-                alreadySelectedVideosVideodrome.push( randomNumber );
-                $( target ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
-                $( target ).find( '.localVideo' )[0].load();
-                $( target ).find( '.localVideo' )[0].play();
             } );
 
             $( '#refreshVideoDromeVideoAll' ).click( function () {
