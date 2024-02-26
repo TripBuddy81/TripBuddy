@@ -139,7 +139,7 @@ $( document ).ready( function () {
                     $( '.iFrameContainer ' ).delay( 200 ).fadeIn();
                     hideScreensaverEnso();
                 }
-            }, 100 );
+            }, 2000 );
 
             // Init screensaver
             setInterval( startScreensaver, 1000 );
