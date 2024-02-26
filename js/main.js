@@ -3009,10 +3009,14 @@ $( document ).ready( function () {
                 if ( activeVideoJSPlayer == 'videoJSPlayer1' ) {
                     loadNextVideoJsStream( 'videoJSPlayer1' );
                     activeVideoJSPlayer = 'videoJSPlayer2';
+                    $('.videoDromeStreamVideo1').hide();
+                    $('.videoDromeStreamVideo2').show();
                     playVideoJsStream( activeVideoJSPlayer );
                 } else {
                     loadNextVideoJsStream( 'videoJSPlayer2' );
                     activeVideoJSPlayer = 'videoJSPlayer1';
+                    $('.videoDromeStreamVideo1').show();
+                    $('.videoDromeStreamVideo2').hide();
                     playVideoJsStream( activeVideoJSPlayer );
                 }
             } );
@@ -3043,7 +3047,7 @@ $( document ).ready( function () {
 
             function getVideoJSUrls() {
                 var activeVideoCrawls = 0;
-                while ( activeVideoCrawls < 1 && videoJSUrls.length < 5 ) {
+                while ( activeVideoCrawls < 1 && videoJSUrls.length < 4 ) {
                     activeVideoCrawls++;
                     getNextVideoStreamUrl();
                 }
@@ -3073,9 +3077,6 @@ $( document ).ready( function () {
 
             function loadNextVideoJsStream( playerId ) {
                 url = videoJSUrls.pop();
-
-                console.info( url, 'loading' );
-
                 player = videojs( document.querySelector( '#' + playerId ) );
                 player.src( {
                     src : url,

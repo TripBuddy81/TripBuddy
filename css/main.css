@@ -1970,6 +1970,6 @@ video::-webkit-media-controls-fullscreen-button {
     left: 0;
 }
 
-#showVideodromeStream {
+#showVideodromeStream, .videoDromeStreamVideo2 {
     display: none;
 }
