@@ -2987,8 +2987,9 @@ $( document ).ready( function () {
             // ******************************************
             // #8 - VideodromeVideoJS section
             var videoJSUrls = [];
-            var startVideoJSStreamInterval = '';
+            var loadVideoJSStreamInterval1 = '';
             var player = '';
+            var activeVideoJSPlayer = 'videoJSPlayer1';
 
             if ( config['videoJSStreamSource'] != undefined ) {
                 $( '#showVideodromeStream' ).show();
@@ -3000,11 +3001,20 @@ $( document ).ready( function () {
                 $( '#videodromeStream' ).show();
 
                 getVideoJSUrls();
-                startVideoJSStreamInterval = setInterval( startVideoJSStream, 1000 );
+                loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
+                loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
             } );
 
             $( '.videodromeStreamRefreshVideo' ).click( function () {
-                playVideoJsStream( $( this ).attr( 'target' ) );
+                if ( activeVideoJSPlayer == 'videoJSPlayer1' ) {
+                    loadNextVideoJsStream( 'videoJSPlayer1' );
+                    activeVideoJSPlayer = 'videoJSPlayer2';
+                    playVideoJsStream( activeVideoJSPlayer );
+                } else {
+                    loadNextVideoJsStream( 'videoJSPlayer2' );
+                    activeVideoJSPlayer = 'videoJSPlayer1';
+                    playVideoJsStream( activeVideoJSPlayer );
+                }
             } );
 
             $( document ).on( 'wheel', '.videodromeStreamVideoContainer', function ( event ) {
@@ -3016,10 +3026,18 @@ $( document ).ready( function () {
                 }
             } );
 
-            function startVideoJSStream() {
+            function loadVideoJSStream1() {
                 if ( videoJSUrls.length > 0 ) {
-                    clearInterval( startVideoJSStreamInterval );
-                    playVideoJsStream( 'videoJSPlayer1' );
+                    clearInterval( loadVideoJSStreamInterval1 );
+                    loadNextVideoJsStream( 'videoJSPlayer1' );
+                    playVideoJsStream( 'videoJSPlayer1', true );
+                }
+            }
+
+            function loadVideoJSStream2() {
+                if ( videoJSUrls.length > 0 ) {
+                    clearInterval( loadVideoJSStreamInterval2 );
+                    loadNextVideoJsStream( 'videoJSPlayer2' );
                 }
             }
 
@@ -3041,14 +3059,22 @@ $( document ).ready( function () {
                         if ( videoJSUrls.length < 5 ) {
                             getVideoJSUrls();
                         }
+                    } else {
+                        getVideoJSUrls();
                     }
                 } );
             }
 
             function playVideoJsStream( playerId ) {
+                player = videojs( document.querySelector( '#' + playerId ) );
+                player.play();
+                player.currentTime( 30 );
+            }
+
+            function loadNextVideoJsStream( playerId ) {
                 url = videoJSUrls.pop();
 
-                console.info( url, 'playing' );
+                console.info( url, 'loading' );
 
                 player = videojs( document.querySelector( '#' + playerId ) );
                 player.src( {
@@ -3056,9 +3082,6 @@ $( document ).ready( function () {
                     type: 'application/x-mpegURL'
                 } );
                 player.load();
-                player.play();
-                player.currentTime( 30 );
-
                 getVideoJSUrls();
             }
 
