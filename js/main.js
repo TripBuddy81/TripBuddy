@@ -92,6 +92,7 @@ $( document ).ready( function () {
             window.shrineDiscoActive = false;
             window.playingRandomWisdom = false;
             window.alreadyLoadedExternalFiles = [];
+            window.videoJSfirstLoadComplete = false;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -228,7 +229,6 @@ $( document ).ready( function () {
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#videodrome' ).is( ':visible' ) ||
-                            $( '#videodromeStream' ).is( ':visible' ) ||
                             $( '#notesOverlay' ).is( ':visible' ) ||
                             $( '.videoMenuOverlayFullscreen' ).is( ':visible' ) ||
                             $( '#preFlightChecklist' ).is( ':visible' ) ||
@@ -485,7 +485,6 @@ $( document ).ready( function () {
                 $( '.mainSearchResultVideoOverlay' ).show();
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '#videodromeFullscreenMenuContainer' ).hide();
-                $( '.videodromeStream' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -2861,6 +2860,21 @@ $( document ).ready( function () {
                 $( '#videodrome' ).show();
                 forcePlaybackVideodrome();
                 videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
+
+                $('.videoDromeVideo2').hide();
+                $('#refreshVideoDromeVideo2').hide();
+
+                // to be toggled
+/*                $('.videoDromeStreamVideo1').show();
+                $('#videodromeStreamRefreshVideo').show();*/
+
+                if (!videoJSfirstLoadComplete) {
+                    videoJSfirstLoadComplete = true;
+                    getVideoJSUrls();
+                    loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
+                    loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
+                }
+
             } );
 
             $( document ).on( 'click', '.videoDromeFrame', function () {
@@ -2948,6 +2962,7 @@ $( document ).ready( function () {
                 $( '#refreshVideoDromeVideo2' ).trigger( 'click' );
                 $( '#refreshVideoDromeVideo3' ).trigger( 'click' );
                 $( '#refreshVideoDromeVideo4' ).trigger( 'click' );
+                $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
             } );
 
             function initVideodrome() {
@@ -2995,16 +3010,6 @@ $( document ).ready( function () {
             if ( config['videoJSStreamSource'] != undefined ) {
                 $( '#showVideodromeStream' ).show();
             }
-
-            $( '#showVideodromeStream' ).click( function () {
-                /* enableFullscreen();*/
-                blockScreenSaver = true;
-                $( '#videodromeStream' ).show();
-
-                getVideoJSUrls();
-                loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
-                loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
-            } );
 
             $( '.videodromeStreamRefreshVideo' ).click( function () {
                 if ( activeVideoJSPlayer == 'videoJSPlayer1' ) {

@@ -656,10 +656,6 @@
                             <div class="xxxAction" id="showVideodrome">
                                 <img id="startVideoDromeIcon" src="./assets/videodrome.png">Start Videodrome
                             </div>
-
-                            <div class="xxxAction" id="showVideodromeStream">
-                                <img id="startVideoDromeIcon" src="./assets/videodrome.png">Start Videodrome Stream
-                            </div>
                         </div>
                         <div class="col">
 
@@ -916,8 +912,12 @@
         <div class="videodromeRefreshContainer">
             <img id="refreshVideoDromeVideo1" target="videoDromeVideo1" class="iconAlternating videodromeRefreshVideo cursorAction"
                  src="./assets/refresh.png">
+
             <img id="refreshVideoDromeVideo2" target="videoDromeVideo2" class="iconAlternating videodromeRefreshVideo cursorAction"
                  src="./assets/refresh.png">
+            <img id="videodromeStreamRefreshVideo" class="iconAlternating videodromeStreamRefreshVideo cursorAction"
+                 src="./assets/refresh.png">
+
             <img id="refreshVideoDromeVideo3" target="videoDromeVideo3" class="iconAlternating videodromeRefreshVideo cursorAction"
                  src="./assets/refresh.png">
             <img id="refreshVideoDromeVideo4" target="videoDromeVideo4" class="iconAlternating videodromeRefreshVideo cursorAction"
@@ -933,6 +933,17 @@
                 <img class="iconAlternating showFullscreenVideoInfo cursorAction"
                      src="./assets/info.png">
                 <div id="videodromeFullscreenFilename"></div>
+            </div>
+
+            <div class="videodromeStreamVideoContainer videoDromeStreamVideo1" target="videoJSPlayer1" >
+                <video id="videoJSPlayer1" muted="" loop="" class="video-js videoDromeFrame" controls preload="none" data-setup="{}">
+                    <source id="videoJSPlayerSource1" class="videoDromeStreamSource" type="application/x-mpegURL" src="https://example.com">
+                </video>
+            </div>
+            <div class="videodromeStreamVideoContainer videoDromeStreamVideo2" target="videoJSPlayer2" >
+                <video id="videoJSPlayer2" muted="" loop="" class="video-js videoDromeFrame" controls preload="none" data-setup="{}">
+                    <source id="videoJSPlayerSource2" class="videoDromeStreamSource" type="application/x-mpegURL" src="https://example.com">
+                </video>
             </div>
 
             <div class="videodromeVideoContainer videoDromeVideo1" >
@@ -960,49 +971,6 @@
                             src="" type="video/mp4">
                 </video>
             </div>
-        </div>
-    </div>
-
-    <div id="videodromeStream">
-        <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
-        </div>
-        <div class="trackProgressContainer hidden videoMenuOverlay">
-            <div class="trackProgress">
-                <div class="colorfulBorder"></div>
-            </div>
-        </div>
-
-        <div class="videodromeRefreshContainer">
-            <img id="refreshVideoDromeStreamVideo1" target="videoJSPlayer1" class="iconAlternating videodromeStreamRefreshVideo cursorAction"
-                 src="./assets/refresh.png">
-            <img id="refreshVideoDromeStreamVideo2" target="videoJSPlayer2" class="iconAlternating videodromeStreamRefreshVideo cursorAction"
-                 src="./assets/refresh.png">
-            <img id="refreshVideoDromeStreamVideo3" target="videoJSPlayer3" class="iconAlternating videodromeStreamRefreshVideo cursorAction"
-                 src="./assets/refresh.png">
-            <img id="refreshVideoDromeStreamVideo4" target="videoJSPlayer4" class="iconAlternating videodromeStreamRefreshVideo cursorAction"
-                 src="./assets/refresh.png">
-            <img id="refreshVideoDromeStreamVideoAll" class="iconAlternating cursorAction"
-                 src="./assets/refresh.png">
-        </div>
-
-        <div id="videodromeStreamContainer">
-
-            <div id="videodromeStreamFullscreenMenuContainer">
-                <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon cursorAction"
-                     src="./assets/refresh.png">
-            </div>
-
-            <div class="videodromeStreamVideoContainer videoDromeStreamVideo1" target="videoJSPlayer1" >
-                <video id="videoJSPlayer1" muted="" loop="" class="video-js videoDromeFrame" controls preload="none" data-setup="{}">
-                    <source id="videoJSPlayerSource1" class="videoDromeStreamSource" type="application/x-mpegURL" src="https://example.com">
-                </video>
-            </div>
-            <div class="videodromeStreamVideoContainer videoDromeStreamVideo2" target="videoJSPlayer2" >
-                <video id="videoJSPlayer2" muted="" loop="" class="video-js videoDromeFrame" controls preload="none" data-setup="{}">
-                    <source id="videoJSPlayerSource2" class="videoDromeStreamSource" type="application/x-mpegURL" src="https://example.com">
-                </video>
-            </div>
-
         </div>
     </div>
 
