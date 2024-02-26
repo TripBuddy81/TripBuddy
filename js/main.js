@@ -3018,7 +3018,7 @@ $( document ).ready( function () {
             // #8 - VideodromeVideoJS section
             var videoJSUrls = [];
             var videoJSHubUrls = [];
-            var videoJSPageCount = 0;
+            var videoJSPageCount = randomIntFromInterval(1, 300);
             var loadVideoJSStreamInterval1 = '';
             var activeVideoJSPlayer = 'videoJSPlayer1';
 
@@ -3080,9 +3080,11 @@ $( document ).ready( function () {
                     $.get( config['videoJSStreamSource'][0]['startURL'] + videoJSPageCount, function ( data ) {
                         matches = data.matchAll( config['videoJSStreamSource'][0]['videoPageRegex'] );
                         for ( const match of matches ) {
-                            url = config['videoJSStreamSource'][0]['platformBaseUrl'] + match[1];
-                            if ( videoJSHubUrls.indexOf( url ) === -1 ) {
-                                videoJSHubUrls.push( url );
+                            if ( match[1] != undefined ) {
+                                url = config['videoJSStreamSource'][0]['platformBaseUrl'] + match[1];
+                                if ( videoJSHubUrls.indexOf( url ) === -1 ) {
+                                    videoJSHubUrls.push( url );
+                                }
                             }
                         }
                         getVideoJSUrls();
@@ -3096,7 +3098,9 @@ $( document ).ready( function () {
                     $.get( url, function ( data ) {
                         var matches = data.match( config['videoJSStreamSource'][0]['videoSourceRegex'] );
                         if ( matches != undefined && matches[1] != undefined ) {
+                            console.info(matches);
                             url = matches[1].replaceAll( '\\', '' );
+                            console.info(url);
                             videoJSUrls.push( url );
                             if ( videoJSUrls.length < 5 ) {
                                 getVideoJSUrls();
