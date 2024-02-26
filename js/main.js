@@ -2861,14 +2861,14 @@ $( document ).ready( function () {
                 forcePlaybackVideodrome();
                 videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
 
-                $('.videoDromeVideo2').hide();
-                $('#refreshVideoDromeVideo2').hide();
+                $( '.videoDromeVideo2' ).hide();
+                $( '#refreshVideoDromeVideo2' ).hide();
 
                 // to be toggled
-/*                $('.videoDromeStreamVideo1').show();
-                $('#videodromeStreamRefreshVideo').show();*/
+                /*                $('.videoDromeStreamVideo1').show();
+                                $('#videodromeStreamRefreshVideo').show();*/
 
-                if (!videoJSfirstLoadComplete) {
+                if ( !videoJSfirstLoadComplete ) {
                     videoJSfirstLoadComplete = true;
                     getVideoJSUrls();
                     loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
@@ -2877,7 +2877,9 @@ $( document ).ready( function () {
 
             } );
 
-            $( document ).on( 'click', '.videoDromeFrame', function () {
+            $( document ).on( 'click', '.videoDromeFrame,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).removeAttr( 'controls' );
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
