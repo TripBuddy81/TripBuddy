@@ -3098,9 +3098,7 @@ $( document ).ready( function () {
                     $.get( url, function ( data ) {
                         var matches = data.match( config['videoJSStreamSource'][0]['videoSourceRegex'] );
                         if ( matches != undefined && matches[1] != undefined ) {
-                            console.info(matches);
                             url = matches[1].replaceAll( '\\', '' );
-                            console.info(url);
                             videoJSUrls.push( url );
                             if ( videoJSUrls.length < 5 ) {
                                 getVideoJSUrls();
@@ -3115,7 +3113,7 @@ $( document ).ready( function () {
             function playVideoJsStream( playerId ) {
                 player = videojs( document.querySelector( '#' + playerId ) );
                 player.play();
-                player.currentTime( 30 );
+                player.currentTime( 90 );
             }
 
             function loadNextVideoJsStream( playerId ) {
