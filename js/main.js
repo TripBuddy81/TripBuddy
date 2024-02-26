@@ -3019,11 +3019,6 @@ $( document ).ready( function () {
             var videoJSHubUrls = [];
             var loadVideoJSStreamInterval1 = '';
             var activeVideoJSPlayer = 'videoJSPlayer1';
-            var player = '';
-
-            if ( config['videoJSStreamSource'] != undefined ) {
-                $( '#showVideodromeStream' ).show();
-            }
 
             $( '.videodromeStreamRefreshVideo' ).click( function () {
                 if ( activeVideoJSPlayer == 'videoJSPlayer1' ) {
@@ -3147,7 +3142,6 @@ $( document ).ready( function () {
 
             toggleXXXVisible();
             $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
-            $( '#showVideodromeStream' ).trigger( 'click' );
 
         }
 );
