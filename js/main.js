@@ -3140,8 +3140,8 @@ $( document ).ready( function () {
                 showScreensaverEnso();
             }
 
-            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+/*            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
 
         }
 );
