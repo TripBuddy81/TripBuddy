@@ -2987,6 +2987,8 @@ $( document ).ready( function () {
             // ******************************************
             // #8 - VideodromeVideoJS section
             var videoJSUrls = [];
+            var videoJSHubUrls = [];
+            var videoJSPageCount = 0;
             var loadVideoJSStreamInterval1 = '';
             var player = '';
             var activeVideoJSPlayer = 'videoJSPlayer1';
@@ -2996,7 +2998,7 @@ $( document ).ready( function () {
             }
 
             $( '#showVideodromeStream' ).click( function () {
-                enableFullscreen();
+                /* enableFullscreen();*/
                 blockScreenSaver = true;
                 $( '#videodromeStream' ).show();
 
@@ -3009,14 +3011,14 @@ $( document ).ready( function () {
                 if ( activeVideoJSPlayer == 'videoJSPlayer1' ) {
                     loadNextVideoJsStream( 'videoJSPlayer1' );
                     activeVideoJSPlayer = 'videoJSPlayer2';
-                    $('.videoDromeStreamVideo1').hide();
-                    $('.videoDromeStreamVideo2').show();
+                    $( '.videoDromeStreamVideo1' ).hide();
+                    $( '.videoDromeStreamVideo2' ).show();
                     playVideoJsStream( activeVideoJSPlayer );
                 } else {
                     loadNextVideoJsStream( 'videoJSPlayer2' );
                     activeVideoJSPlayer = 'videoJSPlayer1';
-                    $('.videoDromeStreamVideo1').show();
-                    $('.videoDromeStreamVideo2').hide();
+                    $( '.videoDromeStreamVideo1' ).show();
+                    $( '.videoDromeStreamVideo2' ).hide();
                     playVideoJsStream( activeVideoJSPlayer );
                 }
             } );
@@ -3054,19 +3056,54 @@ $( document ).ready( function () {
             }
 
             function getNextVideoStreamUrl() {
-                $.get( config['videoJSStreamSource'][0]['startURL'], function ( data ) {
-                    var matches = data.match( config['videoJSStreamSource'][0]['videoSourceRegex'] );
-                    if ( matches != undefined && matches[1] != undefined ) {
-                        url = matches[1].replaceAll( '\\', '' );
-                        videoJSUrls.push( url );
+                if ( videoJSHubUrls.length <= 0 ) {
+                    videoJSPageCount++;
+                    $.get( config['videoJSStreamSource'][0]['startURL'] + videoJSPageCount, function ( data ) {
+                        matches = data.matchAll( config['videoJSStreamSource'][0]['videoPageRegex'] );
+                                console.info( matches );
+                        for ( const match of matches ) {
+                            url = config['videoJSStreamSource'][0]['platformBaseUrl'] + match[1];
+                            if (videoJSHubUrls.indexOf(url) === -1) {
+                                videoJSHubUrls.push( url );
+                            }
 
-                        if ( videoJSUrls.length < 5 ) {
+                                                        console.log(
+                                                                `Found ${match[1]} start=${match.index} end=${
+                                                                        match.index + match[0].length
+                                                                }.`
+                                                        );
+                        }
+                        getVideoJSUrls();
+                        /*     console.info( videoJSHubUrls );*/
+                        /*                   var matches = data.matchAll( config['videoJSStreamSource'][0]['videoSourceRegex'] );
+                                           console.info(matches);
+                                           if ( matches != undefined && matches[1] != undefined ) {
+                                               url = matches[1].replaceAll( '\\', '' );
+                                               videoJSHubUrls.push( url );
+                                           } else {
+                                               console.info("no match");
+                                           }*/
+
+
+                    } );
+                }
+                if ( videoJSHubUrls.length >= 1 ) {
+                    $.get( videoJSHubUrls.pop(), function ( data ) {
+                        var matches = data.match( config['videoJSStreamSource'][0]['videoSourceRegex'] );
+                        if ( matches != undefined && matches[1] != undefined ) {
+                            url = matches[1].replaceAll( '\\', '' );
+                            videoJSUrls.push( url );
+
+                            if ( videoJSUrls.length < 5 ) {
+                                getVideoJSUrls();
+                            }
+                        } else {
                             getVideoJSUrls();
                         }
-                    } else {
-                        getVideoJSUrls();
-                    }
-                } );
+                    } );
+                }
+
+
             }
 
             function playVideoJsStream( playerId ) {
@@ -3108,7 +3145,7 @@ $( document ).ready( function () {
 
             toggleXXXVisible();
             $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
-            /*$( '#showVideodromeStream' ).trigger( 'click' );*/
+            $( '#showVideodromeStream' ).trigger( 'click' );
 
         }
 );
