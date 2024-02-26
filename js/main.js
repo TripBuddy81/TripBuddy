@@ -2977,7 +2977,7 @@ $( document ).ready( function () {
             } );
 
             function initVideodrome() {
-                if ( config['videosVideodrome'].length == 0 ) {
+                if ( config['videosVideodrome'] == undefined || config['videosVideodrome'].length == 0 ) {
                     $( '#showVideodrome' ).hide();
                 } else {
                     var videosToShow = [];
