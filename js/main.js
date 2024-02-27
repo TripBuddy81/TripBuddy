@@ -3080,12 +3080,12 @@ $( document ).ready( function () {
                 }
             }
 
-            function getNextVideoStreamUrl( pageIndex = randomIntFromInterval( 1, 10 ), retry = true ) {
+            function getNextVideoStreamUrl( pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {
                 if ( activePageCrawls <= 1 && videoJSUrls.length < 4 ) {
                     activePageCrawls++;
                     if ( videoJSHubUrls.length <= 0 ) {
                         if ( $( '.searchInput' ).val() != '' ) {
-                            searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + $( '.searchInput' ).val() + '&page=' + pageIndex;
+                            searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( $( '.searchInput' ).val() ) + '&page=' + pageIndex;
                         } else {
                             searchUrl = 'https://www.pornhub.com/video?o=tr&t=w&min_duration=10&hd=1&exclude_category=104&page=' + pageIndex;
                         }
@@ -3181,8 +3181,8 @@ $( document ).ready( function () {
                 showScreensaverEnso();
             }
 
-            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+                        toggleXXXVisible();
+                        $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
 
         }
 );
