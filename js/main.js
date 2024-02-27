@@ -97,6 +97,7 @@ $( document ).ready( function () {
             window.loadVideoJSStreamInterval1 = '';
             window.activeVideoJSPlayer = 'videoJSPlayer1';
             window.activePageCrawls = 0;
+            window.showVideodromeFirstTime = true;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -2881,7 +2882,11 @@ $( document ).ready( function () {
                 forcePlaybackVideodrome();
                 videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
 
-                $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                if ( showVideodromeFirstTime ) {
+                    showVideodromeFirstTime = false;
+                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                }
+
             } );
 
             $( '#toggleLocalStreamIcon' ).click( function () {
@@ -3064,7 +3069,7 @@ $( document ).ready( function () {
                 if ( videoJSUrls.length > 0 ) {
                     clearInterval( loadVideoJSStreamInterval1 );
                     loadNextVideoJsStream( 'videoJSPlayer1' );
-                    playVideoJsStream( 'videoJSPlayer1', true );
+                    playVideoJsStream( 'videoJSPlayer1' );
                 }
             }
 
@@ -3134,7 +3139,13 @@ $( document ).ready( function () {
                     src : url,
                     type: 'application/x-mpegURL'
                 } );
-                videoJSPlayer.load();
+                try {
+                    videoJSPlayer.load();
+                } catch ( e ) {
+                    console.info( e );
+                    loadNextVideoJsStream( playerId );
+                }
+
                 getNextVideoStreamUrl();
             }
 
@@ -3158,8 +3169,8 @@ $( document ).ready( function () {
                 showScreensaverEnso();
             }
 
-/*            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
+            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
 
         }
 );
