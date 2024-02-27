@@ -1884,6 +1884,10 @@ video::-webkit-media-controls-fullscreen-button {
     left: 15px;
 }
 
+#refreshVideoDromeVideo2 {
+    display: none;
+}
+
 #refreshVideoDromeVideo3 {
     bottom: 10px;
     right: 15px;
@@ -1956,6 +1960,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     top: 0;
     left: 0;
+    display: none;
 }
 
 .videoDromeVideo3 {

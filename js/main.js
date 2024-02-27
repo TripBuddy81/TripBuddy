@@ -2861,14 +2861,6 @@ $( document ).ready( function () {
                 videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
 
                 $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
-
-                // to be toggled
-                $( '.videoDromeVideo2' ).hide();
-                $( '#refreshVideoDromeVideo2' ).hide();
-                /*                $('.videoDromeStreamVideo1').show();
-                                $('#videodromeStreamRefreshVideo').show();*/
-
-
             } );
 
             $( '#toggleLocalStreamIcon' ).click( function () {
