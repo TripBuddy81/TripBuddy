@@ -3039,9 +3039,9 @@ $( document ).ready( function () {
             $( document ).on( 'wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuContainer', function ( event ) {
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 ) { // going down
-                    player.currentTime( player.currentTime() - 30 );
+                    videoJSPlayer.currentTime( videoJSPlayer.currentTime() - 30 );
                 } else { // going up
-                    player.currentTime( player.currentTime() + 30 );
+                    videoJSPlayer.currentTime( videoJSPlayer.currentTime() + 30 );
                 }
             } );
 
@@ -3104,19 +3104,19 @@ $( document ).ready( function () {
             }
 
             function playVideoJsStream( playerId ) {
-                player = videojs( document.querySelector( '#' + playerId ) );
-                player.play();
-                player.currentTime( 90 );
+                videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
+                videoJSPlayer.play();
+                videoJSPlayer.currentTime( 90 );
             }
 
             function loadNextVideoJsStream( playerId ) {
                 url = videoJSUrls.pop();
-                player = videojs( document.querySelector( '#' + playerId ) );
-                player.src( {
+                videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
+                videoJSPlayer.src( {
                     src : url,
                     type: 'application/x-mpegURL'
                 } );
-                player.load();
+                videoJSPlayer.load();
                 getVideoJSUrls();
             }
 
