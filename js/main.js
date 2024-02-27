@@ -203,6 +203,9 @@ $( document ).ready( function () {
                     getNextVideoStreamUrl();
                 }, 500 );
 
+                activeVideoJSPlayer = 'videoJSPlayer1';
+                $( '.videoDromeStreamVideo1' ).show();
+                $( '.videoDromeStreamVideo2' ).hide();
                 loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
                 loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
             } );
@@ -3155,8 +3158,8 @@ $( document ).ready( function () {
                 showScreensaverEnso();
             }
 
-            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+/*            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
 
         }
 );
