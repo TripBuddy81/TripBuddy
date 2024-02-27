@@ -2871,6 +2871,13 @@ $( document ).ready( function () {
 
             } );
 
+            $( '#toggleLocalStreamIcon' ).click( function () {
+                $( '.videoDromeVideo2' ).toggle();
+                $( '#refreshVideoDromeVideo2' ).toggle();
+                $( '.videoDromeStreamVideo1' ).toggle();
+                $( '#videodromeStreamRefreshVideo' ).toggle();
+            } );
+
             $( document ).on( 'click', '.videoDromeFrame,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
