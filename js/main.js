@@ -97,7 +97,7 @@ $( document ).ready( function () {
             window.activeVideoJSPlayer = 'videoJSPlayer1';
             window.activePageCrawls = 0;
             window.showVideodromeFirstTime = true;
-            window.videoJSLoadAfterFind = false;
+            window.videoJSLoadAfterFind = true;
 
             const urlParams = new URLSearchParams( window.location.search );
 
