@@ -96,6 +96,7 @@ $( document ).ready( function () {
             window.videoJSHubUrls = [];
             window.loadVideoJSStreamInterval1 = '';
             window.activeVideoJSPlayer = 'videoJSPlayer1';
+            window.activePageCrawls = 0;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -195,10 +196,10 @@ $( document ).ready( function () {
 
             $( '.searchInput' ).blur( function () {
                 console.info( 'change' );
-                console.info( $( '.searchInput' ).val(), "input" );
+                console.info( $( '.searchInput' ).val(), 'input' );
                 videoJSUrls = [];
                 videoJSHubUrls = [];
-                getVideoJSUrls();
+                getNextVideoStreamUrl();
                 loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
                 loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
             } );
@@ -3004,7 +3005,7 @@ $( document ).ready( function () {
                             $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
                         }
                     }
-                    getVideoJSUrls();
+                    getNextVideoStreamUrl();
                     loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
                     loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
                 }
@@ -3068,57 +3069,51 @@ $( document ).ready( function () {
                 }
             }
 
-            function getVideoJSUrls() {
-                console.info( 'getVideoJSUrls', videoJSUrls );
-                var activeVideoCrawls = 0;
-                while ( activeVideoCrawls < 1 && videoJSUrls.length < 4 ) {
-                    activeVideoCrawls++;
-                    getNextVideoStreamUrl();
-                }
-            }
-
             function getNextVideoStreamUrl() {
-                if ( videoJSHubUrls.length <= 0 ) {
-                    if ( $( '.searchInput' ).val() != '' ) {
-                        searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + $( '.searchInput' ).val() + '&page=' + randomIntFromInterval( 1, 10 );
-                        console.info( 'specific' );
-                    } else {
-                        searchUrl = 'https://www.pornhub.com/video?o=tr&t=w&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 10 );
-                        console.info( 'default' );
-                    }
-                    console.info( $( '.searchInput' ).val(), "input" );
-                    console.info( searchUrl, 'SEARCH' );
-                    $.get( searchUrl, function ( data ) {
-                        matches = data.matchAll( /(view_video\.php\?viewkey=.*?)"/g );
-                        for ( const match of matches ) {
-                            if ( match[1] != undefined ) {
-                                url = 'https://www.pornhub.com/' + match[1];
-                                if ( videoJSHubUrls.indexOf( url ) === -1 ) {
-                                    videoJSHubUrls.push( url );
+                if ( activePageCrawls <= 1 && videoJSUrls.length < 4 ) {
+                    activePageCrawls++;
+                    if ( videoJSHubUrls.length <= 0 ) {
+                        if ( $( '.searchInput' ).val() != '' ) {
+                            searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + $( '.searchInput' ).val() + '&page=' + randomIntFromInterval( 1, 10 );
+                            console.info( 'specific' );
+                        } else {
+                            searchUrl = 'https://www.pornhub.com/video?o=tr&t=w&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 10 );
+                            console.info( 'default' );
+                        }
+                        $.get( searchUrl, function ( data ) {
+                            matches = data.matchAll( /(view_video\.php\?viewkey=.*?)"/g );
+                            for ( const match of matches ) {
+                                if ( match[1] != undefined ) {
+                                    url = 'https://www.pornhub.com/' + match[1];
+                                    if ( videoJSHubUrls.indexOf( url ) === -1 ) {
+                                        videoJSHubUrls.push( url );
+                                    }
                                 }
                             }
-                        }
-                        getVideoJSUrls();
-                    } );
-                }
-                if ( videoJSHubUrls.length >= 1 ) {
-                    url = '';
-                    for ( var i = videoJSHubUrls.length - 1; i >= 0; i-- ) {
-                        url = videoJSHubUrls.splice( Math.floor( Math.random() * videoJSHubUrls.length ), 1 );
-                        break;
+                            activePageCrawls--;
+                            getNextVideoStreamUrl();
+                        } );
                     }
-                    $.get( url, function ( data ) {
-                        var matches = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
-                        if ( matches != undefined && matches[1] != undefined ) {
-                            url = matches[1].replaceAll( '\\', '' );
-                            videoJSUrls.push( url );
-                            if ( videoJSUrls.length < 5 ) {
-                                getVideoJSUrls();
-                            }
-                        } else {
-                            getVideoJSUrls();
+                    if ( videoJSHubUrls.length >= 1 ) {
+                        url = '';
+                        for ( var i = videoJSHubUrls.length - 1; i >= 0; i-- ) {
+                            url = videoJSHubUrls.splice( Math.floor( Math.random() * videoJSHubUrls.length ), 1 );
+                            break;
                         }
-                    } );
+                        $.get( url, function ( data ) {
+                            var matches = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
+                            if ( matches != undefined && matches[1] != undefined ) {
+                                url = matches[1].replaceAll( '\\', '' );
+                                videoJSUrls.push( url );
+                                if ( videoJSUrls.length < 5 ) {
+                                    getNextVideoStreamUrl();
+                                }
+                            } else {
+                                getNextVideoStreamUrl();
+                            }
+                            activePageCrawls--;
+                        } );
+                    }
                 }
             }
 
@@ -3136,7 +3131,7 @@ $( document ).ready( function () {
                     type: 'application/x-mpegURL'
                 } );
                 videoJSPlayer.load();
-                getVideoJSUrls();
+                getNextVideoStreamUrl();
             }
 
             // END Videodrome section
