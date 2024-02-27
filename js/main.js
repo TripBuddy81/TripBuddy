@@ -195,15 +195,11 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'blur', '.keyboard-input-field', function ( event ) {
-                console.info( 'change' );
                 videoJSUrls = [];
                 videoJSHubUrls = [];
                 activePageCrawls = 0;
 
                 setTimeout( function () {
-                    console.info( $( '.keyboard-input-field' ).val(), 'input1' );
-                    console.info( $( '.searchInput' ).val(), 'input2' );
-
                     getNextVideoStreamUrl();
                 }, 500 );
 
@@ -3082,10 +3078,8 @@ $( document ).ready( function () {
                     if ( videoJSHubUrls.length <= 0 ) {
                         if ( $( '.searchInput' ).val() != '' ) {
                             searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + $( '.searchInput' ).val() + '&page=' + randomIntFromInterval( 1, 10 );
-                            console.info( 'specific' );
                         } else {
                             searchUrl = 'https://www.pornhub.com/video?o=tr&t=w&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 10 );
-                            console.info( 'default' );
                         }
                         $.get( searchUrl, function ( data ) {
                             matches = data.matchAll( /(view_video\.php\?viewkey=.*?)"/g );
