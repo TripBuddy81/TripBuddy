@@ -2540,7 +2540,6 @@ $( document ).ready( function () {
                     },
                     error  : function ( response ) {
                         try {
-                            console.info( response, 'debug quotaExceeded' );
                             if ( response.responseJSON.error.errors[0].reason == 'quotaExceeded' ) {
                                 searchYoutube( searchTerm, true );
                             }
