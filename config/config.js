@@ -116,6 +116,10 @@ var config = {
                         'label': 'Psybass',
                         'id'   : '0O1C7wbOthIxBbai9pYvEH'
                     },
+                    {
+                        'label': 'Psychamber',
+                        'id'   : '1z2HVIgmaCbPmro2oprLf5'
+                    }
                 ],
                 'blue' : [
                     {
@@ -162,10 +166,6 @@ var config = {
                         'label': 'Tool',
                         'id'   : '54c657PnbEgWUJt7biWHtO'
                     },
-                    {
-                        'label': 'Psychamber',
-                        'id'   : '1z2HVIgmaCbPmro2oprLf5'
-                    }
                 ],
                 'red'  : [
                     {
