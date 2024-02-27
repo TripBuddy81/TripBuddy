@@ -94,10 +94,10 @@ $( document ).ready( function () {
             window.alreadyLoadedExternalFiles = [];
             window.videoJSUrls = [];
             window.videoJSHubUrls = [];
-            window.loadVideoJSStreamInterval1 = '';
             window.activeVideoJSPlayer = 'videoJSPlayer1';
             window.activePageCrawls = 0;
             window.showVideodromeFirstTime = true;
+            window.videoJSLoadAfterFind = false;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -199,7 +199,7 @@ $( document ).ready( function () {
                 videoJSUrls = [];
                 videoJSHubUrls = [];
                 activePageCrawls = 0;
-
+                videoJSLoadAfterFind = true;
                 setTimeout( function () {
                     getNextVideoStreamUrl();
                 }, 500 );
@@ -207,8 +207,6 @@ $( document ).ready( function () {
                 activeVideoJSPlayer = 'videoJSPlayer1';
                 $( '.videoDromeStreamVideo1' ).show();
                 $( '.videoDromeStreamVideo2' ).hide();
-                loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
-                loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
             } );
 
             // Init number spinner ('.input-group') - https://www.jqueryscript.net/form/Input-Spinner-Plugin-Bootstrap-4.html
@@ -3017,8 +3015,6 @@ $( document ).ready( function () {
                         }
                     }
                     getNextVideoStreamUrl();
-                    loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
-                    loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
                 }
             }
 
@@ -3065,21 +3061,6 @@ $( document ).ready( function () {
                 }
             } );
 
-            function loadVideoJSStream1() {
-                if ( videoJSUrls.length > 0 ) {
-                    clearInterval( loadVideoJSStreamInterval1 );
-                    loadNextVideoJsStream( 'videoJSPlayer1' );
-                    playVideoJsStream( 'videoJSPlayer1' );
-                }
-            }
-
-            function loadVideoJSStream2() {
-                if ( videoJSUrls.length > 0 ) {
-                    clearInterval( loadVideoJSStreamInterval2 );
-                    loadNextVideoJsStream( 'videoJSPlayer2' );
-                }
-            }
-
             function getNextVideoStreamUrl( pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {
                 if ( activePageCrawls <= 1 && videoJSUrls.length < 4 ) {
                     activePageCrawls++;
@@ -3089,7 +3070,7 @@ $( document ).ready( function () {
                         } else {
                             searchUrl = 'https://www.pornhub.com/video?o=tr&t=w&min_duration=10&hd=1&exclude_category=104&page=' + pageIndex;
                         }
-
+                        console.info( searchUrl );
                         $.ajax( {
                             url    : searchUrl,
                             type   : 'GET',
@@ -3099,6 +3080,7 @@ $( document ).ready( function () {
                                     if ( match[1] != undefined ) {
                                         url = 'https://www.pornhub.com/' + match[1];
                                         if ( videoJSHubUrls.indexOf( url ) === -1 ) {
+                                            console.info( url, 'url found' );
                                             videoJSHubUrls.push( url );
                                         }
                                     }
@@ -3109,6 +3091,7 @@ $( document ).ready( function () {
                             error  : function ( data ) {
                                 activePageCrawls--;
                                 if ( retry ) {
+                                    console.info( 'retry' );
                                     getNextVideoStreamUrl( 1, false );
                                 }
                             }
@@ -3126,6 +3109,13 @@ $( document ).ready( function () {
                             if ( matches != undefined && matches[1] != undefined ) {
                                 url = matches[1].replaceAll( '\\', '' );
                                 videoJSUrls.push( url );
+                                if ( videoJSLoadAfterFind && videoJSUrls.length >= 2 ) {
+                                    videoJSLoadAfterFind = false;
+                                    loadNextVideoJsStream( 'videoJSPlayer1' );
+                                    playVideoJsStream( 'videoJSPlayer1' );
+                                    loadNextVideoJsStream( 'videoJSPlayer2' );
+                                    console.info("loading and play");
+                                }
                                 if ( videoJSUrls.length < 5 ) {
                                     getNextVideoStreamUrl();
                                 }
@@ -3181,8 +3171,8 @@ $( document ).ready( function () {
                 showScreensaverEnso();
             }
 
-                        toggleXXXVisible();
-                        $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
 
         }
 );
