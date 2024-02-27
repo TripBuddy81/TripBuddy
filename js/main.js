@@ -3080,28 +3080,40 @@ $( document ).ready( function () {
                 }
             }
 
-            function getNextVideoStreamUrl() {
-                if ( activePageCrawls <= 1 && videoJSUrls.length < 2 ) {
+            function getNextVideoStreamUrl( pageIndex = randomIntFromInterval( 1, 10 ), retry = true ) {
+                if ( activePageCrawls <= 1 && videoJSUrls.length < 4 ) {
                     activePageCrawls++;
                     if ( videoJSHubUrls.length <= 0 ) {
                         if ( $( '.searchInput' ).val() != '' ) {
-                            searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + $( '.searchInput' ).val() + '&page=' + randomIntFromInterval( 1, 10 );
+                            searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + $( '.searchInput' ).val() + '&page=' + pageIndex;
                         } else {
-                            searchUrl = 'https://www.pornhub.com/video?o=tr&t=w&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 10 );
+                            searchUrl = 'https://www.pornhub.com/video?o=tr&t=w&min_duration=10&hd=1&exclude_category=104&page=' + pageIndex;
                         }
-                        $.get( searchUrl, function ( data ) {
-                            matches = data.matchAll( /(view_video\.php\?viewkey=.*?)"/g );
-                            for ( const match of matches ) {
-                                if ( match[1] != undefined ) {
-                                    url = 'https://www.pornhub.com/' + match[1];
-                                    if ( videoJSHubUrls.indexOf( url ) === -1 ) {
-                                        videoJSHubUrls.push( url );
+
+                        $.ajax( {
+                            url    : searchUrl,
+                            type   : 'GET',
+                            success: function ( data ) {
+                                matches = data.matchAll( /(view_video\.php\?viewkey=.*?)"/g );
+                                for ( const match of matches ) {
+                                    if ( match[1] != undefined ) {
+                                        url = 'https://www.pornhub.com/' + match[1];
+                                        if ( videoJSHubUrls.indexOf( url ) === -1 ) {
+                                            videoJSHubUrls.push( url );
+                                        }
                                     }
                                 }
+                                activePageCrawls--;
+                                getNextVideoStreamUrl();
+                            },
+                            error  : function ( data ) {
+                                activePageCrawls--;
+                                if ( retry ) {
+                                    getNextVideoStreamUrl( 1, false );
+                                }
                             }
-                            activePageCrawls--;
-                            getNextVideoStreamUrl();
                         } );
+
                     }
                     if ( videoJSHubUrls.length >= 1 ) {
                         url = '';
