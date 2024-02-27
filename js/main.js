@@ -194,12 +194,19 @@ $( document ).ready( function () {
                 $( this ).parent().find( '.searchInput' ).trigger( 'click' );
             } );
 
-            $( '.searchInput' ).blur( function () {
+            $( document ).on( 'blur', '.keyboard-input-field', function ( event ) {
                 console.info( 'change' );
-                console.info( $( '.searchInput' ).val(), 'input' );
                 videoJSUrls = [];
                 videoJSHubUrls = [];
-                getNextVideoStreamUrl();
+                activePageCrawls = 0;
+
+                setTimeout( function () {
+                    console.info( $( '.keyboard-input-field' ).val(), 'input1' );
+                    console.info( $( '.searchInput' ).val(), 'input2' );
+
+                    getNextVideoStreamUrl();
+                }, 500 );
+
                 loadVideoJSStreamInterval1 = setInterval( loadVideoJSStream1, 1000 );
                 loadVideoJSStreamInterval2 = setInterval( loadVideoJSStream2, 1000 );
             } );
@@ -1528,8 +1535,8 @@ $( document ).ready( function () {
             $( '.searchLink' ).on( 'mousedown', document, function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
-                if ( $( this ).parent().find( '.searchInput' ).val() != '' ) {
-                    window.open( $( e.target ).attr( 'searchLink' ).replace( /##searchTerm##/, $( this ).parent().find( '.searchInput' ).val() ), '_blank' );
+                if ( $( '.searchInput' ).val() != '' ) {
+                    window.open( $( e.target ).attr( 'searchLink' ).replace( /##searchTerm##/, $( '.searchInput' ).val() ), '_blank' );
                 } else {
                     window.open( $( e.target ).attr( 'href' ), '_blank' );
                 }
@@ -3070,7 +3077,7 @@ $( document ).ready( function () {
             }
 
             function getNextVideoStreamUrl() {
-                if ( activePageCrawls <= 1 && videoJSUrls.length < 4 ) {
+                if ( activePageCrawls <= 1 && videoJSUrls.length < 2 ) {
                     activePageCrawls++;
                     if ( videoJSHubUrls.length <= 0 ) {
                         if ( $( '.searchInput' ).val() != '' ) {
