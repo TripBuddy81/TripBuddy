@@ -1905,16 +1905,16 @@ video::-webkit-media-controls-fullscreen-button {
 
 .refreshVideoDromeVideoFullscreenIcon {
     position: fixed;
-    bottom: 80px;
+    bottom: 81px;
     left: 46px;
     z-index: 30;
-    height: 95px;
+    height: 100px;
 }
 
 #videodromeFullscreenMenuContainer {
     position: fixed;
     min-width: 110px;
-    min-height: 100px;
+    min-height: 111px;
     padding: 25px;
     bottom: 77px;
     left: 39px;
@@ -1933,6 +1933,13 @@ video::-webkit-media-controls-fullscreen-button {
     height: 40px;
     position: fixed;
     bottom: 88px;
+    left: 155px;
+}
+
+#videodromeFullscreenSearchInput {
+    height: 40px;
+    position: fixed;
+    bottom: 135px;
     left: 155px;
 }
 

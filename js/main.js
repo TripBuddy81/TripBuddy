@@ -3049,6 +3049,10 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( document ).on( 'click', '#videodromeFullscreenSearchInput', function ( event ) {
+                $( '*[data-trigger-keyboard]' ).trigger( 'click' );
+            } );
+
             function getNextVideoStreamUrl( pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {
                 if ( activePageCrawls <= 1 && videoJSUrls.length < 4 ) {
                     activePageCrawls++;
