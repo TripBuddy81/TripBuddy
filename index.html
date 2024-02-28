@@ -673,6 +673,11 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col" id="videodromeFavorites">
+
+                        </div>
+                    </div>
                 </div>
 
                 {{#videosYoutube}}
@@ -937,8 +942,10 @@
                      src="./assets/refresh.png">
                 <img class="iconAlternating showFullscreenVideoInfo cursorAction"
                      src="./assets/info.png">
-                <img id="videodromeFullscreenSearchInput" class="iconAlternating  cursorAction"
+                <img id="videodromeFullscreenSearchInput" class="iconAlternating cursorAction"
                      src="./assets/search.png">
+                <img id="videodromeFullscreenAddToFavorites"  class="iconAlternating cursorAction"
+                     src="./assets/add_to_favorites.png">
                 <div id="videodromeFullscreenFilename"></div>
             </div>
 
@@ -946,7 +953,6 @@
                 <img id="toggleLocalStreamIcon" class="iconAlternating cursorAction"
                      src="./assets/refresh.png">
             </div>
-
 
             <div class="videodromeStreamVideoContainer videoDromeStreamVideo1" target="videoJSPlayer1">
                 <video id="videoJSPlayer1" muted="" loop="" class="video-js videoDromeFrame" preload="none"

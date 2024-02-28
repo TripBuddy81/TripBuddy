@@ -1501,7 +1501,7 @@ $( document ).ready( function () {
 
             // Show cursor when moving mouse
             var moveTimerFullscreenVideoOverlay;
-            $( document ).on( 'mousemove', '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2', function () {
+            $( document ).on( 'mousemove', '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function () {
                 clearTimeout( moveTimerFullscreenVideoOverlay );
                 moveTimerFullscreenVideoOverlay = setTimeout( function () {
                     $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
@@ -3051,6 +3051,15 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '#videodromeFullscreenSearchInput', function ( event ) {
                 $( '*[data-trigger-keyboard]' ).trigger( 'click' );
+            } );
+
+            var videodromeFavorites = {'items': []};
+            videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
+            $( '#videodromeFavorites' ).html( JSON.stringify( videodromeFavorites['items'] ) );
+            $( document ).on( 'click', '#videodromeFullscreenAddToFavorites', function ( event ) {
+                videodromeFavorites['items'].push( 'test' );
+                localStorage.setItem( 'videodromeFavorites', JSON.stringify( videodromeFavorites['items'] ) )
+                $( '#videodromeFavorites' ).html( JSON.stringify( videodromeFavorites['items'] ) );
             } );
 
             function getNextVideoStreamUrl( pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {

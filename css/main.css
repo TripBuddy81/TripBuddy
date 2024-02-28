@@ -1913,7 +1913,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodromeFullscreenMenuContainer {
     position: fixed;
-    min-width: 110px;
+    min-width: 240px;
     min-height: 111px;
     padding: 25px;
     bottom: 77px;
@@ -1941,6 +1941,13 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     bottom: 135px;
     left: 155px;
+}
+
+#videodromeFullscreenAddToFavorites {
+    height: 40px;
+    position: fixed;
+    bottom: 135px;
+    left: 215px;
 }
 
 #videodromeFullscreenFilename {
