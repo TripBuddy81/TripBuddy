@@ -178,7 +178,8 @@ $( document ).ready( function () {
                 acceptTextColor    : '#000000',
                 inputType          : 'text',
                 blackoutColor      : '25, 25, 25, 0.75',
-                specifiedFieldsOnly: true
+                specifiedFieldsOnly: true,
+                allowEnterAccept   : false
             } );
 
             $( '*[data-trigger-keyboard]' ).click( function () {
