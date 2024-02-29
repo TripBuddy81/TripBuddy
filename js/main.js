@@ -194,7 +194,7 @@ $( document ).ready( function () {
                 $( this ).parent().find( '.searchInput' ).trigger( 'click' );
             } );
 
-            $( document ).on( 'blur', '.keyboard-input-field', function ( event ) {
+            $( document ).on( 'click', '.keyboard-accept-button', function ( event ) {
                 videoJSUrls = [];
                 videoJSHubUrls = [];
                 activePageCrawls = 0;
@@ -3053,14 +3053,14 @@ $( document ).ready( function () {
                 $( '*[data-trigger-keyboard]' ).trigger( 'click' );
             } );
 
-            var videodromeFavorites = {'items': []};
-            videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
-            $( '#videodromeFavorites' ).html( JSON.stringify( videodromeFavorites['items'] ) );
-            $( document ).on( 'click', '#videodromeFullscreenAddToFavorites', function ( event ) {
-                videodromeFavorites['items'].push( 'test' );
-                localStorage.setItem( 'videodromeFavorites', JSON.stringify( videodromeFavorites['items'] ) )
-                $( '#videodromeFavorites' ).html( JSON.stringify( videodromeFavorites['items'] ) );
-            } );
+            /*            var videodromeFavorites = {'items': []};
+                        videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
+                        $( '#videodromeFavorites' ).html( JSON.stringify( videodromeFavorites['items'] ) );
+                        $( document ).on( 'click', '#videodromeFullscreenAddToFavorites', function ( event ) {
+                            videodromeFavorites['items'].push( 'test' );
+                            localStorage.setItem( 'videodromeFavorites', JSON.stringify( videodromeFavorites['items'] ) )
+                            $( '#videodromeFavorites' ).html( JSON.stringify( videodromeFavorites['items'] ) );
+                        } );*/
 
             function getNextVideoStreamUrl( pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {
                 if ( activePageCrawls <= 1 && videoJSUrls.length < 4 ) {
@@ -3094,7 +3094,6 @@ $( document ).ready( function () {
                                 }
                             }
                         } );
-
                     }
                     if ( videoJSHubUrls.length >= 1 ) {
                         url = '';
