@@ -92,8 +92,8 @@ $( document ).ready( function () {
             window.shrineDiscoActive = false;
             window.playingRandomWisdom = false;
             window.alreadyLoadedExternalFiles = [];
-            window.videoJSUrls = [];
             window.videoJSHubUrls = [];
+            window.videoJSSingleVideoUrls = [];
             window.activeVideoJSPlayer = 'videoJSPlayer1';
             window.activePageCrawls = 0;
             window.videoJSLoadAfterFind = true;
@@ -196,7 +196,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.keyboard-accept-button', function ( event ) {
-                videoJSUrls = [];
+                videoJSSingleVideoUrls = [];
                 videoJSHubUrls = [];
                 activePageCrawls = 0;
                 videoJSLoadAfterFind = true;
@@ -3070,7 +3070,7 @@ $( document ).ready( function () {
                         } );*/
 
             function getNextVideoStreamUrl( pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {
-                if ( activePageCrawls <= 1 && videoJSUrls.length < 4 ) {
+                if ( activePageCrawls <= 1 && videoJSSingleVideoUrls.length < 4 ) {
                     activePageCrawls++;
                     if ( videoJSHubUrls.length <= 0 ) {
                         if ( $( '.searchInput' ).val() != '' ) {
@@ -3103,17 +3103,17 @@ $( document ).ready( function () {
                         } );
                     }
                     if ( videoJSHubUrls.length >= 1 ) {
-                        url = '';
+                        singelVideoPageUrl = '';
                         for ( var i = videoJSHubUrls.length - 1; i >= 0; i-- ) {
-                            url = videoJSHubUrls.splice( Math.floor( Math.random() * videoJSHubUrls.length ), 1 );
+                            singelVideoPageUrl = videoJSHubUrls.splice( Math.floor( Math.random() * videoJSHubUrls.length ), 1 );
                             break;
                         }
-                        $.get( url, function ( data ) {
-                            var matches = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
-                            if ( matches != undefined && matches[1] != undefined ) {
-                                url = matches[1].replaceAll( '\\', '' );
-                                videoJSUrls.push( url );
-                                if ( videoJSLoadAfterFind && videoJSUrls.length >= 2 ) {
+                        $.get( singelVideoPageUrl, function ( data ) {
+                            var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
+                            if ( matchesStreamUrl != undefined && matchesStreamUrl[1] != undefined ) {
+                                videoStreamUrl = matchesStreamUrl[1].replaceAll( '\\', '' );
+                                videoJSSingleVideoUrls.push( videoStreamUrl );
+                                if ( videoJSLoadAfterFind && videoJSSingleVideoUrls.length >= 2 ) {
                                     videoJSLoadAfterFind = false;
                                     activeVideoJSPlayer = 'videoJSPlayer1';
                                     $( '.videoDromeStreamVideo1' ).show();
@@ -3121,7 +3121,7 @@ $( document ).ready( function () {
                                     loadNextVideoJsStream( 'videoJSPlayer2' );
                                     $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
                                 }
-                                if ( videoJSUrls.length < 5 ) {
+                                if ( videoJSSingleVideoUrls.length < 5 ) {
                                     getNextVideoStreamUrl();
                                 }
                             } else {
@@ -3140,7 +3140,7 @@ $( document ).ready( function () {
             }
 
             function loadNextVideoJsStream( playerId ) {
-                url = videoJSUrls.pop();
+                url = videoJSSingleVideoUrls.pop();
                 videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
                 videoJSPlayer.src( {
                     src : url,
