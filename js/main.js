@@ -2932,14 +2932,6 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( document ).on( 'mouseover', '.showFullscreenVideoInfo', function ( event ) {
-                $( '#videodromeFullscreenFilename' ).html( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
-            } );
-
-            $( document ).on( 'mouseout', '.showFullscreenVideoInfo', function ( event ) {
-                $( '#videodromeFullscreenFilename' ).html( '' );
-            } );
-
             $( '.videodromeRefreshVideo' ).click( function () {
                 target = $( this ).attr( 'target' );
 
@@ -2984,6 +2976,7 @@ $( document ).ready( function () {
                     $( target ).find( '.localVideo' )[0].load();
                     $( target ).find( '.localVideo' )[0].play();
                 }
+                updateVideodromeFullscreenInfo();
             } );
 
             $( '#refreshVideoDromeVideoAll' ).click( function () {
@@ -2993,6 +2986,24 @@ $( document ).ready( function () {
                 $( '#refreshVideoDromeVideo4' ).trigger( 'click' );
                 $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
             } );
+
+            $( document ).on( 'mouseenter', '#videodromeFullscreenMenuContainer', function ( event ) {
+                updateVideodromeFullscreenInfo();
+            } );
+
+            function updateVideodromeFullscreenInfo() {
+                if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
+                    $( '.videodromeFullscreen' ).each( function () {
+                        if ( $( this ).is( ':visible' ) ) {
+                            $( '#videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videotitel' ) );
+                        }
+                    } );
+                } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
+                    $( '#videodromeFullscreenFilename' ).html( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
+                } else {
+                    $( '#videodromeFullscreenFilename' ).html( '' );
+                }
+            }
 
             function initVideodrome() {
                 if ( config['videosVideodrome'] == undefined || config['videosVideodrome'].length == 0 ) {
@@ -3045,6 +3056,7 @@ $( document ).ready( function () {
                     $( '.videoDromeStreamVideo2' ).hide();
                     playVideoJsStream( activeVideoJSPlayer );
                 }
+                updateVideodromeFullscreenInfo();
             } );
 
             $( document ).on( 'wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuContainer', function ( event ) {
@@ -3059,6 +3071,7 @@ $( document ).ready( function () {
             $( document ).on( 'click', '#videodromeFullscreenSearchInput', function ( event ) {
                 $( '*[data-trigger-keyboard]' ).trigger( 'click' );
             } );
+
 
             /*            var videodromeFavorites = {'items': []};
                         videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
@@ -3129,14 +3142,13 @@ $( document ).ready( function () {
                                 do {
                                     modelNameMatches = reModelNames.exec( data );
                                     if ( modelNameMatches ) {
-                                        singleVideoObject['modelnames'].push( modelNameMatches[2] );
+                                        singleVideoObject['modelnames'] = singleVideoObject['modelnames'] + modelNameMatches[2] + ',';
                                     }
                                 } while ( modelNameMatches );
 
                                 videoJSSingleVideoUrls.push( singleVideoObject );
 
                                 if ( videoJSLoadAfterFind && videoJSSingleVideoUrls.length >= 2 ) {
-                                    console.info( 'reload' );
                                     videoJSLoadAfterFind = false;
                                     activeVideoJSPlayer = 'videoJSPlayer1';
                                     $( '.videoDromeStreamVideo1' ).show();
@@ -3169,6 +3181,10 @@ $( document ).ready( function () {
                     src : singleVideoObject['videoStreamUrl'],
                     type: 'application/x-mpegURL'
                 } );
+
+                $( '#' + playerId ).parent().attr( 'data-videotitel', singleVideoObject['videoTitel'] );
+                $( '#' + playerId ).parent().attr( 'data-modelnames', singleVideoObject['modelnames'] );
+
                 try {
                     videoJSPlayer.load();
                 } catch ( e ) {

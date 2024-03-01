@@ -1929,13 +1929,6 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
-.showFullscreenVideoInfo {
-    height: 40px;
-    position: fixed;
-    bottom: 88px;
-    left: 155px;
-}
-
 #videodromeFullscreenSearchInput {
     height: 40px;
     position: fixed;
