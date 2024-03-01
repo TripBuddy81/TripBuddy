@@ -3146,7 +3146,6 @@ $( document ).ready( function () {
                             if ( matchesStreamUrl != undefined && matchesStreamUrl[1] != undefined ) {
                                 singleVideoObject = {};
                                 singleVideoObject['videoStreamUrl'] = matchesStreamUrl[1].replaceAll( '\\', '' );
-                                singleVideoObject['modelnames'] = [];
                                 singleVideoObject['modellinks'] = [];
                                 singleVideoObject['videoTitel'] = '';
 
@@ -3162,7 +3161,6 @@ $( document ).ready( function () {
                                 do {
                                     modelNameMatches = reModelNames.exec( data );
                                     if ( modelNameMatches ) {
-                                        singleVideoObject['modelnames'] = singleVideoObject['modelnames'] + modelNameMatches[2] + ',';
                                         singleVideoObject['modellinks'] = singleVideoObject['modellinks'] + 'https://www.pornhub.com' + modelNameMatches[1] + modelNameMatches[2] + '/videos,';
                                     }
                                 } while ( modelNameMatches );
@@ -3204,7 +3202,6 @@ $( document ).ready( function () {
                 } );
 
                 $( '#' + playerId ).parent().attr( 'data-videotitel', singleVideoObject['videoTitel'] );
-                $( '#' + playerId ).parent().attr( 'data-modelnames', singleVideoObject['modelnames'] );
                 $( '#' + playerId ).parent().attr( 'data-modellinks', singleVideoObject['modellinks'] );
 
                 try {
