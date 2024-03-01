@@ -3111,9 +3111,32 @@ $( document ).ready( function () {
                         $.get( singelVideoPageUrl, function ( data ) {
                             var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
                             if ( matchesStreamUrl != undefined && matchesStreamUrl[1] != undefined ) {
-                                videoStreamUrl = matchesStreamUrl[1].replaceAll( '\\', '' );
-                                videoJSSingleVideoUrls.push( videoStreamUrl );
+                                singleVideoObject = {};
+                                singleVideoObject['videoStreamUrl'] = matchesStreamUrl[1].replaceAll( '\\', '' );
+                                singleVideoObject['modelnames'] = [];
+                                singleVideoObject['videoTitel'] = '';
+
+
+                                var reVideoTitel = /<h1\s+class="title translate">[\s\S]*?>+(.*?)<+/g;
+                                var titelMatches;
+                                reVideoTitel = reVideoTitel.exec( data );
+                                if ( reVideoTitel ) {
+                                    singleVideoObject['videoTitel'] = reVideoTitel[1];
+                                }
+
+                                var reModelNames = /video-detailed-info[\s\S]*?href\=\"\/(model|pornstar)\/(.*?)"[\s\S]*?videoSubscribeButton/g;
+                                var modelNameMatches;
+                                do {
+                                    modelNameMatches = reModelNames.exec( data );
+                                    if ( modelNameMatches ) {
+                                        singleVideoObject['modelnames'].push( modelNameMatches[2] );
+                                    }
+                                } while ( modelNameMatches );
+
+                                videoJSSingleVideoUrls.push( singleVideoObject );
+
                                 if ( videoJSLoadAfterFind && videoJSSingleVideoUrls.length >= 2 ) {
+                                    console.info( 'reload' );
                                     videoJSLoadAfterFind = false;
                                     activeVideoJSPlayer = 'videoJSPlayer1';
                                     $( '.videoDromeStreamVideo1' ).show();
@@ -3140,10 +3163,10 @@ $( document ).ready( function () {
             }
 
             function loadNextVideoJsStream( playerId ) {
-                url = videoJSSingleVideoUrls.pop();
+                singleVideoObject = videoJSSingleVideoUrls.pop();
                 videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
                 videoJSPlayer.src( {
-                    src : url,
+                    src : singleVideoObject['videoStreamUrl'],
                     type: 'application/x-mpegURL'
                 } );
                 try {
