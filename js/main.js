@@ -205,6 +205,12 @@ $( document ).ready( function () {
                 }, 500 );
             } );
 
+            $( document ).on( 'keydown', function ( event ) {
+                if ( event.keyCode === 13 && $( '.keyboard-accept-button' ).is( ':visible' ) ) {
+                    $( '.keyboard-accept-button' ).trigger( 'click' );
+                }
+            } );
+
             // Init number spinner ('.input-group') - https://www.jqueryscript.net/form/Input-Spinner-Plugin-Bootstrap-4.html
             $( '#pizzaTimerMinutes' ).inputSpinner();
 
