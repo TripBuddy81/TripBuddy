@@ -2998,11 +2998,12 @@ $( document ).ready( function () {
                             $( '#videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videotitel' ) );
 
                             $( '#videodromeFullscreenModelLinks' ).empty();
-                            modelnames = $( this ).parent().attr( 'data-modelnames' ).split( ',' );
-                            $.each( modelnames, function ( index, val ) {
+                            modellinks = $( this ).parent().attr( 'data-modellinks' ).split( ',' );
+                            $.each( modellinks, function ( index, val ) {
                                 let node = document.createElement( 'div' );
                                 node.classList.add( 'videoJSStreamModelname' );
-                                node.innerHTML = val;
+                                node.innerHTML = val.replaceAll( 'https://www.pornhub.com/', '' ).replaceAll( 'model/', '' ).replaceAll( 'pornstar/', '' ).replaceAll( '/videos', '' );
+                                node.setAttribute('modellink', val);
                                 document.getElementById( 'videodromeFullscreenModelLinks' ).appendChild( node );
                             } );
                         }
@@ -3082,12 +3083,11 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videoJSStreamModelname', function ( event ) {
-                console.info( 'https://www.pornhub.com/model/' + $( this ).html() );
                 videoJSSingleVideoUrls = [];
                 videoJSHubUrls = [];
                 activePageCrawls = 0;
                 videoJSLoadAfterFind = true;
-                getNextVideoStreamUrl( 'https://www.pornhub.com/model/' + $( this ).html() );
+                getNextVideoStreamUrl( $( this ).attr('modellink') );
             } );
 
 
@@ -3147,8 +3147,8 @@ $( document ).ready( function () {
                                 singleVideoObject = {};
                                 singleVideoObject['videoStreamUrl'] = matchesStreamUrl[1].replaceAll( '\\', '' );
                                 singleVideoObject['modelnames'] = [];
+                                singleVideoObject['modellinks'] = [];
                                 singleVideoObject['videoTitel'] = '';
-
 
                                 var reVideoTitel = /<h1\s+class="title translate">[\s\S]*?>+(.*?)<+/g;
                                 var titelMatches;
@@ -3157,12 +3157,13 @@ $( document ).ready( function () {
                                     singleVideoObject['videoTitel'] = reVideoTitel[1];
                                 }
 
-                                var reModelNames = /video-detailed-info[\s\S]*?href\=\"\/(model|pornstar)\/(.*?)"[\s\S]*?videoSubscribeButton/g;
+                                var reModelNames = /video-detailed-info[\s\S]*?href\=\"(\/model|pornstar\/)(.*?)"[\s\S]*?videoSubscribeButton/g;
                                 var modelNameMatches;
                                 do {
                                     modelNameMatches = reModelNames.exec( data );
                                     if ( modelNameMatches ) {
                                         singleVideoObject['modelnames'] = singleVideoObject['modelnames'] + modelNameMatches[2] + ',';
+                                        singleVideoObject['modellinks'] = singleVideoObject['modellinks'] + 'https://www.pornhub.com' + modelNameMatches[1] + modelNameMatches[2] + '/videos,';
                                     }
                                 } while ( modelNameMatches );
 
@@ -3204,6 +3205,7 @@ $( document ).ready( function () {
 
                 $( '#' + playerId ).parent().attr( 'data-videotitel', singleVideoObject['videoTitel'] );
                 $( '#' + playerId ).parent().attr( 'data-modelnames', singleVideoObject['modelnames'] );
+                $( '#' + playerId ).parent().attr( 'data-modellinks', singleVideoObject['modellinks'] );
 
                 try {
                     videoJSPlayer.load();
