@@ -1914,7 +1914,7 @@ video::-webkit-media-controls-fullscreen-button {
 #videodromeFullscreenMenuContainer {
     position: fixed;
     min-width: 240px;
-    min-height: 111px;
+    min-height: 175px;
     padding: 25px;
     bottom: 77px;
     left: 39px;
@@ -1944,10 +1944,24 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #videodromeFullscreenFilename {
-    position: initial;
-    margin-left: 145px;
-    margin-top: 26px;
     font-weight: 700;
+    top: -15px;
+    left: -12px;
+    position: relative;
+}
+
+#videodromeFullscreenModelLinks {
+    font-weight: 700;
+    top: -10px;
+    left: -12px;
+    position: relative;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+.videoJSStreamModelname {
+    font-weight: bold;
+    float: inline-start;
+    margin-right: 15px;
 }
 
 .videodromeFullscreen {

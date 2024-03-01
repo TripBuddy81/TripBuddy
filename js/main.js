@@ -2996,6 +2996,15 @@ $( document ).ready( function () {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
                             $( '#videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videotitel' ) );
+
+                            $( '#videodromeFullscreenModelLinks' ).empty();
+                            modelnames = $( this ).parent().attr( 'data-modelnames' ).split( ',' );
+                            $.each( modelnames, function ( index, val ) {
+                                let node = document.createElement( 'div' );
+                                node.classList.add( 'videoJSStreamModelname' );
+                                node.innerHTML = val;
+                                document.getElementById( 'videodromeFullscreenModelLinks' ).appendChild( node );
+                            } );
                         }
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
@@ -3072,6 +3081,15 @@ $( document ).ready( function () {
                 $( '*[data-trigger-keyboard]' ).trigger( 'click' );
             } );
 
+            $( document ).on( 'click', '.videoJSStreamModelname', function ( event ) {
+                console.info( 'https://www.pornhub.com/model/' + $( this ).html() );
+                videoJSSingleVideoUrls = [];
+                videoJSHubUrls = [];
+                activePageCrawls = 0;
+                videoJSLoadAfterFind = true;
+                getNextVideoStreamUrl( 'https://www.pornhub.com/model/' + $( this ).html() );
+            } );
+
 
             /*            var videodromeFavorites = {'items': []};
                         videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
@@ -3082,14 +3100,16 @@ $( document ).ready( function () {
                             $( '#videodromeFavorites' ).html( JSON.stringify( videodromeFavorites['items'] ) );
                         } );*/
 
-            function getNextVideoStreamUrl( pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {
+            function getNextVideoStreamUrl( searchUrl = '', pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {
                 if ( activePageCrawls <= 1 && videoJSSingleVideoUrls.length < 4 ) {
                     activePageCrawls++;
                     if ( videoJSHubUrls.length <= 0 ) {
-                        if ( $( '.searchInput' ).val() != '' ) {
-                            searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( $( '.searchInput' ).val() ) + '&page=' + pageIndex;
-                        } else {
-                            searchUrl = 'https://www.pornhub.com/video?o=tr&t=w&min_duration=10&hd=1&exclude_category=104&page=' + pageIndex;
+                        if ( searchUrl == '' ) {
+                            if ( $( '.searchInput' ).val() != '' ) {
+                                searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( $( '.searchInput' ).val() ) + '&page=' + pageIndex;
+                            } else {
+                                searchUrl = 'https://www.pornhub.com/video?o=tr&t=w&min_duration=10&hd=1&exclude_category=104&page=' + pageIndex;
+                            }
                         }
                         $.ajax( {
                             url    : searchUrl,
@@ -3110,7 +3130,7 @@ $( document ).ready( function () {
                             error  : function ( data ) {
                                 activePageCrawls--;
                                 if ( retry ) {
-                                    getNextVideoStreamUrl( 1, false );
+                                    getNextVideoStreamUrl( '', 1, false );
                                 }
                             }
                         } );
