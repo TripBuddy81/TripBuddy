@@ -1959,6 +1959,10 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
+#videodromeFullscreenModelLinks:hover {
+    color: white;
+}
+
 .videoJSStreamModelname {
     font-weight: bold;
     float: inline-start;
