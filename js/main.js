@@ -3160,7 +3160,7 @@ $( document ).ready( function () {
                                 var pornstarMatches;
                                 do {
                                     pornstarMatches = rePornstarNames.exec( data );
-                                    if ( pornstarMatches ) {
+                                    if ( pornstarMatches && pornstarMatches[2] != undefined ) {
                                         singleVideoObject['modellinks'] = singleVideoObject['modellinks'] + 'https://www.pornhub.com' + pornstarMatches[1] + pornstarMatches[2] + '/videos,';
                                     }
                                 } while ( pornstarMatches );
@@ -3169,7 +3169,7 @@ $( document ).ready( function () {
                                 var modelNameMatches;
                                 do {
                                     modelNameMatches = reModelNames.exec( data );
-                                    if ( modelNameMatches ) {
+                                    if ( modelNameMatches && modelNameMatches[2] != undefined ) {
                                         singleVideoObject['modellinks'] = singleVideoObject['modellinks'] + 'https://www.pornhub.com' + modelNameMatches[1] + modelNameMatches[2] + '/videos,';
                                     }
                                 } while ( modelNameMatches );

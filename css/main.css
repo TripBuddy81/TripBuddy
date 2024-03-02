@@ -1948,6 +1948,7 @@ video::-webkit-media-controls-fullscreen-button {
     top: -15px;
     left: -12px;
     position: relative;
+    user-select: text;
 }
 
 #videodromeFullscreenModelLinks {
