@@ -3216,6 +3216,7 @@ $( document ).ready( function () {
                                     playVideoJsStream( activeVideoJSPlayer );
                                     $( '.videoDromeStreamVideo1' ).show();
                                     $( '.videoDromeStreamVideo2' ).hide();
+                                    updateVideodromeFullscreenInfo();
                                 }
                                 if ( videoJSSingleVideoUrls.length < 5 ) {
                                     getNextVideoStreamUrl();
