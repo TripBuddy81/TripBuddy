@@ -1905,7 +1905,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .refreshVideoDromeVideoFullscreenIcon {
     position: fixed;
-    bottom: 81px;
+    bottom: 83px;
     left: 46px;
     z-index: 30;
     height: 100px;
