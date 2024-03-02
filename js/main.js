@@ -3206,11 +3206,12 @@ $( document ).ready( function () {
 
                                 if ( videoJSLoadAfterFind && videoJSSingleVideoUrls.length >= 2 ) {
                                     videoJSLoadAfterFind = false;
+                                    loadNextVideoJsStream( 'videoJSPlayer2' );
                                     activeVideoJSPlayer = 'videoJSPlayer1';
-                                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                                    loadNextVideoJsStream( 'videoJSPlayer1' );
+                                    playVideoJsStream( activeVideoJSPlayer );
                                     $( '.videoDromeStreamVideo1' ).show();
                                     $( '.videoDromeStreamVideo2' ).hide();
-                                    loadNextVideoJsStream( 'videoJSPlayer2' );
                                 }
                                 if ( videoJSSingleVideoUrls.length < 5 ) {
                                     getNextVideoStreamUrl();
