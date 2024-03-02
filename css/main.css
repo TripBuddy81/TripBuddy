@@ -2019,3 +2019,8 @@ video::-webkit-media-controls-fullscreen-button {
 #toggleLocalStreamIcon {
     height: 45px;
 }
+
+#videodromeFavorites > div {
+    margin-top: 50px;
+    user-select: text;
+}

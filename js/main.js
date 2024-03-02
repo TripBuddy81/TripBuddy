@@ -3090,15 +3090,34 @@ $( document ).ready( function () {
                 getNextVideoStreamUrl( $( this ).attr( 'modellink' ) );
             } );
 
+            var videodromeFavorites = {'items': []};
+            videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
+            outputPHFavorites();
+            $( document ).on( 'click', '#videodromeFullscreenAddToFavorites', function ( event ) {
+                $( '.videodromeFullscreen' ).each( function () {
+                    if ( $( this ).is( ':visible' ) ) {
+                        videodromeFavorites['items'].push( $( this ).parent().attr( 'data-videotitel' ) );
+                    }
+                } );
+                localStorage.setItem( 'videodromeFavorites', JSON.stringify( videodromeFavorites['items'] ) );
+                outputPHFavorites();
+            } );
 
-            /*            var videodromeFavorites = {'items': []};
-                        videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
-                        $( '#videodromeFavorites' ).html( JSON.stringify( videodromeFavorites['items'] ) );
-                        $( document ).on( 'click', '#videodromeFullscreenAddToFavorites', function ( event ) {
-                            videodromeFavorites['items'].push( 'test' );
-                            localStorage.setItem( 'videodromeFavorites', JSON.stringify( videodromeFavorites['items'] ) )
-                            $( '#videodromeFavorites' ).html( JSON.stringify( videodromeFavorites['items'] ) );
-                        } );*/
+            $( document ).on( 'click', '#clearPHFavorites', function ( event ) {
+                localStorage.removeItem( 'videodromeFavorites' );
+                videodromeFavorites = {'items': []};
+                outputPHFavorites();
+            } );
+
+            function outputPHFavorites() {
+                $( '#videodromeFavorites' ).empty();
+                var favorites = '';
+                $.each( videodromeFavorites['items'], function ( key, value ) {
+                    favorites += '<div>' + value + '</div>';
+                } );
+
+                $( '#videodromeFavorites' ).html( favorites );
+            }
 
             function getNextVideoStreamUrl( searchUrl = '', pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {
                 if ( activePageCrawls <= 1 && videoJSSingleVideoUrls.length < 4 ) {
