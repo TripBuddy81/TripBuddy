@@ -2020,7 +2020,10 @@ video::-webkit-media-controls-fullscreen-button {
     height: 45px;
 }
 
-#videodromeFavorites > div {
+#videodromeFavorites {
     margin-top: 50px;
+}
+
+#videodromeFavorites > div {
     user-select: text;
 }

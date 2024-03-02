@@ -3094,11 +3094,15 @@ $( document ).ready( function () {
             videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
             outputPHFavorites();
             $( document ).on( 'click', '#videodromeFullscreenAddToFavorites', function ( event ) {
-                $( '.videodromeFullscreen' ).each( function () {
-                    if ( $( this ).is( ':visible' ) ) {
-                        videodromeFavorites['items'].push( $( this ).parent().attr( 'data-videotitel' ) );
-                    }
-                } );
+                if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
+                    $( '.videodromeFullscreen' ).each( function () {
+                        if ( $( this ).is( ':visible' ) ) {
+                            videodromeFavorites['items'].push( $( this ).parent().attr( 'data-videotitel' ) );
+                        }
+                    } );
+                } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
+                    videodromeFavorites['items'].push( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
+                }
                 localStorage.setItem( 'videodromeFavorites', JSON.stringify( videodromeFavorites['items'] ) );
                 outputPHFavorites();
             } );
