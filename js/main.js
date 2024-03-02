@@ -3188,10 +3188,10 @@ $( document ).ready( function () {
                                 if ( videoJSLoadAfterFind && videoJSSingleVideoUrls.length >= 2 ) {
                                     videoJSLoadAfterFind = false;
                                     activeVideoJSPlayer = 'videoJSPlayer1';
+                                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
                                     $( '.videoDromeStreamVideo1' ).show();
                                     $( '.videoDromeStreamVideo2' ).hide();
                                     loadNextVideoJsStream( 'videoJSPlayer2' );
-                                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
                                 }
                                 if ( videoJSSingleVideoUrls.length < 5 ) {
                                     getNextVideoStreamUrl();
