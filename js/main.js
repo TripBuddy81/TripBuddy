@@ -3002,8 +3002,8 @@ $( document ).ready( function () {
                             $.each( modellinks, function ( index, val ) {
                                 let node = document.createElement( 'div' );
                                 node.classList.add( 'videoJSStreamModelname' );
-                                node.innerHTML = val.replaceAll( 'https://www.pornhub.com/', '' ).replaceAll( 'model/', '' ).replaceAll( 'pornstar/', '' ).replaceAll( '/videos', '' );
-                                node.setAttribute('modellink', val);
+                                node.innerHTML = val.replaceAll( 'https://www.pornhub.com/', '' ).replaceAll( 'channels/', '' ).replaceAll( 'model/', '' ).replaceAll( 'pornstar/', '' ).replaceAll( '/videos', '' );
+                                node.setAttribute( 'modellink', val );
                                 document.getElementById( 'videodromeFullscreenModelLinks' ).appendChild( node );
                             } );
                         }
@@ -3087,7 +3087,7 @@ $( document ).ready( function () {
                 videoJSHubUrls = [];
                 activePageCrawls = 0;
                 videoJSLoadAfterFind = true;
-                getNextVideoStreamUrl( $( this ).attr('modellink') );
+                getNextVideoStreamUrl( $( this ).attr( 'modellink' ) );
             } );
 
 
@@ -3142,9 +3142,6 @@ $( document ).ready( function () {
                             break;
                         }
                         $.get( singelVideoPageUrl, function ( data ) {
-
-                       /*     data = TEMPDATA;*/
-
                             var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
                             if ( matchesStreamUrl != undefined && matchesStreamUrl[1] != undefined ) {
                                 singleVideoObject = {};
@@ -3177,7 +3174,14 @@ $( document ).ready( function () {
                                     }
                                 } while ( modelNameMatches );
 
-                                console.info(singleVideoObject['modellinks'], "MODEL");
+                                var reChannelNames = /<a href="(.*?)".*?gtm-event-link bolded/g;
+                                var channelNameMatches;
+                                do {
+                                    channelNameMatches = reChannelNames.exec( data );
+                                    if ( channelNameMatches ) {
+                                        singleVideoObject['modellinks'] = singleVideoObject['modellinks'] + 'https://www.pornhub.com' + channelNameMatches[1] + '/videos,';
+                                    }
+                                } while ( channelNameMatches );
 
                                 videoJSSingleVideoUrls.push( singleVideoObject );
 
