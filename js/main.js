@@ -2998,7 +2998,12 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseenter', '#videodromeFullscreenMenuContainer', function ( event ) {
+                $(this).css( 'opacity', '1' );
                 updateVideodromeFullscreenInfo();
+            } );
+
+            $( document ).on( 'mouseleave', '#videodromeFullscreenMenuContainer', function ( event ) {
+                $(this).css( 'opacity', '0' );
             } );
 
             function updateVideodromeFullscreenInfo() {
