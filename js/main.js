@@ -2979,6 +2979,21 @@ $( document ).ready( function () {
                 updateVideodromeFullscreenInfo();
             } );
 
+            var videodromefullscreenMenuHideinterval;
+            $( document ).on( 'mouseenter', '.refreshVideoDromeVideoFullscreenIcon', function () {
+                clearTimeout( videodromefullscreenMenuHideinterval );
+                videodromefullscreenMenuHideinterval = setTimeout( function () {
+                    $( '#videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                    $( '.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'none' );
+                }, 1000 );
+            } );
+
+            $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon', function () {
+                clearTimeout( videodromefullscreenMenuHideinterval );
+                $( '.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '#videodromeFullscreenMenuContainer' ).css( 'opacity', '1' );
+            } );
+
             $( '#refreshVideoDromeVideoAll' ).click( function () {
                 $( '#refreshVideoDromeVideo1' ).trigger( 'click' );
                 $( '#refreshVideoDromeVideo2' ).trigger( 'click' );

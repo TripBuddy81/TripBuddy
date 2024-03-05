@@ -2016,6 +2016,7 @@ video::-webkit-media-controls-fullscreen-button {
 .refreshVideoDromeVideoFullscreenContainer {
     -ms-flex: 0 0 110px;
     flex: 0 0 110px;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .videoDromeVideoFullscreenSubActions {
