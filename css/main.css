@@ -1917,7 +1917,7 @@ video::-webkit-media-controls-fullscreen-button {
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     border-radius: 5px;
     display: none;
-/*    opacity: 0;*/
+    opacity: 0;
     z-index: 35;
 }
 
@@ -1925,9 +1925,9 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
-#videodromeFullscreenAddToFavorites, #videodromeFullscreenSearchInput {
+#videodromeFullscreenAddToFavorites, #videodromeFullscreenSearchInput, #videodromeFullscreenResetSearch {
     height: 40px;
-    margin-right: 20px;
+    margin-right: 15px;
     margin-top: 30px;
 }
 

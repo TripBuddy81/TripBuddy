@@ -3094,11 +3094,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videoJSStreamModelname', function ( event ) {
-                videoJSSingleVideoUrls = [];
-                videoJSHubUrls = [];
-                activePageCrawls = 0;
-                videoJSLoadAfterFind = true;
-                getNextVideoStreamUrl( $( this ).attr( 'modellink' ) );
+                getNextVideoStreamUrl( true, $( this ).attr( 'modellink' ) );
             } );
 
             var videodromeFavorites = {'items': []};
@@ -3116,6 +3112,10 @@ $( document ).ready( function () {
                 }
                 localStorage.setItem( 'videodromeFavorites', JSON.stringify( videodromeFavorites['items'] ) );
                 outputPHFavorites();
+            } );
+
+            $( document ).on( 'click', '#videodromeFullscreenResetSearch', function ( event ) {
+                getNextVideoStreamUrl( true );
             } );
 
             $( document ).on( 'click', '#clearPHFavorites', function ( event ) {
