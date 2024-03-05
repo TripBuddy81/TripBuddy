@@ -1948,6 +1948,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
     float: left;
     padding-right: 15px;
+    font-size: 25px;
 }
 
 .videoJSStreamModelname {
