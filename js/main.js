@@ -2946,7 +2946,7 @@ $( document ).ready( function () {
             } );
 
             $( '.videoJSSearchURL' ).click( function () {
-                getNextVideoStreamUrl( true, $( this).attr( 'videoJSSearchURL' ) + + randomIntFromInterval( 1, 5 ) );
+                getNextVideoStreamUrl( true, $( this).attr( 'videoJSSearchURL' ) + randomIntFromInterval( 1, 5 ) );
             } );
 
             $( '.refreshVideoDromeVideoFullscreenIcon' ).click( function () {
@@ -3008,14 +3008,16 @@ $( document ).ready( function () {
                             $( '#videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videotitel' ) );
 
                             $( '#videodromeFullscreenModelLinks' ).empty();
-                            modellinks = $( this ).parent().attr( 'data-modellinks' ).split( ',' );
-                            $.each( modellinks, function ( index, val ) {
-                                let node = document.createElement( 'div' );
-                                node.classList.add( 'videoJSStreamModelname' );
-                                node.innerHTML = val.replaceAll( 'https://www.pornhub.com/', '' ).replaceAll( 'channels/', '' ).replaceAll( 'model/', '' ).replaceAll( 'pornstar/', '' ).replaceAll( '/videos', '' );
-                                node.setAttribute( 'modellink', val );
-                                document.getElementById( 'videodromeFullscreenModelLinks' ).appendChild( node );
-                            } );
+                            if ($( this ).parent().attr( 'data-modellinks' ) != undefined) {
+                                modellinks = $( this ).parent().attr( 'data-modellinks' ).split( ',' );
+                                $.each( modellinks, function ( index, val ) {
+                                    let node = document.createElement( 'div' );
+                                    node.classList.add( 'videoJSStreamModelname' );
+                                    node.innerHTML = val.replaceAll( 'https://www.pornhub.com/', '' ).replaceAll( 'channels/', '' ).replaceAll( 'model/', '' ).replaceAll( 'pornstar/', '' ).replaceAll( '/videos', '' );
+                                    node.setAttribute( 'modellink', val );
+                                    document.getElementById( 'videodromeFullscreenModelLinks' ).appendChild( node );
+                                } );
+                            }
                         }
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
