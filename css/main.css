@@ -1909,7 +1909,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodromeFullscreenMenuContainer {
     position: fixed;
-    min-width: 450px;
+    min-width: 600px;
     min-height: 175px;
     padding: 25px;
     bottom: 77px;
@@ -1936,12 +1936,18 @@ video::-webkit-media-controls-fullscreen-button {
     user-select: text;
 }
 
-#videodromeFullscreenModelLinks {
+#videodromeFullscreenModelLinks, .videoJSSearchURL {
     font-weight: 700;
 }
 
-#videodromeFullscreenModelLinks:hover {
+#videodromeFullscreenModelLinks:hover, .videoJSSearchURL:hover {
     color: white;
+}
+
+.videoJSSearchURL {
+    font-weight: 700;
+    float: left;
+    padding-right: 15px;
 }
 
 .videoJSStreamModelname {

@@ -2945,9 +2945,8 @@ $( document ).ready( function () {
                 $( '.' + target ).find( '.localVideo' )[0].play();
             } );
 
-            $( '.showFullscreenVideoInfo' ).click( function () {
-                $( '.refreshVideoDromeVideoFullscreenIcon' ).trigger( 'click' );
-                $( '#videodromeFullscreenFilename' ).html( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
+            $( '.videoJSSearchURL' ).click( function () {
+                getNextVideoStreamUrl( true, $( this).attr( 'videoJSSearchURL' ) + + randomIntFromInterval( 1, 5 ) );
             } );
 
             $( '.refreshVideoDromeVideoFullscreenIcon' ).click( function () {
