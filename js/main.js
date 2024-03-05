@@ -196,12 +196,8 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.keyboard-accept-button', function ( event ) {
-                videoJSSingleVideoUrls = [];
-                videoJSHubUrls = [];
-                activePageCrawls = 0;
-                videoJSLoadAfterFind = true;
                 setTimeout( function () {
-                    getNextVideoStreamUrl();
+                    getNextVideoStreamUrl( true );
                 }, 500 );
             } );
 
@@ -3138,7 +3134,14 @@ $( document ).ready( function () {
                 $( '#videodromeFavorites' ).html( favorites );
             }
 
-            function getNextVideoStreamUrl( searchUrl = '', pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {
+            function getNextVideoStreamUrl( newSearch = false, searchUrl = '', pageIndex = randomIntFromInterval( 1, 4 ), retry = true ) {
+                if ( newSearch ) {
+                    videoJSSingleVideoUrls = [];
+                    videoJSHubUrls = [];
+                    activePageCrawls = 0;
+                    videoJSLoadAfterFind = true;
+                }
+
                 if ( activePageCrawls <= 1 && videoJSSingleVideoUrls.length < 4 ) {
                     activePageCrawls++;
                     if ( videoJSHubUrls.length <= 0 ) {
@@ -3168,7 +3171,7 @@ $( document ).ready( function () {
                             error  : function ( data ) {
                                 activePageCrawls--;
                                 if ( retry ) {
-                                    getNextVideoStreamUrl( '', 1, false );
+                                    getNextVideoStreamUrl( false, '', 1, false );
                                 }
                             }
                         } );
