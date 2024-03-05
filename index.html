@@ -938,14 +938,28 @@
 
         <div id="videodromeContainer">
             <div id="videodromeFullscreenMenuContainer">
-                <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon cursorAction"
-                     src="./assets/refresh.png">
-                <img id="videodromeFullscreenSearchInput" class="iconAlternating cursorAction"
-                     src="./assets/search.png">
-                <img id="videodromeFullscreenAddToFavorites"  class="iconAlternating cursorAction"
-                     src="./assets/add_to_favorites.png">
-                <div id="videodromeFullscreenFilename"></div>
-                <div id="videodromeFullscreenModelLinks"></div>
+                <div class="row">
+                    <div class="col">
+                        <div id="videodromeFullscreenFilename"></div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="cursorAction" id="videodromeFullscreenModelLinks"></div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col me-3 refreshVideoDromeVideoFullscreenContainer">
+                        <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon cursorAction"
+                             src="./assets/refresh.png">
+                    </div>
+                    <div class="col videoDromeVideoFullscreenSubActions">
+                        <img id="videodromeFullscreenSearchInput" class="iconAlternating cursorAction"
+                             src="./assets/search.png">
+                        <img id="videodromeFullscreenAddToFavorites"  class="iconAlternating cursorAction"
+                             src="./assets/add_to_favorites.png">
+                    </div>
+                </div>
             </div>
 
             <div id="videodromeSwitchLocalStreamContainer">

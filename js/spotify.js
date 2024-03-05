@@ -269,7 +269,6 @@ function currentlyPlaying() {
     // If Spotify is not playing, we can check if a youtube video is running and display its runtime instead
     if ( !playingSpotifyTrack ) {
         updateProgressBar();
-
     }
     callApi( 'GET', PLAYER + '?market=US', null, handleCurrentlyPlayingResponse );
 }

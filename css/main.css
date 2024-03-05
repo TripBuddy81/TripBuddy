@@ -1904,16 +1904,12 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .refreshVideoDromeVideoFullscreenIcon {
-    position: fixed;
-    bottom: 83px;
-    left: 46px;
-    z-index: 30;
     height: 100px;
 }
 
 #videodromeFullscreenMenuContainer {
     position: fixed;
-    min-width: 240px;
+    min-width: 450px;
     min-height: 175px;
     padding: 25px;
     bottom: 77px;
@@ -1921,7 +1917,7 @@ video::-webkit-media-controls-fullscreen-button {
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     border-radius: 5px;
     display: none;
-    opacity: 0;
+/*    opacity: 0;*/
     z-index: 35;
 }
 
@@ -1929,34 +1925,19 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
-#videodromeFullscreenSearchInput {
+#videodromeFullscreenAddToFavorites, #videodromeFullscreenSearchInput {
     height: 40px;
-    position: fixed;
-    bottom: 135px;
-    left: 155px;
-}
-
-#videodromeFullscreenAddToFavorites {
-    height: 40px;
-    position: fixed;
-    bottom: 135px;
-    left: 215px;
+    margin-right: 20px;
+    margin-top: 30px;
 }
 
 #videodromeFullscreenFilename {
     font-weight: 700;
-    top: -15px;
-    left: -12px;
-    position: relative;
     user-select: text;
 }
 
 #videodromeFullscreenModelLinks {
     font-weight: 700;
-    top: -10px;
-    left: -12px;
-    position: relative;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
 #videodromeFullscreenModelLinks:hover {
@@ -2030,4 +2011,14 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodromeFavorites > div {
     user-select: text;
+}
+
+.refreshVideoDromeVideoFullscreenContainer {
+    -ms-flex: 0 0 110px;
+    flex: 0 0 110px;
+}
+
+.videoDromeVideoFullscreenSubActions {
+    -ms-flex: 0 0 110px;
+    flex: 0 0 210px;
 }
