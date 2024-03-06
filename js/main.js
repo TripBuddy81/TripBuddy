@@ -12,7 +12,6 @@ $( document ).ready( function () {
             // #5 - Music section
             // #6 - Search Youtube section
             // #7 - Videodrome section
-            // #8 - VideodromeVideoJS section
             // #9 - initial init section
 
             // ***********************************
@@ -2935,7 +2934,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '.videodromeRefreshVideo' ).click( function () {
+            $( '.videodromeRefreshLocalVideo' ).click( function () {
                 target = $( this ).attr( 'target' );
 
                 randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
@@ -2981,17 +2980,17 @@ $( document ).ready( function () {
                 updateVideodromeFullscreenInfo();
             } );
 
-            var videodromefullscreenMenuHideinterval;
+            var videodromeFullscreenMenuHideInterval;
             $( document ).on( 'mouseenter', '.refreshVideoDromeVideoFullscreenIcon', function () {
-                clearTimeout( videodromefullscreenMenuHideinterval );
-                videodromefullscreenMenuHideinterval = setTimeout( function () {
+                clearTimeout( videodromeFullscreenMenuHideInterval );
+                videodromeFullscreenMenuHideInterval = setTimeout( function () {
                     $( '.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'none' );
                     $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'opacity', '0' );
                 }, 1000 );
             } );
 
             $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon', function () {
-                clearTimeout( videodromefullscreenMenuHideinterval );
+                clearTimeout( videodromeFullscreenMenuHideInterval );
                 $( '.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                 $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'opacity', '1' );
             } );
@@ -3013,83 +3012,19 @@ $( document ).ready( function () {
                 $( this ).css( 'opacity', '0' );
             } );
 
-            function updateVideodromeFullscreenInfo() {
-                if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
-                    $( '.videodromeFullscreen' ).each( function () {
-                        if ( $( this ).is( ':visible' ) ) {
-                            $( '.videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videotitel' ) );
-
-                            $( '#videodromeFullscreenModelLinks' ).empty();
-                            if ( $( this ).parent().attr( 'data-modellinks' ) != undefined ) {
-                                modellinks = $( this ).parent().attr( 'data-modellinks' ).split( ',' );
-                                $.each( modellinks, function ( index, val ) {
-                                    let node = document.createElement( 'div' );
-                                    node.classList.add( 'videoJSStreamModelname' );
-                                    node.innerHTML = val.replaceAll( 'https://www.pornhub.com/', '' ).replaceAll( 'channels/', '' ).replaceAll( 'model/', '' ).replaceAll( 'pornstar/', '' ).replaceAll( '/videos', '' );
-                                    node.setAttribute( 'modellink', val );
-                                    document.getElementById( 'videodromeFullscreenModelLinks' ).appendChild( node );
-                                } );
-                            }
-                        }
-                    } );
-                } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
-                    $( '.videodromeFullscreenFilename' ).html( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
-                } else {
-                    console.info("test4");
-                    $( '.videodromeFullscreenFilename' ).html( '' );
-                }
-            }
-
-            function initVideodrome() {
-                if ( config['videosVideodrome'] == undefined || config['videosVideodrome'].length == 0 ) {
-                    $( '#showVideodrome' ).hide();
-                } else {
-                    var videosToShow = [];
-                    while ( videosToShow.length < 4 ) {
-                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                        if ( videosToShow.indexOf( randomNumber ) == -1 ) {
-                            videosToShow.push( randomNumber );
-                            alreadySelectedVideosVideodrome.push( randomNumber );
-                            $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
-                            $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].load();
-                            $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
-                        }
-                    }
-                    getNextVideoStreamUrl();
-                }
-            }
-
-            function forcePlaybackVideodrome() {
-                $( '#videodromeContainer .localVideo' ).each( function () {
-                    $( this )[0].play();
-                } );
-            }
-
-            function stopPlaybackVideodrome() {
-                blockScreenSaver = false;
-                $( '#videodrome' ).hide();
-                $( '#videodromeContainer .localVideo' ).each( function () {
-                    $( this )[0].pause();
-                } );
-
-                clearInterval( videodromePlayInterval );
-            }
-
-            // ******************************************
-            // #8 - VideodromeVideoJS section
             $( '.videodromeStreamRefreshVideo' ).click( function () {
                 if ( activeVideoJSPlayer == 'videoJSPlayer1' ) {
-                    loadNextVideoJsStream( 'videoJSPlayer1' );
+                    loadNextVideoJSStream( 'videoJSPlayer1' );
                     activeVideoJSPlayer = 'videoJSPlayer2';
                     $( '.videoDromeStreamVideo1' ).hide();
                     $( '.videoDromeStreamVideo2' ).show();
-                    playVideoJsStream( activeVideoJSPlayer );
+                    playVideoJSStream( activeVideoJSPlayer );
                 } else {
-                    loadNextVideoJsStream( 'videoJSPlayer2' );
+                    loadNextVideoJSStream( 'videoJSPlayer2' );
                     activeVideoJSPlayer = 'videoJSPlayer1';
                     $( '.videoDromeStreamVideo1' ).show();
                     $( '.videoDromeStreamVideo2' ).hide();
-                    playVideoJsStream( activeVideoJSPlayer );
+                    playVideoJSStream( activeVideoJSPlayer );
                 }
                 updateVideodromeFullscreenInfo();
             } );
@@ -3139,6 +3074,68 @@ $( document ).ready( function () {
                 outputPHFavorites();
             } );
 
+            function updateVideodromeFullscreenInfo() {
+                if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
+                    $( '.videodromeFullscreen' ).each( function () {
+                        if ( $( this ).is( ':visible' ) ) {
+                            $( '.videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videotitel' ) );
+
+                            $( '#videodromeFullscreenModelLinks' ).empty();
+                            if ( $( this ).parent().attr( 'data-modellinks' ) != undefined ) {
+                                modellinks = $( this ).parent().attr( 'data-modellinks' ).split( ',' );
+                                $.each( modellinks, function ( index, val ) {
+                                    let node = document.createElement( 'div' );
+                                    node.classList.add( 'videoJSStreamModelname' );
+                                    node.innerHTML = val.replaceAll( 'https://www.pornhub.com/', '' ).replaceAll( 'channels/', '' ).replaceAll( 'model/', '' ).replaceAll( 'pornstar/', '' ).replaceAll( '/videos', '' );
+                                    node.setAttribute( 'modellink', val );
+                                    document.getElementById( 'videodromeFullscreenModelLinks' ).appendChild( node );
+                                } );
+                            }
+                        }
+                    } );
+                } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
+                    $( '.videodromeFullscreenFilename' ).html( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
+                } else {
+                    console.info( 'test4' );
+                    $( '.videodromeFullscreenFilename' ).html( '' );
+                }
+            }
+
+            function initVideodrome() {
+                if ( config['videosVideodrome'] == undefined || config['videosVideodrome'].length == 0 ) {
+                    $( '#showVideodrome' ).hide();
+                } else {
+                    var videosToShow = [];
+                    while ( videosToShow.length < 4 ) {
+                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        if ( videosToShow.indexOf( randomNumber ) == -1 ) {
+                            videosToShow.push( randomNumber );
+                            alreadySelectedVideosVideodrome.push( randomNumber );
+                            $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
+                            $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].load();
+                            $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
+                        }
+                    }
+                    getNextVideoStreamUrl();
+                }
+            }
+
+            function forcePlaybackVideodrome() {
+                $( '#videodromeContainer .localVideo' ).each( function () {
+                    $( this )[0].play();
+                } );
+            }
+
+            function stopPlaybackVideodrome() {
+                blockScreenSaver = false;
+                $( '#videodrome' ).hide();
+                $( '#videodromeContainer .localVideo' ).each( function () {
+                    $( this )[0].pause();
+                } );
+
+                clearInterval( videodromePlayInterval );
+            }
+            
             function outputPHFavorites() {
                 $( '#videodromeFavorites' ).empty();
                 var favorites = '';
@@ -3251,10 +3248,10 @@ $( document ).ready( function () {
 
                                 if ( videoJSLoadAfterFind && videoJSSingleVideoUrls.length >= 2 ) {
                                     videoJSLoadAfterFind = false;
-                                    loadNextVideoJsStream( 'videoJSPlayer2' );
+                                    loadNextVideoJSStream( 'videoJSPlayer2' );
                                     activeVideoJSPlayer = 'videoJSPlayer1';
-                                    loadNextVideoJsStream( 'videoJSPlayer1' );
-                                    playVideoJsStream( activeVideoJSPlayer );
+                                    loadNextVideoJSStream( 'videoJSPlayer1' );
+                                    playVideoJSStream( activeVideoJSPlayer );
                                     $( '.videoDromeStreamVideo1' ).show();
                                     $( '.videoDromeStreamVideo2' ).hide();
                                     updateVideodromeFullscreenInfo();
@@ -3274,13 +3271,13 @@ $( document ).ready( function () {
                 }
             }
 
-            function playVideoJsStream( playerId ) {
+            function playVideoJSStream( playerId ) {
                 videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
                 videoJSPlayer.play();
                 videoJSPlayer.currentTime( 90 );
             }
 
-            function loadNextVideoJsStream( playerId ) {
+            function loadNextVideoJSStream( playerId ) {
                 var singleVideoObject = videoJSSingleVideoUrls.pop();
                 videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
                 videoJSPlayer.src( {
@@ -3295,7 +3292,7 @@ $( document ).ready( function () {
                     videoJSPlayer.load();
                 } catch ( e ) {
                     console.info( e );
-                    loadNextVideoJsStream( playerId );
+                    loadNextVideoJSStream( playerId );
                 }
 
                 getNextVideoStreamUrl();
