@@ -240,7 +240,7 @@ $( document ).ready( function () {
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
 
                 // Stops current action or shows playlist selection if nothing else going in right now
-                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) || e.which == 0 ) {
+                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
@@ -269,7 +269,7 @@ $( document ).ready( function () {
                         $( e.target ).val( $( e.target ).val() + text );
                     } );
                     return false;
-                } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) {
+                } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) || $( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) ) {
                     $( e.target ).removeAttr( 'controls' );
                     $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                     $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer' ).hide();
