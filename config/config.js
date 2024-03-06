@@ -232,20 +232,28 @@ var config = {
             ],
             'noiseGenerators'        : [
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php?l=00003326353253250027&title=Japanese%20Garden&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php?l=00003629363252290019&title=Japanese%20Garden&c=1',
                     'label': 'Japanese Garden'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/healingWaterSoundscapeGenerator.php?l=36000031343943524124&title=Healing%20Water&c=1',
-                    'label': 'Healing Water'
+                    'link' : 'https://mynoise.net/NoiseMachines/fireNoiseGenerator.php?l=34535554606668615142&title=Fireplace&c=1',
+                    'label': 'Fireplace'
                 },
                 {
                     'link' : 'https://mynoise.net/NoiseMachines/customRainOnWindow.php?l=71635719310031564932&title=Cosy%20Rain&c=1',
                     'label': 'Cosy Rain'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/fireNoiseGenerator.php?l=34535554606668615142&title=Fireplace&c=1',
-                    'label': 'Fireplace'
+                    'link' : 'https://mynoise.net/NoiseMachines/windSeaRainNoiseGenerator.php?l=66605957006500500000&a=1&am=s&title=Irish%20Coast&c=1',
+                    'label': 'Irish Cost'
+                },
+                {
+                    'link' : 'https://mynoise.net/NoiseMachines/custom.php?l=38993099993128273118&m=SLEEPINGDRAGON0~SPACESHIP0~SLEEPINGDRAGON1~SPACESHIP1~SPACESHIP2~SLEEPINGDRAGON3~SLEEPINGDRAGON4~SLEEPINGDRAGON6~SLEEPINGDRAGON7~SLEEPINGDRAGON8&title=Warp%20Dragon&c=1',
+                    'label': 'Warp Dragon'
+                },
+                {
+                    'link' : 'https://mynoise.net/NoiseMachines/singingBowlsDroneGenerator.php?l=69508673766583537974&title=Singing%20Bowls&c=1',
+                    'label': 'Singing Bowls'
                 },
                 {
                     'link' : 'https://mynoise.net/NoiseMachines/gregorianChoirGenerator.php?l=00320058005800580000&title=Gregorian%20Voices&c=1',
@@ -256,13 +264,13 @@ var config = {
                     'label': 'Oak Song'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/singingBowlsDroneGenerator.php?l=69508673766583537974&title=Singing%20Bowls&c=1',
-                    'label': 'Singing Bowls'
+                    'link' : 'https://mynoise.net/NoiseMachines/magicVoicesGenerator.php?l=56430058005556570000&a=1&am=s&m=DEEPCHANT0~ELGREY0~HUUCHANT0~DUDUK1~HUUCHANT1~DEEPCHANT2~ZARINA3~HIMALAYANVOICES6~ENLIA7~ENLIA8&title=Healing%20Voices&c=1',
+                    'label': 'Healing Voices'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/custom.php?l=38993099993128273118&m=SLEEPINGDRAGON0~SPACESHIP0~SLEEPINGDRAGON1~SPACESHIP1~SPACESHIP2~SLEEPINGDRAGON3~SLEEPINGDRAGON4~SLEEPINGDRAGON6~SLEEPINGDRAGON7~SLEEPINGDRAGON8&title=Warp%20Dragon&c=1',
-                    'label': 'Warp Dragon'
-                }
+                    'link' : 'https://mynoise.net/NoiseMachines/imagoLatensVocalSoundscape.php?l=39393939390000475556&a=1&am=s&title=Into%20Light&c=1',
+                    'label': 'Into the light'
+                },
             ],
             'selectableVideoTags'    : [
                 {'selectableTag': 'trippy-2D'},
