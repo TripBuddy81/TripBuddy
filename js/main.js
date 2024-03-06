@@ -3261,6 +3261,8 @@ $( document ).ready( function () {
                             activePageCrawls--;
                         } );
                     }
+                } else {
+                    return;
                 }
             }
 
