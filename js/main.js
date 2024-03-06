@@ -1115,7 +1115,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#loadExternalVideos' ).click( function ( e ) {
+            $( '.loadExternalVideos' ).click( function ( e ) {
                 $.each( config['videosLocal'], function ( index, val ) {
                     var matches = val['videoLink'].match( /external\/(.*)\.mp4.*/ );
                     if ( matches != undefined && matches[1] != undefined ) {
@@ -1131,7 +1131,7 @@ $( document ).ready( function () {
                 } );
 
                 processExternalFiles( 'external/' );
-                $( '#loadExternalVideos' ).remove();
+                $( '.loadExternalVideos' ).remove();
             } );
 
             $( '#displayAllVideos' ).click( function ( e ) {

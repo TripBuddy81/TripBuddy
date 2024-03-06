@@ -812,7 +812,7 @@ li, .options, .form-check-label {
     margin-right: 14px;
 }
 
-#loadExternalVideosIcon {
+.loadExternalVideosIcon {
     height: 52px;
     position: relative;
     top: -1px;
@@ -1936,11 +1936,11 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 25px;
 }
 
-#videodromeFullscreenModelLinks, .videoJSSearchURL {
+#videodromeFullscreenModelLinks {
     font-weight: 700;
 }
 
-#videodromeFullscreenModelLinks:hover, .videoJSSearchURL:hover {
+#videodromeFullscreenModelLinks:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover {
     color: white;
 }
 
@@ -1949,6 +1949,14 @@ video::-webkit-media-controls-fullscreen-button {
     float: left;
     padding-right: 15px;
     font-size: 25px;
+}
+
+.videodromeLocalVideoMenuItem {
+    font-weight: 700;
+    float: left;
+    padding-right: 15px;
+    font-size: 25px;
+    margin-top: 27px;
 }
 
 .videoJSStreamModelname {
