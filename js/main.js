@@ -3151,6 +3151,8 @@ $( document ).ready( function () {
 
                 if ( activePageCrawls <= 1 && videoJSSingleVideoUrls.length < 4 ) {
                     activePageCrawls++;
+
+                    // Hub crawl
                     if ( videoJSHubUrls.length <= 0 ) {
                         if ( searchUrl == '' ) {
                             if ( $( '.searchInput' ).val() != '' ) {
@@ -3187,6 +3189,8 @@ $( document ).ready( function () {
                             }
                         } );
                     }
+
+                    // Single Video crawl
                     if ( videoJSHubUrls.length >= 1 ) {
                         singelVideoPageUrl = '';
                         for ( var i = videoJSHubUrls.length - 1; i >= 0; i-- ) {
@@ -3196,7 +3200,7 @@ $( document ).ready( function () {
                         $.get( singelVideoPageUrl, function ( data ) {
                             var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
                             if ( matchesStreamUrl != undefined && matchesStreamUrl[1] != undefined ) {
-                                singleVideoObject = {};
+                                var singleVideoObject = {};
                                 singleVideoObject['videoStreamUrl'] = matchesStreamUrl[1].replaceAll( '\\', '' );
                                 singleVideoObject['modellinks'] = [];
                                 singleVideoObject['videoTitel'] = '';
@@ -3247,6 +3251,7 @@ $( document ).ready( function () {
                                     $( '.videoDromeStreamVideo2' ).hide();
                                     updateVideodromeFullscreenInfo();
                                 }
+
                                 if ( videoJSSingleVideoUrls.length < 5 ) {
                                     getNextVideoStreamUrl();
                                 }
@@ -3266,7 +3271,7 @@ $( document ).ready( function () {
             }
 
             function loadNextVideoJsStream( playerId ) {
-                singleVideoObject = videoJSSingleVideoUrls.pop();
+                var singleVideoObject = videoJSSingleVideoUrls.pop();
                 videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
                 videoJSPlayer.src( {
                     src : singleVideoObject['videoStreamUrl'],
