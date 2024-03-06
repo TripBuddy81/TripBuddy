@@ -2946,7 +2946,7 @@ $( document ).ready( function () {
             } );
 
             $( '.videoJSSearchURL' ).click( function () {
-                getNextVideoStreamUrl( true, $( this).attr( 'videoJSSearchURL' ) + randomIntFromInterval( 1, 5 ) );
+                getNextVideoStreamUrl( true, $( this ).attr( 'videoJSSearchURL' ) + randomIntFromInterval( 1, 5 ) );
             } );
 
             $( '.refreshVideoDromeVideoFullscreenIcon' ).click( function () {
@@ -2998,12 +2998,12 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseenter', '#videodromeFullscreenMenuContainer', function ( event ) {
-                $(this).css( 'opacity', '1' );
+                $( this ).css( 'opacity', '1' );
                 updateVideodromeFullscreenInfo();
             } );
 
             $( document ).on( 'mouseleave', '#videodromeFullscreenMenuContainer', function ( event ) {
-                $(this).css( 'opacity', '0' );
+                $( this ).css( 'opacity', '0' );
             } );
 
             function updateVideodromeFullscreenInfo() {
@@ -3013,7 +3013,7 @@ $( document ).ready( function () {
                             $( '#videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videotitel' ) );
 
                             $( '#videodromeFullscreenModelLinks' ).empty();
-                            if ($( this ).parent().attr( 'data-modellinks' ) != undefined) {
+                            if ( $( this ).parent().attr( 'data-modellinks' ) != undefined ) {
                                 modellinks = $( this ).parent().attr( 'data-modellinks' ).split( ',' );
                                 $.each( modellinks, function ( index, val ) {
                                     let node = document.createElement( 'div' );
@@ -3121,6 +3121,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#videodromeFullscreenResetSearch', function ( event ) {
+                $( '.searchInput' ).val( '' );
                 getNextVideoStreamUrl( true );
             } );
 

@@ -1934,6 +1934,7 @@ video::-webkit-media-controls-fullscreen-button {
 #videodromeFullscreenFilename {
     font-weight: 700;
     user-select: text;
+    font-size: 25px;
 }
 
 #videodromeFullscreenModelLinks, .videoJSSearchURL {
@@ -1955,6 +1956,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: bold;
     float: inline-start;
     margin-right: 15px;
+    font-size: 25px;
 }
 
 .videodromeFullscreen {
