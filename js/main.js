@@ -273,7 +273,7 @@ $( document ).ready( function () {
                 } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( e.target ).removeAttr( 'controls' );
                     $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                    $( '#videodromeFullscreenMenuVideoJSContainer' ).hide();
+                    $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer' ).hide();
                 } else { // block right click
                     return false;
                 }
@@ -501,7 +501,7 @@ $( document ).ready( function () {
                 $( '.localVideoOverlay' ).show();
                 $( '.mainSearchResultVideoOverlay' ).show();
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                $( '#videodromeFullscreenMenuVideoJSContainer' ).hide();
+                $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer' ).hide();
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -2885,6 +2885,7 @@ $( document ).ready( function () {
                 $( '#videodromeStreamRefreshVideo' ).toggle();
             } );
 
+            // VideoJS Window
             $( document ).on( 'click', '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -2900,6 +2901,7 @@ $( document ).ready( function () {
                 updateVideodromeFullscreenInfo();
             } );
 
+            // Local Video Window
             $( document ).on( 'click', '.videoDromeFrame', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -2924,7 +2926,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( document ).on( 'wheel', '#videodromeFullscreenMenuVideoJSContainer', function ( event ) {
+            $( document ).on( 'wheel', '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer', function ( event ) {
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 && $( '.videodromeFullscreen' ).find( '.localVideo' )[0] != undefined ) { // going down
                     $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime = $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime - 30;
@@ -2983,15 +2985,15 @@ $( document ).ready( function () {
             $( document ).on( 'mouseenter', '.refreshVideoDromeVideoFullscreenIcon', function () {
                 clearTimeout( videodromefullscreenMenuHideinterval );
                 videodromefullscreenMenuHideinterval = setTimeout( function () {
-                    $( '#videodromeFullscreenMenuVideoJSContainer' ).css( 'opacity', '0' );
                     $( '.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'none' );
+                    $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'opacity', '0' );
                 }, 1000 );
             } );
 
             $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon', function () {
                 clearTimeout( videodromefullscreenMenuHideinterval );
                 $( '.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '#videodromeFullscreenMenuVideoJSContainer' ).css( 'opacity', '1' );
+                $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'opacity', '1' );
             } );
 
             $( '#refreshVideoDromeVideoAll' ).click( function () {
@@ -3002,12 +3004,12 @@ $( document ).ready( function () {
                 $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
             } );
 
-            $( document ).on( 'mouseenter', '#videodromeFullscreenMenuVideoJSContainer', function ( event ) {
+            $( document ).on( 'mouseenter', '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer', function ( event ) {
                 $( this ).css( 'opacity', '1' );
                 updateVideodromeFullscreenInfo();
             } );
 
-            $( document ).on( 'mouseleave', '#videodromeFullscreenMenuVideoJSContainer', function ( event ) {
+            $( document ).on( 'mouseleave', '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer', function ( event ) {
                 $( this ).css( 'opacity', '0' );
             } );
 

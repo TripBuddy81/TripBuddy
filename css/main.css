@@ -1915,7 +1915,6 @@ video::-webkit-media-controls-fullscreen-button {
     bottom: 77px;
     left: 0px;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-    border-radius: 5px;
     display: none;
     opacity: 0;
     z-index: 35;
