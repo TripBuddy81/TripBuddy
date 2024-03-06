@@ -269,7 +269,6 @@ $( document ).ready( function () {
                         $( e.target ).val( $( e.target ).val() + text );
                     } );
                     return false;
-
                 } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( e.target ).removeAttr( 'controls' );
                     $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
@@ -3078,8 +3077,8 @@ $( document ).ready( function () {
             $( document ).on( 'mouseup', '.videodromeFullscreenFilename', function ( event ) {
                 if ( window.getSelection ) {
                     selectedText = window.getSelection().toString();
-                    navigator.clipboard.writeText( $.trim( selectedText ) );
-                    $( '.searchInput' ).val( selectedText );
+                    navigator.clipboard.writeText( selectedText );
+                    $( '.searchInput' ).val( $.trim( selectedText ) );
                     getNextVideoStreamUrl( true );
                 }
             } );
