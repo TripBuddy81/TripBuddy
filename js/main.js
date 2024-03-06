@@ -2888,7 +2888,6 @@ $( document ).ready( function () {
             $( document ).on( 'click', '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
-                updateVideodromeFullscreenInfo();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).removeAttr( 'controls', 'controls' );
                     $( '.video-js' ).removeClass( 'videodromeFullscreen' )
@@ -2898,12 +2897,12 @@ $( document ).ready( function () {
                     $( '.video-js' ).addClass( 'videodromeFullscreen' )
                     $( '#videodromeFullscreenMenuVideoJSContainer' ).show();
                 }
+                updateVideodromeFullscreenInfo();
             } );
 
             $( document ).on( 'click', '.videoDromeFrame', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
-                updateVideodromeFullscreenInfo();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).removeAttr( 'controls' );
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
@@ -2913,6 +2912,7 @@ $( document ).ready( function () {
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '#videodromeFullscreenMenuLocalVideoContainer' ).show();
                 }
+                updateVideodromeFullscreenInfo();
             } );
 
             $( document ).on( 'wheel', '.videodromeVideoContainer', function ( event ) {
@@ -3013,7 +3013,6 @@ $( document ).ready( function () {
 
             function updateVideodromeFullscreenInfo() {
                 if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
-                    console.info("test2");
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
                             $( '.videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videotitel' ) );
@@ -3032,7 +3031,6 @@ $( document ).ready( function () {
                         }
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
-                    console.info("test3");
                     $( '.videodromeFullscreenFilename' ).html( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
                 } else {
                     console.info("test4");
