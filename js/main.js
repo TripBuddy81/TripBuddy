@@ -240,7 +240,7 @@ $( document ).ready( function () {
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
 
                 // Stops current action or shows playlist selection if nothing else going in right now
-                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' )) || e.which == 0 ) {
+                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
@@ -269,6 +269,7 @@ $( document ).ready( function () {
                         $( e.target ).val( $( e.target ).val() + text );
                     } );
                     return false;
+
                 } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( e.target ).removeAttr( 'controls' );
                     $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
@@ -3074,6 +3075,15 @@ $( document ).ready( function () {
                 outputPHFavorites();
             } );
 
+            $( document ).on( 'mouseup', '.videodromeFullscreenFilename', function ( event ) {
+                if ( window.getSelection ) {
+                    selectedText = window.getSelection().toString();
+                    navigator.clipboard.writeText( $.trim( selectedText ) );
+                    $( '.searchInput' ).val( selectedText );
+                    getNextVideoStreamUrl( true );
+                }
+            } );
+
             function updateVideodromeFullscreenInfo() {
                 if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
                     $( '.videodromeFullscreen' ).each( function () {
@@ -3135,7 +3145,7 @@ $( document ).ready( function () {
 
                 clearInterval( videodromePlayInterval );
             }
-            
+
             function outputPHFavorites() {
                 $( '#videodromeFavorites' ).empty();
                 var favorites = '';
@@ -3318,6 +3328,7 @@ $( document ).ready( function () {
                 showScreensaverEnso();
             }
 
+            // for debug only
             toggleXXXVisible();
             $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
 
