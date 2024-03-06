@@ -3328,8 +3328,8 @@ $( document ).ready( function () {
             }
 
             // for debug only
-            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+/*            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
 
         }
 );
