@@ -2894,6 +2894,7 @@ $( document ).ready( function () {
                     $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).removeAttr( 'controls', 'controls' );
                     $( '.video-js' ).removeClass( 'videodromeFullscreen' )
                     $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
+                    $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                 } else {
                     $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).prop( 'controls', 'controls' );
                     $( '.video-js' ).addClass( 'videodromeFullscreen' )
@@ -2994,7 +2995,7 @@ $( document ).ready( function () {
             $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
                 $( '.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '1' );
+                $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'opacity', '1' );
             } );
 
             $( '#refreshVideoDromeVideoAll' ).click( function () {
@@ -3330,8 +3331,8 @@ $( document ).ready( function () {
             }
 
             // for debug only
-/*            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
+            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
 
         }
 );
