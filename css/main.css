@@ -1909,10 +1909,10 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodromeFullscreenMenuVideoJSContainer, #videodromeFullscreenMenuLocalVideoContainer {
     position: fixed;
-    width: 100%;
+    width: 80vW;
     min-height: 175px;
     padding: 25px;
-    bottom: 77px;
+    bottom: 10vH;
     left: 0px;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     display: none;
@@ -1920,7 +1920,21 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 35;
 }
 
-#videodromeFullscreenMenuVideoJSContainer:hover, #videodromeFullscreenMenuLocalVideoContainer:hover {
+
+#videodromeFullscreenMenuVideoJSContainerExtraOptions, #videodromeFullscreenMenuLocalVideoContainerExtraOptions {
+    position: fixed;
+    width: 20vW;
+    height: 90vH;
+    padding: 25px;
+    top: 0px;
+    right: 0px;
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    display: block;
+    opacity: 0;
+    z-index: 35;
+}
+
+.videodromeFullscreenMenuContainer:hover {
     opacity: 1;
 }
 
