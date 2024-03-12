@@ -3211,17 +3211,16 @@ $( document ).ready( function () {
 
                     // Hub crawl
                     if ( videoJSHubUrls.length <= 0 && !isSingleVideoPage ) {
-                        if ( searchUrl == '' ) {
-                            if ( $( '.searchInput' ).val() != '' ) {
-                                pageIndex = randomIntFromInterval( 1, 4 );
-                                if ( !retry ) {
-                                    pageIndex = 1;
-                                }
-                                searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( $( '.searchInput' ).val() ) + '&page=' + pageIndex;
-                            } else {
-                                searchUrl = 'https://www.pornhub.com/video?o=tr&t=t&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 5 );
+                        if ( searchUrl == '' && $( '.searchInput' ).val() != '' ) {
+                            pageIndex = randomIntFromInterval( 1, 4 );
+                            if ( !retry ) {
+                                pageIndex = 1;
                             }
+                            searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( $( '.searchInput' ).val() ) + '&page=' + pageIndex;
+                        } else if ( searchUrl == 'default' || $( '.searchInput' ).val() == '' ) {
+                            searchUrl = 'https://www.pornhub.com/video?o=tr&t=t&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 5 );
                         }
+
                         $.ajax( {
                             url    : searchUrl,
                             type   : 'GET',
@@ -3363,7 +3362,7 @@ $( document ).ready( function () {
 
                     videoJSPlayer.load();
                 } else {
-                    getNextVideoStreamUrl( true );
+                    getNextVideoStreamUrl( true, 'default' );
                 }
 
                 if ( loadNextVideoStream ) {
