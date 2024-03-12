@@ -3317,12 +3317,19 @@ $( document ).ready( function () {
                                     $( '.videoDromeStreamVideo1' ).show();
                                     $( '.videoDromeStreamVideo2' ).hide();
                                     updateVideodromeFullscreenInfo();
+                                } else if ( isSingleVideoPage && videoJSSingleVideoUrls.length >= 1 ) {
+                                    videoJSLoadAfterFind = false;
+                                    loadNextVideoJSStream( 'videoJSPlayer1', false );
+                                    playVideoJSStream( 'videoJSPlayer1' );
+                                    $( '.videoDromeStreamVideo1' ).show();
+                                    $( '.videoDromeStreamVideo2' ).hide();
+                                    updateVideodromeFullscreenInfo();
                                 }
 
-                                if ( videoJSSingleVideoUrls.length < 5 ) {
+                                if ( videoJSSingleVideoUrls.length < 5 && !isSingleVideoPage ) {
                                     getNextVideoStreamUrl();
                                 }
-                            } else {
+                            } else if ( !isSingleVideoPage ) {
                                 getNextVideoStreamUrl();
                             }
                             activePageCrawls--;
@@ -3339,27 +3346,28 @@ $( document ).ready( function () {
                 videoJSPlayer.currentTime( 90 );
             }
 
-            function loadNextVideoJSStream( playerId ) {
-                var singleVideoObject = videoJSSingleVideoUrls.pop();
-                videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
-                videoJSPlayer.src( {
-                    src : singleVideoObject['videoStreamUrl'],
-                    type: 'application/x-mpegURL'
-                } );
+            function loadNextVideoJSStream( playerId, loadNextVideoStream = true ) {
+                if ( videoJSSingleVideoUrls.length >= 1 ) {
+                    var singleVideoObject = videoJSSingleVideoUrls.pop();
+                    videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
+                    videoJSPlayer.src( {
+                        src : singleVideoObject['videoStreamUrl'],
+                        type: 'application/x-mpegURL'
+                    } );
 
-                $( '#' + playerId ).parent().attr( 'data-videoTitel', singleVideoObject['videoTitel'] );
-                $( '#' + playerId ).parent().attr( 'data-modelLinks', singleVideoObject['modelLinks'] );
-                $( '#' + playerId ).parent().attr( 'data-videoPageUrl', singleVideoObject['videoPageUrl'] );
-                $( '#' + playerId ).parent().attr( 'data-videoPagePosterUrl', singleVideoObject['videoPagePosterUrl'] );
+                    $( '#' + playerId ).parent().attr( 'data-videoTitel', singleVideoObject['videoTitel'] );
+                    $( '#' + playerId ).parent().attr( 'data-modelLinks', singleVideoObject['modelLinks'] );
+                    $( '#' + playerId ).parent().attr( 'data-videoPageUrl', singleVideoObject['videoPageUrl'] );
+                    $( '#' + playerId ).parent().attr( 'data-videoPagePosterUrl', singleVideoObject['videoPagePosterUrl'] );
 
-                try {
                     videoJSPlayer.load();
-                } catch ( e ) {
-                    console.info( e );
-                    loadNextVideoJSStream( playerId );
+                } else {
+                    getNextVideoStreamUrl( true );
                 }
 
-                getNextVideoStreamUrl();
+                if ( loadNextVideoStream ) {
+                    getNextVideoStreamUrl();
+                }
             }
 
             // END Videodrome section
