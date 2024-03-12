@@ -3040,7 +3040,6 @@ $( document ).ready( function () {
                 } else { // going up
                     videoJSPlayer.currentTime( videoJSPlayer.currentTime() + 30 );
                 }
-                videoJSPlayer.userActive( true );
             } );
 
             $( document ).on( 'click', '#videodromeFullscreenSearchInput', function ( event ) {
@@ -3099,6 +3098,23 @@ $( document ).ready( function () {
                     getNextVideoStreamUrl( true, $( this ).attr( 'data-videoPageUrl' ), false, true );
                 }
             } );
+
+            $( document ).on( 'click', '.videostreamFavoriteItemDeleteSymbol', function ( e ) {
+                e.preventDefault();
+                e.stopPropagation();
+                removeItemFromStreamFavorites( $( this ).parent().find( '.videoJSFavorite' ).attr( 'src' ) );
+                outputPHFavorites();
+            } );
+
+            function removeItemFromStreamFavorites( identifier ) {
+                tempVideodromeFavorites = {'items': []};
+                $.each( videodromeFavorites['items'], function ( key, value ) {
+                    if ( value['videoPagePosterUrl'] != identifier ) {
+                        tempVideodromeFavorites['items'].push( value );
+                    }
+                } );
+                videodromeFavorites = tempVideodromeFavorites;
+            }
 
             function updateVideodromeFullscreenInfo() {
                 if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
@@ -3165,12 +3181,19 @@ $( document ).ready( function () {
                 $( '#videodromeFavorites' ).empty();
                 var favorites = '';
                 $.each( videodromeFavorites['items'], function ( key, value ) {
-                    let node = document.createElement( 'img' );
-                    node.classList.add( 'videoJSFavorite' );
-                    node.setAttribute( 'src', value['videoPagePosterUrl'] );
-                    node.setAttribute( 'data-videoPageUrl', value['videoPageUrl'] );
-                    document.getElementById( 'videodromeFavorites' ).appendChild( node );
+                    let favoriteItemContainer = document.createElement( 'span' );
+                    favoriteItemContainer.classList.add( 'videoJSFavoriteContainer' );
+                    document.getElementById( 'videodromeFavorites' ).appendChild( favoriteItemContainer );
 
+                    let favoriteItem = document.createElement( 'img' );
+                    favoriteItem.classList.add( 'videoJSFavorite' );
+                    favoriteItem.setAttribute( 'src', value['videoPagePosterUrl'] );
+                    favoriteItem.setAttribute( 'data-videoPageUrl', value['videoPageUrl'] );
+                    favoriteItemContainer.appendChild( favoriteItem );
+
+                    let videostreamFavoriteItemDeleteSymbol = document.createElement( 'span' );
+                    videostreamFavoriteItemDeleteSymbol.classList.add( 'videostreamFavoriteItemDeleteSymbol' );
+                    favoriteItemContainer.appendChild( videostreamFavoriteItemDeleteSymbol );
                 } );
             }
 

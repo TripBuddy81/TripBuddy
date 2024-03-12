@@ -2047,8 +2047,24 @@ video::-webkit-media-controls-fullscreen-button {
     flex: 0 0 210px;
 }
 
+.videostreamFavoriteItemDeleteSymbol:after {
+    content: "\00d7";
+    font-size: 50px;
+    color: crimson;
+    position: absolute;
+    font-weight: 800;
+    top: 44px;
+    left: -17px;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
+    z-index: 5;
+}
+
+.videoJSFavoriteContainer {
+    position: relative;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
 .videoJSFavorite {
     width: 290px;
     margin-bottom: 15px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
