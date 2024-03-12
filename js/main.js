@@ -3319,7 +3319,7 @@ $( document ).ready( function () {
                                     updateVideodromeFullscreenInfo();
                                 } else if ( isSingleVideoPage && videoJSSingleVideoUrls.length >= 1 ) {
                                     videoJSLoadAfterFind = false;
-                                    loadNextVideoJSStream( 'videoJSPlayer1', false );
+                                    loadNextVideoJSStream( 'videoJSPlayer1' );
                                     playVideoJSStream( 'videoJSPlayer1' );
                                     $( '.videoDromeStreamVideo1' ).show();
                                     $( '.videoDromeStreamVideo2' ).hide();
@@ -3346,7 +3346,7 @@ $( document ).ready( function () {
                 videoJSPlayer.currentTime( 90 );
             }
 
-            function loadNextVideoJSStream( playerId, loadNextVideoStream = true ) {
+            function loadNextVideoJSStream( playerId ) {
                 if ( videoJSSingleVideoUrls.length >= 1 ) {
                     var singleVideoObject = videoJSSingleVideoUrls.pop();
                     videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
@@ -3362,11 +3362,7 @@ $( document ).ready( function () {
 
                     videoJSPlayer.load();
                 } else {
-                    getNextVideoStreamUrl( true, 'default' );
-                }
-
-                if ( loadNextVideoStream ) {
-                    getNextVideoStreamUrl();
+                    getNextVideoStreamUrl( true );
                 }
             }
 
@@ -3391,8 +3387,8 @@ $( document ).ready( function () {
             }
 
             // for debug only
-            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+/*            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
 
         }
 );
