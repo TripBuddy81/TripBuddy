@@ -3056,15 +3056,13 @@ $( document ).ready( function () {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
                             var favoriteItem = {
-                                'videoTitel' : $( this ).parent().attr( 'data-videoTitel' ),
-                                'videoPageUrl' : $( this ).parent().attr( 'data-videoPageUrl' ),
-                                'videoPagePosterUrl' : $( this ).parent().attr( 'data-videoPagePosterUrl' )
+                                'videoTitel'        : $( this ).parent().attr( 'data-videoTitel' ),
+                                'videoPageUrl'      : $( this ).parent().attr( 'data-videoPageUrl' ),
+                                'videoPagePosterUrl': $( this ).parent().attr( 'data-videoPagePosterUrl' )
                             };
-                            videodromeFavorites['items'].push( favoriteItem );
+                            videodromeFavorites['items'].unshift( favoriteItem );
                         }
                     } );
-                } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
-                    videodromeFavorites['items'].push( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
                 }
                 localStorage.setItem( 'videodromeFavorites', JSON.stringify( videodromeFavorites['items'] ) );
                 outputPHFavorites();
@@ -3090,13 +3088,17 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( document ).on( 'click', '.videoJSFavorite', function ( event ) {
+                getNextVideoStreamUrl( true, $( this ).attr( 'data-videoPageUrl' ), false, true );
+            } );
+
             function updateVideodromeFullscreenInfo() {
                 if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
                             $( '.videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videoTitel' ) );
 
-                            $( '#videodromeFullscreenmodelLinks' ).empty();
+                            $( '#videodromeFullscreenModelLinks' ).empty();
                             if ( $( this ).parent().attr( 'data-modelLinks' ) != undefined && $( this ).parent().attr( 'data-modelLinks' ) != '' ) {
                                 modelLinks = $( this ).parent().attr( 'data-modelLinks' ).split( ',' );
                                 $.each( modelLinks, function ( index, val ) {
@@ -3112,7 +3114,6 @@ $( document ).ready( function () {
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
                     $( '.videodromeFullscreenFilename' ).html( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
                 } else {
-                    console.info( 'test4' );
                     $( '.videodromeFullscreenFilename' ).html( '' );
                 }
             }
@@ -3156,13 +3157,16 @@ $( document ).ready( function () {
                 $( '#videodromeFavorites' ).empty();
                 var favorites = '';
                 $.each( videodromeFavorites['items'], function ( key, value ) {
-                    favorites += '<div>' + value + '</div>';
-                } );
+                    let node = document.createElement( 'img' );
+                    node.classList.add( 'videoJSFavorite' );
+                    node.setAttribute( 'src', value['videoPagePosterUrl'] );
+                    node.setAttribute( 'data-videoPageUrl', value['videoPageUrl'] );
+                    document.getElementById( 'videodromeFavorites' ).appendChild( node );
 
-                $( '#videodromeFavorites' ).html( favorites );
+                } );
             }
 
-            function getNextVideoStreamUrl( newSearch = false, searchUrl = '', retry = true ) {
+            function getNextVideoStreamUrl( newSearch = false, searchUrl = '', retry = true, isSingleVideoPage = false ) {
                 if ( newSearch ) {
                     videoJSSingleVideoUrls = [];
                     videoJSHubUrls = [];
@@ -3174,7 +3178,7 @@ $( document ).ready( function () {
                     activePageCrawls++;
 
                     // Hub crawl
-                    if ( videoJSHubUrls.length <= 0 ) {
+                    if ( videoJSHubUrls.length <= 0 && !isSingleVideoPage ) {
                         if ( searchUrl == '' ) {
                             if ( $( '.searchInput' ).val() != '' ) {
                                 pageIndex = randomIntFromInterval( 1, 4 );
@@ -3212,11 +3216,15 @@ $( document ).ready( function () {
                     }
 
                     // Single Video crawl
-                    if ( videoJSHubUrls.length >= 1 ) {
-                        singelVideoPageUrl = '';
-                        for ( var i = videoJSHubUrls.length - 1; i >= 0; i-- ) {
-                            singelVideoPageUrl = videoJSHubUrls.splice( Math.floor( Math.random() * videoJSHubUrls.length ), 1 );
-                            break;
+                    if ( videoJSHubUrls.length >= 1 || isSingleVideoPage ) {
+                        if ( isSingleVideoPage ) {
+                            singelVideoPageUrl = searchUrl;
+                        } else {
+                            singelVideoPageUrl = '';
+                            for ( var i = videoJSHubUrls.length - 1; i >= 0; i-- ) {
+                                singelVideoPageUrl = videoJSHubUrls.splice( Math.floor( Math.random() * videoJSHubUrls.length ), 1 );
+                                break;
+                            }
                         }
                         $.get( singelVideoPageUrl, function ( data ) {
                             var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
