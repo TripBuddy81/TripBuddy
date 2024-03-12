@@ -3114,6 +3114,7 @@ $( document ).ready( function () {
                     }
                 } );
                 videodromeFavorites = tempVideodromeFavorites;
+                localStorage.setItem( 'videodromeFavorites', JSON.stringify( videodromeFavorites['items'] ) );
             }
 
             function updateVideodromeFullscreenInfo() {
