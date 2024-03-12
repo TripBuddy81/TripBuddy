@@ -663,15 +663,6 @@
 
                         </div>
                         <div class="col">
-                            <div class="showPrivateContent xxxAction">
-                                <img id="showPrivateContentIcon" src="./assets/private.png">Show private content
-                            </div>
-                            <div class="xxxAction loadExternalVideos">
-                                <img class="loadExternalVideosIcon" src="./assets/download.png">Load external Videos
-                            </div>
-                            <div class="xxxAction" id="displayAllVideos">
-                                <img id="displayAllVideosIcon" src="./assets/video.png">Display all Videos
-                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -985,9 +976,6 @@
                              src="./assets/refresh.png">
                     </div>
                     <div class="col-10">
-          <!--              <div class="cursorAction" id="displayAllVideos">
-                            <img id="displayAllVideosIcon" src="./assets/video.png">Display all Videos
-                        </div>-->
                         <div class="videodromeLocalVideoMenuItem cursorAction showPrivateContent">
                             Show private content
                         </div>
@@ -1000,22 +988,23 @@
                 </div>
             </div>
             <div id="videodromeFullscreenMenuLocalVideoContainerExtraOptions" class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
+                <div class="cursorAction" id="displayAllVideos">Display all Videos
+                </div>
             </div>
-
 
             <div id="videodromeSwitchLocalStreamContainer">
                 <img id="toggleLocalStreamIcon" class="iconAlternating cursorAction"
                      src="./assets/refresh.png">
             </div>
 
-            <div class="videodromeStreamVideoContainer videoDromeStreamVideo1" target="videoJSPlayer1" data-modelnames="" data-videotitel="">
+            <div class="videodromeStreamVideoContainer videoDromeStreamVideo1" target="videoJSPlayer1" data-modelnames="" data-videoTitel="" data-videoPageUrl="" data-videoPagePosterUrl="">
                 <video id="videoJSPlayer1" muted="" loop="" class="video-js videoDromeFrame" preload="none"
                        data-setup='{}'>
                     <source id="videoJSPlayerSource1" class="videoDromeStreamSource" type="application/x-mpegURL"
                             src="https://example.com">
                 </video>
             </div>
-            <div class="videodromeStreamVideoContainer videoDromeStreamVideo2" target="videoJSPlayer2" data-modelnames="" data-videotitel="">
+            <div class="videodromeStreamVideoContainer videoDromeStreamVideo2" target="videoJSPlayer2" data-modelnames="" data-videoTitel="" data-videoPageUrl="" data-videoPagePosterUrl="">
                 <video id="videoJSPlayer2" muted="" loop="" class="video-js videoDromeFrame" preload="none"
                        data-setup='{}'>
                     <source id="videoJSPlayerSource2" class="videoDromeStreamSource" type="application/x-mpegURL"

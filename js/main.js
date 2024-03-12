@@ -1137,14 +1137,13 @@ $( document ).ready( function () {
             } );
 
             $( '#displayAllVideos' ).click( function ( e ) {
+                $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $( '.XXX.localVideoTemplate' ).each( function ( index, value ) {
                     $( this ).remove();
                 } );
 
-                localVideosMainNode = '';
                 rawVideoElement = '';
                 $( '.nsfw.localVideoTemplate' ).each( function ( index, value ) {
-                    localVideosMainNode = $( this ).parent();
                     rawVideoElement = $( this ).clone();
                     $( rawVideoElement ).removeClass( 'nsfw' ).addClass( 'XXX' );
                     return false;
@@ -1153,7 +1152,7 @@ $( document ).ready( function () {
                 $.each( config['videosVideodrome'], function ( val ) {
                     $( rawVideoElement ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][val] );
                     $( rawVideoElement ).find( '.videoInfo' ).find( '>:first-child' ).html( config['videosVideodrome'][val] );
-                    $( rawVideoElement ).clone().appendTo( localVideosMainNode );
+                    $( rawVideoElement ).clone().appendTo( $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ) );
                 } );
                 loadVideos();
                 $( '.XXX' ).show();
@@ -3056,7 +3055,12 @@ $( document ).ready( function () {
                 if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
-                            videodromeFavorites['items'].push( $( this ).parent().attr( 'data-videotitel' ) );
+                            var favoriteItem = {
+                                'videoTitel' : $( this ).parent().attr( 'data-videoTitel' ),
+                                'videoPageUrl' : $( this ).parent().attr( 'data-videoPageUrl' ),
+                                'videoPagePosterUrl' : $( this ).parent().attr( 'data-videoPagePosterUrl' )
+                            };
+                            videodromeFavorites['items'].push( favoriteItem );
                         }
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
@@ -3090,12 +3094,12 @@ $( document ).ready( function () {
                 if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
-                            $( '.videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videotitel' ) );
+                            $( '.videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videoTitel' ) );
 
-                            $( '#videodromeFullscreenModelLinks' ).empty();
-                            if ( $( this ).parent().attr( 'data-modellinks' ) != undefined ) {
-                                modellinks = $( this ).parent().attr( 'data-modellinks' ).split( ',' );
-                                $.each( modellinks, function ( index, val ) {
+                            $( '#videodromeFullscreenmodelLinks' ).empty();
+                            if ( $( this ).parent().attr( 'data-modelLinks' ) != undefined && $( this ).parent().attr( 'data-modelLinks' ) != '' ) {
+                                modelLinks = $( this ).parent().attr( 'data-modelLinks' ).split( ',' );
+                                $.each( modelLinks, function ( index, val ) {
                                     let node = document.createElement( 'div' );
                                     node.classList.add( 'videoJSStreamModelname' );
                                     node.innerHTML = val.replaceAll( 'https://www.pornhub.com/', '' ).replaceAll( 'channels/', '' ).replaceAll( 'model/', '' ).replaceAll( 'pornstar/', '' ).replaceAll( '/videos', '' );
@@ -3218,15 +3222,22 @@ $( document ).ready( function () {
                             var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
                             if ( matchesStreamUrl != undefined && matchesStreamUrl[1] != undefined ) {
                                 var singleVideoObject = {};
+                                singleVideoObject['videoPageUrl'] = singelVideoPageUrl;
                                 singleVideoObject['videoStreamUrl'] = matchesStreamUrl[1].replaceAll( '\\', '' );
-                                singleVideoObject['modellinks'] = [];
                                 singleVideoObject['videoTitel'] = '';
+                                singleVideoObject['videoPagePosterUrl'] = '';
+                                singleVideoObject['modelLinks'] = '';
 
                                 var reVideoTitel = /\<span class="inlineFree">(.*?)\<\/span\>/g;
-                                var titelMatches;
                                 reVideoTitel = reVideoTitel.exec( data );
                                 if ( reVideoTitel ) {
                                     singleVideoObject['videoTitel'] = reVideoTitel[1];
+                                }
+
+                                var reVideoPosterUrlTitel = /\<img src="(.*?)".*?id="videoElementPoster".*?>/g;
+                                reVideoPosterUrlTitel = reVideoPosterUrlTitel.exec( data );
+                                if ( reVideoPosterUrlTitel ) {
+                                    singleVideoObject['videoPagePosterUrl'] = reVideoPosterUrlTitel[1];
                                 }
 
                                 var rePornstarNames = /gtm-event-link pstar-list-btn".*[\s\S]*?href="(.*?)"/g;
@@ -3234,7 +3245,7 @@ $( document ).ready( function () {
                                 do {
                                     pornstarMatches = rePornstarNames.exec( data );
                                     if ( pornstarMatches && pornstarMatches[2] != undefined ) {
-                                        singleVideoObject['modellinks'] = singleVideoObject['modellinks'] + 'https://www.pornhub.com' + pornstarMatches[1] + pornstarMatches[2] + '/videos,';
+                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + pornstarMatches[1] + pornstarMatches[2] + '/videos,';
                                     }
                                 } while ( pornstarMatches );
 
@@ -3243,7 +3254,7 @@ $( document ).ready( function () {
                                 do {
                                     modelNameMatches = reModelNames.exec( data );
                                     if ( modelNameMatches && modelNameMatches[2] != undefined ) {
-                                        singleVideoObject['modellinks'] = singleVideoObject['modellinks'] + 'https://www.pornhub.com' + modelNameMatches[1] + modelNameMatches[2] + '/videos,';
+                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + modelNameMatches[1] + modelNameMatches[2] + '/videos,';
                                     }
                                 } while ( modelNameMatches );
 
@@ -3252,7 +3263,7 @@ $( document ).ready( function () {
                                 do {
                                     channelNameMatches = reChannelNames.exec( data );
                                     if ( channelNameMatches ) {
-                                        singleVideoObject['modellinks'] = singleVideoObject['modellinks'] + 'https://www.pornhub.com' + channelNameMatches[1] + '/videos,';
+                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + channelNameMatches[1] + '/videos,';
                                     }
                                 } while ( channelNameMatches );
 
@@ -3297,8 +3308,10 @@ $( document ).ready( function () {
                     type: 'application/x-mpegURL'
                 } );
 
-                $( '#' + playerId ).parent().attr( 'data-videotitel', singleVideoObject['videoTitel'] );
-                $( '#' + playerId ).parent().attr( 'data-modellinks', singleVideoObject['modellinks'] );
+                $( '#' + playerId ).parent().attr( 'data-videoTitel', singleVideoObject['videoTitel'] );
+                $( '#' + playerId ).parent().attr( 'data-modelLinks', singleVideoObject['modelLinks'] );
+                $( '#' + playerId ).parent().attr( 'data-videoPageUrl', singleVideoObject['videoPageUrl'] );
+                $( '#' + playerId ).parent().attr( 'data-videoPagePosterUrl', singleVideoObject['videoPagePosterUrl'] );
 
                 try {
                     videoJSPlayer.load();
