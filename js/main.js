@@ -3330,7 +3330,7 @@ $( document ).ready( function () {
                                 if ( videoJSSingleVideoUrls.length < 5 && !isSingleVideoPage ) {
                                     getNextVideoStreamUrl();
                                 }
-                            } else if ( !isSingleVideoPage ) {
+                            } else {
                                 getNextVideoStreamUrl();
                             }
                             activePageCrawls--;
