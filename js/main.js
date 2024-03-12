@@ -2129,7 +2129,8 @@ $( document ).ready( function () {
                         !$( event.target ).hasClass( 'noisegeneratorLink' ) &&
                         !$( event.target ).hasClass( 'spotifyPlaylistItem' ) &&
                         !$( event.target ).hasClass( 'externalVideoPreview' ) &&
-                        !$( event.target ).hasClass( 'playlistMenuCustomLink' )
+                        !$( event.target ).hasClass( 'playlistMenuCustomLink' ) &&
+                        !$( event.target ).hasClass( 'videoJSFavorite' )
                 ) {
                     e.preventDefault();
                     openSpotifyApp();
@@ -3088,8 +3089,13 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( document ).on( 'click', '.videoJSFavorite', function ( event ) {
-                getNextVideoStreamUrl( true, $( this ).attr( 'data-videoPageUrl' ), false, true );
+            $( document ).on( 'mousedown', '.videoJSFavorite', function ( e ) {
+                // on middle mouse button just open in new tab
+                if ( e.which == 2 ) {
+                    window.open( $( this ).attr( 'data-videoPageUrl' ), '_blank' );
+                } else {
+                    getNextVideoStreamUrl( true, $( this ).attr( 'data-videoPageUrl' ), false, true );
+                }
             } );
 
             function updateVideodromeFullscreenInfo() {
