@@ -94,6 +94,7 @@ $( document ).ready( function () {
             window.videoJSHubUrls = [];
             window.videoJSSingleVideoUrls = [];
             window.activeVideoJSPlayer = 'videoJSPlayer1';
+            window.videoJSPlayer = '';
             window.activePageCrawls = 0;
             window.videoJSLoadAfterFind = true;
 
@@ -3039,6 +3040,7 @@ $( document ).ready( function () {
                 } else { // going up
                     videoJSPlayer.currentTime( videoJSPlayer.currentTime() + 30 );
                 }
+                videoJSPlayer.userActive( true );
             } );
 
             $( document ).on( 'click', '#videodromeFullscreenSearchInput', function ( event ) {
