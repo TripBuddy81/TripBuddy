@@ -1116,6 +1116,7 @@ $( document ).ready( function () {
                         }
                     } );
                 }
+                loadAllLocalFilenames();
             } );
 
             $( '.loadExternalVideos' ).click( function ( e ) {
@@ -1135,28 +1136,6 @@ $( document ).ready( function () {
 
                 processExternalFiles( 'external/' );
                 $( '.loadExternalVideos' ).remove();
-            } );
-
-            $( '#displayAllVideos' ).click( function ( e ) {
-                $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
-                $( '.XXX.localVideoTemplate' ).each( function ( index, value ) {
-                    $( this ).remove();
-                } );
-
-                rawVideoElement = '';
-                $( '.nsfw.localVideoTemplate' ).each( function ( index, value ) {
-                    rawVideoElement = $( this ).clone();
-                    $( rawVideoElement ).removeClass( 'nsfw' ).addClass( 'XXX' );
-                    return false;
-                } );
-
-                $.each( config['videosVideodrome'], function ( val ) {
-                    $( rawVideoElement ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][val] );
-                    $( rawVideoElement ).find( '.videoInfo' ).find( '>:first-child' ).html( config['videosVideodrome'][val] );
-                    $( rawVideoElement ).clone().appendTo( $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ) );
-                } );
-                loadVideos();
-                $( '.XXX' ).show();
             } );
 
             function processExternalFiles( url ) {
@@ -1181,6 +1160,8 @@ $( document ).ready( function () {
                         externalFiles.forEach( function ( url ) {
                             config['videosVideodrome'].push( url + '#t=90' );
                         } );
+
+                        loadAllLocalFilenames();
                     }
                 } );
             }
@@ -3105,6 +3086,26 @@ $( document ).ready( function () {
                 removeItemFromStreamFavorites( $( this ).parent().find( '.videoJSFavorite' ).attr( 'src' ) );
                 outputPHFavorites();
             } );
+
+            $( '#displayAllVideos' ).click( function ( e ) {
+                loadAllLocalFilenames();
+            } );
+
+            $( document ).on( 'click', '.localVideoPreview', function ( event ) {
+                $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src', $( this ).attr( 'src' ) );
+                $( '.videodromeFullscreen' ).find( '.localVideo' )[0].load();
+            } );
+
+            function loadAllLocalFilenames() {
+                $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
+                $.each( config['videosVideodrome'], function ( val ) {
+                    let localVideoPreview = document.createElement( 'div' );
+                    localVideoPreview.innerHTML = decodeURI(config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ));
+                    localVideoPreview.setAttribute( 'src', config['videosVideodrome'][val] );
+                    localVideoPreview.classList.add( 'localVideoPreview' );
+                    document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localVideoPreview );
+                } );
+            }
 
             function removeItemFromStreamFavorites( identifier ) {
                 tempVideodromeFavorites = {'items': []};

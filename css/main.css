@@ -1933,6 +1933,7 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 0;
     z-index: 35;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .videodromeFullscreenMenuContainer:hover {
@@ -2067,4 +2068,12 @@ video::-webkit-media-controls-fullscreen-button {
 .videoJSFavorite {
     width: 290px;
     margin-bottom: 15px;
+}
+
+.localVideoPreview {
+    width: 20vW;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    padding-bottom: 10px;
+    font-weight: 700;
+    overflow-x: hidden;
 }
