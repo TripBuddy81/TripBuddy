@@ -3087,10 +3087,6 @@ $( document ).ready( function () {
                 outputPHFavorites();
             } );
 
-            $( '#displayAllVideos' ).click( function ( e ) {
-                loadAllLocalFilenames();
-            } );
-
             $( document ).on( 'click', '.localVideoPreview', function ( event ) {
                 $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src', $( this ).attr( 'src' ) );
                 $( '.videodromeFullscreen' ).find( '.localVideo' )[0].load();
@@ -3100,7 +3096,7 @@ $( document ).ready( function () {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( config['videosVideodrome'], function ( val ) {
                     let localVideoPreview = document.createElement( 'div' );
-                    localVideoPreview.innerHTML = decodeURI(config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ));
+                    localVideoPreview.innerHTML = decodeURI(config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /external\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ));
                     localVideoPreview.setAttribute( 'src', config['videosVideodrome'][val] );
                     localVideoPreview.classList.add( 'localVideoPreview' );
                     document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localVideoPreview );
@@ -3160,6 +3156,7 @@ $( document ).ready( function () {
                         }
                     }
                     getNextVideoStreamUrl();
+                    loadAllLocalFilenames();
                 }
             }
 
@@ -3387,8 +3384,8 @@ $( document ).ready( function () {
             }
 
             // for debug only
-            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+/*            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
 
         }
 );

@@ -1923,7 +1923,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodromeFullscreenMenuVideoJSContainerExtraOptions, #videodromeFullscreenMenuLocalVideoContainerExtraOptions {
     position: fixed;
-    width: 20vW;
+    width: 290px;
     height: 90vH;
     padding: 25px;
     top: 0px;
