@@ -3196,6 +3196,9 @@ $( document ).ready( function () {
                 } );
             }
 
+            // TODO: NOT FUNCTIONAL YET
+            var selectedVideoStreamService = 'PH' // 'PH' or 'NM' or 'SB'
+
             function getNextVideoStreamUrl( newSearch = false, searchUrl = '', retry = true, isSingleVideoPage = false ) {
                 if ( newSearch ) {
                     videoJSHubUrls = [];
@@ -3217,17 +3220,39 @@ $( document ).ready( function () {
                             }
                             searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( $( '.searchInput' ).val() ) + '&page=' + pageIndex;
                         } else if ( searchUrl == '' ) {
-                            searchUrl = 'https://www.pornhub.com/video?o=tr&t=t&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 5 );
+                            switch ( selectedVideoStreamService ) {
+                                case 'NM':
+                                    searchUrl = 'https://noodlemagazine.com/video/couple?hd=1&p=1' + randomIntFromInterval( 1, 5 );
+                                    break;
+                                case 'PH':
+                                default:
+                                    searchUrl = 'https://www.pornhub.com/video?o=tr&t=t&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 5 );
+                            }
                         }
 
                         $.ajax( {
                             url    : searchUrl,
                             type   : 'GET',
                             success: function ( data ) {
-                                matches = data.matchAll( /(view_video\.php\?viewkey=.*?)"/g );
+                                switch ( selectedVideoStreamService ) {
+                                    case 'NM':
+                                        matches = data.matchAll( /\"(\/watch\/.*?)\"/g );
+                                        break;
+                                    case 'PH':
+                                    default:
+                                        matches = data.matchAll( /(view_video\.php\?viewkey=.*?)"/g );
+                                }
                                 for ( const match of matches ) {
                                     if ( match[1] != undefined ) {
-                                        url = 'https://www.pornhub.com/' + match[1];
+                                        switch ( selectedVideoStreamService ) {
+                                            case 'NM':
+                                                url = 'https://noodlemagazine.com' + match[1];
+                                                break;
+                                            case 'PH':
+                                            default:
+                                                url = 'https://www.pornhub.com/' + match[1];
+                                        }
+
                                         if ( videoJSHubUrls.indexOf( url ) === -1 ) {
                                             videoJSHubUrls.push( url );
                                         }
@@ -3258,7 +3283,15 @@ $( document ).ready( function () {
                             }
                         }
                         $.get( singelVideoPageUrl, function ( data ) {
-                            var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
+                            switch ( selectedVideoStreamService ) {
+                                case 'NM':
+                                    var matchesStreamUrl = data.match( /(https.*?pvvstream\.pro\/videos\/.*?)"/ );
+                                    break;
+                                case 'PH':
+                                default:
+                                    var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
+                            }
+
                             if ( matchesStreamUrl != undefined && matchesStreamUrl[1] != undefined ) {
                                 var singleVideoObject = {};
                                 singleVideoObject['videoPageUrl'] = singelVideoPageUrl;
@@ -3384,8 +3417,8 @@ $( document ).ready( function () {
             }
 
             // for debug only
-/*            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
+            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
 
         }
 );
