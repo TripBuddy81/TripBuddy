@@ -3096,7 +3096,7 @@ $( document ).ready( function () {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( config['videosVideodrome'], function ( val ) {
                     let localVideoPreview = document.createElement( 'div' );
-                    localVideoPreview.innerHTML = decodeURI(config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /external\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ));
+                    localVideoPreview.innerHTML = decodeURI( config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /external\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ) );
                     localVideoPreview.setAttribute( 'src', config['videosVideodrome'][val] );
                     localVideoPreview.classList.add( 'localVideoPreview' );
                     document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localVideoPreview );
@@ -3155,7 +3155,7 @@ $( document ).ready( function () {
                             $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
                         }
                     }
-                    getNextVideoStreamUrl();
+                    getNextVideoStreamUrl( true );
                     loadAllLocalFilenames();
                 }
             }
@@ -3198,16 +3198,18 @@ $( document ).ready( function () {
 
             function getNextVideoStreamUrl( newSearch = false, searchUrl = '', retry = true, isSingleVideoPage = false ) {
                 if ( newSearch ) {
-                    videoJSSingleVideoUrls = [];
                     videoJSHubUrls = [];
+                    videoJSSingleVideoUrls = [];
                     activePageCrawls = 0;
                     videoJSLoadAfterFind = true;
                 }
 
-                if ( activePageCrawls <= 1 && videoJSSingleVideoUrls.length < 4 ) {
+                if ( activePageCrawls <= 3 ) {
                     activePageCrawls++;
-                    // Hub crawl
-                    if ( videoJSHubUrls.length <= 0 && !isSingleVideoPage ) {
+
+                    // Hub crawl - is triggert when doing a new search on a default url, a specific model page or a search term
+                    // finds all links videos once and pushes them into videoJSHubUrls. From this array all future video urls are extracted until a new search is triggert
+                    if ( (newSearch || videoJSHubUrls.length <= 0) && !isSingleVideoPage ) {
                         if ( searchUrl == '' && $( '.searchInput' ).val() != '' ) {
                             pageIndex = randomIntFromInterval( 1, 4 );
                             if ( !retry ) {
@@ -3232,18 +3234,19 @@ $( document ).ready( function () {
                                     }
                                 }
                                 activePageCrawls--;
-                                getNextVideoStreamUrl();
+                                getNextVideoStreamUrl( false );
                             },
                             error  : function ( data ) {
                                 activePageCrawls--;
                                 if ( retry ) {
-                                    getNextVideoStreamUrl( false, '', false );
+                                    getNextVideoStreamUrl( true, '', false );
                                 }
                             }
                         } );
                     }
 
                     // Single Video crawl
+                    // If there are videos page links within videoJSHubUrls, we scan these pages and get the actual video url and some more
                     if ( videoJSHubUrls.length >= 1 || isSingleVideoPage ) {
                         if ( isSingleVideoPage ) {
                             singelVideoPageUrl = searchUrl;
@@ -3327,13 +3330,11 @@ $( document ).ready( function () {
                                     getNextVideoStreamUrl();
                                 }
                             } else {
-                                getNextVideoStreamUrl();
+                                getNextVideoStreamUrl( false );
                             }
                             activePageCrawls--;
                         } );
                     }
-                } else {
-                    return;
                 }
             }
 
@@ -3358,9 +3359,8 @@ $( document ).ready( function () {
                     $( '#' + playerId ).parent().attr( 'data-videoPagePosterUrl', singleVideoObject['videoPagePosterUrl'] );
 
                     videoJSPlayer.load();
-                } else {
-                    getNextVideoStreamUrl( true );
                 }
+                getNextVideoStreamUrl( false );
             }
 
             // END Videodrome section
