@@ -3204,11 +3204,11 @@ $( document ).ready( function () {
                     videoJSLoadAfterFind = true;
                 }
 
-                if ( activePageCrawls <= 3 ) {
+                if ( activePageCrawls <= 2 ) {
                     activePageCrawls++;
 
                     // Hub crawl - is triggert when doing a new search on a default url, a specific model page or a search term
-                    // finds all links videos once and pushes them into videoJSHubUrls. From this array all future video urls are extracted until a new search is triggert
+                    // finds all linked videos once and pushes them into videoJSHubUrls. From this array all future video urls are extracted until a new search is triggert
                     if ( (newSearch || videoJSHubUrls.length <= 0) && !isSingleVideoPage ) {
                         if ( searchUrl == '' && $( '.searchInput' ).val() != '' ) {
                             pageIndex = randomIntFromInterval( 1, 4 );
@@ -3246,8 +3246,8 @@ $( document ).ready( function () {
                     }
 
                     // Single Video crawl
-                    // If there are videos page links within videoJSHubUrls, we scan these pages and get the actual video url and some more
-                    if ( videoJSHubUrls.length >= 1 || isSingleVideoPage ) {
+                    // If there are video page links within videoJSHubUrls, we scan these pages and get the actual video url and some more
+                    if ( (videoJSSingleVideoUrls.length <= 4 && videoJSHubUrls.length >= 1) || isSingleVideoPage ) {
                         if ( isSingleVideoPage ) {
                             singelVideoPageUrl = searchUrl;
                         } else {
@@ -3326,7 +3326,7 @@ $( document ).ready( function () {
                                     updateVideodromeFullscreenInfo();
                                 }
 
-                                if ( videoJSSingleVideoUrls.length < 5 && !isSingleVideoPage ) {
+                                if ( videoJSSingleVideoUrls.length <= 4 && !isSingleVideoPage ) {
                                     getNextVideoStreamUrl();
                                 }
                             } else {
