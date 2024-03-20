@@ -2937,7 +2937,7 @@ $( document ).ready( function () {
             } );
 
             $( '.videoJSSearchURL' ).click( function () {
-                getNextVideoStreamUrl( true, $( this ).attr( 'videoJSSearchURL' ) + randomIntFromInterval( 1, 5 ) );
+                getNextVideoStreamUrl( true, $( this ).attr( 'videoJSSearchURL' ) + randomIntFromInterval( 1, 3 ) );
             } );
 
             $( '.refreshVideoDromeVideoFullscreenIcon' ).click( function () {

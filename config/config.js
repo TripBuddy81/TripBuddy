@@ -426,6 +426,10 @@ var config = {
                     'startSeconds': '60'
                 },
                 {
+                    'videoId'     : 'MagELQywiGI',
+                    'tags'        : 'trippy-2D'
+                },
+                {
                     'videoId': 'hXD8itTKdY0',
                     'tags'   : 'nature'
                 },
@@ -490,6 +494,10 @@ var config = {
                 },
                 {
                     'videoId': 's3Tp8ESiiM4',
+                    'tags'   : 'trippy-3D'
+                },
+                {
+                    'videoId': '7GhrD869S_E',
                     'tags'   : 'trippy-3D'
                 },
                 {
