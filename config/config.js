@@ -341,13 +341,22 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
+                    'videoId': '_7RLZAWxZCQ',
+                    'tags'   : 'trippy-3D',
+                    'startSeconds': '13'
+                },
+                {
+                    'videoId': 'LnegTSijfDI',
+                    'tags'   : 'trippy-3D'
+                },
+                {
                     'videoId': '9dv3-TUMcRE',
                     'tags'   : 'trippy-3D'
                 },
                 {
                     'videoId': 'uJ2FJh3SGhU',
                     'tags'   : 'trippy-3D',
-                    'startSeconds': '3'
+
                 },
                 {
                     'videoId': 'SFC3qe3yuOo',
@@ -428,6 +437,31 @@ var config = {
                 {
                     'videoId'     : 'MagELQywiGI',
                     'tags'        : 'trippy-2D'
+                },
+                {
+                    'videoId'     : 'P3TwFFKgs7Y',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '7'
+                },
+                {
+                    'videoId'     : '3by0GRSqORM',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '7'
+                },
+                {
+                    'videoId'     : 'QLQNsoZqlcc',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '7'
+                },
+                {
+                    'videoId'     : 'DEoeY8vZ_zY',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '12'
+                },
+                {
+                    'videoId'     : '6fsaVxXYya8',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '7'
                 },
                 {
                     'videoId': 'hXD8itTKdY0',
@@ -521,6 +555,16 @@ var config = {
                     'videoId': 'g-Tu2-B4-0o',
                     'mute'   : 'mixed',
                     'tags'   : 'meditative nature'
+                },
+                {
+                    'videoId'     : 'zj7kdnWVOxc',
+                    'tags'        : 'nature',
+                    'startSeconds': '60'
+                },
+                {
+                    'videoId'     : 'z4swrq4ucfQ',
+                    'tags'        : 'nature',
+                    'startSeconds': '75'
                 },
                 {
                     'videoId'     : 'YN6wj5NfOnM',
