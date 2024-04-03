@@ -3236,27 +3236,28 @@ $( document ).ready( function () {
                             success: function ( data ) {
                                 switch ( selectedVideoStreamService ) {
                                     case 'NM':
-                                        matches = data.matchAll( /\"(\/watch\/.*?)\"/g );
+                                        // TODO
+                                        // matches = data.matchAll( /\"(\/watch\/.*?)\"/g );
+                                        $( data ).find( '.pcVideoListItem' ).each( function () {
+                                            console.info( $( this ).attr( 'data-video-vkey' ) );
+
+                                            url = 'https://noodlemagazine.com' + match[1];
+
+                                            if ( videoJSHubUrls.indexOf( url ) === -1 ) {
+                                                videoJSHubUrls.push( url );
+                                            }
+                                        } );
                                         break;
                                     case 'PH':
                                     default:
-                                        matches = data.matchAll( /(view_video\.php\?viewkey=.*?)"/g );
-                                }
-                                for ( const match of matches ) {
-                                    if ( match[1] != undefined ) {
-                                        switch ( selectedVideoStreamService ) {
-                                            case 'NM':
-                                                url = 'https://noodlemagazine.com' + match[1];
-                                                break;
-                                            case 'PH':
-                                            default:
-                                                url = 'https://www.pornhub.com/' + match[1];
-                                        }
-
-                                        if ( videoJSHubUrls.indexOf( url ) === -1 ) {
-                                            videoJSHubUrls.push( url );
-                                        }
-                                    }
+                                        $( data ).find('.nf-videos').find( '.pcVideoListItem' ).each( function () {
+                                            if ( $( this ).find( '.rating-container' ).find( '.value' ).html().replace( '%', '' ) >= 80 ) {
+                                                url = 'https://www.pornhub.com/view_video.php?viewkey=' + $( this ).attr( 'data-video-vkey' );
+                                                if ( videoJSHubUrls.indexOf( url ) === -1 ) {
+                                                    videoJSHubUrls.push( url );
+                                                }
+                                            }
+                                        } );
                                 }
                                 activePageCrawls--;
                                 getNextVideoStreamUrl( false );
