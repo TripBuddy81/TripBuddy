@@ -3198,9 +3198,7 @@ $( document ).ready( function () {
                 } );
             }
 
-            // TODO: NOT FUNCTIONAL YET
-            var selectedVideoStreamService = 'PH' // 'PH' or 'NM' or 'SB'
-
+            var selectedVideoStreamService = 'PH'; // TODO not really functional yet
             function getNextVideoStreamUrl( newSearch = false, searchUrl = '', retry = true, isSingleVideoPage = false ) {
                 if ( newSearch ) {
                     videoJSHubUrls = [];
@@ -3223,9 +3221,6 @@ $( document ).ready( function () {
                             searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( $( '.searchInput' ).val() ) + '&page=' + pageIndex;
                         } else if ( searchUrl == '' ) {
                             switch ( selectedVideoStreamService ) {
-                                case 'NM':
-                                    searchUrl = 'https://noodlemagazine.com/video/couple?hd=1&p=1' + randomIntFromInterval( 1, 5 );
-                                    break;
                                 case 'PH':
                                 default:
                                     searchUrl = 'https://www.pornhub.com/video?o=tr&t=t&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 5 );
@@ -3237,17 +3232,6 @@ $( document ).ready( function () {
                             type   : 'GET',
                             success: function ( data ) {
                                 switch ( selectedVideoStreamService ) {
-                                    case 'NM':
-                                        // TODO
-                                        // matches = data.matchAll( /\"(\/watch\/.*?)\"/g );
-                                        $( data ).find( '.pcVideoListItem' ).each( function () {
-                                            url = 'https://noodlemagazine.com' + match[1];
-
-                                            if ( videoJSHubUrls.indexOf( url ) === -1 ) {
-                                                videoJSHubUrls.push( url );
-                                            }
-                                        } );
-                                        break;
                                     case 'PH':
                                     default:
                                         var videosFound = false;
@@ -3300,9 +3284,6 @@ $( document ).ready( function () {
                         }
                         $.get( singelVideoPageUrl, function ( data ) {
                             switch ( selectedVideoStreamService ) {
-                                case 'NM':
-                                    var matchesStreamUrl = data.match( /(https.*?pvvstream\.pro\/videos\/.*?)"/ );
-                                    break;
                                 case 'PH':
                                 default:
                                     var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
