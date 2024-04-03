@@ -493,7 +493,7 @@ var config = {
                 {
                     'videoId'     : 'vmGDO0eU1n0',
                     'tags'        : 'meditative',
-                    'startSeconds': '3600'
+                    'startSeconds': '14700'
                 },
                 {
                     'videoId'     : 'x53TkyA78qI',
