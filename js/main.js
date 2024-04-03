@@ -3250,7 +3250,8 @@ $( document ).ready( function () {
                                         break;
                                     case 'PH':
                                     default:
-                                        var videoFound = false;
+                                        var videosFound = false;
+                                        $( data ).find( 'header' ).remove();
                                         $( data ).find( '.nf-videos' ).find( '.pcVideoListItem' ).each( function () {
                                             if ( $( this ).find( '.rating-container' ).find( '.value' ).html().replace( '%', '' ) >= 80 ) {
                                                 url = 'https://www.pornhub.com/view_video.php?viewkey=' + $( this ).attr( 'data-video-vkey' );
@@ -3258,13 +3259,15 @@ $( document ).ready( function () {
                                                     videoJSHubUrls.push( url );
                                                 }
                                             }
-                                            videoFound = true;
+                                            videosFound = true;
                                         } );
-                                        if ( !videoFound ) {
+                                        if ( !videosFound ) {
                                             $( data ).find( '.pcVideoListItem' ).each( function () {
-                                                url = 'https://www.pornhub.com/view_video.php?viewkey=' + $( this ).attr( 'data-video-vkey' );
-                                                if ( videoJSHubUrls.indexOf( url ) === -1 ) {
-                                                    videoJSHubUrls.push( url );
+                                                if ( $( this ).find( '.rating-container' ).find( '.value' ).html().replace( '%', '' ) >= 80 ) {
+                                                    url = 'https://www.pornhub.com/view_video.php?viewkey=' + $( this ).attr( 'data-video-vkey' );
+                                                    if ( videoJSHubUrls.indexOf( url ) === -1 ) {
+                                                        videoJSHubUrls.push( url );
+                                                    }
                                                 }
                                             } );
                                         }
@@ -3274,7 +3277,9 @@ $( document ).ready( function () {
                             },
                             error  : function ( data ) {
                                 activePageCrawls--;
-                                if ( retry ) {
+                                if ( searchUrl.indexOf( '/videos' ) > 0 ) {
+                                    getNextVideoStreamUrl( true, searchUrl.replace( '/videos', '' ) );
+                                } else if ( retry ) {
                                     getNextVideoStreamUrl( true, '', false );
                                 }
                             }
@@ -3419,8 +3424,8 @@ $( document ).ready( function () {
             }
 
             // for debug only
-            /*            toggleXXXVisible();
-                        $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
+            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
 
         }
 );
