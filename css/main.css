@@ -1956,7 +1956,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
 }
 
-#videodromeFullscreenModelLinks:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover {
+.videoJSStreamModelname:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover {
     color: white;
 }
 

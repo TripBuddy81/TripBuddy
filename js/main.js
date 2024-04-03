@@ -3239,9 +3239,7 @@ $( document ).ready( function () {
                                         // TODO
                                         // matches = data.matchAll( /\"(\/watch\/.*?)\"/g );
                                         $( data ).find( '.pcVideoListItem' ).each( function () {
-                                            console.info( $( this ).attr( 'data-video-vkey' ) );
-
-                                            url = 'https://noodlemagazine.com' + match[1];
+                                           url = 'https://noodlemagazine.com' + match[1];
 
                                             if ( videoJSHubUrls.indexOf( url ) === -1 ) {
                                                 videoJSHubUrls.push( url );
@@ -3250,14 +3248,24 @@ $( document ).ready( function () {
                                         break;
                                     case 'PH':
                                     default:
-                                        $( data ).find('.nf-videos').find( '.pcVideoListItem' ).each( function () {
+                                        var videoFound = false;
+                                        $( data ).find( '.nf-videos' ).find( '.pcVideoListItem' ).each( function () {
                                             if ( $( this ).find( '.rating-container' ).find( '.value' ).html().replace( '%', '' ) >= 80 ) {
                                                 url = 'https://www.pornhub.com/view_video.php?viewkey=' + $( this ).attr( 'data-video-vkey' );
                                                 if ( videoJSHubUrls.indexOf( url ) === -1 ) {
                                                     videoJSHubUrls.push( url );
                                                 }
                                             }
+                                            videoFound = true;
                                         } );
+                                        if ( !videoFound ) {
+                                            $( data ).find( '.pcVideoListItem' ).each( function () {
+                                                url = 'https://www.pornhub.com/view_video.php?viewkey=' + $( this ).attr( 'data-video-vkey' );
+                                                if ( videoJSHubUrls.indexOf( url ) === -1 ) {
+                                                    videoJSHubUrls.push( url );
+                                                }
+                                            } );
+                                        }
                                 }
                                 activePageCrawls--;
                                 getNextVideoStreamUrl( false );
@@ -3313,32 +3321,23 @@ $( document ).ready( function () {
                                     singleVideoObject['videoPagePosterUrl'] = reVideoPosterUrlTitel[1];
                                 }
 
-                                var rePornstarNames = /gtm-event-link pstar-list-btn".*[\s\S]*?href="(.*?)"/g;
-                                var pornstarMatches;
-                                do {
-                                    pornstarMatches = rePornstarNames.exec( data );
-                                    if ( pornstarMatches && pornstarMatches[2] != undefined ) {
-                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + pornstarMatches[1] + pornstarMatches[2] + '/videos,';
+                                $( data ).find( '.pstar-list-btn' ).each( function () {
+                                    if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
+                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
                                     }
-                                } while ( pornstarMatches );
+                                } );
 
-                                var reModelNames = /video-detailed-info[\s\S]*?href\=\"(\/model|pornstar\/)(.*?)"[\s\S]*?videoSubscribeButton/g;
-                                var modelNameMatches;
-                                do {
-                                    modelNameMatches = reModelNames.exec( data );
-                                    if ( modelNameMatches && modelNameMatches[2] != undefined ) {
-                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + modelNameMatches[1] + modelNameMatches[2] + '/videos,';
+                                $( data ).find( '.video-detailed-info' ).find( '.usernameBadgesWrapper' ).find( 'a' ).each( function () {
+                                    if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
+                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
                                     }
-                                } while ( modelNameMatches );
+                                } );
 
-                                var reChannelNames = /<a href="(.*?)".*?gtm-event-link bolded/g;
-                                var channelNameMatches;
-                                do {
-                                    channelNameMatches = reChannelNames.exec( data );
-                                    if ( channelNameMatches ) {
-                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + channelNameMatches[1] + '/videos,';
+                                $( data ).find( '.video-detailed-info' ).find( 'a[data-label=channel]' ).each( function () {
+                                    if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
+                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
                                     }
-                                } while ( channelNameMatches );
+                                } );
 
                                 videoJSSingleVideoUrls.push( singleVideoObject );
 
@@ -3418,8 +3417,8 @@ $( document ).ready( function () {
             }
 
             // for debug only
-/*            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
+            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
 
         }
 );
