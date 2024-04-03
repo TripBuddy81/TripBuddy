@@ -335,21 +335,24 @@ $( document ).ready( function () {
 
             var rightMouseClicked = false;
             $( '#activateHiddenMenue' ).mousedown( function ( event ) {
-                if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] ) {
-                    switch ( event.which ) {
-                        case 1:
+                switch ( event.which ) {
+                    case 1:
+                        if ( rightMouseClicked ) {
                             enableFullscreen();
-                            if ( rightMouseClicked ) {
+                            rightMouseClicked = false;
+                            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] ) {
                                 toggleXXXVisible();
-                                if ( !allVideosLoaded ) {
-                                    loadVideos();
-                                }
                             }
-                            break;
-                        case 3:
-                            rightMouseClicked = true;
-                            break;
-                    }
+                            if ( !allVideosLoaded ) {
+                                loadVideos();
+                            }
+                        } else {
+                            toggleFullScreen( event );
+                        }
+                        break;
+                    case 3:
+                        rightMouseClicked = true;
+                        break;
                 }
             } );
 
@@ -1037,7 +1040,6 @@ $( document ).ready( function () {
             } );
 
             function toggleXXXVisible() {
-                enableFullscreen();
                 xxxVisible = !xxxVisible;
 
                 if ( xxxVisible ) {
@@ -3239,7 +3241,7 @@ $( document ).ready( function () {
                                         // TODO
                                         // matches = data.matchAll( /\"(\/watch\/.*?)\"/g );
                                         $( data ).find( '.pcVideoListItem' ).each( function () {
-                                           url = 'https://noodlemagazine.com' + match[1];
+                                            url = 'https://noodlemagazine.com' + match[1];
 
                                             if ( videoJSHubUrls.indexOf( url ) === -1 ) {
                                                 videoJSHubUrls.push( url );
@@ -3417,8 +3419,8 @@ $( document ).ready( function () {
             }
 
             // for debug only
-            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+            /*            toggleXXXVisible();
+                        $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
 
         }
 );
