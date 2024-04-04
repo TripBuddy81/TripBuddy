@@ -164,6 +164,20 @@ $( document ).ready( function () {
                 } );
             }
 
+            $.ajax( {
+                type   : 'GET',
+                url    : 'https://www.pornhub.com',
+                success: function () {
+                    $( '.showPornZapper' ).show();
+                },
+                error  : function () {
+                }
+            } );
+
+            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['alwaysShowPornZapper'] != undefined && config['localSettingsOverwrite']['alwaysShowPornZapper'] ) {
+                $( '.showPornZapper' ).show();
+            }
+
             // Show VRGames Tag if configured
             if ( config['VRGames'] ) {
                 $( '.VRGamesBtn' ).attr( 'style', 'display:inline-block' );
@@ -2859,7 +2873,7 @@ $( document ).ready( function () {
                 $( '.videoMenuOverlay' ).show();
             } );
 
-            $( '#showPornZapper' ).click( function () {
+            $( '.showPornZapper' ).click( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
 
