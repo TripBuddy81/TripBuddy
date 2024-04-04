@@ -139,7 +139,7 @@ var config = {
                         'id'   : '41pYoxyRHKKuqqSXcUnlHI'
                     },
                     {
-                        'label': 'Vietnam Era',
+                        'label': 'Vietnam War Era',
                         'id'   : '5FG7eCXIzFJVbhar5OpjtM'
                     },
                     {
