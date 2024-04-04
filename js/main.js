@@ -3451,9 +3451,12 @@ $( document ).ready( function () {
                 showScreensaverEnso();
             }
 
-            // for debug only
-            /*            toggleXXXVisible();
-                        $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
+            // For debug only
+            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
+                toggleXXXVisible();
+                $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+            }
+
 
         }
 );
