@@ -101,6 +101,10 @@
                                                                                         src="./assets/private.png">Show
                         private content
                     </li>
+                    <li class="enablePornContent menuItem actionItem fw-bold"><img id="showPornContent"
+                                                                                   src="./assets/porn.png">Enable porn
+                        content
+                    </li>
                     <li class="menuItem actionItem menuvisibleAfterStarted fw-bold" id="disableAllReminders"><img
                             id="disableReminderIcon" src="./assets/x.png">Disable all reminders
                     </li>
@@ -458,6 +462,43 @@
                     <div class="row">
                         <div class="col">
                             <textarea id="notesTextarea" spellcheck="false"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="pornContentInfo" tabindex="-1" aria-labelledby="pornContentInfoLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="notesOverlayLabel">How to enable porn content</h1>
+                    <button type="button" class="btn btn-close btn-primary float-right cursorAction"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+
+                                If you want to enable porn on this page you will need to install a plugin.<br>
+                                Nope, this is not a scam! Let me explain:<br>
+                                This application is running solely in your browser. There is no server side to this.<br>
+                                To load content from another page (e.g. pornhub ;-)), we need to allow the browser to do
+                                so. <br>
+                                (Cross side origin security measures prevent this usualy).<br>
+                                So, if you tell your browser to except content from other domains, this app will detect
+                                this and show you a new menu item to have fun with.<br>
+                                <br><br>
+                                You can do this in your browser settings yourself (not recommended) or install and
+                                activate the following plugin (plugin is not mine!):<br><br>
+                                <a target="_blank" style="color:red"
+                                   href="https://microsoftedge.microsoft.com/addons/detail/allow-cors-accesscontro/bhjepjpgngghppolkjdhckmnfphffdag">download allow
+                                    CORS PLUGIN</a>
+                                <br><br>
+                                Have fun!
                         </div>
                     </div>
                 </div>
@@ -919,7 +960,8 @@
         </div>
 
         <div id="videodromeContainer">
-            <div id="videodromeFullscreenMenuVideoJSContainer" class="videodromeFullscreenMenuContainer videodromeFullscreenMenuVideoJSContainer">
+            <div id="videodromeFullscreenMenuVideoJSContainer"
+                 class="videodromeFullscreenMenuContainer videodromeFullscreenMenuVideoJSContainer">
                 <div class="row">
                     <div class="col">
                         <div class="videodromeFullscreenFilename"></div>
@@ -950,12 +992,14 @@
                     </div>
                 </div>
             </div>
-            <div id="videodromeFullscreenMenuVideoJSContainerExtraOptions" class="videodromeFullscreenMenuContainer videodromeFullscreenMenuVideoJSContainer">
+            <div id="videodromeFullscreenMenuVideoJSContainerExtraOptions"
+                 class="videodromeFullscreenMenuContainer videodromeFullscreenMenuVideoJSContainer">
                 <div id="videodromeFavorites">
                 </div>
             </div>
 
-            <div id="videodromeFullscreenMenuLocalVideoContainer" class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
+            <div id="videodromeFullscreenMenuLocalVideoContainer"
+                 class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
                 <div class="row">
                     <div class="col">
                         <div class="videodromeFullscreenFilename"></div>
@@ -982,7 +1026,8 @@
                     </div>
                 </div>
             </div>
-            <div id="videodromeFullscreenMenuLocalVideoContainerExtraOptions" class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
+            <div id="videodromeFullscreenMenuLocalVideoContainerExtraOptions"
+                 class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
             </div>
 
             <div id="videodromeSwitchLocalStreamContainer">
@@ -990,14 +1035,16 @@
                      src="./assets/refresh.png">
             </div>
 
-            <div class="videodromeStreamVideoContainer videoDromeStreamVideo1" target="videoJSPlayer1" data-modelnames="" data-videoTitel="" data-videoPageUrl="" data-videoPagePosterUrl="">
+            <div class="videodromeStreamVideoContainer videoDromeStreamVideo1" target="videoJSPlayer1"
+                 data-modelnames="" data-videoTitel="" data-videoPageUrl="" data-videoPagePosterUrl="">
                 <video id="videoJSPlayer1" muted="" loop="" class="video-js videoDromeFrame" preload="none"
                        data-setup='{}'>
                     <source id="videoJSPlayerSource1" class="videoDromeStreamSource" type="application/x-mpegURL"
                             src="https://example.com">
                 </video>
             </div>
-            <div class="videodromeStreamVideoContainer videoDromeStreamVideo2" target="videoJSPlayer2" data-modelnames="" data-videoTitel="" data-videoPageUrl="" data-videoPagePosterUrl="">
+            <div class="videodromeStreamVideoContainer videoDromeStreamVideo2" target="videoJSPlayer2"
+                 data-modelnames="" data-videoTitel="" data-videoPageUrl="" data-videoPagePosterUrl="">
                 <video id="videoJSPlayer2" muted="" loop="" class="video-js videoDromeFrame" preload="none"
                        data-setup='{}'>
                     <source id="videoJSPlayerSource2" class="videoDromeStreamSource" type="application/x-mpegURL"

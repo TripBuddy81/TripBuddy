@@ -803,6 +803,12 @@ li, .options, .form-check-label {
     height: 45px;
 }
 
+#showPornContent {
+    margin-left: 9px;
+    margin-right: 16px;
+    height: 45px;
+}
+
 #disableReminderIcon {
     height: 35px;
     margin-left: 13px;

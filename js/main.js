@@ -177,7 +177,9 @@ $( document ).ready( function () {
                         }
                     } else {
                         $( '.showPornZapper' ).show();
+                        initVideodrome();
                     }
+                    $( '.enablePornContent' ).hide();
                 },
                 error  : function () {
                 }
@@ -2893,6 +2895,10 @@ $( document ).ready( function () {
                 videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
             } );
 
+            $( '.enablePornContent' ).click( function () {
+                $( '#pornContentInfo' ).modal( 'show' );
+            } );
+
             $( '#toggleLocalStreamIcon' ).click( function () {
                 $( '.videoDromeVideo2' ).toggle();
                 $( '#refreshVideoDromeVideo2' ).toggle();
@@ -3230,7 +3236,7 @@ $( document ).ready( function () {
                 } );
             }
 
-            var selectedVideoStreamService = 'PH'; // TODO not really functional yet
+            var selectedVideoStreamService = 'PH'; // TODO extend to other hub pages
             function getNextVideoStreamUrl( newSearch = false, searchUrl = '', retry = true, isSingleVideoPage = false ) {
                 if ( newSearch ) {
                     videoJSHubUrls = [];
@@ -3437,8 +3443,8 @@ $( document ).ready( function () {
             }
 
             // for debug only
-            toggleXXXVisible();
-            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
+/*            toggleXXXVisible();
+            $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );*/
 
         }
 );
