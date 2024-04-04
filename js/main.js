@@ -185,6 +185,17 @@ $( document ).ready( function () {
                 }
             } );
 
+            // Save stream favorites to a downloadable text file
+            $( '#saveStreamFavoritesToFile' ).click( function () {
+                var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent( localStorage.getItem( 'videodromeFavorites' ) );
+                var downloadAnchorNode = document.createElement( 'a' );
+                downloadAnchorNode.setAttribute( 'href', dataStr );
+                downloadAnchorNode.setAttribute( 'download', 'videodromeFavorites.txt' );
+                document.body.appendChild( downloadAnchorNode );
+                downloadAnchorNode.click();
+                downloadAnchorNode.remove();
+            } );
+
             // Show VRGames Tag if configured
             if ( config['VRGames'] ) {
                 $( '.VRGamesBtn' ).attr( 'style', 'display:inline-block' );
@@ -1069,12 +1080,12 @@ $( document ).ready( function () {
 
                 if ( xxxVisible ) {
                     $( '.XXX' ).show();
-                    $('.showPornZapper').show();
+                    $( '.showPornZapper' ).show();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
                     initVideodrome();
                 } else {
                     $( '.XXX' ).hide();
-                    $('.showPornZapper').hide();
+                    $( '.showPornZapper' ).hide();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
                     privateVisible = false;
                 }
@@ -3098,12 +3109,6 @@ $( document ).ready( function () {
             $( document ).on( 'click', '#videodromeFullscreenResetSearch', function ( event ) {
                 $( '.searchInput' ).val( '' );
                 getNextVideoStreamUrl( true );
-            } );
-
-            $( document ).on( 'click', '#clearPHFavorites', function ( event ) {
-                localStorage.removeItem( 'videodromeFavorites' );
-                videodromeFavorites = {'items': []};
-                outputPHFavorites();
             } );
 
             $( document ).on( 'mouseup', '.videodromeFullscreenFilename', function ( event ) {
