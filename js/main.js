@@ -164,19 +164,24 @@ $( document ).ready( function () {
                 } );
             }
 
+            // The pornzapper is only available if CORS has been disabled in client browser and the client therefore can load content from pornhub
             $.ajax( {
                 type   : 'GET',
                 url    : 'https://www.pornhub.com',
                 success: function () {
-                    $( '.showPornZapper' ).show();
+                    if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showPornZapperOnlyInPrivateMode'] != undefined && config['localSettingsOverwrite']['showPornZapperOnlyInPrivateMode'] ) {
+                        if ( xxxVisible ) {
+                            $( '.showPornZapper' ).show();
+                        } else {
+                            $( '.showPornZapper' ).hide();
+                        }
+                    } else {
+                        $( '.showPornZapper' ).show();
+                    }
                 },
                 error  : function () {
                 }
             } );
-
-            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['alwaysShowPornZapper'] != undefined && config['localSettingsOverwrite']['alwaysShowPornZapper'] ) {
-                $( '.showPornZapper' ).show();
-            }
 
             // Show VRGames Tag if configured
             if ( config['VRGames'] ) {
