@@ -2084,3 +2084,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
     overflow-x: hidden;
 }
+
+#pluginExplanation1 {
+    width: 100%;
+}
