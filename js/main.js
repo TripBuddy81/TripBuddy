@@ -1069,10 +1069,12 @@ $( document ).ready( function () {
 
                 if ( xxxVisible ) {
                     $( '.XXX' ).show();
+                    $('.showPornZapper').show();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
                     initVideodrome();
                 } else {
                     $( '.XXX' ).hide();
+                    $('.showPornZapper').hide();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
                     privateVisible = false;
                 }
