@@ -271,10 +271,14 @@ $( document ).ready( function () {
                     } );
                     return false;
                 } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) || $( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) ) {
-                    $( e.target ).removeAttr( 'controls' );
-                    $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                    $( '.videodromeFullscreenMenuContainer' ).hide();
-                    $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                    if ( config['videosVideodrome'] != undefined ) {
+                        $( e.target ).removeAttr( 'controls' );
+                        $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                        $( '.videodromeFullscreenMenuContainer' ).hide();
+                        $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                    } else {
+                        stopAllActions();
+                    }
                 } else { // block right click
                     return false;
                 }
@@ -2855,10 +2859,17 @@ $( document ).ready( function () {
                 $( '.videoMenuOverlay' ).show();
             } );
 
-            $( '#showVideodrome' ).click( function () {
+            $( '#showPornZapper' ).click( function () {
                 enableFullscreen();
                 blockScreenSaver = true;
+
                 $( '#videodrome' ).show();
+                if ( $( '#videoJSPlayer1_html5_api' ).is( ':visible' ) ) {
+                    $( '#videoJSPlayer1_html5_api' ).trigger( 'click' );
+                } else if ( $( '#videoJSPlayer2_html5_api' ).is( ':visible' ) ) {
+                    $( '#videoJSPlayer2_html5_api' ).trigger( 'click' );
+                }
+
                 forcePlaybackVideodrome();
                 videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
             } );
@@ -2875,10 +2886,14 @@ $( document ).ready( function () {
                 e.preventDefault();
                 e.stopPropagation();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
-                    $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).removeAttr( 'controls', 'controls' );
-                    $( '.video-js' ).removeClass( 'videodromeFullscreen' )
-                    $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
-                    $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                    if ( config['videosVideodrome'] != undefined ) {
+                        $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).removeAttr( 'controls', 'controls' );
+                        $( '.video-js' ).removeClass( 'videodromeFullscreen' )
+                        $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
+                        $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                    } else {
+                        stopAllActions();
+                    }
                 } else {
                     $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).prop( 'controls', 'controls' );
                     $( '.video-js' ).addClass( 'videodromeFullscreen' )
@@ -3143,9 +3158,7 @@ $( document ).ready( function () {
             }
 
             function initVideodrome() {
-                if ( config['videosVideodrome'] == undefined || config['videosVideodrome'].length == 0 ) {
-                    $( '#showVideodrome' ).hide();
-                } else {
+                if ( config['videosVideodrome'] != undefined ) {
                     var videosToShow = [];
                     while ( videosToShow.length < 4 ) {
                         randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
@@ -3157,9 +3170,9 @@ $( document ).ready( function () {
                             $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
                         }
                     }
-                    getNextVideoStreamUrl( true );
                     loadAllLocalFilenames();
                 }
+                getNextVideoStreamUrl( true );
             }
 
             function forcePlaybackVideodrome() {
