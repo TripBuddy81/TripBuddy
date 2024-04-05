@@ -2965,7 +2965,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( document ).on( 'wheel', '.videodromeFullscreenMenuContainer', function ( event ) {
+            $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer', function ( event ) {
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 && $( '.videodromeFullscreen' ).find( '.localVideo' )[0] != undefined ) { // going down
                     $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime = $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime - 30;
@@ -3069,7 +3069,7 @@ $( document ).ready( function () {
                 updateVideodromeFullscreenInfo();
             } );
 
-            $( document ).on( 'wheel', '.videodromeStreamVideoContainer,.videodromeFullscreenMenuVideoJSContainer', function ( event ) {
+            $( document ).on( 'wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuVideoJSContainer', function ( event ) {
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 ) { // going down
                     videoJSPlayer.currentTime( videoJSPlayer.currentTime() - 30 );
