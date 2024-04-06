@@ -430,6 +430,11 @@ var config = {
                     'startSeconds': '60'
                 },
                 {
+                    'videoId'     : 'ckti55aiSYY',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '90'
+                },
+                {
                     'videoId'     : 'MagELQywiGI',
                     'tags'        : 'trippy-2D'
                 },
