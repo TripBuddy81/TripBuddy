@@ -171,12 +171,12 @@ $( document ).ready( function () {
                 success: function () {
                     if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showPornZapperOnlyInPrivateMode'] != undefined && config['localSettingsOverwrite']['showPornZapperOnlyInPrivateMode'] ) {
                         if ( xxxVisible ) {
-                            $( '.showPornZapper' ).show();
+                            $( '#showPornZapper' ).show();
                         } else {
-                            $( '.showPornZapper' ).hide();
+                            $( '#showPornZapper' ).hide();
                         }
                     } else {
-                        $( '.showPornZapper' ).show();
+                        $( '#showPornZapper' ).show();
                         initVideodrome();
                     }
                     $( '.enablePornContent' ).hide();
@@ -692,12 +692,17 @@ $( document ).ready( function () {
                     $( '#mainSearchInput' ).focus();
                 }, 500 );
             } );
-            $( '.showPornZapper' ).click( function () {
+            $( '#showPornZapper' ).click( function () {
                 $( '#videos' ).hide();
                 $( '#images' ).hide();
                 $( '#shrine' ).show();
                 $( '#games' ).hide();
                 $( '#search' ).hide();
+
+                $( '.mainSectionActive' ).each( function () {
+                    $( this ).removeClass( 'mainSectionActive' );
+                } );
+                $( '#shrine' ).addClass( 'mainSectionActive' );
 
                 enableFullscreen();
                 blockScreenSaver = true;
@@ -1102,12 +1107,12 @@ $( document ).ready( function () {
 
                 if ( xxxVisible ) {
                     $( '.XXX' ).show();
-                    $( '.showPornZapper' ).show();
+                    $( '#showPornZapper' ).show();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
                     initVideodrome();
                 } else {
                     $( '.XXX' ).hide();
-                    $( '.showPornZapper' ).hide();
+                    $( '#showPornZapper' ).hide();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
                     privateVisible = false;
                 }
@@ -1116,7 +1121,7 @@ $( document ).ready( function () {
                     $( '.videoContainer' ).each( function () {
                         $( this ).hide();
                     } );
-                } else if ( videoTagList != '.XXX' ) {
+                } else {
                     $( '.videoFilterBtn.videoFilterActive' ).each( function () {
                         $( this ).trigger( 'click' );
                     } );
