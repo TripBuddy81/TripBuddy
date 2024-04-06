@@ -2898,10 +2898,12 @@ $( document ).ready( function () {
                 blockScreenSaver = true;
 
                 $( '#videodrome' ).show();
-                if ( $( '#videoJSPlayer1_html5_api' ).is( ':visible' ) ) {
-                    $( '#videoJSPlayer1_html5_api' ).trigger( 'click' );
-                } else if ( $( '#videoJSPlayer2_html5_api' ).is( ':visible' ) ) {
-                    $( '#videoJSPlayer2_html5_api' ).trigger( 'click' );
+                if ( config['videosVideodrome'] == undefined ) {
+                    if ( $( '#videoJSPlayer1_html5_api' ).is( ':visible' ) ) {
+                        $( '#videoJSPlayer1_html5_api' ).trigger( 'click' );
+                    } else if ( $( '#videoJSPlayer2_html5_api' ).is( ':visible' ) ) {
+                        $( '#videoJSPlayer2_html5_api' ).trigger( 'click' );
+                    }
                 }
 
                 forcePlaybackVideodrome();
