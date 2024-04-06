@@ -1167,7 +1167,7 @@ $( document ).ready( function () {
                 $.each( videosLocalOriginal, function ( index, val ) {
                     config['videosVideodrome'].push( val );
                 } );
-                loadAllLocalFilenames();
+                displayAllActiveLocalFilenames();
             } );
 
             $( '.hideGeneralVideos' ).click( function ( e ) {
@@ -1175,7 +1175,7 @@ $( document ).ready( function () {
                 $.each( videosLocalOriginal, function ( index, val ) {
                     config['videosVideodrome'].splice( $.inArray( val, config['videosVideodrome'] ), 1 );
                 } );
-                loadAllLocalFilenames();
+                displayAllActiveLocalFilenames();
             } );
 
             $( '.showPrivateContent' ).click( function ( e ) {
@@ -1190,7 +1190,7 @@ $( document ).ready( function () {
                         }
                     } );
                 }
-                loadAllLocalFilenames();
+                displayAllActiveLocalFilenames();
             } );
 
             $( '.hidePrivateContent' ).click( function ( e ) {
@@ -1203,7 +1203,7 @@ $( document ).ready( function () {
                     }
                 } );
                 privateLoaded = false;
-                loadAllLocalFilenames();
+                displayAllActiveLocalFilenames();
             } );
 
             $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
@@ -2896,6 +2896,7 @@ $( document ).ready( function () {
                 $( '#refreshVideoDromeVideo2' ).toggle();
                 $( '.videoDromeStreamVideo1' ).toggle();
                 $( '#videodromeStreamRefreshVideo' ).toggle();
+                $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
             } );
 
             // VideoJS Window
@@ -3202,12 +3203,12 @@ $( document ).ready( function () {
                             } );
                         }
 
-                        loadAllLocalFilenames();
+                        displayAllActiveLocalFilenames();
                     }
                 } );
             }
 
-            function loadAllLocalFilenames() {
+            function displayAllActiveLocalFilenames() {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( config['videosVideodrome'], function ( val ) {
                     let localVideoPreview = document.createElement( 'div' );
@@ -3271,7 +3272,7 @@ $( document ).ready( function () {
                             $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
                         }
                     }
-                    loadAllLocalFilenames();
+                    displayAllActiveLocalFilenames();
                 } else {
                     $( '#videodromeSwitchLocalStreamContainer' ).hide();
                 }
