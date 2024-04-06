@@ -692,6 +692,28 @@ $( document ).ready( function () {
                     $( '#mainSearchInput' ).focus();
                 }, 500 );
             } );
+            $( '.showPornZapper' ).click( function () {
+                $( '#videos' ).hide();
+                $( '#images' ).hide();
+                $( '#shrine' ).show();
+                $( '#games' ).hide();
+                $( '#search' ).hide();
+
+                enableFullscreen();
+                blockScreenSaver = true;
+
+                $( '#videodrome' ).show();
+                if ( config['videosVideodrome'] == undefined ) {
+                    if ( $( '#videoJSPlayer1_html5_api' ).is( ':visible' ) ) {
+                        $( '#videoJSPlayer1_html5_api' ).trigger( 'click' );
+                    } else if ( $( '#videoJSPlayer2_html5_api' ).is( ':visible' ) ) {
+                        $( '#videoJSPlayer2_html5_api' ).trigger( 'click' );
+                    }
+                }
+
+                forcePlaybackVideodrome();
+                videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
+            } );
 
             $( '.mainSectionBtn' ).click( function () {
                 $( '.mainSectionActive' ).each( function () {
@@ -2891,23 +2913,6 @@ $( document ).ready( function () {
                 }, 1000 );
                 $( '.videodromeVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                 $( '.videoMenuOverlay' ).show();
-            } );
-
-            $( '.showPornZapper' ).click( function () {
-                enableFullscreen();
-                blockScreenSaver = true;
-
-                $( '#videodrome' ).show();
-                if ( config['videosVideodrome'] == undefined ) {
-                    if ( $( '#videoJSPlayer1_html5_api' ).is( ':visible' ) ) {
-                        $( '#videoJSPlayer1_html5_api' ).trigger( 'click' );
-                    } else if ( $( '#videoJSPlayer2_html5_api' ).is( ':visible' ) ) {
-                        $( '#videoJSPlayer2_html5_api' ).trigger( 'click' );
-                    }
-                }
-
-                forcePlaybackVideodrome();
-                videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
             } );
 
             $( '.enablePornContent' ).click( function () {

@@ -1591,12 +1591,6 @@ video::-webkit-media-controls-fullscreen-button {
     line-height: 3.5;
 }
 
-.xxxToolbar {
-    width: -webkit-fill-available;
-    height: auto;
-    display: inline-block;
-}
-
 .keyboard-action-button, .keyboard-key {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
@@ -1858,6 +1852,22 @@ video::-webkit-media-controls-fullscreen-button {
     height: 50vH;
     z-index: 15;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
+}
+
+#videodromeSearchToolbar {
+    position: fixed;
+    width: 100vW;
+    height: auto;
+    bottom: 0vH;
+    left: 0vW;
+    opacity: 0;
+    z-index: 25;
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    padding: 10px 15px;
+}
+
+#videodromeSearchToolbar:hover {
+    opacity: 1;
 }
 
 .videodromeRefreshContainer {
