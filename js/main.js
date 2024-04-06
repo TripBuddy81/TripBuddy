@@ -56,7 +56,6 @@ $( document ).ready( function () {
             window.veryFirstThoughtDisplayed = false;
             window.xxxVisible = false;
             window.privateVisible = false;
-            window.privateLoaded = false;
             window.externalDirs = {};
             window.slideshowJustStarted = false;
             window.lastActiveBackgroundGradientKeyFrame = 1;
@@ -1106,6 +1105,13 @@ $( document ).ready( function () {
                     $( '#showPornZapper' ).hide();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
                     privateVisible = false;
+
+                    config['videosVideodrome'] = $.merge( [], videosLocalOriginal );
+                    $( '.showGeneralVideos' ).hide();
+                    $( '.hideGeneralVideos' ).show();
+                    $( '.hidePrivateContent' ).hide();
+                    $( '.showPrivateContent' ).show();
+                    displayExternalDirs();
                 }
 
                 if ( videoTagList == '' ) {
@@ -1182,14 +1188,12 @@ $( document ).ready( function () {
                 privateVisible = true;
                 checkPrivateVisible();
 
-                if ( !privateLoaded ) {
-                    privateLoaded = true;
-                    $.each( config['videosLocal'], function ( index, val ) {
-                        if ( val['tags'] == 'private' ) {
-                            config['videosVideodrome'].push( val['videoLink'] );
-                        }
-                    } );
-                }
+                $.each( config['videosLocal'], function ( index, val ) {
+                    if ( val['tags'] == 'private' ) {
+                        config['videosVideodrome'].push( val['videoLink'] );
+                    }
+                } );
+
                 displayAllActiveLocalFilenames();
             } );
 
@@ -1202,7 +1206,7 @@ $( document ).ready( function () {
                         config['videosVideodrome'].splice( $.inArray( val['videoLink'], config['videosVideodrome'] ), 1 );
                     }
                 } );
-                privateLoaded = false;
+
                 displayAllActiveLocalFilenames();
             } );
 
