@@ -932,17 +932,33 @@
                  src="./assets/refresh.png">
         </div>
 
-        <div id="videodromeSearchToolbar">
-            <img class="searchEdit cursorAction" src="./assets/edit.png">
-            <input type="text" class="searchInput me-2" id="searchInput" name="searchInput" value=""
-                   placeholder="search text" data-trigger-keyboard="true" autocomplete="off"
-                   spellcheck="false">
-            <label class="searchLabel form-check-label me-2" for="searchInput">=></label>
-
-            {{#searchEngines}}
-            <div class="searchLink {{tag}}" searchLink="{{searchLink}}" href={{link}} target=_blank>{{name}}
+        <div id="videodromeBottomToolbar">
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="videodromeLocalVideoMenuItem cursorAction showPrivateContent">
+                        private ✘
+                    </div>
+                    <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent">
+                        private ✓
+                    </div>
+                    <div class="externalVideoDirSelection">
+                    </div>
+                </div>
             </div>
-            {{/searchEngines}}
+            <div class="row">
+                <div class="col">
+                    <img class="searchEdit cursorAction" src="./assets/edit.png">
+                    <input type="text" class="searchInput me-2" id="searchInput" name="searchInput" value=""
+                           placeholder="search text" data-trigger-keyboard="true" autocomplete="off"
+                           spellcheck="false">
+                    <label class="searchLabel form-check-label me-2" for="searchInput">=></label>
+
+                    {{#searchEngines}}
+                    <div class="searchLink {{tag}}" searchLink="{{searchLink}}" href={{link}} target=_blank>{{name}}
+                    </div>
+                    {{/searchEngines}}
+                </div>
+            </div>
         </div>
 
         <div id="videodromeContainer">
@@ -996,25 +1012,18 @@
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-2 me-3 refreshVideoDromeVideoFullscreenContainer">
+                    <div class="col-2 me-5 refreshVideoDromeVideoFullscreenContainer">
                         <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
                              src="./assets/refresh.png">
                     </div>
-                    <div class="col-2">
+                    <div class="col-10">
                         <div class="videodromeLocalVideoMenuItem cursorAction showPrivateContent">
                             private ✘
                         </div>
                         <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent">
                             private ✓
                         </div>
-                    </div>
-                    <div class="col-8">
-                        <div id="externalVideoDirSelection">
-
-                        </div>
-
-                        <div class="videodromeLocalVideoMenuItem cursorAction loadExternalVideos">
-                            + external Videos
+                        <div class="externalVideoDirSelection">
                         </div>
                     </div>
                 </div>

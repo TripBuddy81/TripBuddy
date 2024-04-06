@@ -57,6 +57,7 @@ $( document ).ready( function () {
             window.xxxVisible = false;
             window.privateVisible = false;
             window.privateLoaded = false;
+            window.externalDirs = {};
             window.slideshowJustStarted = false;
             window.lastActiveBackgroundGradientKeyFrame = 1;
             window.textShrinkFrameSeed = 1;
@@ -1187,53 +1188,6 @@ $( document ).ready( function () {
                 privateLoaded = false;
                 loadAllLocalFilenames();
             } );
-
-            $( '.loadExternalVideos' ).click( function ( e ) {
-                $.each( config['videosLocal'], function ( index, val ) {
-                    var matches = val['videoLink'].match( /external\/(.*)\.mp4.*/ );
-                    if ( matches != undefined && matches[1] != undefined ) {
-                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
-                    }
-                } );
-
-                $.each( config['videosVideodrome'], function ( val ) {
-                    var matches = config['videosVideodrome'][val].match( /external\/(.*)\.mp4.*/ );
-                    if ( matches != undefined && matches[1] != undefined ) {
-                        alreadyLoadedExternalFiles.push( encodeURIComponent( matches[1] ) );
-                    }
-                } );
-
-                processExternalFiles( 'external/' );
-                $( '.loadExternalVideos' ).remove();
-            } );
-
-            function processExternalFiles( url ) {
-                externalFiles = [];
-                $.ajax( {
-                    url    : url,
-                    success: function ( data ) {
-                        $( data ).find( 'td > a' ).each( function () {
-                            tempFilename = $( this ).attr( 'href' );
-                            if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
-                                processExternalFiles( url + tempFilename );
-                            } else if ( tempFilename != '/' ) {
-                                var matches = tempFilename.match( /(.*)\.mp4.*/ );
-                                if ( matches != undefined && matches[1] != undefined ) {
-                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
-                                        externalFiles.push( url + tempFilename );
-                                    }
-                                }
-                            }
-                        } );
-
-                        externalFiles.forEach( function ( url ) {
-                            config['videosVideodrome'].push( url + '#t=90' );
-                        } );
-
-                        loadAllLocalFilenames();
-                    }
-                } );
-            }
 
             $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
                 if ( !isFullScreen && !e.target.classList.contains( 'externalVideoPreview' ) ) {
@@ -3149,6 +3103,89 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreen' ).find( '.localVideo' )[0].load();
             } );
 
+            $( document ).on( 'click', '.externalDir', function ( event ) {
+                $( 'div[dirIdentifier="' + $( this ).attr( 'dirIdentifier' ) + '"]' ).toggle();
+                if ( $( this ).hasClass( 'externalDirInactive' ) ) {
+                    processExternalFiles( $( this ).attr( 'externalDirUrl' ), 'add' );
+                } else {
+                    processExternalFiles( $( this ).attr( 'externalDirUrl' ), 'remove' );
+                }
+            } );
+
+            function getAllExternalDirs( url ) {
+                $.ajax( {
+                    url    : url,
+                    success: function ( data ) {
+                        $( data ).find( 'td > a' ).each( function () {
+                            if ( $( this ).html() != 'Parent Directory' ) {
+                                tempFilename = $( this ).attr( 'href' );
+                                if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' && tempFilename != '/external/' ) {
+                                    externalDirs[url + tempFilename] = decodeURIComponent( tempFilename.replace( '/', '' ) );
+                                    getAllExternalDirs( url + tempFilename );
+                                }
+                            }
+                        } );
+                        displayExternalDirs();
+                    }
+                } );
+            }
+
+            function displayExternalDirs() {
+                $( '.externalVideoDirSelection' ).empty();
+                $.each( externalDirs, function ( url, displayName ) {
+                    let nodeInactive = document.createElement( 'div' );
+                    nodeInactive.classList.add( 'externalDir' );
+                    nodeInactive.classList.add( 'externalDirInactive' );
+                    nodeInactive.classList.add( 'videodromeLocalVideoMenuItem' );
+                    nodeInactive.setAttribute( 'dirIdentifier', displayName.replace( ' ', '_' ) );
+                    nodeInactive.innerHTML = displayName + '✘';
+                    nodeInactive.setAttribute( 'externalDirUrl', url );
+                    $( '.externalVideoDirSelection' ).append( nodeInactive );
+
+                    let nodeActive = document.createElement( 'div' );
+                    nodeActive.classList.add( 'externalDir' );
+                    nodeActive.classList.add( 'externalDirActive' );
+                    nodeActive.classList.add( 'videodromeLocalVideoMenuItem' );
+                    nodeActive.setAttribute( 'dirIdentifier', displayName.replace( ' ', '_' ) );
+                    nodeActive.innerHTML = displayName + '✓';
+                    nodeActive.setAttribute( 'externalDirUrl', url );
+                    $( '.externalVideoDirSelection' ).append( nodeActive );
+                } );
+            }
+
+            function processExternalFiles( url, mode ) {
+                externalFiles = [];
+                $.ajax( {
+                    url    : url,
+                    success: function ( data ) {
+                        $( data ).find( 'td > a' ).each( function () {
+                            tempFilename = $( this ).attr( 'href' );
+                            if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
+                            } else if ( tempFilename != '/' ) {
+                                var matches = tempFilename.match( /(.*)\.mp4.*/ );
+                                if ( matches != undefined && matches[1] != undefined ) {
+                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
+                                        externalFiles.push( url + tempFilename );
+                                    }
+                                }
+                            }
+                        } );
+
+                        if ( mode == 'add' ) {
+                            externalFiles.forEach( function ( url ) {
+                                config['videosVideodrome'].push( url + '#t=90' );
+                            } );
+                        } else {
+                            externalFiles.forEach( function ( url ) {
+                                config['videosVideodrome'].splice( $.inArray( url + '#t=90', config['videosVideodrome'] ), 1 );
+                            } );
+                        }
+
+                        loadAllLocalFilenames();
+                    }
+                } );
+            }
+
             function loadAllLocalFilenames() {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( config['videosVideodrome'], function ( val ) {
@@ -3199,6 +3236,7 @@ $( document ).ready( function () {
 
             function initVideodrome() {
                 if ( config['videosVideodrome'] != undefined ) {
+                    getAllExternalDirs( 'external/' );
                     var videosToShow = [];
                     while ( videosToShow.length < 4 ) {
                         randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
