@@ -2091,6 +2091,6 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100%;
 }
 
-.externalDirActive {
+.externalDirActive, .showGeneralVideos {
     display: none;
 }
