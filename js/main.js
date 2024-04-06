@@ -693,21 +693,10 @@ $( document ).ready( function () {
                 }, 500 );
             } );
             $( '#showPornZapper' ).click( function () {
-                $( '#videos' ).hide();
-                $( '#images' ).hide();
-                $( '#shrine' ).show();
-                $( '#games' ).hide();
-                $( '#search' ).hide();
-
-                $( '.mainSectionActive' ).each( function () {
-                    $( this ).removeClass( 'mainSectionActive' );
-                } );
-                $( '#shrine' ).addClass( 'mainSectionActive' );
-
-                enableFullscreen();
+                $( '#showVideoSection' ).trigger('click');
                 blockScreenSaver = true;
-
                 $( '#videodrome' ).show();
+
                 if ( config['videosVideodrome'] == undefined ) {
                     if ( $( '#videoJSPlayer1_html5_api' ).is( ':visible' ) ) {
                         $( '#videoJSPlayer1_html5_api' ).trigger( 'click' );
