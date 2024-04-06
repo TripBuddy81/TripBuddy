@@ -819,14 +819,6 @@ li, .options, .form-check-label {
     margin-right: 14px;
 }
 
-.loadExternalVideosIcon {
-    height: 52px;
-    position: relative;
-    top: -1px;
-    left: 2px;
-    margin-right: 21px;
-}
-
 #sleep {
     height: 48px;
     display: none;
