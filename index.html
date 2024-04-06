@@ -88,6 +88,10 @@
                                                                                         src="./assets/private.png">Show
                         private content
                     </li>
+                    <li class="hidePrivateContent menuItem actionItem privatefilter fw-bold"><img id="showPrivateContentIcon2"
+                                                                                        src="./assets/hide.png">Hide
+                        private content
+                    </li>
                     <li class="enablePornContent menuItem actionItem fw-bold"><img id="showPornContent"
                                                                                    src="./assets/porn.png">Enable porn
                         content
@@ -996,15 +1000,18 @@
                         <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
                              src="./assets/refresh.png">
                     </div>
-                    <div class="col-10">
+                    <div class="col-2">
                         <div class="videodromeLocalVideoMenuItem cursorAction showPrivateContent">
-                            Load private content
+                            private ✘
                         </div>
-                        <div class="videodromeLocalVideoMenuItem cursorAction loadExternalVideos">
-                            Load external Videos
+                        <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent">
+                            private ✓
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-8">
+                        <div class="videodromeLocalVideoMenuItem cursorAction loadExternalVideos">
+                            + external Videos
+                        </div>
                     </div>
                 </div>
             </div>

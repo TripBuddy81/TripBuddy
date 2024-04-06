@@ -693,7 +693,7 @@ $( document ).ready( function () {
                 }, 500 );
             } );
             $( '#showPornZapper' ).click( function () {
-                $( '#showVideoSection' ).trigger('click');
+                $( '#showVideoSection' ).trigger( 'click' );
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
 
@@ -1172,6 +1172,19 @@ $( document ).ready( function () {
                         }
                     } );
                 }
+                loadAllLocalFilenames();
+            } );
+
+            $( '.hidePrivateContent' ).click( function ( e ) {
+                privateVisible = false;
+                checkPrivateVisible();
+
+                $.each( config['videosLocal'], function ( index, val ) {
+                    if ( val['tags'] == 'private' ) {
+                        config['videosVideodrome'].splice( $.inArray( val['videoLink'], config['videosVideodrome'] ), 1 );
+                    }
+                } );
+                privateLoaded = false;
                 loadAllLocalFilenames();
             } );
 
