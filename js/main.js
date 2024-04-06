@@ -1597,7 +1597,7 @@ $( document ).ready( function () {
                                 !$( '#menuClose' ).prop( 'checked' ) ) {
                             screensaverActive = true;
                             showScreensaverEnso();
-                            $( 'body,#menu,.videoSource,.XXXfilter,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                            $( 'body,#menu,.videoSource,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
                                 $( this ).addClass( 'cursorNone' );
                             } );
                             $( '#spotifyPlaylistsMenu' ).addClass( 'invisible' );
@@ -1622,7 +1622,7 @@ $( document ).ready( function () {
                 if ( screensaverActive ) {
                     screensaverActive = false;
                     hideScreensaverEnso();
-                    $( 'body,#menu,.XXXfilter,.videoSource,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                    $( 'body,#menu,.videoSource,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
                         $( this ).removeClass( 'cursorNone' );
                     } );
                     $( '#spotifyPlaylistsMenu' ).removeClass( 'invisible' );
@@ -3461,9 +3461,6 @@ $( document ).ready( function () {
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
-                $( '.XXX.XXXfilter.videoFilterBtn' ).trigger( 'click' );
             }
-
-
         }
 );

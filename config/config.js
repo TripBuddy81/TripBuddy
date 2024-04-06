@@ -879,12 +879,6 @@ var config = {
                     'label'  : 'Carl Jung\'s life lessons men learn too late in life'
                 },
                 {
-                    'videoId': 'Jbc0YVgI5Bo',
-                    'mute'   : false,
-                    'tags'   : 'wisdom',
-                    'label'  : '365 life lessons so you don\'t screw your life up like I did'
-                },
-                {
                     'videoId': 'DRc430cTkQk',
                     'mute'   : false,
                     'tags'   : 'wisdom',
