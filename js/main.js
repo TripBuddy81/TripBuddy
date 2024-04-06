@@ -1348,12 +1348,6 @@ $( document ).ready( function () {
                     }
                 } );
 
-                if ( videoTagList == '' ) {
-                    $( '.videoContainer' ).each( function () {
-                        $( this ).show();
-                    } );
-                }
-
                 var refreshLocalVideos = false;
                 $( videoTagList ).each( function () {
                     if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' && $( this ).find( '.videoSource' ).attr( 'src' ).includes( 'NOLOAD' ) ) {
