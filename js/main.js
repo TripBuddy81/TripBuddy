@@ -628,6 +628,10 @@ $( document ).ready( function () {
                 $( '#search' ).hide();
 
                 if ( !imageSectionShown ) {
+                    $( '.fullscreenImage' ).each( function () {
+                        $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+                    } );
+
                     $( '.imageFilterBtn' ).each( function () {
                         $( this ).trigger( 'click' );
                         return false;
