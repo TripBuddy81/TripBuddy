@@ -273,7 +273,7 @@ $( document ).ready( function () {
 
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
 
-                // Stop current action or shows playlist selection if nothing else going on right now
+                // Stop current action or show playlist selection if nothing else is going on right now
                 if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
@@ -312,13 +312,13 @@ $( document ).ready( function () {
                     } else {
                         stopAllActions();
                     }
-                } else { // block right click
+                } else { // block default right click behaviour
                     return false;
                 }
             } );
 
             // Init airmouse and reassign some buttons
-            // Right button for context menu is e.which == 0 and 'contextmenu' -> is handled in contextmenu section
+            // Right button for context menu is e.which == 0 -> is handled in contextmenu section
             document.onkeydown = function ( e ) {
                 switch ( e.which ) {
                     case 37: // left
@@ -370,30 +370,7 @@ $( document ).ready( function () {
                 $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_alt.png', '.png' ) );
             } );
 
-            var rightMouseClicked = false;
-            $( '#activateHiddenMenue' ).mousedown( function ( event ) {
-                switch ( event.which ) {
-                    case 1:
-                        if ( rightMouseClicked ) {
-                            enableFullscreen();
-                            rightMouseClicked = false;
-                            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] ) {
-                                toggleXXXVisible();
-                            }
-                            if ( !allVideosLoaded ) {
-                                loadVideos();
-                            }
-                        } else {
-                            toggleFullScreen( event );
-                        }
-                        break;
-                    case 3:
-                        rightMouseClicked = true;
-                        break;
-                }
-            } );
-
-            // Add four wisdom videos to queue at random and play
+            // Add four wisdom videos to queue at random and start playing
             $( '#playRandomWisdom' ).click( function ( e ) {
                 playingRandomWisdom = true;
                 $( '#showSearchSection' ).trigger( 'click' );
@@ -1088,6 +1065,31 @@ $( document ).ready( function () {
 
             // ***********************************
             // #0.4 - Hidden Section config
+
+            // Enable hidden section - pretty much for very private stuff only. Needs to be explicitly enabled via config first.
+            var rightMouseClicked = false;
+            $( '#activateHiddenMenue' ).mousedown( function ( event ) {
+                switch ( event.which ) {
+                    case 1:
+                        if ( rightMouseClicked ) {
+                            enableFullscreen();
+                            rightMouseClicked = false;
+                            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] ) {
+                                toggleXXXVisible();
+                            }
+                            if ( !allVideosLoaded ) {
+                                loadVideos();
+                            }
+                        } else {
+                            toggleFullScreen( event );
+                        }
+                        break;
+                    case 3:
+                        rightMouseClicked = true;
+                        break;
+                }
+            } );
+
             $( '#activateHiddenMenue' ).mouseout( function ( event ) {
                 rightMouseClicked = false;
             } );
@@ -1167,54 +1169,6 @@ $( document ).ready( function () {
                     }
                 }
             }
-
-            $( '.showGeneralVideos' ).click( function ( e ) {
-                $( '.showGeneralVideos,.hideGeneralVideos' ).toggle();
-                $.each( videosLocalOriginal, function ( index, val ) {
-                    config['videosVideodrome'].push( val );
-                } );
-                displayAllActiveLocalFilenames();
-            } );
-
-            $( '.hideGeneralVideos' ).click( function ( e ) {
-                $( '.showGeneralVideos,.hideGeneralVideos' ).toggle();
-                $.each( videosLocalOriginal, function ( index, val ) {
-                    config['videosVideodrome'].splice( $.inArray( val, config['videosVideodrome'] ), 1 );
-                } );
-                displayAllActiveLocalFilenames();
-            } );
-
-            $( '.showPrivateContent' ).click( function ( e ) {
-                privateVisible = true;
-                checkPrivateVisible();
-
-                $.each( config['videosLocal'], function ( index, val ) {
-                    if ( val['tags'] == 'private' ) {
-                        config['videosVideodrome'].push( val['videoLink'] );
-                    }
-                } );
-
-                displayAllActiveLocalFilenames();
-            } );
-
-            $( '.hidePrivateContent' ).click( function ( e ) {
-                privateVisible = false;
-                checkPrivateVisible();
-
-                $.each( config['videosLocal'], function ( index, val ) {
-                    if ( val['tags'] == 'private' ) {
-                        config['videosVideodrome'].splice( $.inArray( val['videoLink'], config['videosVideodrome'] ), 1 );
-                    }
-                } );
-
-                displayAllActiveLocalFilenames();
-            } );
-
-            $( '#displayedVideos, #displayedImages' ).click( function ( e ) {
-                if ( !isFullScreen && !e.target.classList.contains( 'externalVideoPreview' ) ) {
-                    enableFullscreen();
-                }
-            } );
 
             // Hidden Section End
             // ***********************************
@@ -2148,7 +2102,6 @@ $( document ).ready( function () {
                         !$( event.target ).hasClass( 'searchLink' ) &&
                         !$( event.target ).hasClass( 'noisegeneratorLink' ) &&
                         !$( event.target ).hasClass( 'spotifyPlaylistItem' ) &&
-                        !$( event.target ).hasClass( 'externalVideoPreview' ) &&
                         !$( event.target ).hasClass( 'playlistMenuCustomLink' ) &&
                         !$( event.target ).hasClass( 'videoJSFavorite' )
                 ) {
@@ -3137,6 +3090,48 @@ $( document ).ready( function () {
                 } else {
                     processExternalFiles( $( this ).attr( 'externalDirUrl' ), 'remove' );
                 }
+            } );
+
+            $( '.showGeneralVideos' ).click( function ( e ) {
+                $( '.showGeneralVideos,.hideGeneralVideos' ).toggle();
+                $.each( videosLocalOriginal, function ( index, val ) {
+                    config['videosVideodrome'].push( val );
+                } );
+                displayAllActiveLocalFilenames();
+            } );
+
+            $( '.hideGeneralVideos' ).click( function ( e ) {
+                $( '.showGeneralVideos,.hideGeneralVideos' ).toggle();
+                $.each( videosLocalOriginal, function ( index, val ) {
+                    config['videosVideodrome'].splice( $.inArray( val, config['videosVideodrome'] ), 1 );
+                } );
+                displayAllActiveLocalFilenames();
+            } );
+
+            $( '.showPrivateContent' ).click( function ( e ) {
+                privateVisible = true;
+                checkPrivateVisible();
+
+                $.each( config['videosLocal'], function ( index, val ) {
+                    if ( val['tags'] == 'private' ) {
+                        config['videosVideodrome'].push( val['videoLink'] );
+                    }
+                } );
+
+                displayAllActiveLocalFilenames();
+            } );
+
+            $( '.hidePrivateContent' ).click( function ( e ) {
+                privateVisible = false;
+                checkPrivateVisible();
+
+                $.each( config['videosLocal'], function ( index, val ) {
+                    if ( val['tags'] == 'private' ) {
+                        config['videosVideodrome'].splice( $.inArray( val['videoLink'], config['videosVideodrome'] ), 1 );
+                    }
+                } );
+
+                displayAllActiveLocalFilenames();
             } );
 
             function getAllExternalDirs( url ) {

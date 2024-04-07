@@ -726,14 +726,6 @@ li, .options, .form-check-label {
     border-radius: 5px;
 }
 
-.externalVideoPreview {
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
-    width: 100%;
-    height: 100%;
-    margin-right: 22px;
-    border-radius: 5px;
-}
-
 .displayedFullscreenImage {
     cursor: none;
 }
