@@ -2982,13 +2982,12 @@ $( document ).ready( function () {
             } );
 
             $( '.refreshVideoDromeVideoFullscreenIcon' ).click( function () {
+                target = '';
+                $( '.videodromeFullscreen' ).each( function () {
+                    target = this;
+                    return;
+                } );
                 if ( config['videosVideodrome'] != undefined && config['videosVideodrome'].length > 0 ) {
-                    target = '';
-                    $( '.videodromeFullscreen' ).each( function () {
-                        target = this;
-                        return;
-                    } );
-
                     if ( $( target ).hasClass( 'video-js' ) ) {
                         $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
                     } else {
