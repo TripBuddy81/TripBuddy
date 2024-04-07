@@ -628,15 +628,7 @@ $( document ).ready( function () {
                 $( '#search' ).hide();
 
                 if ( !imageSectionShown ) {
-                    $( '.fullscreenImage' ).each( function () {
-                        $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
-                    } );
-
-                    $( '.imageFilterBtn' ).each( function () {
-                        $( this ).trigger( 'click' );
-                        return false;
-                    } );
-                    imageSectionShown = true;
+                    loadImages();
                 }
             } );
             $( '#showShrineSection' ).click( function () {
@@ -760,6 +752,10 @@ $( document ).ready( function () {
 
                 if ( !allVideosLoaded ) {
                     loadVideos();
+                }
+
+                if ( !imageSectionShown ) {
+                    loadImages();
                 }
 
                 preFlightCheckListAnimationTimer = setInterval( preFlightCheckListAnimation, 1500 );
@@ -1356,6 +1352,18 @@ $( document ).ready( function () {
                 } );
 
                 allVideosLoaded = true;
+            }
+
+            function loadImages() {
+                $( '.fullscreenImage' ).each( function () {
+                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+                } );
+
+                $( '.imageFilterBtn' ).each( function () {
+                    $( this ).trigger( 'click' );
+                    return false;
+                } );
+                imageSectionShown = true;
             }
 
             function playYoutubeVideo( clickedElement, unmuted = false ) {
