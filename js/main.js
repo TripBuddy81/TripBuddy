@@ -266,14 +266,14 @@ $( document ).ready( function () {
             // ***********************************
             // #0.1 - Global key bindings, Global misc functionalities
 
-            // Configure or disable right click context menu
+            // Right mouse button click config
             $( document ).bind( 'contextmenu', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
 
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
 
-                // Stops current action or shows playlist selection if nothing else going in right now
+                // Stop current action or shows playlist selection if nothing else going on right now
                 if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
@@ -3005,6 +3005,8 @@ $( document ).ready( function () {
                         $( target ).find( '.localVideo' )[0].play();
                     }
                     updateVideodromeFullscreenInfo();
+                } else if ( $( target ).hasClass( 'video-js' ) ) {
+                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
                 }
             } );
 
