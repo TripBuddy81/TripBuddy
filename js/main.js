@@ -255,9 +255,6 @@ $( document ).ready( function () {
                 } );
             }
 
-            // Init global alarm sounds
-            var alarmSound = document.getElementById( 'alarmSound' );
-
             // Init track progress bar
             $( '.trackProgress' ).hide();
 
@@ -837,7 +834,6 @@ $( document ).ready( function () {
 
             $( '#timedRecommendation' ).click( function ( event ) {
                 $( '#timedRecommendation' ).modal( 'hide' );
-                alarmSound.pause();
             } );
 
             // Top up Reminder Config
@@ -973,7 +969,6 @@ $( document ).ready( function () {
                     pizzaTimerShown = true;
                     showTimedRecommendation( 'Pizza is ready!!!' );
                     $( '#pizzaTimerContainer' ).trigger( 'click' );
-                    /* alarmSound.play();*/
                 }
             }
 
