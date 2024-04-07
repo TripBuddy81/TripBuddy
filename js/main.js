@@ -79,6 +79,7 @@ $( document ).ready( function () {
             window.loadAllVideos = false;
             window.allVideosLoaded = false;
             window.videosLocalOriginal = [];
+            window.videodromeFavorites = {'items': []};
             window.mainYoutubePlayerIsActiveSoundSource = false;
             window.screensaverSecondsIdle = 0;
             window.screensaverStartAfterSeconds = 15;
@@ -3009,9 +3010,6 @@ $( document ).ready( function () {
                 getNextVideoStreamUrl( true, $( this ).attr( 'modellink' ) );
             } );
 
-            var videodromeFavorites = {'items': []};
-            videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
-            outputPHFavorites();
             $( document ).on( 'click', '#videodromeFullscreenAddToFavorites', function ( event ) {
                 if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
                     $( '.videodromeFullscreen' ).each( function () {
@@ -3257,6 +3255,8 @@ $( document ).ready( function () {
                 } else {
                     $( '#videodromeSwitchLocalStreamContainer' ).hide();
                 }
+                videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
+                outputPHFavorites();
                 getNextVideoStreamUrl( true );
             }
 
