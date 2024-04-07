@@ -76,7 +76,6 @@ $( document ).ready( function () {
             window.lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
             window.lastSelectedAutocompleteItem = 0;
             window.currentAutocompleteItem = 0;
-            window.loadAllVideos = false;
             window.allVideosLoaded = false;
             window.videosLocalOriginal = [];
             window.videodromeFavorites = {'items': []};
@@ -135,9 +134,6 @@ $( document ).ready( function () {
                     } );
                     $( '.iFrameContainer ' ).delay( 200 ).fadeIn();
                     hideScreensaverEnso();
-                    if ( loadAllVideos ) {
-                        loadVideos();
-                    }
                 }
             };
 
@@ -1090,9 +1086,6 @@ $( document ).ready( function () {
                             rightMouseClicked = false;
                             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] != undefined && config['localSettingsOverwrite']['allowActivationOfHiddenMenu'] ) {
                                 toggleXXXVisible();
-                            }
-                            if ( !allVideosLoaded ) {
-                                loadVideos();
                             }
                         } else {
                             toggleFullScreen( event );
