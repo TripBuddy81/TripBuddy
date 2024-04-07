@@ -2038,8 +2038,9 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
-#toggleLocalStreamIcon {
-    height: 45px;
+.toggleLocalStreamIcon {
+    width: 70px;
+    height: 55px;
 }
 
 .refreshVideoDromeVideoFullscreenContainer {
@@ -2087,6 +2088,6 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100%;
 }
 
-.externalDirActive, .showGeneralVideos {
+.externalDirActive, .showGeneralVideos, .localStreamIconFolder {
     display: none;
 }

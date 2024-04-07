@@ -2818,11 +2818,12 @@ $( document ).ready( function () {
                 $( '#pornContentInfo' ).modal( 'show' );
             } );
 
-            $( '#toggleLocalStreamIcon' ).click( function () {
+            $( '.toggleLocalStreamIcon' ).click( function () {
                 $( '.videoDromeVideo2' ).toggle();
                 $( '#refreshVideoDromeVideo2' ).toggle();
                 $( '.videoDromeStreamVideo1' ).toggle();
                 $( '#videodromeStreamRefreshVideo' ).toggle();
+                $( '.toggleLocalStreamIcon' ).toggle();
                 $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
             } );
 
