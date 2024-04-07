@@ -2959,7 +2959,7 @@ $( document ).ready( function () {
             } );
 
             $( '.videodromeRefreshLocalVideo' ).click( function () {
-                if ( config['videosVideodrome'].length > 0 ) {
+                if ( config['videosVideodrome'] != undefined && config['videosVideodrome'].length > 0 ) {
                     target = $( this ).attr( 'target' );
 
                     randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
@@ -2982,7 +2982,7 @@ $( document ).ready( function () {
             } );
 
             $( '.refreshVideoDromeVideoFullscreenIcon' ).click( function () {
-                if ( config['videosVideodrome'].length > 0 ) {
+                if ( config['videosVideodrome'] != undefined && config['videosVideodrome'].length > 0 ) {
                     target = '';
                     $( '.videodromeFullscreen' ).each( function () {
                         target = this;
