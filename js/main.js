@@ -1310,20 +1310,7 @@ $( document ).ready( function () {
                 } );
             } );
 
-            function loadVideos() {
-                $( '.videoSource' ).each( function () {
-                    if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
-                        $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
-                    }
-                } );
-                $( '.localVideo' ).each( function () {
-                    this.load();
-                } );
-
-                allVideosLoaded = true;
-            }
-
-            // Youtube video minimized overlay
+            // Play clicked youtube video and place a colorful border on preview image
             $( '.youtubeVideo' ).click( function ( event ) {
                 playYoutubeVideo( this );
 
@@ -1339,6 +1326,19 @@ $( document ).ready( function () {
             $( '.videoHasSound' ).click( function ( event ) {
                 playYoutubeVideo( $( this ).closest( '.iFrameContainer' ).find( '.youtubeVideo ' ), true );
             } );
+
+            function loadVideos() {
+                $( '.videoSource' ).each( function () {
+                    if ( typeof $( this ).attr( 'src' ) != 'undefined' ) {
+                        $( this ).attr( 'src', $( this ).attr( 'src' ).replace( /NOLOAD/, '' ) );
+                    }
+                } );
+                $( '.localVideo' ).each( function () {
+                    this.load();
+                } );
+
+                allVideosLoaded = true;
+            }
 
             function playYoutubeVideo( clickedElement, unmuted = false ) {
                 if ( !directYoutubePlayerLoaded ) {
@@ -1394,7 +1394,7 @@ $( document ).ready( function () {
                 }
             }
 
-            // Local Video minimized overlay
+            // Play local video
             $( document ).on( 'click', '.localVideoOverlay', function ( event ) {
                 blockScreenSaver = true;
                 enableFullscreen();
