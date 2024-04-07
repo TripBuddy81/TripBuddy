@@ -92,6 +92,7 @@ $( document ).ready( function () {
             window.shrineDiscoActive = false;
             window.playingRandomWisdom = false;
             window.alreadyLoadedExternalFiles = [];
+            window.videodromeFullscreenMenuHideInterval = '';
             window.videoJSHubUrls = [];
             window.videoJSSingleVideoUrls = [];
             window.activeVideoJSPlayer = 'videoJSPlayer1';
@@ -356,6 +357,12 @@ $( document ).ready( function () {
                 }
             };
 
+            // Reset settings if user disengaged fullscreen via ESC or other means...
+            document.addEventListener( 'fullscreenchange', escapeHandler, false );
+            document.addEventListener( 'mozfullscreenchange', escapeHandler, false );
+            document.addEventListener( 'MSFullscreenChange', escapeHandler, false );
+            document.addEventListener( 'webkitfullscreenchange', escapeHandler, false );
+
             $( '#showApplicationSettings' ).click( function () {
                 stopAllActions( true, false );
                 $( '#applicationSettingsMenu' ).addClass( 'menuTransition' );
@@ -515,7 +522,6 @@ $( document ).ready( function () {
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
-                $( '.miscVideoOverlay' ).show();
                 $( '.localVideoOverlay' ).show();
                 $( '.mainSearchResultVideoOverlay' ).show();
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
@@ -530,6 +536,13 @@ $( document ).ready( function () {
                 stopScreensaver();
 
                 $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+            }
+
+            function escapeHandler() {
+                if ( !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement ) {
+                    isFullScreen = false;
+                    stopAllActions();
+                }
             }
 
             function toggleFullScreen( event ) {
@@ -1442,24 +1455,6 @@ $( document ).ready( function () {
                 }
             } );
 
-            // Misc Video minimized overlay
-            $( '.miscVideoOverlay' ).click( function ( event ) {
-                blockScreenSaver = true;
-                enableFullscreen();
-                $( this ).closest( '.iFrameContainer' ).addClass( 'videoContainerFullscreen' );
-
-                $( '.miscVideoOverlay' ).hide();
-                $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).show();
-
-                $( '.lastPlayedVideo' ).each( function () {
-                    $( this ).remove();
-                } );
-                colorfulBorder = document.createElement( 'div' );
-                colorfulBorder.classList.add( 'colorfulBorder' );
-                colorfulBorder.classList.add( 'lastPlayedVideo' );
-                $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
-            } );
-
             // mainSearchResultYoutube Video fullscreen overlay
             $( '.mainSearchResultVideoOverlay' ).click( function ( event ) {
                 blockScreenSaver = true;
@@ -1488,31 +1483,7 @@ $( document ).ready( function () {
                 $( '.videoMenuOverlay' ).show();
             } );
 
-            // Reset settings if user disengaged fullscreen via ESC or other means...
-            document.addEventListener( 'fullscreenchange', exitHandler, false );
-            document.addEventListener( 'mozfullscreenchange', exitHandler, false );
-            document.addEventListener( 'MSFullscreenChange', exitHandler, false );
-            document.addEventListener( 'webkitfullscreenchange', exitHandler, false );
-
-            function exitHandler() {
-                if ( !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement ) {
-                    isFullScreen = false;
-                    stopAllActions();
-                }
-            }
-
-            // XXX section within video
-            $( '.searchLink' ).on( 'mousedown', document, function ( e ) {
-                e.preventDefault();
-                e.stopPropagation();
-                if ( $( '.searchInput' ).val() != '' ) {
-                    window.open( $( e.target ).attr( 'searchLink' ).replace( /##searchTerm##/, $( '.searchInput' ).val() ), '_blank' );
-                } else {
-                    window.open( $( e.target ).attr( 'href' ), '_blank' );
-                }
-            } );
-
-            // Video section screensaver
+            // screensaver
             function startScreensaver( force = false ) {
                 screensaverSecondsIdle++;
                 $( '.mainSectionActive' ).each( function () {
@@ -1721,6 +1692,24 @@ $( document ).ready( function () {
                 localStorage.setItem( 'imageSlideshowIntervalLength', $( '#slideshowInterval' ).val() * 1000 );
             } );
 
+            $( '#MageAIExternalPage' ).mousemove( function ( event ) {
+                $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                $( '#imageTags' ).hide();
+            } );
+
+            $( '.MageAIFavorites' ).click( function () {
+                $( '.MageAIfilter' ).trigger( 'click' );
+                $( '.MageAIfilter' ).removeClass( 'imageFilterActive' );
+                $( this ).addClass( 'imageFilterActive' );
+                $( '#MageAIExternalPage' ).attr( 'src', config['mageAIFavoritesLink'] );
+            } );
+
+            $( '.MageAIfilter' ).click( function () {
+                defaultTarget = 'https://www.mage.space/explore?q=psychedelic';
+                defaultTarget = defaultTarget + '&nsfw=t';
+                $( '#MageAIExternalPage' ).attr( 'src', defaultTarget );
+            } );
+
             function nextRandomImageInSlideshow() {
                 currentImageIndex = 0;
                 for ( var i in config['images'] ) {
@@ -1746,24 +1735,6 @@ $( document ).ready( function () {
                 $( 'img[src$=\'' + lastDisplayedImage + '\']' ).trigger( 'click' )
                 $( 'body figure' ).remove();
             }
-
-            $( '#MageAIExternalPage' ).mousemove( function ( event ) {
-                $( '#mainMenu' ).attr( 'style', 'opacity:0' );
-                $( '#imageTags' ).hide();
-            } );
-
-            $( '.MageAIFavorites' ).click( function () {
-                $( '.MageAIfilter' ).trigger( 'click' );
-                $( '.MageAIfilter' ).removeClass( 'imageFilterActive' );
-                $( this ).addClass( 'imageFilterActive' );
-                $( '#MageAIExternalPage' ).attr( 'src', config['mageAIFavoritesLink'] );
-            } );
-
-            $( '.MageAIfilter' ).click( function () {
-                defaultTarget = 'https://www.mage.space/explore?q=psychedelic';
-                defaultTarget = defaultTarget + '&nsfw=t';
-                $( '#MageAIExternalPage' ).attr( 'src', defaultTarget );
-            } );
 
             // END Image section
             // ******************************************
@@ -1800,15 +1771,6 @@ $( document ).ready( function () {
                 $( '#shrineSetBGBlack' ).show();
                 $( '.shrineSetBGColorful' ).hide();
             } );
-
-            function changeStroboSpeed( stroboSpeed ) {
-                $( '#particles-js' ).css( 'animation', 'strobo1 ' + stroboSpeed + 'ms steps(1,end) infinite' );
-                if ( stroboSpeed > 0 ) {
-                    $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 15ms steps(1,end) infinite' );
-                } else {
-                    $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
-                }
-            }
 
             $( '#shrine' ).mousemove( function ( event ) {
                 if ( event.pageY < 75 ) {
@@ -1877,6 +1839,15 @@ $( document ).ready( function () {
                     nextDiscoMode();
                 }
             } );
+
+            function changeStroboSpeed( stroboSpeed ) {
+                $( '#particles-js' ).css( 'animation', 'strobo1 ' + stroboSpeed + 'ms steps(1,end) infinite' );
+                if ( stroboSpeed > 0 ) {
+                    $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 15ms steps(1,end) infinite' );
+                } else {
+                    $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
+                }
+            }
 
             function startDiscoMode() {
                 shrineDiscoActive = true;
@@ -2131,7 +2102,7 @@ $( document ).ready( function () {
                 }
             }
 
-            // integrated Spotify player if succesfully logged in
+            // Uses integrated Spotify player if succesfully logged in
             if ( localStorage.getItem( 'access_token' ) != null ) {
                 refreshAccessToken();
                 shuffle();
@@ -2830,7 +2801,6 @@ $( document ).ready( function () {
             // END Search section
             // ******************************************
 
-
             // ******************************************
             // #7 - Videodrome section
             var moveTimerVideodrome;
@@ -2934,6 +2904,16 @@ $( document ).ready( function () {
                 getNextVideoStreamUrl( true, $( this ).attr( 'videoJSSearchURL' ) + randomIntFromInterval( 1, 3 ) );
             } );
 
+            $( '.searchLink' ).on( 'mousedown', document, function ( e ) {
+                e.preventDefault();
+                e.stopPropagation();
+                if ( $( '.searchInput' ).val() != '' ) {
+                    window.open( $( e.target ).attr( 'searchLink' ).replace( /##searchTerm##/, $( '.searchInput' ).val() ), '_blank' );
+                } else {
+                    window.open( $( e.target ).attr( 'href' ), '_blank' );
+                }
+            } );
+
             $( '.refreshVideoDromeVideoFullscreenIcon' ).click( function () {
                 target = '';
                 $( '.videodromeFullscreen' ).each( function () {
@@ -2962,7 +2942,6 @@ $( document ).ready( function () {
                 }
             } );
 
-            var videodromeFullscreenMenuHideInterval;
             $( document ).on( 'mouseenter', '.refreshVideoDromeVideoFullscreenIcon', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
                 videodromeFullscreenMenuHideInterval = setTimeout( function () {
@@ -3327,8 +3306,8 @@ $( document ).ready( function () {
                 if ( activePageCrawls <= 2 ) {
                     activePageCrawls++;
 
-                    // Hub crawl - is triggert when doing a new search on a default url, a specific model page or a search term
-                    // finds all linked videos once and pushes them into videoJSHubUrls. From this array all future video urls are extracted until a new search is triggert
+                    // Hub crawl - is triggered when doing a new search on a default url, a specific model page or a search term
+                    // Finds all linked videos once and pushes them into videoJSHubUrls. From this array all future video urls are extracted until a new search is triggered
                     if ( (newSearch || videoJSHubUrls.length <= 0) && !isSingleVideoPage ) {
                         if ( searchUrl == '' && $( '.searchInput' ).val() != '' ) {
                             pageIndex = randomIntFromInterval( 1, 4 );
