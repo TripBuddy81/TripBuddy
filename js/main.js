@@ -2962,6 +2962,7 @@ $( document ).ready( function () {
                 $( '#refreshVideoDromeVideo2' ).trigger( 'click' );
                 $( '#refreshVideoDromeVideo3' ).trigger( 'click' );
                 $( '#refreshVideoDromeVideo4' ).trigger( 'click' );
+
                 $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
             } );
 
@@ -3058,7 +3059,7 @@ $( document ).ready( function () {
                 outputPHFavorites();
             } );
 
-            $( document ).on( 'click', '.localVideoPreview', function ( event ) {
+            $( document ).on( 'click', '.localFilename', function ( event ) {
                 $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src', $( this ).attr( 'src' ) );
                 $( '.videodromeFullscreen' ).find( '.localVideo' )[0].load();
             } );
@@ -3191,11 +3192,11 @@ $( document ).ready( function () {
             function displayAllActiveLocalFilenames() {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( config['videosVideodrome'], function ( val ) {
-                    let localVideoPreview = document.createElement( 'div' );
-                    localVideoPreview.innerHTML = decodeURI( config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /external\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ) );
-                    localVideoPreview.setAttribute( 'src', config['videosVideodrome'][val] );
-                    localVideoPreview.classList.add( 'localVideoPreview' );
-                    document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localVideoPreview );
+                    let localFilename = document.createElement( 'div' );
+                    localFilename.innerHTML = decodeURI( config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /external\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ) );
+                    localFilename.setAttribute( 'src', config['videosVideodrome'][val] );
+                    localFilename.classList.add( 'localFilename' );
+                    document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localFilename );
                 } );
                 alreadySelectedVideosVideodrome = [];
             }

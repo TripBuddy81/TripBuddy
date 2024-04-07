@@ -2076,12 +2076,16 @@ video::-webkit-media-controls-fullscreen-button {
     margin-bottom: 15px;
 }
 
-.localVideoPreview {
+.localFilename {
     width: 20vW;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
     padding-bottom: 10px;
     font-weight: 700;
     overflow-x: hidden;
+}
+
+.localFilename:hover {
+    color: white;
 }
 
 #pluginExplanation1 {
