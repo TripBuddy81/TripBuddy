@@ -2146,7 +2146,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: relative;
     font-size: 55px;
     font-family: sans-serif;
-    background: linear-gradient(to right, #008eff, #1a91a0, #e9ff9e, #e8ff00, #ffac26, #ff3d00);
+    background: linear-gradient(to right, #5d2965, #606fba, #000000, #a69bc0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: table-cell;

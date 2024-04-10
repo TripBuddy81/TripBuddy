@@ -1765,7 +1765,7 @@ $( document ).ready( function () {
                 if ( xxxVisible ) {
                     $( '#toggleRelationshipsWhite' ).show();
                 } else {
-                    $( '#toggleRelationshipsWhite' ).hide();
+                    $( '#toggleRelationships,#toggleRelationshipsWhite' ).hide();
                 }
                 $( '#shrineSetBGBlack' ).hide();
                 $( '.shrineSetBGColorful' ).attr( 'style', 'display: inline' );
@@ -1778,7 +1778,7 @@ $( document ).ready( function () {
                 if ( xxxVisible ) {
                     $( '#toggleRelationships' ).show();
                 } else {
-                    $( '#toggleRelationships' ).hide();
+                    $( '#toggleRelationships,#toggleRelationshipsWhite' ).hide();
                 }
                 $( '#shrineSetBGBlack' ).show();
                 $( '.shrineSetBGColorful' ).hide();
@@ -1830,13 +1830,13 @@ $( document ).ready( function () {
 
             $( '#toggleRelationships,#toggleRelationshipsWhite' ).click( function ( e ) {
                 enableFullscreen();
-                $( '#relationships' ).toggle();
+                toggleRelationships();
                 $( '#absoluteTruthsOverlay' ).hide();
             } );
 
             $( '#toggleAbsoluteThruth,#toggleAbsoluteThruthWhite' ).click( function ( e ) {
                 enableFullscreen();
-                $( '#relationships' ).hide();
+                toggleRelationships( 'hide' );
                 $( '#absoluteTruthsOverlay' ).toggle();
             } );
 
@@ -1859,6 +1859,21 @@ $( document ).ready( function () {
                 }
             } );
 
+            function toggleRelationships( modeForced = '' ) {
+                if ( xxxVisible && modeForced !== 'hide' ) {
+                    if ( $( '#relationships' ).is( ':visible' ) ) {
+                        $( '#relationships' ).hide();
+                        $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1.0' );
+                    } else {
+                        $( '#relationships' ).show();
+                        $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
+                    }
+                } else {
+                    $( '#relationships' ).hide();
+                    $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1.0' );
+                }
+            }
+
             function changeStroboSpeed( stroboSpeed ) {
                 $( '#particles-js' ).css( 'animation', 'strobo1 ' + stroboSpeed + 'ms steps(1,end) infinite' );
                 if ( stroboSpeed > 0 ) {
@@ -1871,6 +1886,7 @@ $( document ).ready( function () {
             function startDiscoMode() {
                 shrineDiscoActive = true;
                 showParticles = true;
+                toggleRelationships( 'hide' );
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
             }
 
@@ -1893,7 +1909,7 @@ $( document ).ready( function () {
                 stroboSpeed = 0;
                 changeStroboSpeed( stroboSpeed );
                 $( '#absoluteTruthsOverlay' ).hide();
-                $( '#relationships' ).hide();
+                toggleRelationships( 'hide' );
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
             }
