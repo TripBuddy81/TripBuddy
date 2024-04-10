@@ -283,7 +283,8 @@ $( document ).ready( function () {
                             stroboSpeed > 0 ||
                             !$( '#shrine' ).hasClass( 'shrineColorfulBackground' ) ||
                             showParticles ||
-                            $( '#absoluteTruthsOverlay' ).is( ':visible' )
+                            $( '#absoluteTruthsOverlay' ).is( ':visible' ) ||
+                            $( '#relationships' ).is( ':visible' )
                     ) {
                         stopAllActions();
                     } else {
@@ -1760,15 +1761,25 @@ $( document ).ready( function () {
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
                 $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite' ).show();
-                $( '#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode' ).hide();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode' ).hide();
+                if ( xxxVisible ) {
+                    $( '#toggleRelationshipsWhite' ).show();
+                } else {
+                    $( '#toggleRelationshipsWhite' ).hide();
+                }
                 $( '#shrineSetBGBlack' ).hide();
                 $( '.shrineSetBGColorful' ).attr( 'style', 'display: inline' );
             } );
 
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
-                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite' ).hide();
-                $( '#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode' ).show();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite' ).hide();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode' ).show();
+                if ( xxxVisible ) {
+                    $( '#toggleRelationships' ).show();
+                } else {
+                    $( '#toggleRelationships' ).hide();
+                }
                 $( '#shrineSetBGBlack' ).show();
                 $( '.shrineSetBGColorful' ).hide();
             } );
@@ -1817,8 +1828,15 @@ $( document ).ready( function () {
                 enableFullscreen();
             } );
 
+            $( '#toggleRelationships,#toggleRelationshipsWhite' ).click( function ( e ) {
+                enableFullscreen();
+                $( '#relationships' ).toggle();
+                $( '#absoluteTruthsOverlay' ).hide();
+            } );
+
             $( '#toggleAbsoluteThruth,#toggleAbsoluteThruthWhite' ).click( function ( e ) {
                 enableFullscreen();
+                $( '#relationships' ).hide();
                 $( '#absoluteTruthsOverlay' ).toggle();
             } );
 
@@ -1875,6 +1893,7 @@ $( document ).ready( function () {
                 stroboSpeed = 0;
                 changeStroboSpeed( stroboSpeed );
                 $( '#absoluteTruthsOverlay' ).hide();
+                $( '#relationships' ).hide();
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
             }
@@ -3504,7 +3523,11 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+                /*toggleXXXVisible();*/
+
+                $( '#showShrineSection' ).trigger( 'click' );
+                /*        $( '#toggleRelationships' ).trigger( 'click' );*/
+
             }
         }
 );

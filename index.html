@@ -84,8 +84,9 @@
                                                                                         src="./assets/private.png">Show
                         private content
                     </li>
-                    <li class="hidePrivateContent menuItem actionItem privatefilter fw-bold"><img id="showPrivateContentIcon2"
-                                                                                        src="./assets/hide.png">Hide
+                    <li class="hidePrivateContent menuItem actionItem privatefilter fw-bold"><img
+                            id="showPrivateContentIcon2"
+                            src="./assets/hide.png">Hide
                         private content
                     </li>
                     <li class="enablePornContent menuItem actionItem fw-bold"><img id="showPornContent"
@@ -782,6 +783,8 @@
                         {{/shrineColors}}
                         {{/shrine}}
                         <div class="shrineSetBGColorful shrineDiscoColor shrineColorfulBackground">&nbsp;</div>
+                        <img id="toggleRelationships" class="XXX" src="./assets/people.png">
+                        <img id="toggleRelationshipsWhite" src="./assets/people_white.png">
                         <img id="toggleAbsoluteThruth" src="./assets/buddha2.png">
                         <img id="toggleAbsoluteThruthWhite" src="./assets/buddha2_white.png">
                         <img id="shrineParticlesSwitch" src="./assets/particle.png">
@@ -798,6 +801,22 @@
         <div id="absoluteTruthsOverlay">
             <div id="absoluteTruthsOverlayContainer"><span id="absoluteTruthsOverlayText">Depression is the past, Anxiety is the future & Peace is the present</span>
             </div>
+        </div>
+        <div id="relationships">
+            {{#relationships}}
+
+            <div class="relationshipLevel">
+                <div class="relationshipLevelLabel">{{name}}</div>
+
+                {{#persons}}
+                <div class="relationshipLevelPerson">
+                    {{name}}
+                </div>
+                {{/persons}}
+
+            </div>
+
+            {{/relationships}}
         </div>
     </div>
 
