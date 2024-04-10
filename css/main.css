@@ -1103,7 +1103,7 @@ option {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 395px;
+    width: 400px;
     opacity: 0;
     z-index: 6;
 }
@@ -1146,7 +1146,7 @@ option {
 }
 
 #toggleRelationships, #toggleRelationshipsWhite {
-    height: 67px;
+    height: 55px;
     margin-left: 18px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     margin-top: -29px;
@@ -2124,6 +2124,18 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100%;
     text-align: center;
     display: table;
+}
+
+.relationshipLevel1 {
+    top: -30vH;
+}
+
+.relationshipLevel2 {
+    top: 0vH;
+}
+
+.relationshipLevel3 {
+    top: 30vH;
 }
 
 .relationshipLevelLabel {
