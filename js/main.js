@@ -1133,6 +1133,7 @@ $( document ).ready( function () {
                     $( this ).trigger( 'click' );
                 } );
 
+                stopAllActions();
                 displayedAbsoluteTruthIndex = [];
                 absoluteTruthsUpdate( true );
                 checkPrivateVisible();
@@ -1766,6 +1767,7 @@ $( document ).ready( function () {
                     $( '#toggleRelationshipsWhite' ).show();
                 } else {
                     $( '#toggleRelationships,#toggleRelationshipsWhite' ).hide();
+                    toggleRelationships( 'hide' );
                 }
                 $( '#shrineSetBGBlack' ).hide();
                 $( '.shrineSetBGColorful' ).attr( 'style', 'display: inline' );
@@ -1779,6 +1781,7 @@ $( document ).ready( function () {
                     $( '#toggleRelationships' ).show();
                 } else {
                     $( '#toggleRelationships,#toggleRelationshipsWhite' ).hide();
+                    toggleRelationships( 'hide' );
                 }
                 $( '#shrineSetBGBlack' ).show();
                 $( '.shrineSetBGColorful' ).hide();
@@ -3541,8 +3544,8 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
 
-/*                $( '#showShrineSection' ).trigger( 'click' );
-                $( '#toggleRelationships' ).trigger( 'click' );*/
+                $( '#showShrineSection' ).trigger( 'click' );
+                $( '#toggleRelationships' ).trigger( 'click' );
 
             }
         }
