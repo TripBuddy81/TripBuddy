@@ -1528,6 +1528,7 @@ video::-webkit-media-controls-fullscreen-button {
     -webkit-animation: spin 120s linear infinite;
     -moz-animation: spin 120s linear infinite;
     animation: spin 120s linear infinite;
+    transition: all 1s ease;
 }
 
 #globalEnsoContainer {
@@ -2136,7 +2137,7 @@ video::-webkit-media-controls-fullscreen-button {
 .relationshipLevelPerson {
     font-size: 55px;
     font-family: sans-serif;
-    background: linear-gradient(to right, #5d2965, #606fba, #000000, #a69bc0);
+    background: linear-gradient(to right, #352483, #531169, #162344, #a69bc0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: table-cell;

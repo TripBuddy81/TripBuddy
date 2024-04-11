@@ -839,6 +839,12 @@ var config = {
                     'label'  : 'Surrendering does not make sense, but it does'
                 },
                 {
+                    'videoId': 'wn_70CQ36iQ',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'On The Human Society'
+                },
+                {
                     'videoId': 'h6fcK_fRYaI',
                     'mute'   : false,
                     'tags'   : 'wisdom',
