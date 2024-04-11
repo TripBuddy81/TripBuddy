@@ -2147,5 +2147,5 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .relationshipLevelPerson:hover {
-    font-size: 65px;
+    transform: scale(1.15);
 }
