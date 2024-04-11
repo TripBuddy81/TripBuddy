@@ -2104,46 +2104,36 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
 
-
 #relationships {
     position: fixed;
     width: 100%;
     height: 100%;
     text-align: center;
-    cursor: none;
-    pointer-events: none;
     z-index: 3;
     display: none;
 }
 
 .relationshipLevel {
     position: fixed;
-    top: 0px;
     left: 0px;
-    height: 100%;
     width: 100%;
     text-align: center;
     display: table;
 }
 
 .relationshipLevel1 {
-    top: -30vH;
+    top: 20vH;
 }
 
 .relationshipLevel2 {
-    top: 0vH;
+    top: 50vH;
 }
 
 .relationshipLevel3 {
-    top: 30vH;
-}
-
-.relationshipLevelLabel {
-
+    top: 80vH;
 }
 
 .relationshipLevelPerson {
-    position: relative;
     font-size: 55px;
     font-family: sans-serif;
     background: linear-gradient(to right, #5d2965, #606fba, #000000, #a69bc0);
@@ -2151,6 +2141,10 @@ video::-webkit-media-controls-fullscreen-button {
     -webkit-text-fill-color: transparent;
     display: table-cell;
     vertical-align: middle;
-    padding: 50px;
-    display: table-cell !important;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    transition: all 0.5s ease;
+}
+
+.relationshipLevelPerson:hover {
+    font-size: 65px;
 }
