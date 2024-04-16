@@ -2858,22 +2858,66 @@ $( document ).ready( function () {
             } );
 
             $( '.toggleLocalStreamIcon' ).click( function () {
-                $( '.videoDromeVideo2' ).toggle();
-                $( '#refreshVideoDromeVideo2' ).toggle();
-                $( '.videoDromeStreamVideo1' ).toggle();
-                $( '#videodromeStreamRefreshVideo' ).toggle();
-                $( '.toggleLocalStreamIcon' ).toggle();
-                $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                if ( $( '.videodromeFullscreen' )[0] && $( '#videoJSPlayer1,#videoJSPlayer2' ).is( ':visible' ) ) {
+                    console.info( 'test1' );
+
+                    $( '.video-js' ).removeClass( 'videodromeFullscreen' );
+                    $( '.videoDromeVideo2' ).addClass( 'videodromeFullscreen' );
+
+                    $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
+                    $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+
+                    $( '.videoDromeVideo2' ).addClass( 'videodromeFullscreen' );
+                    $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
+
+                    $( '.videoDromeVideo2' ).show();
+                    $( '.videoDromeStreamVideo1' ).hide();
+                    $( '.videoDromeStreamVideo2' ).hide();
+
+                } else if ( $( '.videodromeFullscreen' )[0] && $( '.videoDromeVideo2' ).is( ':visible' ) ) {
+                    console.info( 'test2' );
+
+                    $( '.video-js' ).addClass( 'videodromeFullscreen' );
+
+                    $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
+
+                    $( '.video-js' ).addClass( 'videodromeFullscreen' );
+                    $( '.videoDromeVideo2' ).removeClass( 'videodromeFullscreen' );
+
+                    $( '.videodromeFullscreenMenuVideoJSContainer' ).show();
+
+                    $( '.videoDromeVideo2' ).hide();
+                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                }
+
+                if ( !$( '.videodromeFullscreen' )[0] ) {
+                    console.info( 'test3' );
+                    $( '.videoDromeVideo2' ).toggle();
+                    $( '.videoDromeStreamVideo1' ).toggle();
+                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                }
+
+                if ( $( '.videoDromeVideo2' ).is( ':visible' ) ) {
+                    $( '#refreshVideoDromeVideo2' ).show();
+                    $( '#videodromeStreamRefreshVideo' ).hide();
+                    $( '.toggleLocalStreamIcon' ).toggle();
+                } else {
+                    $( '#refreshVideoDromeVideo2' ).hide();
+                    $( '#videodromeStreamRefreshVideo' ).show();
+                    $( '.toggleLocalStreamIcon' ).toggle();
+                }
+
+                updateVideodromeFullscreenInfo();
             } );
 
             // VideoJS Window
             $( document ).on( 'click', '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
-                if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
+                if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
                     if ( config['videosVideodrome'] != undefined ) {
                         $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).removeAttr( 'controls', 'controls' );
-                        $( '.video-js' ).removeClass( 'videodromeFullscreen' )
+                        $( '.video-js' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                     } else {
@@ -2881,7 +2925,7 @@ $( document ).ready( function () {
                     }
                 } else {
                     $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).prop( 'controls', 'controls' );
-                    $( '.video-js' ).addClass( 'videodromeFullscreen' )
+                    $( '.video-js' ).addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuVideoJSContainer' ).show();
                 }
                 updateVideodromeFullscreenInfo();
@@ -2891,13 +2935,13 @@ $( document ).ready( function () {
             $( document ).on( 'click', '.videoDromeFrame', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
-                if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
+                if ( $( '.videoDromeVideo2' ).hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).removeAttr( 'controls' );
-                    $( this ).parent().removeClass( 'videodromeFullscreen' );
+                    $( '.videoDromeVideo2' ).removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
                 } else {
                     $( this ).prop( 'controls', 'controls' );
-                    $( this ).parent().addClass( 'videodromeFullscreen' );
+                    $( '.videoDromeVideo2' ).addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
                 }
                 updateVideodromeFullscreenInfo();
@@ -3549,4 +3593,5 @@ $( document ).ready( function () {
 
             }
         }
-);
+)
+;
