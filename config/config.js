@@ -65,10 +65,6 @@ var config = {
                         'id'   : '4ILChY5F4Hn08ikt0rfHhW'
                     },
                     {
-                        'label': 'Hermanos Gutiérrez',
-                        'id'   : '5pQUmaKxS0DXaVc7I4La0o'
-                    },
-                    {
                         'label': 'Binaural Beats',
                         'id'   : '6wQ07R92xkvztkwjhxUup3'
                     },
@@ -95,6 +91,14 @@ var config = {
                     {
                         'label': 'Bake & Chill',
                         'id'   : '6MVDihZohGpTl03Oxn7jNB'
+                    },
+                    {
+                        'label': 'Sona Jobarteh',
+                        'id'   : '48GgqE46ekf3yoZquxqdXq'
+                    },
+                    {
+                        'label': 'Hermanos Gutiérrez',
+                        'id'   : '5pQUmaKxS0DXaVc7I4La0o'
                     },
                     {
                         'label': 'Happy vibes',
@@ -845,6 +849,12 @@ var config = {
                     'label'  : 'On The Human Society'
                 },
                 {
+                    'videoId': 'CcGCACqeQuQ',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The Truth'
+                },
+                {
                     'videoId': 'h6fcK_fRYaI',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -897,6 +907,18 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'How to be completely carefree'
+                },
+                {
+                    'videoId': 'tKo8oC0LHMU',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Safety is an illusion'
+                },
+                {
+                    'videoId': 'kIXLhRkqbKo',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'For When You Feel Stressed'
                 },
                 {
                     'videoId': '9M56t0UoW5M',
