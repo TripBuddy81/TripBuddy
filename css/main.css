@@ -2048,7 +2048,6 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .toggleLocalStreamIcon {
-    width: 70px;
     height: 55px;
 }
 
@@ -2101,7 +2100,7 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100%;
 }
 
-.externalDirActive, .showGeneralVideos, .localStreamIconFolder {
+.externalDirActive, .showGeneralVideos {
     display: none;
 }
 
