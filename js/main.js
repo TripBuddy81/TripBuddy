@@ -2868,7 +2868,7 @@ $( document ).ready( function () {
                     $( '.videoDromeVideo2' ).show();
                     $( '.videoDromeStreamVideo1' ).hide();
                     $( '.videoDromeStreamVideo2' ).hide();
-                    $( '.videoDromeVideo2' ).find('.videoDromeFrame').prop( 'controls', 'controls' );
+                    $( '.videoDromeVideo2' ).find( '.videoDromeFrame' ).prop( 'controls', 'controls' );
                 } else if ( $( '.videodromeFullscreen' )[0] && $( '.videoDromeVideo2' ).is( ':visible' ) ) {
                     $( '.video-js' ).addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
@@ -3299,7 +3299,7 @@ $( document ).ready( function () {
                         }
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
-                    $( '.videodromeFullscreenFilename' ).html( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) );
+                    $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /external\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ) ) );
                 } else {
                     $( '.videodromeFullscreenFilename' ).html( '' );
                 }
