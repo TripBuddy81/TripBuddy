@@ -1242,6 +1242,7 @@ body.vjs-pip-window .video-js {
 
 .video-js .vjs-volume-panel {
     transition: width 1s;
+    display: none;
 }
 
 .video-js .vjs-volume-panel.vjs-hover .vjs-volume-control, .video-js .vjs-volume-panel:active .vjs-volume-control, .video-js .vjs-volume-panel:focus .vjs-volume-control, .video-js .vjs-volume-panel .vjs-volume-control:active, .video-js .vjs-volume-panel.vjs-hover .vjs-mute-control ~ .vjs-volume-control, .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active {
@@ -1285,6 +1286,7 @@ body.vjs-pip-window .video-js {
 
 .video-js .vjs-volume-panel {
     display: flex;
+    display: none;
 }
 
 .video-js .vjs-volume-bar {
@@ -1616,6 +1618,7 @@ video::-webkit-media-text-track-display {
 .video-js .vjs-picture-in-picture-control {
     cursor: pointer;
     flex: none;
+    display: none;
 }
 
 .video-js.vjs-audio-only-mode .vjs-picture-in-picture-control,
@@ -1626,6 +1629,7 @@ video::-webkit-media-text-track-display {
 .video-js .vjs-fullscreen-control {
     cursor: pointer;
     flex: none;
+    display: none;
 }
 
 .video-js.vjs-audio-only-mode .vjs-fullscreen-control,
