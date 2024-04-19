@@ -1101,7 +1101,7 @@ body.vjs-pip-window .video-js {
 }
 
 .video-js .vjs-play-progress {
-    background-color: #000;
+    background-color: #fff;
 }
 
 .video-js .vjs-play-progress:before {
@@ -1543,7 +1543,7 @@ body.vjs-pip-window .video-js {
     width: auto;
     padding-left: 1em;
     padding-right: 1em;
-    color: black;
+    color: white;
     font-weight: 700;
 }
 
