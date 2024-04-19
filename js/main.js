@@ -2845,14 +2845,22 @@ $( document ).ready( function () {
             // ******************************************
             // #7 - Videodrome section
             var moveTimerVideodrome;
-            $( document ).on( 'mousemove', '.videodromeVideoContainer,.videodromeStreamVideoContainer', function () {
+            $( document ).on( 'mousemove', '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function () {
                 clearTimeout( moveTimerVideodrome );
                 moveTimerVideodrome = setTimeout( function () {
-                    $( '.videodromeVideoContainer' ).css( 'cursor', 'none' );
+                    $( '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).css( 'cursor', 'none' );
                     $( '.videoMenuOverlay' ).hide();
                 }, 1000 );
-                $( '.videodromeVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                 $( '.videoMenuOverlay' ).show();
+
+                if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
+                    $( '.video-js' ).removeClass( 'vjs-user-inactive' );
+                    $( '.video-js' ).addClass( 'vjs-user-active' );
+                } else {
+                    $( '.video-js' ).removeClass( 'vjs-user-active' );
+                    $( '.video-js' ).addClass( 'vjs-user-inactive' );
+                }
             } );
 
             $( '.enablePornContent' ).click( function () {
@@ -3018,8 +3026,8 @@ $( document ).ready( function () {
                 } else if ( $( target ).hasClass( 'video-js' ) ) {
                     $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
                 }
-                $( '.video-js' ).removeClass( 'vjs-user-inactive' );
-                $( '.video-js' ).addClass( 'vjs-user-active' );
+                $( '.video-js' ).removeClass( 'vjs-user-active' );
+                $( '.video-js' ).addClass( 'vjs-user-inactive' );
             } );
 
             $( document ).on( 'mouseenter', '.refreshVideoDromeVideoFullscreenIcon', function () {
