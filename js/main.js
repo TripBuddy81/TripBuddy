@@ -689,6 +689,7 @@ $( document ).ready( function () {
                 }
                 $( '.video-js' ).removeClass( 'vjs-user-active' );
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
+                $( '.vjs-control-bar' ).css( 'display', 'none' );
                 forcePlaybackVideodrome();
                 videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
             } );
@@ -2857,9 +2858,11 @@ $( document ).ready( function () {
                 if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
                     $( '.video-js' ).removeClass( 'vjs-user-inactive' );
                     $( '.video-js' ).addClass( 'vjs-user-active' );
+                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
                 } else {
                     $( '.video-js' ).removeClass( 'vjs-user-active' );
                     $( '.video-js' ).addClass( 'vjs-user-inactive' );
+                    $( '.vjs-control-bar' ).css( 'display', 'none' );
                 }
             } );
 
@@ -2881,6 +2884,7 @@ $( document ).ready( function () {
                     $( '.videoDromeVideo2' ).find( '.videoDromeFrame' ).prop( 'controls', 'controls' );
                     $( '.video-js' ).removeClass( 'vjs-user-active' );
                     $( '.video-js' ).addClass( 'vjs-user-inactive' );
+                    $( '.vjs-control-bar' ).css( 'display', 'none' );
                 } else if ( $( '.videodromeFullscreen' )[0] && $( '.videoDromeVideo2' ).is( ':visible' ) ) {
                     $( '.video-js' ).addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
@@ -2890,6 +2894,7 @@ $( document ).ready( function () {
                     $( '.videoDromeVideo2' ).hide();
                     $( '.video-js' ).removeClass( 'vjs-user-inactive' );
                     $( '.video-js' ).addClass( 'vjs-user-active' );
+                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
                     $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
                 }
 
@@ -2918,6 +2923,7 @@ $( document ).ready( function () {
                     if ( config['videosVideodrome'] != undefined ) {
                         $( '.video-js' ).removeClass( 'vjs-user-active' );
                         $( '.video-js' ).addClass( 'vjs-user-inactive' );
+                        $( '.vjs-control-bar' ).css( 'display', 'none' );
                         $( '.video-js' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
@@ -2927,6 +2933,7 @@ $( document ).ready( function () {
                 } else {
                     $( '.video-js' ).removeClass( 'vjs-user-inactive' );
                     $( '.video-js' ).addClass( 'vjs-user-active' );
+                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
                     $( '.video-js' ).addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuVideoJSContainer' ).show();
                 }
@@ -3038,6 +3045,7 @@ $( document ).ready( function () {
                 }
                 $( '.video-js' ).removeClass( 'vjs-user-active' );
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
+                $( '.vjs-control-bar' ).css( 'display', 'none' );
             } );
 
             $( document ).on( 'mouseenter', '.refreshVideoDromeVideoFullscreenIcon', function () {
