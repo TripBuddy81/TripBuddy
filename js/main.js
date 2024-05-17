@@ -2958,6 +2958,16 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( document ).on( 'wheel', '.videodromeRefreshLocalVideo', function ( event ) {
+                event.preventDefault();
+                target = $( this ).attr( 'target' );
+                if ( event.originalEvent.deltaY > 0 ) { // going down
+                    $( '.' + target ).find( '.videoDromeFrame' )[0].currentTime = $( '.' + target ).find( '.videoDromeFrame' )[0].currentTime - 30;
+                } else { // going up
+                    $( '.' + target ).find( '.videoDromeFrame' )[0].currentTime = $( '.' + target ).find( '.videoDromeFrame' )[0].currentTime + 30;
+                }
+            } );
+
             $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer', function ( event ) {
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 && $( '.videodromeFullscreen' ).find( '.localVideo' )[0] != undefined ) { // going down
@@ -3100,7 +3110,7 @@ $( document ).ready( function () {
                 updateVideodromeFullscreenInfo();
             } );
 
-            $( document ).on( 'wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuVideoJSContainer', function ( event ) {
+            $( document ).on( 'wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeStreamRefreshVideo', function ( event ) {
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 ) { // going down
                     videoJSPlayer.currentTime( videoJSPlayer.currentTime() - 30 );
