@@ -3653,7 +3653,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
 
-                $( '#showPornZapper' ).trigger( 'click' );
+                /*$( '#showPornZapper' ).trigger( 'click' );*/
 
                 /*         $( '#showShrineSection' ).trigger( 'click' );
                          $( '#toggleRelationships' ).trigger( 'click' );*/
