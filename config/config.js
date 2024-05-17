@@ -337,6 +337,16 @@ var config = {
                     'startSeconds': '32'
                 },
                 {
+                    'videoId': 'Q8VfA2ev9ok',
+                    'tags'   : 'trippy-3D',
+                    'startSeconds': '32'
+                },
+                {
+                    'videoId': 'f2y7r3VxiNk',
+                    'tags'   : 'trippy-3D',
+                    'startSeconds': '32'
+                },
+                {
                     'videoId': 'QxLV23bApTA',
                     'tags'   : 'trippy-3D'
                 },
@@ -346,10 +356,6 @@ var config = {
                 },
                 {
                     'videoId': 'LnegTSijfDI',
-                    'tags'   : 'trippy-3D'
-                },
-                {
-                    'videoId': '9dv3-TUMcRE',
                     'tags'   : 'trippy-3D'
                 },
                 {
@@ -371,8 +377,6 @@ var config = {
                     'videoId': 'CluwRiEh5g4',
                     'tags'   : 'trippy-3D'
                 },
-
-
                 {
                     'videoId'     : 'HTHj_pvEYYE',
                     'tags'        : 'space',
@@ -439,28 +443,9 @@ var config = {
                     'startSeconds': '90'
                 },
                 {
-                    'videoId'     : 'MagELQywiGI',
-                    'tags'        : 'trippy-2D'
-                },
-                {
-                    'videoId'     : 'P3TwFFKgs7Y',
-                    'tags'        : 'trippy-2D',
-                    'startSeconds': '7'
-                },
-                {
                     'videoId'     : '3by0GRSqORM',
                     'tags'        : 'trippy-2D',
                     'startSeconds': '7'
-                },
-                {
-                    'videoId'     : 'QLQNsoZqlcc',
-                    'tags'        : 'trippy-2D',
-                    'startSeconds': '7'
-                },
-                {
-                    'videoId'     : 'DEoeY8vZ_zY',
-                    'tags'        : 'trippy-2D',
-                    'startSeconds': '12'
                 },
                 {
                     'videoId'     : '6fsaVxXYya8',
