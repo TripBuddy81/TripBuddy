@@ -3053,6 +3053,27 @@ $( document ).ready( function () {
                 $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
             } );
 
+            $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
+                clearTimeout( videodromeFullscreenMenuHideInterval );
+
+                $( '.videodromeRefreshContainer' ).css( 'opacity', '1' );
+                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+
+                videodromeFullscreenMenuHideInterval = setTimeout( function () {
+                    $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeRefreshContainer' ).css( 'cursor', 'none' );
+                    $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
+                }, 1000 );
+            } );
+
+            $( document ).on( 'mouseleave', '.videodromeRefreshContainer', function () {
+                clearTimeout( videodromeFullscreenMenuHideInterval );
+
+                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
+            } );
+
             $( document ).on( 'mouseenter', '.videodromeFullscreenMenuContainer', function ( event ) {
                 $( this ).css( 'opacity', '1' );
                 updateVideodromeFullscreenInfo();
@@ -3607,8 +3628,10 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
 
-                $( '#showShrineSection' ).trigger( 'click' );
-                $( '#toggleRelationships' ).trigger( 'click' );
+                $( '#showPornZapper' ).trigger( 'click' );
+
+                /*         $( '#showShrineSection' ).trigger( 'click' );
+                         $( '#toggleRelationships' ).trigger( 'click' );*/
 
             }
         }
