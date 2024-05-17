@@ -523,6 +523,8 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videodromeFullscreenMenuContainer' ).hide();
                 $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                $( '.video-js' ).addClass( 'vjs-user-inactive' );
+                $( '.vjs-control-bar' ).css( 'display', 'none' );
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -3128,10 +3130,15 @@ $( document ).ready( function () {
                 $( '.video-js' ).removeClass( 'vjs-user-inactive' );
                 $( '.video-js' ).addClass( 'vjs-user-active' );
 
+                if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
+                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
+                }
+
                 clearTimeout( videodromeVideoJSControlbarHideInterval );
                 videodromeVideoJSControlbarHideInterval = setTimeout( function () {
                     $( '.video-js' ).removeClass( 'vjs-user-active' );
                     $( '.video-js' ).addClass( 'vjs-user-inactive' );
+                    $( '.vjs-control-bar' ).css( 'display', 'none' );
                 }, 2000 );
             } );
 
