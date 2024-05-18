@@ -102,8 +102,9 @@ $( document ).ready( function () {
             window.videoJSLoadAfterFind = true;
             window.rightMouseButtonClickCounter = 0;
             window.mouseDisabled = false;
-            window.mouseDisabledDuration = 25000;
+            window.mouseDisabledDuration = 2000;
             window.rightMouseButtonClickCounterInterval = '';
+            window.mouseDisabledInterval = '';
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -271,6 +272,10 @@ $( document ).ready( function () {
                 e.preventDefault();
                 e.stopPropagation();
 
+                if ( mouseDisabled ) {
+                    return;
+                }
+
                 rightMouseButtonClickCounter++;
                 clearTimeout( rightMouseButtonClickCounterInterval );
                 rightMouseButtonClickCounterInterval = setTimeout( function () {
@@ -279,10 +284,6 @@ $( document ).ready( function () {
 
                 if ( rightMouseButtonClickCounter >= 5 ) {
                     disableMouseActions();
-                }
-
-                if ( mouseDisabled ) {
-                    return;
                 }
 
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
@@ -550,7 +551,6 @@ $( document ).ready( function () {
                 clearInterval( preFlightCheckListAnimationTimer );
                 hideScreensaverEnso();
                 stopScreensaver();
-                enableMouseActions();
 
                 $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
             }
@@ -559,6 +559,7 @@ $( document ).ready( function () {
                 if ( !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement ) {
                     isFullScreen = false;
                     stopAllActions();
+                    enableMouseActions();
                 }
             }
 
@@ -622,12 +623,14 @@ $( document ).ready( function () {
                 mouseDisabled = true;
                 $( 'html' ).addClass( 'unclickable' );
 
-                setTimeout( function () {
+                clearInterval( mouseDisabledInterval );
+                mouseDisabledInterval = setTimeout( function () {
                     enableMouseActions();
                 }, mouseDisabledDuration );
             }
 
             function enableMouseActions() {
+                $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                 mouseDisabled = false;
                 $( 'html' ).removeClass( 'unclickable' );
             }
