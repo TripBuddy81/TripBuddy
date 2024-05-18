@@ -125,6 +125,10 @@ a:link, a:visited, a:active, a:hover, p {
     pointer-events: none;
 }
 
+.unclickable {
+    pointer-events: none;
+}
+
 .xxxLink, .xxxAction, .searchLink, .searchLabel, .searchInput, .searchInput:focus, .searchInput:active {
     font-weight: bold;
     font-size: 35px !important;

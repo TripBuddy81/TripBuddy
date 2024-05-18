@@ -100,6 +100,10 @@ $( document ).ready( function () {
             window.videoJSPlayer = '';
             window.activePageCrawls = 0;
             window.videoJSLoadAfterFind = true;
+            window.rightMouseButtonClickCounter = 0;
+            window.mouseDisabled = false;
+            window.mouseDisabledDuration = 25000;
+            window.rightMouseButtonClickCounterInterval = '';
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -266,6 +270,20 @@ $( document ).ready( function () {
             $( document ).bind( 'contextmenu', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
+
+                rightMouseButtonClickCounter++;
+                clearTimeout( rightMouseButtonClickCounterInterval );
+                rightMouseButtonClickCounterInterval = setTimeout( function () {
+                    rightMouseButtonClickCounter = 0;
+                }, 1000 );
+
+                if ( rightMouseButtonClickCounter >= 5 ) {
+                    disableMouseActions();
+                }
+
+                if ( mouseDisabled ) {
+                    return;
+                }
 
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
 
@@ -532,6 +550,7 @@ $( document ).ready( function () {
                 clearInterval( preFlightCheckListAnimationTimer );
                 hideScreensaverEnso();
                 stopScreensaver();
+                enableMouseActions();
 
                 $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
             }
@@ -593,6 +612,24 @@ $( document ).ready( function () {
                     var sel = window.getSelection();
                     sel.removeAllRanges();
                 }
+            }
+
+            function disableMouseActions() {
+                $( '#showShrineSection' ).trigger( 'click' );
+                $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+
+                mouseDisabled = true;
+                $( 'html' ).addClass( 'unclickable' );
+
+                setTimeout( function () {
+                    enableMouseActions();
+                }, mouseDisabledDuration );
+            }
+
+            function enableMouseActions() {
+                mouseDisabled = false;
+                $( 'html' ).removeClass( 'unclickable' );
             }
 
             // ***********************************
