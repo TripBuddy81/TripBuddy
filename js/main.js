@@ -284,6 +284,7 @@ $( document ).ready( function () {
 
                 if ( rightMouseButtonClickCounter >= 5 ) {
                     disableMouseActions();
+                    return;
                 }
 
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
@@ -630,7 +631,6 @@ $( document ).ready( function () {
             }
 
             function enableMouseActions() {
-                $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
                 mouseDisabled = false;
                 $( 'html' ).removeClass( 'unclickable' );
             }
