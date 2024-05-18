@@ -282,14 +282,14 @@ $( document ).ready( function () {
                     rightMouseButtonClickCounter = 0;
                 }, 1000 );
 
+                // After clicking the right mouse button 5 times in sequence the mouse is deactivated for a certain time
                 if ( rightMouseButtonClickCounter >= 5 ) {
                     disableMouseActions();
                     return;
                 }
 
-                // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
-
                 // Stop current action or show playlist selection if nothing else is going on right now
+                // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
                 if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
@@ -3693,12 +3693,9 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
 
-                /*$( '#showPornZapper' ).trigger( 'click' );*/
-
                 /*         $( '#showShrineSection' ).trigger( 'click' );
                          $( '#toggleRelationships' ).trigger( 'click' );*/
 
             }
         }
-)
-;
+);
