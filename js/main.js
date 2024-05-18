@@ -102,7 +102,7 @@ $( document ).ready( function () {
             window.videoJSLoadAfterFind = true;
             window.rightMouseButtonClickCounter = 0;
             window.mouseDisabled = false;
-            window.mouseDisabledDuration = 2000;
+            window.mouseDisabledDuration = 25000;
             window.rightMouseButtonClickCounterInterval = '';
             window.mouseDisabledInterval = '';
 
