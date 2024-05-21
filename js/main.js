@@ -622,7 +622,7 @@ $( document ).ready( function () {
                 $( '#shrineSettingsContainer' ).removeClass( 'visible' );
 
                 mouseDisabled = true;
-                $( 'html' ).addClass( 'unclickable' );
+                $( 'html' ).addClass( 'cursorDisabled' );
 
                 clearInterval( mouseDisabledInterval );
                 mouseDisabledInterval = setTimeout( function () {
@@ -632,7 +632,7 @@ $( document ).ready( function () {
 
             function enableMouseActions() {
                 mouseDisabled = false;
-                $( 'html' ).removeClass( 'unclickable' );
+                $( 'html' ).removeClass( 'cursorDisabled' );
             }
 
             // ***********************************
@@ -2161,6 +2161,11 @@ $( document ).ready( function () {
                         !$( event.target ).hasClass( 'videoJSFavorite' )
                 ) {
                     e.preventDefault();
+
+                    if ( mouseDisabled ) {
+                        return;
+                    }
+
                     openSpotifyApp();
                     playNextYoutubeVideoOrSpotifyTrack();
                 } else if ( e.which == 2 ) {

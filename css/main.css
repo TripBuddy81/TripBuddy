@@ -24,6 +24,11 @@ cursorDefault {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
+.cursorDisabled {
+    cursor: not-allowed !important;
+    pointer-events: none;
+}
+
 .cursorNone {
     cursor: none !important;
 }
@@ -122,10 +127,6 @@ a:link, a:visited, a:active, a:hover, p {
 
 .hiddenAndUnclickable {
     opacity: 0;
-    pointer-events: none;
-}
-
-.unclickable {
     pointer-events: none;
 }
 
