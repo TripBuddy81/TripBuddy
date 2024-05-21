@@ -236,6 +236,24 @@ $( document ).ready( function () {
                 setTimeout( function () {
                     getNextVideoStreamUrl( true );
                 }, 500 );
+
+                if ( $( '.searchInput' ).val() != '' ) {
+                    tmpCounter = 0;
+                    $( '.lastSearchTerm' ).each( function () {
+                        tmpCounter++;
+                        if ( tmpCounter >= 3 ) {
+                            $( this ).remove();
+                        }
+                    } );
+
+                    newSearchTerm = $( '<div/>' ).addClass( 'lastSearchTerm' ).html( $( '.searchInput' ).val() );
+                    $( '#videodromeFullscreenLastSearches' ).prepend( newSearchTerm );
+                }
+            } );
+
+            $( document ).on( 'click', '.lastSearchTerm', function ( event ) {
+                $( '.searchInput' ).val($( this ).html() );
+                getNextVideoStreamUrl( true );
             } );
 
             $( document ).on( 'keydown', function ( event ) {
@@ -3505,6 +3523,7 @@ $( document ).ready( function () {
                             if ( !retry ) {
                                 pageIndex = 1;
                             }
+
                             searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( $( '.searchInput' ).val() ) + '&page=' + pageIndex;
                         } else if ( searchUrl == '' ) {
                             switch ( selectedVideoStreamService ) {

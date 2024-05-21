@@ -1975,7 +1975,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
 }
 
-.videoJSStreamModelname:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover {
+.videoJSStreamModelname:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover, .lastSearchTerm:hover {
     color: white;
 }
 
@@ -1994,7 +1994,7 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
-.videoJSStreamModelname {
+.videoJSStreamModelname, .lastSearchTerm {
     font-weight: bold;
     float: inline-start;
     margin-right: 15px;
