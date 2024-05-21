@@ -840,6 +840,12 @@ var config = {
                     'label'  : 'The Truth'
                 },
                 {
+                    'videoId': 'rHRJJlKTSc4',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The Illusion of Control'
+                },
+                {
                     'videoId': 'h6fcK_fRYaI',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -1045,6 +1051,10 @@ var config = {
                     'tags' : 'trippy'
                 },
                 {
+                    'image': './media/images/78.jpg',
+                    'tags' : 'trippy'
+                },
+                {
                     'image': './media/images/46.jpg',
                     'tags' : 'trippy'
                 },
@@ -1066,10 +1076,6 @@ var config = {
                 },
                 {
                     'image': './media/images/58.jpg',
-                    'tags' : 'trippy'
-                },
-                {
-                    'image': './media/images/51.jpg',
                     'tags' : 'trippy'
                 },
                 {
