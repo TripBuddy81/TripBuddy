@@ -556,6 +556,7 @@ $( document ).ready( function () {
                 showVideostreamFavoriteItemDeleteSymbol = false;
                 $( '.videostreamFavoriteItemDeleteSymbol' ).hide();
                 $( '#unlockDeleteVideodromeFavorites' ).show();
+                $( '#lockDeleteVideodromeFavorites' ).hide();
                 $( '#preFlightChecklist' ).modal( 'hide' );
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
@@ -3321,9 +3322,17 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#unlockDeleteVideodromeFavorites', function ( event ) {
-                $( '.videostreamFavoriteItemDeleteSymbol' ).toggle();
+                $( '.videostreamFavoriteItemDeleteSymbol' ).show();
                 showVideostreamFavoriteItemDeleteSymbol = true;
                 $( '#unlockDeleteVideodromeFavorites' ).hide();
+                $( '#lockDeleteVideodromeFavorites' ).show();
+            } );
+
+            $( document ).on( 'click', '#lockDeleteVideodromeFavorites', function ( event ) {
+                $( '.videostreamFavoriteItemDeleteSymbol' ).hide();
+                showVideostreamFavoriteItemDeleteSymbol = false;
+                $( '#lockDeleteVideodromeFavorites' ).hide();
+                $( '#unlockDeleteVideodromeFavorites' ).show();
             } );
 
             $( document ).on( 'click', '#playAllVideodromeFavorites', function ( event ) {
@@ -3516,8 +3525,10 @@ $( document ).ready( function () {
                     favoriteItemContainer.appendChild( videostreamFavoriteItemDeleteSymbol );
                 } );
 
+                $( '#lockDeleteVideodromeFavorites' ).hide();
                 if ( showVideostreamFavoriteItemDeleteSymbol ) {
                     $( '.videostreamFavoriteItemDeleteSymbol' ).show();
+                    $( '#lockDeleteVideodromeFavorites' ).show();
                 }
             }
 

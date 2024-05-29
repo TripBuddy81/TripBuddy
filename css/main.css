@@ -1965,10 +1965,14 @@ video::-webkit-media-controls-fullscreen-button {
     margin-top: 30px;
 }
 
-#unlockDeleteVideodromeFavorites, #playAllVideodromeFavorites {
-    height: 40px;
+#unlockDeleteVideodromeFavorites, #lockDeleteVideodromeFavorites, #playAllVideodromeFavorites {
+    height: 60px;
     margin-right: 15px;
     margin-bottom: 20px;
+}
+
+#lockDeleteVideodromeFavorites{
+    display: none;
 }
 
 .videodromeFullscreenFilename {
