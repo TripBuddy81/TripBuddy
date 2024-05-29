@@ -3198,6 +3198,24 @@ $( document ).ready( function () {
                 }, 2000 );
             } );
 
+            $( document ).on( 'mousemove', '#videodromeFullscreenMenuVideoJSContainer', function ( event ) {
+                event.preventDefault();
+
+                $( '.video-js' ).removeClass( 'vjs-user-inactive' );
+                $( '.video-js' ).addClass( 'vjs-user-active' );
+
+                if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
+                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
+                }
+
+                clearTimeout( videodromeVideoJSControlbarHideInterval );
+                videodromeVideoJSControlbarHideInterval = setTimeout( function () {
+                    $( '.video-js' ).removeClass( 'vjs-user-active' );
+                    $( '.video-js' ).addClass( 'vjs-user-inactive' );
+                    $( '.vjs-control-bar' ).css( 'display', 'none' );
+                }, 2000 );
+            } );
+
             $( document ).on( 'click', '#videodromeFullscreenSearchInput', function ( event ) {
                 $( '*[data-trigger-keyboard]' ).trigger( 'click' );
             } );
