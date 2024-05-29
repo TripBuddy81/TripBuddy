@@ -3172,19 +3172,7 @@ $( document ).ready( function () {
             } );
 
             $( '.videodromeStreamRefreshVideo' ).click( function () {
-                if ( activeVideoJSPlayer == 'videoJSPlayer1' ) {
-                    loadNextVideoJSStream( 'videoJSPlayer1' );
-                    activeVideoJSPlayer = 'videoJSPlayer2';
-                    $( '.videoDromeStreamVideo1' ).hide();
-                    $( '.videoDromeStreamVideo2' ).show();
-                    playVideoJSStream( activeVideoJSPlayer );
-                } else {
-                    loadNextVideoJSStream( 'videoJSPlayer2' );
-                    activeVideoJSPlayer = 'videoJSPlayer1';
-                    $( '.videoDromeStreamVideo1' ).show();
-                    $( '.videoDromeStreamVideo2' ).hide();
-                    playVideoJSStream( activeVideoJSPlayer );
-                }
+                videodromeStreamRefreshVideo();
                 updateVideodromeFullscreenInfo();
             } );
 
@@ -3639,7 +3627,7 @@ $( document ).ready( function () {
                                 if ( matchesStreamUrl != undefined && matchesStreamUrl[1] != undefined ) {
                                     if ( data.indexOf( 'Dieser Inhalt ist in deinem Land nicht' ) >= 0 ) {
                                         console.info( 'VIDEO IS GEOBLOCKED' );
-                                        loadNextVideoJSStream( activeVideoJSPlayer );
+                                        videodromeStreamRefreshVideo();
                                     } else {
                                         var singleVideoObject = {};
                                         singleVideoObject['videoPageUrl'] = singelVideoPageUrl;
@@ -3708,7 +3696,7 @@ $( document ).ready( function () {
                                 activePageCrawls--;
                             },
                             error  : function ( data ) {
-                                loadNextVideoJSStream( activeVideoJSPlayer );
+                                videodromeStreamRefreshVideo();
                                 console.info( 'ERROR WHILE LOADING VIDEO' );
                             }
                         } );
@@ -3742,6 +3730,22 @@ $( document ).ready( function () {
                     videoJSPlayer.load();
                 }
                 getNextVideoStreamUrl( false );
+            }
+
+            function videodromeStreamRefreshVideo() {
+                if ( activeVideoJSPlayer == 'videoJSPlayer1' ) {
+                    loadNextVideoJSStream( 'videoJSPlayer1' );
+                    activeVideoJSPlayer = 'videoJSPlayer2';
+                    $( '.videoDromeStreamVideo1' ).hide();
+                    $( '.videoDromeStreamVideo2' ).show();
+                    playVideoJSStream( activeVideoJSPlayer );
+                } else {
+                    loadNextVideoJSStream( 'videoJSPlayer2' );
+                    activeVideoJSPlayer = 'videoJSPlayer1';
+                    $( '.videoDromeStreamVideo1' ).show();
+                    $( '.videoDromeStreamVideo2' ).hide();
+                    playVideoJSStream( activeVideoJSPlayer );
+                }
             }
 
             // END Videodrome section
