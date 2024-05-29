@@ -105,6 +105,7 @@ $( document ).ready( function () {
             window.mouseDisabledDuration = 20000;
             window.rightMouseButtonClickCounterInterval = '';
             window.mouseDisabledInterval = '';
+            window.showVideostreamFavoriteItemDeleteSymbol = false;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -252,7 +253,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.lastSearchTerm', function ( event ) {
-                $( '.searchInput' ).val($( this ).html() );
+                $( '.searchInput' ).val( $( this ).html() );
                 getNextVideoStreamUrl( true );
             } );
 
@@ -552,6 +553,9 @@ $( document ).ready( function () {
                 screensaverSecondsIdle = 0;
                 stopShrineDisco();
                 stopPlaybackVideodrome();
+                showVideostreamFavoriteItemDeleteSymbol = false;
+                $( '.videostreamFavoriteItemDeleteSymbol' ).hide();
+                $( '#unlockDeleteVideodromeFavorites' ).show();
                 $( '#preFlightChecklist' ).modal( 'hide' );
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
@@ -3316,6 +3320,16 @@ $( document ).ready( function () {
                 displayAllActiveLocalFilenames();
             } );
 
+            $( document ).on( 'click', '#unlockDeleteVideodromeFavorites', function ( event ) {
+                $( '.videostreamFavoriteItemDeleteSymbol' ).toggle();
+                showVideostreamFavoriteItemDeleteSymbol = true;
+                $( '#unlockDeleteVideodromeFavorites' ).hide();
+            } );
+
+            $( document ).on( 'click', '#playAllVideodromeFavorites', function ( event ) {
+
+            } );
+
             function getAllExternalDirs( url ) {
                 $.ajax( {
                     url    : url,
@@ -3501,6 +3515,10 @@ $( document ).ready( function () {
                     videostreamFavoriteItemDeleteSymbol.classList.add( 'videostreamFavoriteItemDeleteSymbol' );
                     favoriteItemContainer.appendChild( videostreamFavoriteItemDeleteSymbol );
                 } );
+
+                if ( showVideostreamFavoriteItemDeleteSymbol ) {
+                    $( '.videostreamFavoriteItemDeleteSymbol' ).show();
+                }
             }
 
             var selectedVideoStreamService = 'PH'; // TODO extend to other hub pages
