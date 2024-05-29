@@ -2965,13 +2965,13 @@ $( document ).ready( function () {
                     $( '.video-js' ).removeClass( 'vjs-user-inactive' );
                     $( '.video-js' ).addClass( 'vjs-user-active' );
                     $( '.vjs-control-bar' ).css( 'display', 'flex' );
-                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                    videodromeStreamRefreshVideo();
                 }
 
                 if ( !$( '.videodromeFullscreen' )[0] ) {
                     $( '.videoDromeVideo2' ).toggle();
                     $( '.videoDromeStreamVideo1' ).toggle();
-                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                    videodromeStreamRefreshVideo();
                 }
 
                 if ( $( '.videoDromeVideo2' ).is( ':visible' ) ) {
@@ -3095,7 +3095,7 @@ $( document ).ready( function () {
                 } );
                 if ( config['videosVideodrome'] != undefined && config['videosVideodrome'].length > 0 ) {
                     if ( $( target ).hasClass( 'video-js' ) ) {
-                        $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                        videodromeStreamRefreshVideo();
                     } else {
                         randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
                         while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
@@ -3111,7 +3111,7 @@ $( document ).ready( function () {
                     }
                     updateVideodromeFullscreenInfo();
                 } else if ( $( target ).hasClass( 'video-js' ) ) {
-                    $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                    videodromeStreamRefreshVideo();
                 }
                 $( '.video-js' ).removeClass( 'vjs-user-active' );
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
@@ -3138,7 +3138,7 @@ $( document ).ready( function () {
                 $( '#refreshVideoDromeVideo3' ).trigger( 'click' );
                 $( '#refreshVideoDromeVideo4' ).trigger( 'click' );
 
-                $( '#videodromeStreamRefreshVideo' ).trigger( 'click' );
+                videodromeStreamRefreshVideo();
             } );
 
             $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
@@ -3173,7 +3173,6 @@ $( document ).ready( function () {
 
             $( '.videodromeStreamRefreshVideo' ).click( function () {
                 videodromeStreamRefreshVideo();
-                updateVideodromeFullscreenInfo();
             } );
 
             $( document ).on( 'wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeStreamRefreshVideo', function ( event ) {
@@ -3764,6 +3763,7 @@ $( document ).ready( function () {
                     $( '.videoDromeStreamVideo2' ).hide();
                     playVideoJSStream( activeVideoJSPlayer );
                 }
+                updateVideodromeFullscreenInfo();
             }
 
             // END Videodrome section
