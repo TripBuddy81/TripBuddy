@@ -3625,78 +3625,92 @@ $( document ).ready( function () {
                                 break;
                             }
                         }
-                        $.get( singelVideoPageUrl, function ( data ) {
-                            switch ( selectedVideoStreamService ) {
-                                case 'PH':
-                                default:
-                                    var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
-                            }
 
-                            if ( matchesStreamUrl != undefined && matchesStreamUrl[1] != undefined ) {
-                                var singleVideoObject = {};
-                                singleVideoObject['videoPageUrl'] = singelVideoPageUrl;
-                                singleVideoObject['videoStreamUrl'] = matchesStreamUrl[1].replaceAll( '\\', '' );
-                                singleVideoObject['videoTitel'] = '';
-                                singleVideoObject['videoPagePosterUrl'] = '';
-                                singleVideoObject['modelLinks'] = '';
-
-                                var reVideoTitel = /\<span class="inlineFree">(.*?)\<\/span\>/g;
-                                reVideoTitel = reVideoTitel.exec( data );
-                                if ( reVideoTitel ) {
-                                    singleVideoObject['videoTitel'] = reVideoTitel[1];
+                        $.ajax( {
+                            url    : singelVideoPageUrl,
+                            type   : 'GET',
+                            success: function ( data ) {
+                                switch ( selectedVideoStreamService ) {
+                                    case 'PH':
+                                    default:
+                                        var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
                                 }
 
-                                var reVideoPosterUrlTitel = /\<img src="(.*?)".*?id="videoElementPoster".*?>/g;
-                                reVideoPosterUrlTitel = reVideoPosterUrlTitel.exec( data );
-                                if ( reVideoPosterUrlTitel ) {
-                                    singleVideoObject['videoPagePosterUrl'] = reVideoPosterUrlTitel[1];
-                                }
+                                if ( matchesStreamUrl != undefined && matchesStreamUrl[1] != undefined ) {
+                                    if ( data.indexOf( 'Dieser Inhalt ist in deinem Land nicht' ) >= 0 ) {
+                                        console.info( 'VIDEO IS GEOBLOCKED' );
+                                        loadNextVideoJSStream( activeVideoJSPlayer );
+                                    } else {
+                                        var singleVideoObject = {};
+                                        singleVideoObject['videoPageUrl'] = singelVideoPageUrl;
+                                        singleVideoObject['videoStreamUrl'] = matchesStreamUrl[1].replaceAll( '\\', '' );
+                                        singleVideoObject['videoTitel'] = '';
+                                        singleVideoObject['videoPagePosterUrl'] = '';
+                                        singleVideoObject['modelLinks'] = '';
 
-                                $( data ).find( '.pstar-list-btn' ).each( function () {
-                                    if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
-                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
+                                        var reVideoTitel = /\<span class="inlineFree">(.*?)\<\/span\>/g;
+                                        reVideoTitel = reVideoTitel.exec( data );
+                                        if ( reVideoTitel ) {
+                                            singleVideoObject['videoTitel'] = reVideoTitel[1];
+                                        }
+
+                                        var reVideoPosterUrlTitel = /\<img src="(.*?)".*?id="videoElementPoster".*?>/g;
+                                        reVideoPosterUrlTitel = reVideoPosterUrlTitel.exec( data );
+                                        if ( reVideoPosterUrlTitel ) {
+                                            singleVideoObject['videoPagePosterUrl'] = reVideoPosterUrlTitel[1];
+                                        }
+
+                                        $( data ).find( '.pstar-list-btn' ).each( function () {
+                                            if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
+                                                singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
+                                            }
+                                        } );
+
+                                        $( data ).find( '.video-detailed-info' ).find( '.usernameBadgesWrapper' ).find( 'a' ).each( function () {
+                                            if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
+                                                singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
+                                            }
+                                        } );
+
+                                        $( data ).find( '.video-detailed-info' ).find( 'a[data-label=channel]' ).each( function () {
+                                            if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
+                                                singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
+                                            }
+                                        } );
+
+                                        videoJSSingleVideoUrls.push( singleVideoObject );
+
+                                        if ( videoJSLoadAfterFind && !isSingleVideoPage && videoJSSingleVideoUrls.length >= 2 ) {
+                                            videoJSLoadAfterFind = false;
+                                            loadNextVideoJSStream( 'videoJSPlayer2' );
+                                            activeVideoJSPlayer = 'videoJSPlayer1';
+                                            loadNextVideoJSStream( 'videoJSPlayer1' );
+                                            playVideoJSStream( activeVideoJSPlayer );
+                                            $( '.videoDromeStreamVideo1' ).show();
+                                            $( '.videoDromeStreamVideo2' ).hide();
+                                            updateVideodromeFullscreenInfo();
+
+                                        } else if ( videoJSLoadAfterFind && isSingleVideoPage && videoJSSingleVideoUrls.length >= 1 ) {
+                                            videoJSLoadAfterFind = false;
+                                            loadNextVideoJSStream( 'videoJSPlayer1' );
+                                            playVideoJSStream( 'videoJSPlayer1' );
+                                            $( '.videoDromeStreamVideo1' ).show();
+                                            $( '.videoDromeStreamVideo2' ).hide();
+                                            updateVideodromeFullscreenInfo();
+                                        }
+                                        if ( !isSingleVideoPage && videoJSSingleVideoUrls.length <= 4 ) {
+                                            getNextVideoStreamUrl( false );
+                                        }
                                     }
-                                } );
-
-                                $( data ).find( '.video-detailed-info' ).find( '.usernameBadgesWrapper' ).find( 'a' ).each( function () {
-                                    if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
-                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
-                                    }
-                                } );
-
-                                $( data ).find( '.video-detailed-info' ).find( 'a[data-label=channel]' ).each( function () {
-                                    if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
-                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
-                                    }
-                                } );
-
-                                videoJSSingleVideoUrls.push( singleVideoObject );
-
-                                if ( videoJSLoadAfterFind && !isSingleVideoPage && videoJSSingleVideoUrls.length >= 2 ) {
-                                    videoJSLoadAfterFind = false;
-                                    loadNextVideoJSStream( 'videoJSPlayer2' );
-                                    activeVideoJSPlayer = 'videoJSPlayer1';
-                                    loadNextVideoJSStream( 'videoJSPlayer1' );
-                                    playVideoJSStream( activeVideoJSPlayer );
-                                    $( '.videoDromeStreamVideo1' ).show();
-                                    $( '.videoDromeStreamVideo2' ).hide();
-                                    updateVideodromeFullscreenInfo();
-
-                                } else if ( videoJSLoadAfterFind && isSingleVideoPage && videoJSSingleVideoUrls.length >= 1 ) {
-                                    videoJSLoadAfterFind = false;
-                                    loadNextVideoJSStream( 'videoJSPlayer1' );
-                                    playVideoJSStream( 'videoJSPlayer1' );
-                                    $( '.videoDromeStreamVideo1' ).show();
-                                    $( '.videoDromeStreamVideo2' ).hide();
-                                    updateVideodromeFullscreenInfo();
-                                }
-                                if ( !isSingleVideoPage && videoJSSingleVideoUrls.length <= 4 ) {
+                                } else {
                                     getNextVideoStreamUrl( false );
                                 }
-                            } else {
-                                getNextVideoStreamUrl( false );
+                                activePageCrawls--;
+                            },
+                            error  : function ( data ) {
+                                loadNextVideoJSStream( activeVideoJSPlayer );
+                                console.info( 'ERROR WHILE LOADING VIDEO' );
                             }
-                            activePageCrawls--;
                         } );
                     }
                 }
