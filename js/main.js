@@ -3336,6 +3336,23 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#playAllVideodromeFavorites', function ( event ) {
+                console.info( "before", videoJSHubUrls );
+
+                videoJSHubUrls = [];
+
+                console.info( "after", videoJSHubUrls );
+
+                videoJSSingleVideoUrls = [];
+                activePageCrawls = 0;
+                videoJSLoadAfterFind = true;
+
+                $.each( videodromeFavorites['items'], function ( key, value ) {
+                    console.info( value['videoPageUrl'] );
+                    videoJSHubUrls.push( value['videoPageUrl'] );
+                } );
+                console.info( videoJSHubUrls );
+                console.info( "start STREAN" );
+                getNextVideoStreamUrl( false );
 
             } );
 
@@ -3534,6 +3551,7 @@ $( document ).ready( function () {
 
             var selectedVideoStreamService = 'PH'; // TODO extend to other hub pages
             function getNextVideoStreamUrl( newSearch = false, searchUrl = '', retry = true, isSingleVideoPage = false ) {
+                console.info("test1", videoJSHubUrls.length);
                 if ( newSearch ) {
                     videoJSHubUrls = [];
                     videoJSSingleVideoUrls = [];
