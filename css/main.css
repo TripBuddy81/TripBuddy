@@ -1959,19 +1959,20 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
-#videodromeFullscreenAddToFavorites, #videodromeFullscreenSearchInput, #videodromeFullscreenResetSearch {
+#videodromeFullscreenSearchInput, #videodromeFullscreenResetSearch {
     height: 40px;
     margin-right: 15px;
     margin-top: 30px;
+    margin-left: 15px;
 }
 
-#unlockDeleteVideodromeFavorites, #lockDeleteVideodromeFavorites, #playAllVideodromeFavorites {
+#videodromeFullscreenAddToFavorites, #playAllVideodromeFavorites, #unlockDeleteVideodromeFavorites, #lockDeleteVideodromeFavorites {
     height: 60px;
     margin-right: 15px;
     margin-bottom: 20px;
 }
 
-#lockDeleteVideodromeFavorites{
+#lockDeleteVideodromeFavorites {
     display: none;
 }
 
@@ -2101,6 +2102,15 @@ video::-webkit-media-controls-fullscreen-button {
 .videoJSFavorite {
     width: 376px;
     margin-bottom: 15px;
+}
+
+#videodromeFavorites {
+    margin-top: 75px;
+}
+
+.videodromeFavoritesOptions {
+    position: fixed;
+    z-index: 10;
 }
 
 .localFilename {
