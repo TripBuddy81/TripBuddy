@@ -3336,24 +3336,15 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#playAllVideodromeFavorites', function ( event ) {
-                console.info( "before", videoJSHubUrls );
-
                 videoJSHubUrls = [];
-
-                console.info( "after", videoJSHubUrls );
-
                 videoJSSingleVideoUrls = [];
                 activePageCrawls = 0;
                 videoJSLoadAfterFind = true;
 
                 $.each( videodromeFavorites['items'], function ( key, value ) {
-                    console.info( value['videoPageUrl'] );
                     videoJSHubUrls.push( value['videoPageUrl'] );
                 } );
-                console.info( videoJSHubUrls );
-                console.info( "start STREAN" );
                 getNextVideoStreamUrl( false );
-
             } );
 
             function getAllExternalDirs( url ) {
@@ -3551,7 +3542,6 @@ $( document ).ready( function () {
 
             var selectedVideoStreamService = 'PH'; // TODO extend to other hub pages
             function getNextVideoStreamUrl( newSearch = false, searchUrl = '', retry = true, isSingleVideoPage = false ) {
-                console.info("test1", videoJSHubUrls.length);
                 if ( newSearch ) {
                     videoJSHubUrls = [];
                     videoJSSingleVideoUrls = [];
@@ -3682,7 +3672,7 @@ $( document ).ready( function () {
 
                                 videoJSSingleVideoUrls.push( singleVideoObject );
 
-                                if ( videoJSLoadAfterFind && videoJSSingleVideoUrls.length >= 2 ) {
+                                if ( videoJSLoadAfterFind && !isSingleVideoPage && videoJSSingleVideoUrls.length >= 2 ) {
                                     videoJSLoadAfterFind = false;
                                     loadNextVideoJSStream( 'videoJSPlayer2' );
                                     activeVideoJSPlayer = 'videoJSPlayer1';
@@ -3691,7 +3681,8 @@ $( document ).ready( function () {
                                     $( '.videoDromeStreamVideo1' ).show();
                                     $( '.videoDromeStreamVideo2' ).hide();
                                     updateVideodromeFullscreenInfo();
-                                } else if ( isSingleVideoPage && videoJSSingleVideoUrls.length >= 1 ) {
+
+                                } else if ( videoJSLoadAfterFind && isSingleVideoPage && videoJSSingleVideoUrls.length >= 1 ) {
                                     videoJSLoadAfterFind = false;
                                     loadNextVideoJSStream( 'videoJSPlayer1' );
                                     playVideoJSStream( 'videoJSPlayer1' );
@@ -3699,9 +3690,8 @@ $( document ).ready( function () {
                                     $( '.videoDromeStreamVideo2' ).hide();
                                     updateVideodromeFullscreenInfo();
                                 }
-
-                                if ( videoJSSingleVideoUrls.length <= 4 && !isSingleVideoPage ) {
-                                    getNextVideoStreamUrl();
+                                if ( !isSingleVideoPage && videoJSSingleVideoUrls.length <= 4 ) {
+                                    getNextVideoStreamUrl( false );
                                 }
                             } else {
                                 getNextVideoStreamUrl( false );
