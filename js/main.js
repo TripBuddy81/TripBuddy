@@ -3378,7 +3378,7 @@ $( document ).ready( function () {
                     nodeInactive.classList.add( 'externalDirInactive' );
                     nodeInactive.classList.add( 'videodromeLocalVideoMenuItem' );
                     nodeInactive.setAttribute( 'dirIdentifier', displayName.replace( ' ', '_' ) );
-                    nodeInactive.innerHTML = displayName + ' ✘';
+                    nodeInactive.innerHTML = displayName;
                     nodeInactive.setAttribute( 'externalDirUrl', url );
                     $( '.externalVideoDirSelection' ).append( nodeInactive );
 
@@ -3386,8 +3386,9 @@ $( document ).ready( function () {
                     nodeActive.classList.add( 'externalDir' );
                     nodeActive.classList.add( 'externalDirActive' );
                     nodeActive.classList.add( 'videodromeLocalVideoMenuItem' );
+                    nodeActive.classList.add( 'videodromeLocalVideoMenuItemActive' );
                     nodeActive.setAttribute( 'dirIdentifier', displayName.replace( ' ', '_' ) );
-                    nodeActive.innerHTML = displayName + ' ✓';
+                    nodeActive.innerHTML = displayName;
                     nodeActive.setAttribute( 'externalDirUrl', url );
                     $( '.externalVideoDirSelection' ).append( nodeActive );
                 } );
