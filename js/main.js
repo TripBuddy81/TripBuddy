@@ -3061,7 +3061,7 @@ $( document ).ready( function () {
                     randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
                     while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
                         randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                        if ( alreadySelectedVideosVideodrome.length == config['videosVideodrome'].length - 1 ) {
+                        if ( alreadySelectedVideosVideodrome.length >= config['videosVideodrome'].length - 1 ) {
                             alreadySelectedVideosVideodrome = [];
                         }
                     }
@@ -3100,7 +3100,7 @@ $( document ).ready( function () {
                         randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
                         while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
                             randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                            if ( alreadySelectedVideosVideodrome.length == config['videosVideodrome'].length - 1 ) {
+                            if ( alreadySelectedVideosVideodrome.length >= config['videosVideodrome'].length - 1 ) {
                                 alreadySelectedVideosVideodrome = [];
                             }
                         }
@@ -3395,6 +3395,7 @@ $( document ).ready( function () {
 
             function processExternalFiles( url, mode ) {
                 externalFiles = [];
+                alreadySelectedVideosVideodrome = [];
                 $.ajax( {
                     url    : url,
                     success: function ( data ) {
