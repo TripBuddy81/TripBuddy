@@ -2002,6 +2002,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
     float: left;
     padding-right: 25px;
+    padding-top: 5px;
     font-size: 25px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
