@@ -3734,7 +3734,7 @@ $( document ).ready( function () {
             function loadNextVideoJSStream( playerId ) {
                 if ( videoJSSingleVideoUrls.length >= 1 ) {
                     var singleVideoObject = videoJSSingleVideoUrls.pop();
-                    videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
+                    var videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
                     videoJSPlayer.src( {
                         src : singleVideoObject['videoStreamUrl'],
                         type: 'application/x-mpegURL'
