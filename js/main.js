@@ -3570,12 +3570,17 @@ $( document ).ready( function () {
                         $.ajax( {
                             url    : searchUrl,
                             type   : 'GET',
-                            success: function ( data ) {
+                            success: function ( originalData ) {
+                                data = $( originalData ).clone();
+
                                 switch ( selectedVideoStreamService ) {
                                     case 'PH':
                                     default:
                                         var videosFound = false;
-                                        $( data ).find( 'header' ).remove();
+                                        $( data ).find( '#header' ).each( function () {
+                                            $( this ).remove();
+                                        } );
+
                                         $( data ).find( '.nf-videos' ).find( '.pcVideoListItem' ).each( function () {
                                             if ( $( this ).find( '.rating-container' ).find( '.value' ).html().replace( '%', '' ) >= 80 ) {
                                                 url = 'https://www.pornhub.com/view_video.php?viewkey=' + $( this ).attr( 'data-video-vkey' );
@@ -3585,6 +3590,7 @@ $( document ).ready( function () {
                                             }
                                             videosFound = true;
                                         } );
+
                                         if ( !videosFound ) {
                                             $( data ).find( '.pcVideoListItem' ).each( function () {
                                                 if ( $( this ).find( '.rating-container' ).find( '.value' ).html().replace( '%', '' ) >= 80 ) {
