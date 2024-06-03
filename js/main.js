@@ -3456,6 +3456,7 @@ $( document ).ready( function () {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
                             $( '.videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videoTitel' ) );
+                            $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', "https://pastedownload.com/pornhub-video1-downloader/#url=" + $( this ).parent().attr( 'data-videopageurl' ) );
 
                             $( '#videodromeFullscreenModelLinks' ).empty();
                             if ( $( this ).parent().attr( 'data-modelLinks' ) != undefined && $( this ).parent().attr( 'data-modelLinks' ) != '' ) {
