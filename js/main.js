@@ -100,6 +100,7 @@ $( document ).ready( function () {
             window.videoJSPlayer = '';
             window.activePageCrawls = 0;
             window.videoJSLoadAfterFind = true;
+            window.lastUsedVideoStreamSearchUrl = createSearchUrl();
             window.rightMouseButtonClickCounter = 0;
             window.mouseDisabled = false;
             window.mouseDisabledDuration = 20000;
@@ -235,7 +236,7 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '.keyboard-accept-button', function ( event ) {
                 setTimeout( function () {
-                    getNextVideoStreamUrl( true );
+                    getNextVideoStreamUrl( true, createSearchUrl( $( '.searchInput' ).val() ) );
                 }, 500 );
 
                 if ( $( '.searchInput' ).val() != '' ) {
@@ -254,7 +255,7 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '.lastSearchTerm', function ( event ) {
                 $( '.searchInput' ).val( $( this ).html() );
-                getNextVideoStreamUrl( true );
+                getNextVideoStreamUrl( true, createSearchUrl( $( this ).html() ) );
             } );
 
             $( document ).on( 'keydown', function ( event ) {
@@ -3220,7 +3221,8 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videoJSStreamModelname', function ( event ) {
-                getNextVideoStreamUrl( true, $( this ).attr( 'modellink' ) );
+                lastUsedVideoStreamSearchUrl = $( this ).attr( 'modellink' );
+                getNextVideoStreamUrl( true, lastUsedVideoStreamSearchUrl );
             } );
 
             $( document ).on( 'click', '#videodromeFullscreenAddToFavorites', function ( event ) {
@@ -3242,7 +3244,8 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '#videodromeFullscreenResetSearch', function ( event ) {
                 $( '.searchInput' ).val( '' );
-                getNextVideoStreamUrl( true );
+                lastUsedVideoStreamSearchUrl = createSearchUrl();
+                getNextVideoStreamUrl( true, lastUsedVideoStreamSearchUrl );
             } );
 
             $( document ).on( 'mouseup', '.videodromeFullscreenFilename', function ( event ) {
@@ -3250,7 +3253,8 @@ $( document ).ready( function () {
                     selectedText = window.getSelection().toString();
                     navigator.clipboard.writeText( selectedText );
                     $( '.searchInput' ).val( $.trim( selectedText ) );
-                    getNextVideoStreamUrl( true );
+                    lastUsedVideoStreamSearchUrl = createSearchUrl( $.trim( selectedText ) );
+                    getNextVideoStreamUrl( true, lastUsedVideoStreamSearchUrl );
                 }
             } );
 
@@ -3456,7 +3460,7 @@ $( document ).ready( function () {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
                             $( '.videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videoTitel' ) );
-                            $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', "https://pastedownload.com/pornhub-video1-downloader/#url=" + $( this ).parent().attr( 'data-videopageurl' ) );
+                            $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', 'https://pastedownload.com/pornhub-video1-downloader/#url=' + $( this ).parent().attr( 'data-videopageurl' ) );
 
                             $( '#videodromeFullscreenModelLinks' ).empty();
                             if ( $( this ).parent().attr( 'data-modelLinks' ) != undefined && $( this ).parent().attr( 'data-modelLinks' ) != '' ) {
@@ -3503,7 +3507,7 @@ $( document ).ready( function () {
 
                 videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
                 outputPHFavorites();
-                getNextVideoStreamUrl( true );
+                getNextVideoStreamUrl( true, lastUsedVideoStreamSearchUrl );
             }
 
             function forcePlaybackVideodrome() {
@@ -3549,7 +3553,7 @@ $( document ).ready( function () {
             }
 
             var selectedVideoStreamService = 'PH'; // TODO extend to other hub pages
-            function getNextVideoStreamUrl( newSearch = false, searchUrl = '', retry = true, isSingleVideoPage = false ) {
+            function getNextVideoStreamUrl( newSearch = false, searchUrl = createSearchUrl(), retry = true, isSingleVideoPage = false ) {
                 if ( newSearch ) {
                     videoJSHubUrls = [];
                     videoJSSingleVideoUrls = [];
@@ -3563,21 +3567,6 @@ $( document ).ready( function () {
                     // Hub crawl - is triggered when doing a new search on a default url, a specific model page or a search term
                     // Finds all linked videos once and pushes them into videoJSHubUrls. From this array all future video urls are extracted until a new search is triggered
                     if ( (newSearch || videoJSHubUrls.length <= 0) && !isSingleVideoPage ) {
-                        if ( searchUrl == '' && $( '.searchInput' ).val() != '' ) {
-                            pageIndex = randomIntFromInterval( 1, 4 );
-                            if ( !retry ) {
-                                pageIndex = 1;
-                            }
-
-                            searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( $( '.searchInput' ).val() ) + '&page=' + pageIndex;
-                        } else if ( searchUrl == '' ) {
-                            switch ( selectedVideoStreamService ) {
-                                case 'PH':
-                                default:
-                                    searchUrl = 'https://www.pornhub.com/video?o=tr&t=t&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 5 );
-                            }
-                        }
-
                         $.ajax( {
                             url    : searchUrl,
                             type   : 'GET',
@@ -3608,14 +3597,14 @@ $( document ).ready( function () {
                                         }
                                 }
                                 activePageCrawls--;
-                                getNextVideoStreamUrl( false );
+                                getNextVideoStreamUrl( false, lastUsedVideoStreamSearchUrl );
                             },
                             error  : function ( data ) {
                                 activePageCrawls--;
                                 if ( searchUrl.indexOf( '/videos' ) > 0 ) {
                                     getNextVideoStreamUrl( true, searchUrl.replace( '/videos', '' ) );
                                 } else if ( retry ) {
-                                    getNextVideoStreamUrl( true, '', false );
+                                    getNextVideoStreamUrl( true, createSearchUrl( '', false ), false );
                                 }
                             }
                         } );
@@ -3707,11 +3696,11 @@ $( document ).ready( function () {
                                             updateVideodromeFullscreenInfo();
                                         }
                                         if ( !isSingleVideoPage && videoJSSingleVideoUrls.length <= 4 ) {
-                                            getNextVideoStreamUrl( false );
+                                            getNextVideoStreamUrl( false, lastUsedVideoStreamSearchUrl );
                                         }
                                     }
                                 } else {
-                                    getNextVideoStreamUrl( false );
+                                    getNextVideoStreamUrl( false, lastUsedVideoStreamSearchUrl );
                                 }
                                 activePageCrawls--;
                             },
@@ -3722,6 +3711,24 @@ $( document ).ready( function () {
                         } );
                     }
                 }
+            }
+
+            function createSearchUrl( searchTerm = '', retry = true ) {
+                switch ( selectedVideoStreamService ) {
+                    case 'PH':
+                    default:
+                        searchUrl = 'https://www.pornhub.com/video?o=tr&t=t&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 5 );
+                }
+
+                if ( searchTerm != '' ) {
+                    pageIndex = randomIntFromInterval( 1, 4 );
+                    if ( !retry ) {
+                        pageIndex = 1;
+                    }
+                    searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( searchTerm ) + '&page=' + pageIndex;
+                }
+
+                return searchUrl;
             }
 
             function playVideoJSStream( playerId ) {
@@ -3749,7 +3756,7 @@ $( document ).ready( function () {
 
                     videoJSPlayer.load();
                 }
-                getNextVideoStreamUrl( false );
+                getNextVideoStreamUrl( false, lastUsedVideoStreamSearchUrl );
             }
 
             function videodromeStreamRefreshVideo() {
