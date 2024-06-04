@@ -59,7 +59,7 @@ var config = {
                         'id'   : '3ANrzqWtV3xONVqk7y5tHV'
                     }
                 ],
-                'green': [
+                'green'  : [
                     {
                         'label': 'Classic & Soft',
                         'id'   : '4ILChY5F4Hn08ikt0rfHhW'
@@ -125,7 +125,7 @@ var config = {
                         'id'   : '1z2HVIgmaCbPmro2oprLf5'
                     }
                 ],
-                'blue' : [
+                'blue'   : [
                     {
                         'label': 'Celtic',
                         'id'   : '7IMTMDqc2NIzovRgtC1Imq'
@@ -169,9 +169,9 @@ var config = {
                     {
                         'label': 'Tool',
                         'id'   : '54c657PnbEgWUJt7biWHtO'
-                    },
+                    }
                 ],
-                'red'  : [
+                'red'    : [
                     {
                         'label': 'Melodic Noise',
                         'id'   : '7xkCTcJWJGTR9VhM0nvvKa'
@@ -274,7 +274,7 @@ var config = {
                 {
                     'link' : 'https://mynoise.net/NoiseMachines/imagoLatensVocalSoundscape.php?l=39393939390000475556&a=1&am=s&title=Into%20Light&c=1',
                     'label': 'Into the light'
-                },
+                }
             ],
             'selectableVideoTags'    : [
                 {'selectableTag': 'trippy-2D'},
@@ -286,7 +286,7 @@ var config = {
                 {'selectableTag': 'slideshow'},
                 {'selectableTag': 'hiking'},
                 {'selectableTag': 'festival'},
-                {'selectableTag': 'breathing'},
+                {'selectableTag': 'calming'},
                 {'selectableTag': 'wisdom'},
                 {'selectableTag': 'nsfw'}
             ],
@@ -332,18 +332,18 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId': 'fM4V6c8xpVE',
-                    'tags'   : 'trippy-3D',
+                    'videoId'     : 'fM4V6c8xpVE',
+                    'tags'        : 'trippy-3D',
                     'startSeconds': '32'
                 },
                 {
-                    'videoId': 'Q8VfA2ev9ok',
-                    'tags'   : 'trippy-3D',
+                    'videoId'     : 'Q8VfA2ev9ok',
+                    'tags'        : 'trippy-3D',
                     'startSeconds': '32'
                 },
                 {
-                    'videoId': 'f2y7r3VxiNk',
-                    'tags'   : 'trippy-3D',
+                    'videoId'     : 'f2y7r3VxiNk',
+                    'tags'        : 'trippy-3D',
                     'startSeconds': '32'
                 },
                 {
@@ -359,18 +359,18 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId': 'uJ2FJh3SGhU',
-                    'tags'   : 'trippy-3D',
+                    'videoId'     : 'uJ2FJh3SGhU',
+                    'tags'        : 'trippy-3D',
                     'startSeconds': '3'
                 },
                 {
-                    'videoId': 'SFC3qe3yuOo',
-                    'tags'   : 'trippy-3D',
+                    'videoId'     : 'SFC3qe3yuOo',
+                    'tags'        : 'trippy-3D',
                     'startSeconds': '4'
                 },
                 {
-                    'videoId': 'MkCdrmakqQY',
-                    'tags'   : 'trippy-3D',
+                    'videoId'     : 'MkCdrmakqQY',
+                    'tags'        : 'trippy-3D',
                     'startSeconds': '3'
                 },
                 {
@@ -537,11 +537,6 @@ var config = {
                     'startSeconds': '30'
                 },
                 {
-                    'videoId': 'g-Tu2-B4-0o',
-                    'mute'   : 'mixed',
-                    'tags'   : 'meditative nature'
-                },
-                {
                     'videoId'     : 'zj7kdnWVOxc',
                     'tags'        : 'nature',
                     'startSeconds': '60'
@@ -605,19 +600,24 @@ var config = {
                 },
                 {
                     'videoId': 'z5JdoygbFCE',
-                    'tags'   : 'breathing'
+                    'tags'   : 'calming'
                 },
                 {
                     'videoId': 'HZ4p5qaLKec',
-                    'tags'   : 'breathing'
+                    'tags'   : 'calming'
                 },
                 {
                     'videoId': 'hZiCBWrwiRw',
-                    'tags'   : 'breathing'
+                    'tags'   : 'calming'
                 },
                 {
                     'videoId': 'Wm9MfQMuoIY',
-                    'tags'   : 'breathing'
+                    'tags'   : 'calming'
+                },
+                {
+                    'videoId': '6myIjc0BnAY',
+                    'mute'   : false,
+                    'tags'   : 'calming'
                 },
                 {
                     'videoId': 'hld4uaO1MDE',
@@ -810,10 +810,10 @@ var config = {
                     'label'  : 'What is Nirvana?'
                 },
                 {
-                    'videoId': '2u0rPBbn5G8',
+                    'videoId': 'Ikl8onEAE8Y',
                     'mute'   : false,
                     'tags'   : 'wisdom',
-                    'label'  : 'When you are ready to wake up, you are going to wake up'
+                    'label'  : 'The four noble truths'
                 },
                 {
                     'videoId': '4f5yF8GeCG4',
@@ -822,10 +822,16 @@ var config = {
                     'label'  : 'It\'s time to wake up'
                 },
                 {
-                    'videoId': 'uc8ceRYTbtU',
+                    'videoId': 'zOM7M-GNi2Q',
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'Surrendering does not make sense, but it does'
+                },
+                {
+                    'videoId': 'dx4yW0mjezw',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The benefit of living with no purpose'
                 },
                 {
                     'videoId': 'wn_70CQ36iQ',
@@ -1415,7 +1421,7 @@ var config = {
                         {
                             'text': 'Happiness is only real when shared.',
                             'tag' : ''
-                        },
+                        }
 
                     ]
         }
