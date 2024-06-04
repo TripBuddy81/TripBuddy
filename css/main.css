@@ -1931,14 +1931,13 @@ video::-webkit-media-controls-fullscreen-button {
     width: 75vW;
     min-height: 175px;
     padding: 25px;
-    bottom: 8vH;
+    bottom: 76px;
     left: 0px;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     display: none;
     opacity: 0;
     z-index: 35;
 }
-
 
 #videodromeFullscreenMenuVideoJSContainerExtraOptions, #videodromeFullscreenMenuLocalVideoContainerExtraOptions {
     position: fixed;
