@@ -1158,6 +1158,20 @@ option {
     margin-right: 5px;
 }
 
+#toggleAbsoluteThruthSubContainer{
+    position: absolute;
+    top: 75px;
+    left: 91px;
+    opacity: 0;
+}
+
+#toggleAbsoluteThruthInwards, #toggleAbsoluteThruthOutwards, #toggleAbsoluteThruthInwardsWhite, #toggleAbsoluteThruthOutwardsWhite  {
+    height: 55px;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    display: block;
+    margin-top: 12px;
+}
+
 #toggleAbsoluteThruth, #toggleAbsoluteThruthWhite {
     height: 52px;
     margin-left: 18px;
@@ -1166,7 +1180,7 @@ option {
     margin-right: 5px;
 }
 
-#toggleAbsoluteThruthWhite, #shrineParticlesSwitchWhite, #shrineDiscoModeWhite, #toggleRelationshipsWhite {
+#toggleAbsoluteThruthWhite, #shrineParticlesSwitchWhite, #shrineDiscoModeWhite, #toggleRelationshipsWhite, #toggleAbsoluteThruthInwardsWhite, #toggleAbsoluteThruthOutwardsWhite  {
     display: none;
 }
 

@@ -1912,6 +1912,14 @@ $( document ).ready( function () {
                 $( '#absoluteTruthsOverlay' ).toggle();
             } );
 
+            $( '#toggleAbsoluteThruthContainer' ).hover(
+                    function ( event ) {
+                        $( '#toggleAbsoluteThruthSubContainer' ).attr( 'style', 'opacity: 1.0' );
+                    }, function () {
+                        $( '#toggleAbsoluteThruthSubContainer' ).attr( 'style', 'opacity: 0' );
+                    }
+            );
+
             $( '#particles-js' ).on( 'wheel', function ( event ) {
                 stopScreensaver();
                 enableFullscreen();
