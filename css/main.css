@@ -2021,7 +2021,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videodromeLocalVideoMenuItemActive, .videodromeLocalVideoMenuItemActive:hover {
-    color: #85fc4e
+    color: #c9ff80;
 }
 
 .videoJSStreamModelname, .lastSearchTerm {
