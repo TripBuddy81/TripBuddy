@@ -1162,7 +1162,7 @@ option {
     position: absolute;
     top: 75px;
     left: 91px;
-    opacity: 0;
+    display: none;
 }
 
 #toggleAbsoluteThruthInwards, #toggleAbsoluteThruthOutwards, #toggleAbsoluteThruthInwardsWhite, #toggleAbsoluteThruthOutwardsWhite {

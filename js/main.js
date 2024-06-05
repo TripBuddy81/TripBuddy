@@ -1927,9 +1927,9 @@ $( document ).ready( function () {
 
             $( '#toggleAbsoluteThruthContainer' ).hover(
                     function ( event ) {
-                        $( '#toggleAbsoluteThruthSubContainer' ).attr( 'style', 'opacity: 1.0' );
+                        $( '#toggleAbsoluteThruthSubContainer' ).show();
                     }, function () {
-                        $( '#toggleAbsoluteThruthSubContainer' ).attr( 'style', 'opacity: 0' );
+                        $( '#toggleAbsoluteThruthSubContainer' ).hide();
                     }
             );
 
