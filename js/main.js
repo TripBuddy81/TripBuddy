@@ -701,6 +701,7 @@ $( document ).ready( function () {
 
                 $( '#shrineSettingsContainer' ).addClass( 'visible' );
                 $( '#mainMenu' ).attr( 'style', 'opacity:1' );
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite' ).hide();
 
                 if ( showParticlesFirstTime ) {
                     showParticlesFirstTime = false;
@@ -1830,8 +1831,8 @@ $( document ).ready( function () {
                 enableFullscreen();
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
-                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite' ).show();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode' ).hide();
+                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite' ).show();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).hide();
                 if ( xxxVisible ) {
                     $( '#toggleRelationshipsWhite' ).show();
                 } else {
@@ -1844,8 +1845,8 @@ $( document ).ready( function () {
 
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
-                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite' ).hide();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode' ).show();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite' ).hide();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).show();
                 if ( xxxVisible ) {
                     $( '#toggleRelationships' ).show();
                 } else {
@@ -1911,6 +1912,18 @@ $( document ).ready( function () {
                 toggleRelationships( 'hide' );
                 $( '#absoluteTruthsOverlay' ).toggle();
             } );
+
+    $( '#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthInwardsWhite' ).click( function ( e ) {
+        enableFullscreen();
+        toggleRelationships( 'hide' );
+        $( '#absoluteTruthsOverlay' ).toggle();
+    } );
+
+    $( '#toggleAbsoluteThruthOutwards,#toggleAbsoluteThruthOutwardsWhite' ).click( function ( e ) {
+        enableFullscreen();
+        toggleRelationships( 'hide' );
+        $( '#absoluteTruthsOverlay' ).toggle();
+    } );
 
             $( '#toggleAbsoluteThruthContainer' ).hover(
                     function ( event ) {

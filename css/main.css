@@ -1158,14 +1158,14 @@ option {
     margin-right: 5px;
 }
 
-#toggleAbsoluteThruthSubContainer{
+#toggleAbsoluteThruthSubContainer {
     position: absolute;
     top: 75px;
     left: 91px;
     opacity: 0;
 }
 
-#toggleAbsoluteThruthInwards, #toggleAbsoluteThruthOutwards, #toggleAbsoluteThruthInwardsWhite, #toggleAbsoluteThruthOutwardsWhite  {
+#toggleAbsoluteThruthInwards, #toggleAbsoluteThruthOutwards, #toggleAbsoluteThruthInwardsWhite, #toggleAbsoluteThruthOutwardsWhite {
     height: 55px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     display: block;
@@ -1180,8 +1180,12 @@ option {
     margin-right: 5px;
 }
 
-#toggleAbsoluteThruthWhite, #shrineParticlesSwitchWhite, #shrineDiscoModeWhite, #toggleRelationshipsWhite, #toggleAbsoluteThruthInwardsWhite, #toggleAbsoluteThruthOutwardsWhite  {
+#toggleAbsoluteThruthWhite, #shrineParticlesSwitchWhite, #shrineDiscoModeWhite, #toggleRelationshipsWhite {
     display: none;
+}
+
+#toggleAbsoluteThruthInwardsWhite, #toggleAbsoluteThruthOutwardsWhite {
+    display: block;
 }
 
 .input-group {
