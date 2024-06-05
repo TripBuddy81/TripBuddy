@@ -3612,6 +3612,7 @@ $( document ).ready( function () {
                                 } else if ( retry ) {
                                     getNextVideoStreamUrl( true, createSearchUrl( '', false ), false );
                                 }
+                                //TODO ??? Trigger default search as a last resort?
                             }
                         } );
                     }
@@ -3692,7 +3693,6 @@ $( document ).ready( function () {
                                             $( '.videoDromeStreamVideo1' ).show();
                                             $( '.videoDromeStreamVideo2' ).hide();
                                             updateVideodromeFullscreenInfo();
-
                                         } else if ( videoJSLoadAfterFind && isSingleVideoPage && videoJSSingleVideoUrls.length >= 1 ) {
                                             videoJSLoadAfterFind = false;
                                             loadNextVideoJSStream( 'videoJSPlayer1' );
