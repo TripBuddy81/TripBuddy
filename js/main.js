@@ -1913,17 +1913,18 @@ $( document ).ready( function () {
                 $( '#absoluteTruthsOverlay' ).toggle();
             } );
 
-    $( '#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthInwardsWhite' ).click( function ( e ) {
-        enableFullscreen();
-        toggleRelationships( 'hide' );
-        $( '#absoluteTruthsOverlay' ).toggle();
-    } );
+            $( '#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthInwardsWhite' ).click( function ( e ) {
+                enableFullscreen();
+                toggleRelationships( 'hide' );
+                absoluteTruthsUpdate( true, 'XXX intro' );
+                $( '#absoluteTruthsOverlay' ).toggle();
+            } );
 
-    $( '#toggleAbsoluteThruthOutwards,#toggleAbsoluteThruthOutwardsWhite' ).click( function ( e ) {
-        enableFullscreen();
-        toggleRelationships( 'hide' );
-        $( '#absoluteTruthsOverlay' ).toggle();
-    } );
+            $( '#toggleAbsoluteThruthOutwards,#toggleAbsoluteThruthOutwardsWhite' ).click( function ( e ) {
+                enableFullscreen();
+                toggleRelationships( 'hide' );
+                $( '#absoluteTruthsOverlay' ).toggle();
+            } );
 
             $( '#toggleAbsoluteThruthContainer' ).hover(
                     function ( event ) {
@@ -2036,7 +2037,7 @@ $( document ).ready( function () {
                 shrineColorChangeTimer = setTimeout( switchDiscoColor, nextColorRefresh * 1000 );
             }
 
-            function absoluteTruthsUpdate( quickSwap = false ) {
+            function absoluteTruthsUpdate( quickSwap = false, selectedTruthTagLabel = '' ) {
                 fadeoutDuration = 1500;
 
                 if ( quickSwap ) {
@@ -2060,6 +2061,11 @@ $( document ).ready( function () {
                 }
                 nextTruth = displayedAbsoluteTruthIndex.pop();
 
+                /*                console.info(nextTruth['tag'], ' selected', selectedTruthTagLabel);
+
+                                if ( nextTruth['tag'] != selectedTruthTagLabel && selectedTruthTagLabel == 'XXX intro' && xxxVisible && nextTruth['tag'] != 'guided' ) {
+                                    absoluteTruthsUpdate( quickSwap, selectedTruthTagLabel );
+                                } else */
                 if ( nextTruth['tag'] != 'XXX' && xxxVisible && nextTruth['tag'] != 'guided' ) {
                     absoluteTruthsUpdate( quickSwap );
                 } else if ( nextTruth['tag'] == 'XXX' && !xxxVisible && nextTruth['tag'] != 'guided' ) {
@@ -3263,6 +3269,10 @@ $( document ).ready( function () {
                 outputPHFavorites();
             } );
 
+            $( document ).on( 'click', '.videodromeFullscreenDownloadVideoLink,.videodromeFullscreenDownloadVideoIcon ', function ( event ) {
+                navigator.clipboard.writeText( $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'videoUrl' )  );
+            } );
+
             $( document ).on( 'click', '#videodromeFullscreenResetSearch', function ( event ) {
                 $( '.searchInput' ).val( '' );
                 lastUsedVideoStreamSearchUrl = createSearchUrl();
@@ -3481,7 +3491,8 @@ $( document ).ready( function () {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
                             $( '.videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videoTitel' ) );
-                            $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', 'https://pastedownload.com/pornhub-video1-downloader/#url=' + $( this ).parent().attr( 'data-videopageurl' ) );
+                            $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', 'https://yesdownloader.com/en1/' );
+                            $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'videoUrl', $( this ).parent().attr( 'data-videopageurl' ) );
 
                             $( '#videodromeFullscreenModelLinks' ).empty();
                             if ( $( this ).parent().attr( 'data-modelLinks' ) != undefined && $( this ).parent().attr( 'data-modelLinks' ) != '' ) {
@@ -3744,7 +3755,7 @@ $( document ).ready( function () {
                 switch ( selectedVideoStreamService ) {
                     case 'PH':
                     default:
-                        searchUrl = 'https://www.pornhub.com/video?o=tr&t=t&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 5 );
+                        searchUrl = 'https://www.pornhub.com/video?o=tr&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 5 );
                 }
 
                 if ( searchTerm != '' ) {
