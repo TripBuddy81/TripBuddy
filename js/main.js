@@ -3243,6 +3243,10 @@ $( document ).ready( function () {
                 }, 2000 );
             } );
 
+            $( document ).on( 'mousemove', '.vjs-control-bar', function ( event ) {
+                clearTimeout( videodromeVideoJSControlbarHideInterval );
+            } );
+
             $( document ).on( 'click', '#videodromeFullscreenSearchInput', function ( event ) {
                 $( '*[data-trigger-keyboard]' ).trigger( 'click' );
             } );
@@ -3270,7 +3274,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videodromeFullscreenDownloadVideoLink,.videodromeFullscreenDownloadVideoIcon ', function ( event ) {
-                navigator.clipboard.writeText( $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'videoUrl' )  );
+                navigator.clipboard.writeText( $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'videoUrl' ) );
             } );
 
             $( document ).on( 'click', '#videodromeFullscreenResetSearch', function ( event ) {
@@ -3450,11 +3454,11 @@ $( document ).ready( function () {
 
                         if ( mode == 'add' ) {
                             externalFiles.forEach( function ( url ) {
-                                config['videosVideodrome'].push( url + '#t=90' );
+                                config['videosVideodrome'].push( url + '#t=5' );
                             } );
                         } else {
                             externalFiles.forEach( function ( url ) {
-                                config['videosVideodrome'].splice( $.inArray( url + '#t=90', config['videosVideodrome'] ), 1 );
+                                config['videosVideodrome'].splice( $.inArray( url + '#t=5', config['videosVideodrome'] ), 1 );
                             } );
                         }
 
