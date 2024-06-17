@@ -197,6 +197,10 @@ var config = {
                         'id'   : '4IXAhGiDhuzPz2VQjTDTSy'
                     },
                     {
+                        'label': 'Clubbing',
+                        'id'   : '296HPIXtWgirFdhia3dFL9'
+                    },
+                    {
                         'label': 'Force',
                         'id'   : '6fB9PJQ7Hy8SDvcRmBeKwr'
                     }
@@ -338,11 +342,6 @@ var config = {
                 },
                 {
                     'videoId'     : 'Q8VfA2ev9ok',
-                    'tags'        : 'trippy-3D',
-                    'startSeconds': '32'
-                },
-                {
-                    'videoId'     : 'f2y7r3VxiNk',
                     'tags'        : 'trippy-3D',
                     'startSeconds': '32'
                 },
