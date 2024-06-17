@@ -568,7 +568,7 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreenMenuContainer' ).hide();
                 $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
-                $( '.vjs-control-bar' ).css( 'display', 'none' );
+                $( '.vjs-control-bar' ).css( 'opacity', '0' );
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -756,7 +756,7 @@ $( document ).ready( function () {
                 }
                 $( '.video-js' ).removeClass( 'vjs-user-active' );
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
-                $( '.vjs-control-bar' ).css( 'display', 'none' );
+                $( '.vjs-control-bar' ).css( 'opacity', '0' );
                 forcePlaybackVideodrome();
                 videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
             } );
@@ -2956,11 +2956,11 @@ $( document ).ready( function () {
                 if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
                     $( '.video-js' ).removeClass( 'vjs-user-inactive' );
                     $( '.video-js' ).addClass( 'vjs-user-active' );
-                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
+                    $( '.vjs-control-bar' ).css( 'opacity', '1' );
                 } else {
                     $( '.video-js' ).removeClass( 'vjs-user-active' );
                     $( '.video-js' ).addClass( 'vjs-user-inactive' );
-                    $( '.vjs-control-bar' ).css( 'display', 'none' );
+                    $( '.vjs-control-bar' ).css( 'opacity', '0' );
                 }
             } );
 
@@ -2982,7 +2982,7 @@ $( document ).ready( function () {
                     $( '.videoDromeVideo2' ).find( '.videoDromeFrame' ).prop( 'controls', 'controls' );
                     $( '.video-js' ).removeClass( 'vjs-user-active' );
                     $( '.video-js' ).addClass( 'vjs-user-inactive' );
-                    $( '.vjs-control-bar' ).css( 'display', 'none' );
+                    $( '.vjs-control-bar' ).css( 'opacity', '0' );
                 } else if ( $( '.videodromeFullscreen' )[0] && $( '.videoDromeVideo2' ).is( ':visible' ) ) {
                     $( '.video-js' ).addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
@@ -2992,7 +2992,7 @@ $( document ).ready( function () {
                     $( '.videoDromeVideo2' ).hide();
                     $( '.video-js' ).removeClass( 'vjs-user-inactive' );
                     $( '.video-js' ).addClass( 'vjs-user-active' );
-                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
+                    $( '.vjs-control-bar' ).css( 'opacity', '1' );
                     videodromeStreamRefreshVideo();
                 }
 
@@ -3021,7 +3021,7 @@ $( document ).ready( function () {
                     if ( config['videosVideodrome'] != undefined ) {
                         $( '.video-js' ).removeClass( 'vjs-user-active' );
                         $( '.video-js' ).addClass( 'vjs-user-inactive' );
-                        $( '.vjs-control-bar' ).css( 'display', 'none' );
+                        $( '.vjs-control-bar' ).css( 'opacity', '0' );
                         $( '.video-js' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
@@ -3031,7 +3031,7 @@ $( document ).ready( function () {
                 } else {
                     $( '.video-js' ).removeClass( 'vjs-user-inactive' );
                     $( '.video-js' ).addClass( 'vjs-user-active' );
-                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
+                    $( '.vjs-control-bar' ).css( 'opacity', '1' );
                     $( '.video-js' ).addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuVideoJSContainer' ).show();
                 }
@@ -3143,7 +3143,7 @@ $( document ).ready( function () {
                 }
                 $( '.video-js' ).removeClass( 'vjs-user-active' );
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
-                $( '.vjs-control-bar' ).css( 'display', 'none' );
+                $( '.vjs-control-bar' ).css( 'opacity', '0' );
             } );
 
             $( document ).on( 'mouseenter', '.refreshVideoDromeVideoFullscreenIcon', function () {
@@ -3214,14 +3214,14 @@ $( document ).ready( function () {
                 $( '.video-js' ).addClass( 'vjs-user-active' );
 
                 if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
-                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
+                    $( '.vjs-control-bar' ).css( 'opacity', '1' );
                 }
 
                 clearTimeout( videodromeVideoJSControlbarHideInterval );
                 videodromeVideoJSControlbarHideInterval = setTimeout( function () {
                     $( '.video-js' ).removeClass( 'vjs-user-active' );
                     $( '.video-js' ).addClass( 'vjs-user-inactive' );
-                    $( '.vjs-control-bar' ).css( 'display', 'none' );
+                    $( '.vjs-control-bar' ).css( 'opacity', '0' );
                 }, 2000 );
             } );
 
@@ -3232,14 +3232,14 @@ $( document ).ready( function () {
                 $( '.video-js' ).addClass( 'vjs-user-active' );
 
                 if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
-                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
+                    $( '.vjs-control-bar' ).css( 'opacity', '1' );
                 }
 
                 clearTimeout( videodromeVideoJSControlbarHideInterval );
                 videodromeVideoJSControlbarHideInterval = setTimeout( function () {
                     $( '.video-js' ).removeClass( 'vjs-user-active' );
                     $( '.video-js' ).addClass( 'vjs-user-inactive' );
-                    $( '.vjs-control-bar' ).css( 'display', 'none' );
+                    $( '.vjs-control-bar' ).css( 'opacity', '0' );
                 }, 2000 );
             } );
 
