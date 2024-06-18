@@ -873,7 +873,7 @@ option {
     --borderWidth: 3px;
 }
 
-#spotifyPlaylists {
+#spotifyPlaylists, #errorDetectedMessage {
     position: sticky;
     top: 0px;
     width: 310px;
@@ -890,6 +890,10 @@ option {
     text-align-last: center;
     max-height: 50px;
     overflow: hidden;
+}
+
+#errorDetectedMessage {
+    background-color: red;
 }
 
 .trackSelectionRow {

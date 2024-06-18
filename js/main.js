@@ -132,6 +132,11 @@ $( document ).ready( function () {
                     Handlebars.compile( $( '#mainTemplate' ).html() )( config )
             );
 
+            window.onerror = function ( errorMessage, url, lineNumber ) {
+                $( '#spotifyPlaylists' ).html( 'JS error detected!' );
+                $( '#spotifyPlaylists' ).attr( 'id', 'errorDetectedMessage' );
+            };
+
             // Check if loading is complete
             document.onreadystatechange = function () {
                 if ( document.readyState !== 'complete' ) {
@@ -713,7 +718,7 @@ $( document ).ready( function () {
                     clearInterval( absoluteTruthsTimer );
                 }
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
-                absoluteTruthsUpdate( );
+                absoluteTruthsUpdate();
             } );
             $( '#showGamesSection' ).click( function () {
                 $( '#videos' ).hide();
@@ -1206,7 +1211,7 @@ $( document ).ready( function () {
 
                 stopAllActions();
                 displayedAbsoluteTruthIndex = [];
-                absoluteTruthsUpdate( );
+                absoluteTruthsUpdate();
                 checkPrivateVisible();
             }
 
@@ -1942,7 +1947,7 @@ $( document ).ready( function () {
                 enableFullscreen();
                 clearInterval( absoluteTruthsTimer );
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
-                absoluteTruthsUpdate( );
+                absoluteTruthsUpdate();
                 nextDiscoMode();
             } );
 
@@ -2044,7 +2049,7 @@ $( document ).ready( function () {
                 fadeoutDuration = 1500;
                 $( '#absoluteTruthsOverlayText' ).html( '' );
 
-                if ( selectedTruthTagLabel != '' && selectedTruthTagLabel != 'default') {
+                if ( selectedTruthTagLabel != '' && selectedTruthTagLabel != 'default' ) {
                     activeTruthTagLabel = selectedTruthTagLabel;
                     displayedAbsoluteTruthIndex = [];
                 } else if ( selectedTruthTagLabel == 'default' ) {
@@ -2075,7 +2080,6 @@ $( document ).ready( function () {
                     }
                     shuffleArray( displayedAbsoluteTruthIndex );
                 }
-
                 nextTruth = displayedAbsoluteTruthIndex.pop();
 
                 $( '#absoluteTruthsOverlayText' ).fadeOut( fadeoutDuration, function () {
@@ -3848,7 +3852,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
 
-            /*    $( '#showShrineSection' ).trigger( 'click' );*/
+                /*$( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#toggleRelationships' ).trigger( 'click' );*/
 
             }
