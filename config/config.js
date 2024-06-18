@@ -197,10 +197,6 @@ var config = {
                         'id'   : '4IXAhGiDhuzPz2VQjTDTSy'
                     },
                     {
-                        'label': 'Clubbing',
-                        'id'   : '296HPIXtWgirFdhia3dFL9'
-                    },
-                    {
                         'label': 'Force',
                         'id'   : '6fB9PJQ7Hy8SDvcRmBeKwr'
                     }
@@ -260,7 +256,7 @@ var config = {
                     'label': 'Warp Dragon'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/singingBowlsDroneGenerator.php?l=69508673766583537974&title=Singing%20Bowls&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/singingBowlsDroneGenerator.php?l=65572957003130563500&a=1&am=s&title=Singing%20Bowls&c=1',
                     'label': 'Singing Bowls'
                 },
                 {
