@@ -39,6 +39,7 @@ $( document ).ready( function () {
             window.showParticlesFirstTime = true;
             window.allGuidedThoughts = [];
             window.guidedThoughtsNext = 0;
+            window.activeTruthTagLabel = '';
             window.timer = '';
             window.imageSlideshowInterval = undefined;
             window.imageSlideshowIntervalLength = 1000;
@@ -1910,20 +1911,22 @@ $( document ).ready( function () {
             $( '#toggleAbsoluteThruth,#toggleAbsoluteThruthWhite' ).click( function ( e ) {
                 enableFullscreen();
                 toggleRelationships( 'hide' );
+                absoluteTruthsUpdate( true, 'default' );
                 $( '#absoluteTruthsOverlay' ).toggle();
             } );
 
             $( '#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthInwardsWhite' ).click( function ( e ) {
                 enableFullscreen();
                 toggleRelationships( 'hide' );
-                absoluteTruthsUpdate( true, 'XXX intro' );
-                $( '#absoluteTruthsOverlay' ).toggle();
+                absoluteTruthsUpdate( true, 'intro' );
+                $( '#absoluteTruthsOverlay' ).show();
             } );
 
             $( '#toggleAbsoluteThruthOutwards,#toggleAbsoluteThruthOutwardsWhite' ).click( function ( e ) {
                 enableFullscreen();
                 toggleRelationships( 'hide' );
-                $( '#absoluteTruthsOverlay' ).toggle();
+                absoluteTruthsUpdate( true, 'outro' );
+                $( '#absoluteTruthsOverlay' ).show();
             } );
 
             $( '#toggleAbsoluteThruthContainer' ).hover(
@@ -2040,6 +2043,14 @@ $( document ).ready( function () {
             function absoluteTruthsUpdate( quickSwap = false, selectedTruthTagLabel = '' ) {
                 fadeoutDuration = 1500;
 
+                if ( selectedTruthTagLabel != '' && selectedTruthTagLabel != 'default') {
+                    activeTruthTagLabel = selectedTruthTagLabel;
+                    displayedAbsoluteTruthIndex = [];
+                } else if ( selectedTruthTagLabel == 'default' ) {
+                    activeTruthTagLabel = '';
+                    displayedAbsoluteTruthIndex = [];
+                }
+
                 if ( quickSwap ) {
                     $( '#absoluteTruthsOverlayText' ).html( '' );
                 }
@@ -2054,42 +2065,40 @@ $( document ).ready( function () {
                         } );
                     } else {
                         config['absoluteTruths'].forEach( function ( item ) {
-                            displayedAbsoluteTruthIndex.push( item );
+                            if ( xxxVisible && activeTruthTagLabel == 'intro' && item['tag'].indexOf( 'intro' ) >= 0 ) {
+                                displayedAbsoluteTruthIndex.push( item );
+                            } else if ( xxxVisible && activeTruthTagLabel == 'outro' && item['tag'].indexOf( 'outro' ) >= 0 ) {
+                                displayedAbsoluteTruthIndex.push( item );
+                            } else if ( xxxVisible && activeTruthTagLabel == '' && item['tag'].indexOf( 'XXX' ) >= 0 ) {
+                                displayedAbsoluteTruthIndex.push( item );
+                            } else if ( !xxxVisible && item['tag'].indexOf( 'XXX' ) < 0 ) {
+                                displayedAbsoluteTruthIndex.push( item );
+                            }
                         } );
                     }
                     shuffleArray( displayedAbsoluteTruthIndex );
                 }
+
                 nextTruth = displayedAbsoluteTruthIndex.pop();
 
-                /*                console.info(nextTruth['tag'], ' selected', selectedTruthTagLabel);
+                $( '#absoluteTruthsOverlayText' ).fadeOut( fadeoutDuration, function () {
+                    $( '#absoluteTruthsOverlayText' ).html( nextTruth['text'] );
 
-                                if ( nextTruth['tag'] != selectedTruthTagLabel && selectedTruthTagLabel == 'XXX intro' && xxxVisible && nextTruth['tag'] != 'guided' ) {
-                                    absoluteTruthsUpdate( quickSwap, selectedTruthTagLabel );
-                                } else */
-                if ( nextTruth['tag'] != 'XXX' && xxxVisible && nextTruth['tag'] != 'guided' ) {
-                    absoluteTruthsUpdate( quickSwap );
-                } else if ( nextTruth['tag'] == 'XXX' && !xxxVisible && nextTruth['tag'] != 'guided' ) {
-                    absoluteTruthsUpdate( quickSwap );
-                } else {
-                    $( '#absoluteTruthsOverlayText' ).fadeOut( fadeoutDuration, function () {
-                        $( '#absoluteTruthsOverlayText' ).html( nextTruth['text'] );
+                    length = nextTruth['text'].length;
+                    if ( length < 100 ) {
+                        document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
+                    } else if ( length < 200 ) {
+                        document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '95px';
+                    } else if ( length < 300 ) {
+                        document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '82px';
+                    } else {
+                        document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '67px';
+                    }
 
-                        length = nextTruth['text'].length;
-                        if ( length < 100 ) {
-                            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
-                        } else if ( length < 200 ) {
-                            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '95px';
-                        } else if ( length < 300 ) {
-                            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '82px';
-                        } else {
-                            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '67px';
-                        }
-
-                        $( '#absoluteTruthsOverlayText' ).fadeIn( 1500 );
-                        $( '#absoluteTruthsOverlayContainer' ).css( 'animation', 'textShrink' + textShrinkFrameSeed + ' ' + absoluteTruthsTimerDuration + 'ms linear infinite' );
-                        textShrinkFrameSeed = (textShrinkFrameSeed + 1) % 2;
-                    } );
-                }
+                    $( '#absoluteTruthsOverlayText' ).fadeIn( 1500 );
+                    $( '#absoluteTruthsOverlayContainer' ).css( 'animation', 'textShrink' + textShrinkFrameSeed + ' ' + absoluteTruthsTimerDuration + 'ms linear infinite' );
+                    textShrinkFrameSeed = (textShrinkFrameSeed + 1) % 2;
+                } );
             }
 
             function shuffleArray( array ) {
@@ -3840,10 +3849,10 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+                /*    toggleXXXVisible();*/
 
-                /*         $( '#showShrineSection' ).trigger( 'click' );
-                         $( '#toggleRelationships' ).trigger( 'click' );*/
+            /*    $( '#showShrineSection' ).trigger( 'click' );*/
+                /*   $( '#toggleRelationships' ).trigger( 'click' );*/
 
             }
         }
