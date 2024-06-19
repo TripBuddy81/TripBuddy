@@ -835,6 +835,12 @@ var config = {
                     'label'  : 'On The Human Society'
                 },
                 {
+                    'videoId': '2sD8AyE5sQk',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The Illusion Of The Future'
+                },
+                {
                     'videoId': 'CcGCACqeQuQ',
                     'mute'   : false,
                     'tags'   : 'wisdom',

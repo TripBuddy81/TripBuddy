@@ -12,6 +12,7 @@ $( document ).ready( function () {
             // #5 - Music section
             // #6 - Search Youtube section
             // #7 - Videodrome section
+            // #8 - Private Picture Slideshow section
             // #9 - initial init section
 
             // ***********************************
@@ -108,6 +109,11 @@ $( document ).ready( function () {
             window.rightMouseButtonClickCounterInterval = '';
             window.mouseDisabledInterval = '';
             window.showVideostreamFavoriteItemDeleteSymbol = false;
+            window.externalPrivatePictureDirs = {};
+            window.getAllExternalPrivatePictureDirsThreadStarted = 0;
+            window.getAllExternalPrivatePictureDirsThreadEnded = 0;
+            window.alreadySelectedPrivatePictureDir = [];
+            window.totalNumberOfPrivatePictureDirs = 0;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -3832,6 +3838,85 @@ $( document ).ready( function () {
             // END Videodrome section
             // ******************************************
 
+
+            // ******************************************
+            // #8 - Private Picture Slideshow section
+
+
+            $( '#startPrivatePictureSlideshow' ).click( function ( e ) {
+                console.info( 'Start Slideshow' );
+
+                initPrivatePictureSlideshow( 'testRoot/' ); // privatePictureRoot/ || testRoot/
+
+
+                /*                setTimeout( function () {
+                                    console.info( externalPrivatePictureDirs, 'complete object' );
+                                }, 15000 );*/
+            } );
+
+
+            function initPrivatePictureSlideshow( url ) {
+                $.ajax( {
+                    url    : url,
+                    success: function ( data ) {
+                        $( data ).find( 'td > a' ).each( function () {
+                            if ( $( this ).html() != 'Parent Directory' ) {
+                                tempFilename = $( this ).attr( 'href' );
+                                if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
+                                    externalPrivatePictureDirs[url + tempFilename] = decodeURIComponent( tempFilename.replace( '/', '' ) );
+                                    getAllExternalPrivatePictureDirsThreadStarted++;
+                                    initPrivatePictureSlideshow( url + tempFilename );
+                                }
+                            }
+                        } );
+                        getAllExternalPrivatePictureDirsThreadEnded++;
+
+                        if ( getAllExternalPrivatePictureDirsThreadEnded == getAllExternalPrivatePictureDirsThreadStarted ) {
+                            console.info( externalPrivatePictureDirs, 'finished scan!' );
+                            displayPrivatePictureSlideshow();
+                        }
+                    }
+                } );
+            }
+
+            function displayPrivatePictureSlideshow() {
+                dirContainer = getNextPrivatePictureDir();
+                console.info( dirContainer );
+
+
+            }
+
+            function getNextPrivatePictureDir() {
+                dirContainer = {};
+
+                // select some folder at random
+                totalNumberOfPrivatePictureDirs = Object.keys( externalPrivatePictureDirs ).length;
+                selectedDirNumber = randomIntFromInterval( 0, totalNumberOfPrivatePictureDirs - 1 );
+                while ( alreadySelectedPrivatePictureDir.indexOf( selectedDirNumber ) !== -1 ) {
+                    selectedDirNumber = randomIntFromInterval( 0, totalNumberOfPrivatePictureDirs - 1 );
+                }
+                alreadySelectedPrivatePictureDir.push( selectedDirNumber );
+
+                tempCount = 0;
+                $.each( externalPrivatePictureDirs, function ( dir, dirName ) {
+                    if ( tempCount == selectedDirNumber ) {
+                        dirContainer['dirPath'] = dir;
+                        dirContainer['dirName'] = dirName;
+                        return false;
+                    }
+                    tempCount++;
+                } );
+
+                // find and add all images within this folder to the dirContainer
+
+
+                return dirContainer;
+            }
+
+            // END Private Picture Slideshow section
+            // ******************************************
+
+
             // ******************************************
             // #9 - initial init section
             if ( urlParams.get( 'section' ) != undefined && urlParams.get( 'section' ) == 'shrine' ) {
@@ -3852,6 +3937,8 @@ $( document ).ready( function () {
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
+
+                $( '#startPrivatePictureSlideshow' ).trigger( 'click' );
 
                 /*$( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#toggleRelationships' ).trigger( 'click' );*/

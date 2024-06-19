@@ -816,6 +816,12 @@ li, .options, .form-check-label {
     margin-right: 22px;
 }
 
+#startPrivatePictureSlideshowIcon {
+    margin-left: 8px;
+    margin-right: 18px;
+    height: 45px;
+}
+
 #displayAllVideosIcon {
     margin-right: 14px;
 }
