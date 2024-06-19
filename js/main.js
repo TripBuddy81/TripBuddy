@@ -132,6 +132,7 @@ $( document ).ready( function () {
                     Handlebars.compile( $( '#mainTemplate' ).html() )( config )
             );
 
+            // If a JS error is detected display a warning in place of the playlist selector
             window.onerror = function ( errorMessage, url, lineNumber ) {
                 $( '#spotifyPlaylists' ).html( 'JS error detected!' );
                 $( '#spotifyPlaylists' ).attr( 'id', 'errorDetectedMessage' );
