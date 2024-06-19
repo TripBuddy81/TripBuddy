@@ -3324,12 +3324,12 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreen' ).find( '.localVideo' )[0].load();
             } );
 
-            $( document ).on( 'click', '.externalDir', function ( event ) {
+            $( document ).on( 'click', '.externalPornDir', function ( event ) {
                 $( 'div[dirIdentifier="' + $( this ).attr( 'dirIdentifier' ) + '"]' ).toggle();
-                if ( $( this ).hasClass( 'externalDirInactive' ) ) {
-                    processExternalFiles( $( this ).attr( 'externalDirUrl' ), 'add' );
+                if ( $( this ).hasClass( 'externalPornDirInactive' ) ) {
+                    processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'add' );
                 } else {
-                    processExternalFiles( $( this ).attr( 'externalDirUrl' ), 'remove' );
+                    processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );
                 }
             } );
 
@@ -3423,22 +3423,22 @@ $( document ).ready( function () {
                 $( '.externalVideoDirSelection' ).empty();
                 $.each( externalPornDirs, function ( url, displayName ) {
                     let nodeInactive = document.createElement( 'div' );
-                    nodeInactive.classList.add( 'externalDir' );
-                    nodeInactive.classList.add( 'externalDirInactive' );
+                    nodeInactive.classList.add( 'externalPornDir' );
+                    nodeInactive.classList.add( 'externalPornDirInactive' );
                     nodeInactive.classList.add( 'videodromeLocalVideoMenuItem' );
                     nodeInactive.setAttribute( 'dirIdentifier', displayName.replace( ' ', '_' ) );
                     nodeInactive.innerHTML = displayName;
-                    nodeInactive.setAttribute( 'externalDirUrl', url );
+                    nodeInactive.setAttribute( 'externalPornDirUrl', url );
                     $( '.externalVideoDirSelection' ).append( nodeInactive );
 
                     let nodeActive = document.createElement( 'div' );
-                    nodeActive.classList.add( 'externalDir' );
-                    nodeActive.classList.add( 'externalDirActive' );
+                    nodeActive.classList.add( 'externalPornDir' );
+                    nodeActive.classList.add( 'externalPornDirActive' );
                     nodeActive.classList.add( 'videodromeLocalVideoMenuItem' );
                     nodeActive.classList.add( 'videodromeLocalVideoMenuItemActive' );
                     nodeActive.setAttribute( 'dirIdentifier', displayName.replace( ' ', '_' ) );
                     nodeActive.innerHTML = displayName;
-                    nodeActive.setAttribute( 'externalDirUrl', url );
+                    nodeActive.setAttribute( 'externalPornDirUrl', url );
                     $( '.externalVideoDirSelection' ).append( nodeActive );
                 } );
             }
