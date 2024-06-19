@@ -57,7 +57,7 @@ $( document ).ready( function () {
             window.veryFirstThoughtDisplayed = false;
             window.xxxVisible = false;
             window.privateVisible = false;
-            window.externalDirs = {};
+            window.externalPornDirs = {};
             window.slideshowJustStarted = false;
             window.lastActiveBackgroundGradientKeyFrame = 1;
             window.textShrinkFrameSeed = 1;
@@ -1192,7 +1192,7 @@ $( document ).ready( function () {
                     $( '.hideGeneralVideos' ).show();
                     $( '.hidePrivateContent' ).hide();
                     $( '.showPrivateContent' ).show();
-                    displayExternalDirs();
+                    displayExternalPornDirs();
                 }
 
                 if ( videoTagList == '' ) {
@@ -3401,27 +3401,27 @@ $( document ).ready( function () {
                 getNextVideoStreamUrl( false );
             } );
 
-            function getAllExternalDirs( url ) {
+            function getAllExternalPornDirs( url ) {
                 $.ajax( {
                     url    : url,
                     success: function ( data ) {
                         $( data ).find( 'td > a' ).each( function () {
                             if ( $( this ).html() != 'Parent Directory' ) {
                                 tempFilename = $( this ).attr( 'href' );
-                                if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' && tempFilename != '/pornRoot/' ) {
-                                    externalDirs[url + tempFilename] = decodeURIComponent( tempFilename.replace( '/', '' ) );
-                                    getAllExternalDirs( url + tempFilename );
+                                if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
+                                    externalPornDirs[url + tempFilename] = decodeURIComponent( tempFilename.replace( '/', '' ) );
+                                    getAllExternalPornDirs( url + tempFilename );
                                 }
                             }
                         } );
-                        displayExternalDirs();
+                        displayExternalPornDirs();
                     }
                 } );
             }
 
-            function displayExternalDirs() {
+            function displayExternalPornDirs() {
                 $( '.externalVideoDirSelection' ).empty();
-                $.each( externalDirs, function ( url, displayName ) {
+                $.each( externalPornDirs, function ( url, displayName ) {
                     let nodeInactive = document.createElement( 'div' );
                     nodeInactive.classList.add( 'externalDir' );
                     nodeInactive.classList.add( 'externalDirInactive' );
@@ -3481,7 +3481,7 @@ $( document ).ready( function () {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( config['videosVideodrome'], function ( val ) {
                     let localFilename = document.createElement( 'div' );
-                    localFilename.innerHTML = decodeURI( config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /pornRoot\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ) );
+                    localFilename.innerHTML = decodeURI( config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /pornRoot\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
                     localFilename.setAttribute( 'src', config['videosVideodrome'][val] );
                     localFilename.classList.add( 'localFilename' );
                     document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localFilename );
@@ -3523,7 +3523,7 @@ $( document ).ready( function () {
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
                     try {
-                        $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /pornRoot\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ) ) );
+                        $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /pornRoot\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) ) );
                     } catch ( e ) {
                     }
                 } else {
@@ -3534,7 +3534,7 @@ $( document ).ready( function () {
             function initVideodrome() {
                 if ( config['videosVideodrome'] != undefined ) {
                     videosLocalOriginal = $.merge( [], config['videosVideodrome'] );
-                    getAllExternalDirs( 'pornRoot/' );
+                    getAllExternalPornDirs( 'pornRoot/' );
                     var videosToShow = [];
                     while ( videosToShow.length < 4 ) {
                         randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
