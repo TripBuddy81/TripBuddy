@@ -114,6 +114,7 @@ $( document ).ready( function () {
             window.getAllExternalPrivatePictureDirsThreadEnded = 0;
             window.alreadySelectedPrivatePictureDir = [];
             window.totalNumberOfPrivatePictureDirs = 0;
+            window.privatePictureDirContainer = {};
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -3842,6 +3843,9 @@ $( document ).ready( function () {
             // ******************************************
             // #8 - Private Picture Slideshow section
 
+            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showPrivatePictureSlideshowSection'] != undefined && config['localSettingsOverwrite']['showPrivatePictureSlideshowSection'] ) {
+                $( '#startPrivatePictureSlideshow' ).show();
+            }
 
             $( '#startPrivatePictureSlideshow' ).click( function ( e ) {
                 console.info( 'Start Slideshow' );
@@ -3849,9 +3853,6 @@ $( document ).ready( function () {
                 initPrivatePictureSlideshow( 'testRoot/' ); // privatePictureRoot/ || testRoot/
 
 
-                /*                setTimeout( function () {
-                                    console.info( externalPrivatePictureDirs, 'complete object' );
-                                }, 15000 );*/
             } );
 
 
@@ -3872,23 +3873,18 @@ $( document ).ready( function () {
                         getAllExternalPrivatePictureDirsThreadEnded++;
 
                         if ( getAllExternalPrivatePictureDirsThreadEnded == getAllExternalPrivatePictureDirsThreadStarted ) {
-                            console.info( externalPrivatePictureDirs, 'finished scan!' );
-                            displayPrivatePictureSlideshow();
+                            getNextPrivatePictureDir();
                         }
                     }
                 } );
             }
 
-            function displayPrivatePictureSlideshow() {
-                dirContainer = getNextPrivatePictureDir();
-                console.info( dirContainer );
-
-
+            function startPrivatePictureSlideshow() {
+                // Display first image
+                console.info( privatePictureDirContainer, 'finished scan!' );
             }
 
             function getNextPrivatePictureDir() {
-                dirContainer = {};
-
                 // select some folder at random
                 totalNumberOfPrivatePictureDirs = Object.keys( externalPrivatePictureDirs ).length;
                 selectedDirNumber = randomIntFromInterval( 0, totalNumberOfPrivatePictureDirs - 1 );
@@ -3898,20 +3894,71 @@ $( document ).ready( function () {
                 alreadySelectedPrivatePictureDir.push( selectedDirNumber );
 
                 tempCount = 0;
-                $.each( externalPrivatePictureDirs, function ( dir, dirName ) {
+                $.each( externalPrivatePictureDirs, function ( dirPath, dirName ) {
                     if ( tempCount == selectedDirNumber ) {
-                        dirContainer['dirPath'] = dir;
-                        dirContainer['dirName'] = dirName;
+                        privatePictureDirContainer['dirPath'] = dirPath;
+                        privatePictureDirContainer['dirName'] = dirName;
+                        privatePictureDirContainer['images'] = [];
                         return false;
                     }
                     tempCount++;
                 } );
 
                 // find and add all images within this folder to the dirContainer
+                $.ajax( {
+                    url    : privatePictureDirContainer['dirPath'],
+                    success: function ( data ) {
+                        $( data ).find( 'td > a' ).each( function () {
+                            tempFilename = $( this ).attr( 'href' );
+                            if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
+                            } else if ( tempFilename != '/' ) {
+                                var matches = tempFilename.match( /(.*)\.jpg.*/ );
+                                if ( matches != undefined && matches[1] != undefined ) {
+                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
+                                        privatePictureDirContainer['images'].push( tempFilename );
+                                    }
+                                }
+                            }
+                        } );
 
-
-                return dirContainer;
+                        startPrivatePictureSlideshow();
+                    }
+                } );
             }
+
+            /*function getAllImagesWithinDir( dirPath, mode ) {
+                externalFiles = [];
+                alreadySelectedVideosVideodrome = [];
+                $.ajax( {
+                    url    : url,
+                    success: function ( data ) {
+                        $( data ).find( 'td > a' ).each( function () {
+                            tempFilename = $( this ).attr( 'href' );
+                            if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
+                            } else if ( tempFilename != '/' ) {
+                                var matches = tempFilename.match( /(.*)\.mp4.*!/ );
+                                if ( matches != undefined && matches[1] != undefined ) {
+                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
+                                        externalFiles.push( url + tempFilename );
+                                    }
+                                }
+                            }
+                        } );
+
+                        if ( mode == 'add' ) {
+                            externalFiles.forEach( function ( url ) {
+                                config['videosVideodrome'].push( url + '#t=5' );
+                            } );
+                        } else {
+                            externalFiles.forEach( function ( url ) {
+                                config['videosVideodrome'].splice( $.inArray( url + '#t=5', config['videosVideodrome'] ), 1 );
+                            } );
+                        }
+
+                        displayAllActiveLocalFilenames();
+                    }
+                } );
+            }*/
 
             // END Private Picture Slideshow section
             // ******************************************
