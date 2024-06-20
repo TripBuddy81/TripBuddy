@@ -2277,7 +2277,11 @@ $( document ).ready( function () {
                 }
 
                 $( document ).on( 'click', '.spotifyTrackContainer', function ( e ) {
-                    spotifyAddToQueue( $( this ).attr( 'id' ) );
+                    if ( playingSpotifyTrack ) {
+                        spotifyAddToQueue( $( this ).attr( 'id' ) );
+                    } else {
+                        spotifyPlay( $( this ).attr( 'id' ) );
+                    }
                     $( this ).hide();
                 } );
 
