@@ -1008,6 +1008,27 @@ $( document ).ready( function () {
                 guidedThoughtPrefilTarget = 1;
             } );
 
+            // Overwrite settings with local optional config if available
+            if ( config['guidedThoughtsPersonalConfig'] != undefined ) {
+                $( '#guidedThoughtsShrineSectionOnly' ).trigger( 'click' );
+                if ( config['guidedThoughtsPersonalConfig']['thought1'] != undefined ) {
+                    $( '#guidedThought1' ).val( config['guidedThoughtsPersonalConfig']['thought1'] );
+                    $( '#guidedThought1' ).trigger( 'change' );
+                }
+                if ( config['guidedThoughtsPersonalConfig']['thought2'] != undefined ) {
+                    $( '#guidedThought2' ).val( config['guidedThoughtsPersonalConfig']['thought2'] );
+                    $( '#guidedThought2' ).trigger( 'change' );
+                }
+                if ( config['guidedThoughtsPersonalConfig']['thought3'] != undefined ) {
+                    $( '#guidedThought3' ).val( config['guidedThoughtsPersonalConfig']['thought3'] );
+                    $( '#guidedThought3' ).trigger( 'change' );
+                }
+                if ( config['guidedThoughtsPersonalConfig']['firstGuidedThoughtMin'] != undefined ) {
+                    $( '#firstGuidedThoughtMin' ).val( config['guidedThoughtsPersonalConfig']['firstGuidedThoughtMin'] );
+                    $( '#firstGuidedThoughtMin' ).trigger( 'change' );
+                }
+            }
+
             // Pizza timer
             localStorage.setItem( 'pizzaTimerMinutesTillReady', $( '#pizzaTimerMinutes' ).val() );
 

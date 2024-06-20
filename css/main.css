@@ -486,7 +486,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover {
     left: 0px;
     height: 180px;
     width: 100%;
-    z-index: 25;
+    z-index: 100;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.6);
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
