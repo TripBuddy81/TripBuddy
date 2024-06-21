@@ -324,7 +324,7 @@ $( document ).ready( function () {
 
                 // Stop current action or show playlist selection if nothing else is going on right now
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
-                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' )) || e.which == 0 ) {
+                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
@@ -363,6 +363,8 @@ $( document ).ready( function () {
                     } else {
                         stopAllActions();
                     }
+                } else if ( $( '#privatePictureSlideshow' ).is( ':visible' ) ) {
+                    stopPrivatePictureSlideshow();
                 } else { // block default right click behaviour
                     return false;
                 }
@@ -588,6 +590,7 @@ $( document ).ready( function () {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
                 clearInterval( preFlightCheckListAnimationTimer );
+                stopPrivatePictureSlideshow();
                 hideScreensaverEnso();
                 stopScreensaver();
 
@@ -3873,13 +3876,77 @@ $( document ).ready( function () {
             }
 
             $( '#startPrivatePictureSlideshow' ).click( function ( e ) {
+                enableFullscreen();
                 console.info( 'Start Slideshow' );
 
                 initPrivatePictureSlideshow( 'testRoot/' ); // privatePictureRoot/ || testRoot/
 
+            } );
+
+
+            // Show timer in image when moving mouse
+            var moveTimerPrivatePictureSlideshow;
+            $( document ).on( 'mousemove', '#privatePictureSlideshow', function () {
+                clearTimeout( moveTimerPrivatePictureSlideshow );
+                moveTimerPrivatePictureSlideshow = setTimeout( function () {
+                    $( '.videoMenuOverlay' ).hide();
+                    $( '#privatePictureSlideshow' ).css( 'cursor', 'none' );
+                }, 1000 );
+                $( '.videoMenuOverlay' ).show();
+                $( '#privatePictureSlideshow' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
 
             } );
 
+/*            $( document ).on( 'mousemove', '#privatePictureSlideshow', function () {
+                clearTimeout( moveTimerPrivatePictureSlideshow );
+            } );*/
+
+            // Image selection via mouse wheel
+            $( document ).on( 'wheel', '.sdfghj', function ( event ) {
+                if ( $( 'body figure' ).length == 1 ) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    clearInterval( imageSlideshowInterval );
+                    document.body.style.overflow = 'auto';
+
+                    for ( var i in config['images'] ) {
+                        nextImageIndex = 1;
+                        if ( config['images'][i]['image'] == lastDisplayedImage ) {
+                            if ( event.originalEvent.deltaY > 0 ) { // going down
+                                nextImageIndex = parseInt( i, 10 ) + 1;
+                                if ( nextImageIndex > config['images'].length - 1 ) {
+                                    nextImageIndex = 0;
+                                }
+                                if ( imageTagList != '' ) {
+                                    while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
+                                        nextImageIndex += 1;
+                                        if ( nextImageIndex > config['images'].length - 1 ) {
+                                            nextImageIndex = 0;
+                                        }
+                                    }
+                                }
+                            } else { // going up
+                                nextImageIndex = parseInt( i, 10 ) - 1;
+                                if ( nextImageIndex < 0 ) {
+                                    nextImageIndex = config['images'].length - 1;
+                                }
+                                if ( imageTagList != '' ) {
+                                    while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
+                                        nextImageIndex -= 1;
+                                        if ( nextImageIndex < 0 ) {
+                                            nextImageIndex = config['images'].length - 1;
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    lastDisplayedImage = config['images'][nextImageIndex]['image'];
+                    $( 'img[src$=\'' + lastDisplayedImage + '\']' ).trigger( 'click' )
+                    $( 'body figure' ).remove();
+                }
+            } );
 
             function initPrivatePictureSlideshow( url ) {
                 $.ajax( {
@@ -3907,6 +3974,16 @@ $( document ).ready( function () {
             function startPrivatePictureSlideshow() {
                 // Display first image
                 console.info( privatePictureDirContainer, 'finished scan!' );
+                blockScreenSaver = true;
+                $( '#privatePictureSlideshow' ).show();
+
+                $( '#privatePictureSlideshowFullscreenContainer' ).attr( 'src', privatePictureDirContainer['dirPath'] + privatePictureDirContainer['images'].pop() );
+            }
+
+            function stopPrivatePictureSlideshow() {
+                blockScreenSaver = false;
+                $( '.videoMenuOverlay' ).hide();
+                $( '#privatePictureSlideshow' ).hide();
             }
 
             function getNextPrivatePictureDir() {
@@ -4010,7 +4087,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
 
-                $( '#startPrivatePictureSlideshow' ).trigger( 'click' );
+               /* $( '#startPrivatePictureSlideshow' ).trigger( 'click' );*/
 
                 /*$( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#toggleRelationships' ).trigger( 'click' );*/
