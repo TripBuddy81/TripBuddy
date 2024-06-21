@@ -385,7 +385,7 @@ $( document ).ready( function () {
                         break;
                     case 38: // up
                         if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
-                            $( '#openAddToQueueMenu' ).trigger( 'click' );
+                            $( '#startPrivatePictureSlideshow' ).trigger( 'click' );
                             e.preventDefault();
                         }
                         break;
@@ -3879,11 +3879,14 @@ $( document ).ready( function () {
             }
 
             $( '#startPrivatePictureSlideshow' ).click( function ( e ) {
+                stopAllActions();
+                $( '#privatePictureSlideshow' ).css( 'cursor', 'none' );
                 initPrivatePictureSlideshow( 'privatePictureRoot/' ); // privatePictureRoot/ || testRoot/
             } );
 
             // Next image via left mouse button click
             $( '#privatePictureSlideshow' ).click( function ( e ) {
+                privatePictureDirContainer['picturesShown'] = 0;
                 setNextPrivatePictureSlideshowImage();
             } );
 
