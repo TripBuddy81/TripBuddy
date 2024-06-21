@@ -3876,13 +3876,18 @@ $( document ).ready( function () {
             }
 
             $( '#startPrivatePictureSlideshow' ).click( function ( e ) {
-                enableFullscreen();
-                console.info( 'Start Slideshow' );
-
                 initPrivatePictureSlideshow( 'testRoot/' ); // privatePictureRoot/ || testRoot/
-
             } );
 
+            // Next image via left mouse button click
+            $( '#privatePictureSlideshow' ).click( function ( e ) {
+                setNextPrivatePictureSlideshowImage();
+            } );
+
+            // Dir selection via mouse wheel
+            $( document ).on( 'wheel', '#privatePictureSlideshow', function ( event ) {
+                getNextPrivatePictureDir();
+            } );
 
             // Show timer in image when moving mouse
             var moveTimerPrivatePictureSlideshow;
@@ -3894,61 +3899,17 @@ $( document ).ready( function () {
                 }, 1000 );
                 $( '.videoMenuOverlay' ).show();
                 $( '#privatePictureSlideshow' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-
             } );
 
-/*            $( document ).on( 'mousemove', '#privatePictureSlideshow', function () {
+            /*            $( document ).on( 'mousemove', '#privatePictureSlideshow', function () {
                 clearTimeout( moveTimerPrivatePictureSlideshow );
             } );*/
 
-            // Image selection via mouse wheel
-            $( document ).on( 'wheel', '.sdfghj', function ( event ) {
-                if ( $( 'body figure' ).length == 1 ) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    clearInterval( imageSlideshowInterval );
-                    document.body.style.overflow = 'auto';
-
-                    for ( var i in config['images'] ) {
-                        nextImageIndex = 1;
-                        if ( config['images'][i]['image'] == lastDisplayedImage ) {
-                            if ( event.originalEvent.deltaY > 0 ) { // going down
-                                nextImageIndex = parseInt( i, 10 ) + 1;
-                                if ( nextImageIndex > config['images'].length - 1 ) {
-                                    nextImageIndex = 0;
-                                }
-                                if ( imageTagList != '' ) {
-                                    while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
-                                        nextImageIndex += 1;
-                                        if ( nextImageIndex > config['images'].length - 1 ) {
-                                            nextImageIndex = 0;
-                                        }
-                                    }
-                                }
-                            } else { // going up
-                                nextImageIndex = parseInt( i, 10 ) - 1;
-                                if ( nextImageIndex < 0 ) {
-                                    nextImageIndex = config['images'].length - 1;
-                                }
-                                if ( imageTagList != '' ) {
-                                    while ( '.' + config['images'][nextImageIndex]['tags'] != imageTagList ) {
-                                        nextImageIndex -= 1;
-                                        if ( nextImageIndex < 0 ) {
-                                            nextImageIndex = config['images'].length - 1;
-                                        }
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    }
-                    lastDisplayedImage = config['images'][nextImageIndex]['image'];
-                    $( 'img[src$=\'' + lastDisplayedImage + '\']' ).trigger( 'click' )
-                    $( 'body figure' ).remove();
-                }
-            } );
-
             function initPrivatePictureSlideshow( url ) {
+                enableFullscreen();
+                blockScreenSaver = true;
+                $( '#privatePictureSlideshow' ).show();
+
                 $.ajax( {
                     url    : url,
                     success: function ( data ) {
@@ -3971,15 +3932,6 @@ $( document ).ready( function () {
                 } );
             }
 
-            function startPrivatePictureSlideshow() {
-                // Display first image
-                console.info( privatePictureDirContainer, 'finished scan!' );
-                blockScreenSaver = true;
-                $( '#privatePictureSlideshow' ).show();
-
-                $( '#privatePictureSlideshowFullscreenContainer' ).attr( 'src', privatePictureDirContainer['dirPath'] + privatePictureDirContainer['images'].pop() );
-            }
-
             function stopPrivatePictureSlideshow() {
                 blockScreenSaver = false;
                 $( '.videoMenuOverlay' ).hide();
@@ -3992,6 +3944,9 @@ $( document ).ready( function () {
                 selectedDirNumber = randomIntFromInterval( 0, totalNumberOfPrivatePictureDirs - 1 );
                 while ( alreadySelectedPrivatePictureDir.indexOf( selectedDirNumber ) !== -1 ) {
                     selectedDirNumber = randomIntFromInterval( 0, totalNumberOfPrivatePictureDirs - 1 );
+                    if ( totalNumberOfPrivatePictureDirs <= alreadySelectedPrivatePictureDir.length + 1 ) {
+                        alreadySelectedPrivatePictureDir = [];
+                    }
                 }
                 alreadySelectedPrivatePictureDir.push( selectedDirNumber );
 
@@ -4022,45 +3977,24 @@ $( document ).ready( function () {
                                 }
                             }
                         } );
-
-                        startPrivatePictureSlideshow();
+                        setNextPrivatePictureSlideshowImage();
                     }
                 } );
             }
 
-            /*function getAllImagesWithinDir( dirPath, mode ) {
-                externalFiles = [];
-                alreadySelectedVideosVideodrome = [];
-                $.ajax( {
-                    url    : url,
-                    success: function ( data ) {
-                        $( data ).find( 'td > a' ).each( function () {
-                            tempFilename = $( this ).attr( 'href' );
-                            if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
-                            } else if ( tempFilename != '/' ) {
-                                var matches = tempFilename.match( /(.*)\.mp4.*!/ );
-                                if ( matches != undefined && matches[1] != undefined ) {
-                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
-                                        externalFiles.push( url + tempFilename );
-                                    }
-                                }
-                            }
-                        } );
+            function setNextPrivatePictureSlideshowImage() {
+                for ( var i = privatePictureDirContainer['images'].length - 1; i >= 0; i-- ) {
+                    nextImage = privatePictureDirContainer['images'].splice( Math.floor( Math.random() * privatePictureDirContainer['images'].length ), 1 );
+                    break;
+                }
 
-                        if ( mode == 'add' ) {
-                            externalFiles.forEach( function ( url ) {
-                                config['videosVideodrome'].push( url + '#t=5' );
-                            } );
-                        } else {
-                            externalFiles.forEach( function ( url ) {
-                                config['videosVideodrome'].splice( $.inArray( url + '#t=5', config['videosVideodrome'] ), 1 );
-                            } );
-                        }
+                if ( privatePictureDirContainer['images'].length == 0 ) {
+                    getNextPrivatePictureDir();
+                } else {
+                    $( '#privatePictureSlideshowFullscreenContainer' ).attr( 'src', privatePictureDirContainer['dirPath'] + nextImage );
+                }
+            }
 
-                        displayAllActiveLocalFilenames();
-                    }
-                } );
-            }*/
 
             // END Private Picture Slideshow section
             // ******************************************
@@ -4087,11 +4021,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
 
-               /* $( '#startPrivatePictureSlideshow' ).trigger( 'click' );*/
-
-                /*$( '#showShrineSection' ).trigger( 'click' );*/
-                /*   $( '#toggleRelationships' ).trigger( 'click' );*/
-
+                $( '#startPrivatePictureSlideshow' ).trigger( 'click' );
             }
         }
 );
