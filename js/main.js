@@ -115,6 +115,9 @@ $( document ).ready( function () {
             window.alreadySelectedPrivatePictureDir = [];
             window.totalNumberOfPrivatePictureDirs = 0;
             window.privatePictureDirContainer = {};
+            window.privatePictureSlideshowTimer = '';
+            window.privatePictureSlideshowImagesToShowPerFolder = 3;
+            window.privatePictureSlideshowDurationPerImage = 2000;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -3881,6 +3884,8 @@ $( document ).ready( function () {
 
             // Next image via left mouse button click
             $( '#privatePictureSlideshow' ).click( function ( e ) {
+                clearInterval( privatePictureSlideshowTimer );
+                privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
                 setNextPrivatePictureSlideshowImage();
             } );
 
@@ -3901,9 +3906,10 @@ $( document ).ready( function () {
                 $( '#privatePictureSlideshow' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
             } );
 
-            /*            $( document ).on( 'mousemove', '#privatePictureSlideshow', function () {
-                clearTimeout( moveTimerPrivatePictureSlideshow );
-            } );*/
+            $( document ).on( 'mousemove', '#privatePictureSlideshow', function () {
+                clearInterval( privatePictureSlideshowTimer );
+                privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
+            } );
 
             function initPrivatePictureSlideshow( url ) {
                 enableFullscreen();
@@ -3927,6 +3933,8 @@ $( document ).ready( function () {
 
                         if ( getAllExternalPrivatePictureDirsThreadEnded == getAllExternalPrivatePictureDirsThreadStarted ) {
                             getNextPrivatePictureDir();
+                            clearInterval( privatePictureSlideshowTimer );
+                            privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
                         }
                     }
                 } );
@@ -3934,6 +3942,7 @@ $( document ).ready( function () {
 
             function stopPrivatePictureSlideshow() {
                 blockScreenSaver = false;
+                clearInterval( privatePictureSlideshowTimer );
                 $( '.videoMenuOverlay' ).hide();
                 $( '#privatePictureSlideshow' ).hide();
             }
@@ -3956,6 +3965,7 @@ $( document ).ready( function () {
                         privatePictureDirContainer['dirPath'] = dirPath;
                         privatePictureDirContainer['dirName'] = dirName;
                         privatePictureDirContainer['images'] = [];
+                        privatePictureDirContainer['picturesShown'] = 0;
                         return false;
                     }
                     tempCount++;
@@ -3983,15 +3993,15 @@ $( document ).ready( function () {
             }
 
             function setNextPrivatePictureSlideshowImage() {
-                for ( var i = privatePictureDirContainer['images'].length - 1; i >= 0; i-- ) {
-                    nextImage = privatePictureDirContainer['images'].splice( Math.floor( Math.random() * privatePictureDirContainer['images'].length ), 1 );
-                    break;
-                }
-
-                if ( privatePictureDirContainer['images'].length == 0 ) {
+                if ( privatePictureDirContainer['images'].length == 0 || privatePictureDirContainer['picturesShown'] >= privatePictureSlideshowImagesToShowPerFolder ) {
                     getNextPrivatePictureDir();
                 } else {
-                    $( '#privatePictureSlideshowFullscreenContainer' ).attr( 'src', privatePictureDirContainer['dirPath'] + nextImage );
+                    for ( var i = privatePictureDirContainer['images'].length - 1; i >= 0; i-- ) {
+                        privatePictureDirContainer['picturesShown']++;
+                        nextImage = privatePictureDirContainer['images'].splice( Math.floor( Math.random() * privatePictureDirContainer['images'].length ), 1 );
+                        $( '#privatePictureSlideshowFullscreenContainer' ).attr( 'src', privatePictureDirContainer['dirPath'] + nextImage );
+                        break;
+                    }
                 }
             }
 
