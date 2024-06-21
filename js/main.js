@@ -116,8 +116,8 @@ $( document ).ready( function () {
             window.totalNumberOfPrivatePictureDirs = 0;
             window.privatePictureDirContainer = {};
             window.privatePictureSlideshowTimer = '';
-            window.privatePictureSlideshowImagesToShowPerFolder = 3;
-            window.privatePictureSlideshowDurationPerImage = 2000;
+            window.privatePictureSlideshowImagesToShowPerFolder = 10;
+            window.privatePictureSlideshowDurationPerImage = 8000;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -3879,13 +3879,11 @@ $( document ).ready( function () {
             }
 
             $( '#startPrivatePictureSlideshow' ).click( function ( e ) {
-                initPrivatePictureSlideshow( 'testRoot/' ); // privatePictureRoot/ || testRoot/
+                initPrivatePictureSlideshow( 'privatePictureRoot/' ); // privatePictureRoot/ || testRoot/
             } );
 
             // Next image via left mouse button click
             $( '#privatePictureSlideshow' ).click( function ( e ) {
-                clearInterval( privatePictureSlideshowTimer );
-                privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
                 setNextPrivatePictureSlideshowImage();
             } );
 
@@ -3911,6 +3909,10 @@ $( document ).ready( function () {
                 privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
             } );
 
+            $( '#privatePictureSlideshowFullscreenContainer' ).on( 'error', function () {
+                setNextPrivatePictureSlideshowImage();
+            } );
+
             function initPrivatePictureSlideshow( url ) {
                 enableFullscreen();
                 blockScreenSaver = true;
@@ -3933,8 +3935,6 @@ $( document ).ready( function () {
 
                         if ( getAllExternalPrivatePictureDirsThreadEnded == getAllExternalPrivatePictureDirsThreadStarted ) {
                             getNextPrivatePictureDir();
-                            clearInterval( privatePictureSlideshowTimer );
-                            privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
                         }
                     }
                 } );
@@ -3993,7 +3993,10 @@ $( document ).ready( function () {
             }
 
             function setNextPrivatePictureSlideshowImage() {
-                if ( privatePictureDirContainer['images'].length == 0 || privatePictureDirContainer['picturesShown'] >= privatePictureSlideshowImagesToShowPerFolder ) {
+                clearInterval( privatePictureSlideshowTimer );
+                privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
+
+                if ( privatePictureDirContainer['images'] == undefined || privatePictureDirContainer['images'].length == 0 || privatePictureDirContainer['picturesShown'] >= privatePictureSlideshowImagesToShowPerFolder ) {
                     getNextPrivatePictureDir();
                 } else {
                     for ( var i = privatePictureDirContainer['images'].length - 1; i >= 0; i-- ) {
@@ -4031,7 +4034,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
 
-                $( '#startPrivatePictureSlideshow' ).trigger( 'click' );
+                /*$( '#startPrivatePictureSlideshow' ).trigger( 'click' );*/
             }
         }
 );
