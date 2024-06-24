@@ -3881,9 +3881,9 @@ $( document ).ready( function () {
             }
 
             $( '#startPrivatePictureSlideshow' ).click( function ( e ) {
+                stopAllActions();
                 enableFullscreen();
                 blockScreenSaver = true;
-                stopAllActions();
                 $( '#privatePictureSlideshow' ).css( 'cursor', 'none' );
                 $( '#privatePictureSlideshow' ).show();
 
