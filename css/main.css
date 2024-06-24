@@ -2002,13 +2002,17 @@ video::-webkit-media-controls-fullscreen-button {
     margin-left: 28px;
 }
 
-.videodromeFullscreenDownloadVideoIcon {
+.videodromeFullscreenDownloadVideoIcon, #privatePictureOpenImageInTab {
     height: 20px;
     margin-right: 15px;
     margin-top: 9px;
     margin-left: 0px;
     margin-bottom: 10px;
     float: left;
+}
+
+#privatePictureOpenImageInTab {
+    height: 26px;
 }
 
 #unlockDeleteVideodromeFavorites, #lockDeleteVideodromeFavorites {

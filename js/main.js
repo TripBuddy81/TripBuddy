@@ -3891,6 +3891,10 @@ $( document ).ready( function () {
                 setNextPrivatePictureSlideshowImage();
             } );
 
+            $( '#privatePictureOpenImageInTab' ).click( function ( e ) {
+                window.open( $( '#privatePictureSlideshowFullscreenImage' ).attr( 'src' ), '_blank' );
+            } );
+
             // Dir selection via mouse wheel
             $( document ).on( 'wheel', '#privatePictureSlideshow', function ( event ) {
                 if ( $( '#privatePictureSlideshow' ).is( ':visible' ) ) {
