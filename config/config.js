@@ -350,6 +350,10 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
+                    'videoId': 'VFmu9zVBmyo',
+                    'tags'   : 'trippy-3D'
+                },
+                {
                     'videoId': 'LnegTSijfDI',
                     'tags'   : 'trippy-3D'
                 },
@@ -462,11 +466,6 @@ var config = {
                     'startSeconds': '11'
                 },
                 {
-                    'videoId': 'BNTs6-pNFRk',
-                    'mute'   : 'mixed',
-                    'tags'   : 'nature'
-                },
-                {
                     'videoId': 'K2BoRq70QeU',
                     'tags'   : 'meditative'
                 },
@@ -481,13 +480,13 @@ var config = {
                 },
                 {
                     'videoId'     : 'x53TkyA78qI',
-                    'tags'        : 'meditative nature',
+                    'tags'        : 'meditative',
                     'mute'        : 'mixed',
                     'startSeconds': '130'
                 },
                 {
                     'videoId': 'RAX_I4AgjiU',
-                    'tags'   : 'meditative nature',
+                    'tags'   : 'meditative',
                     'mute'   : 'mixed'
                 },
                 {
@@ -542,10 +541,20 @@ var config = {
                     'startSeconds': '75'
                 },
                 {
+                    'videoId'     : 'G1hKzCkywM8',
+                    'tags'        : 'nature',
+                    'startSeconds': '75'
+                },
+                {
                     'videoId'     : 'YN6wj5NfOnM',
                     'mute'        : 'mixed',
-                    'tags'        : 'meditative nature',
+                    'tags'        : 'meditative',
                     'startSeconds': '60'
+                },
+                {
+                    'videoId': 'BNTs6-pNFRk',
+                    'mute'   : 'mixed',
+                    'tags'   : 'meditative'
                 },
                 {
                     'videoId'     : '6tmbeLTHC_0',
@@ -569,7 +578,7 @@ var config = {
                 },
                 {
                     'videoId': 'tI2ucenn6hM',
-                    'tags'   : 'meditative nature'
+                    'tags'   : 'meditative'
                 },
                 {
                     'videoId': 't_S_cN2re4g',
