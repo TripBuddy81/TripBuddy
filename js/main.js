@@ -4009,7 +4009,7 @@ $( document ).ready( function () {
             function setNextPrivatePictureSlideshowImage() {
                 clearInterval( privatePictureSlideshowTimer );
 
-                if ( $('#privatePictureSlideshowOverlay').css('opacity') == 0) {
+                if ( $( '#privatePictureSlideshowOverlay' ).css( 'opacity' ) == 0 ) {
                     privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
                 }
 
@@ -4019,8 +4019,6 @@ $( document ).ready( function () {
                     for ( var i = privatePictureDirContainer['images'].length - 1; i >= 0; i-- ) {
                         privatePictureDirContainer['picturesShown']++;
                         nextImage = privatePictureDirContainer['images'].splice( Math.floor( Math.random() * privatePictureDirContainer['images'].length ), 1 );
-
-                        decodeURIComponent( privatePictureDirContainer['dirPath'].replace( '/', '' ) );
 
                         $( '#privatePictureSlideshowOverlayPicturePath' ).html( privatePictureDirContainer['dirName'] );
                         $( '#privatePictureSlideshowFullscreenImage' ).attr( 'src', privatePictureDirContainer['dirPath'] + nextImage );
@@ -4054,7 +4052,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
 
-               /* $( '#startPrivatePictureSlideshow' ).trigger( 'click' );*/
+                /* $( '#startPrivatePictureSlideshow' ).trigger( 'click' );*/
             }
         }
 );
