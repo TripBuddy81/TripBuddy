@@ -114,6 +114,7 @@ $( document ).ready( function () {
             window.getAllExternalPrivatePictureDirsThreadEnded = 0;
             window.alreadySelectedPrivatePictureDir = [];
             window.totalNumberOfPrivatePictureDirs = 0;
+            window.privatePictureSlideshowInitiated = false;
             window.privatePictureDirContainer = {};
             window.privatePictureSlideshowTimer = '';
             window.privatePictureSlideshowImagesToShowPerFolder = 10;
@@ -3880,9 +3881,16 @@ $( document ).ready( function () {
             }
 
             $( '#startPrivatePictureSlideshow' ).click( function ( e ) {
+                enableFullscreen();
+                blockScreenSaver = true;
                 stopAllActions();
                 $( '#privatePictureSlideshow' ).css( 'cursor', 'none' );
-                initPrivatePictureSlideshow( 'privatePictureRoot/' ); // privatePictureRoot/ || testRoot/
+                $( '#privatePictureSlideshow' ).show();
+
+                if ( !privatePictureSlideshowInitiated ) {
+                    privatePictureSlideshowInitiated = true;
+                    initPrivatePictureSlideshow( 'privatePictureRoot/' ); // privatePictureRoot/ || testRoot/
+                }
             } );
 
             // Next image via left mouse button click
@@ -3892,6 +3900,8 @@ $( document ).ready( function () {
             } );
 
             $( '#privatePictureOpenImageInTab' ).click( function ( e ) {
+                e.stopPropagation();
+                e.preventDefault();
                 window.open( $( '#privatePictureSlideshowFullscreenImage' ).attr( 'src' ), '_blank' );
             } );
 
@@ -3933,10 +3943,6 @@ $( document ).ready( function () {
             } );
 
             function initPrivatePictureSlideshow( url ) {
-                enableFullscreen();
-                blockScreenSaver = true;
-                $( '#privatePictureSlideshow' ).show();
-
                 $.ajax( {
                     url    : url,
                     success: function ( data ) {
