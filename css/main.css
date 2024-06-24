@@ -2241,3 +2241,21 @@ video::-webkit-media-controls-fullscreen-button {
 #privatePictureSlideshowFullscreenContainer {
     height: 100vH;
 }
+
+#privatePictureSlideshowOverlay {
+    position: fixed;
+    width: 100vW;
+    min-height: 175px;
+    padding: 25px;
+    bottom: 76px;
+    left: 0px;
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    opacity: 0;
+    z-index: 35;
+}
+
+#privatePictureSlideshowOverlayPicturePath {
+    font-weight: 700;
+    font-size: 30px;
+    text-align: left;
+}

@@ -3896,7 +3896,6 @@ $( document ).ready( function () {
                 if ( $( '#privatePictureSlideshow' ).is( ':visible' ) ) {
                     getNextPrivatePictureDir();
                 }
-
             } );
 
             // Show timer in image when moving mouse
@@ -3908,8 +3907,11 @@ $( document ).ready( function () {
                 moveTimerPrivatePictureSlideshow = setTimeout( function () {
                     $( '.videoMenuOverlay' ).hide();
                     $( '#privatePictureSlideshow' ).css( 'cursor', 'none' );
+
+                    $( '#privatePictureSlideshowOverlay' ).attr( 'style', 'opacity:0' );
                 }, 1000 );
                 $( '.videoMenuOverlay' ).show();
+                $( '#privatePictureSlideshowOverlay' ).attr( 'style', 'opacity:1' );
                 $( '#privatePictureSlideshow' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
             } );
 
@@ -3931,14 +3933,13 @@ $( document ).ready( function () {
                             if ( $( this ).html() != 'Parent Directory' ) {
                                 tempFilename = $( this ).attr( 'href' );
                                 if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
-                                    externalPrivatePictureDirs[url + tempFilename] = decodeURIComponent( tempFilename.replace( '/', '' ) );
+                                    externalPrivatePictureDirs[url + tempFilename] = decodeURIComponent( url.replace( 'privatePictureRoot/', '' ) + tempFilename.replace( '/', '' ) );
                                     getAllExternalPrivatePictureDirsThreadStarted++;
                                     initPrivatePictureSlideshow( url + tempFilename );
                                 }
                             }
                         } );
                         getAllExternalPrivatePictureDirsThreadEnded++;
-
                         if ( getAllExternalPrivatePictureDirsThreadEnded == getAllExternalPrivatePictureDirsThreadStarted ) {
                             getNextPrivatePictureDir();
                         }
@@ -4008,6 +4009,10 @@ $( document ).ready( function () {
                     for ( var i = privatePictureDirContainer['images'].length - 1; i >= 0; i-- ) {
                         privatePictureDirContainer['picturesShown']++;
                         nextImage = privatePictureDirContainer['images'].splice( Math.floor( Math.random() * privatePictureDirContainer['images'].length ), 1 );
+
+                        decodeURIComponent( privatePictureDirContainer['dirPath'].replace( '/', '' ) );
+
+                        $( '#privatePictureSlideshowOverlayPicturePath' ).html( privatePictureDirContainer['dirName'] );
                         $( '#privatePictureSlideshowFullscreenContainer' ).attr( 'src', privatePictureDirContainer['dirPath'] + nextImage );
                         break;
                     }
