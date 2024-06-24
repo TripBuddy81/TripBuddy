@@ -117,7 +117,7 @@ $( document ).ready( function () {
             window.privatePictureDirContainer = {};
             window.privatePictureSlideshowTimer = '';
             window.privatePictureSlideshowImagesToShowPerFolder = 10;
-            window.privatePictureSlideshowDurationPerImage = 8000;
+            window.privatePictureSlideshowDurationPerImage = 2000;
             window.moveTimerPrivatePictureSlideshow = '';
 
             const urlParams = new URLSearchParams( window.location.search );
@@ -3882,7 +3882,7 @@ $( document ).ready( function () {
             $( '#startPrivatePictureSlideshow' ).click( function ( e ) {
                 stopAllActions();
                 $( '#privatePictureSlideshow' ).css( 'cursor', 'none' );
-                initPrivatePictureSlideshow( 'privatePictureRoot/' ); // privatePictureRoot/ || testRoot/
+                initPrivatePictureSlideshow( 'testRoot/' ); // privatePictureRoot/ || testRoot/
             } );
 
             // Next image via left mouse button click
@@ -3893,13 +3893,13 @@ $( document ).ready( function () {
 
             // Dir selection via mouse wheel
             $( document ).on( 'wheel', '#privatePictureSlideshow', function ( event ) {
-                if ( $( '#privatePictureSlideshow' ).is( ':visible' ) ) {
+                if ( $( '#privatePictureSlideshowFullscreenImage' ).is( ':visible' ) ) {
                     getNextPrivatePictureDir();
                 }
             } );
 
             // Show timer in image when moving mouse
-            $( document ).on( 'mousemove', '#privatePictureSlideshow', function () {
+            $( document ).on( 'mousemove', '#privatePictureSlideshowFullscreenContainer', function () {
                 clearInterval( privatePictureSlideshowTimer );
                 privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
 
@@ -3907,7 +3907,6 @@ $( document ).ready( function () {
                 moveTimerPrivatePictureSlideshow = setTimeout( function () {
                     $( '.videoMenuOverlay' ).hide();
                     $( '#privatePictureSlideshow' ).css( 'cursor', 'none' );
-
                     $( '#privatePictureSlideshowOverlay' ).attr( 'style', 'opacity:0' );
                 }, 1000 );
                 $( '.videoMenuOverlay' ).show();
@@ -3915,8 +3914,8 @@ $( document ).ready( function () {
                 $( '#privatePictureSlideshow' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
             } );
 
-            $( '#privatePictureSlideshowFullscreenContainer' ).on( 'error', function () {
-                if ( $( '#privatePictureSlideshow' ).is( ':visible' ) ) {
+            $( '#privatePictureSlideshowFullscreenImage' ).on( 'error', function () {
+                if ( $( '#privatePictureSlideshowFullscreenContainer' ).is( ':visible' ) ) {
                     setNextPrivatePictureSlideshowImage();
                 }
             } );
@@ -4013,7 +4012,7 @@ $( document ).ready( function () {
                         decodeURIComponent( privatePictureDirContainer['dirPath'].replace( '/', '' ) );
 
                         $( '#privatePictureSlideshowOverlayPicturePath' ).html( privatePictureDirContainer['dirName'] );
-                        $( '#privatePictureSlideshowFullscreenContainer' ).attr( 'src', privatePictureDirContainer['dirPath'] + nextImage );
+                        $( '#privatePictureSlideshowFullscreenImage' ).attr( 'src', privatePictureDirContainer['dirPath'] + nextImage );
                         break;
                     }
                 }
@@ -4045,7 +4044,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
 
-                /*$( '#startPrivatePictureSlideshow' ).trigger( 'click' );*/
+                $( '#startPrivatePictureSlideshow' ).trigger( 'click' );
             }
         }
 );
