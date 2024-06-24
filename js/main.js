@@ -118,6 +118,7 @@ $( document ).ready( function () {
             window.privatePictureSlideshowTimer = '';
             window.privatePictureSlideshowImagesToShowPerFolder = 10;
             window.privatePictureSlideshowDurationPerImage = 8000;
+            window.moveTimerPrivatePictureSlideshow = '';
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -3892,12 +3893,17 @@ $( document ).ready( function () {
 
             // Dir selection via mouse wheel
             $( document ).on( 'wheel', '#privatePictureSlideshow', function ( event ) {
-                getNextPrivatePictureDir();
+                if ( $( '#privatePictureSlideshow' ).is( ':visible' ) ) {
+                    getNextPrivatePictureDir();
+                }
+
             } );
 
             // Show timer in image when moving mouse
-            var moveTimerPrivatePictureSlideshow;
             $( document ).on( 'mousemove', '#privatePictureSlideshow', function () {
+                clearInterval( privatePictureSlideshowTimer );
+                privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
+
                 clearTimeout( moveTimerPrivatePictureSlideshow );
                 moveTimerPrivatePictureSlideshow = setTimeout( function () {
                     $( '.videoMenuOverlay' ).hide();
@@ -3907,13 +3913,10 @@ $( document ).ready( function () {
                 $( '#privatePictureSlideshow' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
             } );
 
-            $( document ).on( 'mousemove', '#privatePictureSlideshow', function () {
-                clearInterval( privatePictureSlideshowTimer );
-                privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
-            } );
-
             $( '#privatePictureSlideshowFullscreenContainer' ).on( 'error', function () {
-                setNextPrivatePictureSlideshowImage();
+                if ( $( '#privatePictureSlideshow' ).is( ':visible' ) ) {
+                    setNextPrivatePictureSlideshowImage();
+                }
             } );
 
             function initPrivatePictureSlideshow( url ) {
