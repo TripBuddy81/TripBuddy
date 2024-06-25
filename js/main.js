@@ -13,7 +13,7 @@ $( document ).ready( function () {
             // #6 - Search Youtube section
             // #7 - Videodrome section
             // #8 - Private Picture Slideshow section
-            // #9 - initial init section
+            // #20 - initial init section
 
             // ***********************************
             // #0.0 - global init section
@@ -4059,7 +4059,7 @@ $( document ).ready( function () {
 
 
             // ******************************************
-            // #9 - initial init section
+            // #20 - initial init section
             if ( urlParams.get( 'section' ) != undefined && urlParams.get( 'section' ) == 'shrine' ) {
                 $( '#meditativefilter' ).trigger( 'click' );
                 $( '#showShrineSection' ).trigger( 'click' );
