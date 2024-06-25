@@ -119,7 +119,6 @@ $( document ).ready( function () {
             window.privatePictureSlideshowTimer = '';
             window.privatePictureSlideshowImagesToShowPerFolder = 10;
             window.privatePictureSlideshowDurationPerImage = 8000;
-            window.moveTimerPrivatePictureSlideshow = '';
             window.privatePictureSlideshowEnabled = true;
 
             const urlParams = new URLSearchParams( window.location.search );
@@ -3890,7 +3889,7 @@ $( document ).ready( function () {
 
                 if ( !privatePictureSlideshowInitiated ) {
                     privatePictureSlideshowInitiated = true;
-                    initPrivatePictureSlideshow( 'testRoot/' ); // privatePictureRoot/ || testRoot/
+                    initPrivatePictureSlideshow( 'privatePictureRoot/' ); // privatePictureRoot/ || testRoot/
                 } else {
                     clearInterval( privatePictureSlideshowTimer );
                     if ( privatePictureSlideshowEnabled ) {
@@ -3899,10 +3898,10 @@ $( document ).ready( function () {
                 }
             } );
 
-            // Next image via left mouse button click
             $( '#privatePictureSlideshow' ).click( function ( e ) {
-                privatePictureDirContainer['picturesShown'] = 0;
-                setNextPrivatePictureSlideshowImage();
+                if ( $( '#privatePictureSlideshow' ).is( ':visible' ) ) {
+                    getNextPrivatePictureDir();
+                }
             } );
 
             $( '#privatePictureOpenImageInTab' ).click( function ( e ) {
@@ -3911,37 +3910,33 @@ $( document ).ready( function () {
                 window.open( $( '#privatePictureSlideshowFullscreenImage' ).attr( 'src' ), '_blank' );
             } );
 
-            // Dir selection via mouse wheel
             $( document ).on( 'wheel', '#privatePictureSlideshow', function ( event ) {
-                if ( $( '#privatePictureSlideshow' ).is( ':visible' ) ) {
-                    getNextPrivatePictureDir();
-                }
+                privatePictureDirContainer['picturesShown'] = 0;
+                setNextPrivatePictureSlideshowImage();
             } );
 
-            // Show timer in image when moving mouse
             $( document ).on( 'mousemove', '#privatePictureSlideshowFullscreenContainer', function () {
                 clearInterval( privatePictureSlideshowTimer );
                 if ( privatePictureSlideshowEnabled ) {
                     privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
                 }
+            } );
 
-                clearTimeout( moveTimerPrivatePictureSlideshow );
-                moveTimerPrivatePictureSlideshow = setTimeout( function () {
-                    $( '.videoMenuOverlay' ).hide();
-                    $( '#privatePictureSlideshow' ).css( 'cursor', 'none' );
-                    $( '#privatePictureSlideshowOverlay' ).attr( 'style', 'opacity:0' );
-                }, 1000 );
+            $( document ).on( 'mousemove', '#privatePictureSlideshowOverlay', function () {
+                clearInterval( privatePictureSlideshowTimer );
                 $( '.videoMenuOverlay' ).show();
                 $( '#privatePictureSlideshowOverlay' ).attr( 'style', 'opacity:1' );
                 $( '#privatePictureSlideshow' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
             } );
 
-            $( document ).on( 'mousemove', '#privatePictureSlideshowOverlay', function () {
-                clearInterval( privatePictureSlideshowTimer );
-                clearTimeout( moveTimerPrivatePictureSlideshow );
+            $( document ).on( 'mouseleave', '#privatePictureSlideshowOverlay', function () {
+                if ( privatePictureSlideshowEnabled ) {
+                    privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
+                }
 
-                $( '#privatePictureSlideshowOverlay' ).attr( 'style', 'opacity:1' );
-                $( '#privatePictureSlideshow' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videoMenuOverlay' ).hide();
+                $( '#privatePictureSlideshow' ).css( 'cursor', 'none' );
+                $( '#privatePictureSlideshowOverlay' ).attr( 'style', 'opacity:0' );
             } );
 
             $( '#privatePictureSlideshowFullscreenImage' ).on( 'error', function () {
