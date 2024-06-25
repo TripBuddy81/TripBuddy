@@ -3522,7 +3522,7 @@ $( document ).ready( function () {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( config['videosVideodrome'], function ( val ) {
                     let localFilename = document.createElement( 'div' );
-                    localFilename.innerHTML = decodeURI( config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /pornRoot\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
+                    localFilename.innerHTML = decodeURI( config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
                     localFilename.setAttribute( 'src', config['videosVideodrome'][val] );
                     localFilename.classList.add( 'localFilename' );
                     document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localFilename );
@@ -3564,7 +3564,7 @@ $( document ).ready( function () {
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
                     try {
-                        $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /pornRoot\//, '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) ) );
+                        $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) ) );
                     } catch ( e ) {
                     }
                 } else {
@@ -3575,7 +3575,7 @@ $( document ).ready( function () {
             function initVideodrome() {
                 if ( config['videosVideodrome'] != undefined ) {
                     videosLocalOriginal = $.merge( [], config['videosVideodrome'] );
-                    getAllExternalPornDirs( 'pornRoot/' );
+                    getAllExternalPornDirs( config['externalRootDirs']['pornRootDir'] );
                     var videosToShow = [];
                     while ( videosToShow.length < 4 ) {
                         randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
@@ -3876,7 +3876,7 @@ $( document ).ready( function () {
             // ******************************************
             // #8 - Private Picture Slideshow section
 
-            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showPrivatePictureSlideshowSection'] != undefined && config['localSettingsOverwrite']['showPrivatePictureSlideshowSection'] ) {
+            if ( config['externalRootDirs'] != undefined && config['externalRootDirs']['privatePictureSlideshowRootDir'] != undefined ) {
                 $( '#startPrivatePictureSlideshow' ).show();
             }
 
@@ -3889,7 +3889,7 @@ $( document ).ready( function () {
 
                 if ( !privatePictureSlideshowInitiated ) {
                     privatePictureSlideshowInitiated = true;
-                    initPrivatePictureSlideshow( 'privatePictureRoot/' ); // privatePictureRoot/ || testRoot/
+                    initPrivatePictureSlideshow( config['externalRootDirs']['privatePictureSlideshowRootDir'] );
                 } else {
                     clearInterval( privatePictureSlideshowTimer );
                     if ( privatePictureSlideshowEnabled ) {
@@ -3967,7 +3967,7 @@ $( document ).ready( function () {
                             if ( $( this ).html() != 'Parent Directory' ) {
                                 tempFilename = $( this ).attr( 'href' );
                                 if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
-                                    externalPrivatePictureDirs[url + tempFilename] = decodeURIComponent( url.replace( 'privatePictureRoot/', '' ) + tempFilename.replace( '/', '' ) );
+                                    externalPrivatePictureDirs[url + tempFilename] = decodeURIComponent( url.replace( config['externalRootDirs']['privatePictureSlideshowRootDir'], '' ) + tempFilename.replace( '/', '' ) );
                                     getAllExternalPrivatePictureDirsThreadStarted++;
                                     initPrivatePictureSlideshow( url + tempFilename );
                                 }
