@@ -120,6 +120,7 @@ $( document ).ready( function () {
             window.privatePictureSlideshowImagesToShowPerFolder = 10;
             window.privatePictureSlideshowDurationPerImage = 8000;
             window.moveTimerPrivatePictureSlideshow = '';
+            window.privatePictureSlideshowEnabled = true;
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -3889,7 +3890,12 @@ $( document ).ready( function () {
 
                 if ( !privatePictureSlideshowInitiated ) {
                     privatePictureSlideshowInitiated = true;
-                    initPrivatePictureSlideshow( 'privatePictureRoot/' ); // privatePictureRoot/ || testRoot/
+                    initPrivatePictureSlideshow( 'testRoot/' ); // privatePictureRoot/ || testRoot/
+                } else {
+                    clearInterval( privatePictureSlideshowTimer );
+                    if ( privatePictureSlideshowEnabled ) {
+                        privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
+                    }
                 }
             } );
 
@@ -3915,7 +3921,9 @@ $( document ).ready( function () {
             // Show timer in image when moving mouse
             $( document ).on( 'mousemove', '#privatePictureSlideshowFullscreenContainer', function () {
                 clearInterval( privatePictureSlideshowTimer );
-                privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
+                if ( privatePictureSlideshowEnabled ) {
+                    privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
+                }
 
                 clearTimeout( moveTimerPrivatePictureSlideshow );
                 moveTimerPrivatePictureSlideshow = setTimeout( function () {
@@ -3939,6 +3947,20 @@ $( document ).ready( function () {
             $( '#privatePictureSlideshowFullscreenImage' ).on( 'error', function () {
                 if ( $( '#privatePictureSlideshowFullscreenContainer' ).is( ':visible' ) ) {
                     setNextPrivatePictureSlideshowImage();
+                }
+            } );
+
+            $( '.privatePictureToggleSlideshowTimer' ).click( function ( e ) {
+                e.stopPropagation();
+                e.preventDefault();
+                $( '.privatePictureToggleSlideshowTimer' ).toggle();
+                clearInterval( privatePictureSlideshowTimer );
+                if ( privatePictureSlideshowEnabled ) {
+                    privatePictureSlideshowEnabled = false;
+                    privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, 999999999 );
+                } else {
+                    privatePictureSlideshowEnabled = true;
+                    privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
                 }
             } );
 
@@ -4019,7 +4041,7 @@ $( document ).ready( function () {
             function setNextPrivatePictureSlideshowImage() {
                 clearInterval( privatePictureSlideshowTimer );
 
-                if ( $( '#privatePictureSlideshowOverlay' ).css( 'opacity' ) == 0 ) {
+                if ( $( '#privatePictureSlideshowOverlay' ).css( 'opacity' ) == 0 && privatePictureSlideshowEnabled ) {
                     privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
                 }
 

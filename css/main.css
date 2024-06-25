@@ -2011,10 +2011,6 @@ video::-webkit-media-controls-fullscreen-button {
     float: left;
 }
 
-#privatePictureOpenImageInTab {
-    height: 26px;
-}
-
 #unlockDeleteVideodromeFavorites, #lockDeleteVideodromeFavorites {
     height: 60px;
     margin-bottom: 20px;
@@ -2235,15 +2231,15 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #privatePictureSlideshowFullscreenContainer {
-      position: fixed;
-      z-index: 10;
-      top: 0;
-      left: 0;
-      background: black;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-  }
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background: black;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
 
 #privatePictureSlideshowFullscreenImage {
     height: 100vH;
@@ -2264,4 +2260,28 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
     font-size: 30px;
     text-align: left;
+    float: left;
+}
+
+#privatePictureOpenImageInTab {
+    height: 30px;
+}
+
+#privatePictureToggleSlideshowTimerActive {
+    height: 30px;
+    margin-right: 15px;
+    margin-top: 9px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+#privatePictureToggleSlideshowTimerInactive {
+    height: 30px;
+    margin-right: 15px;
+    margin-top: 9px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    float: right;
+    display: none;
 }
