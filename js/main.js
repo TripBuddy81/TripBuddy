@@ -3919,9 +3919,18 @@ $( document ).ready( function () {
                 window.open( $( '#privatePictureSlideshowFullscreenImage' ).attr( 'src' ), '_blank' );
             } );
 
+            var wheelScrolls = 0;
+            setInterval( function () {
+                wheelScrolls = 0;
+            }, 1000 );
             $( document ).on( 'wheel', '#privatePictureSlideshow', function ( event ) {
-                privatePictureDirContainer['picturesShown'] = 0;
-                setNextPrivatePictureSlideshowImage();
+                wheelScrolls++;
+                if ( wheelScrolls > 1 ) {
+                    return false;
+                } else {
+                    privatePictureDirContainer['picturesShown'] = 0;
+                    setNextPrivatePictureSlideshowImage();
+                }
             } );
 
             $( document ).on( 'mousemove', '#privatePictureSlideshowFullscreenContainer', function () {
