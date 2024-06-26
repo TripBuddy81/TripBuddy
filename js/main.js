@@ -122,9 +122,6 @@ $( document ).ready( function () {
             window.privatePictureSlideshowDurationPerImage = 8000;
             window.privatePictureSlideshowEnabled = true;
             window.privatePictureSlideshowNextDirActiveThread = false;
-
-            window.getAllExternalMusicVideoDirsThreadEnded = 0;
-            window.getAllExternalMusicVideoDirsThreadStarted = 0;
             window.externalMusicVideos = {};
 
             const urlParams = new URLSearchParams( window.location.search );
@@ -376,9 +373,9 @@ $( document ).ready( function () {
                     }
                 } else if ( $( '#privatePictureSlideshow' ).is( ':visible' ) ) {
                     stopPrivatePictureSlideshow();
-                }  else if ( $( '#musicVideos' ).is( ':visible' ) ) {
+                } else if ( $( '#musicVideos' ).is( ':visible' ) ) {
                     stopMusicVideos();
-                }else { // block default right click behaviour
+                } else { // block default right click behaviour
                     return false;
                 }
             } );
@@ -4095,18 +4092,30 @@ $( document ).ready( function () {
                 setNextMusicVideo();
             } );
 
+            var moveTimerMusicVideoOverlay;
+            $( document ).on( 'mousemove', '#musicVideos', function () {
+                showMusicVideoOverlay();
+            } );
+
+            document.getElementById( 'musicVideoPlayer' ).addEventListener( 'ended', musicVideoPlayerVideoHasEnded, false );
+
+            function showMusicVideoOverlay() {
+                clearTimeout( moveTimerMusicVideoOverlay );
+                moveTimerMusicVideoOverlay = setTimeout( function () {
+                    $( '#musicVideoOverlay' ).hide();
+                }, 2000 );
+                $( '#musicVideoOverlay' ).show();
+            }
+
+            function musicVideoPlayerVideoHasEnded( e ) {
+                setNextMusicVideo();
+            }
 
             /*            $( document ).on( 'wheel', '#privatePictureSlideshow', function ( event ) {
                             privatePictureDirContainer['picturesShown'] = 0;
                             setNextPrivatePictureSlideshowImage();
                         } );*/
 
-            /*            $( document ).on( 'mousemove', '#privatePictureSlideshowFullscreenContainer', function () {
-                            clearInterval( privatePictureSlideshowTimer );
-                            if ( privatePictureSlideshowEnabled ) {
-                                privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
-                            }
-                        } );*/
 
             /*            $( document ).on( 'mousemove', '#privatePictureSlideshowOverlay', function () {
                             clearInterval( privatePictureSlideshowTimer );
@@ -4133,9 +4142,8 @@ $( document ).ready( function () {
                         $( data ).find( 'td > a' ).each( function () {
                             if ( $( this ).html() != 'Parent Directory' ) {
                                 tempFilename = $( this ).attr( 'href' );
-                                /*      console.info(tempFilename, tempFilename.indexOf( '/' ));*/
                                 if ( tempFilename.indexOf( '/' ) == -1 && tempFilename != '/' ) {
-                                    externalMusicVideos[url + tempFilename] = decodeURIComponent( url.replace( config['externalRootDirs']['musicVideosRootDir'], '' ) + tempFilename.replace( '/', '' ) );
+                                    externalMusicVideos[url + tempFilename] = decodeURIComponent( url.replace( config['externalRootDirs']['musicVideosRootDir'], '' ) + tempFilename.replace( '/', '' ).replace( '\.mp4', '' ) );
                                 }
                             }
                         } );
@@ -4146,7 +4154,6 @@ $( document ).ready( function () {
 
             function stopMusicVideos() {
                 blockScreenSaver = false;
-
                 $( '.videoMenuOverlay' ).hide();
                 $( '#musicVideos' ).hide();
                 $( '#musicVideoPlayer' )[0].pause();
@@ -4158,11 +4165,12 @@ $( document ).ready( function () {
 
                 tempCount = 0;
                 $.each( externalMusicVideos, function ( videoUrl, videoName ) {
-                    /* console.info( random, tempCount );*/
                     if ( random == tempCount ) {
                         $( '#musicVideoPlayer' ).find( '.videoSource' ).attr( 'src', videoUrl );
                         $( '#musicVideoPlayer' )[0].load();
                         $( '#musicVideoPlayer' )[0].play();
+                        $( '#musicVideoOverlayPicturePath' ).html( videoName );
+                        showMusicVideoOverlay();
                         return false;
                     }
                     tempCount++;
@@ -4264,7 +4272,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
 
-    /*            $( '#startMusicVideos' ).trigger( 'click' );*/
+                $( '#startMusicVideos' ).trigger( 'click' );
             }
         }
 );
