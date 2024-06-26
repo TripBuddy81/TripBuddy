@@ -764,7 +764,7 @@ li, .options, .form-check-label {
     height: 40px;
     position: relative;
     top: -2px;
-    margin-right: 11px;
+    margin-right: 10px;
 }
 
 #videodromeIcon {
@@ -787,8 +787,8 @@ li, .options, .form-check-label {
 }
 
 #playRandomWisdomIcon {
-    margin-left: 6px;
-    margin-right: 19px;
+    margin-left: 5px;
+    margin-right: 20px;
     height: 45px;
 }
 
@@ -799,7 +799,7 @@ li, .options, .form-check-label {
 }
 
 #showPrivateContentIcon2 {
-    margin-left: 6px;
+    margin-left: 5px;
     margin-right: 21px;
     height: 44px;
 }
