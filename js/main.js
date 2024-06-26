@@ -123,6 +123,7 @@ $( document ).ready( function () {
             window.privatePictureSlideshowEnabled = true;
             window.privatePictureSlideshowNextDirActiveThread = false;
             window.externalMusicVideos = {};
+    window.alreadySelectedMusicVideos = [];
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -4081,11 +4082,9 @@ $( document ).ready( function () {
                 stopAllActions();
                 enableFullscreen();
                 blockScreenSaver = true;
-
                 $( '#musicVideos' ).show();
-
+                spotifyPause();
                 initMusicVideos( config['externalRootDirs']['musicVideosRootDir'] );
-
             } );
 
             $( '#musicVideoPlayer' ).click( function ( e ) {
@@ -4160,12 +4159,19 @@ $( document ).ready( function () {
             }
 
             function setNextMusicVideo() {
-                random = randomIntFromInterval( 0, Object.keys( externalMusicVideos ).length - 1 );
-                console.info( random );
+                totalNumberOfMusicVideos = Object.keys( externalMusicVideos ).length;
+                selectedEntry = randomIntFromInterval( 0, totalNumberOfMusicVideos - 1 );
+                while ( alreadySelectedMusicVideos.indexOf( selectedEntry ) !== -1 ) {
+                    selectedEntry = randomIntFromInterval( 0, totalNumberOfPrivatePictureDirs - 1 );
+                    if ( totalNumberOfMusicVideos <= alreadySelectedMusicVideos.length + 1 ) {
+                        alreadySelectedMusicVideos = [];
+                    }
+                }
+                alreadySelectedMusicVideos.push( selectedEntry );
 
                 tempCount = 0;
                 $.each( externalMusicVideos, function ( videoUrl, videoName ) {
-                    if ( random == tempCount ) {
+                    if ( tempCount == selectedEntry ) {
                         $( '#musicVideoPlayer' ).find( '.videoSource' ).attr( 'src', videoUrl );
                         $( '#musicVideoPlayer' )[0].load();
                         $( '#musicVideoPlayer' )[0].play();
@@ -4272,7 +4278,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
 
-                $( '#startMusicVideos' ).trigger( 'click' );
+             /*   $( '#startMusicVideos' ).trigger( 'click' );*/
             }
         }
 );
