@@ -4057,14 +4057,10 @@ $( document ).ready( function () {
                     privatePictureSlideshowNextDirActiveThread = true;
                     getNextPrivatePictureDir();
                 } else {
-                    for ( var i = privatePictureDirContainer['images'].length - 1; i >= 0; i-- ) {
-                        privatePictureDirContainer['picturesShown']++;
-                        nextImage = privatePictureDirContainer['images'].splice( Math.floor( Math.random() * privatePictureDirContainer['images'].length ), 1 );
-
-                        $( '#privatePictureSlideshowOverlayPicturePath' ).html( privatePictureDirContainer['dirName'] );
-                        $( '#privatePictureSlideshowFullscreenImage' ).attr( 'src', privatePictureDirContainer['dirPath'] + nextImage );
-                        break;
-                    }
+                    privatePictureDirContainer['picturesShown']++;
+                    nextImage = privatePictureDirContainer['images'].splice( Math.floor( Math.random() * privatePictureDirContainer['images'].length ), 1 );
+                    $( '#privatePictureSlideshowOverlayPicturePath' ).html( privatePictureDirContainer['dirName'] );
+                    $( '#privatePictureSlideshowFullscreenImage' ).attr( 'src', privatePictureDirContainer['dirPath'] + nextImage );
                 }
             }
 
