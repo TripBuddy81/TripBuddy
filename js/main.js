@@ -123,7 +123,7 @@ $( document ).ready( function () {
             window.privatePictureSlideshowEnabled = true;
             window.privatePictureSlideshowNextDirActiveThread = false;
             window.externalMusicVideos = {};
-    window.alreadySelectedMusicVideos = [];
+            window.alreadySelectedMusicVideos = [];
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -4080,10 +4080,10 @@ $( document ).ready( function () {
 
             $( '#startMusicVideos' ).click( function ( e ) {
                 stopAllActions();
+                spotifyPause();
                 enableFullscreen();
                 blockScreenSaver = true;
                 $( '#musicVideos' ).show();
-                spotifyPause();
                 initMusicVideos( config['externalRootDirs']['musicVideosRootDir'] );
             } );
 
@@ -4109,30 +4109,6 @@ $( document ).ready( function () {
             function musicVideoPlayerVideoHasEnded( e ) {
                 setNextMusicVideo();
             }
-
-            /*            $( document ).on( 'wheel', '#privatePictureSlideshow', function ( event ) {
-                            privatePictureDirContainer['picturesShown'] = 0;
-                            setNextPrivatePictureSlideshowImage();
-                        } );*/
-
-
-            /*            $( document ).on( 'mousemove', '#privatePictureSlideshowOverlay', function () {
-                            clearInterval( privatePictureSlideshowTimer );
-                            $( '.videoMenuOverlay' ).show();
-                            $( '#privatePictureSlideshowOverlay' ).attr( 'style', 'opacity:1' );
-                            $( '#privatePictureSlideshow' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                        } );*/
-
-            /*            $( document ).on( 'mouseleave', '#privatePictureSlideshowOverlay', function () {
-                            if ( privatePictureSlideshowEnabled ) {
-                                privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
-                            }
-
-                            $( '.videoMenuOverlay' ).hide();
-                            $( '#privatePictureSlideshow' ).css( 'cursor', 'none' );
-                            $( '#privatePictureSlideshowOverlay' ).attr( 'style', 'opacity:0' );
-                        } );*/
-
 
             function initMusicVideos( url ) {
                 $.ajax( {
@@ -4183,77 +4159,6 @@ $( document ).ready( function () {
                 } )
             }
 
-            /*   function getNextPrivatePictureDir() {
-                   // select some folder at random
-                   totalNumberOfPrivatePictureDirs = Object.keys( externalPrivatePictureDirs ).length;
-                   selectedDirNumber = randomIntFromInterval( 0, totalNumberOfPrivatePictureDirs - 1 );
-                   while ( alreadySelectedPrivatePictureDir.indexOf( selectedDirNumber ) !== -1 ) {
-                       selectedDirNumber = randomIntFromInterval( 0, totalNumberOfPrivatePictureDirs - 1 );
-                       if ( totalNumberOfPrivatePictureDirs <= alreadySelectedPrivatePictureDir.length + 1 ) {
-                           alreadySelectedPrivatePictureDir = [];
-                       }
-                   }
-                   alreadySelectedPrivatePictureDir.push( selectedDirNumber );
-
-                   tempCount = 0;
-                   $.each( externalPrivatePictureDirs, function ( dirPath, dirName ) {
-                       if ( tempCount == selectedDirNumber ) {
-                           privatePictureDirContainer['dirPath'] = dirPath;
-                           privatePictureDirContainer['dirName'] = dirName;
-                           privatePictureDirContainer['images'] = [];
-                           privatePictureDirContainer['picturesShown'] = 0;
-                           return false;
-                       }
-                       tempCount++;
-                   } );
-
-                   // find and add all images within this folder to the dirContainer
-                   $.ajax( {
-                       url    : privatePictureDirContainer['dirPath'],
-                       success: function ( data ) {
-                           $( data ).find( 'td > a' ).each( function () {
-                               tempFilename = $( this ).attr( 'href' );
-                               if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
-                               } else if ( tempFilename != '/' ) {
-                                   var matches = tempFilename.match( /(.*)\.jpg.*!/ );
-                                   if ( matches != undefined && matches[1] != undefined ) {
-                                       if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
-                                           privatePictureDirContainer['images'].push( tempFilename );
-                                       }
-                                   }
-                               }
-                           } );
-                           setNextPrivatePictureSlideshowImage();
-                           privatePictureSlideshowNextDirActiveThread = false;
-                       },
-                       error  : function () {
-                           privatePictureSlideshowNextDirActiveThread = false;
-                       }
-                   } );
-               }*/
-
-            /*            function setNextPrivatePictureSlideshowImage() {
-                            clearInterval( privatePictureSlideshowTimer );
-
-                            if ( $( '#privatePictureSlideshowOverlay' ).css( 'opacity' ) == 0 && privatePictureSlideshowEnabled ) {
-                                privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
-                            }
-
-                            if ( (privatePictureDirContainer['images'] == undefined || privatePictureDirContainer['images'].length == 0 || privatePictureDirContainer['picturesShown'] >= privatePictureSlideshowImagesToShowPerFolder) && !privatePictureSlideshowNextDirActiveThread ) {
-                                privatePictureSlideshowNextDirActiveThread = true;
-                                getNextPrivatePictureDir();
-                            } else {
-                                for ( var i = privatePictureDirContainer['images'].length - 1; i >= 0; i-- ) {
-                                    privatePictureDirContainer['picturesShown']++;
-                                    nextImage = privatePictureDirContainer['images'].splice( Math.floor( Math.random() * privatePictureDirContainer['images'].length ), 1 );
-
-                                    $( '#privatePictureSlideshowOverlayPicturePath' ).html( privatePictureDirContainer['dirName'] );
-                                    $( '#privatePictureSlideshowFullscreenImage' ).attr( 'src', privatePictureDirContainer['dirPath'] + nextImage );
-                                    break;
-                                }
-                            }
-                        }*/
-
             // END Music Video Section
             // ******************************************
 
@@ -4278,7 +4183,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
 
-             /*   $( '#startMusicVideos' ).trigger( 'click' );*/
+                /*   $( '#startMusicVideos' ).trigger( 'click' );*/
             }
         }
 );
