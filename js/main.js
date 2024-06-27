@@ -4140,6 +4140,7 @@ $( document ).ready( function () {
             }
 
             function setNextMusicVideo() {
+
                 totalNumberOfMusicVideos = Object.keys( externalMusicVideos ).length;
                 selectedEntry = randomIntFromInterval( 0, totalNumberOfMusicVideos - 1 );
                 while ( alreadySelectedMusicVideos.indexOf( selectedEntry ) !== -1 ) {
