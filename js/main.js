@@ -124,6 +124,7 @@ $( document ).ready( function () {
             window.privatePictureSlideshowNextDirActiveThread = false;
             window.externalMusicVideos = {};
             window.alreadySelectedMusicVideos = [];
+            window.moveTimerMusicVideoOverlay = '';
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -4096,9 +4097,17 @@ $( document ).ready( function () {
                 setNextMusicVideo();
             } );
 
-            var moveTimerMusicVideoOverlay;
             $( document ).on( 'mousemove', '#musicVideos', function () {
                 showMusicVideoOverlay();
+            } );
+
+            $( document ).on( 'wheel', '#musicVideos', function ( event ) {
+                event.preventDefault();
+                if ( event.originalEvent.deltaY > 0 ) { // going down
+                    $( '#musicVideoPlayer' )[0].currentTime = $( '#musicVideoPlayer' )[0].currentTime - 30;
+                } else { // going up
+                    $( '#musicVideoPlayer' )[0].currentTime = $( '#musicVideoPlayer' )[0].currentTime + 30;
+                }
             } );
 
             document.getElementById( 'musicVideoPlayer' ).addEventListener( 'ended', musicVideoPlayerVideoHasEnded, false );
@@ -4140,7 +4149,6 @@ $( document ).ready( function () {
             }
 
             function setNextMusicVideo() {
-
                 totalNumberOfMusicVideos = Object.keys( externalMusicVideos ).length;
                 selectedEntry = randomIntFromInterval( 0, totalNumberOfMusicVideos - 1 );
                 while ( alreadySelectedMusicVideos.indexOf( selectedEntry ) !== -1 ) {
