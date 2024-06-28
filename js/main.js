@@ -94,7 +94,6 @@ $( document ).ready( function () {
             window.shrineStroboChangeTimer = '';
             window.shrineDiscoActive = false;
             window.playingRandomWisdom = false;
-            window.alreadyLoadedExternalFiles = [];
             window.videodromeFullscreenMenuHideInterval = '';
             window.videodromeVideoJSControlbarHideInterval = '';
             window.videoJSHubUrls = [];
@@ -3502,11 +3501,9 @@ $( document ).ready( function () {
                             tempFilename = $( this ).attr( 'href' );
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                             } else if ( tempFilename != '/' ) {
-                                var matches = tempFilename.toLowerCase().match( /(.*)\.[mkv|mp4]+.*/ );
-                                if ( matches != undefined && matches[1] != undefined ) {
-                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
-                                        externalFiles.push( url + tempFilename );
-                                    }
+                                var fileExtensions = ['mkv', 'mp4'];
+                                if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), fileExtensions ) > -1 ) {
+                                    externalFiles.push( url + tempFilename );
                                 }
                             }
                         } );
@@ -4046,11 +4043,9 @@ $( document ).ready( function () {
                             tempFilename = $( this ).attr( 'href' );
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                             } else if ( tempFilename != '/' ) {
-                                var matches = tempFilename.toLowerCase().match( /(.*)\.jpg.*/ );
-                                if ( matches != undefined && matches[1] != undefined ) {
-                                    if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
-                                        privatePictureDirContainer['images'].push( privatePictureDirContainer['dirPath'] + tempFilename );
-                                    }
+                                var fileExtensions = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+                                if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), fileExtensions ) > -1 ) {
+                                    privatePictureDirContainer['images'].push( privatePictureDirContainer['dirPath'] + tempFilename );
                                 }
                             }
                         } );
