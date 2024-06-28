@@ -3502,7 +3502,7 @@ $( document ).ready( function () {
                             tempFilename = $( this ).attr( 'href' );
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                             } else if ( tempFilename != '/' ) {
-                                var matches = tempFilename.match( /(.*)\.mp4.*/ );
+                                var matches = tempFilename.toLowerCase().match( /(.*)\.[mkv|mp4]+.*/ );
                                 if ( matches != undefined && matches[1] != undefined ) {
                                     if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
                                         externalFiles.push( url + tempFilename );
@@ -3530,7 +3530,7 @@ $( document ).ready( function () {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( config['videosVideodrome'], function ( val ) {
                     let localFilename = document.createElement( 'div' );
-                    localFilename.innerHTML = decodeURI( config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
+                    localFilename.innerHTML = decodeURI( config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
                     localFilename.setAttribute( 'src', config['videosVideodrome'][val] );
                     localFilename.classList.add( 'localFilename' );
                     document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localFilename );
@@ -3572,7 +3572,7 @@ $( document ).ready( function () {
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
                     try {
-                        $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) ) );
+                        $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) ) );
                     } catch ( e ) {
                     }
                 } else {
@@ -4046,7 +4046,7 @@ $( document ).ready( function () {
                             tempFilename = $( this ).attr( 'href' );
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                             } else if ( tempFilename != '/' ) {
-                                var matches = tempFilename.match( /(.*)\.jpg.*/ );
+                                var matches = tempFilename.toLowerCase().match( /(.*)\.jpg.*/ );
                                 if ( matches != undefined && matches[1] != undefined ) {
                                     if ( jQuery.inArray( matches[1], alreadyLoadedExternalFiles ) < 0 ) {
                                         privatePictureDirContainer['images'].push( privatePictureDirContainer['dirPath'] + tempFilename );
@@ -4065,7 +4065,6 @@ $( document ).ready( function () {
 
             function setNextPrivatePictureSlideshowImage( freshDir = false ) {
                 clearInterval( privatePictureSlideshowTimer );
-
                 if ( $( '#privatePictureSlideshowOverlay' ).css( 'opacity' ) == 0 && privatePictureSlideshowEnabled ) {
                     privatePictureSlideshowTimer = setInterval( setNextPrivatePictureSlideshowImage, privatePictureSlideshowDurationPerImage );
                 }
@@ -4154,7 +4153,7 @@ $( document ).ready( function () {
                             if ( $( this ).html() != 'Parent Directory' ) {
                                 tempFilename = $( this ).attr( 'href' );
                                 if ( tempFilename.indexOf( '/' ) == -1 && tempFilename != '/' ) {
-                                    externalMusicVideos[url + tempFilename] = decodeURIComponent( url.replace( config['externalRootDirs']['musicVideosRootDir'], '' ) + tempFilename.replace( '/', '' ).replace( '\.mp4', '' ) );
+                                    externalMusicVideos[url + tempFilename] = decodeURIComponent( url.replace( config['externalRootDirs']['musicVideosRootDir'], '' ) + tempFilename.replace( '/', '' ).replace( '\.mp4', '' ).replace( /\.mkv.*/, '' ) );
                                 }
                             }
                         } );
