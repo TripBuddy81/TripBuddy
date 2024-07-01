@@ -3792,6 +3792,13 @@ $( document ).ready( function () {
                                             $( '.videoDromeStreamVideo1' ).show();
                                             $( '.videoDromeStreamVideo2' ).hide();
                                             updateVideodromeFullscreenInfo();
+
+                                            // After playing the selected single favorite video, add all other favorites to playlist
+                                            videoJSHubUrls = [];
+                                            videoJSSingleVideoUrls = [];
+                                            $.each( videodromeFavorites['items'], function ( key, value ) {
+                                                videoJSHubUrls.push( value['videoPageUrl'] );
+                                            } );
                                         }
                                         if ( !isSingleVideoPage && videoJSSingleVideoUrls.length <= 4 ) {
                                             getNextVideoStreamUrl( false, lastUsedVideoStreamSearchUrl );
@@ -4043,7 +4050,7 @@ $( document ).ready( function () {
                             tempFilename = $( this ).attr( 'href' );
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                             } else if ( tempFilename != '/' ) {
-                                var fileExtensions = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+                                var fileExtensions = ['jpeg', 'jpg'];
                                 if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), fileExtensions ) > -1 ) {
                                     privatePictureDirContainer['images'].push( privatePictureDirContainer['dirPath'] + tempFilename );
                                 }
