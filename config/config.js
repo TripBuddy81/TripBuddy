@@ -135,6 +135,10 @@ var config = {
                         'id'   : '5YbqrWZW98ZH0kksUAnzKb'
                     },
                     {
+                        'label': 'Level IV',
+                        'id'   : '0ySoMLvwy6MBsc4uTmJ7DM'
+                    },
+                    {
                         'label': 'Liquify',
                         'id'   : '1aJ2MgVqNh3MC7ZcpEn6yM'
                     },
@@ -175,10 +179,6 @@ var config = {
                     {
                         'label': 'Melodic Noise',
                         'id'   : '7xkCTcJWJGTR9VhM0nvvKa'
-                    },
-                    {
-                        'label': 'Dark Electro',
-                        'id'   : '5gPPonwwaoaPtWaoaceceo'
                     },
                     {
                         'label': 'Electro',
