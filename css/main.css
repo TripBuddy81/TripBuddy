@@ -2008,6 +2008,14 @@ video::-webkit-media-controls-fullscreen-button {
     margin-left: 28px;
 }
 
+#videodromeErrorMessage {
+    float: left;
+    font-size: 25px;
+    font-weight: 700;
+    padding-right: 25px;
+    color: white;
+}
+
 .videodromeFullscreenDownloadVideoIcon, #privatePictureOpenImageInTab {
     height: 20px;
     margin-right: 15px;

@@ -3664,6 +3664,7 @@ $( document ).ready( function () {
                             type   : 'GET',
                             success: function ( originalData ) {
                                 data = $( originalData ).clone();
+                                $( '#videodromeErrorMessage' ).html( '' );
 
                                 switch ( selectedVideoStreamService ) {
                                     case 'PH':
@@ -3699,12 +3700,14 @@ $( document ).ready( function () {
                             },
                             error  : function ( data ) {
                                 activePageCrawls--;
-                                if ( searchUrl.indexOf( '/videos' ) > 0 ) {
-                                    getNextVideoStreamUrl( true, searchUrl.replace( '/videos', '' ) );
-                                } else if ( retry ) {
-                                    getNextVideoStreamUrl( true, createSearchUrl( '', false ), false );
+                                $( '#videodromeErrorMessage' ).html( data.status );
+                                if ( data.status != '403' ) {
+                                    if ( searchUrl.indexOf( '/videos' ) > 0 ) {
+                                        getNextVideoStreamUrl( true, searchUrl.replace( '/videos', '' ) );
+                                    } else if ( retry ) {
+                                        getNextVideoStreamUrl( true, createSearchUrl( '', false ), false );
+                                    }
                                 }
-                                //TODO ??? Trigger default search as a last resort?
                             }
                         } );
                     }
@@ -3808,10 +3811,13 @@ $( document ).ready( function () {
                                     getNextVideoStreamUrl( false, lastUsedVideoStreamSearchUrl );
                                 }
                                 activePageCrawls--;
+                                $( '#videodromeErrorMessage' ).html( '' );
                             },
                             error  : function ( data ) {
-                                videodromeStreamRefreshVideo();
-                                console.info( 'ERROR WHILE LOADING VIDEO' );
+                                $( '#videodromeErrorMessage' ).html( data.status );
+                                if ( data.status != '403' ) {
+                                    videodromeStreamRefreshVideo();
+                                }
                             }
                         } );
                     }
