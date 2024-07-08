@@ -285,7 +285,7 @@ var config = {
                 {'selectableTag': 'nature'},
                 {'selectableTag': 'slideshow'},
                 {'selectableTag': 'hiking'},
-                {'selectableTag': 'festival'},
+                {'selectableTag': 'music'},
                 {'selectableTag': 'calming'},
                 {'selectableTag': 'wisdom'},
                 {'selectableTag': 'nsfw'}
@@ -454,6 +454,11 @@ var config = {
                     'startSeconds': '11'
                 },
                 {
+                    'videoId': 'Z3xkHmC-KQE',
+                    'tags'   : 'nature',
+                    'startSeconds': '11'
+                },
+                {
                     'videoId': 'K2BoRq70QeU',
                     'tags'   : 'meditative'
                 },
@@ -514,7 +519,16 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
+                    'videoId'     : '_eLeUBSqfcM',
+                    'tags'        : 'space',
+                },
+                {
                     'videoId'     : 'Y_plhk1FUQA',
+                    'tags'        : 'space',
+                    'startSeconds': '30'
+                },
+                {
+                    'videoId'     : 'yl_ZLBwa4cA',
                     'tags'        : 'space',
                     'startSeconds': '30'
                 },
@@ -607,9 +621,19 @@ var config = {
                     'tags'   : 'calming'
                 },
                 {
+                    'videoId': 'Q3oItpVa9fs',
+                    'mute'   : false,
+                    'tags'   : 'music'
+                },
+                {
                     'videoId': '6myIjc0BnAY',
                     'mute'   : false,
-                    'tags'   : 'calming'
+                    'tags'   : 'music'
+                },
+                {
+                    'videoId': 'CqaAs_3azSs',
+                    'mute'   : false,
+                    'tags'   : 'music'
                 },
                 {
                     'videoId': 'hld4uaO1MDE',
@@ -650,37 +674,37 @@ var config = {
                 {
                     'videoId': '123Z5KLLiO8',
                     'mute'   : 'mixed',
-                    'tags'   : 'festival'
+                    'tags'   : 'music'
                 },
                 {
                     'videoId': '8eYEW4q42y8',
                     'mute'   : 'mixed',
-                    'tags'   : 'festival'
+                    'tags'   : 'music'
                 },
                 {
                     'videoId': 'G59Tm7KqEnY',
                     'mute'   : 'mixed',
-                    'tags'   : 'festival'
+                    'tags'   : 'music'
                 },
                 {
                     'videoId': '6GHiYo3530o',
                     'mute'   : 'mixed',
-                    'tags'   : 'festival'
+                    'tags'   : 'music'
                 },
                 {
                     'videoId': 'R4LKjRJUGkk',
                     'mute'   : 'mixed',
-                    'tags'   : 'festival'
+                    'tags'   : 'music'
                 },
                 {
                     'videoId': 'R1CyKwtCDr8',
                     'mute'   : 'mixed',
-                    'tags'   : 'festival'
+                    'tags'   : 'music'
                 },
                 {
                     'videoId': 'KtXphUrwQtA',
                     'mute'   : 'mixed',
-                    'tags'   : 'festival'
+                    'tags'   : 'music'
                 },
                 {
                     'videoId'     : '5I69DCxYbBg',
@@ -716,6 +740,11 @@ var config = {
                 },
                 {
                     'videoId': '15il5mmlpmE',
+                    'tags'   : 'weird'
+                },
+                {
+                    'videoId': 'EgRCa_zuM1I',
+                    'mute'   : 'mixed',
                     'tags'   : 'weird'
                 },
                 {
@@ -812,6 +841,12 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'It\'s time to wake up'
+                },
+                {
+                    'videoId': '03K4inVyWGc',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Life is not complicated'
                 },
                 {
                     'videoId': 'zOM7M-GNi2Q',
