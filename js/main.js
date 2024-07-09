@@ -3854,16 +3854,16 @@ $( document ).ready( function () {
             function loadNextVideoJSStream( playerId ) {
                 if ( videoJSSingleVideoUrls.length >= 1 ) {
                     var singleVideoObject = videoJSSingleVideoUrls.pop();
+                    $( '#' + playerId ).parent().attr( 'data-videoTitel', singleVideoObject['videoTitel'] );
+                    $( '#' + playerId ).parent().attr( 'data-modelLinks', singleVideoObject['modelLinks'] );
+                    $( '#' + playerId ).parent().attr( 'data-videoPageUrl', singleVideoObject['videoPageUrl'] );
+                    $( '#' + playerId ).parent().attr( 'data-videoPagePosterUrl', singleVideoObject['videoPagePosterUrl'] );
+
                     var videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
                     videoJSPlayer.src( {
                         src : singleVideoObject['videoStreamUrl'],
                         type: 'application/x-mpegURL'
                     } );
-
-                    $( '#' + playerId ).parent().attr( 'data-videoTitel', singleVideoObject['videoTitel'] );
-                    $( '#' + playerId ).parent().attr( 'data-modelLinks', singleVideoObject['modelLinks'] );
-                    $( '#' + playerId ).parent().attr( 'data-videoPageUrl', singleVideoObject['videoPageUrl'] );
-                    $( '#' + playerId ).parent().attr( 'data-videoPagePosterUrl', singleVideoObject['videoPagePosterUrl'] );
 
                     videoJSPlayer.load();
                 }
