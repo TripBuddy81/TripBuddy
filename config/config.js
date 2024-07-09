@@ -135,6 +135,14 @@ var config = {
                         'id'   : '5YbqrWZW98ZH0kksUAnzKb'
                     },
                     {
+                        'label': 'Project-R',
+                        'id'   : '7x23ok4acPXy7CWvV0ieuV'
+                    },
+                    {
+                        'label': 'Project-F',
+                        'id'   : '1Z667E9BFAuno8LG6hNRbX'
+                    },
+                    {
                         'label': 'Level IV',
                         'id'   : '0ySoMLvwy6MBsc4uTmJ7DM'
                     },
