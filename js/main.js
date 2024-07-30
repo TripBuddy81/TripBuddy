@@ -3816,7 +3816,7 @@ $( document ).ready( function () {
                                         switch ( selectedVideoStreamService ) {
                                             case 'XV':
                                                 $( data ).find( '.page-title' ).each( function () {
-                                                    singleVideoObject['videoTitel'] = $( this ).html();
+                                                    singleVideoObject['videoTitel'] = $( this ).find("#title-auto-tr").html();
                                                 } );
 
                                                 var reVideoPosterUrlTitel = /\"thumbnailUrl\"\: \[\"(https:.*\.jpg)\"\]/g;
@@ -3928,7 +3928,7 @@ $( document ).ready( function () {
             function createSearchUrl( searchTerm = '', retry = true ) {
                 switch ( selectedVideoStreamService ) {
                     case 'XV':
-                        searchUrl = 'https://www.xvideos.com/best';
+                        searchUrl = 'https://www.xvideos.com/tags/q:1080P/random/' + randomIntFromInterval( 1, 50 );
                         break;
                     case 'PH':
                     default:
