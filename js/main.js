@@ -94,6 +94,8 @@ $( document ).ready( function () {
             window.shrineStroboChangeTimer = '';
             window.shrineDiscoActive = false;
             window.playingRandomWisdom = false;
+            /* var selectedVideoStreamService = 'PH'; // TODO extend to other hub pages*/
+            window.selectedVideoStreamService = 'XV';
             window.videodromeFullscreenMenuHideInterval = '';
             window.videodromeVideoJSControlbarHideInterval = '';
             window.videoJSHubUrls = [];
@@ -3644,7 +3646,6 @@ $( document ).ready( function () {
                 }
             }
 
-            var selectedVideoStreamService = 'PH'; // TODO extend to other hub pages
             function getNextVideoStreamUrl( newSearch = false, searchUrl = createSearchUrl(), retry = true, isSingleVideoPage = false ) {
                 if ( newSearch ) {
                     videoJSHubUrls = [];
@@ -3667,6 +3668,36 @@ $( document ).ready( function () {
                                 $( '#videodromeErrorMessage' ).html( '' );
 
                                 switch ( selectedVideoStreamService ) {
+                                    case 'XV':
+                                        var videosFound = false;
+
+                                        // TODO cleanup page before searching
+                                        /*                                        $( data ).find( '#header' ).each( function () {
+                                                                                    $( this ).remove();
+                                                                                } );*/
+
+
+                                        $( data ).find( '.thumb-block' ).each( function () {
+                                            url = 'https://www.xvideos.com' + $( this ).find( '.thumb' ).find( 'a' ).attr( 'href' );
+                                            if ( videoJSHubUrls.indexOf( url ) === -1 ) {
+                                                videoJSHubUrls.push( url );
+                                            }
+                                            videosFound = true;
+                                        } );
+
+                                        // TODO what to do if no video found?
+                                        /*                              if ( !videosFound ) {
+                                                                          $( data ).find( '.pcVideoListItem' ).each( function () {
+                                                                              if ( $( this ).find( '.rating-container' ).find( '.value' ).html().replace( '%', '' ) >= 80 ) {
+                                                                                  url = 'https://www.pornhub.com/view_video.php?viewkey=' + $( this ).attr( 'data-video-vkey' );
+                                                                                  if ( videoJSHubUrls.indexOf( url ) === -1 ) {
+                                                                                      videoJSHubUrls.push( url );
+                                                                                  }
+                                                                              }
+                                                                          } );
+                                                                      }*/
+                                        break;
+
                                     case 'PH':
                                     default:
                                         var videosFound = false;
@@ -3730,6 +3761,9 @@ $( document ).ready( function () {
                             type   : 'GET',
                             success: function ( data ) {
                                 switch ( selectedVideoStreamService ) {
+                                    case 'XV':
+                                        var matchesStreamUrl = data.match( /html5player.setVideoHLS\(\'(https.*?m3u8.*?)\'/ );
+                                        break;
                                     case 'PH':
                                     default:
                                         var matchesStreamUrl = data.match( /defaultQuality":true.*?(https.*?m3u8.*?)",/ );
@@ -3826,6 +3860,9 @@ $( document ).ready( function () {
 
             function createSearchUrl( searchTerm = '', retry = true ) {
                 switch ( selectedVideoStreamService ) {
+                    case 'XV':
+                        searchUrl = 'https://www.xvideos.com/best';
+                        break;
                     case 'PH':
                     default:
                         searchUrl = 'https://www.pornhub.com/video?o=tr&min_duration=10&hd=1&exclude_category=104&page=' + randomIntFromInterval( 1, 5 );
@@ -3836,9 +3873,16 @@ $( document ).ready( function () {
                     if ( !retry ) {
                         pageIndex = 1;
                     }
-                    searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( searchTerm ) + '&page=' + pageIndex;
+                    switch ( selectedVideoStreamService ) {
+                        case 'XV':
+                            searchUrl = 'https://www.xvideos.com/?k=' + encodeURIComponent( searchTerm ) + '&quality=hd&p=' + pageIndex;
+                            break;
+                        case 'PH':
+                        default:
+                            searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( searchTerm ) + '&page=' + pageIndex;
+                    }
                 }
-
+                console.info( searchUrl, 'searchUrl' );
                 return searchUrl;
             }
 
@@ -4224,7 +4268,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                /*    toggleXXXVisible();*/
+                toggleXXXVisible();
 
                 /*   $( '#startMusicVideos' ).trigger( 'click' );*/
             }
