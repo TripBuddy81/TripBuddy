@@ -3002,6 +3002,7 @@ $( document ).ready( function () {
 
             // ******************************************
             // #7 - Videodrome section
+            $( '#switchStreamingService' ).html( selectedVideoStreamService );
             var moveTimerVideodrome;
             $( document ).on( 'mousemove', '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api,.vjs-control-bar', function () {
                 clearTimeout( moveTimerVideodrome );
@@ -3161,6 +3162,12 @@ $( document ).ready( function () {
             } );
 
             $( '.videoJSSearchURL' ).click( function () {
+                if ( $( this ).attr( 'videoJSSearchURL' ).indexOf( 'pornhub' ) >= 0 ) {
+                    selectedVideoStreamService = 'PH';
+                } else {
+                    selectedVideoStreamService = 'XV';
+                }
+                updateVideodromeFullscreenInfo();
                 getNextVideoStreamUrl( true, $( this ).attr( 'videoJSSearchURL' ) + randomIntFromInterval( 1, 3 ) );
             } );
 
@@ -3357,6 +3364,12 @@ $( document ).ready( function () {
                 if ( e.which == 2 ) {
                     window.open( $( this ).attr( 'data-videoPageUrl' ), '_blank' );
                 } else {
+                    if ( $( this ).attr( 'data-videoPageUrl' ).indexOf( 'pornhub' ) >= 0 ) {
+                        selectedVideoStreamService = 'PH';
+                    } else {
+                        selectedVideoStreamService = 'XV';
+                    }
+                    updateVideodromeFullscreenInfo();
                     getNextVideoStreamUrl( true, $( this ).attr( 'data-videoPageUrl' ), false, true );
                 }
             } );
@@ -3450,15 +3463,13 @@ $( document ).ready( function () {
                 getNextVideoStreamUrl( false );
             } );
 
-            $( '#switchStreamingService' ).html( selectedVideoStreamService );
             $( '#switchStreamingService' ).click( function ( e ) {
                 if ( $( '#switchStreamingService' ).html() == 'PH' ) {
                     selectedVideoStreamService = 'XV';
                 } else {
                     selectedVideoStreamService = 'PH';
                 }
-                $( '#switchStreamingService' ).html( selectedVideoStreamService );
-
+                updateVideodromeFullscreenInfo();
                 getNextVideoStreamUrl( true );
             } );
 
@@ -3573,6 +3584,7 @@ $( document ).ready( function () {
                                 default:
                                     $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', 'https://yesdownloader.com/en1/' );
                             }
+                            $( '#switchStreamingService' ).html( selectedVideoStreamService );
 
                             $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'videoUrl', $( this ).parent().attr( 'data-videopageurl' ) );
 
