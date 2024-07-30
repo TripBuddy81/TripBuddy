@@ -3450,7 +3450,15 @@ $( document ).ready( function () {
                 getNextVideoStreamUrl( false );
             } );
 
-            $( '.switchStreamingService' ).click( function ( e ) {
+            $( '#switchStreamingService' ).html( selectedVideoStreamService );
+            $( '#switchStreamingService' ).click( function ( e ) {
+                if ( $( '#switchStreamingService' ).html() == 'PH' ) {
+                    selectedVideoStreamService = 'XV';
+                } else {
+                    selectedVideoStreamService = 'PH';
+                }
+                $( '#switchStreamingService' ).html( selectedVideoStreamService );
+
                 getNextVideoStreamUrl( true );
             } );
 
@@ -3556,7 +3564,16 @@ $( document ).ready( function () {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
                             $( '.videodromeFullscreenFilename' ).html( $( this ).parent().attr( 'data-videoTitel' ) );
-                            $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', 'https://yesdownloader.com/en1/' );
+
+                            switch ( selectedVideoStreamService ) {
+                                case 'XV':
+                                    $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', 'https://www.xvideosdownload.net/' );
+                                    break;
+                                case 'PH':
+                                default:
+                                    $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', 'https://yesdownloader.com/en1/' );
+                            }
+
                             $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'videoUrl', $( this ).parent().attr( 'data-videopageurl' ) );
 
                             $( '#videodromeFullscreenModelLinks' ).empty();
