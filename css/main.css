@@ -2016,6 +2016,17 @@ video::-webkit-media-controls-fullscreen-button {
     color: white;
 }
 
+.switchStreamingService {
+    float: left;
+    font-size: 25px;
+    font-weight: 700;
+    padding-right: 25px;
+}
+
+.switchStreamingService:hover {
+    color: white;
+}
+
 .videodromeFullscreenDownloadVideoIcon, #privatePictureOpenImageInTab {
     height: 20px;
     margin-right: 15px;
