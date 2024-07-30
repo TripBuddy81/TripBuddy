@@ -3451,18 +3451,6 @@ $( document ).ready( function () {
                 $( '#unlockDeleteVideodromeFavorites' ).show();
             } );
 
-            $( document ).on( 'click', '#playAllVideodromeFavorites', function ( event ) {
-                videoJSHubUrls = [];
-                videoJSSingleVideoUrls = [];
-                activePageCrawls = 0;
-                videoJSLoadAfterFind = true;
-
-                $.each( videodromeFavorites['items'], function ( key, value ) {
-                    videoJSHubUrls.push( value['videoPageUrl'] );
-                } );
-                getNextVideoStreamUrl( false );
-            } );
-
             $( '#switchStreamingService' ).click( function ( e ) {
                 if ( $( '#switchStreamingService' ).html() == 'PH' ) {
                     selectedVideoStreamService = 'XV';
@@ -3708,7 +3696,6 @@ $( document ).ready( function () {
                                                                                     $( this ).remove();
                                                                                 } );*/
 
-
                                         $( data ).find( '.thumb-block' ).each( function () {
                                             url = 'https://www.xvideos.com' + $( this ).find( '.thumb' ).find( 'a' ).attr( 'href' );
                                             if ( videoJSHubUrls.indexOf( url ) === -1 ) {
@@ -3831,11 +3818,12 @@ $( document ).ready( function () {
                                                     }
                                                 } );
 
-                                                $( data ).find( '.uploader-tag' ).each( function () {
+                                                // TODO DOES NOT WORK FOR PROFILE PAGES CURRENTLY
+/*                                                $( data ).find( '.uploader-tag' ).each( function () {
                                                     if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
                                                         singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.xvideos.com' + $( this ).attr( 'href' ) + ',';
                                                     }
-                                                } );
+                                                } );*/
                                                 break;
                                             case 'PH':
                                             default:

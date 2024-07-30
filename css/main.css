@@ -1996,7 +1996,7 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
-#videodromeFullscreenSearchInput, #videodromeFullscreenResetSearch, #videodromeFullscreenAddToFavorites, #playAllVideodromeFavorites {
+#videodromeFullscreenSearchInput, #videodromeFullscreenResetSearch, #videodromeFullscreenAddToFavorites {
     height: 40px;
     margin-right: 10px;
     margin-top: 5px;
@@ -2018,9 +2018,10 @@ video::-webkit-media-controls-fullscreen-button {
 
 #switchStreamingService {
     float: left;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 700;
-    padding-right: 15px;
+    padding-left: 27px;
+    width: 79px;
 }
 
 #switchStreamingService:hover {
