@@ -1390,6 +1390,10 @@ var config = {
                             'name': 'Sushi Party'
                         },
                         {
+                            'link': 'https://paveldogreat.github.io/WebGL-Fluid-Simulation/',
+                            'name': 'Fluids'
+                        },
+                        {
                             'link' : 'https://static.pixeled.site/rps-web/index.html',
                             'name' : 'Rock Paper Scissors',
                             'class': 'rockPaperSciccors'

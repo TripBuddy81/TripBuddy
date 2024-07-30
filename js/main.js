@@ -3937,7 +3937,6 @@ $( document ).ready( function () {
                             searchUrl = 'https://www.pornhub.com/video/search?hd=1&search=' + encodeURIComponent( searchTerm ) + '&page=' + pageIndex;
                     }
                 }
-                console.info( searchUrl, 'searchUrl' );
                 return searchUrl;
             }
 
