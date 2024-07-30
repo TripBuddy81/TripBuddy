@@ -520,6 +520,12 @@ var config = {
                     'mute'   : 'mixed'
                 },
                 {
+                    'videoId': 'kz69ijqlZfk',
+                    'tags'   : 'meditative',
+                    'mute'   : 'mixed',
+                    'startSeconds': '30'
+                },
+                {
                     'videoId': '1PiXGku9QpI',
                     'tags'   : 'trippy-2D'
                 },
