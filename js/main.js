@@ -3594,7 +3594,7 @@ $( document ).ready( function () {
                                 $.each( modelLinks, function ( index, val ) {
                                     let node = document.createElement( 'div' );
                                     node.classList.add( 'videoJSStreamModelname' );
-                                    node.innerHTML = val.replaceAll( 'https://www.pornhub.com/', '' ).replaceAll( 'channels/', '' ).replaceAll( 'model/', '' ).replaceAll( 'pornstar/', '' ).replaceAll( '/videos', '' );
+                                    node.innerHTML = val.replaceAll( 'https://www.pornhub.com/', '' ).replaceAll( 'channels/', '' ).replaceAll( 'model/', '' ).replaceAll( 'pornstar/', '' ).replaceAll( '/videos', '' ).replaceAll( 'https://www.xvideos.com/', '' ).replaceAll( 'models/', '' ).replaceAll( 'pornstars/', '' ).replaceAll( 'amateurs/', '' ).replaceAll( 'profiles/', '' );
                                     node.setAttribute( 'modellink', val );
                                     document.getElementById( 'videodromeFullscreenModelLinks' ).appendChild( node );
                                 } );
@@ -3825,24 +3825,17 @@ $( document ).ready( function () {
                                                     singleVideoObject['videoPagePosterUrl'] = reVideoPosterUrlTitel[1];
                                                 }
 
-                                                /*                                         $( data ).find( '.pstar-list-btn' ).each( function () {
-                                                                                             if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
-                                                                                                 singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
-                                                                                             }
-                                                                                         } );
+                                                $( data ).find( '.profile' ).each( function () {
+                                                    if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
+                                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.xvideos.com' + $( this ).attr( 'href' ) + ',';
+                                                    }
+                                                } );
 
-                                                                                         $( data ).find( '.video-detailed-info' ).find( '.usernameBadgesWrapper' ).find( 'a' ).each( function () {
-                                                                                             if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
-                                                                                                 singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
-                                                                                             }
-                                                                                         } );
-
-                                                                                         $( data ).find( '.video-detailed-info' ).find( 'a[data-label=channel]' ).each( function () {
-                                                                                             if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
-                                                                                                 singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.pornhub.com' + $( this ).attr( 'href' ) + '/videos,';
-                                                                                             }
-                                                                                         } );*/
-
+                                                $( data ).find( '.uploader-tag' ).each( function () {
+                                                    if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
+                                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.xvideos.com' + $( this ).attr( 'href' ) + ',';
+                                                    }
+                                                } );
                                                 break;
                                             case 'PH':
                                             default:
