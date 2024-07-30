@@ -820,7 +820,7 @@ var config = {
                     'tags'   : 'weird'
                 },
                 {
-                    'videoId': '9_dgIfz876A',
+                    'videoId': '2NP0jYGPXc4',
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'Right where it belongs - NIN'
