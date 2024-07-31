@@ -3566,7 +3566,7 @@ $( document ).ready( function () {
 
                             switch ( selectedVideoStreamService ) {
                                 case 'XV':
-                                    $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', 'https://www.xvideosdownload.net/' );
+                                    $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'href', 'https://www.locoloader.com/' );
                                     break;
                                 case 'PH':
                                 default:
