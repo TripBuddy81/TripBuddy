@@ -832,6 +832,12 @@ var config = {
                     'label'  : 'Right where it belongs - Mumi'
                 },
                 {
+                    'videoId': 'J7GY1Xg6X20',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Charlie Chaplins Wisdom'
+                },
+                {
                     'videoId': 'ogLc7M9_hR8',
                     'mute'   : false,
                     'tags'   : 'wisdom',
