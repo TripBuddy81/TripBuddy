@@ -74,7 +74,6 @@
 
 .vjs-icon-volume-mute:before, .video-js .vjs-mute-control.vjs-vol-0 .vjs-icon-placeholder:before {
     content: "\f104";
-    display: none;
 }
 
 .vjs-icon-volume-low, .video-js .vjs-mute-control.vjs-vol-1 .vjs-icon-placeholder {
@@ -1005,6 +1004,7 @@ body.vjs-pip-window .video-js {
     height: 100%;
     width: 8em;
     flex: none;
+    padding-left: 10px;
 }
 
 .video-js .vjs-control.vjs-visible-text {
@@ -1016,7 +1016,6 @@ body.vjs-pip-window .video-js {
 .vjs-button > .vjs-icon-placeholder:before {
     font-size: 55px;
     padding-top: 12px;
-    padding-right: 25px;
 }
 
 .vjs-button > .vjs-icon-placeholder {
@@ -1225,7 +1224,6 @@ body.vjs-pip-window .video-js {
     cursor: pointer;
     margin-right: 1em;
     display: flex;
-    display: none;
 }
 
 .video-js .vjs-volume-control.vjs-volume-horizontal {
@@ -1286,7 +1284,7 @@ body.vjs-pip-window .video-js {
 
 .video-js .vjs-volume-panel {
     display: flex;
-    display: none;
+    background-image: linear-gradient(#80808045, #0000007a);
 }
 
 .video-js .vjs-volume-bar {
