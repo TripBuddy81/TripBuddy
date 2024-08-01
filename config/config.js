@@ -665,17 +665,17 @@ var config = {
                 },
                 {
                     'videoId': 'Q3oItpVa9fs',
-                    'mute'   : false,
+                    'mute'   : 'mixed',
                     'tags'   : 'music'
                 },
                 {
                     'videoId': '6myIjc0BnAY',
-                    'mute'   : false,
+                    'mute'   : 'mixed',
                     'tags'   : 'music'
                 },
                 {
                     'videoId': 'CqaAs_3azSs',
-                    'mute'   : false,
+                    'mute'   : 'mixed',
                     'tags'   : 'music'
                 },
                 {
