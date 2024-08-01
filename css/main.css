@@ -1977,7 +1977,7 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 35;
 }
 
-#videodromeFullscreenMenuVideoJSContainerExtraOptions, #videodromeFullscreenMenuLocalVideoContainerExtraOptions {
+#videodromeFullscreenMenuVideoJSContainerExtraOptions, #videodromeFullscreenMenuLocalVideoContainerExtraOptions, #musicVideoOverlayFileSelect {
     position: fixed;
     width: 25vW;
     height: 92vH;
@@ -1992,7 +1992,7 @@ video::-webkit-media-controls-fullscreen-button {
     overflow-x: hidden;
 }
 
-.videodromeFullscreenMenuContainer:hover {
+.videodromeFullscreenMenuContainer:hover, #musicVideoOverlayFileSelect:hover {
     opacity: 1;
 }
 
@@ -2187,7 +2187,7 @@ video::-webkit-media-controls-fullscreen-button {
     right: 0;
 }
 
-.localFilename {
+.localFilename, .musicVideoFilename {
     width: 20vW;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
     padding-bottom: 10px;
@@ -2195,7 +2195,7 @@ video::-webkit-media-controls-fullscreen-button {
     overflow-x: hidden;
 }
 
-.localFilename:hover {
+.localFilename:hover, .musicVideoFilename:hover  {
     color: white;
 }
 
@@ -2336,7 +2336,7 @@ video::-webkit-media-controls-fullscreen-button {
 #musicVideoOverlay {
     position: fixed;
     width: 100vW;
-    padding: 10px 25px;
+    padding: 16px 25px;
     bottom: 0px;
     left: 0px;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
@@ -2345,9 +2345,18 @@ video::-webkit-media-controls-fullscreen-button {
     pointer-events: none;
 }
 
-#musicVideoOverlayPicturePath {
+#musicVideoOverlayVideoName {
     font-weight: 700;
     font-size: 30px;
     text-align: left;
     float: left;
+}
+
+#musicVideoOverlayFileSelect {
+    cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
+}
+
+.musicVideoFilename {
+    font-size: 18px;
+    text-align: left;
 }

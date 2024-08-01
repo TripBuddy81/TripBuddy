@@ -3803,7 +3803,7 @@ $( document ).ready( function () {
                                         switch ( selectedVideoStreamService ) {
                                             case 'XV':
                                                 $( data ).find( '.page-title' ).each( function () {
-                                                    singleVideoObject['videoTitel'] = $( this ).find("#title-auto-tr").html();
+                                                    singleVideoObject['videoTitel'] = $( this ).find( '#title-auto-tr' ).html();
                                                 } );
 
                                                 var reVideoPosterUrlTitel = /\"thumbnailUrl\"\: \[\"(https:.*\.jpg)\"\]/g;
@@ -3819,11 +3819,11 @@ $( document ).ready( function () {
                                                 } );
 
                                                 // TODO DOES NOT WORK FOR PROFILE PAGES CURRENTLY
-/*                                                $( data ).find( '.uploader-tag' ).each( function () {
-                                                    if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
-                                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.xvideos.com' + $( this ).attr( 'href' ) + ',';
-                                                    }
-                                                } );*/
+                                                /*                                                $( data ).find( '.uploader-tag' ).each( function () {
+                                                                                                    if ( singleVideoObject['modelLinks'].indexOf( $( this ).attr( 'href' ) ) === -1 ) {
+                                                                                                        singleVideoObject['modelLinks'] = singleVideoObject['modelLinks'] + 'https://www.xvideos.com' + $( this ).attr( 'href' ) + ',';
+                                                                                                    }
+                                                                                                } );*/
                                                 break;
                                             case 'PH':
                                             default:
@@ -4222,12 +4222,19 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'wheel', '#musicVideos', function ( event ) {
-                event.preventDefault();
-                if ( event.originalEvent.deltaY > 0 ) { // going down
-                    $( '#musicVideoPlayer' )[0].currentTime = $( '#musicVideoPlayer' )[0].currentTime - 30;
-                } else { // going up
-                    $( '#musicVideoPlayer' )[0].currentTime = $( '#musicVideoPlayer' )[0].currentTime + 30;
+                if ( $( '#musicVideoOverlayFileSelect' ).css( 'opacity' ) == 0 ) {
+                    event.preventDefault();
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        $( '#musicVideoPlayer' )[0].currentTime = $( '#musicVideoPlayer' )[0].currentTime - 30;
+                    } else { // going up
+                        $( '#musicVideoPlayer' )[0].currentTime = $( '#musicVideoPlayer' )[0].currentTime + 30;
+                    }
                 }
+
+            } );
+
+            $( document ).on( 'click', '.musicVideoFilename', function () {
+                setNextMusicVideo( $( this ).attr( 'src' ), $( this ).html() );
             } );
 
             document.getElementById( 'musicVideoPlayer' ).addEventListener( 'ended', musicVideoPlayerVideoHasEnded, false );
@@ -4256,6 +4263,16 @@ $( document ).ready( function () {
                                 }
                             }
                         } );
+
+                        $( '#musicVideoOverlayFileSelect' ).empty();
+                        $.each( externalMusicVideos, function ( val ) {
+                            let musicVideoFilename = document.createElement( 'div' );
+                            musicVideoFilename.innerHTML = decodeURI( externalMusicVideos[val] );
+                            musicVideoFilename.setAttribute( 'src', val );
+                            musicVideoFilename.classList.add( 'musicVideoFilename' );
+                            document.getElementById( 'musicVideoOverlayFileSelect' ).appendChild( musicVideoFilename );
+                        } );
+
                         setNextMusicVideo();
                     }
                 } );
@@ -4268,29 +4285,37 @@ $( document ).ready( function () {
                 $( '#musicVideoPlayer' )[0].pause();
             }
 
-            function setNextMusicVideo() {
-                totalNumberOfMusicVideos = Object.keys( externalMusicVideos ).length;
-                selectedEntry = randomIntFromInterval( 0, totalNumberOfMusicVideos - 1 );
-                while ( alreadySelectedMusicVideos.indexOf( selectedEntry ) !== -1 ) {
+            function setNextMusicVideo( videoUrl = '', videoName = '' ) {
+                if ( videoUrl == '' ) {
+                    totalNumberOfMusicVideos = Object.keys( externalMusicVideos ).length;
                     selectedEntry = randomIntFromInterval( 0, totalNumberOfMusicVideos - 1 );
-                    if ( totalNumberOfMusicVideos <= alreadySelectedMusicVideos.length + 1 ) {
-                        alreadySelectedMusicVideos = [];
+                    while ( alreadySelectedMusicVideos.indexOf( selectedEntry ) !== -1 ) {
+                        selectedEntry = randomIntFromInterval( 0, totalNumberOfMusicVideos - 1 );
+                        if ( totalNumberOfMusicVideos <= alreadySelectedMusicVideos.length + 1 ) {
+                            alreadySelectedMusicVideos = [];
+                        }
                     }
-                }
-                alreadySelectedMusicVideos.push( selectedEntry );
+                    alreadySelectedMusicVideos.push( selectedEntry );
 
-                tempCount = 0;
-                $.each( externalMusicVideos, function ( videoUrl, videoName ) {
-                    if ( tempCount == selectedEntry ) {
-                        $( '#musicVideoPlayer' ).find( '.videoSource' ).attr( 'src', videoUrl );
-                        $( '#musicVideoPlayer' )[0].load();
-                        $( '#musicVideoPlayer' )[0].play();
-                        $( '#musicVideoOverlayPicturePath' ).html( videoName );
-                        showMusicVideoOverlay();
-                        return false;
-                    }
-                    tempCount++;
-                } )
+                    tempCount = 0;
+                    $.each( externalMusicVideos, function ( videoUrl, videoName ) {
+                        if ( tempCount == selectedEntry ) {
+                            $( '#musicVideoPlayer' ).find( '.videoSource' ).attr( 'src', videoUrl );
+                            $( '#musicVideoPlayer' )[0].load();
+                            $( '#musicVideoPlayer' )[0].play();
+                            $( '#musicVideoOverlayVideoName' ).html( videoName );
+                            showMusicVideoOverlay();
+                            return false;
+                        }
+                        tempCount++;
+                    } )
+                } else {
+                    $( '#musicVideoPlayer' ).find( '.videoSource' ).attr( 'src', videoUrl );
+                    $( '#musicVideoPlayer' )[0].load();
+                    $( '#musicVideoPlayer' )[0].play();
+                    $( '#musicVideoOverlayVideoName' ).html( videoName );
+                    showMusicVideoOverlay();
+                }
             }
 
             // END Music Video Section
