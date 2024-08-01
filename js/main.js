@@ -3065,9 +3065,11 @@ $( document ).ready( function () {
                 if ( $( '.videoDromeVideo2' ).is( ':visible' ) ) {
                     $( '#refreshVideoDromeVideo2' ).show();
                     $( '#videodromeStreamRefreshVideo' ).hide();
+                    $( '#videoJSPlayer1,#videoJSPlayer2' ).hide();
                 } else {
                     $( '#refreshVideoDromeVideo2' ).hide();
                     $( '#videodromeStreamRefreshVideo' ).show();
+                    $( '#videoJSPlayer1,#videoJSPlayer2' ).show();
                 }
 
                 updateVideodromeFullscreenInfo();
