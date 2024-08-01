@@ -369,6 +369,7 @@ $( document ).ready( function () {
                         $( e.target ).removeAttr( 'controls' );
                         $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuContainer' ).hide();
+                        $( '#videodromeSwitchLocalStreamContainer' ).show();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                     } else {
                         stopAllActions();
@@ -598,6 +599,7 @@ $( document ).ready( function () {
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
                 $( '.vjs-control-bar' ).css( 'opacity', '0' );
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                $( '#videodromeSwitchLocalStreamContainer' ).show();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
@@ -3106,13 +3108,18 @@ $( document ).ready( function () {
                 e.stopPropagation();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).removeAttr( 'controls' );
+                    $( '#videodromeSwitchLocalStreamContainer' ).show();
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
                 } else {
                     $( this ).prop( 'controls', 'controls' );
+                    if ( $( this ).parent().hasClass( 'videoDromeVideo1' ) || $( this ).parent().hasClass( 'videoDromeVideo3' ) || $( this ).parent().hasClass( 'videoDromeVideo4' ) ) {
+                        $( '#videodromeSwitchLocalStreamContainer' ).hide();
+                    }
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
                 }
+
                 updateVideodromeFullscreenInfo();
             } );
 
