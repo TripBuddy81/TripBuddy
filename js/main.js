@@ -4349,7 +4349,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+              /*  toggleXXXVisible();*/
 
                 /*   $( '#startMusicVideos' ).trigger( 'click' );*/
             }

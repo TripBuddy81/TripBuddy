@@ -2188,7 +2188,6 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .localFilename, .musicVideoFilename {
-    width: 20vW;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
     padding-bottom: 10px;
     font-weight: 700;
@@ -2353,6 +2352,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #musicVideoOverlayFileSelect {
+    width: 40vW;
     cursor: url('../assets/rainbow-gradient-cursor-1-32x32.png'), pointer !important;
 }
 
