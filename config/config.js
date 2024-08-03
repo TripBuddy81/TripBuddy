@@ -1392,12 +1392,12 @@ var config = {
             'gameLinks'              :
                     [
                         {
-                            'link': 'https://games.poki.com/458768/74b97156-f40b-11e9-859c-c6053849a814?tag=pg-v3.90.1&site_id=3&iso_lang=en&country=SE&poki_url=https://poki.com/en/g/sushi-party-io&categories=4,9,53,64,96,750,929,1120,1140,1143,1147,1156,1159&special_condition=landing',
-                            'name': 'Sushi Party'
-                        },
-                        {
                             'link': 'libs/fluidmaster/',
                             'name': 'Fluids'
+                        },
+                        {
+                            'link': 'https://games.poki.com/458768/74b97156-f40b-11e9-859c-c6053849a814?tag=pg-v3.90.1&site_id=3&iso_lang=en&country=SE&poki_url=https://poki.com/en/g/sushi-party-io&categories=4,9,53,64,96,750,929,1120,1140,1143,1147,1156,1159&special_condition=landing',
+                            'name': 'Sushi Party'
                         },
                         {
                             'link' : 'https://static.pixeled.site/rps-web/index.html',
