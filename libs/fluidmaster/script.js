@@ -27,33 +27,11 @@ SOFTWARE.
 let gui = '';
 let menuShown = true;
 
-// Mobile promo section
-console.info( 'test2' );
-const promoPopup = document.getElementsByClassName( 'promo' )[0];
-const promoPopupClose = document.getElementsByClassName( 'promo-close' )[0];
-
 if ( isMobile() ) {
     setTimeout( () => {
         promoPopup.style.display = 'table';
     }, 20000 );
 }
-
-promoPopupClose.addEventListener( 'click', e => {
-    promoPopup.style.display = 'none';
-} );
-
-const appleLink = document.getElementById( 'apple_link' );
-appleLink.addEventListener( 'click', e => {
-    ga( 'send', 'event', 'link promo', 'app' );
-    window.open( 'https://apps.apple.com/us/app/fluid-simulation/id1443124993' );
-} );
-
-const googleLink = document.getElementById( 'google_link' );
-googleLink.addEventListener( 'click', e => {
-    ga( 'send', 'event', 'link promo', 'app' );
-    window.open( 'https://play.google.com/store/apps/details?id=games.paveldogreat.fluidsimfree' );
-} );
-
 // Simulation section
 
 const canvas = document.getElementsByTagName( 'canvas' )[0];
@@ -411,8 +389,6 @@ function getWebGLContext( canvas ) {
         formatR = getSupportedFormat( gl, gl.RGBA, gl.RGBA, halfFloatTexType );
     }
 
-    ga( 'send', 'event', isWebGL2 ? 'webgl2' : 'webgl', formatRGBA == null ? 'not supported' : 'supported' );
-
     return {
         gl,
         ext: {
@@ -512,7 +488,6 @@ function startGUI() {
     let github = gui.add( {
         fun: () => {
             window.open( 'https://github.com/PavelDoGreat/WebGL-Fluid-Simulation' );
-            ga( 'send', 'event', 'link button', 'github' );
         }
     }, 'fun' ).name( 'Github' );
     github.__li.className = 'cr function bigFont';
@@ -523,7 +498,6 @@ function startGUI() {
 
     let twitter = gui.add( {
         fun: () => {
-            ga( 'send', 'event', 'link button', 'twitter' );
             window.open( 'https://twitter.com/PavelDoGreat' );
         }
     }, 'fun' ).name( 'Twitter' );
@@ -535,7 +509,6 @@ function startGUI() {
 
     let discord = gui.add( {
         fun: () => {
-            ga( 'send', 'event', 'link button', 'discord' );
             window.open( 'https://discordapp.com/invite/CeqZDDE' );
         }
     }, 'fun' ).name( 'Discord' );
@@ -547,7 +520,6 @@ function startGUI() {
 
     let app = gui.add( {
         fun: () => {
-            ga( 'send', 'event', 'link button', 'app' );
             window.open( 'http://onelink.to/5b58bn' );
         }
     }, 'fun' ).name( 'Check out mobile app' );

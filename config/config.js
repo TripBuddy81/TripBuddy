@@ -1396,7 +1396,7 @@ var config = {
                             'name': 'Sushi Party'
                         },
                         {
-                            'link': 'libs/fluid_master/',
+                            'link': 'libs/fluidmaster/',
                             'name': 'Fluids'
                         },
                         {
