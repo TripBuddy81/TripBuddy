@@ -529,6 +529,55 @@ function startGUI() {
     app.domElement.parentElement.appendChild( appIcon );
     appIcon.className = 'icon app';
 
+    let empty1 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( 'Hotkeys:' );
+    empty1.__li.className = 'cr function bigFont';
+    empty1.__li.style.borderLeft = '3px solid #000000';
+
+    let xBTN = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( 'X: toggles menu' );
+    xBTN.__li.className = 'cr function appBigFont';
+    xBTN.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset1 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( '1: Curly' );
+    preset1.__li.className = 'cr function appBigFont';
+    preset1.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset2 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( '2: Smooth regular size' );
+    preset2.__li.className = 'cr function appBigFont';
+    preset2.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset3 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( '3: Smooth large' );
+    preset3.__li.className = 'cr function appBigFont';
+    preset3.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset4 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( '4: One color per stroke only' );
+    preset4.__li.className = 'cr function appBigFont';
+    preset4.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset5 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( '5: everything stays on screen forever' );
+    preset5.__li.className = 'cr function appBigFont';
+    preset5.__li.style.borderLeft = '3px solid #00FF7F';
+
     if ( isMobile() ) {
         gui.close();
     }
