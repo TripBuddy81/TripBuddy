@@ -1396,7 +1396,7 @@ var config = {
                             'name': 'Sushi Party'
                         },
                         {
-                            'link': 'https://paveldogreat.github.io/WebGL-Fluid-Simulation/',
+                            'link': 'libs/fluid_master/',
                             'name': 'Fluids'
                         },
                         {
