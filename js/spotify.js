@@ -168,7 +168,7 @@ function removeAllItems( elementId ) {
 
 function spotifyPlay( to_be_played = '' ) {
     try {
-        document.querySelector( 'iframe[src*="spotify.com/embed"]' ).contentWindow.postMessage( {command: 'play'}, '*' );
+        document.querySelector( 'iframe[src*="spotify.com/embed"]' ).contentWindow.postMessage( {command: 'toggle'}, '*' );
     } catch ( e ) {
     }
     let body = {};
