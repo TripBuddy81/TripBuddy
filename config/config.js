@@ -345,6 +345,16 @@ var config = {
                     'startSeconds': '32'
                 },
                 {
+                    'videoId'     : 'LVJetWltndk',
+                    'tags'        : 'trippy-3D',
+                    'startSeconds': '32'
+                },
+                {
+                    'videoId'     : 'Axze-XaRyJU',
+                    'tags'        : 'trippy-3D',
+                    'startSeconds': '32'
+                },
+                {
                     'videoId'     : 'GRDafRgdRCA',
                     'tags'        : 'trippy-3D'
                 },
@@ -932,6 +942,12 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'The Illusion of Control'
+                },
+                {
+                    'videoId': 'j_ECHg1FPwg',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Inner voice'
                 },
                 {
                     'videoId': 'h6fcK_fRYaI',

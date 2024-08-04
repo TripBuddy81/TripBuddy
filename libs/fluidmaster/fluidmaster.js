@@ -106,7 +106,7 @@ $( document ).on( 'keypress', function ( e ) {
             config.SPLAT_FORCE = 6000;
             break;
         case 51: // 3
-            config.DENSITY_DISSIPATION = 1;
+            config.DENSITY_DISSIPATION = 4;
             config.VELOCITY_DISSIPATION = 0.2;
             config.PRESSURE = 0.8;
             config.PRESSURE_ITERATIONS = 20;
