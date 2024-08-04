@@ -37,9 +37,7 @@ if ( isMobile() ) {
 const canvas = document.getElementsByTagName( 'canvas' )[0];
 resizeCanvas();
 
-// some custom config by Tripbuddy
-// allows for switching presets via keypresses and/or mouse button mainly
-let config_1 = {
+let config = {
     SIM_RESOLUTION      : 128,
     DYE_RESOLUTION      : 1024,
     CAPTURE_RESOLUTION  : 512,
@@ -48,6 +46,7 @@ let config_1 = {
     PRESSURE            : 1,
     PRESSURE_ITERATIONS : 20,
     CURL                : 0,
+    CURLY               : false,
     SPLAT_RADIUS        : 0.18,
     SPLAT_FORCE         : 6000,
     SHADING             : true,
@@ -71,265 +70,6 @@ let config_1 = {
     SUNRAYS_WEIGHT      : 1.0
 }
 
-let config_2 = {
-    SIM_RESOLUTION      : 128,
-    DYE_RESOLUTION      : 1024,
-    CAPTURE_RESOLUTION  : 512,
-    DENSITY_DISSIPATION : 1,
-    VELOCITY_DISSIPATION: 0.2,
-    PRESSURE            : 0.4,
-    PRESSURE_ITERATIONS : 20,
-    CURL                : 0, // SMOOTH
-    SPLAT_RADIUS        : 0.20, // regular brush size
-    SPLAT_FORCE         : 6000,
-    SHADING             : true,
-    COLORFUL            : true,
-    COLOR_UPDATE_SPEED  : 10,
-    PAUSED              : false,
-    BACK_COLOR          : {
-        r: 0,
-        g: 0,
-        b: 0
-    },
-    TRANSPARENT         : false,
-    BLOOM               : true,
-    BLOOM_ITERATIONS    : 8,
-    BLOOM_RESOLUTION    : 256,
-    BLOOM_INTENSITY     : 0.8,
-    BLOOM_THRESHOLD     : 0.6,
-    BLOOM_SOFT_KNEE     : 0.7,
-    SUNRAYS             : true,
-    SUNRAYS_RESOLUTION  : 196,
-    SUNRAYS_WEIGHT      : 1.0
-}
-
-let config_3 = {
-    SIM_RESOLUTION      : 128,
-    DYE_RESOLUTION      : 1024,
-    CAPTURE_RESOLUTION  : 512,
-    DENSITY_DISSIPATION : 1,
-    VELOCITY_DISSIPATION: 0.2,
-    PRESSURE            : 0.8,
-    PRESSURE_ITERATIONS : 20,
-    CURL                : 0, // SMOOTH
-    SPLAT_RADIUS        : 1, // large Brush
-    SPLAT_FORCE         : 6000,
-    SHADING             : true,
-    COLORFUL            : true,
-    COLOR_UPDATE_SPEED  : 10,
-    PAUSED              : false,
-    BACK_COLOR          : {
-        r: 0,
-        g: 0,
-        b: 0
-    },
-    TRANSPARENT         : false,
-    BLOOM               : true,
-    BLOOM_ITERATIONS    : 8,
-    BLOOM_RESOLUTION    : 256,
-    BLOOM_INTENSITY     : 0.8,
-    BLOOM_THRESHOLD     : 0.6,
-    BLOOM_SOFT_KNEE     : 0.7,
-    SUNRAYS             : true,
-    SUNRAYS_RESOLUTION  : 196,
-    SUNRAYS_WEIGHT      : 1.0
-}
-
-let config_4 = {
-    SIM_RESOLUTION      : 128,
-    DYE_RESOLUTION      : 1024,
-    CAPTURE_RESOLUTION  : 512,
-    DENSITY_DISSIPATION : 1,
-    VELOCITY_DISSIPATION: 0.2,
-    PRESSURE            : 0.8,
-    PRESSURE_ITERATIONS : 20,
-    CURL                : 30, // CURLY
-    SPLAT_RADIUS        : 0.25,
-    SPLAT_FORCE         : 6000,
-    SHADING             : true,
-    COLORFUL            : true,
-    COLOR_UPDATE_SPEED  : 10,
-    PAUSED              : false,
-    BACK_COLOR          : {
-        r: 0,
-        g: 0,
-        b: 0
-    },
-    TRANSPARENT         : false,
-    BLOOM               : true,
-    BLOOM_ITERATIONS    : 8,
-    BLOOM_RESOLUTION    : 256,
-    BLOOM_INTENSITY     : 0.8,
-    BLOOM_THRESHOLD     : 0.6,
-    BLOOM_SOFT_KNEE     : 0.7,
-    SUNRAYS             : true,
-    SUNRAYS_RESOLUTION  : 196,
-    SUNRAYS_WEIGHT      : 1.0
-}
-
-let config_5 = {
-    SIM_RESOLUTION      : 128,
-    DYE_RESOLUTION      : 1024,
-    CAPTURE_RESOLUTION  : 512,
-    DENSITY_DISSIPATION : 0, // nothing disappears!
-    VELOCITY_DISSIPATION: 0.2,
-    PRESSURE            : 0.8,
-    PRESSURE_ITERATIONS : 20,
-    CURL                : 0, // SMOOTH
-    SPLAT_RADIUS        : 0.25,
-    SPLAT_FORCE         : 6000,
-    SHADING             : true,
-    COLORFUL            : true, // multiple color per brush
-    COLOR_UPDATE_SPEED  : 10,
-    PAUSED              : false,
-    BACK_COLOR          : {
-        r: 0,
-        g: 0,
-        b: 0
-    },
-    TRANSPARENT         : false,
-    BLOOM               : true,
-    BLOOM_ITERATIONS    : 8,
-    BLOOM_RESOLUTION    : 256,
-    BLOOM_INTENSITY     : 0.8,
-    BLOOM_THRESHOLD     : 0.6,
-    BLOOM_SOFT_KNEE     : 0.7,
-    SUNRAYS             : true,
-    SUNRAYS_RESOLUTION  : 196,
-    SUNRAYS_WEIGHT      : 1.0
-}
-
-let config_6 = {
-    SIM_RESOLUTION      : 128,
-    DYE_RESOLUTION      : 1024,
-    CAPTURE_RESOLUTION  : 512,
-    DENSITY_DISSIPATION : 5, // everything disappears!
-    VELOCITY_DISSIPATION: 0.2,
-    PRESSURE            : 0.8,
-    PRESSURE_ITERATIONS : 20,
-    CURL                : 0, // SMOOTH
-    SPLAT_RADIUS        : 0.25,
-    SPLAT_FORCE         : 6000,
-    SHADING             : true,
-    COLORFUL            : true, // multiple color per brush
-    COLOR_UPDATE_SPEED  : 10,
-    PAUSED              : false,
-    BACK_COLOR          : {
-        r: 0,
-        g: 0,
-        b: 0
-    },
-    TRANSPARENT         : false,
-    BLOOM               : true,
-    BLOOM_ITERATIONS    : 8,
-    BLOOM_RESOLUTION    : 256,
-    BLOOM_INTENSITY     : 0.8,
-    BLOOM_THRESHOLD     : 0.6,
-    BLOOM_SOFT_KNEE     : 0.7,
-    SUNRAYS             : true,
-    SUNRAYS_RESOLUTION  : 196,
-    SUNRAYS_WEIGHT      : 1.0
-}
-
-let config_7 = {
-    SIM_RESOLUTION      : 128,
-    DYE_RESOLUTION      : 1024,
-    CAPTURE_RESOLUTION  : 512,
-    DENSITY_DISSIPATION : 1,
-    VELOCITY_DISSIPATION: 0.2,
-    PRESSURE            : 0.8,
-    PRESSURE_ITERATIONS : 20,
-    CURL                : 30, // CURLY
-    SPLAT_RADIUS        : 0.25,
-    SPLAT_FORCE         : 6000,
-    SHADING             : true,
-    COLORFUL            : true,
-    COLOR_UPDATE_SPEED  : 10,
-    PAUSED              : false,
-    BACK_COLOR          : {
-        r: 0,
-        g: 0,
-        b: 0
-    },
-    TRANSPARENT         : false,
-    BLOOM               : true,
-    BLOOM_ITERATIONS    : 8,
-    BLOOM_RESOLUTION    : 256,
-    BLOOM_INTENSITY     : 0.8,
-    BLOOM_THRESHOLD     : 0.6,
-    BLOOM_SOFT_KNEE     : 0.7,
-    SUNRAYS             : true,
-    SUNRAYS_RESOLUTION  : 196,
-    SUNRAYS_WEIGHT      : 1.0
-}
-
-let config_8 = {
-    SIM_RESOLUTION      : 128,
-    DYE_RESOLUTION      : 1024,
-    CAPTURE_RESOLUTION  : 512,
-    DENSITY_DISSIPATION : 1,
-    VELOCITY_DISSIPATION: 0.2,
-    PRESSURE            : 0.8,
-    PRESSURE_ITERATIONS : 20,
-    CURL                : 30, // CURLY
-    SPLAT_RADIUS        : 0.25,
-    SPLAT_FORCE         : 6000,
-    SHADING             : true,
-    COLORFUL            : true,
-    COLOR_UPDATE_SPEED  : 10,
-    PAUSED              : false,
-    BACK_COLOR          : {
-        r: 0,
-        g: 0,
-        b: 0
-    },
-    TRANSPARENT         : false,
-    BLOOM               : true,
-    BLOOM_ITERATIONS    : 8,
-    BLOOM_RESOLUTION    : 256,
-    BLOOM_INTENSITY     : 0.8,
-    BLOOM_THRESHOLD     : 0.6,
-    BLOOM_SOFT_KNEE     : 0.7,
-    SUNRAYS             : true,
-    SUNRAYS_RESOLUTION  : 196,
-    SUNRAYS_WEIGHT      : 1.0
-}
-
-let config_9 = {
-    SIM_RESOLUTION      : 128,
-    DYE_RESOLUTION      : 1024,
-    CAPTURE_RESOLUTION  : 512,
-    DENSITY_DISSIPATION : 1,
-    VELOCITY_DISSIPATION: 0.2,
-    PRESSURE            : 0.8,
-    PRESSURE_ITERATIONS : 20,
-    CURL                : 30, // CURLY
-    SPLAT_RADIUS        : 0.25,
-    SPLAT_FORCE         : 6000,
-    SHADING             : true,
-    COLORFUL            : true,
-    COLOR_UPDATE_SPEED  : 10,
-    PAUSED              : false,
-    BACK_COLOR          : {
-        r: 0,
-        g: 0,
-        b: 0
-    },
-    TRANSPARENT         : false,
-    BLOOM               : true,
-    BLOOM_ITERATIONS    : 8,
-    BLOOM_RESOLUTION    : 256,
-    BLOOM_INTENSITY     : 0.8,
-    BLOOM_THRESHOLD     : 0.6,
-    BLOOM_SOFT_KNEE     : 0.7,
-    SUNRAYS             : true,
-    SUNRAYS_RESOLUTION  : 196,
-    SUNRAYS_WEIGHT      : 1.0
-}
-
-
-let config = config_1;
-
 $( document ).on( 'click', function ( e ) {
     enableFullscreen();
 } );
@@ -350,29 +90,67 @@ $( document ).on( 'keypress', function ( e ) {
 
     switch ( e.keyCode ) {
         case 49: // 1
-            config = config_1;
+            config.DENSITY_DISSIPATION = 1.7;
+            config.VELOCITY_DISSIPATION = 4;
+            config.PRESSURE = 1;
+            config.PRESSURE_ITERATIONS = 20;
+            config.SPLAT_RADIUS = 0.18;
+            config.SPLAT_FORCE = 6000;
             break;
         case 50: // 2
-            config = config_2;
+            config.DENSITY_DISSIPATION = 1;
+            config.VELOCITY_DISSIPATION = 0.2;
+            config.PRESSURE = 0.4;
+            config.PRESSURE_ITERATIONS = 20;
+            config.SPLAT_RADIUS = 0.20;
+            config.SPLAT_FORCE = 6000;
             break;
         case 51: // 3
-            config = config_3;
+            config.DENSITY_DISSIPATION = 1;
+            config.VELOCITY_DISSIPATION = 0.2;
+            config.PRESSURE = 0.8;
+            config.PRESSURE_ITERATIONS = 20;
+            config.SPLAT_RADIUS = 1;
+            config.SPLAT_FORCE = 6000;
             break;
         case 81: // Q
         case 113:
-            config = config_4; // Empty
+            /*            config.DENSITY_DISSIPATION = 1;
+                        config.VELOCITY_DISSIPATION = 0.2;
+                        config.PRESSURE = 0.8;
+                        config.PRESSURE_ITERATIONS = 20;
+                        config.CURL = 30;
+                        config.SPLAT_RADIUS = 0.25;
+                        config.SPLAT_FORCE = 6000;*/
             break;
         case 87: // W
         case 119:
-            config = config_5;
+            config.DENSITY_DISSIPATION = 0;
+            config.VELOCITY_DISSIPATION = 0.2;
+            config.PRESSURE = 0.8;
+            config.PRESSURE_ITERATIONS = 20;
+            config.SPLAT_RADIUS = 0.25;
+            config.SPLAT_FORCE = 6000;
             break;
         case 69: // E
         case 101:
-            config = config_6;
+            config.DENSITY_DISSIPATION = 5;
+            config.VELOCITY_DISSIPATION = 0.2;
+            config.PRESSURE = 0.8;
+            config.PRESSURE_ITERATIONS = 20;
+            config.CURL = 0;
+            config.CURLY = false;
+            config.SPLAT_RADIUS = 0.25;
+            config.SPLAT_FORCE = 6000;
             break;
         case 97: // A
         case 65:
-            config = config_7;
+            if ( config.CURLY ) {
+                config.CURL = 0;
+            } else {
+                config.CURL = 50;
+            }
+            config.CURLY = !config.CURLY;
             break;
         case 115: // S
         case 83:
@@ -422,7 +200,6 @@ function startGUI() {
     gui.add( config, 'PRESSURE', 0.0, 1.0 ).name( 'pressure' );
     gui.add( config, 'CURL', 0, 50 ).name( 'vorticity' ).step( 1 );
     gui.add( config, 'SPLAT_RADIUS', 0.01, 1.0 ).name( 'splat radius' );
-    gui.add( config, 'SHADING' ).name( 'shading' ).onFinishChange( updateKeywords );
     gui.add( config, 'COLORFUL' ).name( 'colorful' );
 
     gui.add( config, 'SUNRAYS' ).name( 'Sunrays enabled' ).onFinishChange( updateKeywords );
@@ -461,28 +238,28 @@ function startGUI() {
     let preset1 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( '1: Smooth small brush' );
+    }, 'fun' ).name( '1: Small brush' );
     preset1.__li.className = 'cr function appBigFont';
     preset1.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset2 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( '2: Smooth regular brush' );
+    }, 'fun' ).name( '2: Regular brush' );
     preset2.__li.className = 'cr function appBigFont';
     preset2.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset3 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( '3: Smooth large brush' );
+    }, 'fun' ).name( '3: Large brush' );
     preset3.__li.className = 'cr function appBigFont';
     preset3.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset4 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'Q: Curly brush' );
+    }, 'fun' ).name( 'Q: ...' );
     preset4.__li.className = 'cr function appBigFont';
     preset4.__li.style.borderLeft = '3px solid #00FF7F';
 
@@ -503,14 +280,14 @@ function startGUI() {
     let preset7 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'A: ...' );
+    }, 'fun' ).name( 'A: Toggle curly' );
     preset7.__li.className = 'cr function appBigFont';
     preset7.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset8 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'S: Toggle Sunrays' );
+    }, 'fun' ).name( 'S: Toggle sunrays' );
     preset8.__li.className = 'cr function appBigFont';
     preset8.__li.style.borderLeft = '3px solid #00FF7F';
 
