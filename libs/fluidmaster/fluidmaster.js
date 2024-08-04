@@ -143,11 +143,11 @@ let config_4 = {
     VELOCITY_DISSIPATION: 0.2,
     PRESSURE            : 0.8,
     PRESSURE_ITERATIONS : 20,
-    CURL                : 0, // SMOOTH
+    CURL                : 30, // CURLY
     SPLAT_RADIUS        : 0.25,
     SPLAT_FORCE         : 6000,
     SHADING             : true,
-    COLORFUL            : false, // one color per brush only
+    COLORFUL            : true,
     COLOR_UPDATE_SPEED  : 10,
     PAUSED              : false,
     BACK_COLOR          : {
@@ -346,7 +346,7 @@ $( document ).on( 'keypress', function ( e ) {
     e.stopPropagation();
     e.preventDefault();
 
-    console.info( e.keyCode );
+    /*console.info( e.keyCode );*/
 
     switch ( e.keyCode ) {
         case 49: // 1
@@ -360,7 +360,7 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 81: // Q
         case 113:
-            config = config_4;
+            config = config_4; // Empty
             break;
         case 87: // W
         case 119:
@@ -376,14 +376,17 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 115: // S
         case 83:
-            config = config_8;
+            config.SUNRAYS = !config.SUNRAYS;
             break;
         case 100: // D
         case 68:
-            config = config_9;
+            config.COLORFUL = !config.COLORFUL;
             break;
     }
 
+    updateKeywords();
+    initFramebuffers();
+    update();
     startGUI();
     if ( !menuShown ) {
         $( '.main' ).hide();
@@ -422,15 +425,13 @@ function startGUI() {
     gui.add( config, 'SHADING' ).name( 'shading' ).onFinishChange( updateKeywords );
     gui.add( config, 'COLORFUL' ).name( 'colorful' );
 
+    gui.add( config, 'SUNRAYS' ).name( 'Sunrays enabled' ).onFinishChange( updateKeywords );
+    gui.add( config, 'SUNRAYS_WEIGHT', 0.3, 1.0 ).name( 'Sunrays weight' );
+
     let bloomFolder = gui.addFolder( 'Bloom' );
     bloomFolder.add( config, 'BLOOM' ).name( 'enabled' ).onFinishChange( updateKeywords );
     bloomFolder.add( config, 'BLOOM_INTENSITY', 0.1, 2.0 ).name( 'intensity' );
     bloomFolder.add( config, 'BLOOM_THRESHOLD', 0.0, 1.0 ).name( 'threshold' );
-
-    let sunraysFolder = gui.addFolder( 'Sunrays' );
-    sunraysFolder.add( config, 'SUNRAYS' ).name( 'enabled' ).onFinishChange( updateKeywords );
-    sunraysFolder.add( config, 'SUNRAYS_WEIGHT', 0.3, 1.0 ).name( 'weight' );
-
 
     let github = gui.add( {
         fun: () => {
@@ -481,7 +482,7 @@ function startGUI() {
     let preset4 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'Q: One color per stroke only' );
+    }, 'fun' ).name( 'Q: Curly brush' );
     preset4.__li.className = 'cr function appBigFont';
     preset4.__li.style.borderLeft = '3px solid #00FF7F';
 
@@ -502,21 +503,21 @@ function startGUI() {
     let preset7 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'A: Curly brush' );
+    }, 'fun' ).name( 'A: ...' );
     preset7.__li.className = 'cr function appBigFont';
     preset7.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset8 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'S: ...' );
+    }, 'fun' ).name( 'S: Toggle Sunrays' );
     preset8.__li.className = 'cr function appBigFont';
     preset8.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset9 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'D: ...' );
+    }, 'fun' ).name( 'D: Toggle colorful' );
     preset9.__li.className = 'cr function appBigFont';
     preset9.__li.style.borderLeft = '3px solid #00FF7F';
 
