@@ -249,23 +249,28 @@ $( document ).on( 'keypress', function ( e ) {
     e.stopPropagation();
     e.preventDefault();
 
+    console.info( e.keyCode );
+
     switch ( e.keyCode ) {
-        case 49:
+        case 49: // 1
             config = config_1;
             break;
-        case 50:
+        case 50: // 2
             config = config_2;
             break;
-        case 51:
+        case 51: // 3
             config = config_3;
             break;
-        case 52:
+        case 81: // Q
+        case 113:
             config = config_4;
             break;
-        case 53:
+        case 87: // W
+        case 119:
             config = config_5;
             break;
-        case 54:
+        case 69: // E
+        case 101:
             config = config_6;
             break;
             /*         case 55:
@@ -420,21 +425,21 @@ function startGUI() {
     let preset4 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( '4: One color per stroke only' );
+    }, 'fun' ).name( 'Q: One color per stroke only' );
     preset4.__li.className = 'cr function appBigFont';
     preset4.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset5 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( '5: everything stays on screen forever' );
+    }, 'fun' ).name( 'W: everything stays on screen forever' );
     preset5.__li.className = 'cr function appBigFont';
     preset5.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset6 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( '6: everything disappears quite fast' );
+    }, 'fun' ).name( 'E: everything disappears quite fast' );
     preset6.__li.className = 'cr function appBigFont';
     preset6.__li.style.borderLeft = '3px solid #00FF7F';
 
