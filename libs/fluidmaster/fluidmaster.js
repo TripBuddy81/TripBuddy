@@ -421,13 +421,6 @@ function startGUI() {
     gui.add( config, 'SPLAT_RADIUS', 0.01, 1.0 ).name( 'splat radius' );
     gui.add( config, 'SHADING' ).name( 'shading' ).onFinishChange( updateKeywords );
     gui.add( config, 'COLORFUL' ).name( 'colorful' );
-    gui.add( config, 'PAUSED' ).name( 'paused' ).listen();
-
-    gui.add( {
-        fun: () => {
-            splatStack.push( parseInt( Math.random() * 20 ) + 5 );
-        }
-    }, 'fun' ).name( 'Random splats' );
 
     let bloomFolder = gui.addFolder( 'Bloom' );
     bloomFolder.add( config, 'BLOOM' ).name( 'enabled' ).onFinishChange( updateKeywords );
@@ -438,10 +431,6 @@ function startGUI() {
     sunraysFolder.add( config, 'SUNRAYS' ).name( 'enabled' ).onFinishChange( updateKeywords );
     sunraysFolder.add( config, 'SUNRAYS_WEIGHT', 0.3, 1.0 ).name( 'weight' );
 
-    let captureFolder = gui.addFolder( 'Capture' );
-    captureFolder.addColor( config, 'BACK_COLOR' ).name( 'background color' );
-    captureFolder.add( config, 'TRANSPARENT' ).name( 'transparent' );
-    captureFolder.add( {fun: captureScreenshot}, 'fun' ).name( 'take screenshot' );
 
     let github = gui.add( {
         fun: () => {
@@ -453,39 +442,6 @@ function startGUI() {
     let githubIcon = document.createElement( 'span' );
     github.domElement.parentElement.appendChild( githubIcon );
     githubIcon.className = 'icon github';
-
-    let twitter = gui.add( {
-        fun: () => {
-            window.open( 'https://twitter.com/PavelDoGreat' );
-        }
-    }, 'fun' ).name( 'Twitter' );
-    twitter.__li.className = 'cr function bigFont';
-    twitter.__li.style.borderLeft = '3px solid #8C8C8C';
-    let twitterIcon = document.createElement( 'span' );
-    twitter.domElement.parentElement.appendChild( twitterIcon );
-    twitterIcon.className = 'icon twitter';
-
-    let discord = gui.add( {
-        fun: () => {
-            window.open( 'https://discordapp.com/invite/CeqZDDE' );
-        }
-    }, 'fun' ).name( 'Discord' );
-    discord.__li.className = 'cr function bigFont';
-    discord.__li.style.borderLeft = '3px solid #8C8C8C';
-    let discordIcon = document.createElement( 'span' );
-    discord.domElement.parentElement.appendChild( discordIcon );
-    discordIcon.className = 'icon discord';
-
-    let app = gui.add( {
-        fun: () => {
-            window.open( 'http://onelink.to/5b58bn' );
-        }
-    }, 'fun' ).name( 'Check out mobile app' );
-    app.__li.className = 'cr function appBigFont';
-    app.__li.style.borderLeft = '3px solid #00FF7F';
-    let appIcon = document.createElement( 'span' );
-    app.domElement.parentElement.appendChild( appIcon );
-    appIcon.className = 'icon app';
 
     let empty1 = gui.add( {
         fun: () => {
@@ -560,7 +516,7 @@ function startGUI() {
     let preset9 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'D: .' );
+    }, 'fun' ).name( 'D: ...' );
     preset9.__li.className = 'cr function appBigFont';
     preset9.__li.style.borderLeft = '3px solid #00FF7F';
 
