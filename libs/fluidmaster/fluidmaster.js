@@ -39,16 +39,16 @@ resizeCanvas();
 
 // some custom config by Tripbuddy
 // allows for switching presets via keypresses and/or mouse button mainly
-let config_1 = { // DEFAULT CONFIG
+let config_1 = {
     SIM_RESOLUTION      : 128,
     DYE_RESOLUTION      : 1024,
     CAPTURE_RESOLUTION  : 512,
-    DENSITY_DISSIPATION : 1,
-    VELOCITY_DISSIPATION: 0.2,
-    PRESSURE            : 0.8,
+    DENSITY_DISSIPATION : 1.7,
+    VELOCITY_DISSIPATION: 4,
+    PRESSURE            : 1,
     PRESSURE_ITERATIONS : 20,
-    CURL                : 30, // CURLY
-    SPLAT_RADIUS        : 0.25,
+    CURL                : 0,
+    SPLAT_RADIUS        : 0.18,
     SPLAT_FORCE         : 6000,
     SHADING             : true,
     COLORFUL            : true,
@@ -231,6 +231,103 @@ let config_6 = {
     SUNRAYS_WEIGHT      : 1.0
 }
 
+let config_7 = {
+    SIM_RESOLUTION      : 128,
+    DYE_RESOLUTION      : 1024,
+    CAPTURE_RESOLUTION  : 512,
+    DENSITY_DISSIPATION : 1,
+    VELOCITY_DISSIPATION: 0.2,
+    PRESSURE            : 0.8,
+    PRESSURE_ITERATIONS : 20,
+    CURL                : 30, // CURLY
+    SPLAT_RADIUS        : 0.25,
+    SPLAT_FORCE         : 6000,
+    SHADING             : true,
+    COLORFUL            : true,
+    COLOR_UPDATE_SPEED  : 10,
+    PAUSED              : false,
+    BACK_COLOR          : {
+        r: 0,
+        g: 0,
+        b: 0
+    },
+    TRANSPARENT         : false,
+    BLOOM               : true,
+    BLOOM_ITERATIONS    : 8,
+    BLOOM_RESOLUTION    : 256,
+    BLOOM_INTENSITY     : 0.8,
+    BLOOM_THRESHOLD     : 0.6,
+    BLOOM_SOFT_KNEE     : 0.7,
+    SUNRAYS             : true,
+    SUNRAYS_RESOLUTION  : 196,
+    SUNRAYS_WEIGHT      : 1.0
+}
+
+let config_8 = {
+    SIM_RESOLUTION      : 128,
+    DYE_RESOLUTION      : 1024,
+    CAPTURE_RESOLUTION  : 512,
+    DENSITY_DISSIPATION : 1,
+    VELOCITY_DISSIPATION: 0.2,
+    PRESSURE            : 0.8,
+    PRESSURE_ITERATIONS : 20,
+    CURL                : 30, // CURLY
+    SPLAT_RADIUS        : 0.25,
+    SPLAT_FORCE         : 6000,
+    SHADING             : true,
+    COLORFUL            : true,
+    COLOR_UPDATE_SPEED  : 10,
+    PAUSED              : false,
+    BACK_COLOR          : {
+        r: 0,
+        g: 0,
+        b: 0
+    },
+    TRANSPARENT         : false,
+    BLOOM               : true,
+    BLOOM_ITERATIONS    : 8,
+    BLOOM_RESOLUTION    : 256,
+    BLOOM_INTENSITY     : 0.8,
+    BLOOM_THRESHOLD     : 0.6,
+    BLOOM_SOFT_KNEE     : 0.7,
+    SUNRAYS             : true,
+    SUNRAYS_RESOLUTION  : 196,
+    SUNRAYS_WEIGHT      : 1.0
+}
+
+let config_9 = {
+    SIM_RESOLUTION      : 128,
+    DYE_RESOLUTION      : 1024,
+    CAPTURE_RESOLUTION  : 512,
+    DENSITY_DISSIPATION : 1,
+    VELOCITY_DISSIPATION: 0.2,
+    PRESSURE            : 0.8,
+    PRESSURE_ITERATIONS : 20,
+    CURL                : 30, // CURLY
+    SPLAT_RADIUS        : 0.25,
+    SPLAT_FORCE         : 6000,
+    SHADING             : true,
+    COLORFUL            : true,
+    COLOR_UPDATE_SPEED  : 10,
+    PAUSED              : false,
+    BACK_COLOR          : {
+        r: 0,
+        g: 0,
+        b: 0
+    },
+    TRANSPARENT         : false,
+    BLOOM               : true,
+    BLOOM_ITERATIONS    : 8,
+    BLOOM_RESOLUTION    : 256,
+    BLOOM_INTENSITY     : 0.8,
+    BLOOM_THRESHOLD     : 0.6,
+    BLOOM_SOFT_KNEE     : 0.7,
+    SUNRAYS             : true,
+    SUNRAYS_RESOLUTION  : 196,
+    SUNRAYS_WEIGHT      : 1.0
+}
+
+
 let config = config_1;
 
 $( document ).on( 'click', function ( e ) {
@@ -273,15 +370,18 @@ $( document ).on( 'keypress', function ( e ) {
         case 101:
             config = config_6;
             break;
-            /*         case 55:
-                        config = config_7;
-                        break;
-                    case 56:
-                        config = config_8;
-                        break;
-                    case 57:
-                        config = config_9;
-                        break;*/
+        case 97: // A
+        case 65:
+            config = config_7;
+            break;
+        case 115: // S
+        case 83:
+            config = config_8;
+            break;
+        case 100: // D
+        case 68:
+            config = config_9;
+            break;
     }
 
     startGUI();
@@ -397,28 +497,28 @@ function startGUI() {
     let xBTN = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'X: toggles menu' );
+    }, 'fun' ).name( 'X: toggle this menu' );
     xBTN.__li.className = 'cr function appBigFont';
     xBTN.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset1 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( '1: Curly' );
+    }, 'fun' ).name( '1: Smooth small brush' );
     preset1.__li.className = 'cr function appBigFont';
     preset1.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset2 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( '2: Smooth regular size' );
+    }, 'fun' ).name( '2: Smooth regular brush' );
     preset2.__li.className = 'cr function appBigFont';
     preset2.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset3 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( '3: Smooth large' );
+    }, 'fun' ).name( '3: Smooth large brush' );
     preset3.__li.className = 'cr function appBigFont';
     preset3.__li.style.borderLeft = '3px solid #00FF7F';
 
@@ -432,16 +532,37 @@ function startGUI() {
     let preset5 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'W: everything stays on screen forever' );
+    }, 'fun' ).name( 'W: Overload!' );
     preset5.__li.className = 'cr function appBigFont';
     preset5.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset6 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'E: everything disappears quite fast' );
+    }, 'fun' ).name( 'E: Vanish!' );
     preset6.__li.className = 'cr function appBigFont';
     preset6.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset7 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( 'A: Curly brush' );
+    preset7.__li.className = 'cr function appBigFont';
+    preset7.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset8 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( 'S: ...' );
+    preset8.__li.className = 'cr function appBigFont';
+    preset8.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset9 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( 'D: .' );
+    preset9.__li.className = 'cr function appBigFont';
+    preset9.__li.style.borderLeft = '3px solid #00FF7F';
 
     if ( isMobile() ) {
         gui.close();
