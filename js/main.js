@@ -1831,8 +1831,7 @@ $( document ).ready( function () {
             } );
 
             $( '.MageAIfilter' ).click( function () {
-                defaultTarget = 'https://www.mage.space/explore?q=psychedelic';
-                defaultTarget = defaultTarget + '&nsfw=t';
+                defaultTarget = 'https://www.mage.space/';
                 $( '#MageAIExternalPage' ).attr( 'src', defaultTarget );
             } );
 
