@@ -115,16 +115,32 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 81: // Q
         case 113:
-            /*            config.DENSITY_DISSIPATION = 1;
-                        config.VELOCITY_DISSIPATION = 0.2;
-                        config.PRESSURE = 0.8;
-                        config.PRESSURE_ITERATIONS = 20;
-                        config.CURL = 30;
-                        config.SPLAT_RADIUS = 0.25;
-                        config.SPLAT_FORCE = 6000;*/
+            if ( config.CURLY ) {
+                config.CURL = 0;
+            } else {
+                config.CURL = 50;
+            }
+            config.CURLY = !config.CURLY;
             break;
         case 87: // W
         case 119:
+            config.SUNRAYS = !config.SUNRAYS;
+            break;
+        case 69: // E
+        case 101:
+            config.COLORFUL = !config.COLORFUL;
+            break;
+        case 97: // A
+        case 65:
+            /*            if ( config.CURLY ) {
+                            config.CURL = 0;
+                        } else {
+                            config.CURL = 50;
+                        }
+                        config.CURLY = !config.CURLY;*/
+            break;
+        case 115: // S
+        case 83:
             config.DENSITY_DISSIPATION = 0;
             config.VELOCITY_DISSIPATION = 0.2;
             config.PRESSURE = 0.8;
@@ -132,8 +148,8 @@ $( document ).on( 'keypress', function ( e ) {
             config.SPLAT_RADIUS = 0.25;
             config.SPLAT_FORCE = 6000;
             break;
-        case 69: // E
-        case 101:
+        case 100: // D
+        case 68:
             config.DENSITY_DISSIPATION = 5;
             config.VELOCITY_DISSIPATION = 0.2;
             config.PRESSURE = 0.8;
@@ -142,23 +158,6 @@ $( document ).on( 'keypress', function ( e ) {
             config.CURLY = false;
             config.SPLAT_RADIUS = 0.25;
             config.SPLAT_FORCE = 6000;
-            break;
-        case 97: // A
-        case 65:
-            if ( config.CURLY ) {
-                config.CURL = 0;
-            } else {
-                config.CURL = 50;
-            }
-            config.CURLY = !config.CURLY;
-            break;
-        case 115: // S
-        case 83:
-            config.SUNRAYS = !config.SUNRAYS;
-            break;
-        case 100: // D
-        case 68:
-            config.COLORFUL = !config.COLORFUL;
             break;
     }
 
@@ -256,47 +255,48 @@ function startGUI() {
     preset3.__li.className = 'cr function appBigFont';
     preset3.__li.style.borderLeft = '3px solid #00FF7F';
 
-    let preset4 = gui.add( {
-        fun: () => {
-        }
-    }, 'fun' ).name( 'Q: ...' );
-    preset4.__li.className = 'cr function appBigFont';
-    preset4.__li.style.borderLeft = '3px solid #00FF7F';
-
-    let preset5 = gui.add( {
-        fun: () => {
-        }
-    }, 'fun' ).name( 'W: Overload!' );
-    preset5.__li.className = 'cr function appBigFont';
-    preset5.__li.style.borderLeft = '3px solid #00FF7F';
-
-    let preset6 = gui.add( {
-        fun: () => {
-        }
-    }, 'fun' ).name( 'E: Vanish!' );
-    preset6.__li.className = 'cr function appBigFont';
-    preset6.__li.style.borderLeft = '3px solid #00FF7F';
-
     let preset7 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'A: Toggle curly' );
+    }, 'fun' ).name( 'Q: Toggle curly' );
     preset7.__li.className = 'cr function appBigFont';
     preset7.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset8 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'S: Toggle sunrays' );
+    }, 'fun' ).name( 'W: Toggle sunrays' );
     preset8.__li.className = 'cr function appBigFont';
     preset8.__li.style.borderLeft = '3px solid #00FF7F';
 
     let preset9 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'D: Toggle colorful' );
+    }, 'fun' ).name( 'E: Toggle colorful' );
     preset9.__li.className = 'cr function appBigFont';
     preset9.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset4 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( 'A: ...' );
+    preset4.__li.className = 'cr function appBigFont';
+    preset4.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset5 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( 'S: Overload!' );
+    preset5.__li.className = 'cr function appBigFont';
+    preset5.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let preset6 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( 'D: Vanish!' );
+    preset6.__li.className = 'cr function appBigFont';
+    preset6.__li.style.borderLeft = '3px solid #00FF7F';
+
 
     if ( isMobile() ) {
         gui.close();
@@ -573,7 +573,7 @@ function createProgram( vertexShader, fragmentShader ) {
     gl.linkProgram( program );
 
     if ( !gl.getProgramParameter( program, gl.LINK_STATUS ) ) {
-        console.trace( gl.getProgramInfoLog( program ) );
+        /*      console.trace( gl.getProgramInfoLog( program ) );*/
     }
 
     return program;
@@ -597,7 +597,7 @@ function compileShader( type, source, keywords ) {
     gl.compileShader( shader );
 
     if ( !gl.getShaderParameter( shader, gl.COMPILE_STATUS ) ) {
-        console.trace( gl.getShaderInfoLog( shader ) );
+        /* console.trace( gl.getShaderInfoLog( shader ) );*/
     }
 
     return shader;
@@ -1117,7 +1117,7 @@ const blit = (() => {
 function CHECK_FRAMEBUFFER_STATUS() {
     let status = gl.checkFramebufferStatus( gl.FRAMEBUFFER );
     if ( status != gl.FRAMEBUFFER_COMPLETE ) {
-        console.trace( 'Framebuffer error: ' + status );
+        /*console.trace( 'Framebuffer error: ' + status );*/
     }
 }
 
