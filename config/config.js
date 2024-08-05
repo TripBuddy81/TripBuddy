@@ -840,6 +840,12 @@ var config = {
                     'label'  : 'Right where it belongs - NIN'
                 },
                 {
+                    'videoId': 'NJMKuswemhc',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Sage Terence McKenna showing us the big picture'
+                },
+                {
                     'videoId': 'm-47paKizHM',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -1528,7 +1534,6 @@ var config = {
                             'text': 'Happiness is only real when shared.',
                             'tag' : ''
                         }
-
                     ]
         }
 ;
