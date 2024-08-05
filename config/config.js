@@ -61,6 +61,10 @@ var config = {
                 ],
                 'green'  : [
                     {
+                        'label': 'Gentle',
+                        'id'   : '500qX6nylxJREdp0VrPrvA'
+                    },
+                    {
                         'label': 'Classic & Soft',
                         'id'   : '4ILChY5F4Hn08ikt0rfHhW'
                     },
