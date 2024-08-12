@@ -8,6 +8,7 @@ var radioButtons = [];
 var lastSelectedPlaylist = 'spotify:playlist:0O1C7wbOthIxBbai9pYvEH';
 var playingTrackDetectionDoneOnce = false;
 var lastPlaylistId = '';
+var currentlyPlayingTrack = '';
 
 const AUTHORIZE = 'https://accounts.spotify.com/authorize'
 const TOKEN = 'https://accounts.spotify.com/api/token';
@@ -325,6 +326,23 @@ function handleCurrentlyPlayingResponse() {
             try {
                 $( '.spotifyCurrentlyPlayingTrack' ).html( data['item']['artists'][0]['name'] + ' - ' + data['item']['name'] );
                 $( '.spotifyCurrentlyPlayingTrack' ).attr( 'data-spotify-id', data['item']['uri'] );
+
+                var today = new Date();
+                var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+                var dateTime = date + ' ' + time;
+
+                // save currently played track and timestamp to spotify history
+                if ( currentlyPlayingTrack == '' || currentlyPlayingTrack != data['item']['artists'][0]['name'] + ' - ' + data['item']['name'] ) {
+                    currentlyPlayingTrack = data['item']['artists'][0]['name'] + ' - ' + data['item']['name'];
+                    spotifyHistory['items'].unshift( dateTime + ': ' + currentlyPlayingTrack );
+
+                    if ( spotifyHistory['items'].length > 500 ) {
+                        spotifyHistory['items'].splice( -1 );
+                    }
+
+                    localStorage.setItem( 'spotifyHistory', JSON.stringify( spotifyHistory['items'] ) );
+                }
             } catch ( e ) {
                 $( '.spotifyCurrentlyPlayingTrack' ).html( '...' );
             }

@@ -125,6 +125,9 @@ $( document ).ready( function () {
             window.externalMusicVideos = {};
             window.alreadySelectedMusicVideos = [];
             window.moveTimerMusicVideoOverlay = '';
+            window.spotifyHistory = {'items': []};
+
+            spotifyHistory['items'] = JSON.parse( localStorage.getItem( 'spotifyHistory' ) ) || [];
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -430,6 +433,10 @@ $( document ).ready( function () {
 
             $( '#showApplicationSettings' ).click( function () {
                 stopAllActions( true, false );
+                $('#spotifyHistory').empty();
+                spotifyHistory['items'].forEach( function ( track ) {
+                    $('#spotifyHistory').append("<div class='spotifyHistoryTrack'>" + track + "</div>");
+                } );
                 $( '#applicationSettingsMenu' ).addClass( 'menuTransition' );
                 $( '#applicationSettingsMenu' ).animate( {scrollTop: 0}, 'fast' );
             } );
@@ -4348,7 +4355,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-              /*  toggleXXXVisible();*/
+                /*  toggleXXXVisible();*/
 
                 /*   $( '#startMusicVideos' ).trigger( 'click' );*/
             }

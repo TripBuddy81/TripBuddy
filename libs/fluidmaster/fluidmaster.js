@@ -124,7 +124,7 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 87: // W
         case 119:
-            config.SUNRAYS = !config.SUNRAYS;
+     /*       config.SUNRAYS = !config.SUNRAYS;*/
             break;
         case 69: // E
         case 101:
