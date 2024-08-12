@@ -124,7 +124,12 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 87: // W
         case 119:
-     /*       config.SUNRAYS = !config.SUNRAYS;*/
+            config.DENSITY_DISSIPATION = 0;
+            config.VELOCITY_DISSIPATION = 0.2;
+            config.PRESSURE = 0.8;
+            config.PRESSURE_ITERATIONS = 20;
+            config.SPLAT_RADIUS = 0.25;
+            config.SPLAT_FORCE = 6000;
             break;
         case 69: // E
         case 101:
@@ -141,12 +146,7 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 115: // S
         case 83:
-            config.DENSITY_DISSIPATION = 0;
-            config.VELOCITY_DISSIPATION = 0.2;
-            config.PRESSURE = 0.8;
-            config.PRESSURE_ITERATIONS = 20;
-            config.SPLAT_RADIUS = 0.25;
-            config.SPLAT_FORCE = 6000;
+
             break;
         case 100: // D
         case 68:
@@ -161,9 +161,9 @@ $( document ).on( 'keypress', function ( e ) {
             break;
     }
 
-    updateKeywords();
-    initFramebuffers();
-    update();
+/*    updateKeywords();
+    initFramebuffers();*/
+/*    update();*/
     startGUI();
     if ( !menuShown ) {
         $( '.main' ).hide();
@@ -265,7 +265,7 @@ function startGUI() {
     let preset8 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'W: Toggle sunrays' );
+    }, 'fun' ).name( 'W: Overload' );
     preset8.__li.className = 'cr function appBigFont';
     preset8.__li.style.borderLeft = '3px solid #00FF7F';
 
@@ -286,7 +286,7 @@ function startGUI() {
     let preset5 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'S: Overload!' );
+    }, 'fun' ).name( 'S: ...!' );
     preset5.__li.className = 'cr function appBigFont';
     preset5.__li.style.borderLeft = '3px solid #00FF7F';
 
