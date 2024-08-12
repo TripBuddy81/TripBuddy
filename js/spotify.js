@@ -335,7 +335,7 @@ function handleCurrentlyPlayingResponse() {
                 // save currently played track and timestamp to spotify history
                 if ( currentlyPlayingTrack == '' || currentlyPlayingTrack != data['item']['artists'][0]['name'] + ' - ' + data['item']['name'] ) {
                     currentlyPlayingTrack = data['item']['artists'][0]['name'] + ' - ' + data['item']['name'];
-                    spotifyHistory['items'].unshift( dateTime + ': ' + currentlyPlayingTrack );
+                    spotifyHistory['items'].unshift( dateTime + ' ' + currentlyPlayingTrack );
 
                     if ( spotifyHistory['items'].length > 500 ) {
                         spotifyHistory['items'].splice( -1 );
