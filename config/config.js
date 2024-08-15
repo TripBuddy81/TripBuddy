@@ -1213,10 +1213,6 @@ var config = {
                     'tags' : 'trippy'
                 },
                 {
-                    'image': './media/images/64.jpg',
-                    'tags' : 'trippy'
-                },
-                {
                     'image': './media/images/65.jpg',
                     'tags' : 'trippy'
                 },
@@ -1254,6 +1250,22 @@ var config = {
                 },
                 {
                     'image': './media/images/59.jpg',
+                    'tags' : 'trippy'
+                },
+                {
+                    'image': './media/images/79.jpg',
+                    'tags' : 'trippy'
+                },
+                {
+                    'image': './media/images/80.jpg',
+                    'tags' : 'trippy'
+                },
+                {
+                    'image': './media/images/81.jpg',
+                    'tags' : 'trippy'
+                },
+                {
+                    'image': './media/images/82.jpg',
                     'tags' : 'trippy'
                 },
                 {
@@ -1424,6 +1436,10 @@ var config = {
                         {
                             'link': 'libs/fluidmaster/',
                             'name': 'Fluids'
+                        },
+                        {
+                            'link': 'https://philogb.github.io/page/hopf/#',
+                            'name': 'Hopf'
                         },
                         {
                             'link': 'https://games.poki.com/458768/74b97156-f40b-11e9-859c-c6053849a814?tag=pg-v3.90.1&site_id=3&iso_lang=en&country=SE&poki_url=https://poki.com/en/g/sushi-party-io&categories=4,9,53,64,96,750,929,1120,1140,1143,1147,1156,1159&special_condition=landing',
