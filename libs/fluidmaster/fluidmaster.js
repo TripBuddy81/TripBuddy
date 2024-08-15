@@ -91,6 +91,7 @@ $( document ).on( 'keypress', function ( e ) {
     switch ( e.keyCode ) {
         case 49: // 1
             config.DENSITY_DISSIPATION = 1.7;
+            config.PREV_DENSITY_DISSIPATION = 1.7;
             config.VELOCITY_DISSIPATION = 4;
             config.PRESSURE = 1;
             config.PRESSURE_ITERATIONS = 20;
@@ -99,6 +100,7 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 50: // 2
             config.DENSITY_DISSIPATION = 1;
+            config.PREV_DENSITY_DISSIPATION = 1;
             config.VELOCITY_DISSIPATION = 0.2;
             config.PRESSURE = 0.4;
             config.PRESSURE_ITERATIONS = 20;
@@ -107,6 +109,7 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 51: // 3
             config.DENSITY_DISSIPATION = 4;
+            config.PREV_DENSITY_DISSIPATION = 4;
             config.VELOCITY_DISSIPATION = 0.2;
             config.PRESSURE = 0.8;
             config.PRESSURE_ITERATIONS = 20;
@@ -125,9 +128,10 @@ $( document ).on( 'keypress', function ( e ) {
         case 87: // W
         case 119:
             if ( config.DENSITY_DISSIPATION != 0 ) {
+                config.PREV_DENSITY_DISSIPATION = config.DENSITY_DISSIPATION;
                 config.DENSITY_DISSIPATION = 0;
             } else {
-                config.DENSITY_DISSIPATION = 4;
+                config.DENSITY_DISSIPATION = config.PREV_DENSITY_DISSIPATION;
             }
             break;
         case 69: // E
