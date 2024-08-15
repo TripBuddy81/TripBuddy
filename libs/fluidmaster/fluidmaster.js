@@ -321,7 +321,7 @@ function startGUI() {
     let button11 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'Right Mouse: Reset overload & flicker & color' );
+    }, 'fun' ).name( 'Right Mouse: Reset' );
     button11.__li.className = 'cr function appBigFont';
     button11.__li.style.borderLeft = '3px solid #00FF7F';
 
