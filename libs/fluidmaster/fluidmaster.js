@@ -26,6 +26,8 @@ SOFTWARE.
 
 let gui = '';
 let menuShown = true;
+let backgroundFlicker = false;
+let backgroundFlickerInterval = '';
 
 if ( isMobile() ) {
     setTimeout( () => {
@@ -38,36 +40,37 @@ const canvas = document.getElementsByTagName( 'canvas' )[0];
 resizeCanvas();
 
 let config = {
-    SIM_RESOLUTION      : 128,
-    DYE_RESOLUTION      : 1024,
-    CAPTURE_RESOLUTION  : 512,
-    DENSITY_DISSIPATION : 1.7,
-    VELOCITY_DISSIPATION: 4,
-    PRESSURE            : 1,
-    PRESSURE_ITERATIONS : 20,
-    CURL                : 0,
-    CURLY               : false,
-    SPLAT_RADIUS        : 0.18,
-    SPLAT_FORCE         : 6000,
-    SHADING             : true,
-    COLORFUL            : true,
-    COLOR_UPDATE_SPEED  : 10,
-    PAUSED              : false,
-    BACK_COLOR          : {
+    SIM_RESOLUTION          : 128,
+    DYE_RESOLUTION          : 1024,
+    CAPTURE_RESOLUTION      : 512,
+    DENSITY_DISSIPATION     : 1.7,
+    PREV_DENSITY_DISSIPATION: 1.7,
+    VELOCITY_DISSIPATION    : 4,
+    PRESSURE                : 1,
+    PRESSURE_ITERATIONS     : 20,
+    CURL                    : 0,
+    CURLY                   : false,
+    SPLAT_RADIUS            : 0.18,
+    SPLAT_FORCE             : 6000,
+    SHADING                 : true,
+    COLORFUL                : true,
+    COLOR_UPDATE_SPEED      : 10,
+    PAUSED                  : false,
+    BACK_COLOR              : {
         r: 0,
         g: 0,
         b: 0
     },
-    TRANSPARENT         : false,
-    BLOOM               : true,
-    BLOOM_ITERATIONS    : 8,
-    BLOOM_RESOLUTION    : 256,
-    BLOOM_INTENSITY     : 0.8,
-    BLOOM_THRESHOLD     : 0.6,
-    BLOOM_SOFT_KNEE     : 0.7,
-    SUNRAYS             : true,
-    SUNRAYS_RESOLUTION  : 196,
-    SUNRAYS_WEIGHT      : 1.0
+    TRANSPARENT             : false,
+    BLOOM                   : true,
+    BLOOM_ITERATIONS        : 8,
+    BLOOM_RESOLUTION        : 256,
+    BLOOM_INTENSITY         : 0.8,
+    BLOOM_THRESHOLD         : 0.6,
+    BLOOM_SOFT_KNEE         : 0.7,
+    SUNRAYS                 : true,
+    SUNRAYS_RESOLUTION      : 196,
+    SUNRAYS_WEIGHT          : 1.0
 }
 
 $( document ).on( 'click', function ( e ) {
@@ -79,14 +82,21 @@ $( document ).bind( 'contextmenu', function ( e ) {
     e.preventDefault();
     e.stopPropagation();
 
-    splatStack.push( parseInt( Math.random() * 20 ) + 5 );
+    // reset overload
+    config.DENSITY_DISSIPATION = config.PREV_DENSITY_DISSIPATION;
+
+    // reset background flicker
+    backgroundFlicker = false;
+    clearInterval( backgroundFlickerInterval );
+    config.TRANSPARENT = false;
+
+    // reset colorful
+    config.COLORFUL = true
 } );
 
 $( document ).on( 'keypress', function ( e ) {
     e.stopPropagation();
     e.preventDefault();
-
-    /*console.info( e.keyCode );*/
 
     switch ( e.keyCode ) {
         case 49: // 1
@@ -140,11 +150,24 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 97: // A
         case 65:
-
+            if ( !backgroundFlicker ) {
+                backgroundFlicker = true;
+                backgroundFlickerInterval = window.setInterval( function () {
+                    config.TRANSPARENT = !config.TRANSPARENT;
+                }, 70 );
+            } else {
+                backgroundFlicker = false;
+                clearInterval( backgroundFlickerInterval );
+                config.TRANSPARENT = false;
+            }
+            drawColor( null, normalizeColor( '#FFFFFF' ) );
             break;
         case 115: // S
         case 83:
-
+            /*         config.TRANSPARENT = false;
+         */
+            drawColor( null, normalizeColor( '#FFFFFF' ) );
+            drawDisplay( null );
             break;
         case 100: // D
         case 68:
@@ -270,7 +293,7 @@ function startGUI() {
     let button4 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'A: ...' );
+    }, 'fun' ).name( 'A: Toggle Background flicker' );
     button4.__li.className = 'cr function appBigFont';
     button4.__li.style.borderLeft = '3px solid #00FF7F';
 
@@ -294,6 +317,13 @@ function startGUI() {
     }, 'fun' ).name( 'SPACE: Explode' );
     button10.__li.className = 'cr function appBigFont';
     button10.__li.style.borderLeft = '3px solid #00FF7F';
+
+    let button11 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( 'Right Mouse: Reset overload & flicker & color' );
+    button11.__li.className = 'cr function appBigFont';
+    button11.__li.style.borderLeft = '3px solid #00FF7F';
 
     if ( isMobile() ) {
         gui.close();
@@ -1513,8 +1543,8 @@ function drawColor( target, color ) {
 }
 
 function drawCheckerboard( target ) {
-    checkerboardProgram.bind();
-    gl.uniform1f( checkerboardProgram.uniforms.aspectRatio, canvas.width / canvas.height );
+    /*checkerboardProgram.bind();*/
+    /*gl.uniform1f( checkerboardProgram.uniforms.aspectRatio, canvas.width / canvas.height );*/
     blit( target );
 }
 
