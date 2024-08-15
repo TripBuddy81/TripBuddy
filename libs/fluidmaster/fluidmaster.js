@@ -124,12 +124,11 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 87: // W
         case 119:
-            config.DENSITY_DISSIPATION = 0;
-            config.VELOCITY_DISSIPATION = 0.2;
-            config.PRESSURE = 0.8;
-            config.PRESSURE_ITERATIONS = 20;
-            config.SPLAT_RADIUS = 0.25;
-            config.SPLAT_FORCE = 6000;
+            if ( config.DENSITY_DISSIPATION != 0 ) {
+                config.DENSITY_DISSIPATION = 0;
+            } else {
+                config.DENSITY_DISSIPATION = 4;
+            }
             break;
         case 69: // E
         case 101:
@@ -137,12 +136,7 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 97: // A
         case 65:
-            /*            if ( config.CURLY ) {
-                            config.CURL = 0;
-                        } else {
-                            config.CURL = 50;
-                        }
-                        config.CURLY = !config.CURLY;*/
+
             break;
         case 115: // S
         case 83:
@@ -150,20 +144,13 @@ $( document ).on( 'keypress', function ( e ) {
             break;
         case 100: // D
         case 68:
-            config.DENSITY_DISSIPATION = 5;
-            config.VELOCITY_DISSIPATION = 0.2;
-            config.PRESSURE = 0.8;
-            config.PRESSURE_ITERATIONS = 20;
-            config.CURL = 0;
-            config.CURLY = false;
-            config.SPLAT_RADIUS = 0.25;
-            config.SPLAT_FORCE = 6000;
+
             break;
     }
 
-/*    updateKeywords();
-    initFramebuffers();*/
-/*    update();*/
+    /*    updateKeywords();
+        initFramebuffers();*/
+    /*    update();*/
     startGUI();
     if ( !menuShown ) {
         $( '.main' ).hide();
@@ -234,69 +221,75 @@ function startGUI() {
     xBTN.__li.className = 'cr function appBigFont';
     xBTN.__li.style.borderLeft = '3px solid #00FF7F';
 
-    let preset1 = gui.add( {
+    let button1 = gui.add( {
         fun: () => {
         }
     }, 'fun' ).name( '1: Small brush' );
-    preset1.__li.className = 'cr function appBigFont';
-    preset1.__li.style.borderLeft = '3px solid #00FF7F';
+    button1.__li.className = 'cr function appBigFont';
+    button1.__li.style.borderLeft = '3px solid #00FF7F';
 
-    let preset2 = gui.add( {
+    let button2 = gui.add( {
         fun: () => {
         }
     }, 'fun' ).name( '2: Regular brush' );
-    preset2.__li.className = 'cr function appBigFont';
-    preset2.__li.style.borderLeft = '3px solid #00FF7F';
+    button2.__li.className = 'cr function appBigFont';
+    button2.__li.style.borderLeft = '3px solid #00FF7F';
 
-    let preset3 = gui.add( {
+    let button3 = gui.add( {
         fun: () => {
         }
     }, 'fun' ).name( '3: Large brush' );
-    preset3.__li.className = 'cr function appBigFont';
-    preset3.__li.style.borderLeft = '3px solid #00FF7F';
+    button3.__li.className = 'cr function appBigFont';
+    button3.__li.style.borderLeft = '3px solid #00FF7F';
 
-    let preset7 = gui.add( {
+    let button7 = gui.add( {
         fun: () => {
         }
     }, 'fun' ).name( 'Q: Toggle curly' );
-    preset7.__li.className = 'cr function appBigFont';
-    preset7.__li.style.borderLeft = '3px solid #00FF7F';
+    button7.__li.className = 'cr function appBigFont';
+    button7.__li.style.borderLeft = '3px solid #00FF7F';
 
-    let preset8 = gui.add( {
+    let button8 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'W: Overload' );
-    preset8.__li.className = 'cr function appBigFont';
-    preset8.__li.style.borderLeft = '3px solid #00FF7F';
+    }, 'fun' ).name( 'W: Toggle overload' );
+    button8.__li.className = 'cr function appBigFont';
+    button8.__li.style.borderLeft = '3px solid #00FF7F';
 
-    let preset9 = gui.add( {
+    let button9 = gui.add( {
         fun: () => {
         }
     }, 'fun' ).name( 'E: Toggle colorful' );
-    preset9.__li.className = 'cr function appBigFont';
-    preset9.__li.style.borderLeft = '3px solid #00FF7F';
+    button9.__li.className = 'cr function appBigFont';
+    button9.__li.style.borderLeft = '3px solid #00FF7F';
 
-    let preset4 = gui.add( {
+    let button4 = gui.add( {
         fun: () => {
         }
     }, 'fun' ).name( 'A: ...' );
-    preset4.__li.className = 'cr function appBigFont';
-    preset4.__li.style.borderLeft = '3px solid #00FF7F';
+    button4.__li.className = 'cr function appBigFont';
+    button4.__li.style.borderLeft = '3px solid #00FF7F';
 
-    let preset5 = gui.add( {
+    let button5 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'S: ...!' );
-    preset5.__li.className = 'cr function appBigFont';
-    preset5.__li.style.borderLeft = '3px solid #00FF7F';
+    }, 'fun' ).name( 'S: ...' );
+    button5.__li.className = 'cr function appBigFont';
+    button5.__li.style.borderLeft = '3px solid #00FF7F';
 
-    let preset6 = gui.add( {
+    let button6 = gui.add( {
         fun: () => {
         }
-    }, 'fun' ).name( 'D: Vanish!' );
-    preset6.__li.className = 'cr function appBigFont';
-    preset6.__li.style.borderLeft = '3px solid #00FF7F';
+    }, 'fun' ).name( 'D: ...' );
+    button6.__li.className = 'cr function appBigFont';
+    button6.__li.style.borderLeft = '3px solid #00FF7F';
 
+    let button10 = gui.add( {
+        fun: () => {
+        }
+    }, 'fun' ).name( 'SPACE: Explode' );
+    button10.__li.className = 'cr function appBigFont';
+    button10.__li.style.borderLeft = '3px solid #00FF7F';
 
     if ( isMobile() ) {
         gui.close();
