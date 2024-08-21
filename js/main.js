@@ -1959,6 +1959,11 @@ $( document ).ready( function () {
 
             $( '#particles-js' ).click( function ( e ) {
                 enableFullscreen();
+
+                $('#shamanYes').toggleClass('shamanRight');
+                $('#shamanYes').toggleClass('shamanLeft');
+                $('#shamanNo').toggleClass('shamanLeft');
+                $('#shamanNo').toggleClass('shamanRight');
             } );
 
             $( '#toggleRelationships,#toggleRelationshipsWhite' ).click( function ( e ) {
@@ -2022,7 +2027,6 @@ $( document ).ready( function () {
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
 
                 $('#shamansToolkit').show();
-
             } );
 
             function hideShamansToolkit() {

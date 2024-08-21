@@ -1132,7 +1132,7 @@ option {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 400px;
+    width: 460px;
     opacity: 0;
     z-index: 6;
 }
@@ -2275,13 +2275,19 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     height: 500px;
     top: 25vH;
-    left: 7vW;
 }
 
 #shamanNo {
     position: fixed;
     height: 500px;
     top: 25vH;
+}
+
+.shamanLeft {
+    left: 7vW;
+}
+
+.shamanRight {
     right: 7vW;
 }
 
