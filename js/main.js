@@ -433,9 +433,9 @@ $( document ).ready( function () {
 
             $( '#showApplicationSettings' ).click( function () {
                 stopAllActions( true, false );
-                $('#spotifyHistory').empty();
+                $( '#spotifyHistory' ).empty();
                 spotifyHistory['items'].forEach( function ( track ) {
-                    $('#spotifyHistory').append("<div class='spotifyHistoryTrack'>" + track + "</div>");
+                    $( '#spotifyHistory' ).append( '<div class=\'spotifyHistoryTrack\'>' + track + '</div>' );
                 } );
                 $( '#applicationSettingsMenu' ).addClass( 'menuTransition' );
                 $( '#applicationSettingsMenu' ).animate( {scrollTop: 0}, 'fast' );
@@ -589,6 +589,7 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 stopShrineDisco();
+                hideShamansToolkit();
                 stopPlaybackVideodrome();
                 showVideostreamFavoriteItemDeleteSymbol = false;
                 $( '.videostreamFavoriteItemDeleteSymbol' ).hide();
@@ -740,7 +741,7 @@ $( document ).ready( function () {
 
                 $( '#shrineSettingsContainer' ).addClass( 'visible' );
                 $( '#mainMenu' ).attr( 'style', 'opacity:1' );
-                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite' ).hide();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineShamanWhite' ).hide();
 
                 if ( showParticlesFirstTime ) {
                     showParticlesFirstTime = false;
@@ -1890,8 +1891,8 @@ $( document ).ready( function () {
                 enableFullscreen();
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
-                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite' ).show();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).hide();
+                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineShamanWhite' ).show();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineShaman' ).hide();
                 if ( xxxVisible ) {
                     $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite' ).show();
                 } else {
@@ -1904,8 +1905,8 @@ $( document ).ready( function () {
 
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
-                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite' ).hide();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode' ).show();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineShamanWhite' ).hide();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#shrineShaman' ).show();
                 if ( xxxVisible ) {
                     $( '#toggleRelationships,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).show();
                 } else {
@@ -2013,6 +2014,21 @@ $( document ).ready( function () {
                     nextDiscoMode();
                 }
             } );
+
+            $( '#shrineShaman,#shrineShamanWhite' ).click( function ( event ) {
+                enableFullscreen();
+                stopShrineDisco();
+
+                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
+
+                $('#shamansToolkit').show();
+
+            } );
+
+            function hideShamansToolkit() {
+                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
+                $('#shamansToolkit').hide();
+            }
 
             function toggleRelationships( modeForced = '' ) {
                 if ( xxxVisible && modeForced !== 'hide' ) {
@@ -4357,7 +4373,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*  toggleXXXVisible();*/
 
-                /*   $( '#startMusicVideos' ).trigger( 'click' );*/
+                   $( '#showShrineSection' ).trigger( 'click' );
             }
         }
 );
