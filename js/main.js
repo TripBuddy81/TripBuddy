@@ -372,7 +372,6 @@ $( document ).ready( function () {
                         $( e.target ).removeAttr( 'controls' );
                         $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuContainer' ).hide();
-                        $( '#videodromeGlobalActionContainer' ).show();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                     } else {
                         stopAllActions();
@@ -607,7 +606,6 @@ $( document ).ready( function () {
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
                 $( '.vjs-control-bar' ).css( 'opacity', '0' );
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
-                $( '#videodromeGlobalActionContainer' ).show();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
@@ -786,6 +784,7 @@ $( document ).ready( function () {
                 $( '#showVideoSection' ).trigger( 'click' );
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
+                $( '#videodromeGlobalActionContainer' ).show();
 
                 if ( config['videosVideodrome'] == undefined ) {
                     if ( $( '#videoJSPlayer1_html5_api' ).is( ':visible' ) ) {
@@ -2086,8 +2085,8 @@ $( document ).ready( function () {
                 toggleRelationships( 'hide' );
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
-                $('#ensoImageShrineContainer').show();
-                $('#videodrome').css( 'opacity', '1' );
+                $( '#ensoImageShrineContainer' ).show();
+                $( '#videodrome' ).css( 'opacity', '1' );
             }
 
             function triggerStrobo() {
@@ -3105,22 +3104,28 @@ $( document ).ready( function () {
             } );
 
             $( '.toggleTransparentStrobo' ).click( function () {
-                $( '#videos' ).hide();
-                $( '#images' ).hide();
-                $( '#shrine' ).show();
-                $( '#games' ).hide();
-                $( '#search' ).hide();
-                $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                if ( $( this ).attr( 'data-transparency' ) == $( '#videodrome' ).css( 'opacity' ) ) {
+                    stopShrineDisco();
+                } else {
+                    $( '.mainSectionActive' ).removeClass( 'mainSectionActive' );
+                    $( '#showShrineSection' ).addClass( 'mainSectionActive' );
+                    $( '#videos' ).hide();
+                    $( '#images' ).hide();
+                    $( '#shrine' ).show();
+                    $( '#games' ).hide();
+                    $( '#search' ).hide();
+                    $( '#mainMenu' ).attr( 'style', 'opacity:0' );
 
-                if ( showParticlesFirstTime ) {
-                    showParticlesFirstTime = false;
-                    particlesInit();
+                    if ( showParticlesFirstTime ) {
+                        showParticlesFirstTime = false;
+                        particlesInit();
+                    }
+                    startDiscoMode();
+                    nextDiscoMode();
+
+                    $( '#ensoImageShrineContainer' ).hide();
+                    $( '#videodrome' ).css( 'opacity', $( this ).attr( 'data-transparency' ) );
                 }
-                startDiscoMode();
-                nextDiscoMode();
-
-                $('#ensoImageShrineContainer').hide();
-                $('#videodrome').css( 'opacity', $(this).attr('data-transparency') );
             } );
 
             // VideoJS Window
@@ -3154,14 +3159,10 @@ $( document ).ready( function () {
                 e.stopPropagation();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).removeAttr( 'controls' );
-                    $( '#videodromeGlobalActionContainer' ).show();
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
                 } else {
                     $( this ).prop( 'controls', 'controls' );
-                    if ( $( this ).parent().hasClass( 'videoDromeVideo1' ) || $( this ).parent().hasClass( 'videoDromeVideo3' ) || $( this ).parent().hasClass( 'videoDromeVideo4' ) ) {
-                        $( '#videodromeGlobalActionContainer' ).hide();
-                    }
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
                 }
@@ -3671,7 +3672,7 @@ $( document ).ready( function () {
                     }
                     displayAllActiveLocalFilenames();
                 } else {
-                    $( '#videodromeGlobalActionContainer' ).hide();
+                    $( '.toggleLocalStreamIcon' ).hide();
                 }
 
                 videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
@@ -3688,6 +3689,7 @@ $( document ).ready( function () {
             function stopPlaybackVideodrome() {
                 blockScreenSaver = false;
                 $( '#videodrome' ).hide();
+                $( '#videodromeGlobalActionContainer' ).hide();
                 $( '#videodromeContainer .localVideo' ).each( function () {
                     $( this )[0].pause();
                 } );
