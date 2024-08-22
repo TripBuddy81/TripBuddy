@@ -372,7 +372,7 @@ $( document ).ready( function () {
                         $( e.target ).removeAttr( 'controls' );
                         $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuContainer' ).hide();
-                        $( '#videodromeSwitchLocalStreamContainer' ).show();
+                        $( '#videodromeGlobalActionContainer' ).show();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                     } else {
                         stopAllActions();
@@ -607,7 +607,7 @@ $( document ).ready( function () {
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
                 $( '.vjs-control-bar' ).css( 'opacity', '0' );
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
-                $( '#videodromeSwitchLocalStreamContainer' ).show();
+                $( '#videodromeGlobalActionContainer' ).show();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
@@ -1960,10 +1960,10 @@ $( document ).ready( function () {
             $( '#particles-js' ).click( function ( e ) {
                 enableFullscreen();
 
-                $('#shamanYes').toggleClass('shamanRight');
-                $('#shamanYes').toggleClass('shamanLeft');
-                $('#shamanNo').toggleClass('shamanLeft');
-                $('#shamanNo').toggleClass('shamanRight');
+                $( '#shamanYes' ).toggleClass( 'shamanRight' );
+                $( '#shamanYes' ).toggleClass( 'shamanLeft' );
+                $( '#shamanNo' ).toggleClass( 'shamanLeft' );
+                $( '#shamanNo' ).toggleClass( 'shamanRight' );
             } );
 
             $( '#toggleRelationships,#toggleRelationshipsWhite' ).click( function ( e ) {
@@ -2025,13 +2025,12 @@ $( document ).ready( function () {
                 stopShrineDisco();
 
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
-
-                $('#shamansToolkit').show();
+                $( '#shamansToolkit' ).show();
             } );
 
             function hideShamansToolkit() {
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
-                $('#shamansToolkit').hide();
+                $( '#shamansToolkit' ).hide();
             }
 
             function toggleRelationships( modeForced = '' ) {
@@ -2087,6 +2086,8 @@ $( document ).ready( function () {
                 toggleRelationships( 'hide' );
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
+                $('#ensoImageShrineContainer').show();
+                $('#videodrome').css( 'opacity', '1' );
             }
 
             function triggerStrobo() {
@@ -3103,6 +3104,25 @@ $( document ).ready( function () {
                 updateVideodromeFullscreenInfo();
             } );
 
+            $( '.toggleTransparentStrobo' ).click( function () {
+                $( '#videos' ).hide();
+                $( '#images' ).hide();
+                $( '#shrine' ).show();
+                $( '#games' ).hide();
+                $( '#search' ).hide();
+                $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+
+                if ( showParticlesFirstTime ) {
+                    showParticlesFirstTime = false;
+                    particlesInit();
+                }
+                startDiscoMode();
+                nextDiscoMode();
+
+                $('#ensoImageShrineContainer').hide();
+                $('#videodrome').css( 'opacity', $(this).attr('data-transparency') );
+            } );
+
             // VideoJS Window
             $( document ).on( 'click', '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function ( e ) {
                 e.preventDefault();
@@ -3134,13 +3154,13 @@ $( document ).ready( function () {
                 e.stopPropagation();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).removeAttr( 'controls' );
-                    $( '#videodromeSwitchLocalStreamContainer' ).show();
+                    $( '#videodromeGlobalActionContainer' ).show();
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
                 } else {
                     $( this ).prop( 'controls', 'controls' );
                     if ( $( this ).parent().hasClass( 'videoDromeVideo1' ) || $( this ).parent().hasClass( 'videoDromeVideo3' ) || $( this ).parent().hasClass( 'videoDromeVideo4' ) ) {
-                        $( '#videodromeSwitchLocalStreamContainer' ).hide();
+                        $( '#videodromeGlobalActionContainer' ).hide();
                     }
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
@@ -3651,7 +3671,7 @@ $( document ).ready( function () {
                     }
                     displayAllActiveLocalFilenames();
                 } else {
-                    $( '#videodromeSwitchLocalStreamContainer' ).hide();
+                    $( '#videodromeGlobalActionContainer' ).hide();
                 }
 
                 videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
@@ -4375,9 +4395,9 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                /*  toggleXXXVisible();*/
+                toggleXXXVisible();
 
-                  /* $( '#showShrineSection' ).trigger( 'click' );*/
+                /* $( '#showShrineSection' ).trigger( 'click' );*/
             }
         }
 );
