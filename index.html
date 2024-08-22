@@ -344,19 +344,20 @@
                     </div>
                     {{/noiseGenerators}}
 
-                    <div class="journeyPlaylistSpacer">
-                        {{#playlists.journey}}
-                        <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
-                             data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                        </div>
-                        {{/playlists.journey}}
-                    </div>
                 </div>
                 <div class="col">
                     {{#singleTracks}}
                     <div class="spotifyPlaylistItem spotifySingleTrack" data-spotify-id="spotify:track:{{id}}">{{label}}
                     </div>
                     {{/singleTracks}}
+
+                    <div class="journeyPlaylistSpacer">
+                        {{#playlists.journey}}
+                        <div class="spotifyPlaylistItem spotifyPlaylist XXX" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                             data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                        </div>
+                        {{/playlists.journey}}
+                    </div>
                 </div>
                 <div class="col">
                     {{#playlists.green}}

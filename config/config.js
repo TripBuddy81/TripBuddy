@@ -37,28 +37,6 @@ var config = {
                 {'checklistItem': 'Backpack for outside? (Water, Tissues, something to eat)'}
             ],
             'playlists'              : {
-                'journey': [
-                    {
-                        'label': 'LvL 1 - Landing',
-                        'id'   : '6o73th3171U7GWh6YF4fHE'
-                    },
-                    {
-                        'label': 'LvL 2 - Soft',
-                        'id'   : '4Ni8WfUb4NBONlL3nt32jR'
-                    },
-                    {
-                        'label': 'LvL 3 - Rock ambient',
-                        'id'   : '4oAVWP3d7CzHADk7ThGmsa'
-                    },
-                    {
-                        'label': 'LvL 4 - Electro ambient',
-                        'id'   : '0ySoMLvwy6MBsc4uTmJ7DM'
-                    },
-                    {
-                        'label': 'LvL 5 - Electro force',
-                        'id'   : '3ANrzqWtV3xONVqk7y5tHV'
-                    }
-                ],
                 'green'  : [
                     {
                         'label': 'Gentle',
