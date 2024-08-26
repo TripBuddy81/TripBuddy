@@ -126,6 +126,7 @@ $( document ).ready( function () {
             window.alreadySelectedMusicVideos = [];
             window.moveTimerMusicVideoOverlay = '';
             window.spotifyHistory = {'items': []};
+            window.alreadySelectedMeditationSymbols = [];
 
             spotifyHistory['items'] = JSON.parse( localStorage.getItem( 'spotifyHistory' ) ) || [];
 
@@ -1972,6 +1973,9 @@ $( document ).ready( function () {
                     $( '#shamanNo' ).toggleClass( 'shamanLeft' );
                     $( '#shamanNo' ).toggleClass( 'shamanRight' );
                 }
+                if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
+                    setNextMeditationSymbol();
+                }
             } );
 
             $( '#particles-js' ).on( 'wheel', function ( event ) {
@@ -2076,11 +2080,9 @@ $( document ).ready( function () {
             } );
 
             function showMeditationSymbol() {
+                setNextMeditationSymbol();
                 $( '#meditationSymbol' ).show();
-                $( '#meditationSymbol' ).attr( 'src', './assets/check_yes.png' );
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0' );
-
-                /*   getNextMeditationSymbol()*/
             }
 
             function hideMeditationSymbol() {
@@ -2096,6 +2098,18 @@ $( document ).ready( function () {
             function hideShamansToolkit() {
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
                 $( '#shamansToolkit' ).hide();
+            }
+
+            function setNextMeditationSymbol() {
+                randomNumber = Math.floor( Math.random() * (parseInt( config['meditationSymbols'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                while ( alreadySelectedMeditationSymbols.indexOf( randomNumber ) !== -1 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( config['meditationSymbols'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                    if ( alreadySelectedMeditationSymbols.length >= config['meditationSymbols'].length - 1 ) {
+                        alreadySelectedMeditationSymbols = [];
+                    }
+                }
+                alreadySelectedMeditationSymbols.push( randomNumber );
+                $( '#meditationSymbol' ).attr( 'src', config['meditationSymbols'][randomNumber] );
             }
 
             function toggleRelationships( modeForced = '' ) {

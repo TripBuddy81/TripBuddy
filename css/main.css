@@ -1581,6 +1581,7 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 3;
     top: 9%;
     left: 49vH;
+    pointer-events: none;
 }
 
 #ensoImageShrine, #globalEnsoImage {
@@ -2254,6 +2255,7 @@ video::-webkit-media-controls-fullscreen-button {
     text-align: center;
     z-index: 3;
     display: none;
+    pointer-events: none;
 }
 
 #shamanYes {

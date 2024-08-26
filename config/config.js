@@ -37,7 +37,7 @@ var config = {
                 {'checklistItem': 'Backpack for outside? (Water, Tissues, something to eat)'}
             ],
             'playlists'              : {
-                'green'  : [
+                'green': [
                     {
                         'label': 'Gentle',
                         'id'   : '500qX6nylxJREdp0VrPrvA'
@@ -107,7 +107,7 @@ var config = {
                         'id'   : '1z2HVIgmaCbPmro2oprLf5'
                     }
                 ],
-                'blue'   : [
+                'blue' : [
                     {
                         'label': 'Celtic',
                         'id'   : '7IMTMDqc2NIzovRgtC1Imq'
@@ -165,7 +165,7 @@ var config = {
                         'id'   : '54c657PnbEgWUJt7biWHtO'
                     }
                 ],
-                'red'    : [
+                'red'  : [
                     {
                         'label': 'Melodic Noise',
                         'id'   : '7xkCTcJWJGTR9VhM0nvvKa'
@@ -341,28 +341,28 @@ var config = {
                     'startSeconds': '32'
                 },
                 {
-                    'videoId'     : 'GRDafRgdRCA',
-                    'tags'        : 'trippy-3D'
+                    'videoId': 'GRDafRgdRCA',
+                    'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId'     : 'y6BUCBXpR70',
-                    'tags'        : 'trippy-3D'
+                    'videoId': 'y6BUCBXpR70',
+                    'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId'     : '4xXsIHA2Xyc',
-                    'tags'        : 'trippy-3D'
+                    'videoId': '4xXsIHA2Xyc',
+                    'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId'     : 'pPd4cr17H3g',
-                    'tags'        : 'trippy-3D'
+                    'videoId': 'pPd4cr17H3g',
+                    'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId'     : 'S3GJCssj2iE',
-                    'tags'        : 'trippy-3D'
+                    'videoId': 'S3GJCssj2iE',
+                    'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId'     : 'sOKQZ7kcIzw',
-                    'tags'        : 'trippy-3D'
+                    'videoId': 'sOKQZ7kcIzw',
+                    'tags'   : 'trippy-3D'
                 },
                 {
                     'videoId'     : 'Q8VfA2ev9ok',
@@ -487,8 +487,8 @@ var config = {
                     'startSeconds': '11'
                 },
                 {
-                    'videoId': 'Z3xkHmC-KQE',
-                    'tags'   : 'nature',
+                    'videoId'     : 'Z3xkHmC-KQE',
+                    'tags'        : 'nature',
                     'startSeconds': '11'
                 },
                 {
@@ -516,9 +516,9 @@ var config = {
                     'mute'   : 'mixed'
                 },
                 {
-                    'videoId': 'kz69ijqlZfk',
-                    'tags'   : 'meditative',
-                    'mute'   : 'mixed',
+                    'videoId'     : 'kz69ijqlZfk',
+                    'tags'        : 'meditative',
+                    'mute'        : 'mixed',
                     'startSeconds': '30'
                 },
                 {
@@ -558,8 +558,8 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
-                    'videoId'     : '_eLeUBSqfcM',
-                    'tags'        : 'space',
+                    'videoId': '_eLeUBSqfcM',
+                    'tags'   : 'space',
                 },
                 {
                     'videoId'     : 'Y_plhk1FUQA',
@@ -1366,6 +1366,30 @@ var config = {
                     'image': './media/images/77.jpg',
                     'tags' : 'space'
                 }
+            ],
+            'meditationSymbols'      : [
+                './media/symbols/black-and-white.png',
+                './media/symbols/black-and-white2.png',
+                './media/symbols/black-and-white23.png',
+                './media/symbols/black-and-white4.png',
+                './media/symbols/cancer-ribbon.png',
+                './media/symbols/chrome.png',
+                './media/symbols/chrome2.png',
+                './media/symbols/eraser-tool.png',
+                './media/symbols/gamepad.png',
+                './media/symbols/gender.png',
+                './media/symbols/integral.png',
+                './media/symbols/lemur.png',
+                './media/symbols/math.png',
+                './media/symbols/maths.png',
+                './media/symbols/music-note.png',
+                './media/symbols/organic.png',
+                './media/symbols/pyramid.png',
+                './media/symbols/transform.png',
+                './media/symbols/vector.png',
+                './media/symbols/vegan.png',
+                './media/symbols/visa.png',
+                './media/symbols/white.png',
             ],
             'searchEngines'          : [
                 {
