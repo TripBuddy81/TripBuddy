@@ -1963,7 +1963,7 @@ $( document ).ready( function () {
                 $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
             } );
 
-            // Generic click on shrine section - no button clicked - action depends on currently active sub tool, e.g. shaman view
+            // Generic click on shrine section - no button clicked - action depends on currently active sub tool, e.g. shaman view or meditation symbol
             $( '#particles-js' ).click( function ( e ) {
                 enableFullscreen();
 
@@ -2045,9 +2045,9 @@ $( document ).ready( function () {
                 } else {
                     startDiscoMode();
                     nextDiscoMode();
-                    if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
-                        $( '#ensoImageShrineContainer' ).hide();
-                    }
+                }
+                if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
+                    $( '#ensoImageShrineContainer' ).hide();
                 }
             } );
 

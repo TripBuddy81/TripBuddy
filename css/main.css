@@ -1582,6 +1582,7 @@ video::-webkit-media-controls-fullscreen-button {
     top: 9%;
     left: 49vH;
     pointer-events: none;
+    display: none;
 }
 
 #ensoImageShrine, #globalEnsoImage {
