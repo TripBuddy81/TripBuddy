@@ -1132,7 +1132,7 @@ option {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 460px;
+    width: 530px;
     opacity: 0;
     z-index: 6;
 }
@@ -1177,6 +1177,13 @@ option {
 #shrineShaman, #shrineShamanWhite {
     height: 55px;
     margin-left: 12px;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    margin-top: -29px;
+}
+
+#shrineSymbols, #shrineSymbolsWhite {
+    height: 55px;
+    margin-left: 15px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     margin-top: -29px;
 }
