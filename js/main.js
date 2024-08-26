@@ -341,18 +341,19 @@ $( document ).ready( function () {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
+                            !$( '#shrine' ).hasClass( 'shrineColorfulBackground' ) ||
                             $( '#videodrome' ).is( ':visible' ) ||
                             $( '#notesOverlay' ).is( ':visible' ) ||
                             $( '.videoMenuOverlayFullscreen' ).is( ':visible' ) ||
                             $( '#preFlightChecklist' ).is( ':visible' ) ||
                             $( '.displayedFullscreenImage' ).is( ':visible' ) ||
                             $( '.keyboard-cancel-button' ).is( ':visible' ) ||
+                            $( '#absoluteTruthsOverlay' ).is( ':visible' ) ||
+                            $( '#relationships' ).is( ':visible' ) ||
+                            $( '#shamansToolkit' ).is( ':visible' ) ||
                             shrineDiscoActive ||
                             stroboSpeed > 0 ||
-                            !$( '#shrine' ).hasClass( 'shrineColorfulBackground' ) ||
-                            showParticles ||
-                            $( '#absoluteTruthsOverlay' ).is( ':visible' ) ||
-                            $( '#relationships' ).is( ':visible' )
+                            showParticles
                     ) {
                         stopAllActions();
                     } else {
@@ -1955,13 +1956,25 @@ $( document ).ready( function () {
                 $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
             } );
 
+            // Generic click on shrine section - no button clicked - action depends on currently active sub tool, e.g. shaman view
             $( '#particles-js' ).click( function ( e ) {
                 enableFullscreen();
 
-                $( '#shamanYes' ).toggleClass( 'shamanRight' );
-                $( '#shamanYes' ).toggleClass( 'shamanLeft' );
-                $( '#shamanNo' ).toggleClass( 'shamanLeft' );
-                $( '#shamanNo' ).toggleClass( 'shamanRight' );
+                if ( $( '#shamansToolkit' ).is( ':visible' ) ) {
+                    $( '#shamanYes' ).toggleClass( 'shamanRight' );
+                    $( '#shamanYes' ).toggleClass( 'shamanLeft' );
+                    $( '#shamanNo' ).toggleClass( 'shamanLeft' );
+                    $( '#shamanNo' ).toggleClass( 'shamanRight' );
+                }
+            } );
+
+            $( '#particles-js' ).on( 'wheel', function ( event ) {
+                stopScreensaver();
+                enableFullscreen();
+                clearInterval( absoluteTruthsTimer );
+                absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
+                absoluteTruthsUpdate();
+                nextDiscoMode();
             } );
 
             $( '#toggleRelationships,#toggleRelationshipsWhite' ).click( function ( e ) {
@@ -1999,15 +2012,6 @@ $( document ).ready( function () {
                     }
             );
 
-            $( '#particles-js' ).on( 'wheel', function ( event ) {
-                stopScreensaver();
-                enableFullscreen();
-                clearInterval( absoluteTruthsTimer );
-                absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
-                absoluteTruthsUpdate();
-                nextDiscoMode();
-            } );
-
             $( '#shrineDiscoMode,#shrineDiscoModeWhite' ).click( function ( event ) {
                 enableFullscreen();
                 if ( shrineDiscoActive ) {
@@ -2020,11 +2024,17 @@ $( document ).ready( function () {
 
             $( '#shrineShaman,#shrineShamanWhite' ).click( function ( event ) {
                 enableFullscreen();
-                stopShrineDisco();
+                if ( $( '#shamansToolkit' ).is( ':visible' ) ) {
+                    hideShamansToolkit()
+                } else {
+                    showShamansToolkit();
+                }
+            } );
 
+            function showShamansToolkit() {
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
                 $( '#shamansToolkit' ).show();
-            } );
+            }
 
             function hideShamansToolkit() {
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
@@ -4396,9 +4406,9 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-         /*       toggleXXXVisible();*/
+                /*       toggleXXXVisible();*/
 
-                 $( '#showShrineSection' ).trigger( 'click' );
+                $( '#showShrineSection' ).trigger( 'click' );
             }
         }
 );
