@@ -1132,7 +1132,7 @@ option {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 530px;
+    width: 550px;
     opacity: 0;
     z-index: 6;
 }
@@ -1160,46 +1160,22 @@ option {
     display: none;
 }
 
-#shrineParticlesSwitch, #shrineParticlesSwitchWhite {
+#shrineParticlesSwitch, #shrineParticlesSwitchWhite,
+#shrineDiscoMode, #shrineDiscoModeWhite,
+#shrineShaman, #shrineShamanWhite,
+#shrineSymbols, #shrineSymbolsWhite,
+#toggleRelationships, #toggleRelationshipsWhite,
+#toggleAbsoluteThruth, #toggleAbsoluteThruthWhite {
     height: 52px;
-    margin-left: 9px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: -29px;
-}
-
-#shrineDiscoMode, #shrineDiscoModeWhite {
-    height: 55px;
-    margin-left: 12px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: -29px;
-}
-
-#shrineShaman, #shrineShamanWhite {
-    height: 55px;
-    margin-left: 12px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: -29px;
-}
-
-#shrineSymbols, #shrineSymbolsWhite {
-    height: 55px;
     margin-left: 15px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     margin-top: -29px;
 }
 
-#toggleRelationships, #toggleRelationshipsWhite {
-    height: 55px;
-    margin-left: 18px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: -29px;
-    margin-right: 5px;
-}
-
 #toggleAbsoluteThruthSubContainer {
     position: absolute;
     top: 75px;
-    left: 91px;
+    left: 226px;
     display: none;
 }
 
@@ -1208,14 +1184,6 @@ option {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     display: block;
     margin-top: 12px;
-}
-
-#toggleAbsoluteThruth, #toggleAbsoluteThruthWhite {
-    height: 52px;
-    margin-left: 18px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
-    margin-top: -29px;
-    margin-right: 5px;
 }
 
 #toggleAbsoluteThruthWhite, #shrineParticlesSwitchWhite, #shrineDiscoModeWhite, #toggleRelationshipsWhite {
@@ -1603,6 +1571,16 @@ video::-webkit-media-controls-fullscreen-button {
 
 .globalEnsoContainerHidden {
     opacity: 0 !important;
+}
+
+#meditationSymbol {
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    z-index: 3;
+    top: 9%;
+    left: 49vH;
 }
 
 #ensoImageShrine, #globalEnsoImage {

@@ -351,6 +351,7 @@ $( document ).ready( function () {
                             $( '#absoluteTruthsOverlay' ).is( ':visible' ) ||
                             $( '#relationships' ).is( ':visible' ) ||
                             $( '#shamansToolkit' ).is( ':visible' ) ||
+                            $( '#meditationSymbol' ).is( ':visible' ) ||
                             shrineDiscoActive ||
                             stroboSpeed > 0 ||
                             showParticles
@@ -590,6 +591,7 @@ $( document ).ready( function () {
                 screensaverSecondsIdle = 0;
                 stopShrineDisco();
                 hideShamansToolkit();
+                hideMeditationSymbol();
                 stopPlaybackVideodrome();
                 showVideostreamFavoriteItemDeleteSymbol = false;
                 $( '.videostreamFavoriteItemDeleteSymbol' ).hide();
@@ -2025,11 +2027,33 @@ $( document ).ready( function () {
             $( '#shrineShaman,#shrineShamanWhite' ).click( function ( event ) {
                 enableFullscreen();
                 if ( $( '#shamansToolkit' ).is( ':visible' ) ) {
-                    hideShamansToolkit()
+                    hideShamansToolkit();
                 } else {
                     showShamansToolkit();
                 }
             } );
+
+            $( '#shrineSymbols,#shrineSymbolsWhite' ).click( function ( event ) {
+                enableFullscreen();
+                if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
+                    hideMeditationSymbol();
+                } else {
+                    showMeditationSymbol();
+                }
+            } );
+
+            function showMeditationSymbol() {
+                $( '#meditationSymbol' ).show();
+                $( '#meditationSymbol' ).attr( 'src', './assets/check_yes.png' );
+                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0' );
+
+             /*   getNextMeditationSymbol()*/
+            }
+
+            function hideMeditationSymbol(){
+                $( '#meditationSymbol' ).hide();
+                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
+            }
 
             function showShamansToolkit() {
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
@@ -2068,7 +2092,6 @@ $( document ).ready( function () {
             function startDiscoMode() {
                 shrineDiscoActive = true;
                 showParticles = true;
-                toggleRelationships( 'hide' );
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
             }
 
