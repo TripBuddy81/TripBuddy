@@ -1903,7 +1903,6 @@ $( document ).ready( function () {
                     $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite' ).show();
                 } else {
                     $( '#toggleRelationships,#toggleRelationshipsWhite' ).hide();
-                    toggleRelationships( 'hide' );
                 }
                 $( '#shrineSetBGBlack' ).hide();
                 $( '.shrineSetBGColorful' ).attr( 'style', 'display: inline' );
@@ -1917,7 +1916,6 @@ $( document ).ready( function () {
                     $( '#toggleRelationships,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).show();
                 } else {
                     $( '#toggleRelationships,#toggleRelationshipsWhite,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).hide();
-                    toggleRelationships( 'hide' );
                 }
                 $( '#shrineSetBGBlack' ).show();
                 $( '.shrineSetBGColorful' ).hide();
