@@ -1981,27 +1981,43 @@ $( document ).ready( function () {
 
             $( '#toggleRelationships,#toggleRelationshipsWhite' ).click( function ( e ) {
                 enableFullscreen();
-                toggleRelationships();
+
+                hideShamansToolkit();
+                hideMeditationSymbol();
                 $( '#absoluteTruthsOverlay' ).hide();
+
+                toggleRelationships();
             } );
 
             $( '#toggleAbsoluteThruth,#toggleAbsoluteThruthWhite' ).click( function ( e ) {
                 enableFullscreen();
+
                 toggleRelationships( 'hide' );
+                hideShamansToolkit();
+                hideMeditationSymbol();
+
                 absoluteTruthsUpdate( 'default' );
                 $( '#absoluteTruthsOverlay' ).toggle();
             } );
 
             $( '#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthInwardsWhite' ).click( function ( e ) {
                 enableFullscreen();
+
                 toggleRelationships( 'hide' );
+                hideShamansToolkit();
+                hideMeditationSymbol();
+
                 absoluteTruthsUpdate( 'intro' );
                 $( '#absoluteTruthsOverlay' ).show();
             } );
 
             $( '#toggleAbsoluteThruthOutwards,#toggleAbsoluteThruthOutwardsWhite' ).click( function ( e ) {
                 enableFullscreen();
+
                 toggleRelationships( 'hide' );
+                hideShamansToolkit();
+                hideMeditationSymbol();
+
                 absoluteTruthsUpdate( 'outro' );
                 $( '#absoluteTruthsOverlay' ).show();
             } );
@@ -2021,11 +2037,19 @@ $( document ).ready( function () {
                 } else {
                     startDiscoMode();
                     nextDiscoMode();
+                    if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
+                        $( '#ensoImageShrineContainer' ).hide();
+                    }
                 }
             } );
 
             $( '#shrineShaman,#shrineShamanWhite' ).click( function ( event ) {
                 enableFullscreen();
+
+                toggleRelationships( 'hide' );
+                hideMeditationSymbol();
+                $( '#absoluteTruthsOverlay' ).hide();
+
                 if ( $( '#shamansToolkit' ).is( ':visible' ) ) {
                     hideShamansToolkit();
                 } else {
@@ -2035,6 +2059,11 @@ $( document ).ready( function () {
 
             $( '#shrineSymbols,#shrineSymbolsWhite' ).click( function ( event ) {
                 enableFullscreen();
+
+                toggleRelationships( 'hide' );
+                hideShamansToolkit();
+                $( '#absoluteTruthsOverlay' ).hide();
+
                 if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
                     hideMeditationSymbol();
                 } else {
@@ -2047,10 +2076,10 @@ $( document ).ready( function () {
                 $( '#meditationSymbol' ).attr( 'src', './assets/check_yes.png' );
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0' );
 
-             /*   getNextMeditationSymbol()*/
+                /*   getNextMeditationSymbol()*/
             }
 
-            function hideMeditationSymbol(){
+            function hideMeditationSymbol() {
                 $( '#meditationSymbol' ).hide();
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
             }
@@ -2119,6 +2148,7 @@ $( document ).ready( function () {
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrineContainer' ).show();
                 $( '#videodrome' ).css( 'opacity', '1' );
+                hideMeditationSymbol();
             }
 
             function triggerStrobo() {
