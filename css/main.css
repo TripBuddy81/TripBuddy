@@ -1580,9 +1580,10 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
     z-index: 3;
     top: 9%;
-    left: 49vH;
+    left: 50%;
     pointer-events: none;
     display: none;
+    transform: translateX(-50%);
 }
 
 #ensoImageShrine, #globalEnsoImage {
