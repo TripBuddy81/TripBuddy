@@ -590,8 +590,6 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 stopShrineDisco();
-                hideShamansToolkit();
-                hideMeditationSymbol();
                 stopPlaybackVideodrome();
                 showVideostreamFavoriteItemDeleteSymbol = false;
                 $( '.videostreamFavoriteItemDeleteSymbol' ).hide();
@@ -609,6 +607,12 @@ $( document ).ready( function () {
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
                 $( '.vjs-control-bar' ).css( 'opacity', '0' );
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
+                $( '#absoluteTruthsOverlay' ).hide();
+                $( '#relationships' ).hide();
+                $( '#ensoImageShrineContainer' ).show();
+                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1.0' );
+                $( '#shamansToolkit' ).hide();
+                $( '#meditationSymbol' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
@@ -2142,13 +2146,9 @@ $( document ).ready( function () {
                 $( '.shrineColorfulBackground' ).trigger( 'click' );
                 stroboSpeed = 0;
                 changeStroboSpeed( stroboSpeed );
-                $( '#absoluteTruthsOverlay' ).hide();
-                toggleRelationships( 'hide' );
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
-                $( '#ensoImageShrineContainer' ).show();
                 $( '#videodrome' ).css( 'opacity', '1' );
-                hideMeditationSymbol();
             }
 
             function triggerStrobo() {
