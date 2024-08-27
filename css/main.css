@@ -2138,7 +2138,7 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
-.toggleLocalStreamIcon, .toggleTransparentStrobo {
+.toggleLocalStreamIcon, .toggleTransparentStrobo, #toggleTransperentStroboEnsoSymbol {
     height: 55px;
 }
 

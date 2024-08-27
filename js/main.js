@@ -3197,9 +3197,12 @@ $( document ).ready( function () {
                     startDiscoMode();
                     nextDiscoMode();
 
-                    $( '#ensoImageShrineContainer' ).hide();
                     $( '#videodrome' ).css( 'opacity', $( this ).attr( 'data-transparency' ) );
                 }
+            } );
+
+            $( '#toggleTransperentStroboEnsoSymbol' ).click( function () {
+                $( '#ensoImageShrineContainer' ).toggle();
             } );
 
             // VideoJS Window
@@ -4471,7 +4474,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                       toggleXXXVisible();
+                toggleXXXVisible();
 
                 $( '#showShrineSection' ).trigger( 'click' );
             }
