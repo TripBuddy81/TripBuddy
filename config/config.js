@@ -1581,7 +1581,12 @@ var config = {
                         {
                             'text': 'Happiness is only real when shared.',
                             'tag' : ''
-                        }
+                        },
+                        {
+                            'text': 'The purpose of life is not perfection, but wholeness.',
+                            'tag' : ''
+                        },
+
                     ]
         }
 ;
