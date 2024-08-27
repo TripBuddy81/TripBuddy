@@ -376,6 +376,8 @@ $( document ).ready( function () {
                         $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuContainer' ).hide();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                        $( '#videodromeBottomToolbar' ).show();
+                        $( '.videodromeRefreshContainer' ).show();
                     } else {
                         stopAllActions();
                     }
@@ -791,7 +793,7 @@ $( document ).ready( function () {
                 $( '#showVideoSection' ).trigger( 'click' );
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
-                $( '#videodromeGlobalActionContainer' ).show();
+                $( '#videodromeUI' ).show();
 
                 if ( config['videosVideodrome'] == undefined ) {
                     if ( $( '#videoJSPlayer1_html5_api' ).is( ':visible' ) ) {
@@ -3217,6 +3219,9 @@ $( document ).ready( function () {
                         $( '.video-js' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+
+                        $( '#videodromeBottomToolbar' ).show();
+                        $( '.videodromeRefreshContainer' ).show();
                     } else {
                         stopAllActions();
                     }
@@ -3226,6 +3231,10 @@ $( document ).ready( function () {
                     $( '.vjs-control-bar' ).css( 'opacity', '1' );
                     $( '.video-js' ).addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuVideoJSContainer' ).show();
+
+                    $( '#videodromeBottomToolbar' ).hide();
+                    $( '.videodromeRefreshContainer' ).hide();
+
                 }
                 updateVideodromeFullscreenInfo();
             } );
@@ -3238,10 +3247,14 @@ $( document ).ready( function () {
                     $( this ).removeAttr( 'controls' );
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
+                    $( '#videodromeBottomToolbar' ).show();
+                    $( '.videodromeRefreshContainer' ).show();
                 } else {
                     $( this ).prop( 'controls', 'controls' );
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
+                    $( '#videodromeBottomToolbar' ).hide();
+                    $( '.videodromeRefreshContainer' ).hide();
                 }
 
                 updateVideodromeFullscreenInfo();
@@ -3766,7 +3779,7 @@ $( document ).ready( function () {
             function stopPlaybackVideodrome() {
                 blockScreenSaver = false;
                 $( '#videodrome' ).hide();
-                $( '#videodromeGlobalActionContainer' ).hide();
+                $( '#videodromeUI' ).hide();
                 $( '#videodromeContainer .localVideo' ).each( function () {
                     $( this )[0].pause();
                 } );

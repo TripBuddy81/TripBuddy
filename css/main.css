@@ -1886,6 +1886,10 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100%;
 }
 
+#videodromeUI {
+    display: none;
+}
+
 .videodromeVideoContainer, .videodromeStreamVideoContainer {
     width: 50vW;
     height: 50vH;

@@ -834,7 +834,7 @@
         <div id="shamansToolkit">
             <span id="concentrationDot"></span>
             <img id="shamanYes" class="shamanLeft" src="./assets/check_yes.png">
-            <img id="shamanNo" class="shamanRight"  src="./assets/check_no.png">
+            <img id="shamanNo" class="shamanRight" src="./assets/check_no.png">
         </div>
         <img id="meditationSymbol" src="">
     </div>
@@ -939,160 +939,7 @@
     </div>
 
     <div id="videodrome">
-        <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
-        </div>
-        <div class="trackProgressContainer hidden videoMenuOverlay">
-            <div class="trackProgress">
-                <div class="colorfulBorder"></div>
-            </div>
-        </div>
-
-        <div class="videodromeRefreshContainer">
-            <img id="refreshVideoDromeVideo1" target="videoDromeVideo1"
-                 class="iconAlternating videodromeRefreshLocalVideo"
-                 src="./assets/refresh.png">
-            <img id="refreshVideoDromeVideo2" target="videoDromeVideo2"
-                 class="iconAlternating videodromeRefreshLocalVideo"
-                 src="./assets/refresh.png">
-            <img id="videodromeStreamRefreshVideo" class="iconAlternating videodromeStreamRefreshVideo"
-                 src="./assets/refresh.png">
-            <img id="refreshVideoDromeVideo3" target="videoDromeVideo3"
-                 class="iconAlternating videodromeRefreshLocalVideo"
-                 src="./assets/refresh.png">
-            <img id="refreshVideoDromeVideo4" target="videoDromeVideo4"
-                 class="iconAlternating videodromeRefreshLocalVideo"
-                 src="./assets/refresh.png">
-            <img id="refreshVideoDromeVideoAll" class="iconAlternating"
-                 src="./assets/refresh.png">
-        </div>
-
-        <div id="videodromeBottomToolbar">
-            <div class="row mb-3">
-                <div class="col">
-                    <div class="videodromeLocalVideoMenuItem cursorAction showGeneralVideos">
-                        <span class="">general</span>
-                    </div>
-                    <div class="videodromeLocalVideoMenuItem cursorAction hideGeneralVideos">
-                        <span class="videodromeLocalVideoMenuItemActive">general</span>
-                    </div>
-                    <div class="videodromeLocalVideoMenuItem cursorAction XXX showPrivateContent">
-                        <span class="">private</span>
-                    </div>
-                    <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent">
-                        <span class="videodromeLocalVideoMenuItemActive">private</span>
-                    </div>
-                    <div class="externalVideoDirSelection">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <img class="searchEdit iconAlternating cursorAction" src="./assets/edit.png">
-                    <input type="text" class="searchInput me-2" id="searchInput" name="searchInput" value=""
-                           placeholder="search text" data-trigger-keyboard="true" autocomplete="off"
-                           spellcheck="false">
-                    <label class="searchLabel form-check-label me-2" for="searchInput">=></label>
-
-                    {{#searchEngines}}
-                    <div class="searchLink {{tag}}" searchLink="{{searchLink}}" href={{link}} target=_blank>{{name}}
-                    </div>
-                    {{/searchEngines}}
-                </div>
-            </div>
-        </div>
-
         <div id="videodromeContainer">
-            <div id="videodromeFullscreenMenuVideoJSContainer"
-                 class="videodromeFullscreenMenuContainer videodromeFullscreenMenuVideoJSContainer">
-                <div class="row">
-                    <div class="col">
-                        <div id="videodromeErrorMessage"></div>
-                        <a class="videodromeFullscreenDownloadVideoLink" href="" target="_blank"><img
-                                class="videodromeFullscreenDownloadVideoIcon iconAlternating cursorAction"
-                                src="./assets/download.png"></a>
-                        <div class="videodromeFullscreenFilename"></div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <div class="cursorAction" id="videodromeFullscreenModelLinks"></div>
-                    </div>
-                    <div class="col-5">
-                        <div class="cursorAction float-end" id="videodromeFullscreenLastSearches"></div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col me-3 refreshVideoDromeVideoFullscreenContainer">
-                        <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
-                             src="./assets/refresh.png">
-                    </div>
-                    <div class="col videoDromeVideoFullscreenSubActions">
-                        <img id="videodromeFullscreenResetSearch" class="iconAlternating cursorAction"
-                             src="./assets/random.png">
-                        <img id="videodromeFullscreenSearchInput" class="iconAlternating cursorAction"
-                             src="./assets/search.png">
-                        <div id="switchStreamingService" class="cursorAction">UNKNOWN</div>
-                        <img id="videodromeFullscreenAddToFavorites" class="iconAlternating cursorAction"
-                             src="./assets/add_to_favorites.png">
-                    </div>
-                    <div class="col">
-                        {{#videoJScustomSearchURL}}
-                        <div class="cursorAction videoJSSearchURL" videoJSSearchURL="{{searchURL}}">{{label}}</div>
-                        {{/videoJScustomSearchURL}}
-                    </div>
-                </div>
-            </div>
-            <div id="videodromeFullscreenMenuVideoJSContainerExtraOptions"
-                 class="videodromeFullscreenMenuContainer videodromeFullscreenMenuVideoJSContainer">
-                <div class="videodromeFavoritesOptions">
-
-                    <img id="unlockDeleteVideodromeFavorites" class="iconAlternating cursorAction"
-                         src="./assets/unlock.png">
-                    <img id="lockDeleteVideodromeFavorites" class="iconAlternating cursorAction"
-                         src="./assets/lock.png">
-                </div>
-                <div id="videodromeFavorites">
-                </div>
-            </div>
-
-            <div id="videodromeFullscreenMenuLocalVideoContainer"
-                 class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
-                <div class="row">
-                    <div class="col">
-                        <div class="videodromeFullscreenFilename"></div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-2 me-5 refreshVideoDromeVideoFullscreenContainer">
-                        <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
-                             src="./assets/refresh.png">
-                    </div>
-                    <div class="col-10">
-                        <div class="videodromeLocalVideoMenuItem cursorAction showGeneralVideos">
-                            <span class="">general</span>
-                        </div>
-                        <div class="videodromeLocalVideoMenuItem cursorAction hideGeneralVideos">
-                            <span class="videodromeLocalVideoMenuItemActive">general</span>
-                        </div>
-                        <div class="videodromeLocalVideoMenuItem cursorAction XXX showPrivateContent">
-                            <span class="">private</span>
-                        </div>
-                        <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent">
-                            <span class="videodromeLocalVideoMenuItemActive">private</span>
-                        </div>
-                        <div class="externalVideoDirSelection">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="videodromeFullscreenMenuLocalVideoContainerExtraOptions"
-                 class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
-            </div>
-
             <div class="videodromeStreamVideoContainer videoDromeStreamVideo1" target="videoJSPlayer1"
                  data-modelnames="" data-videoTitel="" data-videoPageUrl="" data-videoPagePosterUrl="">
                 <video id="videoJSPlayer1" muted="" loop="" controls class="video-js videoDromeFrame" preload="none"
@@ -1138,22 +985,178 @@
         </div>
     </div>
 
-    <div id="videodromeGlobalActionContainer">
-        <img class="toggleLocalStreamIcon iconAlternating cursorAction"
-             src="./assets/switch.png">
-        <img data-transparency="0.15" class="toggleTransparentStrobo iconAlternating cursorAction"
-             src="./assets/sparkle.png">
-        <img data-transparency="0.2" class="toggleTransparentStrobo iconAlternating cursorAction"
-             src="./assets/sparkle.png">
-        <img data-transparency="0.3" class="toggleTransparentStrobo iconAlternating cursorAction"
-             src="./assets/sparkle.png">
-        <img data-transparency="0.4" class="toggleTransparentStrobo iconAlternating cursorAction"
-             src="./assets/sparkle.png">
-        <img data-transparency="0.5" class="toggleTransparentStrobo iconAlternating cursorAction"
-             src="./assets/sparkle.png">
-        <img id="toggleTransperentStroboEnsoSymbol" class="iconAlternating cursorAction"
-             src="./assets/enso.png">
-    </div>
+    <span id="videodromeUI">
+        <div id="videodromeFullscreenMenuLocalVideoContainer"
+             class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
+            <div class="row">
+                <div class="col">
+                    <div class="videodromeFullscreenFilename"></div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-2 me-5 refreshVideoDromeVideoFullscreenContainer">
+                    <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
+                         src="./assets/refresh.png">
+                </div>
+                <div class="col-10">
+                    <div class="videodromeLocalVideoMenuItem cursorAction showGeneralVideos">
+                        <span class="">general</span>
+                    </div>
+                    <div class="videodromeLocalVideoMenuItem cursorAction hideGeneralVideos">
+                        <span class="videodromeLocalVideoMenuItemActive">general</span>
+                    </div>
+                    <div class="videodromeLocalVideoMenuItem cursorAction XXX showPrivateContent">
+                        <span class="">private</span>
+                    </div>
+                    <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent">
+                        <span class="videodromeLocalVideoMenuItemActive">private</span>
+                    </div>
+                    <div class="externalVideoDirSelection">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="videodromeFullscreenMenuLocalVideoContainerExtraOptions"
+             class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
+        </div>
+
+        <div id="videodromeFullscreenMenuVideoJSContainer"
+             class="videodromeFullscreenMenuContainer videodromeFullscreenMenuVideoJSContainer">
+            <div class="row">
+                <div class="col">
+                    <div id="videodromeErrorMessage"></div>
+                    <a class="videodromeFullscreenDownloadVideoLink" href="" target="_blank"><img
+                            class="videodromeFullscreenDownloadVideoIcon iconAlternating cursorAction"
+                            src="./assets/download.png"></a>
+                    <div class="videodromeFullscreenFilename"></div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="cursorAction" id="videodromeFullscreenModelLinks"></div>
+                </div>
+                <div class="col-5">
+                    <div class="cursorAction float-end" id="videodromeFullscreenLastSearches"></div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col me-3 refreshVideoDromeVideoFullscreenContainer">
+                    <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
+                         src="./assets/refresh.png">
+                </div>
+                <div class="col videoDromeVideoFullscreenSubActions">
+                    <img id="videodromeFullscreenResetSearch" class="iconAlternating cursorAction"
+                         src="./assets/random.png">
+                    <img id="videodromeFullscreenSearchInput" class="iconAlternating cursorAction"
+                         src="./assets/search.png">
+                    <div id="switchStreamingService" class="cursorAction">UNKNOWN</div>
+                    <img id="videodromeFullscreenAddToFavorites" class="iconAlternating cursorAction"
+                         src="./assets/add_to_favorites.png">
+                </div>
+                <div class="col">
+                    {{#videoJScustomSearchURL}}
+                    <div class="cursorAction videoJSSearchURL" videoJSSearchURL="{{searchURL}}">{{label}}</div>
+                    {{/videoJScustomSearchURL}}
+                </div>
+            </div>
+        </div>
+
+        <div id="videodromeFullscreenMenuVideoJSContainerExtraOptions"
+             class="videodromeFullscreenMenuContainer videodromeFullscreenMenuVideoJSContainer">
+            <div class="videodromeFavoritesOptions">
+
+                <img id="unlockDeleteVideodromeFavorites" class="iconAlternating cursorAction"
+                     src="./assets/unlock.png">
+                <img id="lockDeleteVideodromeFavorites" class="iconAlternating cursorAction"
+                     src="./assets/lock.png">
+            </div>
+            <div id="videodromeFavorites">
+            </div>
+        </div>
+
+        <div id="videodromeGlobalActionContainer">
+            <img class="toggleLocalStreamIcon iconAlternating cursorAction"
+                 src="./assets/switch.png">
+            <img data-transparency="0.15" class="toggleTransparentStrobo iconAlternating cursorAction"
+                 src="./assets/sparkle.png">
+            <img data-transparency="0.2" class="toggleTransparentStrobo iconAlternating cursorAction"
+                 src="./assets/sparkle.png">
+            <img data-transparency="0.3" class="toggleTransparentStrobo iconAlternating cursorAction"
+                 src="./assets/sparkle.png">
+            <img data-transparency="0.4" class="toggleTransparentStrobo iconAlternating cursorAction"
+                 src="./assets/sparkle.png">
+            <img data-transparency="0.5" class="toggleTransparentStrobo iconAlternating cursorAction"
+                 src="./assets/sparkle.png">
+            <img id="toggleTransperentStroboEnsoSymbol" class="iconAlternating cursorAction"
+                 src="./assets/enso.png">
+        </div>
+
+        <div id="videodromeBottomToolbar">
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="videodromeLocalVideoMenuItem cursorAction showGeneralVideos">
+                        <span class="">general</span>
+                    </div>
+                    <div class="videodromeLocalVideoMenuItem cursorAction hideGeneralVideos">
+                        <span class="videodromeLocalVideoMenuItemActive">general</span>
+                    </div>
+                    <div class="videodromeLocalVideoMenuItem cursorAction XXX showPrivateContent">
+                        <span class="">private</span>
+                    </div>
+                    <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent">
+                        <span class="videodromeLocalVideoMenuItemActive">private</span>
+                    </div>
+                    <div class="externalVideoDirSelection">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img class="searchEdit iconAlternating cursorAction" src="./assets/edit.png">
+                    <input type="text" class="searchInput me-2" id="searchInput" name="searchInput" value=""
+                           placeholder="search text" data-trigger-keyboard="true" autocomplete="off"
+                           spellcheck="false">
+                    <label class="searchLabel form-check-label me-2" for="searchInput">=></label>
+
+                    {{#searchEngines}}
+                    <div class="searchLink {{tag}}" searchLink="{{searchLink}}" href={{link}} target=_blank>{{name}}
+                    </div>
+                    {{/searchEngines}}
+                </div>
+            </div>
+        </div>
+
+        <div class="videoMenuOverlayFullscreenTime videoMenuOverlay">
+        </div>
+        <div class="trackProgressContainer hidden videoMenuOverlay">
+            <div class="trackProgress">
+                <div class="colorfulBorder"></div>
+            </div>
+        </div>
+
+        <div class="videodromeRefreshContainer">
+            <img id="refreshVideoDromeVideo1" target="videoDromeVideo1"
+                 class="iconAlternating videodromeRefreshLocalVideo"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeVideo2" target="videoDromeVideo2"
+                 class="iconAlternating videodromeRefreshLocalVideo"
+                 src="./assets/refresh.png">
+            <img id="videodromeStreamRefreshVideo" class="iconAlternating videodromeStreamRefreshVideo"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeVideo3" target="videoDromeVideo3"
+                 class="iconAlternating videodromeRefreshLocalVideo"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeVideo4" target="videoDromeVideo4"
+                 class="iconAlternating videodromeRefreshLocalVideo"
+                 src="./assets/refresh.png">
+            <img id="refreshVideoDromeVideoAll" class="iconAlternating"
+                 src="./assets/refresh.png">
+        </div>
+    </span>
 
     <div id="privatePictureSlideshow">
         <div class="guidedThoughtsContainer"><span class="guidedThoughtsText"></span></div>
