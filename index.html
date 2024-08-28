@@ -1079,20 +1079,40 @@
         </div>
 
         <div id="videodromeGlobalActionContainer">
-            <img class="toggleLocalStreamIcon iconAlternating cursorAction"
-                 src="./assets/switch.png">
-            <img data-transparency="0.15" class="toggleTransparentStrobo iconAlternating cursorAction"
-                 src="./assets/sparkle.png">
-            <img data-transparency="0.2" class="toggleTransparentStrobo iconAlternating cursorAction"
-                 src="./assets/sparkle.png">
-            <img data-transparency="0.3" class="toggleTransparentStrobo iconAlternating cursorAction"
-                 src="./assets/sparkle.png">
-            <img data-transparency="0.4" class="toggleTransparentStrobo iconAlternating cursorAction"
-                 src="./assets/sparkle.png">
-            <img data-transparency="0.5" class="toggleTransparentStrobo iconAlternating cursorAction"
-                 src="./assets/sparkle.png">
-            <img id="toggleTransperentStroboEnsoSymbol" class="iconAlternating cursorAction"
-                 src="./assets/enso.png">
+            <span>
+                <img class="toggleLocalStreamIcon iconAlternating cursorAction"
+                     src="./assets/switch.png">
+                <img data-transparency="0.15" class="toggleTransparentStrobo iconAlternating cursorAction"
+                     src="./assets/sparkle.png">
+                <img data-transparency="0.2" class="toggleTransparentStrobo iconAlternating cursorAction"
+                     src="./assets/sparkle.png">
+                <img data-transparency="0.3" class="toggleTransparentStrobo iconAlternating cursorAction"
+                     src="./assets/sparkle.png">
+                <img data-transparency="0.4" class="toggleTransparentStrobo iconAlternating cursorAction"
+                     src="./assets/sparkle.png">
+                <img data-transparency="0.5" class="toggleTransparentStrobo iconAlternating cursorAction"
+                     src="./assets/sparkle.png">
+                <img id="toggleTransperentStroboEnsoSymbol" class="iconAlternating cursorAction"
+                     src="./assets/enso.png">
+            </span>
+
+            <div class="mindJourneySettingsSpacer1"></div>
+
+            <span id="mindJourneyCharSelect">
+                <span id="mindJourneyEinheit" class="mindJourneyCharSelect cursorAction">Einheit</span>
+                <span id="mindJourneyRebell" class="mindJourneyCharSelect cursorAction">Rebell</span>
+                <span id="mindJourneyTier" class="mindJourneyCharSelect cursorAction">Tier</span>
+                <span id="mindJourneyKind" class="mindJourneyCharSelect cursorAction">Kind</span>
+            </span>
+
+            <div class="mindJourneySettingsSpacer1"></div>
+
+            {{#playlists.mindJourney}}
+            <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                 data-spotify-id="spotify:playlist:{{id}}">{{label}}
+            </div>
+            {{/playlists.mindJourney}}
+
         </div>
 
         <div id="videodromeBottomToolbar">

@@ -350,7 +350,7 @@ p {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
-a.menuItem:hover, .menuItem:hover, #menu li:hover {
+a.menuItem:hover, .menuItem:hover, #menu li:hover, .mindJourneyCharSelect:hover {
     color: white;
 }
 
@@ -2129,13 +2129,15 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodromeGlobalActionContainer {
     position: fixed;
-    padding: 5px;
     top: -2px;
     left: -2px;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     border-radius: 5px;
     opacity: 0;
     z-index: 35;
+    min-width: 470px;
+    height: 739px;
+    padding:10px 15px;
 }
 
 #videodromeGlobalActionContainer:hover {
@@ -2144,6 +2146,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .toggleLocalStreamIcon, .toggleTransparentStrobo, #toggleTransperentStroboEnsoSymbol {
     height: 55px;
+    margin-right: 10px;
 }
 
 .refreshVideoDromeVideoFullscreenContainer {
@@ -2406,4 +2409,48 @@ video::-webkit-media-controls-fullscreen-button {
 .musicVideoFilename {
     font-size: 18px;
     text-align: left;
+}
+
+.mindJourneySettingsSpacer1 {
+    border-radius: 5px;
+    border: solid 3px #000000;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#mindJourneyCharSelect {
+    margin-bottom: 235px;
+    display: block;
+    position: relative;
+}
+
+.mindJourneyCharSelect {
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+}
+
+#mindJourneyEinheit {
+    top: 0px;
+    left: 70px;
+}
+
+#mindJourneyRebell {
+    top: 80px;
+    left: 175px;
+}
+
+#mindJourneyTier {
+    top: 80px;
+    left: 10px;
+}
+
+#mindJourneyKind {
+    top: 160px;
+    left: 80px;
+}
+
+.mindJourneyPlaylistSelector {
+    font-weight: bold;
+    font-size: 25px;
 }
