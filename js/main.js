@@ -1985,6 +1985,7 @@ $( document ).ready( function () {
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
                 absoluteTruthsUpdate();
                 nextDiscoMode();
+                setNextMeditationSymbol();
             } );
 
             $( '#toggleRelationships,#toggleRelationshipsWhite' ).click( function ( e ) {
@@ -2140,6 +2141,7 @@ $( document ).ready( function () {
                 shrineDiscoActive = true;
                 showParticles = true;
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
+                $( '#toggleTransperentStroboEnsoSymbol' ).show();
             }
 
             function nextDiscoMode() {
@@ -2163,6 +2165,7 @@ $( document ).ready( function () {
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 $( '#videodrome' ).css( 'opacity', '1' );
+                $( '#toggleTransperentStroboEnsoSymbol' ).hide();
             }
 
             function triggerStrobo() {
@@ -3204,7 +3207,14 @@ $( document ).ready( function () {
             } );
 
             $( '#toggleTransperentStroboEnsoSymbol' ).click( function () {
+                $( '#meditationSymbol' ).hide();
                 $( '#ensoImageShrineContainer' ).toggle();
+            } );
+
+            $( '#toggleTransperentStroboEnsoSymbol' ).on( 'wheel', function ( event ) {
+                $( '#meditationSymbol' ).show();
+                $( '#ensoImageShrineContainer' ).hide();
+                setNextMeditationSymbol();
             } );
 
             // VideoJS Window
@@ -4489,7 +4499,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
 
-           /*     $( '#showShrineSection' ).trigger( 'click' );*/
+                $( '#showShrineSection' ).trigger( 'click' );
             }
         }
 );
