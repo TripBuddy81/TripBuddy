@@ -371,7 +371,7 @@ $( document ).ready( function () {
                     } );
                     return false;
                 } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) || $( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) ) {
-                    if ( config['videosVideodrome'] != undefined ) {
+                    if ( config['videosPornGeneral'] != undefined ) {
                         $( e.target ).removeAttr( 'controls' );
                         $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuContainer' ).hide();
@@ -795,7 +795,7 @@ $( document ).ready( function () {
                 $( '#videodrome' ).show();
                 $( '#videodromeUI' ).show();
 
-                if ( config['videosVideodrome'] == undefined ) {
+                if ( config['videosPornGeneral'] == undefined ) {
                     if ( $( '#videoJSPlayer1_html5_api' ).is( ':visible' ) ) {
                         $( '#videoJSPlayer1_html5_api' ).trigger( 'click' );
                     } else if ( $( '#videoJSPlayer2_html5_api' ).is( ':visible' ) ) {
@@ -1250,7 +1250,7 @@ $( document ).ready( function () {
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
                     privateVisible = false;
 
-                    config['videosVideodrome'] = $.merge( [], videosLocalOriginal );
+                    config['videosPornGeneral'] = $.merge( [], videosLocalOriginal );
                     $( '.showGeneralVideos' ).hide();
                     $( '.hideGeneralVideos' ).show();
                     $( '.hidePrivateContent' ).hide();
@@ -3212,7 +3212,7 @@ $( document ).ready( function () {
                 e.preventDefault();
                 e.stopPropagation();
                 if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
-                    if ( config['videosVideodrome'] != undefined ) {
+                    if ( config['videosPornGeneral'] != undefined ) {
                         $( '.video-js' ).removeClass( 'vjs-user-active' );
                         $( '.video-js' ).addClass( 'vjs-user-inactive' );
                         $( '.vjs-control-bar' ).css( 'opacity', '0' );
@@ -3289,19 +3289,19 @@ $( document ).ready( function () {
             } );
 
             $( '.videodromeRefreshLocalVideo' ).click( function () {
-                if ( config['videosVideodrome'] != undefined && config['videosVideodrome'].length > 0 ) {
+                if ( config['videosPornGeneral'] != undefined && config['videosPornGeneral'].length > 0 ) {
                     target = $( this ).attr( 'target' );
 
-                    randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                    randomNumber = Math.floor( Math.random() * (parseInt( config['videosPornGeneral'].length ) - parseInt( 0 )) + parseInt( 0 ) );
                     while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
-                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                        if ( alreadySelectedVideosVideodrome.length >= config['videosVideodrome'].length - 1 ) {
+                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosPornGeneral'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        if ( alreadySelectedVideosVideodrome.length >= config['videosPornGeneral'].length - 1 ) {
                             alreadySelectedVideosVideodrome = [];
                         }
                     }
                     alreadySelectedVideosVideodrome.push( randomNumber );
 
-                    $( '.' + target ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
+                    $( '.' + target ).find( '.videoSource' ).attr( 'src', config['videosPornGeneral'][randomNumber] );
                     $( '.' + target ).find( '.localVideo' )[0].load();
                     $( '.' + target ).find( '.localVideo' )[0].play();
                 }
@@ -3333,19 +3333,19 @@ $( document ).ready( function () {
                     target = this;
                     return;
                 } );
-                if ( config['videosVideodrome'] != undefined && config['videosVideodrome'].length > 0 ) {
+                if ( config['videosPornGeneral'] != undefined && config['videosPornGeneral'].length > 0 ) {
                     if ( $( target ).hasClass( 'video-js' ) ) {
                         videodromeStreamRefreshVideo();
                     } else {
-                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosPornGeneral'].length ) - parseInt( 0 )) + parseInt( 0 ) );
                         while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
-                            randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                            if ( alreadySelectedVideosVideodrome.length >= config['videosVideodrome'].length - 1 ) {
+                            randomNumber = Math.floor( Math.random() * (parseInt( config['videosPornGeneral'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                            if ( alreadySelectedVideosVideodrome.length >= config['videosPornGeneral'].length - 1 ) {
                                 alreadySelectedVideosVideodrome = [];
                             }
                         }
                         alreadySelectedVideosVideodrome.push( randomNumber );
-                        $( target ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
+                        $( target ).find( '.videoSource' ).attr( 'src', config['videosPornGeneral'][randomNumber] );
                         $( target ).find( '.localVideo' )[0].load();
                         $( target ).find( '.localVideo' )[0].play();
                     }
@@ -3544,7 +3544,7 @@ $( document ).ready( function () {
             $( '.showGeneralVideos' ).click( function ( e ) {
                 $( '.showGeneralVideos,.hideGeneralVideos' ).toggle();
                 $.each( videosLocalOriginal, function ( index, val ) {
-                    config['videosVideodrome'].push( val );
+                    config['videosPornGeneral'].push( val );
                 } );
                 displayAllActiveLocalFilenames();
             } );
@@ -3552,7 +3552,7 @@ $( document ).ready( function () {
             $( '.hideGeneralVideos' ).click( function ( e ) {
                 $( '.showGeneralVideos,.hideGeneralVideos' ).toggle();
                 $.each( videosLocalOriginal, function ( index, val ) {
-                    config['videosVideodrome'].splice( $.inArray( val, config['videosVideodrome'] ), 1 );
+                    config['videosPornGeneral'].splice( $.inArray( val, config['videosPornGeneral'] ), 1 );
                 } );
                 displayAllActiveLocalFilenames();
             } );
@@ -3563,7 +3563,7 @@ $( document ).ready( function () {
 
                 $.each( config['videosLocal'], function ( index, val ) {
                     if ( val['tags'] == 'private' ) {
-                        config['videosVideodrome'].push( val['videoLink'] );
+                        config['videosPornGeneral'].push( val['videoLink'] );
                     }
                 } );
 
@@ -3576,7 +3576,7 @@ $( document ).ready( function () {
 
                 $.each( config['videosLocal'], function ( index, val ) {
                     if ( val['tags'] == 'private' ) {
-                        config['videosVideodrome'].splice( $.inArray( val['videoLink'], config['videosVideodrome'] ), 1 );
+                        config['videosPornGeneral'].splice( $.inArray( val['videoLink'], config['videosPornGeneral'] ), 1 );
                     }
                 } );
 
@@ -3668,11 +3668,11 @@ $( document ).ready( function () {
 
                         if ( mode == 'add' ) {
                             externalFiles.forEach( function ( url ) {
-                                config['videosVideodrome'].push( url + '#t=5' );
+                                config['videosPornGeneral'].push( url + '#t=5' );
                             } );
                         } else {
                             externalFiles.forEach( function ( url ) {
-                                config['videosVideodrome'].splice( $.inArray( url + '#t=5', config['videosVideodrome'] ), 1 );
+                                config['videosPornGeneral'].splice( $.inArray( url + '#t=5', config['videosPornGeneral'] ), 1 );
                             } );
                         }
 
@@ -3683,10 +3683,10 @@ $( document ).ready( function () {
 
             function displayAllActiveLocalFilenames() {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
-                $.each( config['videosVideodrome'], function ( val ) {
+                $.each( config['videosPornGeneral'], function ( val ) {
                     let localFilename = document.createElement( 'div' );
-                    localFilename.innerHTML = decodeURI( config['videosVideodrome'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
-                    localFilename.setAttribute( 'src', config['videosVideodrome'][val] );
+                    localFilename.innerHTML = decodeURI( config['videosPornGeneral'][val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
+                    localFilename.setAttribute( 'src', config['videosPornGeneral'][val] );
                     localFilename.classList.add( 'localFilename' );
                     document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localFilename );
                 } );
@@ -3746,16 +3746,16 @@ $( document ).ready( function () {
             }
 
             function initVideodrome() {
-                if ( config['videosVideodrome'] != undefined ) {
-                    videosLocalOriginal = $.merge( [], config['videosVideodrome'] );
+                if ( config['videosPornGeneral'] != undefined ) {
+                    videosLocalOriginal = $.merge( [], config['videosPornGeneral'] );
                     getAllExternalPornDirs( config['externalRootDirs']['pornRootDir'] );
                     var videosToShow = [];
                     while ( videosToShow.length < 4 ) {
-                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosVideodrome'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosPornGeneral'].length ) - parseInt( 0 )) + parseInt( 0 ) );
                         if ( videosToShow.indexOf( randomNumber ) == -1 ) {
                             videosToShow.push( randomNumber );
                             alreadySelectedVideosVideodrome.push( randomNumber );
-                            $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', config['videosVideodrome'][randomNumber] );
+                            $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', config['videosPornGeneral'][randomNumber] );
                             $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].load();
                             $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
                         }
@@ -4489,7 +4489,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
 
-                $( '#showShrineSection' ).trigger( 'click' );
+           /*     $( '#showShrineSection' ).trigger( 'click' );*/
             }
         }
 );
