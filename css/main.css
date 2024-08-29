@@ -967,7 +967,7 @@ option {
 }
 
 .mindJourneyPlaylistSpacer {
-    margin-top: 83px;
+    margin-top: 41px;
 }
 
 .spotifyPlaylistItem, .noisegeneratorLink, .spotifyTrackContainer {
@@ -2136,7 +2136,7 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 0;
     z-index: 35;
     min-width: 470px;
-    height: 739px;
+    height: 600px;
     padding:10px 15px;
 }
 
@@ -2452,5 +2452,5 @@ video::-webkit-media-controls-fullscreen-button {
 
 .mindJourneyPlaylistSelector {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
 }

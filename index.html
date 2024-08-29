@@ -352,6 +352,14 @@
                     {{/singleTracks}}
 
                     <div class="mindJourneyPlaylistSpacer">
+                        {{#playlists.shaman}}
+                        <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                             data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                        </div>
+                        {{/playlists.shaman}}
+                    </div>
+
+                    <div class="mindJourneyPlaylistSpacer">
                         {{#playlists.mindJourney}}
                         <div class="spotifyPlaylistItem spotifyPlaylist XXX" shuffle="{{shuffle}}" repeat="{{repeat}}"
                              data-spotify-id="spotify:playlist:{{id}}">{{label}}
@@ -1107,12 +1115,24 @@
 
             <div class="mindJourneySettingsSpacer1"></div>
 
-            {{#playlists.mindJourney}}
-            <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
-                 data-spotify-id="spotify:playlist:{{id}}">{{label}}
+            <div class="row">
+                <div class="col">
+                    {{#playlists.mindJourney}}
+                    <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}"
+                        repeat="{{repeat}}"
+                        data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    </div>
+                    {{/playlists.mindJourney}}
+                </div>
+                <div class="col">
+                    {{#playlists.shaman}}
+                    <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}"
+                        repeat="{{repeat}}"
+                        data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    </div>
+                    {{/playlists.shaman}}
+                </div>
             </div>
-            {{/playlists.mindJourney}}
-
         </div>
 
         <div id="videodromeBottomToolbar">
