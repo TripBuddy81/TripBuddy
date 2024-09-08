@@ -51,7 +51,7 @@ var config = {
                         'id'   : '6wQ07R92xkvztkwjhxUup3'
                     },
                     {
-                        'label': 'Yoga & Meditation',
+                        'label': 'Meditation',
                         'id'   : '08dReIUXjXFtHaMsULjYMc'
                     },
                     {
@@ -143,18 +143,6 @@ var config = {
                     {
                         'label': 'Psychedelic Rock',
                         'id'   : '1J2Q32HV4PbVhlhNTensBV'
-                    },
-                    {
-                        'label': 'Southern gothic',
-                        'id'   : '37i9dQZF1DX58NJL8iVBGW'
-                    },
-                    {
-                        'label': 'Cash meets Tarantino',
-                        'id'   : '6JFcprqODBhUDXLoiecO21'
-                    },
-                    {
-                        'label': 'New model army',
-                        'id'   : '0aA3os9XTLtYxCNL7iXKcV'
                     },
                     {
                         'label': 'Lucid Planet',
