@@ -3447,7 +3447,7 @@ $( document ).ready( function () {
                 }, 2000 );
             } );
 
-            $( document ).on( 'mousemove', '#videodromeFullscreenMenuVideoJSContainer', function ( event ) {
+            $( document ).on( 'mousemove', '#videodromeGlobalActionContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuVideoJSContainerExtraOptions', function ( event ) {
                 event.preventDefault();
 
                 $( '.video-js' ).removeClass( 'vjs-user-inactive' );
