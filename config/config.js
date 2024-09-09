@@ -1404,6 +1404,8 @@ var config = {
                 './media/symbols/51.png',
                 './media/symbols/52.png',
                 './media/symbols/53.png',
+                './media/symbols/54.png',
+                './media/symbols/55.png',
             ],
             'searchEngines'          : [
                 {
