@@ -215,6 +215,10 @@ $( document ).ready( function () {
                         initVideodrome();
                     }
                     $( '.enablePornContent' ).hide();
+
+                    if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showVideodromeGlobalActionContainer'] != undefined && config['localSettingsOverwrite']['showVideodromeGlobalActionContainer'] ) {
+                        $( '#videodromeGlobalActionContainer' ).show();
+                    }
                 },
                 error  : function () {
                 }
