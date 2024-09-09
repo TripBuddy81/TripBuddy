@@ -1259,7 +1259,7 @@ $( document ).ready( function () {
                     $( '.hideGeneralVideos' ).show();
                     $( '.hidePrivateContent' ).hide();
                     $( '.showPrivateContent' ).show();
-                    displayExternalPornDirs();
+                    getAllExternalPornDirs( config['externalRootDirs']['pornRootDir'] );
                 }
 
                 if ( videoTagList == '' ) {
