@@ -1113,14 +1113,14 @@ option {
 
 .shrineColorfulBackground {
     background: radial-gradient(rgba(144, 107, 255, 1), rgba(72, 205, 255, 1), rgba(155, 255, 107, 1) var(--p), rgba(245, 255, 115, 1)) !important;
-    animation: shrineBackground 13s infinite linear;
+    animation: shrineBackground 12s infinite linear;
 }
 
 @keyframes shrineBackground {
     0% {
         --p: 40%;
     }
-    50% {
+    40% {
         --p: 140%;
     }
     100% {
