@@ -1356,56 +1356,198 @@ var config = {
                 }
             ],
             'meditationSymbols'      : [
-                './media/symbols/02.png',
-                './media/symbols/03.png',
-                './media/symbols/05.png',
-                './media/symbols/06.png',
-                './media/symbols/07.png',
-                './media/symbols/08.png',
-                './media/symbols/09.png',
-                './media/symbols/10.png',
-                './media/symbols/11.png',
-                './media/symbols/12.png',
-                './media/symbols/13.png',
-                './media/symbols/15.png',
-                './media/symbols/16.png',
-                './media/symbols/18.png',
-                './media/symbols/19.png',
-                './media/symbols/20.png',
-                './media/symbols/21.png',
-                './media/symbols/22.png',
-                './media/symbols/23.png',
-                './media/symbols/24.png',
-                './media/symbols/25.png',
-                './media/symbols/26.png',
-                './media/symbols/27.png',
-                './media/symbols/28.png',
-                './media/symbols/30.png',
-                './media/symbols/31.png',
-                './media/symbols/32.png',
-                './media/symbols/33.png',
-                './media/symbols/34.png',
-                './media/symbols/35.png',
-                './media/symbols/36.png',
-                './media/symbols/37.png',
-                './media/symbols/38.png',
-                './media/symbols/39.png',
-                './media/symbols/40.png',
-                './media/symbols/41.png',
-                './media/symbols/42.png',
-                './media/symbols/43.png',
-                './media/symbols/44.png',
-                './media/symbols/45.png',
-                './media/symbols/46.png',
-                './media/symbols/47.png',
-                './media/symbols/48.png',
-                './media/symbols/49.png',
-                './media/symbols/50.png',
-                './media/symbols/51.png',
-                './media/symbols/52.png',
-                './media/symbols/53.png',
-                './media/symbols/54.png',
-/*                './media/symbols/55.png',*/ // no large
+                {
+                    'image'  : './media/symbols/01.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/02.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/03.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/05.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/06.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/07.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/08.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/09.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/10.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/11.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/12.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/13.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/15.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/16.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/18.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/19.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/20.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/21.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/22.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/23.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/25.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/26.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/27.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/28.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/30.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/31.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/32.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/33.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/34.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/35.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/36.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/37.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/38.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/39.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/40.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/41.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/42.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/43.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/45.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/46.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/47.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/48.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/49.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/51.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/52.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/53.png',
+                    'meaning': ''
+                },
+                {
+                    'image'  : './media/symbols/54.png',
+                    'meaning': ''
+                },
+/*                {
+                    'image'  : './media/symbols/55.png',
+                    'meaning': ''
+                },*/
             ],
             'searchEngines'          : [
                 {

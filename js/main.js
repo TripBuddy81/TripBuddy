@@ -2114,7 +2114,8 @@ $( document ).ready( function () {
                     }
                 }
                 alreadySelectedMeditationSymbols.push( randomNumber );
-                $( '#meditationSymbol' ).attr( 'src', config['meditationSymbols'][randomNumber] );
+                $( '#meditationSymbol' ).attr( 'src', config['meditationSymbols'][randomNumber]['image'] );
+                $( '#meditationSymbolMeaning' ).html( config['meditationSymbols'][randomNumber]['meaning'] );
             }
 
             function toggleRelationships( modeForced = '' ) {
@@ -4502,7 +4503,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*    toggleXXXVisible();*/
 
-               /* $( '#videodromeUI' ).show();*/
+                /* $( '#videodromeUI' ).show();*/
 
                 /*   $( '#showShrineSection' ).trigger( 'click' );*/
             }
