@@ -337,7 +337,7 @@ function handleCurrentlyPlayingResponse() {
                     currentlyPlayingTrack = data['item']['artists'][0]['name'] + ' - ' + data['item']['name'];
                     spotifyHistory['items'].unshift( dateTime + ' ' + currentlyPlayingTrack );
 
-                    if ( spotifyHistory['items'].length > 200 ) {
+                    if ( spotifyHistory['items'].length > 500 ) {
                         spotifyHistory['items'].splice( -1 );
                     }
 
