@@ -541,7 +541,7 @@ li, .options, .form-check-label {
     font-family: sans-serif;
 }
 
-#topupReminderInMinutes1, #topupReminderInMinutes2, #guidedThoughtMinMinutes, #guidedThoughtMaxMinutes, #firstGuidedThoughtMin, #orderPizzaReminderInMinutes {
+#topupReminderInMinutes1, #topupReminderInMinutes2, #topupReminderInMinutes3, #guidedThoughtMinMinutes, #guidedThoughtMaxMinutes, #firstGuidedThoughtMin, #orderPizzaReminderInMinutes {
     width: 65px;
     border: none;
     font-weight: bold;

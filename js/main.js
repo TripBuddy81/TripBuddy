@@ -51,6 +51,7 @@ $( document ).ready( function () {
             window.lastState = '';
             window.topUpReminderShown1 = false;
             window.topUpReminderShown2 = false;
+            window.topUpReminderShown3 = false;
             window.orderPizzaReminderShown = false;
             window.pizzaTimerShown = false;
             window.imageSectionShown = false;
@@ -860,6 +861,11 @@ $( document ).ready( function () {
                 } else {
                     localStorage.setItem( 'topupReminderInMinutes2', '' );
                 }
+                if ( $( '#topupCheckbox3' ).is( ':checked' ) ) {
+                    localStorage.setItem( 'topupReminderInMinutes3', $( '#topupReminderInMinutes3' ).val() );
+                } else {
+                    localStorage.setItem( 'topupReminderInMinutes3', '' );
+                }
                 if ( $( '#orderPizzaCheckbox' ).is( ':checked' ) ) {
                     localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
                 } else {
@@ -978,9 +984,20 @@ $( document ).ready( function () {
                     localStorage.setItem( 'topupReminderInMinutes2', '' );
                 }
             } );
+            $( '#topupCheckbox3' ).change( function () {
+                if ( $( '#topupCheckbox3' ).is( ':checked' ) ) {
+                    localStorage.setItem( 'topupReminderInMinutes3', $( '#topupReminderInMinutes3' ).val() );
+                } else {
+                    localStorage.setItem( 'topupReminderInMinutes3', '' );
+                }
+            } );
             $( '#topupReminderInMinutes2' ).change( function () {
                 $( '#topupCheckbox2' ).prop( 'checked', true );
                 localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
+            } );
+            $( '#topupReminderInMinutes3' ).change( function () {
+                $( '#topupCheckbox3' ).prop( 'checked', true );
+                localStorage.setItem( 'topupReminderInMinutes3', $( '#topupReminderInMinutes3' ).val() );
             } );
 
             // Order Pizza Reminder Config
@@ -1170,6 +1187,10 @@ $( document ).ready( function () {
                 }
                 if ( localStorage.getItem( 'topupReminderInMinutes2' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes2' ) ) && topUpReminderShown2 == false ) {
                     topUpReminderShown2 = true;
+                    showTimedRecommendation( '??? Take Weed ???' );
+                }
+                if ( localStorage.getItem( 'topupReminderInMinutes3' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes3' ) ) && topUpReminderShown3 == false ) {
+                    topUpReminderShown3 = true;
                     showTimedRecommendation( '??? Take Weed ???' );
                 }
                 // Reminder Display - Order Pizza
