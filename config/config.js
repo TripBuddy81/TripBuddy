@@ -547,7 +547,7 @@ var config = {
                 },
                 {
                     'videoId': '_eLeUBSqfcM',
-                    'tags'   : 'space',
+                    'tags'   : 'space'
                 },
                 {
                     'videoId'     : 'Y_plhk1FUQA',
@@ -1358,196 +1358,244 @@ var config = {
             'meditationSymbols'      : [
                 {
                     'image'  : './media/symbols/01.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/02.png',
-                    'meaning': ''
+                    'label' : 'Hand der Fatima',
+                    'meaning': 'Dschinn ist eine Sammelbezeichnung für mehr oder weniger gute oder böse Geister, die zwar nicht besiegt, aber durch Abwehrzauber gebannt werden können.'
                 },
                 {
                     'image'  : './media/symbols/03.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/05.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/06.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/07.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/08.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/09.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/10.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/11.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/12.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/13.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/15.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/16.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/18.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/19.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/20.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/21.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/22.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/23.png',
-                    'meaning': ''
+                    'label' : 'nicht die offizielle Bedeutung!',
+                    'meaning': 'Die Hand Gottes, die das gesamte Universum in seinen Händen hält.'
                 },
                 {
                     'image'  : './media/symbols/25.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/26.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/27.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/28.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/30.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/31.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/32.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/33.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/34.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/35.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/36.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/37.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/38.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/39.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/40.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/41.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/42.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/43.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/45.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/46.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/47.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/48.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/49.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/51.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/52.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/53.png',
+                    'label' : '',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/54.png',
+                    'label'  : '137',
+                    'meaning': 'Es beschreibt die formale "Summe" der wichtigsten und zentralsten Stellschrauben unseres Universums. Ist das die Hausnummer unseres Universums? '
+                }
+                /*                {
+                                    'image'  : './media/symbols/55.png',
+                                    'label' : '',
                     'meaning': ''
-                },
-/*                {
-                    'image'  : './media/symbols/55.png',
-                    'meaning': ''
-                },*/
+                                },*/
             ],
             'searchEngines'          : [
                 {
@@ -1717,7 +1765,7 @@ var config = {
                         {
                             'text': 'The purpose of life is not perfection, but wholeness.',
                             'tag' : ''
-                        },
+                        }
 
                     ]
         }
