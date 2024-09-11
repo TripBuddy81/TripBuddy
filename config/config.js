@@ -47,7 +47,7 @@ var config = {
                         'id'   : '4ILChY5F4Hn08ikt0rfHhW'
                     },
                     {
-                        'label': 'Binaural Beats',
+                        'label': 'Binaural Waves',
                         'id'   : '6wQ07R92xkvztkwjhxUup3'
                     },
                     {
@@ -115,6 +115,10 @@ var config = {
                     {
                         'label': 'Shamanism',
                         'id'   : '5YbqrWZW98ZH0kksUAnzKb'
+                    },
+                    {
+                        'label': 'Minimal',
+                        'id'   : '0iMHT0jtNr8lmVyw3DSEIH'
                     },
                     {
                         'label': 'Project-R',
@@ -269,8 +273,9 @@ var config = {
                 {'selectableTag': 'hiking'},
                 {'selectableTag': 'music'},
                 {'selectableTag': 'calming'},
+                {'selectableTag': 'nsfw'},
                 {'selectableTag': 'wisdom'},
-                {'selectableTag': 'nsfw'}
+                {'selectableTag': 'shaman'}
             ],
             'videosYoutube'          : [
                 {
@@ -804,16 +809,14 @@ var config = {
                     'tags'   : 'weird'
                 },
                 {
+                    'videoId': 'ZcfDzE3FCt4',
+                    'tags'   : 'nsfw'
+                },
+                {
                     'videoId': '2NP0jYGPXc4',
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'Right where it belongs - NIN'
-                },
-                {
-                    'videoId': 'NJMKuswemhc',
-                    'mute'   : false,
-                    'tags'   : 'wisdom',
-                    'label'  : 'Sage Terence McKenna showing us the big picture'
                 },
                 {
                     'videoId': 'm-47paKizHM',
@@ -1104,9 +1107,18 @@ var config = {
                     'label'  : 'On the Ego'
                 },
                 {
-                    'videoId': 'ZcfDzE3FCt4',
-                    'tags'   : 'nsfw'
-                }
+                    'videoId': 'NJMKuswemhc',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Sage Terence McKenna showing us the big picture'
+                },
+                {
+                    'videoId': 'UeeMOGvKS64',
+                    'mute'   : 'mixed',
+                    'tags'   : 'shaman',
+                    'label'  : 'Exploring the Astral plane'
+                },
+
             ],
             'selectableImageTags'    : [
                 {'selectableTag': 'trippy'},
