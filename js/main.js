@@ -346,6 +346,7 @@ $( document ).ready( function () {
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
                 if ( $( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                 } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
                     stopShrineDisco();
                 } else if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' ) && !$( '#musicVideos' ).is( ':visible' )) || e.which == 0 ) {
@@ -3508,6 +3509,14 @@ $( document ).ready( function () {
                     $( '.video-js' ).addClass( 'vjs-user-inactive' );
                     $( '.vjs-control-bar' ).css( 'display', 'none' );
                 }, 2000 );
+            } );
+
+            $( document ).on( 'mouseleave', '#videodromeGlobalActionContainer', function ( event ) {
+                if ( $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
+                    $( '#videodromeGlobalActionContainer' ).css( 'opacity', '1' );
+                } else {
+                    $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
+                }
             } );
 
             $( document ).on( 'mousemove', '.vjs-control-bar', function ( event ) {
