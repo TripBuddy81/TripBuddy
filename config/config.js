@@ -831,6 +831,12 @@ var config = {
                     'label'  : 'Charlie Chaplins Wisdom'
                 },
                 {
+                    'videoId': 'ds3ALnNQs48',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'You do not exist'
+                },
+                {
                     'videoId': 'ogLc7M9_hR8',
                     'mute'   : false,
                     'tags'   : 'wisdom',
