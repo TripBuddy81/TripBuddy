@@ -2416,6 +2416,7 @@ video::-webkit-media-controls-fullscreen-button {
     text-align: left;
 }
 
+/*
 .mindJourneySettingsSpacer1 {
     border-radius: 5px;
     border: solid 3px #000000;
@@ -2428,6 +2429,8 @@ video::-webkit-media-controls-fullscreen-button {
     display: block;
     position: relative;
 }
+*/
+/*
 
 .mindJourneyCharSelect {
     font-size: 30px;
@@ -2454,31 +2457,34 @@ video::-webkit-media-controls-fullscreen-button {
     top: 160px;
     left: 80px;
 }
+*/
 
+/*
 .mindJourneyPlaylistSelector {
     font-weight: bold;
     font-size: 20px;
 }
+*/
 
 #quickSelectGlobalMenuMindJourney, #quickSelectGlobalMenuWordsOfPower {
     display: none;
 }
 
-.quickSelectGlobalMenuPlaylistSectionIcon {
+#quickSelectGlobalMenuPlaylistSectionIcon {
     height: 53px;
     top: 11px;
     position: absolute;
     left: 17px;
 }
 
-.quickSelectGlobalMenuMindJourneySectionIcon {
+#quickSelectGlobalMenuMindJourneySectionIcon {
     height: 53px;
     top: 11px;
     position: absolute;
     left: 90px;
 }
 
-.quickSelectGlobalMenuWordOfPowerSectionIcon {
+#quickSelectGlobalMenuWordOfPowerSectionIcon {
     height: 53px;
     top: 11px;
     position: absolute;

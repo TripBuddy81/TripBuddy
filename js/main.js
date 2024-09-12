@@ -4506,7 +4506,10 @@ $( document ).ready( function () {
 
             // ******************************************
             // #15 - Quick Select Global Menu (generic functions & Mind Journey selector & Words of Power)
-
+            $( document ).on( 'click', '.quickSelectGlobalMenuIcon', function () {
+                $( '.quickSelectGlobalMenuSection' ).hide();
+                $( '#' + $( this ).attr( 'data-target' ) ).show();
+            } );
 
 
             // END Quick Select Global Menu

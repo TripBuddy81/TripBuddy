@@ -324,11 +324,11 @@
         <div id="quickSelectGlobalMenuContainer" class="largeMenu">
             <div class="spotifyCurrentlyPlayingContainer row">
                 <div class="col">
-                    <img class="quickSelectGlobalMenuPlaylistSectionIcon iconAlternating cursorAction"
+                    <img id="quickSelectGlobalMenuPlaylistSectionIcon" data-target="quickSelectGlobalMenuPlaylistOverview" class="quickSelectGlobalMenuIcon iconAlternating cursorAction"
                          src="./assets/playlist.png">
-                    <img class="quickSelectGlobalMenuMindJourneySectionIcon iconAlternating cursorAction"
+                    <img id="quickSelectGlobalMenuMindJourneySectionIcon" data-target="quickSelectGlobalMenuMindJourney" class="quickSelectGlobalMenuIcon iconAlternating cursorAction"
                          src="./assets/stage.png">
-                    <img class="quickSelectGlobalMenuWordOfPowerSectionIcon iconAlternating cursorAction"
+                    <img id="quickSelectGlobalMenuWordOfPowerSectionIcon" data-target="quickSelectGlobalMenuWordsOfPower" class="quickSelectGlobalMenuIcon iconAlternating cursorAction"
                          src="./assets/ram.png">
 
                     <div class="spotifyCurrentlyPlayingTrack currentTrackAction" data-spotify-id=''>...</div>
@@ -342,7 +342,7 @@
                 </div>
             </div>
 
-            <div id="quickSelectGlobalMenuPlaylistOverview" class="row menuContent">
+            <div id="quickSelectGlobalMenuPlaylistOverview" class="row menuContent quickSelectGlobalMenuSection">
                 <div class="col">
                     <a class="playlistMenuCustomLink" href="https://mynoise.net/noiseMachines.php" target=_blank>Noise
                         Machines</a>
@@ -396,11 +396,9 @@
                 </div>
             </div>
 
-            <div id="quickSelectGlobalMenuMindJourney" class="row menuContent">
+            <div id="quickSelectGlobalMenuMindJourney" class="row menuContent quickSelectGlobalMenuSection">
                 <div class="col">
-                    <div class="mindJourneySettingsSpacer1"></div>
-
-                    <span id="mindJourneyCharSelect">
+                     <span id="mindJourneyCharSelect">
                         <span id="mindJourneyEinheit" class="mindJourneyCharSelect cursorAction">Einheit</span>
                         <span id="mindJourneyRebell" class="mindJourneyCharSelect cursorAction">Rebell</span>
                         <span id="mindJourneyTier" class="mindJourneyCharSelect cursorAction">Tier</span>
@@ -422,7 +420,7 @@
                 </div>
             </div>
 
-            <div id="quickSelectGlobalMenuWordsOfPower" class="row menuContent">
+            <div id="quickSelectGlobalMenuWordsOfPower" class="row menuContent quickSelectGlobalMenuSection">
                 <div class="col">
                     Words of Power
                 </div>
