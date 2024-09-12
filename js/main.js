@@ -2377,6 +2377,8 @@ $( document ).ready( function () {
             $( '.spotifyPlaylistItem,.currentTrackAction' ).click( function () {
                 $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                 $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
+                $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
+                $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
             } );
 
             $( '#spotifyLogin' ).click( function ( e ) {
@@ -4583,8 +4585,8 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*      toggleXXXVisible();*/
 
-                  /*   $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
-                $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
+                     $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
+                $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
             }
         }
 );
