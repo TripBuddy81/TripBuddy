@@ -949,7 +949,7 @@ option {
     padding: 10px 15px;
     display: block;
     font-weight: 600;
-    z-index: 20;
+    z-index: 40;
     background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055);
     transition: all 0.5s ease;
     height: 94vh;
@@ -2424,56 +2424,6 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 18px;
     text-align: left;
 }
-
-/*
-.mindJourneySettingsSpacer1 {
-    border-radius: 5px;
-    border: solid 3px #000000;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-#mindJourneyCharSelect {
-    margin-bottom: 235px;
-    display: block;
-    position: relative;
-}
-*/
-/*
-
-.mindJourneyCharSelect {
-    font-size: 30px;
-    font-weight: bold;
-    position: absolute;
-}
-
-#mindJourneyEinheit {
-    top: 0px;
-    left: 70px;
-}
-
-#mindJourneyRebell {
-    top: 80px;
-    left: 175px;
-}
-
-#mindJourneyTier {
-    top: 80px;
-    left: 10px;
-}
-
-#mindJourneyKind {
-    top: 160px;
-    left: 80px;
-}
-*/
-
-/*
-.mindJourneyPlaylistSelector {
-    font-weight: bold;
-    font-size: 20px;
-}
-*/
 
 #quickSelectGlobalMenuMindJourney, #quickSelectGlobalMenuWordsOfPower {
     display: none;
