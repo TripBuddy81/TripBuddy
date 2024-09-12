@@ -2168,7 +2168,6 @@ $( document ).ready( function () {
                 shrineDiscoActive = true;
                 showParticles = true;
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
-                $( '#toggleTransperentStroboEnsoSymbol' ).show();
             }
 
             function nextDiscoMode() {
@@ -2192,7 +2191,6 @@ $( document ).ready( function () {
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 $( '#videodrome' ).css( 'opacity', '1' );
-                $( '#toggleTransperentStroboEnsoSymbol' ).hide();
             }
 
             function triggerStrobo() {
@@ -3210,7 +3208,28 @@ $( document ).ready( function () {
             } );
 
             $( '.toggleTransparentStrobo' ).click( function () {
-                if ( $( this ).attr( 'data-transparency' ) == $( '#videodrome' ).css( 'opacity' ) ) {
+                toggleTransparentStrobo( $( this ).attr( 'data-transparency' ) );
+            } );
+
+            $( '#toggleTransperentStroboEnsoSymbol' ).click( function () {
+                $( '#meditationSymbol' ).hide();
+                $( '#ensoImageShrineContainer' ).toggle();
+                if ( !shrineDiscoActive ) {
+                    toggleTransparentStrobo( '' );
+                }
+            } );
+
+            $( '#toggleTransperentStroboEnsoSymbol' ).on( 'wheel', function ( event ) {
+                $( '#meditationSymbol' ).show();
+                $( '#ensoImageShrineContainer' ).hide();
+                if ( !shrineDiscoActive ) {
+                    toggleTransparentStrobo();
+                }
+                setNextMeditationSymbol();
+            } );
+
+            function toggleTransparentStrobo( transparency = '0.2' ) {
+                if ( transparency == $( '#videodrome' ).css( 'opacity' ) ) {
                     stopShrineDisco();
                 } else {
                     $( '.mainSectionActive' ).removeClass( 'mainSectionActive' );
@@ -3229,20 +3248,10 @@ $( document ).ready( function () {
                     startDiscoMode();
                     nextDiscoMode();
 
-                    $( '#videodrome' ).css( 'opacity', $( this ).attr( 'data-transparency' ) );
+                    $( '#videodrome' ).css( 'opacity', transparency );
                 }
-            } );
+            }
 
-            $( '#toggleTransperentStroboEnsoSymbol' ).click( function () {
-                $( '#meditationSymbol' ).hide();
-                $( '#ensoImageShrineContainer' ).toggle();
-            } );
-
-            $( '#toggleTransperentStroboEnsoSymbol' ).on( 'wheel', function ( event ) {
-                $( '#meditationSymbol' ).show();
-                $( '#ensoImageShrineContainer' ).hide();
-                setNextMeditationSymbol();
-            } );
 
             // VideoJS Window
             $( document ).on( 'click', '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function ( e ) {
@@ -4505,7 +4514,7 @@ $( document ).ready( function () {
             // ******************************************
 
             // ******************************************
-            // #15 - Quick Select Global Menu (generic functions & Mind Journey selector & Words of Power)
+            // #15 - Quick Select Global Menu (Playlist selector & Mind Journey selector & Words of Power)
             $( document ).on( 'click', '.quickSelectGlobalMenuIcon', function () {
                 $( '.quickSelectGlobalMenuSection' ).hide();
                 $( '#' + $( this ).attr( 'data-target' ) ).show();
