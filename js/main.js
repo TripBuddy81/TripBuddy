@@ -363,8 +363,7 @@ $( document ).ready( function () {
                             stroboSpeed > 0 ||
                             showParticles
                     ) {
-                        stopAllActions();
-                        $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
+                        stopAllActions( true, true, true );
                     } else {
                         $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
                         $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
@@ -547,15 +546,7 @@ $( document ).ready( function () {
             } )
 
             // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
-            function stopAllActions( hidePlaylistSelection = true, quickTrackSelection = true ) {
-                if ( hidePlaylistSelection ) {
-                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
-                }
-                if ( quickTrackSelection ) {
-                    $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
-                }
-                $( '#applicationSettingsMenu' ).removeClass( 'menuTransition' );
-
+            function stopAllActions( hidePlaylistSelection = true, quickTrackSelection = true, hideQuickSelectGlobalMenu = false ) {
                 $( '.spotifyTrackContainer' ).show();
 
                 closeRightMenu();
@@ -633,6 +624,17 @@ $( document ).ready( function () {
                 stopScreensaver();
 
                 $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+
+                if ( hidePlaylistSelection ) {
+                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
+                }
+                if ( quickTrackSelection ) {
+                    $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
+                }
+                $( '#applicationSettingsMenu' ).removeClass( 'menuTransition' );
+                if ( hideQuickSelectGlobalMenu ) {
+                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
+                }
             }
 
             function escapeHandler() {
@@ -4552,7 +4554,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
 
-            /*    $( '#videodromeUI' ).show();*/
+                /*    $( '#videodromeUI' ).show();*/
 
                 /*   $( '#showShrineSection' ).trigger( 'click' );*/
             }
