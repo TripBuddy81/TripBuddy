@@ -344,7 +344,11 @@ $( document ).ready( function () {
 
                 // Stop current action or show playlist selection if nothing else is going on right now
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
-                if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' ) && !$( '#musicVideos' ).is( ':visible' )) || e.which == 0 ) {
+                if ( $( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
+                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
+                } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
+                   stopShrineDisco();
+                } else if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' ) && !$( '#musicVideos' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
                             $( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) ||
