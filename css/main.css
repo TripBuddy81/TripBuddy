@@ -2442,6 +2442,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #quickSelectGlobalMenuMindJourney, #quickSelectGlobalMenuWordsOfPower {
     display: none;
+    padding-top: 35px;
 }
 
 #quickSelectGlobalMenuPlaylistSectionIcon {
@@ -2466,4 +2467,13 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
     left: 180px;
     display: none;
+}
+
+.mindJourneyCharCol {
+    text-align: left;
+}
+
+.mindJourneyCharSelect {
+    font-weight: bold;
+    font-size: 30px;
 }

@@ -414,33 +414,73 @@
             </div>
         </div>
 
-        <div id="quickSelectGlobalMenuMindJourney" class="row menuContent quickSelectGlobalMenuSection">
-            <div class="col">
-                     <span id="mindJourneyCharSelect">
-                        <span id="mindJourneyEinheit" class="mindJourneyCharSelect cursorAction">Einheit</span>
-                        <span id="mindJourneyRebell" class="mindJourneyCharSelect cursorAction">Rebell</span>
-                        <span id="mindJourneyTier" class="mindJourneyCharSelect cursorAction">Tier</span>
-                        <span id="mindJourneyKind" class="mindJourneyCharSelect cursorAction">Kind</span>
-                    </span>
+        <div id="quickSelectGlobalMenuMindJourney" class="menuContent quickSelectGlobalMenuSection">
+            <div class="row d-flex justify-content-between">
+                <div class="col-2">
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">TEMP</span>
+                    </div>
+                </div>
 
-                <div class="mindJourneySettingsSpacer1"></div>
+                <div class="col-3">
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">MUCKE</span>
+                    </div>
+                </div>
 
-                <div class="row">
-                    <div class="col">
-                        {{#playlists.mindJourney}}
-                        <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist"
-                             shuffle="{{shuffle}}"
-                             repeat="{{repeat}}"
-                             data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                        </div>
-                        {{/playlists.mindJourney}}
+                <div class="col-2 mindJourneyCharCol">
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">Einheit</span>
+                    </div>
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">Schamane Rechts</span>
+                    </div>
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">Schamane Links</span>
+                    </div>
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">Reisender</span>
+                    </div>
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">Tier</span>
+                    </div>
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">Rebell</span>
+                    </div>
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">Kind</span>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">TEMP3</span>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="row d-flex justify-content-between">
+                        <span class="mindJourneyCharSelect cursorAction">TEMP4</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="quickSelectGlobalMenuWordsOfPower" class="row menuContent quickSelectGlobalMenuSection">
-            <div class="col">
+        <!--                <div class="row">
+                            <div class="col">
+                                {{#playlists.mindJourney}}
+                                <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist"
+                                     shuffle="{{shuffle}}"
+                                     repeat="{{repeat}}"
+                                     data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                                </div>
+                                {{/playlists.mindJourney}}
+                            </div>
+                        </div>-->
+
+
+        <div id="quickSelectGlobalMenuWordsOfPower" class="menuContent quickSelectGlobalMenuSection">
+            <div class="row d-flex justify-content-between">
                 Words of Power
             </div>
         </div>
