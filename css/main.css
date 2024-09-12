@@ -2449,6 +2449,7 @@ video::-webkit-media-controls-fullscreen-button {
     top: 11px;
     position: absolute;
     left: 17px;
+    display: none;
 }
 
 #quickSelectGlobalMenuMindJourneySectionIcon {

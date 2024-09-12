@@ -2,7 +2,7 @@ $( document ).ready( function () {
             // Index:
             // #0.0 - global init section
             // #0.1 - Global key bindings, Global misc functionalities
-            // #0.2 - Main Menu
+            // #0.2 - Main Menues
             // #0.3 - Start button & preFlightChecklist & Reminders
             // #0.4 - Hidden Section config
             // #1 - Video section
@@ -223,6 +223,7 @@ $( document ).ready( function () {
             } );
 
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
+                $( '#quickSelectGlobalMenuPlaylistSectionIcon' ).show();
                 $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).show();
                 $( '#quickSelectGlobalMenuWordOfPowerSectionIcon' ).show();
             }
@@ -345,10 +346,12 @@ $( document ).ready( function () {
 
                 // Stop current action or show playlist selection if nothing else is going on right now
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
-                if ( $( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
+                if ( ($( '#videodrome' ).is( ':visible' ) || $( '#showShrineSection' ).hasClass( 'mainSectionActive' )) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                    $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                    $( '#shrineSettingsContainer' ).removeClass( 'visible' );
                 } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
                     stopShrineDisco();
                 } else if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' ) && !$( '#musicVideos' ).is( ':visible' )) || e.which == 0 ) {
@@ -374,6 +377,11 @@ $( document ).ready( function () {
                     } else {
                         $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
                         $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
+
+                        if ( $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
+                            $( '#mainMenu' ).css( 'opacity', '1' );
+                        }
+
                         stopAllActions( false );
                     }
                     return false;
@@ -721,7 +729,7 @@ $( document ).ready( function () {
             }
 
             // ***********************************
-            // #0.2 - Main Menu
+            // #0.2 - Main Menues
             $( '.XXX' ).hide();
             $( '#mainMenu' ).hover(
                     function ( event ) {
@@ -851,6 +859,12 @@ $( document ).ready( function () {
                 hideScreensaverEnso();
             } );
 
+            $( document ).on( 'click', '.quickSelectGlobalMenuIcon', function () {
+                $( '.quickSelectGlobalMenuSection' ).hide();
+                $( '#' + $( this ).attr( 'data-target' ) ).show();
+            } );
+
+
             // Main Menu END
             // ***********************************
 
@@ -964,7 +978,7 @@ $( document ).ready( function () {
                 // after liftoff the screensaver takes longer to start
                 screensaverStartAfterSeconds = 60;
 
-                // Mind Journey is defaulf view in globalMenu
+                // Mind Journey is default view in globalMenu
                 if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
                     $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
                 }
@@ -1984,7 +1998,7 @@ $( document ).ready( function () {
                             $( '#shrineSettingsContainer' ).addClass( 'visible' );
                         }
                     }, function () {
-                        if ( $( '#shrine' ).is( ':visible' ) ) {
+                        if ( $( '#shrine' ).is( ':visible' ) && !$( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                             $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                         }
                         $( '#shrineSettingsContainer' ).removeClass( 'visible' );
@@ -4549,17 +4563,6 @@ $( document ).ready( function () {
             // ******************************************
 
             // ******************************************
-            // #15 - Quick Select Global Menu (Playlist selector & Mind Journey selector & Words of Power)
-            $( document ).on( 'click', '.quickSelectGlobalMenuIcon', function () {
-                $( '.quickSelectGlobalMenuSection' ).hide();
-                $( '#' + $( this ).attr( 'data-target' ) ).show();
-            } );
-
-
-            // END Quick Select Global Menu
-            // ******************************************
-
-            // ******************************************
             // #20 - initial init section
             if ( urlParams.get( 'section' ) != undefined && urlParams.get( 'section' ) == 'shrine' ) {
                 $( '#meditativefilter' ).trigger( 'click' );
@@ -4580,7 +4583,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*      toggleXXXVisible();*/
 
-           /*     $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );*/
+                /*     $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );*/
             }
         }
 );
