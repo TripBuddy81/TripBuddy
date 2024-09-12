@@ -347,7 +347,7 @@ $( document ).ready( function () {
                 if ( $( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                 } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
-                   stopShrineDisco();
+                    stopShrineDisco();
                 } else if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' ) && !$( '#musicVideos' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
@@ -367,7 +367,7 @@ $( document ).ready( function () {
                             stroboSpeed > 0 ||
                             showParticles
                     ) {
-                        stopAllActions( true, true, true );
+                        stopAllActions();
                     } else {
                         $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
                         $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
@@ -550,7 +550,7 @@ $( document ).ready( function () {
             } )
 
             // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
-            function stopAllActions( hidePlaylistSelection = true, quickTrackSelection = true, hideQuickSelectGlobalMenu = false ) {
+            function stopAllActions( hidePlaylistSelection = true, hideQuickTrackSelection = true ) {
                 $( '.spotifyTrackContainer' ).show();
 
                 closeRightMenu();
@@ -632,13 +632,10 @@ $( document ).ready( function () {
                 if ( hidePlaylistSelection ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                 }
-                if ( quickTrackSelection ) {
+                if ( hideQuickTrackSelection ) {
                     $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                 }
                 $( '#applicationSettingsMenu' ).removeClass( 'menuTransition' );
-                if ( hideQuickSelectGlobalMenu ) {
-                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
-                }
             }
 
             function escapeHandler() {
