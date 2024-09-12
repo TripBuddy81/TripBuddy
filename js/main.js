@@ -364,6 +364,7 @@ $( document ).ready( function () {
                             showParticles
                     ) {
                         stopAllActions();
+                        $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     } else {
                         $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
                         $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
@@ -3214,8 +3215,9 @@ $( document ).ready( function () {
             $( '#toggleTransperentStroboEnsoSymbol' ).click( function () {
                 $( '#meditationSymbol' ).hide();
                 $( '#ensoImageShrineContainer' ).toggle();
+
                 if ( !shrineDiscoActive ) {
-                    toggleTransparentStrobo( '' );
+                    toggleTransparentStrobo();
                 }
             } );
 
@@ -3226,6 +3228,11 @@ $( document ).ready( function () {
                     toggleTransparentStrobo();
                 }
                 setNextMeditationSymbol();
+            } );
+
+            $( '.toggleQuickSelectGlobalMenuIcon' ).click( function () {
+                $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
+                $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
             } );
 
             function toggleTransparentStrobo( transparency = '0.2' ) {
@@ -4545,7 +4552,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
 
-                $( '#videodromeUI' ).show();
+            /*    $( '#videodromeUI' ).show();*/
 
                 /*   $( '#showShrineSection' ).trigger( 'click' );*/
             }

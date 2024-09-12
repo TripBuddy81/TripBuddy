@@ -321,160 +321,6 @@
             Select Playlist
         </button>
 
-        <div id="quickSelectGlobalMenuContainer" class="largeMenu">
-            <div class="spotifyCurrentlyPlayingContainer row">
-                <div class="col">
-                    <img id="quickSelectGlobalMenuPlaylistSectionIcon" data-target="quickSelectGlobalMenuPlaylistOverview" class="quickSelectGlobalMenuIcon iconAlternating cursorAction"
-                         src="./assets/playlist.png">
-                    <img id="quickSelectGlobalMenuMindJourneySectionIcon" data-target="quickSelectGlobalMenuMindJourney" class="quickSelectGlobalMenuIcon iconAlternating cursorAction"
-                         src="./assets/stage.png">
-                    <img id="quickSelectGlobalMenuWordOfPowerSectionIcon" data-target="quickSelectGlobalMenuWordsOfPower" class="quickSelectGlobalMenuIcon iconAlternating cursorAction"
-                         src="./assets/ram.png">
-
-                    <div class="spotifyCurrentlyPlayingTrack currentTrackAction" data-spotify-id=''>...</div>
-                    <img class="stopAfterTrack iconAlternating currentTrackAction invisible cursorAction"
-                         src="./assets/stopTrack.png">
-                    <img class="createSongRadio iconAlternating currentTrackAction invisible cursorAction"
-                         src="./assets/song_radio.png">
-                    <img class="addToFavorites iconAlternating currentTrackAction invisible cursorAction"
-                         src="./assets/add_to_favorites.png">
-                    <div class="menuTopBorder"></div>
-                </div>
-            </div>
-
-            <div id="quickSelectGlobalMenuPlaylistOverview" class="row menuContent quickSelectGlobalMenuSection">
-                <div class="col">
-                    <a class="playlistMenuCustomLink" href="https://mynoise.net/noiseMachines.php" target=_blank>Noise
-                        Machines</a>
-                    {{#noiseGenerators}}
-                    <div class="noisegeneratorLink" target="externalSoundTab" href="{{link}}">{{label}}
-                    </div>
-                    {{/noiseGenerators}}
-                </div>
-                <div class="col">
-                    {{#singleTracks}}
-                    <div class="spotifyPlaylistItem spotifySingleTrack" data-spotify-id="spotify:track:{{id}}">{{label}}
-                    </div>
-                    {{/singleTracks}}
-
-                    <div class="mindJourneyPlaylistSpacer">
-                        {{#playlists.shaman}}
-                        <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
-                             data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                        </div>
-                        {{/playlists.shaman}}
-                    </div>
-
-                    <div class="mindJourneyPlaylistSpacer">
-                        {{#playlists.mindJourney}}
-                        <div class="spotifyPlaylistItem spotifyPlaylist XXX" shuffle="{{shuffle}}" repeat="{{repeat}}"
-                             data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                        </div>
-                        {{/playlists.mindJourney}}
-                    </div>
-                </div>
-                <div class="col">
-                    {{#playlists.green}}
-                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
-                         data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                    </div>
-                    {{/playlists.green}}
-                </div>
-                <div class="col">
-                    {{#playlists.blue}}
-                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
-                         data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                    </div>
-                    {{/playlists.blue}}
-                </div>
-                <div class="col">
-                    {{#playlists.red}}
-                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
-                         data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                    </div>
-                    {{/playlists.red}}
-                </div>
-            </div>
-
-            <div id="quickSelectGlobalMenuMindJourney" class="row menuContent quickSelectGlobalMenuSection">
-                <div class="col">
-                     <span id="mindJourneyCharSelect">
-                        <span id="mindJourneyEinheit" class="mindJourneyCharSelect cursorAction">Einheit</span>
-                        <span id="mindJourneyRebell" class="mindJourneyCharSelect cursorAction">Rebell</span>
-                        <span id="mindJourneyTier" class="mindJourneyCharSelect cursorAction">Tier</span>
-                        <span id="mindJourneyKind" class="mindJourneyCharSelect cursorAction">Kind</span>
-                    </span>
-
-                    <div class="mindJourneySettingsSpacer1"></div>
-
-                    <div class="row">
-                        <div class="col">
-                            {{#playlists.mindJourney}}
-                            <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}"
-                                 repeat="{{repeat}}"
-                                 data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                            </div>
-                            {{/playlists.mindJourney}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="quickSelectGlobalMenuWordsOfPower" class="row menuContent quickSelectGlobalMenuSection">
-                <div class="col">
-                    Words of Power
-                </div>
-            </div>
-
-        </div>
-
-        <div id="quickTrackSelectionMenu" class="largeMenu">
-            <div class="spotifyCurrentlyPlayingContainer row">
-                <div class="col">
-                    <div class="spotifyCurrentlyPlayingTrack" data-spotify-id=''>...</div>
-                    <img class="stopAfterTrack currentTrackAction invisible cursorAction"
-                         src="./assets/stopTrack.png">
-                    <img class="createSongRadio currentTrackAction invisible cursorAction"
-                         src="./assets/song_radio.png">
-                    <img class="addToFavorites currentTrackAction invisible cursorAction"
-                         src="./assets/add_to_favorites.png">
-                    <div class="menuTopBorder"></div>
-                </div>
-            </div>
-
-            <div class="row menuContent">
-                {{#trackSelectionPlaylists}}
-                <div class="col-6">
-                    <div id='spotify:playlist:{{playlistId}}' class="row trackSelectionRow">
-                    </div>
-                </div>
-                {{/trackSelectionPlaylists}}
-            </div>
-        </div>
-
-        <div id="applicationSettingsMenu" class="largeMenu">
-            <div class="row">
-                <div class="col">
-                    <div class="settingsHeading">SETTINGS</div>
-                    <div class="menuTopBorder"></div>
-                </div>
-            </div>
-
-            <div class="row menuContent">
-                <div class="col-9">
-                    <div id="spotifyHistory">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="menuItem" id="spotifyLogin">Login to Spotify (admin & friends only)</div>
-                    <div class="menuItem" id="spotifyLogout">Logout Spotify</div>
-                    <div class="menuItem" id="toggleInfo">Toggle video info</div>
-                    <div class="menuItem" id="clearYoutubePlayedHistory">Clear Youtube history</div>
-                    <div class="menuItem" id="saveStreamFavoritesToFile">Save stream favorites to file</div>
-                </div>
-            </div>
-        </div>
-
         <div id="iFrameSpotifyPlayerContainer" class="float-end ">
             <div id="iFrameSpotifyPlayer"></div>
         </div>
@@ -485,6 +331,166 @@
             <img id="stopMusic" class="float-end playerIcon me-3 mt-3" src="./assets/pause.png">
             <img id="spotifyIcon" class="float-end playerIcon me-3 mt-3" src="./assets/spotify.png">
             <img id="switchDesktopPhone" class="float-end me-3 mt-3" src="">
+        </div>
+    </div>
+
+    <div id="quickSelectGlobalMenuContainer" class="largeMenu">
+        <div class="spotifyCurrentlyPlayingContainer row">
+            <div class="col">
+                <img id="quickSelectGlobalMenuPlaylistSectionIcon"
+                     data-target="quickSelectGlobalMenuPlaylistOverview"
+                     class="quickSelectGlobalMenuIcon iconAlternating cursorAction"
+                     src="./assets/playlist.png">
+                <img id="quickSelectGlobalMenuMindJourneySectionIcon" data-target="quickSelectGlobalMenuMindJourney"
+                     class="quickSelectGlobalMenuIcon iconAlternating cursorAction"
+                     src="./assets/stage.png">
+                <img id="quickSelectGlobalMenuWordOfPowerSectionIcon"
+                     data-target="quickSelectGlobalMenuWordsOfPower"
+                     class="quickSelectGlobalMenuIcon iconAlternating cursorAction"
+                     src="./assets/ram.png">
+
+                <div class="spotifyCurrentlyPlayingTrack currentTrackAction" data-spotify-id=''>...</div>
+                <img class="stopAfterTrack iconAlternating currentTrackAction invisible cursorAction"
+                     src="./assets/stopTrack.png">
+                <img class="createSongRadio iconAlternating currentTrackAction invisible cursorAction"
+                     src="./assets/song_radio.png">
+                <img class="addToFavorites iconAlternating currentTrackAction invisible cursorAction"
+                     src="./assets/add_to_favorites.png">
+                <div class="menuTopBorder"></div>
+            </div>
+        </div>
+
+        <div id="quickSelectGlobalMenuPlaylistOverview" class="row menuContent quickSelectGlobalMenuSection">
+            <div class="col">
+                <a class="playlistMenuCustomLink" href="https://mynoise.net/noiseMachines.php" target=_blank>Noise
+                    Machines</a>
+                {{#noiseGenerators}}
+                <div class="noisegeneratorLink" target="externalSoundTab" href="{{link}}">{{label}}
+                </div>
+                {{/noiseGenerators}}
+            </div>
+            <div class="col">
+                {{#singleTracks}}
+                <div class="spotifyPlaylistItem spotifySingleTrack" data-spotify-id="spotify:track:{{id}}">{{label}}
+                </div>
+                {{/singleTracks}}
+
+                <div class="mindJourneyPlaylistSpacer">
+                    {{#playlists.shaman}}
+                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                         data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    </div>
+                    {{/playlists.shaman}}
+                </div>
+
+                <div class="mindJourneyPlaylistSpacer">
+                    {{#playlists.mindJourney}}
+                    <div class="spotifyPlaylistItem spotifyPlaylist XXX" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                         data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                    </div>
+                    {{/playlists.mindJourney}}
+                </div>
+            </div>
+            <div class="col">
+                {{#playlists.green}}
+                <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                     data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                </div>
+                {{/playlists.green}}
+            </div>
+            <div class="col">
+                {{#playlists.blue}}
+                <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                     data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                </div>
+                {{/playlists.blue}}
+            </div>
+            <div class="col">
+                {{#playlists.red}}
+                <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                     data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                </div>
+                {{/playlists.red}}
+            </div>
+        </div>
+
+        <div id="quickSelectGlobalMenuMindJourney" class="row menuContent quickSelectGlobalMenuSection">
+            <div class="col">
+                     <span id="mindJourneyCharSelect">
+                        <span id="mindJourneyEinheit" class="mindJourneyCharSelect cursorAction">Einheit</span>
+                        <span id="mindJourneyRebell" class="mindJourneyCharSelect cursorAction">Rebell</span>
+                        <span id="mindJourneyTier" class="mindJourneyCharSelect cursorAction">Tier</span>
+                        <span id="mindJourneyKind" class="mindJourneyCharSelect cursorAction">Kind</span>
+                    </span>
+
+                <div class="mindJourneySettingsSpacer1"></div>
+
+                <div class="row">
+                    <div class="col">
+                        {{#playlists.mindJourney}}
+                        <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist"
+                             shuffle="{{shuffle}}"
+                             repeat="{{repeat}}"
+                             data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                        </div>
+                        {{/playlists.mindJourney}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quickSelectGlobalMenuWordsOfPower" class="row menuContent quickSelectGlobalMenuSection">
+            <div class="col">
+                Words of Power
+            </div>
+        </div>
+
+    </div>
+
+    <div id="quickTrackSelectionMenu" class="largeMenu">
+        <div class="spotifyCurrentlyPlayingContainer row">
+            <div class="col">
+                <div class="spotifyCurrentlyPlayingTrack" data-spotify-id=''>...</div>
+                <img class="stopAfterTrack currentTrackAction invisible cursorAction"
+                     src="./assets/stopTrack.png">
+                <img class="createSongRadio currentTrackAction invisible cursorAction"
+                     src="./assets/song_radio.png">
+                <img class="addToFavorites currentTrackAction invisible cursorAction"
+                     src="./assets/add_to_favorites.png">
+                <div class="menuTopBorder"></div>
+            </div>
+        </div>
+
+        <div class="row menuContent">
+            {{#trackSelectionPlaylists}}
+            <div class="col-6">
+                <div id='spotify:playlist:{{playlistId}}' class="row trackSelectionRow">
+                </div>
+            </div>
+            {{/trackSelectionPlaylists}}
+        </div>
+    </div>
+
+    <div id="applicationSettingsMenu" class="largeMenu">
+        <div class="row">
+            <div class="col">
+                <div class="settingsHeading">SETTINGS</div>
+                <div class="menuTopBorder"></div>
+            </div>
+        </div>
+
+        <div class="row menuContent">
+            <div class="col-9">
+                <div id="spotifyHistory">
+                </div>
+            </div>
+            <div class="col">
+                <div class="menuItem" id="spotifyLogin">Login to Spotify (admin & friends only)</div>
+                <div class="menuItem" id="spotifyLogout">Logout Spotify</div>
+                <div class="menuItem" id="toggleInfo">Toggle video info</div>
+                <div class="menuItem" id="clearYoutubePlayedHistory">Clear Youtube history</div>
+                <div class="menuItem" id="saveStreamFavoritesToFile">Save stream favorites to file</div>
+            </div>
         </div>
     </div>
 
@@ -1135,6 +1141,8 @@
 
         <div id="videodromeGlobalActionContainer">
             <span>
+                <img class="toggleQuickSelectGlobalMenuIcon iconAlternating cursorAction"
+                     src="./assets/folder2.png">
                 <img class="toggleLocalStreamIcon iconAlternating cursorAction"
                      src="./assets/switch.png">
                 <img data-transparency="0.15" class="toggleTransparentStrobo iconAlternating cursorAction"

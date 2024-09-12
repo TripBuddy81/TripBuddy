@@ -2139,9 +2139,9 @@ video::-webkit-media-controls-fullscreen-button {
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     border-radius: 5px;
     opacity: 0;
-    z-index: 35;
+    z-index: 15;
     min-width: 470px;
-    padding: 10px 15px;
+    padding: 15px 15px;
     display: none;
 }
 
@@ -2152,6 +2152,15 @@ video::-webkit-media-controls-fullscreen-button {
 .toggleLocalStreamIcon, .toggleTransparentStrobo, #toggleTransperentStroboEnsoSymbol {
     height: 55px;
     margin-right: 10px;
+}
+
+.toggleQuickSelectGlobalMenuIcon {
+    height: 70px;
+    margin-right: 10px;
+    padding-left: 15px;
+    padding-top: 15px;
+    margin-top: -15px;
+    margin-left: -15px;
 }
 
 .refreshVideoDromeVideoFullscreenContainer {
