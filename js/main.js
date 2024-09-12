@@ -962,6 +962,9 @@ $( document ).ready( function () {
 
                 // after liftoff the screensaver takes longer to start
                 screensaverStartAfterSeconds = 60;
+
+                // Mind Journey is defaulf view in globalMenu
+                $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
             } );
 
             $( '#preFlightChecklist' ).on( 'hide.bs.modal', function () {
@@ -4572,12 +4575,9 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+                /*      toggleXXXVisible();*/
 
-
-                /*    $( '#videodromeUI' ).show();*/
-
-                /*   $( '#showShrineSection' ).trigger( 'click' );*/
+                $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
             }
         }
 );
