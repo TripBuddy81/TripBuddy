@@ -946,7 +946,7 @@ option {
     font-size: 30px;
     color: black;
     width: 100.3vW;
-    padding: 5px 15px;
+    padding: 10px 15px;
     display: block;
     font-weight: 600;
     z-index: 20;
@@ -982,13 +982,13 @@ option {
 
 .spotifyCurrentlyPlayingContainer {
     margin-right: -7px;
-    height: 0px;
+    height: 75px;
     overflow: hidden;
     transition: all 1s ease;
 }
 
 .addToFavorites, .createSongRadio, .stopAfterTrack {
-    height: 45px;
+    height: 50px;
     top: 13px;
     position: absolute;
     right: 23px;
@@ -1007,16 +1007,17 @@ option {
     right: 157px;
 }
 
-.spotifyCurrentlyPlayingContainerVisible {
-    height: 70px !important;
-}
-
 .spotifyCurrentlyPlayingTrack, .settingsHeading {
     text-align: center;
     font-weight: 700;
     height: 63px;
-    padding-top: 8px;
+    padding-top: 6px;
     font-size: 35px;
+    margin-left: 15vW;
+    margin-right: 15vW;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 1s ease;
 }
 
 .menuTopBorder {
@@ -2140,7 +2141,6 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 0;
     z-index: 35;
     min-width: 470px;
-    height: 600px;
     padding: 10px 15px;
     display: none;
 }
@@ -2458,4 +2458,29 @@ video::-webkit-media-controls-fullscreen-button {
 .mindJourneyPlaylistSelector {
     font-weight: bold;
     font-size: 20px;
+}
+
+#quickSelectGlobalMenuMindJourney, #quickSelectGlobalMenuWordsOfPower {
+    display: none;
+}
+
+.quickSelectGlobalMenuPlaylistSectionIcon {
+    height: 53px;
+    top: 11px;
+    position: absolute;
+    left: 17px;
+}
+
+.quickSelectGlobalMenuMindJourneySectionIcon {
+    height: 53px;
+    top: 11px;
+    position: absolute;
+    left: 90px;
+}
+
+.quickSelectGlobalMenuWordOfPowerSectionIcon {
+    height: 53px;
+    top: 11px;
+    position: absolute;
+    left: 180px;
 }

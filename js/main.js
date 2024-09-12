@@ -14,6 +14,7 @@ $( document ).ready( function () {
             // #7 - Videodrome section
             // #8 - Private Picture Slideshow section
             // #9 - Music Video Section
+            // #15 - Quick Select Global Menu (generic functions & Mind Journey selector & Words of Power)
             // #20 - initial init section
 
             // ***********************************
@@ -364,8 +365,8 @@ $( document ).ready( function () {
                     ) {
                         stopAllActions();
                     } else {
-                        $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
-                        $( '#spotifyPlaylistsMenu' ).animate( {scrollTop: 0}, 'fast' );
+                        $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
+                        $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
                         stopAllActions( false );
                     }
                     return false;
@@ -547,7 +548,7 @@ $( document ).ready( function () {
             // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
             function stopAllActions( hidePlaylistSelection = true, quickTrackSelection = true ) {
                 if ( hidePlaylistSelection ) {
-                    $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                 }
                 if ( quickTrackSelection ) {
                     $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
@@ -837,7 +838,7 @@ $( document ).ready( function () {
             }
 
             $( '#menuClose' ).click( function () {
-                $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                 $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                 $( '#applicationSettingsMenu' ).removeClass( 'menuTransition' );
                 hideScreensaverEnso();
@@ -1655,7 +1656,7 @@ $( document ).ready( function () {
                 screensaverSecondsIdle++;
                 $( '.mainSectionActive' ).each( function () {
                     if ( $( this ).attr( 'data-target' ) == 'videos' || $( this ).attr( 'data-target' ) == 'images' ) {
-                        if ( !$( '#spotifyPlaylistsMenu' ).hasClass( 'menuTransition' ) &&
+                        if ( !$( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) &&
                                 !$( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) &&
                                 !$( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) &&
                                 $( '.MageAIfilter.imageFilterActive' ).length == 0 &&
@@ -1668,7 +1669,7 @@ $( document ).ready( function () {
                             $( 'body,#menu,.videoSource,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
                                 $( this ).addClass( 'cursorNone' );
                             } );
-                            $( '#spotifyPlaylistsMenu' ).addClass( 'invisible' );
+                            $( '#quickSelectGlobalMenuContainer' ).addClass( 'invisible' );
                             $( '#menu' ).addClass( 'invisible' );
                         }
                     }
@@ -1693,7 +1694,7 @@ $( document ).ready( function () {
                     $( 'body,#menu,.videoSource,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
                         $( this ).removeClass( 'cursorNone' );
                     } );
-                    $( '#spotifyPlaylistsMenu' ).removeClass( 'invisible' );
+                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'invisible' );
                     $( '#menu' ).removeClass( 'invisible' );
                 }
                 screensaverSecondsIdle = 0;
@@ -2344,13 +2345,13 @@ $( document ).ready( function () {
             } );
 
             $( '#spotifyPlaylists' ).click( function () {
-                $( '#spotifyPlaylistsMenu' ).toggleClass( 'menuTransition' );
-                $( '#spotifyPlaylistsMenu' ).animate( {scrollTop: 0}, 'fast' );
+                $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
+                $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
                 stopAllActions( false );
             } );
 
             $( '.spotifyPlaylistItem,.currentTrackAction' ).click( function () {
-                $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                 $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
             } );
 
@@ -2372,7 +2373,7 @@ $( document ).ready( function () {
                 // on middle mouse button just open in new tab
                 if ( e.which == 2 ) {
                     window.open( $( this ).attr( 'href' ), '_blank' );
-                    $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                 }
                 if ( e.which == 1 ) {
                     try {
@@ -2383,7 +2384,7 @@ $( document ).ready( function () {
                     spotifyHasBeenPlayingBeforePause = false;
                     externalSoundTabOpened = true;
                     window.open( $( this ).attr( 'href' ), 'externalSoundTab' );
-                    $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                 }
             } );
 
@@ -2460,7 +2461,7 @@ $( document ).ready( function () {
                     if ( e.which == 2 ) {
                         e.preventDefault();
                         nextPlaylistToPlay = $( this ).attr( 'data-spotify-id' );
-                        $( '#spotifyPlaylistsMenu' ).removeClass( 'menuTransition' );
+                        $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     } else if ( e.which == 1 ) {
                         $( '#spotifyPlaylists' ).html( '...' );
                         openSpotifyApp();
@@ -4504,6 +4505,14 @@ $( document ).ready( function () {
             // ******************************************
 
             // ******************************************
+            // #15 - Quick Select Global Menu (generic functions & Mind Journey selector & Words of Power)
+
+
+
+            // END Quick Select Global Menu
+            // ******************************************
+
+            // ******************************************
             // #20 - initial init section
             if ( urlParams.get( 'section' ) != undefined && urlParams.get( 'section' ) == 'shrine' ) {
                 $( '#meditativefilter' ).trigger( 'click' );
@@ -4522,9 +4531,9 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                /*    toggleXXXVisible();*/
+                toggleXXXVisible();
 
-                /* $( '#videodromeUI' ).show();*/
+                $( '#videodromeUI' ).show();
 
                 /*   $( '#showShrineSection' ).trigger( 'click' );*/
             }

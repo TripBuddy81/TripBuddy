@@ -321,10 +321,17 @@
             Select Playlist
         </button>
 
-        <div id="spotifyPlaylistsMenu" class="largeMenu">
+        <div id="quickSelectGlobalMenuContainer" class="largeMenu">
             <div class="spotifyCurrentlyPlayingContainer row">
                 <div class="col">
-                    <div class="spotifyCurrentlyPlayingTrack" data-spotify-id=''>...</div>
+                    <img class="quickSelectGlobalMenuPlaylistSectionIcon iconAlternating cursorAction"
+                         src="./assets/playlist.png">
+                    <img class="quickSelectGlobalMenuMindJourneySectionIcon iconAlternating cursorAction"
+                         src="./assets/stage.png">
+                    <img class="quickSelectGlobalMenuWordOfPowerSectionIcon iconAlternating cursorAction"
+                         src="./assets/ram.png">
+
+                    <div class="spotifyCurrentlyPlayingTrack currentTrackAction" data-spotify-id=''>...</div>
                     <img class="stopAfterTrack iconAlternating currentTrackAction invisible cursorAction"
                          src="./assets/stopTrack.png">
                     <img class="createSongRadio iconAlternating currentTrackAction invisible cursorAction"
@@ -335,7 +342,7 @@
                 </div>
             </div>
 
-            <div class="row menuContent">
+            <div id="quickSelectGlobalMenuPlaylistOverview" class="row menuContent">
                 <div class="col">
                     <a class="playlistMenuCustomLink" href="https://mynoise.net/noiseMachines.php" target=_blank>Noise
                         Machines</a>
@@ -343,7 +350,6 @@
                     <div class="noisegeneratorLink" target="externalSoundTab" href="{{link}}">{{label}}
                     </div>
                     {{/noiseGenerators}}
-
                 </div>
                 <div class="col">
                     {{#singleTracks}}
@@ -389,6 +395,39 @@
                     {{/playlists.red}}
                 </div>
             </div>
+
+            <div id="quickSelectGlobalMenuMindJourney" class="row menuContent">
+                <div class="col">
+                    <div class="mindJourneySettingsSpacer1"></div>
+
+                    <span id="mindJourneyCharSelect">
+                        <span id="mindJourneyEinheit" class="mindJourneyCharSelect cursorAction">Einheit</span>
+                        <span id="mindJourneyRebell" class="mindJourneyCharSelect cursorAction">Rebell</span>
+                        <span id="mindJourneyTier" class="mindJourneyCharSelect cursorAction">Tier</span>
+                        <span id="mindJourneyKind" class="mindJourneyCharSelect cursorAction">Kind</span>
+                    </span>
+
+                    <div class="mindJourneySettingsSpacer1"></div>
+
+                    <div class="row">
+                        <div class="col">
+                            {{#playlists.mindJourney}}
+                            <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}"
+                                 repeat="{{repeat}}"
+                                 data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                            </div>
+                            {{/playlists.mindJourney}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="quickSelectGlobalMenuWordsOfPower" class="row menuContent">
+                <div class="col">
+                    Words of Power
+                </div>
+            </div>
+
         </div>
 
         <div id="quickTrackSelectionMenu" class="largeMenu">
@@ -1113,28 +1152,6 @@
                 <img id="toggleTransperentStroboEnsoSymbol" class="iconAlternating cursorAction"
                      src="./assets/enso.png">
             </span>
-
-            <div class="mindJourneySettingsSpacer1"></div>
-
-            <span id="mindJourneyCharSelect">
-                <span id="mindJourneyEinheit" class="mindJourneyCharSelect cursorAction">Einheit</span>
-                <span id="mindJourneyRebell" class="mindJourneyCharSelect cursorAction">Rebell</span>
-                <span id="mindJourneyTier" class="mindJourneyCharSelect cursorAction">Tier</span>
-                <span id="mindJourneyKind" class="mindJourneyCharSelect cursorAction">Kind</span>
-            </span>
-
-            <div class="mindJourneySettingsSpacer1"></div>
-
-            <div class="row">
-                <div class="col">
-                    {{#playlists.mindJourney}}
-                    <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}"
-                        repeat="{{repeat}}"
-                        data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                    </div>
-                    {{/playlists.mindJourney}}
-                </div>
-            </div>
         </div>
 
         <div id="videodromeBottomToolbar">

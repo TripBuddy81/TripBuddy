@@ -320,7 +320,6 @@ function handleCurrentlyPlayingResponse() {
         }
 
         if ( data['is_playing'] ) {
-            $( '.spotifyCurrentlyPlayingContainer' ).addClass( 'spotifyCurrentlyPlayingContainerVisible' );
             $( '.currentTrackAction' ).removeClass( 'invisible' );
 
             try {
@@ -353,7 +352,6 @@ function handleCurrentlyPlayingResponse() {
                 spotifyHasBeenPlayingBeforePause = true;
             }
         } else {
-            $( '.spotifyCurrentlyPlayingContainer' ).removeClass( 'spotifyCurrentlyPlayingContainerVisible' );
             $( '.currentTrackAction' ).addClass( 'invisible' );
             playingSpotifyTrack = false;
         }
