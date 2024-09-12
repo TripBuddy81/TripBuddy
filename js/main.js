@@ -347,6 +347,7 @@ $( document ).ready( function () {
                 if ( $( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
                 } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
                     stopShrineDisco();
                 } else if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' ) && !$( '#musicVideos' ).is( ':visible' )) || e.which == 0 ) {
@@ -3239,6 +3240,10 @@ $( document ).ready( function () {
                 $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
             } );
 
+            $('.toggleTransparentStrobo,.toggleLocalStreamIcon,#toggleTransperentStroboEnsoSymbol').click( function () {
+                $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' )
+            } );
+
             function toggleTransparentStrobo( transparency = '0.2' ) {
                 if ( transparency == $( '#videodrome' ).css( 'opacity' ) ) {
                     stopShrineDisco();
@@ -3262,7 +3267,6 @@ $( document ).ready( function () {
                     $( '#videodrome' ).css( 'opacity', transparency );
                 }
             }
-
 
             // VideoJS Window
             $( document ).on( 'click', '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function ( e ) {
@@ -3514,8 +3518,10 @@ $( document ).ready( function () {
             $( document ).on( 'mouseleave', '#videodromeGlobalActionContainer', function ( event ) {
                 if ( $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '1' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '45' );
                 } else {
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
                 }
             } );
 
