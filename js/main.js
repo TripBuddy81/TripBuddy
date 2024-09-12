@@ -217,14 +217,15 @@ $( document ).ready( function () {
                         initVideodrome();
                     }
                     $( '.enablePornContent' ).hide();
-
-                    if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showVideodromeGlobalActionContainer'] != undefined && config['localSettingsOverwrite']['showVideodromeGlobalActionContainer'] ) {
-                        $( '#videodromeGlobalActionContainer' ).show();
-                    }
                 },
                 error  : function () {
                 }
             } );
+
+            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
+                $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).show();
+                $( '#quickSelectGlobalMenuWordOfPowerSectionIcon' ).show();
+            }
 
             // Save stream favorites to a downloadable text file
             $( '#saveStreamFavoritesToFile' ).click( function () {
@@ -964,7 +965,9 @@ $( document ).ready( function () {
                 screensaverStartAfterSeconds = 60;
 
                 // Mind Journey is defaulf view in globalMenu
-                $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
+                if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
+                    $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
+                }
             } );
 
             $( '#preFlightChecklist' ).on( 'hide.bs.modal', function () {
@@ -4577,7 +4580,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*      toggleXXXVisible();*/
 
-                $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
+           /*     $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );*/
             }
         }
 );
