@@ -2104,6 +2104,10 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 30;
 }
 
+.videoDromeStreamVideo1 {
+    display: none;
+}
+
 .videoDromeVideo1 {
     position: fixed;
     top: 0;
@@ -2114,7 +2118,6 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     top: 0;
     left: 0;
-    display: none;
 }
 
 .videoDromeVideo3 {

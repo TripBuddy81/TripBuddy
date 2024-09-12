@@ -3167,6 +3167,10 @@ $( document ).ready( function () {
             } );
 
             $( '.toggleLocalStreamIcon' ).click( function () {
+                toggleLocalStreamVideo();
+            } );
+
+            function toggleLocalStreamVideo() {
                 if ( $( '.videodromeFullscreen' )[0] && $( '#videoJSPlayer1,#videoJSPlayer2' ).is( ':visible' ) ) {
                     $( '.video-js' ).removeClass( 'videodromeFullscreen' );
                     $( '.videoDromeVideo2' ).addClass( 'videodromeFullscreen' );
@@ -3211,7 +3215,7 @@ $( document ).ready( function () {
                 }
 
                 updateVideodromeFullscreenInfo();
-            } );
+            }
 
             $( '.toggleTransparentStrobo' ).click( function () {
                 toggleTransparentStrobo( $( this ).attr( 'data-transparency' ) );
@@ -3240,7 +3244,7 @@ $( document ).ready( function () {
                 $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
             } );
 
-            $('.toggleTransparentStrobo,.toggleLocalStreamIcon,#toggleTransperentStroboEnsoSymbol').click( function () {
+            $( '.toggleTransparentStrobo,.toggleLocalStreamIcon,#toggleTransperentStroboEnsoSymbol' ).click( function () {
                 $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' )
             } );
 
@@ -4569,6 +4573,7 @@ $( document ).ready( function () {
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
+
 
                 /*    $( '#videodromeUI' ).show();*/
 
