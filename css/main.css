@@ -2152,9 +2152,21 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
-.toggleLocalStreamIcon, .toggleTransparentStrobo, #toggleTransperentStroboEnsoSymbol {
+#toggleTransperentStroboEnsoSymbol {
     height: 55px;
     margin-right: 10px;
+    margin-left: 10px;
+}
+
+.toggleTransparentStrobo {
+    height: 55px;
+    margin-right: 0px;
+}
+
+.toggleLocalStreamIcon {
+    height: 55px;
+    margin-right: 15px;
+    margin-left: 10px;
 }
 
 .toggleQuickSelectGlobalMenuIcon {
