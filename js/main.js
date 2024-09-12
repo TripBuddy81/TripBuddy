@@ -451,11 +451,11 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseover', '.iconAlternating', function () {
-                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '.png', '_alt.png' ) );
+                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '.png', '_white.png' ) );
             } );
 
             $( document ).on( 'mouseout', '.iconAlternating', function () {
-                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_alt.png', '.png' ) );
+                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
             } );
 
             // Add four wisdom videos to queue at random and start playing
@@ -592,7 +592,7 @@ $( document ).ready( function () {
                 }
 
                 $( '.iconAlternating' ).each( function () {
-                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_alt.png', '.png' ) );
+                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
                 } );
 
                 blockScreenSaver = false;
