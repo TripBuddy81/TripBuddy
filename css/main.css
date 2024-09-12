@@ -2469,11 +2469,29 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
 
+.mindJourneyPlaylistCol {
+
+}
+
 .mindJourneyCharCol {
-    text-align: left;
+    text-align: center;
+}
+
+.mindJourneyCharCol>div {
+    margin-bottom: 15px;
 }
 
 .mindJourneyCharSelect {
     font-weight: bold;
     font-size: 30px;
 }
+
+.mindJourneySceneCol {
+    text-align: right;
+}
+
+.mindJourneySceneCol>div {
+    margin-right: -10px;
+    padding: 0;
+}
+

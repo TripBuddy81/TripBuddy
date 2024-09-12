@@ -376,14 +376,6 @@
                 {{/singleTracks}}
 
                 <div class="mindJourneyPlaylistSpacer">
-                    {{#playlists.shaman}}
-                    <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
-                         data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                    </div>
-                    {{/playlists.shaman}}
-                </div>
-
-                <div class="mindJourneyPlaylistSpacer">
                     {{#playlists.mindJourney}}
                     <div class="spotifyPlaylistItem spotifyPlaylist XXX" shuffle="{{shuffle}}" repeat="{{repeat}}"
                          data-spotify-id="spotify:playlist:{{id}}">{{label}}
@@ -416,67 +408,35 @@
 
         <div id="quickSelectGlobalMenuMindJourney" class="menuContent quickSelectGlobalMenuSection">
             <div class="row d-flex justify-content-between">
-                <div class="col-2">
+                <div class="col-5 mindJourneyPlaylistCol">
                     <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">TEMP</span>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">MUCKE</span>
+                        {{#mindJourney.playlists}}
+                        <div data-tag="{{tag}}" class="spotifyPlaylistItem spotifyPlaylist"
+                             shuffle="{{shuffle}}"
+                             repeat="{{repeat}}"
+                             data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                        </div>
+                        {{/mindJourney.playlists}}
                     </div>
                 </div>
 
                 <div class="col-2 mindJourneyCharCol">
+                    {{#mindJourney.charList}}
                     <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">Einheit</span>
+                        <span data-triggerWord="{{triggerWord}}"  class="mindJourneyCharSelect cursorAction">{{label}}</span>
                     </div>
-                    <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">Schamane Rechts</span>
-                    </div>
-                    <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">Schamane Links</span>
-                    </div>
-                    <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">Reisender</span>
-                    </div>
-                    <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">Tier</span>
-                    </div>
-                    <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">Rebell</span>
-                    </div>
-                    <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">Kind</span>
-                    </div>
+                    {{/mindJourney.charList}}
                 </div>
 
-                <div class="col-2">
+                <div class="col-5 mindJourneySceneCol">
                     <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">TEMP3</span>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="row d-flex justify-content-between">
-                        <span class="mindJourneyCharSelect cursorAction">TEMP4</span>
+                        {{#mindJourney.scenes}}
+                        <span data-tag="{{tag}}" class="mindJourneyScene cursorAction">{{label}}</span>
+                        {{/mindJourney.scenes}}
                     </div>
                 </div>
             </div>
         </div>
-
-        <!--                <div class="row">
-                            <div class="col">
-                                {{#playlists.mindJourney}}
-                                <div class="mindJourneyPlaylistSelector spotifyPlaylistItem spotifyPlaylist"
-                                     shuffle="{{shuffle}}"
-                                     repeat="{{repeat}}"
-                                     data-spotify-id="spotify:playlist:{{id}}">{{label}}
-                                </div>
-                                {{/playlists.mindJourney}}
-                            </div>
-                        </div>-->
 
 
         <div id="quickSelectGlobalMenuWordsOfPower" class="menuContent quickSelectGlobalMenuSection">
