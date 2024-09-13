@@ -323,7 +323,7 @@ $( document ).ready( function () {
             // ***********************************
             // #0.1 - Global key bindings, Global misc functionalities
 
-            // Right mouse button click config
+            // Right click / right mouse button click config
             $( document ).bind( 'contextmenu', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -346,13 +346,15 @@ $( document ).ready( function () {
 
                 // Stop current action or show playlist selection if nothing else is going on right now
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
-                if ( ($( '#videodrome' ).is( ':visible' ) || $( '#showShrineSection' ).hasClass( 'mainSectionActive' )) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
+                if ( $( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                } else if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
+                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                     $( '#shrineSettingsContainer' ).removeClass( 'visible' );
-                } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
+                }else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
                     stopShrineDisco();
                 } else if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' ) && !$( '#musicVideos' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
