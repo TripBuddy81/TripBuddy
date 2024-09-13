@@ -354,7 +354,7 @@ $( document ).ready( function () {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                     $( '#shrineSettingsContainer' ).removeClass( 'visible' );
-                }else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
+                } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
                     stopShrineDisco();
                 } else if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' ) && !$( '#musicVideos' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
@@ -4587,7 +4587,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 /*      toggleXXXVisible();*/
 
-                     $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
+                $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
                 $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
             }
         }
