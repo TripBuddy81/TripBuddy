@@ -967,10 +967,6 @@ option {
     font-size: 30px !important;
 }
 
-.mindJourneyPlaylistSpacer {
-    margin-top: 41px;
-}
-
 .spotifyPlaylistItem, .noisegeneratorLink, .spotifyTrackContainer {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     white-space: nowrap;
