@@ -862,6 +862,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.quickSelectGlobalMenuIcon', function () {
+                enableFullscreen();
                 $( '.quickSelectGlobalMenuSection' ).hide();
                 $( '#' + $( this ).attr( 'data-target' ) ).show();
             } );
