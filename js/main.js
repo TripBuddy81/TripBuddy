@@ -129,6 +129,7 @@ $( document ).ready( function () {
             window.moveTimerMusicVideoOverlay = '';
             window.spotifyHistory = {'items': []};
             window.alreadySelectedMeditationSymbols = [];
+            window.mindJourneyCharActive = '';
 
             spotifyHistory['items'] = JSON.parse( localStorage.getItem( 'spotifyHistory' ) ) || [];
 
@@ -4581,6 +4582,7 @@ $( document ).ready( function () {
             $( '.mindJourneyCharSelect' ).click( function ( event ) {
                 if ( $( this ).hasClass( 'mindJourneyCharActive' ) ) {
                     $( this ).removeClass( 'mindJourneyCharActive' );
+                    mindJourneyCharActive = '';
                     $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementHidden' );
                     $( '.mindJourneyElement' ).addClass( 'mindJourneyElementVisible' );
                 } else {
@@ -4589,6 +4591,7 @@ $( document ).ready( function () {
                     } );
 
                     $( this ).addClass( 'mindJourneyCharActive' );
+                    mindJourneyCharActive = $( this ).html();
 
                     $( '.mindJourneyElement' ).addClass( 'mindJourneyElementHidden' );
                     $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementVisible' );
@@ -4606,6 +4609,23 @@ $( document ).ready( function () {
                 }
             } );
 
+
+            $( '.mindJourneyCharSelect' ).hover(
+                    function ( event ) {
+                        triggerWord = $( this ).attr( 'data-triggerWord' );
+
+                        $( '#mindJourneyTriggerWordDisplay' ).addClass( 'invisible' );
+
+                        setTimeout( function () {
+                            $( '#mindJourneyTriggerWordDisplay' ).html( triggerWord );
+                            $( '#mindJourneyTriggerWordDisplay' ).removeClass( 'invisible' );
+                        }, 400 );
+                    }, function () {
+                        if ( mindJourneyCharActive == '' ) {
+                            $( '#mindJourneyTriggerWordDisplay' ).addClass( 'invisible' );
+                        }
+                    }
+            );
 
             // END Mind Journey Selection
             // ******************************************
