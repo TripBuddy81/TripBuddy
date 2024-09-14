@@ -2498,6 +2498,10 @@ video::-webkit-media-controls-fullscreen-button {
     padding-left: 10px;
 }
 
+.mindJourneyScene:hover {
+    color: white;
+}
+
 .mindJourneySceneCol {
     text-align: right;
 }
