@@ -1988,7 +1988,7 @@ $( document ).ready( function () {
                     function () {
                         $( '#mainMenu' ).attr( 'style', 'opacity:1' );
                     }, function () {
-                        if ( $( '#shrine' ).is( ':visible' ) ) {
+                        if ( $( '#shrine' ).is( ':visible' ) && !$( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                             $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                         }
                     }
@@ -2033,7 +2033,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#particles-js' ).on( 'wheel', function ( event ) {
+            $( '#particles-js,#shrineSettingsContainer' ).on( 'wheel', function ( event ) {
                 stopScreensaver();
                 enableFullscreen();
                 clearInterval( absoluteTruthsTimer );
@@ -4595,7 +4595,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                      toggleXXXVisible();
+                toggleXXXVisible();
 
                 $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
                 $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
