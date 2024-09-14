@@ -4581,6 +4581,13 @@ $( document ).ready( function () {
             $( '.mindJourneyCharSelect' ).click( function ( event ) {
                 $( '.mindJourneyElement' ).hide();
                 selectedChar = $( this ).html();
+
+                $( '.mindJourneyCharActive' ).each( function () {
+                    $( this ).removeClass( 'mindJourneyCharActive' );
+                } );
+
+                $( this ).addClass( 'mindJourneyCharActive' );
+
                 $( '.mindJourneyElement' ).each( function () {
                     if ( $( this ).attr( 'data-tag' ).indexOf( selectedChar ) > -1 ) {
                         $( this ).show();
