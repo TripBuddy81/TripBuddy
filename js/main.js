@@ -4590,12 +4590,10 @@ $( document ).ready( function () {
 
                     $( this ).addClass( 'mindJourneyCharActive' );
 
-                    $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementVisible' );
                     $( '.mindJourneyElement' ).addClass( 'mindJourneyElementHidden' );
+                    $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementVisible' );
+
                     selectedChar = $( this ).html();
-
-
-
                     $( '.mindJourneyElement' ).each( function () {
                         if ( $( this ).attr( 'data-tag' ).indexOf( selectedChar ) > -1 ) {
                             $( this ).removeClass( 'mindJourneyElementHidden' );
@@ -4605,9 +4603,7 @@ $( document ).ready( function () {
                             $( this ).removeClass( 'mindJourneyElementVisible' );
                         }
                     } );
-
                 }
-
             } );
 
 

@@ -2465,9 +2465,6 @@ video::-webkit-media-controls-fullscreen-button {
     display: none;
 }
 
-.mindJourneyPlaylistCol {
-
-}
 
 .mindJourneyCharCol {
     text-align: center;
@@ -2483,16 +2480,16 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .mindJourneyCharActive:before {
-    content: '[';
-    color: #000000;
+    content: '>';
+    color: #fff;
     font-size: 30px;
     text-align: right;
     padding-right: 10px;
 }
 
 .mindJourneyCharActive:after {
-    content: ']';
-    color: #000000;
+    content: '<';
+    color: #fff;
     font-size: 30px;
     text-align: left;
     padding-left: 10px;
@@ -2509,7 +2506,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .mindJourneyElement {
     overflow: hidden;
-    transition: opacity 1.3s ease-out, max-height 0.8s ease-out;
+    transition: opacity 0.8s ease-out, max-height 1.5s ease-out;
 }
 
 .mindJourneyElementHidden {
