@@ -2382,6 +2382,10 @@ $( document ).ready( function () {
                 $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                 $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                 $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
+                    $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                    $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                }
             } );
 
             $( '#spotifyLogin' ).click( function ( e ) {
@@ -3265,6 +3269,11 @@ $( document ).ready( function () {
             } );
 
             $( '.toggleQuickSelectGlobalMenuIcon' ).click( function () {
+                $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
+                $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
+            } );
+
+            $( '.toggleQuickSelectGlobalMenuIcon' ).on( 'mouseenter', function ( event ) {
                 $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
                 $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
             } );
@@ -4586,7 +4595,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                /*      toggleXXXVisible();*/
+                      toggleXXXVisible();
 
                 $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
                 $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
