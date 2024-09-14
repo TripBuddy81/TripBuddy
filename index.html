@@ -400,7 +400,7 @@
 
         <div id="quickSelectGlobalMenuMindJourney" class="menuContent quickSelectGlobalMenuSection">
             <div class="row d-flex justify-content-between">
-                <div class="col-5 mindJourneyPlaylistCol">
+                <div class="col-3 mindJourneyPlaylistCol">
                     <div class="row d-flex justify-content-between">
                         {{#mindJourney.playlists}}
                         <div data-tag="{{tag}}" class="spotifyPlaylistItem spotifyPlaylist mindJourneyElement mindJourneyElementVisible"
@@ -412,7 +412,7 @@
                     </div>
                 </div>
 
-                <div class="col-2 mindJourneyCharCol">
+                <div class="col-6 mindJourneyCharCol">
                     {{#mindJourney.charList}}
                     <div class="row d-flex justify-content-between">
                         <span data-triggerWord="{{triggerWord}}"  class="mindJourneyCharSelect cursorAction">{{label}}</span>
@@ -422,7 +422,7 @@
                     <div id="mindJourneyTriggerWordDisplay" class="invisible"> </div>
                 </div>
 
-                <div class="col-5 mindJourneySceneCol">
+                <div class="col-3 mindJourneySceneCol">
                     <div class="row d-flex justify-content-between">
                         {{#mindJourney.scenes}}
                         <span data-tag="{{tag}}" class="mindJourneyScene cursorAction mindJourneyElement mindJourneyElementVisible">{{label}}</span>

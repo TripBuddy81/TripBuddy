@@ -2478,6 +2478,10 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 30px;
 }
 
+.mindJourneyCharActive {
+    color: #fff !important;
+}
+
 .mindJourneyCharActive:before {
     content: '>';
     color: #fff;

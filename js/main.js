@@ -4621,9 +4621,9 @@ $( document ).ready( function () {
                             $( '#mindJourneyTriggerWordDisplay' ).removeClass( 'invisible' );
                         }, 400 );
                     }, function () {
-                        if ( mindJourneyCharActive == '' ) {
+                       /* if ( mindJourneyCharActive == '' ) {*/
                             $( '#mindJourneyTriggerWordDisplay' ).addClass( 'invisible' );
-                        }
+                      /*  }*/
                     }
             );
 
