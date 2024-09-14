@@ -14,7 +14,7 @@ $( document ).ready( function () {
             // #7 - Videodrome section
             // #8 - Private Picture Slideshow section
             // #9 - Music Video Section
-            // #15 - Mind Journey Selection
+            // #15 - Mind Journey Section
             // #20 - initial init section
 
             // ***********************************
@@ -4577,29 +4577,36 @@ $( document ).ready( function () {
             // ******************************************
 
             // ******************************************
-            // #15 - Mind Journey Selection
+            // #15 - Mind Journey Section
             $( '.mindJourneyCharSelect' ).click( function ( event ) {
-                $( '.mindJourneyElement' ).removeClass('mindJourneyElementVisible');
-                $( '.mindJourneyElement' ).addClass('mindJourneyElementHidden');
-                selectedChar = $( this ).html();
-
-                $( '.mindJourneyCharActive' ).each( function () {
+                if ( $( this ).hasClass( 'mindJourneyCharActive' ) ) {
                     $( this ).removeClass( 'mindJourneyCharActive' );
-                } );
+                    $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementHidden' );
+                    $( '.mindJourneyElement' ).addClass( 'mindJourneyElementVisible' );
+                } else {
+                    $( '.mindJourneyCharActive' ).each( function () {
+                        $( this ).removeClass( 'mindJourneyCharActive' );
+                    } );
 
-                $( this ).addClass( 'mindJourneyCharActive' );
+                    $( this ).addClass( 'mindJourneyCharActive' );
 
-                $( '.mindJourneyElement' ).each( function () {
-                    if ( $( this ).attr( 'data-tag' ).indexOf( selectedChar ) > -1 ) {
-                        $( this ).removeClass('mindJourneyElementHidden');
-                        $( this ).addClass('mindJourneyElementVisible');
-                    } else {
-                        $( this ).addClass('mindJourneyElementHidden');
-                        $( this ).removeClass('mindJourneyElementVisible');
-                    }
-                } );
+                    $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementVisible' );
+                    $( '.mindJourneyElement' ).addClass( 'mindJourneyElementHidden' );
+                    selectedChar = $( this ).html();
 
 
+
+                    $( '.mindJourneyElement' ).each( function () {
+                        if ( $( this ).attr( 'data-tag' ).indexOf( selectedChar ) > -1 ) {
+                            $( this ).removeClass( 'mindJourneyElementHidden' );
+                            $( this ).addClass( 'mindJourneyElementVisible' );
+                        } else {
+                            $( this ).addClass( 'mindJourneyElementHidden' );
+                            $( this ).removeClass( 'mindJourneyElementVisible' );
+                        }
+                    } );
+
+                }
 
             } );
 
