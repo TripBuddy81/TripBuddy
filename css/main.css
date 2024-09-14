@@ -2473,7 +2473,7 @@ video::-webkit-media-controls-fullscreen-button {
     text-align: center;
 }
 
-.mindJourneyCharCol>div {
+.mindJourneyCharCol > div {
     margin-bottom: 15px;
 }
 
@@ -2489,6 +2489,7 @@ video::-webkit-media-controls-fullscreen-button {
     text-align: right;
     padding-right: 10px;
 }
+
 .mindJourneyCharActive:after {
     content: ']';
     color: #000000;
@@ -2501,11 +2502,22 @@ video::-webkit-media-controls-fullscreen-button {
     text-align: right;
 }
 
-.mindJourneySceneCol>div {
+.mindJourneySceneCol > div {
     margin-right: -10px;
     padding: 0;
 }
 
 .mindJourneyElement {
-    transition: all 0.5s ease;
+    overflow: hidden;
+    transition: opacity 1.3s ease-out, max-height 0.8s ease-out;
+}
+
+.mindJourneyElementHidden {
+    max-height: 0;
+    opacity: 0;
+}
+
+.mindJourneyElementVisible {
+    opacity: 1;
+    max-height: 100px;
 }

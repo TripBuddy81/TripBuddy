@@ -4579,7 +4579,8 @@ $( document ).ready( function () {
             // ******************************************
             // #15 - Mind Journey Selection
             $( '.mindJourneyCharSelect' ).click( function ( event ) {
-                $( '.mindJourneyElement' ).hide();
+                $( '.mindJourneyElement' ).removeClass('mindJourneyElementVisible');
+                $( '.mindJourneyElement' ).addClass('mindJourneyElementHidden');
                 selectedChar = $( this ).html();
 
                 $( '.mindJourneyCharActive' ).each( function () {
@@ -4590,9 +4591,14 @@ $( document ).ready( function () {
 
                 $( '.mindJourneyElement' ).each( function () {
                     if ( $( this ).attr( 'data-tag' ).indexOf( selectedChar ) > -1 ) {
-                        $( this ).show();
+                        $( this ).removeClass('mindJourneyElementHidden');
+                        $( this ).addClass('mindJourneyElementVisible');
+                    } else {
+                        $( this ).addClass('mindJourneyElementHidden');
+                        $( this ).removeClass('mindJourneyElementVisible');
                     }
                 } );
+
 
 
             } );
