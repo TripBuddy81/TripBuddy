@@ -14,7 +14,7 @@ $( document ).ready( function () {
             // #7 - Videodrome section
             // #8 - Private Picture Slideshow section
             // #9 - Music Video Section
-            // #15 - Quick Select Global Menu (generic functions & Mind Journey selector & Words of Power)
+            // #15 - Mind Journey Selection
             // #20 - initial init section
 
             // ***********************************
@@ -4574,6 +4574,24 @@ $( document ).ready( function () {
             }
 
             // END Music Video Section
+            // ******************************************
+
+            // ******************************************
+            // #15 - Mind Journey Selection
+            $( '.mindJourneyCharSelect' ).click( function ( event ) {
+                $( '.mindJourneyElement' ).hide();
+                selectedChar = $( this ).html();
+                $( '.mindJourneyElement' ).each( function () {
+                    if ( $( this ).attr( 'data-tag' ).indexOf( selectedChar ) > -1 ) {
+                        $( this ).show();
+                    }
+                } );
+
+
+            } );
+
+
+            // END Mind Journey Selection
             // ******************************************
 
             // ******************************************
