@@ -4580,6 +4580,10 @@ $( document ).ready( function () {
             // ******************************************
             // #15 - Mind Journey Section
             $( '.mindJourneyCharSelect' ).click( function ( event ) {
+                $( '#mindJourneyTriggerWordDisplay' ).addClass( 'invisible' );
+                triggerWord = $( this ).attr( 'data-triggerWord' );
+                mindJourneyCharActive = $( this ).html();
+
                 if ( $( this ).hasClass( 'mindJourneyCharActive' ) ) {
                     $( this ).removeClass( 'mindJourneyCharActive' );
                     mindJourneyCharActive = '';
@@ -4589,16 +4593,18 @@ $( document ).ready( function () {
                     $( '.mindJourneyCharActive' ).each( function () {
                         $( this ).removeClass( 'mindJourneyCharActive' );
                     } );
-
                     $( this ).addClass( 'mindJourneyCharActive' );
-                    mindJourneyCharActive = $( this ).html();
 
                     $( '.mindJourneyElement' ).addClass( 'mindJourneyElementHidden' );
                     $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementVisible' );
 
-                    selectedChar = $( this ).html();
+                    setTimeout( function () {
+                        $( '#mindJourneyTriggerWordDisplay' ).html( triggerWord );
+                        $( '#mindJourneyTriggerWordDisplay' ).removeClass( 'invisible' );
+                    }, 400 );
+
                     $( '.mindJourneyElement' ).each( function () {
-                        if ( $( this ).attr( 'data-tag' ).indexOf( selectedChar ) > -1 ) {
+                        if ( $( this ).attr( 'data-tag' ).indexOf( mindJourneyCharActive ) > -1 ) {
                             $( this ).removeClass( 'mindJourneyElementHidden' );
                             $( this ).addClass( 'mindJourneyElementVisible' );
                         } else {
@@ -4609,23 +4615,6 @@ $( document ).ready( function () {
                 }
             } );
 
-
-            $( '.mindJourneyCharSelect' ).hover(
-                    function ( event ) {
-                        triggerWord = $( this ).attr( 'data-triggerWord' );
-
-                        $( '#mindJourneyTriggerWordDisplay' ).addClass( 'invisible' );
-
-                        setTimeout( function () {
-                            $( '#mindJourneyTriggerWordDisplay' ).html( triggerWord );
-                            $( '#mindJourneyTriggerWordDisplay' ).removeClass( 'invisible' );
-                        }, 400 );
-                    }, function () {
-                       /* if ( mindJourneyCharActive == '' ) {*/
-                            $( '#mindJourneyTriggerWordDisplay' ).addClass( 'invisible' );
-                      /*  }*/
-                    }
-            );
 
             // END Mind Journey Selection
             // ******************************************
