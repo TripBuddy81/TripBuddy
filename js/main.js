@@ -1955,8 +1955,8 @@ $( document ).ready( function () {
                 enableFullscreen();
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
-                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineMeditationSymbolsWhite' ).show();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineMeditationSymbols' ).hide();
+                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineOracleWhite' ).show();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineOracle' ).hide();
                 if ( xxxVisible ) {
                     $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite' ).show();
                 } else {
@@ -1968,8 +1968,8 @@ $( document ).ready( function () {
 
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
-                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineOuijaWhite,#shrineMeditationSymbolsWhite' ).hide();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#shrineOuija,#shrineMeditationSymbols' ).show();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineOuijaWhite,#shrineOracleWhite' ).hide();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#shrineOuija,#shrineOracle' ).show();
                 if ( xxxVisible ) {
                     $( '#toggleRelationships,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).show();
                 } else {
@@ -2122,7 +2122,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#shrineMeditationSymbols,#shrineMeditationSymbolsWhite' ).click( function ( event ) {
+            $( '#shrineOracle,#shrineOracleWhite' ).click( function ( event ) {
                 enableFullscreen();
 
                 toggleRelationships( 'hide' );
@@ -3251,7 +3251,7 @@ $( document ).ready( function () {
                 toggleTransparentStrobo( $( this ).attr( 'data-transparency' ) );
             } );
 
-            $( '#toggleTransperentStroboEnsoSymbol' ).click( function () {
+            $( '#toggleTransperentStroboOracleSymbol' ).click( function () {
                 $( '#meditationSymbol' ).hide();
                 $( '#ensoImageShrineContainer' ).toggle();
 
@@ -3260,7 +3260,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#toggleTransperentStroboEnsoSymbol' ).on( 'wheel', function ( event ) {
+            $( '#toggleTransperentStroboOracleSymbol' ).on( 'wheel', function ( event ) {
                 $( '#meditationSymbol' ).show();
                 $( '#ensoImageShrineContainer' ).hide();
                 if ( !shrineDiscoActive ) {
@@ -3279,7 +3279,7 @@ $( document ).ready( function () {
                 $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
             } );
 
-            $( '.toggleTransparentStrobo,.toggleLocalStreamIcon,#toggleTransperentStroboEnsoSymbol' ).click( function () {
+            $( '.toggleTransparentStrobo,.toggleLocalStreamIcon,#toggleTransperentStroboOracleSymbol' ).click( function () {
                 $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' )
             } );
 

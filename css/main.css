@@ -1161,7 +1161,7 @@ option {
 #shrineParticlesSwitch, #shrineParticlesSwitchWhite,
 #shrineDiscoMode, #shrineDiscoModeWhite,
 #shrineOuija, #shrineOuijaWhite,
-#shrineMeditationSymbols, #shrineMeditationSymbolsWhite,
+#shrineOracle, #shrineOracleWhite,
 #toggleRelationships, #toggleRelationshipsWhite,
 #toggleAbsoluteThruth, #toggleAbsoluteThruthWhite {
     height: 52px;
@@ -2148,7 +2148,7 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
-#toggleTransperentStroboEnsoSymbol {
+#toggleTransperentStroboOracleSymbol {
     height: 55px;
     margin-right: 10px;
     margin-left: 10px;
