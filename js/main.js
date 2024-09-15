@@ -1955,8 +1955,8 @@ $( document ).ready( function () {
                 enableFullscreen();
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
-                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineShamanWhite,#shrineMeditationSymbolsWhite' ).show();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineShaman,#shrineMeditationSymbols' ).hide();
+                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineMeditationSymbolsWhite' ).show();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineMeditationSymbols' ).hide();
                 if ( xxxVisible ) {
                     $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite' ).show();
                 } else {
@@ -1968,8 +1968,8 @@ $( document ).ready( function () {
 
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
-                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineShamanWhite,#shrineMeditationSymbolsWhite' ).hide();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#shrineShaman,#shrineMeditationSymbols' ).show();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineOuijaWhite,#shrineMeditationSymbolsWhite' ).hide();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#shrineOuija,#shrineMeditationSymbols' ).show();
                 if ( xxxVisible ) {
                     $( '#toggleRelationships,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).show();
                 } else {
@@ -2108,7 +2108,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#shrineShaman,#shrineShamanWhite' ).click( function ( event ) {
+            $( '#shrineOuija,#shrineOuijaWhite' ).click( function ( event ) {
                 enableFullscreen();
 
                 toggleRelationships( 'hide' );
