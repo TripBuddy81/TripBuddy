@@ -2537,3 +2537,16 @@ video::-webkit-media-controls-fullscreen-button {
     color: #fff;
     font-family: monospace;
 }
+
+.mindJourneyCharSelectImage {
+    height: 75px;
+    width: auto;
+}
+
+.mindJourneyCharSelectImageContainer {
+    width: 100px;
+}
+
+.mindJourneyCharSelectContainer {
+   /* float: left;*/
+}
