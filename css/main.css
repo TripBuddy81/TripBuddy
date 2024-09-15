@@ -2551,7 +2551,11 @@ video::-webkit-media-controls-fullscreen-button {
     vertical-align: -webkit-baseline-middle;
 }
 
-.mindJourneyCharSelectContainer {
+.mindJourneyCharNameSelectContainer {
     text-align: left;
     padding-left: 15px;
+}
+
+.mindJourneyCharSelectContainer {
+    padding-left: 275px;
 }
