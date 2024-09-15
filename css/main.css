@@ -2547,6 +2547,11 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100px;
 }
 
+.mindJourneyCharSelect {
+    vertical-align: -webkit-baseline-middle;
+}
+
 .mindJourneyCharSelectContainer {
-   /* float: left;*/
+    text-align: left;
+    padding-left: 15px;
 }
