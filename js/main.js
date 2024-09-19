@@ -227,7 +227,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
                 $( '#quickSelectGlobalMenuPlaylistSectionIcon' ).show();
                 $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).show();
-                $( '#quickSelectGlobalMenuWordOfPowerSectionIcon' ).show();
+                $( '#quickSelectGlobalMenuIncantationSectionIcon' ).show();
             }
 
             // Save stream favorites to a downloadable text file
@@ -4675,7 +4675,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
 
-                $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
+                $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
                 $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
             }
         }

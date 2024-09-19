@@ -344,8 +344,8 @@
                 <img id="quickSelectGlobalMenuMindJourneySectionIcon" data-target="quickSelectGlobalMenuMindJourney"
                      class="XXX quickSelectGlobalMenuIcon iconAlternating cursorAction"
                      src="./assets/stage.png">
-                <img id="quickSelectGlobalMenuWordOfPowerSectionIcon"
-                     data-target="quickSelectGlobalMenuWordsOfPower"
+                <img id="quickSelectGlobalMenuIncantationSectionIcon"
+                     data-target="quickSelectGlobalMenuIncantations"
                      class="XXX quickSelectGlobalMenuIcon iconAlternating cursorAction"
                      src="./assets/ram.png">
 
@@ -437,11 +437,13 @@
             </div>
         </div>
 
-
-        <div id="quickSelectGlobalMenuWordsOfPower" class="menuContent quickSelectGlobalMenuSection">
-            <div class="row d-flex justify-content-between">
-                Words of Power
+        <div id="quickSelectGlobalMenuIncantations" class="menuContent quickSelectGlobalMenuSection">
+            {{#incantation}}
+            <div class="incantationContainer row d-flex justify-content-between">
+                <div class="incantationTrigger <!--cursorAction-->">{{incantationTrigger}}</div>
+                <div class="incantationProcess <!--cursorAction-->">{{incantationProcess}}</div>
             </div>
+            {{/incantation}}
         </div>
 
     </div>
