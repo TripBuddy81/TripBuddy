@@ -130,6 +130,7 @@ $( document ).ready( function () {
             window.spotifyHistory = {'items': []};
             window.alreadySelectedMeditationSymbols = [];
             window.mindJourneyCharActive = '';
+            window.mindJourneyCharNumberActive = '';
 
             spotifyHistory['items'] = JSON.parse( localStorage.getItem( 'spotifyHistory' ) ) || [];
 
@@ -4579,13 +4580,13 @@ $( document ).ready( function () {
 
             // ******************************************
             // #15 - Mind Journey Section
-            $( '.mindJourneyCharSelect' ).click( function ( event ) {
+            $( '.mindJourneyCharSelectContainer' ).click( function ( event ) {
                 $( '#mindJourneyTriggerWordDisplay' ).addClass( 'invisible' );
                 triggerWord = $( this ).attr( 'data-triggerWord' );
-                mindJourneyCharActive = $( this ).html();
+                mindJourneyCharActive = $( this ).attr( 'data-charName' );
 
-                if ( $( this ).hasClass( 'mindJourneyCharActive' ) ) {
-                    $( this ).removeClass( 'mindJourneyCharActive' );
+                if ( $( this ).find( '.mindJourneyCharNameSelectContainer' ).hasClass( 'mindJourneyCharActive' ) ) {
+                    $( this ).find( '.mindJourneyCharNameSelectContainer' ).removeClass( 'mindJourneyCharActive' );
                     mindJourneyCharActive = '';
                     $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementHidden' );
                     $( '.mindJourneyElement' ).addClass( 'mindJourneyElementVisible' );
@@ -4593,7 +4594,7 @@ $( document ).ready( function () {
                     $( '.mindJourneyCharActive' ).each( function () {
                         $( this ).removeClass( 'mindJourneyCharActive' );
                     } );
-                    $( this ).addClass( 'mindJourneyCharActive' );
+                    $( this ).find( '.mindJourneyCharNameSelectContainer' ).addClass( 'mindJourneyCharActive' );
 
                     $( '.mindJourneyElement' ).addClass( 'mindJourneyElementHidden' );
                     $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementVisible' );
@@ -4615,6 +4616,31 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( document ).on( 'wheel', document, function ( event ) {
+                if ( $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) && $( '#quickSelectGlobalMenuMindJourney' ).is( ':visible' ) ) {
+                    if ( mindJourneyCharNumberActive == '' ) {
+                        mindJourneyCharNumberActive = $( '.mindJourneyCharSelectContainer' ).length; // last char
+                    } else if ( event.originalEvent.deltaY > 0 ) { // going down
+                        mindJourneyCharNumberActive = mindJourneyCharNumberActive + 1;
+                        if ( mindJourneyCharNumberActive > $( '.mindJourneyCharSelectContainer' ).length ) {
+                            mindJourneyCharNumberActive = $( '.mindJourneyCharSelectContainer' ).length;
+                        }
+                    } else { // going up
+                        mindJourneyCharNumberActive = mindJourneyCharNumberActive - 1;
+                        if ( mindJourneyCharNumberActive <= 0 ) {
+                            mindJourneyCharNumberActive = 1;
+                        }
+                    }
+
+                    tempCounter = 0;
+                    $( '.mindJourneyCharSelectContainer' ).each( function () {
+                        tempCounter++;
+                        if ( tempCounter == mindJourneyCharNumberActive && !$( this ).find( '.mindJourneyCharNameSelectContainer' ).hasClass( 'mindJourneyCharActive' ) ) {
+                            $( this ).trigger( 'click' );
+                        }
+                    } );
+                }
+            } );
 
             // END Mind Journey Selection
             // ******************************************
