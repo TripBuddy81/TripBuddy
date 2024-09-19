@@ -4581,12 +4581,16 @@ $( document ).ready( function () {
             // ******************************************
             // #15 - Mind Journey Section
             $( '.mindJourneyCharSelectContainer' ).click( function ( event ) {
+                enableFullscreen();
                 $( '#mindJourneyTriggerWordDisplay' ).addClass( 'invisible' );
                 triggerWord = $( this ).attr( 'data-triggerWord' );
                 mindJourneyCharActive = $( this ).attr( 'data-charName' );
+                mindJourneyCharNumberActive = parseInt( $( this ).attr( 'data-mindJourneyCharNumber' ) ) + 1;
 
                 if ( $( this ).find( '.mindJourneyCharNameSelectContainer' ).hasClass( 'mindJourneyCharActive' ) ) {
                     $( this ).find( '.mindJourneyCharNameSelectContainer' ).removeClass( 'mindJourneyCharActive' );
+                    $( this ).find( '.mindJourneyCharSelectImage' ).attr( 'src', $( this ).find( '.mindJourneyCharSelectImage' ).attr( 'src' ).replace( '_white.png', '.png' ) );
+
                     mindJourneyCharActive = '';
                     $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementHidden' );
                     $( '.mindJourneyElement' ).addClass( 'mindJourneyElementVisible' );
@@ -4594,7 +4598,12 @@ $( document ).ready( function () {
                     $( '.mindJourneyCharActive' ).each( function () {
                         $( this ).removeClass( 'mindJourneyCharActive' );
                     } );
+                    $( '.mindJourneyCharSelectImage' ).each( function () {
+                        $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
+                    } );
+
                     $( this ).find( '.mindJourneyCharNameSelectContainer' ).addClass( 'mindJourneyCharActive' );
+                    $( this ).find( '.mindJourneyCharSelectImage' ).attr( 'src', $( this ).find( '.mindJourneyCharSelectImage' ).attr( 'src' ).replace( '.png', '_white.png' ) );
 
                     $( '.mindJourneyElement' ).addClass( 'mindJourneyElementHidden' );
                     $( '.mindJourneyElement' ).removeClass( 'mindJourneyElementVisible' );
