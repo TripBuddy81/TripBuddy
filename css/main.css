@@ -2482,14 +2482,6 @@ video::-webkit-media-controls-fullscreen-button {
     color: #fff !important;
 }
 
-.mindJourneyCharActive:before {
-    content: '>';
-    color: #fff;
-    font-size: 30px;
-    text-align: right;
-    padding-right: 10px;
-}
-
 .mindJourneyCharActive:after {
     content: '<';
     color: #fff;
