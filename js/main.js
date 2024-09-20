@@ -526,6 +526,7 @@ $( document ).ready( function () {
 
                 localStorage.setItem( 'topupReminderInMinutes1', '' );
                 localStorage.setItem( 'topupReminderInMinutes2', '' );
+                localStorage.setItem( 'topupReminderInMinutes3', '' );
                 localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
 
                 while ( allGuidedThoughts.length ) {
@@ -4673,10 +4674,10 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+/*                toggleXXXVisible();
 
                 $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
-                $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
+                $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
             }
         }
 );
