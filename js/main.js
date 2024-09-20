@@ -4239,7 +4239,6 @@ $( document ).ready( function () {
             // END Videodrome section
             // ******************************************
 
-
             // ******************************************
             // #8 - Private Picture Slideshow section
 
@@ -4457,7 +4456,6 @@ $( document ).ready( function () {
 
             // ******************************************
             // #9 - Music Video Section
-
             if ( config['externalRootDirs'] != undefined && config['externalRootDirs']['musicVideosRootDir'] != undefined ) {
                 $( '#startMusicVideos' ).show();
             }
@@ -4575,7 +4573,6 @@ $( document ).ready( function () {
                     showMusicVideoOverlay();
                 }
             }
-
             // END Music Video Section
             // ******************************************
 
@@ -4651,7 +4648,6 @@ $( document ).ready( function () {
                     } );
                 }
             } );
-
             // END Mind Journey Selection
             // ******************************************
 
