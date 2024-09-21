@@ -412,7 +412,7 @@
                     </div>
                 </div>
 
-                <div class="col-6 mindJourneyCharCol">
+                <div class="col-4 mindJourneyCharCol">
                     {{#mindJourney.charList}}
                     <div data-mindJourneyCharNumber="{{@index}}" data-triggerWord="{{triggerWord}}" data-charName="{{label}}" class="mindJourneyCharSelectContainer row d-flex justify-content-left">
                         <div class="mindJourneyCharSelectImageContainer col-7">
@@ -427,7 +427,7 @@
                     <div id="mindJourneyTriggerWordDisplay"> </div>
                 </div>
 
-                <div class="col-3 mindJourneySceneCol">
+                <div class="col-5 mindJourneySceneCol">
                     <div class="row d-flex justify-content-between">
                         {{#mindJourney.scenes}}
                         <span data-tag="{{tag}}" class="mindJourneyScene cursorAction mindJourneyElement mindJourneyElementVisible">{{label}}</span>
@@ -1055,16 +1055,8 @@
                     <div class="videodromeFullscreenFilename"></div>
                 </div>
             </div>
-            <div class="row mt-3">
+            <div class="row">
                 <div class="col">
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-2 me-5 refreshVideoDromeVideoFullscreenContainer">
-                    <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
-                         src="./assets/refresh.png">
-                </div>
-                <div class="col-10">
                     <div class="videodromeLocalVideoMenuItem cursorAction showGeneralVideos">
                         <span class="">general</span>
                     </div>
@@ -1077,6 +1069,22 @@
                     <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent">
                         <span class="videodromeLocalVideoMenuItemActive">private</span>
                     </div>
+
+                </div>
+            </div>
+
+
+ <!--           <div class="row mt-3">
+                <div class="col">
+                </div>
+            </div>-->
+            <div class="row mt-3">
+                <div class="col-2 me-5 refreshVideoDromeVideoFullscreenContainer">
+                    <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
+                         src="./assets/refresh.png">
+                </div>
+                <div class="col-10">
+
                     <div class="externalVideoDirSelection">
                     </div>
                 </div>
@@ -1164,18 +1172,23 @@
         <div id="videodromeBottomToolbar">
             <div class="row mb-3">
                 <div class="col">
-                    <div class="videodromeLocalVideoMenuItem cursorAction showGeneralVideos">
-                        <span class="">general</span>
-                    </div>
-                    <div class="videodromeLocalVideoMenuItem cursorAction hideGeneralVideos">
+
+                    <div data-pornMapTag="general" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect videodromeTagActive">general</div>
+                    <div data-pornMapTag="Tier" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect">Tier</div>
+
+<!--                    <div class="videodromeLocalVideoMenuItem cursorAction hideGeneralVideos">
                         <span class="videodromeLocalVideoMenuItemActive">general</span>
-                    </div>
-                    <div class="videodromeLocalVideoMenuItem cursorAction XXX showPrivateContent">
-                        <span class="">private</span>
-                    </div>
+                    </div>-->
+
+                    <div class="videodromeLocalVideoMenuItem cursorAction XXX showPrivateContent">private</div>
                     <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent">
                         <span class="videodromeLocalVideoMenuItemActive">private</span>
                     </div>
+
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
                     <div class="externalVideoDirSelection">
                     </div>
                 </div>

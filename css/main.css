@@ -1008,7 +1008,7 @@ option {
     text-align: center;
     font-weight: 700;
     height: 63px;
-    padding-top: 6px;
+    padding-top: 7px;
     font-size: 35px;
     margin-left: 15vW;
     margin-right: 15vW;
@@ -2082,7 +2082,8 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
 }
 
-.videodromeLocalVideoMenuItemActive, .videodromeLocalVideoMenuItemActive:hover {
+.videodromeLocalFolderActive, .videodromeLocalFolderActive:hover,
+.videodromeTagActive, .videodromeTagActive:hover {
     color: #c9ff80;
 }
 
@@ -2233,7 +2234,7 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100%;
 }
 
-.externalPornDirActive, .showGeneralVideos {
+.externalPornDirActive {
     display: none;
 }
 
@@ -2520,6 +2521,9 @@ video::-webkit-media-controls-fullscreen-button {
     transition: all 0.6s ease;
     color: #fff;
     font-family: monospace;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
 }
 
 .mindJourneyCharSelectImage {
@@ -2541,7 +2545,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .mindJourneyCharSelectContainer {
-    padding-left: 275px;
+    padding-left: 295px;
 }
 
 .incantationContainer {
