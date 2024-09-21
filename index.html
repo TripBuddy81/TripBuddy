@@ -403,7 +403,8 @@
                 <div class="col-3 mindJourneyPlaylistCol">
                     <div class="row d-flex justify-content-between">
                         {{#mindJourney.playlists}}
-                        <div data-tag="{{tag}}" class="spotifyPlaylistItem spotifyPlaylist mindJourneyElement mindJourneyElementVisible"
+                        <div data-tag="{{tag}}"
+                             class="spotifyPlaylistItem spotifyPlaylist mindJourneyElement mindJourneyElementVisible"
                              shuffle="{{shuffle}}"
                              repeat="{{repeat}}"
                              data-spotify-id="spotify:playlist:{{id}}">{{label}}
@@ -414,7 +415,9 @@
 
                 <div class="col-4 mindJourneyCharCol">
                     {{#mindJourney.charList}}
-                    <div data-mindJourneyCharNumber="{{@index}}" data-triggerWord="{{triggerWord}}" data-charName="{{label}}" class="mindJourneyCharSelectContainer row d-flex justify-content-left">
+                    <div data-mindJourneyCharNumber="{{@index}}" data-triggerWord="{{triggerWord}}"
+                         data-charName="{{label}}"
+                         class="mindJourneyCharSelectContainer row d-flex justify-content-left">
                         <div class="mindJourneyCharSelectImageContainer col-7">
                             <img class="mindJourneyCharSelectImage mindJourneyCharSelect cursorAction"
                                  src="./assets/{{image}}">
@@ -424,13 +427,14 @@
                         </div>
                     </div>
                     {{/mindJourney.charList}}
-                    <div id="mindJourneyTriggerWordDisplay"> </div>
+                    <div id="mindJourneyTriggerWordDisplay"></div>
                 </div>
 
                 <div class="col-5 mindJourneySceneCol">
                     <div class="row d-flex justify-content-between">
                         {{#mindJourney.scenes}}
-                        <span data-tag="{{tag}}" class="mindJourneyScene cursorAction mindJourneyElement mindJourneyElementVisible">{{label}}</span>
+                        <span data-tag="{{tag}}"
+                              class="mindJourneyScene cursorAction mindJourneyElement mindJourneyElementVisible">{{label}}</span>
                         {{/mindJourney.scenes}}
                     </div>
                 </div>
@@ -1057,20 +1061,21 @@
             </div>
             <div class="row">
                 <div class="col">
+                    <div data-pornMapTag="General" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect videodromeTagActive">General</div>
+                    {{#pornMapTagList}}
+                    <div data-pornMapTag="{{selectableTag}}" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect">{{selectableTag}}</div>
+                    {{/pornMapTagList}}
 
-                    <div data-pornMapTag="general" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect videodromeTagActive">general</div>
-                    <div data-pornMapTag="Tier" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect">Tier</div>
-                    <div class="videodromeLocalVideoMenuItem cursorAction showPrivateContent">private</div>
-                    <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent videodromePrivateTagActive">private</div>
-
+                    <div class="videodromeLocalVideoMenuItem cursorAction showPrivateContent videodromeTagSelectPrivateFlag">private</div>
+                    <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent videodromePrivateTagActive videodromeTagSelectPrivateFlag">private</div>
                 </div>
             </div>
 
 
- <!--           <div class="row mt-3">
-                <div class="col">
-                </div>
-            </div>-->
+            <!--           <div class="row mt-3">
+                           <div class="col">
+                           </div>
+                       </div>-->
             <div class="row mt-3">
                 <div class="col-2 me-5 refreshVideoDromeVideoFullscreenContainer">
                     <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
@@ -1165,13 +1170,12 @@
         <div id="videodromeBottomToolbar">
             <div class="row mb-3">
                 <div class="col">
-
-                    <div data-pornMapTag="general" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect videodromeTagActive">general</div>
-                    <div data-pornMapTag="Tier" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect">Tier</div>
-                    <div class="videodromeLocalVideoMenuItem cursorAction showPrivateContent">private</div>
-                    <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent videodromePrivateTagActive">private</div>
-
-
+                    <div data-pornMapTag="General" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect videodromeTagActive">General</div>
+                    {{#pornMapTagList}}
+                    <div data-pornMapTag="{{selectableTag}}" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect">{{selectableTag}}</div>
+                    {{/pornMapTagList}}
+                    <div class="videodromeLocalVideoMenuItem cursorAction showPrivateContent videodromeTagSelectPrivateFlag">private</div>
+                    <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent videodromePrivateTagActive videodromeTagSelectPrivateFlag">private</div>
                 </div>
             </div>
             <div class="row mb-3">

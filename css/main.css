@@ -2563,3 +2563,13 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 25px;
     text-align: center;
 }
+
+.videodromeTagSelect {
+    font-size: 30px;
+    margin-right: 40px;
+}
+
+.videodromeTagSelectPrivateFlag {
+    float: right;
+    font-size: 30px;
+}
