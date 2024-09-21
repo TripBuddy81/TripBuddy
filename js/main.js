@@ -3673,7 +3673,7 @@ $( document ).ready( function () {
             } );
 
             $( '.videodromeTagSelect' ).click( function ( e ) {
-                $( this ).toggleClass( 'videodromeTagActive' );
+                $( '[data-pornmaptag|=\'' + $( this ).attr( 'data-pornmaptag' ) + '\']' ).toggleClass( 'videodromeTagActive' );
                 loadActiveVideodromeTagsIntoList();
                 displayAllActiveLocalFilenames();
             } );
@@ -3762,15 +3762,12 @@ $( document ).ready( function () {
                         }
 
                         selectableVideodromeFilesFromTagAndFolders = [];
-                        selectableVideodromeFilesFromFolders.forEach( function ( url ) {
-                            selectableVideodromeFilesFromTagAndFolders.push( url );
+                        selectableVideodromeFilesFromFolders.forEach( function ( file ) {
+                            selectableVideodromeFilesFromTagAndFolders.push( file );
                         } );
-                        selectableVideodromeFilesFromTags.forEach( function ( url ) {
-                            selectableVideodromeFilesFromTagAndFolders.push( url );
+                        selectableVideodromeFilesFromTags.forEach( function ( file ) {
+                            selectableVideodromeFilesFromTagAndFolders.push( file );
                         } );
-                        console.info( selectableVideodromeFilesFromFolders, 'files folders' );
-                        console.info( selectableVideodromeFilesFromTags, 'files tags' );
-                        console.info( selectableVideodromeFilesFromTagAndFolders, 'final hash!' );
 
                         displayAllActiveLocalFilenames();
                     }
@@ -3886,18 +3883,12 @@ $( document ).ready( function () {
                 } );
 
                 $.each( Object.keys( tempObject ), function ( index, file ) {
+                    selectableVideodromeFilesFromTags.push( file );
                     selectableVideodromeFilesFromTagAndFolders.push( file );
                 } );
                 selectableVideodromeFilesFromFolders.forEach( function ( url ) {
                     selectableVideodromeFilesFromTagAndFolders.push( url );
                 } );
-
-                console.info( privateVisible, 'privateVisible' );
-                console.info( selectableVideodromeFiles );
-
-                console.info( selectableVideodromeFilesFromFolders, 'files folders' );
-                console.info( selectableVideodromeFilesFromTags, 'files tags' );
-                console.info( selectableVideodromeFilesFromTagAndFolders, 'final hash!' );
             }
 
             function forcePlaybackVideodrome() {
