@@ -3676,30 +3676,19 @@ $( document ).ready( function () {
                 displayAllActiveLocalFilenames();
             } );
 
-
             $( '.showPrivateContent' ).click( function ( e ) {
                 privateVisible = true;
                 checkPrivateVisible();
-
-
                 loadActiveVideodromeTagsIntoList();
                 displayAllActiveLocalFilenames();
-
             } );
 
             $( '.hidePrivateContent' ).click( function ( e ) {
                 privateVisible = false;
                 checkPrivateVisible();
-
-                $.each( config['videosLocal'], function ( index, val ) {
-                    if ( val['tags'] == 'private' ) {
-                        config['videosPornGeneral'].splice( $.inArray( val['videoLink'], config['videosPornGeneral'] ), 1 );
-                    }
-                } );
-
+                loadActiveVideodromeTagsIntoList();
                 displayAllActiveLocalFilenames();
             } );
-
 
             function getAllExternalPornDirs( url ) {
                 $.ajax( {
@@ -3846,7 +3835,7 @@ $( document ).ready( function () {
                     var videosToShow = [];
 
 
-                    while ( videosToShow.length < 1 ) {
+                    while ( videosToShow.length < 4 ) {
                         randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFiles.length ) - parseInt( 0 )) + parseInt( 0 ) );
                         if ( videosToShow.indexOf( randomNumber ) == -1 ) {
                             videosToShow.push( randomNumber );

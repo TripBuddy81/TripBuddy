@@ -2083,7 +2083,8 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videodromeLocalFolderActive, .videodromeLocalFolderActive:hover,
-.videodromeTagActive, .videodromeTagActive:hover {
+.videodromeTagActive, .videodromeTagActive:hover,
+.videodromePrivateTagActive, .videodromePrivateTagActive:hover {
     color: #c9ff80;
 }
 
