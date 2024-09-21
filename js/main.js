@@ -3387,16 +3387,16 @@ $( document ).ready( function () {
                 if ( config['pornMap'] != undefined && config['pornMap'].length > 0 ) {
                     target = $( this ).attr( 'target' );
 
-                    randomNumber = Math.floor( Math.random() * (parseInt( config['videosPornGeneral'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFiles.length ) - parseInt( 0 )) + parseInt( 0 ) );
                     while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
-                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosPornGeneral'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                        if ( alreadySelectedVideosVideodrome.length >= config['videosPornGeneral'].length - 1 ) {
+                        randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFiles.length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        if ( alreadySelectedVideosVideodrome.length >= selectableVideodromeFiles.length - 1 ) {
                             alreadySelectedVideosVideodrome = [];
                         }
                     }
                     alreadySelectedVideosVideodrome.push( randomNumber );
 
-                    $( '.' + target ).find( '.videoSource' ).attr( 'src', config['videosPornGeneral'][randomNumber] );
+                    $( '.' + target ).find( '.videoSource' ).attr( 'src', selectableVideodromeFiles[randomNumber] );
                     $( '.' + target ).find( '.localVideo' )[0].load();
                     $( '.' + target ).find( '.localVideo' )[0].play();
                 }
@@ -3432,15 +3432,15 @@ $( document ).ready( function () {
                     if ( $( target ).hasClass( 'video-js' ) ) {
                         videodromeStreamRefreshVideo();
                     } else {
-                        randomNumber = Math.floor( Math.random() * (parseInt( config['videosPornGeneral'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFiles.length ) - parseInt( 0 )) + parseInt( 0 ) );
                         while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
-                            randomNumber = Math.floor( Math.random() * (parseInt( config['videosPornGeneral'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                            if ( alreadySelectedVideosVideodrome.length >= config['videosPornGeneral'].length - 1 ) {
+                            randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFiles.length ) - parseInt( 0 )) + parseInt( 0 ) );
+                            if ( alreadySelectedVideosVideodrome.length >= selectableVideodromeFiles.length - 1 ) {
                                 alreadySelectedVideosVideodrome = [];
                             }
                         }
                         alreadySelectedVideosVideodrome.push( randomNumber );
-                        $( target ).find( '.videoSource' ).attr( 'src', config['videosPornGeneral'][randomNumber] );
+                        $( target ).find( '.videoSource' ).attr( 'src', selectableVideodromeFiles[randomNumber] );
                         $( target ).find( '.localVideo' )[0].load();
                         $( target ).find( '.localVideo' )[0].play();
                     }
@@ -3834,7 +3834,6 @@ $( document ).ready( function () {
                     getAllExternalPornDirs( config['externalRootDirs']['pornRootDir'] );
                     var videosToShow = [];
 
-
                     while ( videosToShow.length < 4 ) {
                         randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFiles.length ) - parseInt( 0 )) + parseInt( 0 ) );
                         if ( videosToShow.indexOf( randomNumber ) == -1 ) {
@@ -3843,6 +3842,9 @@ $( document ).ready( function () {
                             $( '.videoDromeVideo' + videosToShow.length ).find( '.videoSource' ).attr( 'src', selectableVideodromeFiles[randomNumber] );
                             $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].load();
                             $( '.videoDromeVideo' + videosToShow.length ).find( '.localVideo' )[0].play();
+                        }
+                        if ( selectableVideodromeFiles.length == videosToShow.length ) {
+                            break;
                         }
                     }
                     displayAllActiveLocalFilenames();
@@ -4673,7 +4675,7 @@ $( document ).ready( function () {
                                           $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
 
 
-                /*    $( '#videodromeUI' ).show();*/
+               /* $( '#videodromeUI' ).show();*/
             }
         }
 );
