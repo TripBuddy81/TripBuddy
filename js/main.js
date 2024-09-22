@@ -3786,11 +3786,11 @@ $( document ).ready( function () {
 
                         if ( mode == 'add' ) {
                             externalFiles.forEach( function ( url ) {
-                                selectableVideodromeFilesFromFolders.push( url + '#t=5' );
+                                selectableVideodromeFilesFromFolders.push( url + '#t=60' );
                             } );
                         } else {
                             externalFiles.forEach( function ( url ) {
-                                selectableVideodromeFilesFromFolders.splice( $.inArray( url + '#t=5', selectableVideodromeFilesFromFolders ), 1 );
+                                selectableVideodromeFilesFromFolders.splice( $.inArray( url + '#t=60', selectableVideodromeFilesFromFolders ), 1 );
                             } );
                         }
 
