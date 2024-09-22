@@ -1466,8 +1466,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/22.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Zwei Koi Fische',
+                    'meaning': 'Liebe, Hingabe und Unterstützung'
                 },
                 {
                     'image'  : './media/symbols/23.png',
