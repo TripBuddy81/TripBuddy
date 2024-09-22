@@ -230,7 +230,7 @@ p {
     background-color: transparent;
     color: black;
     font-weight: 700;
-    font-size: 24.8px;
+    font-size: 24.6px;
     border-width: 3px;
     border-color: black;
     border-radius: 10px;
@@ -1267,7 +1267,7 @@ input[type=range]::-webkit-slider-thumb {
     vertical-align: bottom;
 }
 
-.videoContainer.wisdom {
+.videoContainer.thinker, .videoContainer.wisdom, .videoContainer.shaman {
     margin-bottom: 50px !important;
 }
 

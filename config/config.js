@@ -270,10 +270,10 @@ var config = {
                 {'selectableTag': 'space'},
                 {'selectableTag': 'nature'},
                 {'selectableTag': 'slideshow'},
-                {'selectableTag': 'hiking'},
                 {'selectableTag': 'music'},
                 {'selectableTag': 'calming'},
                 {'selectableTag': 'nsfw'},
+                {'selectableTag': 'thinker'},
                 {'selectableTag': 'wisdom'},
                 {'selectableTag': 'shaman'}
             ],
@@ -678,42 +678,6 @@ var config = {
                     'tags'   : 'music'
                 },
                 {
-                    'videoId': 'hld4uaO1MDE',
-                    'tags'   : 'hiking'
-                },
-                {
-                    'videoId': 'PyFN_FYwqvc',
-                    'tags'   : 'hiking'
-                },
-                {
-                    'videoId': 'hF-F559PTUg',
-                    'tags'   : 'hiking'
-                },
-                {
-                    'videoId': 'kSVqPAN1nCM',
-                    'tags'   : 'hiking'
-                },
-                {
-                    'videoId': 'RDiK058GjgI',
-                    'tags'   : 'hiking'
-                },
-                {
-                    'videoId': 'U1j-eO3-aR8',
-                    'tags'   : 'hiking'
-                },
-                {
-                    'videoId': 'e04zAMupq7E',
-                    'tags'   : 'hiking'
-                },
-                {
-                    'videoId': 'RHycI27FelE',
-                    'tags'   : 'hiking'
-                },
-                {
-                    'videoId': 'b4AVn8mTuJw',
-                    'tags'   : 'hiking'
-                },
-                {
                     'videoId': '123Z5KLLiO8',
                     'mute'   : 'mixed',
                     'tags'   : 'music'
@@ -822,6 +786,32 @@ var config = {
                     'videoId': 'ZcfDzE3FCt4',
                     'tags'   : 'nsfw'
                 },
+
+                {
+                    'videoId': '0-9OgDlL-wQ',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Meaning is Found Where Biology Meets Fiction'
+                },
+                {
+                    'videoId': 'Pgv6YGjh-7w',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'The Cry for Help Buried in our Culture'
+                },
+                {
+                    'videoId': 'rpp1lB_Ttgo',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'How Megalophobia Shapes Human Society'
+                },
+                {
+                    'videoId': 'RIin9sOMzIg',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Psychedelic Realizations summary (watch only sober)'
+                },
+
                 {
                     'videoId': '2NP0jYGPXc4',
                     'mute'   : false,
