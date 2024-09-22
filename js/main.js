@@ -3302,7 +3302,9 @@ $( document ).ready( function () {
             $( '.videoTaggingButton' ).click( function () {
                 tag = $( this ).html();
                 $( '.videodromeFullscreen' ).each( function () {
-                    videoTaggingCache['items'].unshift( $( this ).find( '.videoSource' ).attr( 'src' ) + ' : ' + tag );
+                    time = Math.floor( $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime );
+                    itemToStore = "{'file':'" + $( this ).find( '.videoSource' ).attr( 'src' ).replace( /#t=.*/,  '#t=' + time ) + "','tag':'" + tag + "'},"
+                    videoTaggingCache['items'].unshift( itemToStore );
                     localStorage.setItem( 'videoTaggingCache', JSON.stringify( videoTaggingCache['items'] ) );
                     return false;
                 } );

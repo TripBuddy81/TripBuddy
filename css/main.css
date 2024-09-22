@@ -719,6 +719,7 @@ li, .options, .form-check-label {
 
 .spotifyHistoryTrack, .videoTagEntry {
     font-size: 20px;
+    user-select: text;
 }
 
 #openAddToQueueMenu {
