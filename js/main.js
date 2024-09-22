@@ -3566,6 +3566,10 @@ $( document ).ready( function () {
                     $( '.vjs-control-bar' ).css( 'display', 'flex' );
                 }
 
+                if ( $( '#videodromeFullscreenMenuLocalVideoContainer' ).is( ':visible' ) ) {
+                    $( '#videoTaggingContainer' ).show();
+                }
+
                 clearTimeout( videodromeVideoJSControlbarHideInterval );
                 videodromeVideoJSControlbarHideInterval = setTimeout( function () {
                     $( '.video-js' ).removeClass( 'vjs-user-active' );
@@ -3582,6 +3586,8 @@ $( document ).ready( function () {
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
                 }
+
+                $( '#videoTaggingContainer' ).hide();
             } );
 
             $( document ).on( 'mousemove', '.vjs-control-bar', function ( event ) {

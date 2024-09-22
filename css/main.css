@@ -2579,6 +2579,7 @@ video::-webkit-media-controls-fullscreen-button {
     float: right;
     margin-top: 10px;
     font-size: 25px;
+    display: none;
 }
 
 .videoTaggingButton:hover {
