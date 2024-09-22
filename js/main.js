@@ -3296,8 +3296,8 @@ $( document ).ready( function () {
 
             $( '.videoTaggingButton' ).click( function () {
                 tag = $( this ).html();
-                $( '.videodromeFullscreenFilename' ).each( function () {
-                    videoTaggingCache['items'].unshift( $( this ).html() + ' : ' + tag );
+                $( '.videodromeFullscreen' ).each( function () {
+                    videoTaggingCache['items'].unshift( $( this ).find( '.videoSource' ).attr( 'src' ) + ' : ' + tag );
                     localStorage.setItem( 'videoTaggingCache', JSON.stringify( videoTaggingCache['items'] ) );
                     return false;
                 } );
