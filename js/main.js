@@ -358,6 +358,8 @@ $( document ).ready( function () {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                } else if ( $( '.modal' ).is( ':visible' ) ) {
+                    $( '.modal' ).modal( 'hide' );
                 } else if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#mainMenu' ).attr( 'style', 'opacity:0' );
@@ -638,7 +640,7 @@ $( document ).ready( function () {
                 $( '.videostreamFavoriteItemDeleteSymbol' ).hide();
                 $( '#unlockDeleteVideodromeFavorites' ).show();
                 $( '#lockDeleteVideodromeFavorites' ).hide();
-                $( '#preFlightChecklist' ).modal( 'hide' );
+                $( '.modal' ).modal( 'hide' );
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
