@@ -1401,7 +1401,7 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/07.png',
-                    'label'  : '',
+                    'label'  : 'Curved space - Pringles',
                     'meaning': ''
                 },
                 {
@@ -1446,8 +1446,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/18.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Quantenschaum',
+                    'meaning': 'Aus jeder Blase steigen neue Blasen empor. Das Universum ist wirklich unendlich!'
                 },
                 {
                     'image'  : './media/symbols/19.png',
@@ -1461,8 +1461,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/21.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Black Triskeles',
+                    'meaning': '???'
                 },
                 {
                     'image'  : './media/symbols/22.png',
@@ -1486,7 +1486,7 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/27.png',
-                    'label'  : '',
+                    'label'  : 'Hand der Fatima',
                     'meaning': ''
                 },
                 {
@@ -1496,8 +1496,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/30.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Einheit!',
+                    'meaning': 'Einheit mit allem!'
                 },
                 {
                     'image'  : './media/symbols/31.png',
@@ -1511,8 +1511,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/33.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Dualismus',
+                    'meaning': 'Um das eine sein zu können, muss es das andere geben!'
                 },
                 {
                     'image'  : './media/symbols/34.png',
@@ -1521,17 +1521,17 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/35.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Geist / Lemur',
+                    'meaning': 'Entität - Geist?'
                 },
                 {
                     'image'  : './media/symbols/36.png',
-                    'label'  : '',
+                    'label'  : 'Omega/Gott',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/37.png',
-                    'label'  : '',
+                    'label'  : 'Negation / Nein',
                     'meaning': ''
                 },
                 {
@@ -1541,7 +1541,7 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/39.png',
-                    'label'  : '',
+                    'label'  : 'Natur/Leben',
                     'meaning': ''
                 },
                 {
@@ -1561,13 +1561,13 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/43.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Natur',
+                    'meaning': 'Geh häufiger raus in die Natur! Lebe nicht nur in deinem Kopf!'
                 },
                 {
                     'image'  : './media/symbols/45.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Dämon',
+                    'meaning': 'Entität - böser Dämon - Trickster'
                 },
                 {
                     'image'  : './media/symbols/46.png',
@@ -1586,8 +1586,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/49.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'biased flip of coin',
+                    'meaning': 'Du kannst das Helle auf der dunklen Seite sein und damit das Übergewicht für das Licht sein!'
                 },
                 {
                     'image'  : './media/symbols/51.png',
