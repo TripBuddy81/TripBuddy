@@ -133,8 +133,10 @@ $( document ).ready( function () {
             window.alreadySelectedMeditationSymbols = [];
             window.mindJourneyCharActive = '';
             window.mindJourneyCharNumberActive = '';
+            window.videoTaggingCache = {'items': []};
 
             spotifyHistory['items'] = JSON.parse( localStorage.getItem( 'spotifyHistory' ) ) || [];
+            videoTaggingCache['items'] = JSON.parse( localStorage.getItem( 'videoTaggingCache' ) ) || [];
 
             const urlParams = new URLSearchParams( window.location.search );
 
@@ -464,10 +466,19 @@ $( document ).ready( function () {
 
             $( '#showApplicationSettings' ).click( function () {
                 stopAllActions( true, false );
+
+                $( '#videoTaggingCache' ).empty();
+                videoTaggingCache['items'] = JSON.parse( localStorage.getItem( 'videoTaggingCache' ) ) || [];
+                videoTaggingCache['items'].forEach( function ( videoTag ) {
+                    $( '#videoTaggingCache' ).append( '<div class=\'videoTagEntry\'>' + videoTag + '</div>' );
+                } );
+
                 $( '#spotifyHistory' ).empty();
+                spotifyHistory['items'] = JSON.parse( localStorage.getItem( 'spotifyHistory' ) ) || [];
                 spotifyHistory['items'].forEach( function ( track ) {
                     $( '#spotifyHistory' ).append( '<div class=\'spotifyHistoryTrack\'>' + track + '</div>' );
                 } );
+
                 $( '#applicationSettingsMenu' ).addClass( 'menuTransition' );
                 $( '#applicationSettingsMenu' ).animate( {scrollTop: 0}, 'fast' );
             } );
@@ -565,6 +576,13 @@ $( document ).ready( function () {
             // Info Tag toggle setting
             $( '#toggleInfo' ).click( function () {
                 $( '.videoInfo' ).toggle();
+            } )
+
+            $( '#clearAllHistoryAndCache' ).click( function ( event ) {
+                localStorage.setItem( 'youtubeHistory', JSON.stringify( '' ) );
+                localStorage.setItem( 'spotifyHistory', JSON.stringify( '' ) );
+                localStorage.setItem( 'videoTaggingCache', JSON.stringify( '' ) );
+                event.stopPropagation();
             } )
 
             // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
@@ -2783,11 +2801,6 @@ $( document ).ready( function () {
                 searchYoutubeAutocomplete( '' );
             } )
 
-            $( '#clearYoutubePlayedHistory' ).click( function ( event ) {
-                localStorage.setItem( 'youtubeHistory', JSON.stringify( '' ) );
-                event.stopPropagation();
-            } )
-
             $( document ).on( 'click', '.youtubeQueueItemDeleteSymbol', function ( e ) {
                 removeIdFromYoutubeQueue( $( this ).closest( '.youtubeQueueItem' ).find( '.youtubeQueueItemImage' ).attr( 'id' ) );
                 displayYoutubeQueue();
@@ -3279,6 +3292,15 @@ $( document ).ready( function () {
 
             $( '.toggleTransparentStrobo,.toggleLocalStreamIcon,#toggleTransperentStroboOracleSymbol' ).click( function () {
                 $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' )
+            } );
+
+            $( '.videoTaggingButton' ).click( function () {
+                tag = $( this ).html();
+                $( '.videodromeFullscreenFilename' ).each( function () {
+                    videoTaggingCache['items'].unshift( $( this ).html() + ' : ' + tag );
+                    localStorage.setItem( 'videoTaggingCache', JSON.stringify( videoTaggingCache['items'] ) );
+                    return false;
+                } );
             } );
 
             function toggleTransparentStrobo( transparency = '0.2' ) {

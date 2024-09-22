@@ -717,7 +717,7 @@ li, .options, .form-check-label {
     position: inherit;
 }
 
-.spotifyHistoryTrack {
+.spotifyHistoryTrack, .videoTagEntry {
     font-size: 20px;
 }
 
@@ -2144,6 +2144,7 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 15;
     width: 101%;
     padding: 15px 15px;
+    padding-right: 455px;
 }
 
 #videodromeGlobalActionContainer:hover {
@@ -2572,4 +2573,14 @@ video::-webkit-media-controls-fullscreen-button {
 .videodromeTagSelectPrivateFlag {
     float: right;
     font-size: 30px;
+}
+
+#videoTaggingContainer {
+    float: right;
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+.videoTaggingButton:hover {
+    color: white;
 }
