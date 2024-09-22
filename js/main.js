@@ -837,6 +837,7 @@ $( document ).ready( function () {
             } );
             $( '#showPornZapper' ).click( function () {
                 $( '#showVideoSection' ).trigger( 'click' );
+                $( '#ensoImageShrineContainer' ).hide();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
                 $( '#videodromeUI' ).show();
