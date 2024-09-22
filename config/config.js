@@ -451,6 +451,16 @@ var config = {
                     'startSeconds': '90'
                 },
                 {
+                    'videoId'     : 'FhV36CDR42U',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '409'
+                },
+                {
+                    'videoId'     : '5HpnCpS_BDg',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '1'
+                },
+                {
                     'videoId'     : 'WE5MsnGXmN4',
                     'tags'        : 'trippy-2D',
                     'startSeconds': '80'
