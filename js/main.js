@@ -134,6 +134,9 @@ $( document ).ready( function () {
             window.mindJourneyCharActive = '';
             window.mindJourneyCharNumberActive = '';
             window.videoTaggingCache = {'items': []};
+            window.videodromeTaggingSaveInterval = '';
+            window.videodromeTaggingAppliedTags = '';
+            window.videodromeTaggingVideo = '';
 
             spotifyHistory['items'] = JSON.parse( localStorage.getItem( 'spotifyHistory' ) ) || [];
             videoTaggingCache['items'] = JSON.parse( localStorage.getItem( 'videoTaggingCache' ) ) || [];
@@ -3279,14 +3282,27 @@ $( document ).ready( function () {
             } );
 
             $( '.videoTaggingButton' ).click( function () {
-                tag = $( this ).html();
-                $( '.videodromeFullscreen' ).each( function () {
-                    time = Math.floor( $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime );
-                    itemToStore = "{'file':'" + $( this ).find( '.videoSource' ).attr( 'src' ).replace( /#t=.*/,  '#t=' + time ) + "','tag':'" + tag + "'},"
+                clearTimeout( videodromeTaggingSaveInterval );
+
+                if ( videodromeTaggingSaveInterval == '' || videodromeTaggingSaveInterval == undefined ) {
+                    $( '.videodromeFullscreen' ).each( function () {
+                        videodromeTaggingVideo = $( this ).find( '.videoSource' ).attr( 'src' ).replace( /#t=.*/, '#t=' + Math.floor( $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime ) );
+                    } );
+                    videodromeTaggingAppliedTags = $( this ).html();
+                } else {
+                    videodromeTaggingAppliedTags = videodromeTaggingAppliedTags + ',' + $( this ).html();
+                }
+
+                videodromeTaggingSaveInterval = setTimeout( function () {
+                    itemToStore = '{\'file\':\'' + videodromeTaggingVideo + '\',\'tag\':\'' + videodromeTaggingAppliedTags + '\'},'
                     videoTaggingCache['items'].unshift( itemToStore );
                     localStorage.setItem( 'videoTaggingCache', JSON.stringify( videoTaggingCache['items'] ) );
-                    return false;
-                } );
+
+                    videodromeTaggingSaveInterval = '';
+                    videodromeTaggingVideo = '';
+                    videodromeTaggingAppliedTags = '';
+                }, 5000 );
+
             } );
 
             function toggleTransparentStrobo( transparency = '0.2' ) {
@@ -3384,12 +3400,16 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer', function ( event ) {
+            $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
                 event.preventDefault();
+                timeSkipDuration = 30;
+                if ( $( '.videoTaggingButton' ).is( ':visible' ) ) {
+                    timeSkipDuration = 5;
+                }
                 if ( event.originalEvent.deltaY > 0 && $( '.videodromeFullscreen' ).find( '.localVideo' )[0] != undefined ) { // going down
-                    $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime = $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime - 30;
+                    $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime = $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime - timeSkipDuration;
                 } else if ( $( '.videodromeFullscreen' ).find( '.localVideo' )[0] != undefined ) { // going up
-                    $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime = $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime + 30;
+                    $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime = $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime + timeSkipDuration;
                 }
             } );
 

@@ -2578,11 +2578,16 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videoTaggingContainer {
     float: right;
-    margin-top: 10px;
     font-size: 25px;
     display: none;
+    line-height: 27px;
 }
 
 .videoTaggingButton:hover {
     color: white;
+}
+
+#videoTaggingEmotionList {
+    display: block;
+    text-align: center;
 }
