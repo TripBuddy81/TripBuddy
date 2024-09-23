@@ -1456,8 +1456,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/20.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Star of David',
+                    'meaning': 'The upward-pointing triangle symbolizes the divinity of the creator, while the downward-pointing triangle represents mankind. True power is achieved when a man is connected with his creator.'
                 },
                 {
                     'image'  : './media/symbols/21.png',
