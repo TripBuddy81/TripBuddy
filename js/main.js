@@ -2162,7 +2162,7 @@ $( document ).ready( function () {
 
             function setNextMeditationSymbol() {
                 randomNumber = Math.floor( Math.random() * (parseInt( config['meditationSymbols'].length )) );
-                while ( alreadySelectedMeditationSymbols.indexOf( randomNumber ) ) !== -1 ) {
+                while ( alreadySelectedMeditationSymbols.indexOf( randomNumber ) !== -1 ) {
                     randomNumber = Math.floor( Math.random() * (parseInt( config['meditationSymbols'].length )) );
                     if ( alreadySelectedMeditationSymbols.length >= config['meditationSymbols'].length - 1 ) {
                         alreadySelectedMeditationSymbols = [];
@@ -4715,7 +4715,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                /*  toggleXXXVisible();*/
+                  toggleXXXVisible();
 
                 /*                          $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
                                           $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
