@@ -2025,16 +2025,6 @@ $( document ).ready( function () {
             // Generic click on shrine section - no button clicked - action depends on currently active sub tool, e.g. shaman view or meditation symbol
             $( '#particles-js' ).click( function ( e ) {
                 enableFullscreen();
-
-                if ( $( '#shamansToolkit' ).is( ':visible' ) ) {
-                    $( '#shamanYes' ).toggleClass( 'shamanRight' );
-                    $( '#shamanYes' ).toggleClass( 'shamanLeft' );
-                    $( '#shamanNo' ).toggleClass( 'shamanLeft' );
-                    $( '#shamanNo' ).toggleClass( 'shamanRight' );
-                }
-                if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
-                    setNextMeditationSymbol();
-                }
             } );
 
             $( '#particles-js,#shrineSettingsContainer' ).on( 'wheel', function ( event ) {
@@ -2044,6 +2034,12 @@ $( document ).ready( function () {
                 absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
                 absoluteTruthsUpdate();
                 nextDiscoMode();
+
+                $( '#shamanYes' ).toggleClass( 'shamanRight' );
+                $( '#shamanYes' ).toggleClass( 'shamanLeft' );
+                $( '#shamanNo' ).toggleClass( 'shamanLeft' );
+                $( '#shamanNo' ).toggleClass( 'shamanRight' );
+
                 setNextMeditationSymbol();
             } );
 
@@ -4721,8 +4717,8 @@ $( document ).ready( function () {
                                           $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
 
 
-          /*      $( '#videodromeUI' ).show();
-                $( '#videoTaggingContainer' ).show();*/
+                /*      $( '#videodromeUI' ).show();
+                      $( '#videoTaggingContainer' ).show();*/
 
             }
         }
