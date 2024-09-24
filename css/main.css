@@ -414,6 +414,16 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover, .mindJourneyCharSelect:hover 
     margin-top: 15px;
 }
 
+
+.clickFeedback {
+    padding: 0px 5px;
+}
+
+.clickFeedback:active {
+    box-shadow: 3px 2px 22px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 768px) {
     #menu {
         transform: none;
@@ -2010,8 +2020,12 @@ video::-webkit-media-controls-fullscreen-button {
     margin-bottom: 10px;
 }
 
+#videodromeFullscreenAddToFavorites {
+    margin-left: 30px
+}
+
 #videodromeFullscreenResetSearch {
-    margin-left: 28px;
+    margin-left: 23px;
 }
 
 #videodromeErrorMessage {
@@ -2026,7 +2040,7 @@ video::-webkit-media-controls-fullscreen-button {
     float: left;
     font-size: 30px;
     font-weight: 700;
-    padding-left: 27px;
+    padding-left: 25px;
     width: 79px;
 }
 
