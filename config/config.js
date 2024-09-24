@@ -811,12 +811,29 @@ var config = {
                     'label'  : 'How Megalophobia Shapes Human Society'
                 },
                 {
+                    'videoId': 'JnKzt6Xq-w4',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'What If We Live in a Superdeterministic Universe?'
+                },
+                {
+                    'videoId': 'I8p1yqnuk8Y',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Does the Universe Create Itself?'
+                },
+                {
+                    'videoId': 'v-aP1J-BdvE',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'What If Physics IS NOT Describing Reality?'
+                },
+                {
                     'videoId': 'RIin9sOMzIg',
                     'mute'   : false,
                     'tags'   : 'thinker',
                     'label'  : 'Psychedelic Realizations summary (watch only sober)'
                 },
-
                 {
                     'videoId': '2NP0jYGPXc4',
                     'mute'   : false,
