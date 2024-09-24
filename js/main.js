@@ -2161,9 +2161,9 @@ $( document ).ready( function () {
             }
 
             function setNextMeditationSymbol() {
-                randomNumber = Math.floor( Math.random() * (parseInt( config['meditationSymbols'].length ) - parseInt( 0 )) + parseInt( 0 ) );
-                while ( alreadySelectedMeditationSymbols.indexOf( randomNumber ) !== -1 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( config['meditationSymbols'].length ) - parseInt( 0 )) + parseInt( 0 ) );
+                randomNumber = Math.floor( Math.random() * (parseInt( config['meditationSymbols'].length )) );
+                while ( alreadySelectedMeditationSymbols.indexOf( randomNumber ) ) !== -1 ) {
+                    randomNumber = Math.floor( Math.random() * (parseInt( config['meditationSymbols'].length )) );
                     if ( alreadySelectedMeditationSymbols.length >= config['meditationSymbols'].length - 1 ) {
                         alreadySelectedMeditationSymbols = [];
                     }
@@ -2228,16 +2228,16 @@ $( document ).ready( function () {
 
             function triggerStrobo() {
                 stroboSpeeds = [15, 20];
-                stroboSpeedToSelect = Math.floor( Math.random() * (1 - 0 + 1) + 0 );
+                stroboSpeedToSelect = Math.floor( Math.random() );
                 changeStroboSpeed( stroboSpeeds[stroboSpeedToSelect] );
                 nextStroboChange = Math.floor( Math.random() * (config['shrine']['stroboSwitchTimings']['max'] - config['shrine']['stroboSwitchTimings']['min'] + 1) + config['shrine']['stroboSwitchTimings']['min'] );
                 shrineStroboChangeTimer = setTimeout( triggerStrobo, nextStroboChange * 1000 );
             }
 
             function switchDiscoColor() {
-                randomNumber = Math.floor( Math.random() * (parseInt( config['shrine']['shrineColors'].length + 1 ) - parseInt( 0 )) + parseInt( 0 ) ) + 1;
+                randomNumber = Math.floor( Math.random() * (parseInt( config['shrine']['shrineColors'].length + 1 )) ) + 1;
                 while ( alreadySelectedColorsDisco.indexOf( randomNumber ) !== -1 ) {
-                    randomNumber = Math.floor( Math.random() * (parseInt( config['shrine']['shrineColors'].length + 1 ) - parseInt( 0 )) + parseInt( 0 ) ) + 1;
+                    randomNumber = Math.floor( Math.random() * (parseInt( config['shrine']['shrineColors'].length + 1 )) ) + 1;
                     if ( alreadySelectedColorsDisco.length >= config['shrine']['shrineColors'].length ) {
                         alreadySelectedColorsDisco = [];
                     }
@@ -3417,9 +3417,9 @@ $( document ).ready( function () {
                 if ( config['pornMap'] != undefined && config['pornMap'].length > 0 ) {
                     target = $( this ).attr( 'target' );
 
-                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length ) - parseInt( 0 )) + parseInt( 0 ) );
+                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
                     while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
-                        randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
                         if ( alreadySelectedVideosVideodrome.length >= selectableVideodromeFilesFromTagAndFolders.length - 1 ) {
                             alreadySelectedVideosVideodrome = [];
                         }
@@ -3462,9 +3462,9 @@ $( document ).ready( function () {
                     if ( $( target ).hasClass( 'video-js' ) ) {
                         videodromeStreamRefreshVideo();
                     } else {
-                        randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
                         while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
-                            randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length ) - parseInt( 0 )) + parseInt( 0 ) );
+                            randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
                             if ( alreadySelectedVideosVideodrome.length >= selectableVideodromeFilesFromTagAndFolders.length - 1 ) {
                                 alreadySelectedVideosVideodrome = [];
                             }
@@ -3879,7 +3879,7 @@ $( document ).ready( function () {
                     var videosToShow = [];
 
                     while ( videosToShow.length < 4 ) {
-                        randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length ) - parseInt( 0 )) + parseInt( 0 ) );
+                        randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
                         if ( videosToShow.indexOf( randomNumber ) == -1 ) {
                             videosToShow.push( randomNumber );
                             alreadySelectedVideosVideodrome.push( randomNumber );
@@ -4715,7 +4715,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-              /*  toggleXXXVisible();*/
+                /*  toggleXXXVisible();*/
 
                 /*                          $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
                                           $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
