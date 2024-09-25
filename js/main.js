@@ -3,7 +3,7 @@ $( document ).ready( function () {
             // #0.0 - global init section
             // #0.1 - Global key bindings, Global misc functionalities
             // #0.2 - Main Menues
-            // #0.3 - Start button & preFlightChecklist & Reminders
+            // #0.3 - Start Menu & preFlightChecklist & Reminders
             // #0.4 - Hidden Section config
             // #1 - Video section
             // #2 - Image section
@@ -917,7 +917,7 @@ $( document ).ready( function () {
             // ***********************************
 
             // ***********************************
-            // #0.3 - Start button & preFlightChecklist & Reminders
+            // #0.3 - Start Menu & preFlightChecklist & Reminders
             $( '#launchText' ).click( function ( e ) {
                 enableFullscreen();
                 stopAllActions();
@@ -955,6 +955,7 @@ $( document ).ready( function () {
             } );
 
             $( '#preFlightChecklist' ).on( 'hidden.bs.modal', function () {
+                clearInterval( preFlightCheckListAnimationTimer );
                 while ( allGuidedThoughts.length ) {
                     allGuidedThoughts.pop();
                 }
@@ -1048,11 +1049,10 @@ $( document ).ready( function () {
             // Show Menu to update Start settings
             $( '#timerMinutes,#progressGraphContainer' ).click( function ( event ) {
                 $( '#preFlightChecklistFooter' ).hide();
-                $( '#preFlightChecklist\n' ).modal( 'show' );
-            } );
-
-            $( '#preFlightChecklist' ).on( 'hide.bs.modal', function () {
-                clearInterval( preFlightCheckListAnimationTimer );
+                $( '#preFlightChecklist' ).modal( 'show' );
+                $( '.checkListItemHighlighted' ).each( function () {
+                    $( this ).removeClass( 'checkListItemHighlighted' );
+                } );
             } );
 
             $( '#timedRecommendation' ).click( function ( event ) {
