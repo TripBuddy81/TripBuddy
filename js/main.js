@@ -548,6 +548,19 @@ $( document ).ready( function () {
                 localStorage.setItem( 'topupReminderInMinutes3', '' );
                 localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
 
+                $( '#topupCheckbox1' ).prop( 'checked', false );
+                $( '#topupCheckbox2' ).prop( 'checked', false );
+                $( '#topupCheckbox3' ).prop( 'checked', false );
+                $( '#orderPizzaCheckbox' ).prop( 'checked', false );
+
+                $( '#guidedThought1' ).val( '' );
+                $( '#guidedThought2' ).val( '' );
+                $( '#guidedThought3' ).val( '' );
+                localStorage.setItem( 'guidedThought1', '' );
+                localStorage.setItem( 'guidedThought2', '' );
+                localStorage.setItem( 'guidedThought3', '' );
+                guidedThoughtPrefilTarget = 1;
+
                 while ( allGuidedThoughts.length ) {
                     allGuidedThoughts.pop();
                 }
@@ -1136,12 +1149,17 @@ $( document ).ready( function () {
             } );
             $( '#clearReminders' ).click( function () {
                 $( '#guidedThought1' ).val( '' );
-                $( '#guidedThought1' ).trigger( 'change' );
                 $( '#guidedThought2' ).val( '' );
-                $( '#guidedThought2' ).trigger( 'change' );
                 $( '#guidedThought3' ).val( '' );
-                $( '#guidedThought3' ).trigger( 'change' );
+                localStorage.setItem( 'guidedThought1', '' );
+                localStorage.setItem( 'guidedThought2', '' );
+                localStorage.setItem( 'guidedThought3', '' );
                 guidedThoughtPrefilTarget = 1;
+
+                while ( allGuidedThoughts.length ) {
+                    allGuidedThoughts.pop();
+                }
+                displayedAbsoluteTruthIndex = [];
             } );
 
             // Pizza timer
