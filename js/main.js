@@ -1059,17 +1059,15 @@ $( document ).ready( function () {
 
             // Top up Reminder Config
             $( '#topupCheckbox1' ).change( function () {
+                topUpReminderShown1 = false;
                 if ( $( '#topupCheckbox1' ).is( ':checked' ) ) {
                     localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
                 } else {
                     localStorage.setItem( 'topupReminderInMinutes1', '' );
                 }
             } );
-            $( '#topupReminderInMinutes1' ).change( function () {
-                $( '#topupCheckbox1' ).prop( 'checked', true );
-                localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
-            } );
             $( '#topupCheckbox2' ).change( function () {
+                topUpReminderShown2 = false;
                 if ( $( '#topupCheckbox2' ).is( ':checked' ) ) {
                     localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
                 } else {
@@ -1077,17 +1075,25 @@ $( document ).ready( function () {
                 }
             } );
             $( '#topupCheckbox3' ).change( function () {
+                topUpReminderShown3 = false;
                 if ( $( '#topupCheckbox3' ).is( ':checked' ) ) {
                     localStorage.setItem( 'topupReminderInMinutes3', $( '#topupReminderInMinutes3' ).val() );
                 } else {
                     localStorage.setItem( 'topupReminderInMinutes3', '' );
                 }
             } );
+            $( '#topupReminderInMinutes1' ).change( function () {
+                topUpReminderShown1 = false;
+                $( '#topupCheckbox1' ).prop( 'checked', true );
+                localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
+            } );
             $( '#topupReminderInMinutes2' ).change( function () {
+                topUpReminderShown2 = false;
                 $( '#topupCheckbox2' ).prop( 'checked', true );
                 localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
             } );
             $( '#topupReminderInMinutes3' ).change( function () {
+                topUpReminderShown3 = false;
                 $( '#topupCheckbox3' ).prop( 'checked', true );
                 localStorage.setItem( 'topupReminderInMinutes3', $( '#topupReminderInMinutes3' ).val() );
             } );
