@@ -1424,7 +1424,7 @@ var config = {
                 {
                     'image'  : './media/symbols/07.png',
                     'label'  : 'Curved space - Pringles',
-                    'meaning': ''
+                    'meaning': 'Gekrümmter Raum'
                 },
                 {
                     'image'  : './media/symbols/08.png',
@@ -1549,7 +1549,7 @@ var config = {
                 {
                     'image'  : './media/symbols/36.png',
                     'label'  : 'Omega/Gott',
-                    'meaning': ''
+                    'meaning': 'Der Sprung des Glaubens!'
                 },
                 {
                     'image'  : './media/symbols/37.png',
@@ -1588,8 +1588,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/45.png',
-                    'label'  : 'Dämon',
-                    'meaning': 'Entität - böser Dämon - Trickster'
+                    'label'  : 'Dämonin',
+                    'meaning': 'Entität - weiblich - böse - nicht göttlich - Trickster'
                 },
                 {
                     'image'  : './media/symbols/46.png',
@@ -1608,8 +1608,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/49.png',
-                    'label'  : 'biased flip of coin',
-                    'meaning': 'Du kannst das Helle auf der dunklen Seite sein und damit das Übergewicht für das Licht sein!'
+                    'label'  : 'Biased flip of coin',
+                    'meaning': 'Du kannst das Helle auf der dunklen Seite sein und damit das Übergewicht für das Licht sein! Du bist die weiße Stelle auf der schwarzen Seite.'
                 },
                 {
                     'image'  : './media/symbols/51.png',
