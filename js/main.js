@@ -939,6 +939,23 @@ $( document ).ready( function () {
                 preFlightCheckListAnimation();
             } );
 
+            $( '#preFlightChecklist' ).on( 'hidden.bs.modal', function () {
+                while ( allGuidedThoughts.length ) {
+                    allGuidedThoughts.pop();
+                }
+                displayedAbsoluteTruthIndex = [];
+
+                if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
+                }
+                if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
+                }
+                if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
+                }
+            } )
+
             function preFlightCheckListAnimation() {
                 var highlightedFound = false;
                 var isLastElement = false;
@@ -1013,29 +1030,9 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#liftOffUpdate' ).click( function ( e ) {
-                $( '#preFlightChecklist' ).modal( 'hide' );
-
-                while ( allGuidedThoughts.length ) {
-                    allGuidedThoughts.pop();
-                }
-                displayedAbsoluteTruthIndex = [];
-
-                if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
-                }
-                if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
-                }
-                if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
-                }
-            } );
-
             // Show Menu to update Start settings
             $( '#timerMinutes,#progressGraphContainer' ).click( function ( event ) {
                 $( '#preFlightChecklistFooter' ).hide();
-                $( '#preFlightChecklistUpdateFooter' ).show();
                 $( '#preFlightChecklist\n' ).modal( 'show' );
             } );
 

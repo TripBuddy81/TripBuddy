@@ -591,7 +591,7 @@ li, .options, .form-check-label {
     margin-left: -3px;
 }
 
-.liftOff, .liftOffUpdate {
+.liftOff {
     font-size: 35px;
     font-weight: bold;
     border-radius: 10px;
@@ -606,24 +606,13 @@ li, .options, .form-check-label {
     margin-right: 10px;
 }
 
-#preFlightChecklistUpdateFooter {
-    display: none;
-    height: 100px;
-}
-
 #weedOnlyLiftOff {
     background: linear-gradient(to right, #59ff84, #24d651, #00d336);
     position: absolute;
     right: 280px;
 }
 
-#liftOffUpdate {
-    background: linear-gradient(to right, #59ff84, #24d651, #00d336);
-    position: absolute;
-    right: 25px;
-}
-
-.liftOff:hover, .liftOffUpdate:hover {
+.liftOff:hover {
     color: white;
     border: solid 3px #FFFFFF;
 }
