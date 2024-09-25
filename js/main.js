@@ -664,6 +664,8 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videodromeFullscreenMenuContainer' ).hide();
                 $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                $( '#videodromeBottomToolbar' ).show();
+                $( '.videodromeRefreshContainer' ).show();
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
                 $( '.vjs-control-bar' ).css( 'display', 'none' );
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
