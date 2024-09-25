@@ -634,7 +634,7 @@
                             <div id="guidedThoughtsSettings" class="row mt-3">
                                 <div class="col">
                                     <h1>Guided thoughts</h1>
-                                    <h3>Will display given texts from time to time</h3>
+                                    <h3>Will display given texts from time to time </h3>
                                     <label class="form-check-label me-2" for="guidedThought1">#1</label>
                                     <input class="guidedThoughtsTextInput" type="text" id="guidedThought1"
                                            name="guidedThought1"
@@ -653,6 +653,7 @@
                                     <div class="options form-check form-switch mt-2 mt-3">
                                         <label class="form-check-label" for="guidedThoughtsShrineSectionOnly">Show
                                             thoughts only in Shrine section</label>
+                                        <span id="clearReminders"> (clear all)</span>
                                         <input class="form-check-input" type="checkbox"
                                                id="guidedThoughtsShrineSectionOnly" checked="checked">
                                     </div>
@@ -678,13 +679,6 @@
                                                name="guidedThoughtMaxMinutes"
                                                value="12" min="1" max="60">
                                     </span>
-
-                                    <h3 class="mt-3">Reminder suggestions <span
-                                            id="clearReminders">(clear all)</span>
-                                    </h3>
-                                    {{#reminderSelection}}
-                                    <span class="reminderSuggestion">{{reminder}}</span>
-                                    {{/reminderSelection}}
 
                                 </div>
                             </div>

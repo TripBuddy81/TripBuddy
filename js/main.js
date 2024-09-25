@@ -1085,23 +1085,30 @@ $( document ).ready( function () {
                 }
             } );
             $( '#topupReminderInMinutes1' ).change( function () {
-                topUpReminderShown1 = false;
-                $( '#topupCheckbox1' ).prop( 'checked', true );
-                localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
+                if ( totalMins < $( '#topupReminderInMinutes1' ).val() ) {
+                    topUpReminderShown1 = false;
+                    $( '#topupCheckbox1' ).prop( 'checked', true );
+                    localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
+                }
             } );
             $( '#topupReminderInMinutes2' ).change( function () {
-                topUpReminderShown2 = false;
-                $( '#topupCheckbox2' ).prop( 'checked', true );
-                localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
+                if ( totalMins < $( '#topupReminderInMinutes2' ).val() ) {
+                    topUpReminderShown2 = false;
+                    $( '#topupCheckbox2' ).prop( 'checked', true );
+                    localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
+                }
             } );
             $( '#topupReminderInMinutes3' ).change( function () {
-                topUpReminderShown3 = false;
-                $( '#topupCheckbox3' ).prop( 'checked', true );
-                localStorage.setItem( 'topupReminderInMinutes3', $( '#topupReminderInMinutes3' ).val() );
+                if ( totalMins < $( '#topupReminderInMinutes3' ).val() ) {
+                    topUpReminderShown3 = false;
+                    $( '#topupCheckbox3' ).prop( 'checked', true );
+                    localStorage.setItem( 'topupReminderInMinutes3', $( '#topupReminderInMinutes3' ).val() );
+                }
             } );
 
             // Order Pizza Reminder Config
             $( '#orderPizzaCheckbox' ).change( function () {
+                orderPizzaReminderShown = false;
                 if ( $( '#orderPizzaCheckbox' ).is( ':checked' ) ) {
                     localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
                 } else {
@@ -1109,8 +1116,11 @@ $( document ).ready( function () {
                 }
             } );
             $( '#orderPizzaReminderInMinutes' ).change( function () {
-                $( '#orderPizzaCheckbox' ).prop( 'checked', true );
-                localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
+                if ( totalMins < $( '#orderPizzaReminderInMinutes' ).val() ) {
+                    orderPizzaReminderShown = false;
+                    $( '#orderPizzaCheckbox' ).prop( 'checked', true );
+                    localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
+                }
             } );
 
             // Guided Thoughts Config
@@ -1269,19 +1279,23 @@ $( document ).ready( function () {
                 // Reminder Display - Top up
                 if ( localStorage.getItem( 'topupReminderInMinutes1' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes1' ) ) && topUpReminderShown1 == false ) {
                     topUpReminderShown1 = true;
+                    $( '#topupCheckbox1' ).prop( 'checked', false );
                     showTimedRecommendation( '??? Top up Shrooms ???' );
                 }
                 if ( localStorage.getItem( 'topupReminderInMinutes2' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes2' ) ) && topUpReminderShown2 == false ) {
                     topUpReminderShown2 = true;
+                    $( '#topupCheckbox2' ).prop( 'checked', false );
                     showTimedRecommendation( '??? Take Weed ???' );
                 }
                 if ( localStorage.getItem( 'topupReminderInMinutes3' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'topupReminderInMinutes3' ) ) && topUpReminderShown3 == false ) {
                     topUpReminderShown3 = true;
+                    $( '#topupCheckbox3' ).prop( 'checked', false );
                     showTimedRecommendation( '??? Take Weed ???' );
                 }
                 // Reminder Display - Order Pizza
                 if ( localStorage.getItem( 'orderPizzaReminderInMinutes' ) > 0 && totalMins >= parseInt( localStorage.getItem( 'orderPizzaReminderInMinutes' ) ) && orderPizzaReminderShown == false ) {
                     orderPizzaReminderShown = true;
+                    $( '#orderPizzaCheckbox' ).prop( 'checked', false );
                     showTimedRecommendation( 'Order Pizza!' );
                 }
 

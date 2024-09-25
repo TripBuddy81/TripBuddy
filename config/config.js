@@ -1672,13 +1672,6 @@ var config = {
                             'min': '45'
                         }
             },
-            'reminderSelection'      :
-                    [
-                        {'reminder': 'Write a letter'},
-                        {'reminder': 'Drink Tea'},
-                        {'reminder': 'Dance'},
-                        {'reminder': 'Listen to Alans wisdom'}
-                    ],
             'gameLinks'              :
                     [
                         {
