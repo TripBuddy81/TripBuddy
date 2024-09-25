@@ -541,7 +541,6 @@ $( document ).ready( function () {
 
             // Disable all future reminders and guided thoughts
             $( '#disableAllReminders' ).click( function ( e ) {
-                $( '#disableAllReminders' ).hide();
                 $( '.guidedThoughtsContainer' ).hide();
 
                 localStorage.setItem( 'topupReminderInMinutes1', '' );
@@ -988,10 +987,6 @@ $( document ).ready( function () {
                     $( '#shroomsPlusWeedProgressGraph' ).remove();
                 }
 
-                minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
-
-                $( '#preFlightChecklist' ).modal( 'hide' );
-
                 if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
                     allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
                 }
@@ -1003,11 +998,11 @@ $( document ).ready( function () {
                 }
                 displayedAbsoluteTruthIndex = [];
 
-                $( '.menuvisibleAfterStarted' ).show();
+                minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
 
-                if ( allGuidedThoughts.length == 0 && localStorage.getItem( 'topupReminderInMinutes1' ) == '' && localStorage.getItem( 'topupReminderInMinutes2' ) == '' && localStorage.getItem( 'orderPizzaReminderInMinutes' ) == '' ) {
-                    $( '#disableAllReminders' ).hide();
-                }
+                $( '#preFlightChecklist' ).modal( 'hide' );
+
+                $( '.menuvisibleAfterStarted' ).show();
 
                 // after liftoff the screensaver takes longer to start
                 screensaverStartAfterSeconds = 60;
@@ -1016,6 +1011,32 @@ $( document ).ready( function () {
                 if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
                     $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
                 }
+            } );
+
+            $( '#liftOffUpdate' ).click( function ( e ) {
+                $( '#preFlightChecklist' ).modal( 'hide' );
+
+                while ( allGuidedThoughts.length ) {
+                    allGuidedThoughts.pop();
+                }
+                displayedAbsoluteTruthIndex = [];
+
+                if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
+                }
+                if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
+                }
+                if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
+                }
+            } );
+
+            // Show Menu to update Start settings
+            $( '#timerMinutes,#progressGraphContainer' ).click( function ( event ) {
+                $( '#preFlightChecklistFooter' ).hide();
+                $( '#preFlightChecklistUpdateFooter' ).show();
+                $( '#preFlightChecklist\n' ).modal( 'show' );
             } );
 
             $( '#preFlightChecklist' ).on( 'hide.bs.modal', function () {
@@ -1084,9 +1105,11 @@ $( document ).ready( function () {
             $( '.guidedThoughtsContainer' ).click( function () {
                 $( '.guidedThoughtsContainer' ).hide();
             } );
-            $( '.guidedThoughtsTextInput' ).change( function () {
+
+            $( '.guidedThoughtsTextInput' ).on( 'keyup', function ( event ) {
                 localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
             } );
+
             $( '.guidedThoughtMinutes' ).change( function () {
                 localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
             } );
