@@ -2510,6 +2510,8 @@ video::-webkit-media-controls-fullscreen-button {
 
 .mindJourneySceneCol {
     text-align: right;
+    overflow-y: clip;
+    height: 79vH;
 }
 
 .mindJourneySceneCol > div {

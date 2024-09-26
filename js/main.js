@@ -4781,10 +4781,10 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                /* toggleXXXVisible();*/
+                 toggleXXXVisible();
 
-                /*                          $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
-                                          $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
+                                          $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
+                                          $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
 
 
                 /*      $( '#videodromeUI' ).show();
