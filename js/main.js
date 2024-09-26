@@ -137,6 +137,7 @@ $( document ).ready( function () {
             window.videodromeTaggingSaveInterval = '';
             window.videodromeTaggingAppliedTags = '';
             window.videodromeTaggingVideo = '';
+            window.mindJourneyIncantationNumberActive = 0;
 
             spotifyHistory['items'] = JSON.parse( localStorage.getItem( 'spotifyHistory' ) ) || [];
             videoTaggingCache['items'] = JSON.parse( localStorage.getItem( 'videoTaggingCache' ) ) || [];
@@ -4734,6 +4735,14 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( '.incantationContainer ' ).click( function ( event ) {
+                enableFullscreen();
+                mindJourneyIncantationNumberActive = parseInt( $( this ).attr( 'data-mindJourneyIncantationNumber' ) ) + 1;
+                $( '.mindJourneyIncantationActive' ).removeClass( 'mindJourneyIncantationActive' );
+                $( this ).addClass( 'mindJourneyIncantationActive' );
+                $( '#incantationProcessDisplay' ).html( $( this ).attr( 'data-incantationProcess' ) );
+            } );
+
             $( document ).on( 'wheel', document, function ( event ) {
                 if ( $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) && $( '#quickSelectGlobalMenuMindJourney' ).is( ':visible' ) ) {
                     if ( mindJourneyCharNumberActive == '' ) {
@@ -4758,6 +4767,29 @@ $( document ).ready( function () {
                         }
                     } );
                 }
+
+                if ( $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) && $( '#quickSelectGlobalMenuIncantations' ).is( ':visible' ) ) {
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        mindJourneyIncantationNumberActive = mindJourneyIncantationNumberActive + 1;
+                        if ( mindJourneyIncantationNumberActive > $( '.incantationContainer' ).length ) {
+                            mindJourneyIncantationNumberActive = $( '.incantationContainer' ).length;
+                        }
+                    } else { // going up
+                        mindJourneyIncantationNumberActive = mindJourneyIncantationNumberActive - 1;
+                        if ( mindJourneyIncantationNumberActive <= 0 ) {
+                            mindJourneyIncantationNumberActive = 1;
+                        }
+                    }
+
+                    tempCounter = 0;
+                    $( '.incantationContainer' ).each( function () {
+                        tempCounter++;
+                        if ( tempCounter == mindJourneyIncantationNumberActive ) {
+                            $( this ).trigger( 'click' );
+                        }
+                    } );
+                }
+
             } );
             // END Mind Journey Selection
             // ******************************************
@@ -4781,10 +4813,10 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                 toggleXXXVisible();
+                toggleXXXVisible();
 
-                                          $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
-                                          $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
+                $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
+                $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
 
 
                 /*      $( '#videodromeUI' ).show();

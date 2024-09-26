@@ -118,7 +118,8 @@
         </div>
 
         <img id="fullscreenIcon" class="toggleFullscreen float-end me-3 mt-3" src="./assets/disableFullscreen.png">
-        <div id="timerMinutes" class="cursorAction float-end me-3"><span id="displayHour"></span><span id="timerColon">:</span><span
+        <div id="timerMinutes" class="cursorAction float-end me-3"><span id="displayHour"></span><span
+                id="timerColon">:</span><span
                 id="displayMinute"></span>
         </div>
         <span id="pizzaTimerContainer" class="ms-4">
@@ -443,10 +444,12 @@
 
         <div id="quickSelectGlobalMenuIncantations" class="menuContent quickSelectGlobalMenuSection">
             {{#incantation}}
-            <div class="incantationContainer row d-flex justify-content-between">
-                <div data-incantationProcess="{{incantationProcess}}" class="incantationTrigger cursorAction">{{incantationTrigger}}</div>
+            <div data-incantationProcess="{{incantationProcess}}" data-mindJourneyIncantationNumber="{{@index}}"
+                 class="incantationContainer row d-flex justify-content-between">
+                <div class="incantationTrigger cursorAction">{{incantationTrigger}}</div>
             </div>
             {{/incantation}}
+            <div id="incantationProcessDisplay"></div>
         </div>
 
     </div>
@@ -1059,9 +1062,11 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div data-pornMapTag="General" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect videodromeTagActive">General</div>
+                    <div data-pornMapTag="General"
+                         class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect videodromeTagActive">General</div>
                     {{#pornMapTagList.chars}}
-                    <div data-pornMapTag="{{selectableTag}}" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect">{{selectableTag}}</div>
+                    <div data-pornMapTag="{{selectableTag}}"
+                         class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect">{{selectableTag}}</div>
                     {{/pornMapTagList.chars}}
 
                     <div class="videodromeLocalVideoMenuItem cursorAction showPrivateContent videodromeTagSelectPrivateFlag">private</div>
@@ -1181,9 +1186,11 @@
         <div id="videodromeBottomToolbar">
             <div class="row mb-3">
                 <div class="col">
-                    <div data-pornMapTag="General" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect videodromeTagActive">General</div>
+                    <div data-pornMapTag="General"
+                         class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect videodromeTagActive">General</div>
                     {{#pornMapTagList.chars}}
-                    <div data-pornMapTag="{{selectableTag}}" class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect">{{selectableTag}}</div>
+                    <div data-pornMapTag="{{selectableTag}}"
+                         class="videodromeLocalVideoMenuItem cursorAction videodromeTagSelect">{{selectableTag}}</div>
                     {{/pornMapTagList.chars}}
                     <div class="videodromeLocalVideoMenuItem cursorAction showPrivateContent videodromeTagSelectPrivateFlag">private</div>
                     <div class="videodromeLocalVideoMenuItem cursorAction privatefilter hidePrivateContent videodromePrivateTagActive videodromeTagSelectPrivateFlag">private</div>

@@ -2549,6 +2549,20 @@ video::-webkit-media-controls-fullscreen-button {
     left: 50%;
 }
 
+#incantationProcessDisplay {
+    padding-top: 35px;
+    padding-bottom: 25px;
+    font-size: 50px;
+    font-weight: bold;
+    min-height: 50px;
+    transition: all 0.6s ease;
+    color: #fff;
+    font-family: monospace;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
 .mindJourneyCharSelectImage {
     height: 75px;
     width: auto;
@@ -2573,6 +2587,10 @@ video::-webkit-media-controls-fullscreen-button {
 
 .incantationContainer {
     padding-bottom: 25px;
+}
+
+.mindJourneyIncantationActive {
+    color: white;
 }
 
 .incantationTrigger {
