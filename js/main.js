@@ -4738,9 +4738,14 @@ $( document ).ready( function () {
             $( '.incantationContainer ' ).click( function ( event ) {
                 enableFullscreen();
                 mindJourneyIncantationNumberActive = parseInt( $( this ).attr( 'data-mindJourneyIncantationNumber' ) ) + 1;
-                $( '.mindJourneyIncantationActive' ).removeClass( 'mindJourneyIncantationActive' );
-                $( this ).addClass( 'mindJourneyIncantationActive' );
-                $( '#incantationProcessDisplay' ).html( $( this ).attr( 'data-incantationProcess' ) );
+                if ( $( this ).hasClass( 'mindJourneyIncantationActive' ) ) {
+                    $( '.mindJourneyIncantationActive' ).removeClass( 'mindJourneyIncantationActive' );
+                    $( '#incantationProcessDisplay' ).html( '' );
+                } else {
+                    $( '.mindJourneyIncantationActive' ).removeClass( 'mindJourneyIncantationActive' );
+                    $( this ).addClass( 'mindJourneyIncantationActive' );
+                    $( '#incantationProcessDisplay' ).html( $( this ).attr( 'data-incantationProcess' ) );
+                }
             } );
 
             $( document ).on( 'wheel', document, function ( event ) {
@@ -4784,7 +4789,7 @@ $( document ).ready( function () {
                     tempCounter = 0;
                     $( '.incantationContainer' ).each( function () {
                         tempCounter++;
-                        if ( tempCounter == mindJourneyIncantationNumberActive ) {
+                        if ( tempCounter == mindJourneyIncantationNumberActive && !$( this ).hasClass( 'mindJourneyIncantationActive' ) ) {
                             $( this ).trigger( 'click' );
                         }
                     } );
