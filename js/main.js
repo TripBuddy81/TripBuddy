@@ -895,10 +895,6 @@ $( document ).ready( function () {
                 $( '#applicationSettingsMenu' ).removeClass( 'menuTransition' );
             } );
 
-            function closeRightMenu() {
-                $( '#menuClose' ).prop( 'checked', false );
-            }
-
             $( '#menuClose' ).click( function () {
                 $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                 $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
@@ -912,6 +908,9 @@ $( document ).ready( function () {
                 $( '#' + $( this ).attr( 'data-target' ) ).show();
             } );
 
+            function closeRightMenu() {
+                $( '#menuClose' ).prop( 'checked', false );
+            }
 
             // Main Menu END
             // ***********************************
@@ -953,50 +952,6 @@ $( document ).ready( function () {
                 preFlightCheckListAnimationTimer = setInterval( preFlightCheckListAnimation, 1500 );
                 preFlightCheckListAnimation();
             } );
-
-            $( '#preFlightChecklist' ).on( 'hidden.bs.modal', function () {
-                clearInterval( preFlightCheckListAnimationTimer );
-                while ( allGuidedThoughts.length ) {
-                    allGuidedThoughts.pop();
-                }
-                displayedAbsoluteTruthIndex = [];
-
-                if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
-                }
-                if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
-                }
-                if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
-                }
-            } )
-
-            function preFlightCheckListAnimation() {
-                var highlightedFound = false;
-                var isLastElement = false;
-                $( '.checkListItem' ).each( function ( index, value ) {
-                    if ( highlightedFound ) {
-                        $( this ).addClass( 'checkListItemHighlighted' );
-                        return false;
-                    }
-
-                    if ( $( this ).hasClass( 'checkListItemHighlighted' ) ) {
-                        $( this ).removeClass( 'checkListItemHighlighted' );
-                        highlightedFound = true;
-                    }
-                    if ( index == $( '.checkListItem' ).length - 1 ) {
-                        isLastElement = true;
-                    }
-
-                } );
-                if ( !highlightedFound || isLastElement ) {
-                    $( '.checkListItem' ).each( function () {
-                        $( this ).addClass( 'checkListItemHighlighted' );
-                        return false;
-                    } );
-                }
-            }
 
             // Lift off button - initialize a lot of stuff
             $( '.liftOff' ).click( function ( e ) {
@@ -1041,10 +996,28 @@ $( document ).ready( function () {
                 screensaverStartAfterSeconds = 60;
 
                 // Mind Journey is default view in globalMenu
-                if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
+                if ( xxxVisible && config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
                     $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
                 }
             } );
+
+            $( '#preFlightChecklist' ).on( 'hidden.bs.modal', function () {
+                clearInterval( preFlightCheckListAnimationTimer );
+                while ( allGuidedThoughts.length ) {
+                    allGuidedThoughts.pop();
+                }
+                displayedAbsoluteTruthIndex = [];
+
+                if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
+                }
+                if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
+                }
+                if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
+                }
+            } )
 
             // Show Menu to update Start settings
             $( '#timerMinutes,#progressGraphContainer' ).click( function ( event ) {
@@ -1084,29 +1057,6 @@ $( document ).ready( function () {
                     localStorage.setItem( 'topupReminderInMinutes3', '' );
                 }
             } );
-            $( '#topupReminderInMinutes1' ).change( function () {
-                if ( totalMins < $( '#topupReminderInMinutes1' ).val() ) {
-                    topUpReminderShown1 = false;
-                    $( '#topupCheckbox1' ).prop( 'checked', true );
-                    localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
-                }
-            } );
-            $( '#topupReminderInMinutes2' ).change( function () {
-                if ( totalMins < $( '#topupReminderInMinutes2' ).val() ) {
-                    topUpReminderShown2 = false;
-                    $( '#topupCheckbox2' ).prop( 'checked', true );
-                    localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
-                }
-            } );
-            $( '#topupReminderInMinutes3' ).change( function () {
-                if ( totalMins < $( '#topupReminderInMinutes3' ).val() ) {
-                    topUpReminderShown3 = false;
-                    $( '#topupCheckbox3' ).prop( 'checked', true );
-                    localStorage.setItem( 'topupReminderInMinutes3', $( '#topupReminderInMinutes3' ).val() );
-                }
-            } );
-
-            // Order Pizza Reminder Config
             $( '#orderPizzaCheckbox' ).change( function () {
                 orderPizzaReminderShown = false;
                 if ( $( '#orderPizzaCheckbox' ).is( ':checked' ) ) {
@@ -1115,11 +1065,45 @@ $( document ).ready( function () {
                     localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
                 }
             } );
+
+            $( '#topupReminderInMinutes1' ).change( function () {
+                if ( totalMins < $( '#topupReminderInMinutes1' ).val() ) {
+                    topUpReminderShown1 = false;
+                    $( '#topupCheckbox1' ).prop( 'checked', true );
+                    localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
+                } else {
+                    $( '#topupCheckbox1' ).prop( 'checked', false );
+                    localStorage.setItem( 'topupReminderInMinutes1', '' );
+                }
+            } );
+            $( '#topupReminderInMinutes2' ).change( function () {
+                if ( totalMins < $( '#topupReminderInMinutes2' ).val() ) {
+                    topUpReminderShown2 = false;
+                    $( '#topupCheckbox2' ).prop( 'checked', true );
+                    localStorage.setItem( 'topupReminderInMinutes2', $( '#topupReminderInMinutes2' ).val() );
+                } else {
+                    $( '#topupCheckbox2' ).prop( 'checked', false );
+                    localStorage.setItem( 'topupReminderInMinutes2', '' );
+                }
+            } );
+            $( '#topupReminderInMinutes3' ).change( function () {
+                if ( totalMins < $( '#topupReminderInMinutes3' ).val() ) {
+                    topUpReminderShown3 = false;
+                    $( '#topupCheckbox3' ).prop( 'checked', true );
+                    localStorage.setItem( 'topupReminderInMinutes3', $( '#topupReminderInMinutes3' ).val() );
+                } else {
+                    $( '#topupCheckbox3' ).prop( 'checked', false );
+                    localStorage.setItem( 'topupReminderInMinutes3', '' );
+                }
+            } );
             $( '#orderPizzaReminderInMinutes' ).change( function () {
                 if ( totalMins < $( '#orderPizzaReminderInMinutes' ).val() ) {
                     orderPizzaReminderShown = false;
                     $( '#orderPizzaCheckbox' ).prop( 'checked', true );
                     localStorage.setItem( 'orderPizzaReminderInMinutes', $( '#orderPizzaReminderInMinutes' ).val() );
+                } else {
+                    $( '#orderPizzaCheckbox' ).prop( 'checked', false );
+                    localStorage.setItem( 'orderPizzaReminderInMinutes', '' );
                 }
             } );
 
@@ -1211,6 +1195,32 @@ $( document ).ready( function () {
                     $( '#launchText' ).show();
                 }
             } );
+
+            function preFlightCheckListAnimation() {
+                var highlightedFound = false;
+                var isLastElement = false;
+                $( '.checkListItem' ).each( function ( index, value ) {
+                    if ( highlightedFound ) {
+                        $( this ).addClass( 'checkListItemHighlighted' );
+                        return false;
+                    }
+
+                    if ( $( this ).hasClass( 'checkListItemHighlighted' ) ) {
+                        $( this ).removeClass( 'checkListItemHighlighted' );
+                        highlightedFound = true;
+                    }
+                    if ( index == $( '.checkListItem' ).length - 1 ) {
+                        isLastElement = true;
+                    }
+
+                } );
+                if ( !highlightedFound || isLastElement ) {
+                    $( '.checkListItem' ).each( function () {
+                        $( this ).addClass( 'checkListItemHighlighted' );
+                        return false;
+                    } );
+                }
+            }
 
             function pizzaTimer() {
                 var totalMinsPizzaTimerPassed = Math.floor( (new Date() - pizzaTimerStart) / 60000 );
@@ -4771,7 +4781,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+                /* toggleXXXVisible();*/
 
                 /*                          $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
                                           $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
