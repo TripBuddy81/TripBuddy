@@ -1635,13 +1635,18 @@ var config = {
                 {
                     'image'  : './media/symbols/54.png',
                     'label'  : '137',
-                    'meaning': 'Es beschreibt die formale "Summe" der wichtigsten und zentralsten Stellschrauben unseres Universums. Ist das die Hausnummer unseres Universums? '
-                }
+                    'meaning': 'Es beschreibt die formale "Summe" der wichtigsten und zentralsten Stellschrauben unseres Universums. Ist das die Hausnummer unseres Universums?'
+                },
                 /*                {
                                     'image'  : './media/symbols/55.png',
                                     'label' : '',
                     'meaning': ''
                                 },*/
+                {
+                    'image'  : './media/symbols/56.png',
+                    'label'  : 'Space marine',
+                    'meaning': ''
+                },
             ],
             'searchEngines'          : [
                 {
