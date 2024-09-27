@@ -871,6 +871,12 @@ var config = {
                     'label'  : 'Das Leben ist keine Reise'
                 },
                 {
+                    'videoId': 'B4PmFexkaXc',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'What Lies Beyond The Mind'
+                },
+                {
                     'videoId': '4yaBJVfyy00',
                     'mute'   : false,
                     'tags'   : 'wisdom',
