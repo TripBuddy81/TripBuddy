@@ -1197,6 +1197,22 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( ':input[type="number"]' ).bind( 'mousewheel', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                if ( event.originalEvent.deltaY > 0 ) { // going down
+                    if ( parseInt( $( this ).val() ) > $( this ).attr( 'min' ) ) {
+                        $( this ).val( parseInt( $( this ).val() ) - 1 );
+                    }
+                } else { // going up
+                    if ( parseInt( $( this ).val() ) < $( this ).attr( 'max' ) ) {
+                        $( this ).val( parseInt( $( this ).val() ) + 1 );
+                    }
+                }
+                $( this ).trigger( 'change' );
+                return false;
+            } );
+
             function preFlightCheckListAnimation() {
                 var highlightedFound = false;
                 var isLastElement = false;
@@ -4818,11 +4834,11 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-          /*      toggleXXXVisible();
+                /*      toggleXXXVisible();
 
-                $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
-                $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
-*/
+                      $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
+                      $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
+      */
 
                 /*      $( '#videodromeUI' ).show();
                       $( '#videoTaggingContainer' ).show();*/
