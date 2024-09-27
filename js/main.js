@@ -1197,7 +1197,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( ':input[type="number"]' ).bind( 'mousewheel', function (event) {
+            $( ':input[type="number"]' ).bind( 'mousewheel', function ( event ) {
                 event.preventDefault();
                 event.stopPropagation();
                 if ( event.originalEvent.deltaY > 0 ) { // going down
@@ -1210,6 +1210,21 @@ $( document ).ready( function () {
                     }
                 }
                 $( this ).trigger( 'change' );
+                return false;
+            } );
+
+            $( '#timerMinutes' ).bind( 'mousewheel', function ( event ) {
+                if ( event.originalEvent.deltaY > 0 ) { // going down
+                    offset = -1;
+                } else { // going up
+                    offset = +1;
+                }
+
+                startWithOffset = start.getTime() - offset * 1000 * 60; // Offset in minutes;
+                if ( startWithOffset < new Date() ) {
+                    start.setTime( startWithOffset );
+                }
+                tripTimer();
                 return false;
             } );
 
