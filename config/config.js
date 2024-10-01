@@ -835,6 +835,18 @@ var config = {
                     'label'  : 'Psychedelic Realizations summary (watch only sober)'
                 },
                 {
+                    'videoId': 'zNHDTvqbUm4',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Creativity: The science behind the madness'
+                },
+                {
+                    'videoId': 'vR2P5vW-nVc',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'The Neuroscience of Creativity and Perception'
+                },
+                {
                     'videoId': '2NP0jYGPXc4',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -1404,8 +1416,9 @@ var config = {
             'meditationSymbols'      : [
                 {
                     'image'  : './media/symbols/01.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Ansuz Rune',
+                    'emotion': 'Ehrlichkeit',
+                    'meaning': 'Ansuz verkörpert auch die Kommunikation mit den Göttern selbst. Die Rune soll dabei helfen die Botschaften besser zu verstehen die wir von den Göttern, der feinstofflichen Welt, Krafttieren oder von wem auch immer erhalten.'
                 },
                 {
                     'image'  : './media/symbols/02.png',
@@ -1646,7 +1659,7 @@ var config = {
                     'image'  : './media/symbols/56.png',
                     'label'  : 'Space marine',
                     'meaning': ''
-                },
+                }
             ],
             'searchEngines'          : [
                 {
