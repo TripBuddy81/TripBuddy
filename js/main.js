@@ -3876,7 +3876,7 @@ $( document ).ready( function () {
                             tempFilename = $( this ).attr( 'href' );
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                             } else if ( tempFilename != '/' ) {
-                                var fileExtensions = ['mkv', 'mp4'];
+                                var fileExtensions = ['mkv', 'mp4', 'mov'];
                                 if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), fileExtensions ) > -1 ) {
                                     externalFiles.push( url + tempFilename );
                                 }
@@ -3910,7 +3910,7 @@ $( document ).ready( function () {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( selectableVideodromeFilesFromTagAndFolders, function ( val ) {
                     let localFilename = document.createElement( 'div' );
-                    localFilename.innerHTML = decodeURI( selectableVideodromeFilesFromTagAndFolders[val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
+                    localFilename.innerHTML = decodeURI( selectableVideodromeFilesFromTagAndFolders[val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
                     localFilename.setAttribute( 'src', selectableVideodromeFilesFromTagAndFolders[val] );
                     localFilename.classList.add( 'localFilename' );
                     document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localFilename );
@@ -3962,7 +3962,7 @@ $( document ).ready( function () {
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
                     try {
-                        $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) ) );
+                        $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) ) );
                     } catch ( e ) {
                     }
                 } else {
@@ -4657,7 +4657,7 @@ $( document ).ready( function () {
                             if ( $( this ).html() != 'Parent Directory' ) {
                                 tempFilename = $( this ).attr( 'href' );
                                 if ( tempFilename.indexOf( '/' ) == -1 && tempFilename != '/' ) {
-                                    externalMusicVideos[url + tempFilename] = decodeURIComponent( url.replace( config['externalRootDirs']['musicVideosRootDir'], '' ) + tempFilename.replace( '/', '' ).replace( '\.mp4', '' ).replace( /\.mkv.*/, '' ) );
+                                    externalMusicVideos[url + tempFilename] = decodeURIComponent( url.replace( config['externalRootDirs']['musicVideosRootDir'], '' ) + tempFilename.replace( '/', '' ).replace( '\.mp4', '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ) );
                                 }
                             }
                         } );
