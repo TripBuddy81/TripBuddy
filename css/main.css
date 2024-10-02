@@ -2258,6 +2258,8 @@ video::-webkit-media-controls-fullscreen-button {
 .externalPornDirImage {
     width: 180px;
     pointer-events: none;
+    border-radius: 10px;
+    outline: 5px solid #00000000;
 }
 
 .externalPornDirName {
@@ -2265,6 +2267,10 @@ video::-webkit-media-controls-fullscreen-button {
     display: block;
     font-size: 20px;
     pointer-events: none;
+}
+
+.videodromeLocalFolderActive > .externalPornDirImage {
+    outline: 4px solid #ffffff;
 }
 
 #relationships {
