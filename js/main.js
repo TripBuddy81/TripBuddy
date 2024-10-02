@@ -383,7 +383,7 @@ $( document ).ready( function () {
                             $( '.keyboard-cancel-button' ).is( ':visible' ) ||
                             $( '#absoluteTruthsOverlay' ).is( ':visible' ) ||
                             $( '#relationships' ).is( ':visible' ) ||
-                            $( '#shamansToolkit' ).is( ':visible' ) ||
+                            $( '#OuijaYesNo' ).is( ':visible' ) ||
                             $( '#meditationSymbol' ).is( ':visible' ) ||
                             shrineDiscoActive ||
                             stroboSpeed > 0 ||
@@ -674,7 +674,7 @@ $( document ).ready( function () {
                 $( '#relationships' ).hide();
                 $( '#ensoImageShrineContainer' ).show();
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1.0' );
-                $( '#shamansToolkit' ).hide();
+                $( '#OuijaYesNo' ).hide();
                 $( '#meditationSymbol' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
@@ -2137,18 +2137,14 @@ $( document ).ready( function () {
                 absoluteTruthsUpdate();
                 nextDiscoMode();
 
-                $( '#shamanYes' ).toggleClass( 'shamanRight' );
-                $( '#shamanYes' ).toggleClass( 'shamanLeft' );
-                $( '#shamanNo' ).toggleClass( 'shamanLeft' );
-                $( '#shamanNo' ).toggleClass( 'shamanRight' );
-
+                setNextOuijaYesNoAnswer();
                 setNextMeditationSymbol();
             } );
 
             $( '#toggleRelationships,#toggleRelationshipsWhite' ).click( function ( e ) {
                 enableFullscreen();
 
-                hideShamansToolkit();
+                hideOuijaYesNo();
                 hideMeditationSymbol();
                 $( '#absoluteTruthsOverlay' ).hide();
 
@@ -2159,7 +2155,7 @@ $( document ).ready( function () {
                 enableFullscreen();
 
                 toggleRelationships( 'hide' );
-                hideShamansToolkit();
+                hideOuijaYesNo();
                 hideMeditationSymbol();
 
                 absoluteTruthsUpdate( 'default' );
@@ -2170,7 +2166,7 @@ $( document ).ready( function () {
                 enableFullscreen();
 
                 toggleRelationships( 'hide' );
-                hideShamansToolkit();
+                hideOuijaYesNo();
                 hideMeditationSymbol();
 
                 absoluteTruthsUpdate( 'intro' );
@@ -2181,7 +2177,7 @@ $( document ).ready( function () {
                 enableFullscreen();
 
                 toggleRelationships( 'hide' );
-                hideShamansToolkit();
+                hideOuijaYesNo();
                 hideMeditationSymbol();
 
                 absoluteTruthsUpdate( 'outro' );
@@ -2211,23 +2207,25 @@ $( document ).ready( function () {
 
             $( '#shrineOuija,#shrineOuijaWhite' ).click( function ( event ) {
                 enableFullscreen();
-
                 toggleRelationships( 'hide' );
                 hideMeditationSymbol();
                 $( '#absoluteTruthsOverlay' ).hide();
 
-                if ( $( '#shamansToolkit' ).is( ':visible' ) ) {
-                    hideShamansToolkit();
+                if ( $( '#OuijaYesNo' ).is( ':visible' ) ) {
+                    $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
+                    $( '#OuijaYesNo' ).hide();
                 } else {
-                    showShamansToolkit();
+                    $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
+                    $( '#OuijaYesNo' ).show();
                 }
+                setNextOuijaYesNoAnswer();
             } );
 
             $( '#shrineOracle,#shrineOracleWhite' ).click( function ( event ) {
                 enableFullscreen();
 
                 toggleRelationships( 'hide' );
-                hideShamansToolkit();
+                hideOuijaYesNo();
                 $( '#absoluteTruthsOverlay' ).hide();
 
                 if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
@@ -2248,16 +2246,6 @@ $( document ).ready( function () {
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
             }
 
-            function showShamansToolkit() {
-                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
-                $( '#shamansToolkit' ).show();
-            }
-
-            function hideShamansToolkit() {
-                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
-                $( '#shamansToolkit' ).hide();
-            }
-
             function setNextMeditationSymbol() {
                 randomNumber = Math.floor( Math.random() * (parseInt( config['meditationSymbols'].length )) );
                 while ( alreadySelectedMeditationSymbols.indexOf( randomNumber ) !== -1 ) {
@@ -2269,6 +2257,16 @@ $( document ).ready( function () {
                 alreadySelectedMeditationSymbols.push( randomNumber );
                 $( '#meditationSymbol' ).attr( 'src', config['meditationSymbols'][randomNumber]['image'] );
                 $( '#meditationSymbolMeaning' ).html( config['meditationSymbols'][randomNumber]['meaning'] );
+            }
+
+            function setNextOuijaYesNoAnswer() {
+                if ( Math.floor( Math.random() * 2 ) == 0 ) {
+                    $( '#OuijaNo' ).show();
+                    $( '#OuijaYes' ).hide();
+                } else {
+                    $( '#OuijaNo' ).hide();
+                    $( '#OuijaYes' ).show();
+                }
             }
 
             function toggleRelationships( modeForced = '' ) {
@@ -4849,11 +4847,10 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                /*      toggleXXXVisible();
+                toggleXXXVisible();
 
-                      $( '#quickSelectGlobalMenuIncantationSectionIcon' ).trigger( 'click' );
-                      $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
-      */
+                $( '#showShrineSection' ).trigger( 'click' );
+                /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
 
                 /*      $( '#videodromeUI' ).show();
                       $( '#videoTaggingContainer' ).show();*/

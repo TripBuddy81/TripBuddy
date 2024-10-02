@@ -2304,7 +2304,7 @@ video::-webkit-media-controls-fullscreen-button {
     transform: scale(1.15);
 }
 
-#shamansToolkit {
+#OuijaYesNo {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -2314,39 +2314,17 @@ video::-webkit-media-controls-fullscreen-button {
     pointer-events: none;
 }
 
-#shamanYes {
+.OuijaYesNoSymbol {
     position: fixed;
     height: 500px;
-    top: 25vH;
-}
-
-#shamanNo {
-    position: fixed;
-    height: 500px;
-    top: 25vH;
-}
-
-.shamanLeft {
-    left: 7vW;
-}
-
-.shamanRight {
-    right: 7vW;
-}
-
-#concentrationDot {
-    height: 36px;
-    width: 36px;
-    margin-left: -18px;
-    margin-top: -18px;
-    background-color: black;
-    border-radius: 50%;
-    display: inline-block;
-    position: fixed;
-    top: 50%;
+    top: 50vH;
+    transform: translate(-50%, -50%);
     left: 50%;
 }
 
+#OuijaYes, #OuijaNo {
+    display: none;
+}
 
 #privatePictureSlideshow, #musicVideos {
     display: none;
