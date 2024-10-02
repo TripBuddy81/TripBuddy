@@ -965,7 +965,7 @@ option {
     padding: 10px 15px;
     display: block;
     font-weight: 600;
-    z-index: 40;
+    z-index: 60;
     background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055);
     transition: all 0.5s ease;
     height: 94vh;
@@ -1917,17 +1917,23 @@ video::-webkit-media-controls-fullscreen-button {
 #videodromeBottomToolbar {
     position: fixed;
     width: 100vW;
-    height: auto;
+    height: 100vH;
     bottom: 0vH;
     left: 0vW;
-    opacity: 1;
-    z-index: 30;
+    z-index: 50;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     padding: 10px 15px;
+    display: none;
 }
 
-#videodromeBottomToolbar:hover {
-    opacity: 1;
+#videodromeBottomToolbarTrigger {
+    position: fixed;
+    width: 100vW;
+    height: 1px;
+    bottom: 0vH;
+    left: 0vW;
+    opacity: 0;
+    z-index: 55;
 }
 
 .videodromeRefreshContainer {
@@ -2081,7 +2087,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
 }
 
-.videoJSStreamModelname:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover, .lastSearchTerm:hover, .videodromeTagSelect:hover {
+.videoJSStreamModelname:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover, .lastSearchTerm:hover, .videodromeTagSelect:hover, .videodromeTagSelectPrivateFlag:hover {
     color: white;
 }
 
@@ -2092,7 +2098,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 25px;
 }
 
-.videodromeLocalVideoMenuItem, .videodromeTagSelect {
+.videodromeLocalVideoMenuItem, .videodromeTagSelect, .videodromeTagSelectPrivateFlag {
     font-weight: 700;
     float: left;
     padding-left: 25px;
@@ -2261,7 +2267,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .externalPornDirImage {
-    width: 186px;
+    width: 184px;
     pointer-events: none;
     border-radius: 10px;
     outline: 5px solid #00000000;
@@ -2278,9 +2284,11 @@ video::-webkit-media-controls-fullscreen-button {
     outline: 4px solid #ffffff;
 }
 
-#externalVideoDirSelectionContainer1 {
-    margin: -15px;
+#externalVideoDirSelectionContainer {
+    margin: 0 0px 15px -25px;
     padding: 0;
+    height: 85vH;
+    overflow: auto;
 }
 
 #relationships {
@@ -2607,13 +2615,13 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videodromeTagSelect {
-    font-size: 30px;
-    margin-right: 0px;
+    font-size: 35px;
+    margin-right: 20px;
 }
 
 .videodromeTagSelectPrivateFlag {
     float: right;
-    font-size: 30px;
+    font-size: 35px;
 }
 
 #videoTaggingContainer {
@@ -2630,4 +2638,18 @@ video::-webkit-media-controls-fullscreen-button {
 #videoTaggingEmotionList {
     display: block;
     text-align: center;
+}
+
+#pornMapTagList {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: absolute;
+    bottom: 85px;
+    margin-left: -22px;
+    width: 100%;
+}
+
+#videodromeBottomToolbarSearchOptions {
+    position: absolute;
+    bottom: 15px;
 }

@@ -358,10 +358,11 @@ $( document ).ready( function () {
 
                 // Stop current action or show playlist selection if nothing else is going on right now
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
-                if ( $( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
+                if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) || $( '#videodromeBottomToolbar' ).is( ':visible' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                    $( '#videodromeBottomToolbar' ).hide();
                 } else if ( $( '.modal' ).is( ':visible' ) ) {
                     $( '.modal' ).modal( 'hide' );
                 } else if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
@@ -413,7 +414,7 @@ $( document ).ready( function () {
                         $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuContainer' ).hide();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
-                        $( '#videodromeBottomToolbar' ).show();
+                        $( '#videodromeBottomToolbar' ).hide();
                         $( '.videodromeRefreshContainer' ).show();
                     } else {
                         stopAllActions();
@@ -665,7 +666,7 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videodromeFullscreenMenuContainer' ).hide();
                 $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
-                $( '#videodromeBottomToolbar' ).show();
+                $( '#videodromeBottomToolbar' ).hide();
                 $( '.videodromeRefreshContainer' ).show();
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
                 $( '.vjs-control-bar' ).css( 'display', 'none' );
@@ -3294,53 +3295,6 @@ $( document ).ready( function () {
                 toggleLocalStreamVideo();
             } );
 
-            function toggleLocalStreamVideo() {
-                if ( $( '.videodromeFullscreen' )[0] && $( '#videoJSPlayer1,#videoJSPlayer2' ).is( ':visible' ) ) {
-                    $( '.video-js' ).removeClass( 'videodromeFullscreen' );
-                    $( '.videoDromeVideo2' ).addClass( 'videodromeFullscreen' );
-                    $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
-                    $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
-                    $( '.videoDromeVideo2' ).addClass( 'videodromeFullscreen' );
-                    $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
-                    $( '.videoDromeVideo2' ).show();
-                    $( '.videoDromeStreamVideo1' ).hide();
-                    $( '.videoDromeStreamVideo2' ).hide();
-                    $( '.videoDromeVideo2' ).find( '.videoDromeFrame' ).prop( 'controls', 'controls' );
-                    $( '.video-js' ).removeClass( 'vjs-user-active' );
-                    $( '.video-js' ).addClass( 'vjs-user-inactive' );
-                    $( '.vjs-control-bar' ).css( 'display', 'none' );
-                } else if ( $( '.videodromeFullscreen' )[0] && $( '.videoDromeVideo2' ).is( ':visible' ) ) {
-                    $( '.video-js' ).addClass( 'videodromeFullscreen' );
-                    $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
-                    $( '.video-js' ).addClass( 'videodromeFullscreen' );
-                    $( '.videoDromeVideo2' ).removeClass( 'videodromeFullscreen' );
-                    $( '.videodromeFullscreenMenuVideoJSContainer' ).show();
-                    $( '.videoDromeVideo2' ).hide();
-                    $( '.video-js' ).removeClass( 'vjs-user-inactive' );
-                    $( '.video-js' ).addClass( 'vjs-user-active' );
-                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
-                    videodromeStreamRefreshVideo();
-                }
-
-                if ( !$( '.videodromeFullscreen' )[0] ) {
-                    $( '.videoDromeVideo2' ).toggle();
-                    $( '.videoDromeStreamVideo1' ).toggle();
-                    videodromeStreamRefreshVideo();
-                }
-
-                if ( $( '.videoDromeVideo2' ).is( ':visible' ) ) {
-                    $( '#refreshVideoDromeVideo2' ).show();
-                    $( '#videodromeStreamRefreshVideo' ).hide();
-                    $( '#videoJSPlayer1,#videoJSPlayer2' ).hide();
-                } else {
-                    $( '#refreshVideoDromeVideo2' ).hide();
-                    $( '#videodromeStreamRefreshVideo' ).show();
-                    $( '#videoJSPlayer1,#videoJSPlayer2' ).show();
-                }
-
-                updateVideodromeFullscreenInfo();
-            }
-
             $( '.toggleTransparentStrobo' ).click( function () {
                 toggleTransparentStrobo( $( this ).attr( 'data-transparency' ) );
             } );
@@ -3401,6 +3355,53 @@ $( document ).ready( function () {
 
             } );
 
+            function toggleLocalStreamVideo() {
+                if ( $( '.videodromeFullscreen' )[0] && $( '#videoJSPlayer1,#videoJSPlayer2' ).is( ':visible' ) ) {
+                    $( '.video-js' ).removeClass( 'videodromeFullscreen' );
+                    $( '.videoDromeVideo2' ).addClass( 'videodromeFullscreen' );
+                    $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
+                    $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                    $( '.videoDromeVideo2' ).addClass( 'videodromeFullscreen' );
+                    $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
+                    $( '.videoDromeVideo2' ).show();
+                    $( '.videoDromeStreamVideo1' ).hide();
+                    $( '.videoDromeStreamVideo2' ).hide();
+                    $( '.videoDromeVideo2' ).find( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+                    $( '.video-js' ).removeClass( 'vjs-user-active' );
+                    $( '.video-js' ).addClass( 'vjs-user-inactive' );
+                    $( '.vjs-control-bar' ).css( 'display', 'none' );
+                } else if ( $( '.videodromeFullscreen' )[0] && $( '.videoDromeVideo2' ).is( ':visible' ) ) {
+                    $( '.video-js' ).addClass( 'videodromeFullscreen' );
+                    $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
+                    $( '.video-js' ).addClass( 'videodromeFullscreen' );
+                    $( '.videoDromeVideo2' ).removeClass( 'videodromeFullscreen' );
+                    $( '.videodromeFullscreenMenuVideoJSContainer' ).show();
+                    $( '.videoDromeVideo2' ).hide();
+                    $( '.video-js' ).removeClass( 'vjs-user-inactive' );
+                    $( '.video-js' ).addClass( 'vjs-user-active' );
+                    $( '.vjs-control-bar' ).css( 'display', 'flex' );
+                    videodromeStreamRefreshVideo();
+                }
+
+                if ( !$( '.videodromeFullscreen' )[0] ) {
+                    $( '.videoDromeVideo2' ).toggle();
+                    $( '.videoDromeStreamVideo1' ).toggle();
+                    videodromeStreamRefreshVideo();
+                }
+
+                if ( $( '.videoDromeVideo2' ).is( ':visible' ) ) {
+                    $( '#refreshVideoDromeVideo2' ).show();
+                    $( '#videodromeStreamRefreshVideo' ).hide();
+                    $( '#videoJSPlayer1,#videoJSPlayer2' ).hide();
+                } else {
+                    $( '#refreshVideoDromeVideo2' ).hide();
+                    $( '#videodromeStreamRefreshVideo' ).show();
+                    $( '#videoJSPlayer1,#videoJSPlayer2' ).show();
+                }
+
+                updateVideodromeFullscreenInfo();
+            }
+
             function toggleTransparentStrobo( transparency = '0.2' ) {
                 if ( transparency == $( '#videodrome' ).css( 'opacity' ) ) {
                     stopShrineDisco();
@@ -3437,7 +3438,7 @@ $( document ).ready( function () {
                         $( '.video-js' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
 
-                        $( '#videodromeBottomToolbar' ).show();
+                        $( '#videodromeBottomToolbar' ).hide();
                         $( '.videodromeRefreshContainer' ).show();
                     } else {
                         stopAllActions();
@@ -3464,7 +3465,7 @@ $( document ).ready( function () {
                     $( this ).removeAttr( 'controls' );
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
-                    $( '#videodromeBottomToolbar' ).show();
+                    $( '#videodromeBottomToolbar' ).hide();
                     $( '.videodromeRefreshContainer' ).show();
                 } else {
                     $( this ).prop( 'controls', 'controls' );
@@ -3634,6 +3635,10 @@ $( document ).ready( function () {
 
             $( '.videodromeStreamRefreshVideo' ).click( function () {
                 videodromeStreamRefreshVideo();
+            } );
+
+            $( document ).on( 'mouseenter', '#videodromeBottomToolbarTrigger', function ( event ) {
+                $( '#videodromeBottomToolbar' ).toggle();
             } );
 
             $( document ).on( 'wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeStreamRefreshVideo', function ( event ) {

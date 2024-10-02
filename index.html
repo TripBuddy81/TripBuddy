@@ -1054,39 +1054,12 @@
     <span id="videodromeUI">
         <div id="videodromeFullscreenMenuLocalVideoContainer"
              class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
-            <div class="row">
-                <div class="col">
-                    <div class="videodromeFullscreenFilename"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div data-pornMapTag="General"
-                         class="cursorAction videodromeTagSelect videodromeTagActive">General</div>
-                    {{#pornMapTagList.chars}}
-                    <div data-pornMapTag="{{selectableTag}}"
-                         class="cursorAction videodromeTagSelect">{{selectableTag}}</div>
-                    {{/pornMapTagList.chars}}
-
-                    <div class="cursorAction showPrivateContent videodromeTagSelectPrivateFlag">private</div>
-                    <div class="cursorAction privatefilter hidePrivateContent videodromePrivateTagActive videodromeTagSelectPrivateFlag">private</div>
-                </div>
-            </div>
-
-
-            <!--           <div class="row mt-3">
-                           <div class="col">
-                           </div>
-                       </div>-->
             <div class="row mt-3">
                 <div class="col-2 me-5 refreshVideoDromeVideoFullscreenContainer">
                     <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
                          src="./assets/refresh.png">
                 </div>
-                <div class="col-10">
-
-            <!--        <div class="externalVideoDirSelection">
-                    </div>-->
+                <div class="col-10 videodromeFullscreenFilename">
                 </div>
             </div>
         </div>
@@ -1182,8 +1155,16 @@
             </span>
         </div>
 
+        <div id="videodromeBottomToolbarTrigger">
+        </div>
         <div id="videodromeBottomToolbar">
-            <div class="row mb-3">
+            <div id="externalVideoDirSelectionContainer" class="row mb-3">
+                <div class="col">
+                    <div class="externalVideoDirSelection">
+                    </div>
+                </div>
+            </div>
+            <div id="pornMapTagList" class="row mb-3">
                 <div class="col">
                     <div data-pornMapTag="General"
                          class="cursorAction videodromeTagSelect videodromeTagActive">General</div>
@@ -1195,13 +1176,7 @@
                     <div class="cursorAction privatefilter hidePrivateContent videodromePrivateTagActive videodromeTagSelectPrivateFlag">private</div>
                 </div>
             </div>
-            <div id="externalVideoDirSelectionContainer1" class="row mb-3">
-                <div class="col">
-                    <div class="externalVideoDirSelection">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
+            <div id="videodromeBottomToolbarSearchOptions" class="row">
                 <div class="col">
                     <img class="searchEdit iconAlternating cursorAction" src="./assets/edit.png">
                     <input type="text" class="searchInput me-2" id="searchInput" name="searchInput" value=""
