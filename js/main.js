@@ -2235,6 +2235,11 @@ $( document ).ready( function () {
                 }
             } );
 
+            function hideOuijaYesNo() {
+                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
+                $( '#OuijaYesNo' ).hide();
+            }
+
             function showMeditationSymbol() {
                 setNextMeditationSymbol();
                 $( '#meditationSymbol' ).show();
@@ -4855,9 +4860,9 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+           /*     toggleXXXVisible();*/
 
-                $( '#showShrineSection' ).trigger( 'click' );
+               /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
 
                 /*      $( '#videodromeUI' ).show();
