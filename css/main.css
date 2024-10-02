@@ -1920,7 +1920,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: auto;
     bottom: 0vH;
     left: 0vW;
-    opacity: 0;
+    opacity: 1;
     z-index: 30;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     padding: 10px 15px;
@@ -2081,7 +2081,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
 }
 
-.videoJSStreamModelname:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover, .lastSearchTerm:hover {
+.videoJSStreamModelname:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover, .lastSearchTerm:hover, .videodromeTagSelect:hover {
     color: white;
 }
 
@@ -2092,13 +2092,18 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 25px;
 }
 
-.videodromeLocalVideoMenuItem {
+.videodromeLocalVideoMenuItem, .videodromeTagSelect {
     font-weight: 700;
     float: left;
-    padding-right: 25px;
+    padding-left: 25px;
     padding-top: 5px;
     font-size: 25px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+}
+
+.videodromeTagSelect {
+    padding-left: 10px;
+    padding-right: 15px;
 }
 
 .videodromeLocalFolderActive, .videodromeLocalFolderActive:hover,
@@ -2256,7 +2261,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .externalPornDirImage {
-    width: 180px;
+    width: 186px;
     pointer-events: none;
     border-radius: 10px;
     outline: 5px solid #00000000;
@@ -2271,6 +2276,11 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videodromeLocalFolderActive > .externalPornDirImage {
     outline: 4px solid #ffffff;
+}
+
+#externalVideoDirSelectionContainer1 {
+    margin: -15px;
+    padding: 0;
 }
 
 #relationships {
