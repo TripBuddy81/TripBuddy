@@ -3800,6 +3800,21 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( document ).on( 'click', '#deselectAllVideodromeTags', function ( event ) {
+                $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
+              /*  $( '.videodromeLocalFolderActive' ).removeClass( 'videodromeLocalFolderActive' );*/
+
+      /*          $( '[data-pornmaptag|=\'' + $( this ).attr( 'data-pornmaptag' ) + '\']' ).toggleClass( 'videodromeTagActive' );*/
+
+
+                $( '.videodromeLocalFolderActive' ).each( function () {
+                    $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
+                    processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );
+                } );
+                loadActiveVideodromeTagsIntoList();
+                displayAllActiveLocalFilenames();
+            } );
+
             $( '.videodromeTagSelect' ).click( function ( e ) {
                 $( '[data-pornmaptag|=\'' + $( this ).attr( 'data-pornmaptag' ) + '\']' ).toggleClass( 'videodromeTagActive' );
                 loadActiveVideodromeTagsIntoList();

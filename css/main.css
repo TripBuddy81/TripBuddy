@@ -2091,6 +2091,9 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
     user-select: text;
     font-size: 25px;
+}
+
+.videodromeFullscreenFilenameLocal {
     line-height: 100px;
 }
 
@@ -2662,4 +2665,12 @@ video::-webkit-media-controls-fullscreen-button {
 #videodromeBottomToolbarSearchOptions {
     position: absolute;
     bottom: 15px;
+}
+
+#deselectAllVideodromeTags {
+    height: 40px;
+    float: left;
+    padding-left: 10px;
+    padding-right: 17px;
+    margin-top: 15px;
 }
