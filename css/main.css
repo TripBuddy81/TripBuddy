@@ -1921,7 +1921,7 @@ video::-webkit-media-controls-fullscreen-button {
     bottom: 0vH;
     left: 0vW;
     opacity: 0;
-    z-index: 25;
+    z-index: 30;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     padding: 10px 15px;
 }
@@ -2256,7 +2256,13 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .externalPornDirImage {
-    width: 100px;
+    width: 180px;
+}
+
+.externalPornDirName {
+    text-align: center;
+    display: block;
+    font-size: 20px;
 }
 
 #relationships {
