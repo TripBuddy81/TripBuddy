@@ -414,7 +414,6 @@ $( document ).ready( function () {
                         $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuContainer' ).hide();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
-                        $( '#videodromeBottomToolbar' ).hide();
                         $( '.videodromeRefreshContainer' ).show();
                     } else {
                         stopAllActions();
@@ -3437,8 +3436,6 @@ $( document ).ready( function () {
                         $( '.vjs-control-bar' ).css( 'display', 'none' );
                         $( '.video-js' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuVideoJSContainer' ).hide();
-
-                        $( '#videodromeBottomToolbar' ).hide();
                         $( '.videodromeRefreshContainer' ).show();
                     } else {
                         stopAllActions();
@@ -3449,10 +3446,7 @@ $( document ).ready( function () {
                     $( '.vjs-control-bar' ).css( 'display', 'flex' );
                     $( '.video-js' ).addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuVideoJSContainer' ).show();
-
-                    $( '#videodromeBottomToolbar' ).hide();
                     $( '.videodromeRefreshContainer' ).hide();
-
                 }
                 updateVideodromeFullscreenInfo();
             } );
@@ -3465,13 +3459,11 @@ $( document ).ready( function () {
                     $( this ).removeAttr( 'controls' );
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
-                    $( '#videodromeBottomToolbar' ).hide();
                     $( '.videodromeRefreshContainer' ).show();
                 } else {
                     $( this ).prop( 'controls', 'controls' );
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
-                    $( '#videodromeBottomToolbar' ).hide();
                     $( '.videodromeRefreshContainer' ).hide();
                 }
 
@@ -3637,7 +3629,7 @@ $( document ).ready( function () {
                 videodromeStreamRefreshVideo();
             } );
 
-            $( document ).on( 'mouseenter', '#videodromeBottomToolbarTrigger', function ( event ) {
+            $( document ).on( 'mouseenter', '#videodromeBottomToolbarTrigger,#videodromeLeftToolbarTrigger', function ( event ) {
                 $( '#videodromeBottomToolbar' ).toggle();
             } );
 
@@ -3995,6 +3987,8 @@ $( document ).ready( function () {
                     displayAllActiveLocalFilenames();
                 } else {
                     $( '.toggleLocalStreamIcon' ).hide();
+                    $( '#videodromeBottomToolbarTrigger' ).remove();
+                    $( '#videodromeLeftToolbarTrigger' ).remove();
                 }
 
                 videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];

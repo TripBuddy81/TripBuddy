@@ -1936,6 +1936,16 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 55;
 }
 
+#videodromeLeftToolbarTrigger {
+    position: fixed;
+    width: 1px;
+    height: 100vH;
+    bottom: 0vH;
+    left: 0vW;
+    opacity: 0;
+    z-index: 55;
+}
+
 .videodromeRefreshContainer {
     position: fixed;
     width: 10vW;
@@ -2081,6 +2091,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
     user-select: text;
     font-size: 25px;
+    line-height: 100px;
 }
 
 #videodromeFullscreenModelLinks {
@@ -2101,7 +2112,7 @@ video::-webkit-media-controls-fullscreen-button {
 .videodromeLocalVideoMenuItem, .videodromeTagSelect, .videodromeTagSelectPrivateFlag {
     font-weight: 700;
     float: left;
-    padding-left: 25px;
+    padding-left: 15px;
     padding-top: 5px;
     font-size: 25px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
@@ -2267,7 +2278,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .externalPornDirImage {
-    width: 184px;
+    width: 261px;
     pointer-events: none;
     border-radius: 10px;
     outline: 5px solid #00000000;
@@ -2285,9 +2296,8 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #externalVideoDirSelectionContainer {
-    margin: 0 0px 15px -25px;
     padding: 0;
-    height: 85vH;
+    height: 75vH;
     overflow: auto;
 }
 
