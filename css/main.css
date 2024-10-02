@@ -2257,12 +2257,14 @@ video::-webkit-media-controls-fullscreen-button {
 
 .externalPornDirImage {
     width: 180px;
+    pointer-events: none;
 }
 
 .externalPornDirName {
     text-align: center;
     display: block;
     font-size: 20px;
+    pointer-events: none;
 }
 
 #relationships {

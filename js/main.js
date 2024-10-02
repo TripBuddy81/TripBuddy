@@ -3852,12 +3852,10 @@ $( document ).ready( function () {
                     nodeName.classList.add( 'externalPornDirName' );
                     nodeName.innerHTML = displayName;
 
-
                     let nodeFolder = document.createElement( 'div' );
                     nodeFolder.classList.add( 'externalPornDir' );
-                    nodeFolder.classList.add( 'externalPornDirInactive' );
                     nodeFolder.classList.add( 'videodromeLocalVideoMenuItem' );
-                    nodeFolder.setAttribute( 'dirIdentifier', displayName.replace( ' ', '_' ) );
+                    nodeFolder.setAttribute( 'dirIdentifier', displayName.replaceAll( ' ', '' ).replaceAll( '-', '' ) );
                     nodeFolder.setAttribute( 'externalPornDirUrl', url );
 
                     nodeFolder.append( nodeImage );
