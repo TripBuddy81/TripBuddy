@@ -3684,9 +3684,8 @@ $( document ).ready( function () {
                 } else {
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                    $( '#videoTaggingContainer' ).hide();
                 }
-
-                $( '#videoTaggingContainer' ).hide();
             } );
 
             $( document ).on( 'mousemove', '.vjs-control-bar', function ( event ) {
