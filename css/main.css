@@ -1916,13 +1916,13 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodromeBottomToolbar {
     position: fixed;
-    width: 100vW;
+    width: 100.2vW;
     height: 100vH;
     bottom: 0vH;
-    left: 0vW;
+    right: -0.2vW;
     z-index: 50;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-    padding: 10px 15px;
+    padding: 10px 0px 10px 15px;
     display: none;
 }
 
@@ -2004,7 +2004,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     width: 75vW;
     min-height: 175px;
-    padding: 25px;
+    padding: 25px 25px 25px 40px;
     bottom: 76px;
     left: 0px;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
@@ -2114,11 +2114,11 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videodromeLocalVideoMenuItem, .videodromeTagSelect, .videodromeTagSelectPrivateFlag {
     font-weight: 700;
-    float: left;
     padding-left: 15px;
     padding-top: 5px;
     font-size: 25px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    display: inline-table;
 }
 
 .videodromeTagSelect {
@@ -2281,7 +2281,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .externalPornDirImage {
-    width: 261px;
+    width: 264px;
     pointer-events: none;
     border-radius: 10px;
     outline: 5px solid #00000000;
@@ -2295,12 +2295,12 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videodromeLocalFolderActive > .externalPornDirImage {
-    outline: 4px solid #ffffff;
+    outline: 4px solid #c9ff80;
 }
 
 #externalVideoDirSelectionContainer {
     padding: 0;
-    height: 75vH;
+    height: 76vH;
     overflow: auto;
 }
 
@@ -2660,6 +2660,7 @@ video::-webkit-media-controls-fullscreen-button {
     bottom: 85px;
     margin-left: -22px;
     width: 100%;
+    padding-right: 26px;
 }
 
 #videodromeBottomToolbarSearchOptions {
@@ -2671,6 +2672,6 @@ video::-webkit-media-controls-fullscreen-button {
     height: 40px;
     float: left;
     padding-left: 10px;
-    padding-right: 17px;
+    padding-right: 16px;
     margin-top: 15px;
 }

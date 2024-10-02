@@ -3863,7 +3863,7 @@ $( document ).ready( function () {
                     nodeName.classList.add( 'externalPornDirName' );
                     nodeName.innerHTML = displayName;
 
-                    let nodeFolder = document.createElement( 'div' );
+                    let nodeFolder = document.createElement( 'span' );
                     nodeFolder.classList.add( 'externalPornDir' );
                     nodeFolder.classList.add( 'videodromeLocalVideoMenuItem' );
                     nodeFolder.setAttribute( 'dirIdentifier', displayName.replaceAll( ' ', '' ).replaceAll( '-', '' ) );
@@ -4860,7 +4860,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-           /*     toggleXXXVisible();*/
+                toggleXXXVisible();
 
                /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
