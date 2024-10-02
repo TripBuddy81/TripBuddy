@@ -2255,8 +2255,8 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100%;
 }
 
-.externalPornDirActive {
-    display: none;
+.externalPornDirImage {
+    width: 100px;
 }
 
 #relationships {

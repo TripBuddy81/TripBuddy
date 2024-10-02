@@ -3794,10 +3794,13 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.externalPornDir', function ( event ) {
-                $( 'div[dirIdentifier="' + $( this ).attr( 'dirIdentifier' ) + '"]' ).toggle();
                 if ( $( this ).hasClass( 'externalPornDirInactive' ) ) {
+                    $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'externalPornDirInactive' );
+                    $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).addClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'add' );
                 } else {
+                    $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).addClass( 'externalPornDirInactive' );
+                    $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );
                 }
             } );
@@ -3843,6 +3846,11 @@ $( document ).ready( function () {
             function displayExternalPornDirs() {
                 $( '.externalVideoDirSelection' ).empty();
                 $.each( externalPornDirs, function ( url, displayName ) {
+                    let nodeImage = document.createElement( 'img' );
+                    nodeImage.classList.add( 'externalPornDirImage' );
+                    nodeImage.setAttribute( 'src', url + 'preview.jpg' );
+
+
                     let nodeInactive = document.createElement( 'div' );
                     nodeInactive.classList.add( 'externalPornDir' );
                     nodeInactive.classList.add( 'externalPornDirInactive' );
@@ -3850,17 +3858,29 @@ $( document ).ready( function () {
                     nodeInactive.setAttribute( 'dirIdentifier', displayName.replace( ' ', '_' ) );
                     nodeInactive.innerHTML = displayName;
                     nodeInactive.setAttribute( 'externalPornDirUrl', url );
+
+
                     $( '.externalVideoDirSelection' ).append( nodeInactive );
 
-                    let nodeActive = document.createElement( 'div' );
-                    nodeActive.classList.add( 'externalPornDir' );
-                    nodeActive.classList.add( 'externalPornDirActive' );
-                    nodeActive.classList.add( 'videodromeLocalVideoMenuItem' );
-                    nodeActive.classList.add( 'videodromeLocalFolderActive' );
-                    nodeActive.setAttribute( 'dirIdentifier', displayName.replace( ' ', '_' ) );
-                    nodeActive.innerHTML = displayName;
-                    nodeActive.setAttribute( 'externalPornDirUrl', url );
-                    $( '.externalVideoDirSelection' ).append( nodeActive );
+
+                    /*                    let nodeActive = document.createElement( 'div' );
+                                        nodeActive.classList.add( 'externalPornDir' );
+                                        nodeActive.classList.add( 'externalPornDirActive' );
+                                        nodeActive.classList.add( 'videodromeLocalVideoMenuItem' );
+                                        nodeActive.classList.add( 'videodromeLocalFolderActive' );
+                                        nodeActive.setAttribute( 'dirIdentifier', displayName.replace( ' ', '_' ) );
+                                        nodeActive.innerHTML = displayName;
+                                        nodeActive.setAttribute( 'externalPornDirUrl', url );
+
+
+                                        $( '.externalVideoDirSelection' ).append( nodeActive );*/
+
+                    /*  nodeInactive.append( nodeImage );*/
+
+                    /*   nodeActive.append( nodeImage );
+   */
+
+
                 } );
             }
 
