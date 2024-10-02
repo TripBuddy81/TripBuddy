@@ -3680,7 +3680,7 @@ $( document ).ready( function () {
             $( document ).on( 'mouseleave', '#videodromeGlobalActionContainer', function ( event ) {
                 if ( $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '1' );
-                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '45' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '65' );
                 } else {
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
@@ -3802,11 +3802,6 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '#deselectAllVideodromeTags', function ( event ) {
                 $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
-              /*  $( '.videodromeLocalFolderActive' ).removeClass( 'videodromeLocalFolderActive' );*/
-
-      /*          $( '[data-pornmaptag|=\'' + $( this ).attr( 'data-pornmaptag' ) + '\']' ).toggleClass( 'videodromeTagActive' );*/
-
-
                 $( '.videodromeLocalFolderActive' ).each( function () {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );

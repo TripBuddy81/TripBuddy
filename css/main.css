@@ -1939,7 +1939,7 @@ video::-webkit-media-controls-fullscreen-button {
 #videodromeLeftToolbarTrigger {
     position: fixed;
     width: 1px;
-    height: 100vH;
+    height: 92vH;
     bottom: 0vH;
     left: 0vW;
     opacity: 0;
