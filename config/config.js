@@ -653,7 +653,8 @@ var config = {
                 },
                 {
                     'videoId': 'z5JdoygbFCE',
-                    'tags'   : 'calming'
+                    'tags'   : 'calming',
+                    'startSeconds': '38'
                 },
                 {
                     'videoId': 'HZ4p5qaLKec',
