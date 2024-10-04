@@ -1109,9 +1109,10 @@ $( document ).ready( function () {
             } );
 
             // Guided Thoughts Config
-            localStorage.setItem( 'guidedThought1', '' );
-            localStorage.setItem( 'guidedThought2', '' );
-            localStorage.setItem( 'guidedThought3', '' );
+            $( '#guidedThought1' ).val( localStorage.getItem( 'guidedThought1' ) );
+            $( '#guidedThought2' ).val( localStorage.getItem( 'guidedThought2' ) );
+            $( '#guidedThought3' ).val( localStorage.getItem( 'guidedThought3' ) );
+
             localStorage.setItem( 'guidedThoughtMinMinutes', $( '#guidedThoughtMinMinutes' ).val() );
             localStorage.setItem( 'guidedThoughtMaxMinutes', $( '#guidedThoughtMaxMinutes' ).val() );
             localStorage.setItem( 'minutesCountAtLastDisplayedThought', 999999 );
@@ -4862,7 +4863,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 toggleXXXVisible();
 
-               /* $( '#showShrineSection' ).trigger( 'click' );*/
+                /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
 
                 /*      $( '#videodromeUI' ).show();
