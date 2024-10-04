@@ -3859,6 +3859,7 @@ $( document ).ready( function () {
                     let nodeImage = document.createElement( 'img' );
                     nodeImage.classList.add( 'externalPornDirImage' );
                     nodeImage.setAttribute( 'src', url + 'preview.jpg' );
+                    nodeImage.setAttribute( 'onerror', 'this.src=\'assets/preview_blank.jpg\'' );
 
                     let nodeName = document.createElement( 'span' );
                     nodeName.classList.add( 'externalPornDirName' );
