@@ -652,8 +652,8 @@ var config = {
                     'startSeconds': '317'
                 },
                 {
-                    'videoId': 'z5JdoygbFCE',
-                    'tags'   : 'calming',
+                    'videoId'     : 'z5JdoygbFCE',
+                    'tags'        : 'calming',
                     'startSeconds': '38'
                 },
                 {
@@ -1542,9 +1542,11 @@ var config = {
                     'meaning': 'Einheit mit allem!'
                 },
                 {
-                    'image'  : './media/symbols/31.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image'               : './media/symbols/31.png',
+                    'label'               : 'Der magische Kompass der Wikinger',
+                    'meaning'             : 'Ein Symbol, das verwendet wurde, um zu verhindern, dass man sich verirrt',
+                    'meaning_second_order': 'Du brauchst deine Freunde und Familie in deinem Leben!',
+                    'emotion'             : 'tribal,verbundenheit'
                 },
                 {
                     'image'  : './media/symbols/32.png',
