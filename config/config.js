@@ -275,7 +275,7 @@ var config = {
                 {'selectableTag': 'nature'},
                 {'selectableTag': 'slideshow'},
                 {'selectableTag': 'music'},
-                {'selectableTag': 'calming'},
+                {'selectableTag': 'breathing'},
                 {'selectableTag': 'nsfw'},
                 {'selectableTag': 'thinker'},
                 {'selectableTag': 'wisdom'},
@@ -657,20 +657,24 @@ var config = {
                 },
                 {
                     'videoId'     : 'z5JdoygbFCE',
-                    'tags'        : 'calming',
+                    'tags'        : 'breathing',
+                    'mute'   : 'mixed',
                     'startSeconds': '38'
                 },
                 {
                     'videoId': 'HZ4p5qaLKec',
-                    'tags'   : 'calming'
+                    'mute'   : 'mixed',
+                    'tags'   : 'breathing'
                 },
                 {
                     'videoId': 'hZiCBWrwiRw',
-                    'tags'   : 'calming'
+                    'mute'   : 'mixed',
+                    'tags'   : 'breathing'
                 },
                 {
                     'videoId': 'Wm9MfQMuoIY',
-                    'tags'   : 'calming'
+                    'mute'   : 'mixed',
+                    'tags'   : 'breathing'
                 },
                 {
                     'videoId': 'Q3oItpVa9fs',
