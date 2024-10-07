@@ -1611,6 +1611,8 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 10;
     font-size: 25px;
     font-weight: bold;
+    background: #0000004a;
+    color: white;
 }
 
 #meditationSymbolInfoContainer:hover {
