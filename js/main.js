@@ -1117,7 +1117,7 @@ $( document ).ready( function () {
 
             localStorage.setItem( 'guidedThoughtMinMinutes', $( '#guidedThoughtMinMinutes' ).val() );
             localStorage.setItem( 'guidedThoughtMaxMinutes', $( '#guidedThoughtMaxMinutes' ).val() );
-            localStorage.setItem( 'minutesCountAtLastDisplayedThought', 999999 );
+            localStorage.setItem( 'firstGuidedThoughtMin', 999999 );
             $( '.guidedThoughtsContainer' ).click( function () {
                 $( '.guidedThoughtsContainer' ).hide();
             } );
@@ -1131,17 +1131,12 @@ $( document ).ready( function () {
                 minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
             } );
 
-            $( '#firstGuidedThoughtMin' ).change( function () {
-                localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( $( this ).val() ) );
-                minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
-            } );
-
             $( '#guidedThoughtsShrineSectionOnly' ).change( function () {
                 $( '#guidedThoughtTimingContainer' ).toggle();
                 if ( $( '#guidedThoughtTimingContainer' ).is( ':visible' ) ) {
-                    localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( $( '#firstGuidedThoughtMin' ).val() ) );
+                    localStorage.setItem( 'firstGuidedThoughtMin', jQuery.trim( $( '#firstGuidedThoughtMin' ).val() ) );
                 } else {
-                    localStorage.setItem( 'minutesCountAtLastDisplayedThought', 999999 );
+                    localStorage.setItem( 'firstGuidedThoughtMin', 999999 );
                 }
             } );
 
@@ -1347,9 +1342,9 @@ $( document ).ready( function () {
                 }
 
                 // Guided Thoughts
-                if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && allGuidedThoughts[guidedThoughtsNext] != undefined && ((totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'minutesCountAtLastDisplayedThought' ) )) || (totalMins == parseInt( localStorage.getItem( 'minutesCountAtLastDisplayedThought' ) ) && veryFirstThoughtDisplayed != true)) ) {
+                if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && allGuidedThoughts[guidedThoughtsNext] != undefined && ((totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'firstGuidedThoughtMin' ) )) || (totalMins == parseInt( localStorage.getItem( 'firstGuidedThoughtMin' ) ) && veryFirstThoughtDisplayed != true)) ) {
                     veryFirstThoughtDisplayed = true;
-                    localStorage.setItem( 'minutesCountAtLastDisplayedThought', totalMins );
+                    localStorage.setItem( 'firstGuidedThoughtMin', totalMins );
                     minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
                     $( '.guidedThoughtsText' ).html( allGuidedThoughts[guidedThoughtsNext] );
                     $( '.guidedThoughtsContainer' ).show();
