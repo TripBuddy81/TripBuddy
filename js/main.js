@@ -2288,7 +2288,7 @@ $( document ).ready( function () {
                 $( '#meditationSymbolMeaning_second_order' ).html();
                 $( '#meditationSymbolEmotion' ).html();
 
-                $( '#meditationSymbolFilename' ).html( config['meditationSymbols'][randomNumber]['image'] );
+                $( '#meditationSymbolFilename' ).html( " (" + config['meditationSymbols'][randomNumber]['image'].replace( /\.\/.*symbols\//,  '') + ")" );
                 $( '#meditationSymbolLabel' ).html( config['meditationSymbols'][randomNumber]['label'] );
                 $( '#meditationSymbolMeaning' ).html( config['meditationSymbols'][randomNumber]['meaning'] );
                 $( '#meditationSymbolMeaning_second_order' ).html( config['meditationSymbols'][randomNumber]['meaning_second_order'] );
