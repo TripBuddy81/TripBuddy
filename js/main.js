@@ -40,6 +40,7 @@ $( document ).ready( function () {
             window.minutesTillNextThought = 0;
             window.showParticles = false;
             window.showParticlesFirstTime = true;
+            window.guidedThoughtsActive = true;
             window.allGuidedThoughts = [];
             window.guidedThoughtsNext = 0;
             window.activeTruthTagLabel = '';
@@ -1134,10 +1135,27 @@ $( document ).ready( function () {
             $( '#guidedThoughtsShrineSectionOnly' ).change( function () {
                 $( '#guidedThoughtTimingContainer' ).toggle();
                 if ( $( '#guidedThoughtTimingContainer' ).is( ':visible' ) ) {
+                    if ( totalMins > 0 ) {
+                        $( '#firstGuidedThoughtMin' ).val( totalMins );
+                    }
                     localStorage.setItem( 'firstGuidedThoughtMin', jQuery.trim( $( '#firstGuidedThoughtMin' ).val() ) );
                 } else {
                     localStorage.setItem( 'firstGuidedThoughtMin', 999999 );
                 }
+            } );
+
+            $( '#guidedThoughtsActive' ).change( function () {
+                if ( $( '#guidedThoughtsActive' ).is( ':checked' ) ) {
+                    $( '#guidedThoughtTextContainer' ).show();
+                    guidedThoughtsActive = true;
+                } else {
+                    $( '#guidedThoughtTextContainer' ).hide();
+                    guidedThoughtsActive = false;
+                }
+                veryFirstThoughtDisplayed = false;
+                localStorage.setItem( 'firstGuidedThoughtMin', totalMins );
+                minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
+                absoluteTruthsUpdate();
             } );
 
             guidedThoughtPrefilTarget = 1;
@@ -1342,7 +1360,7 @@ $( document ).ready( function () {
                 }
 
                 // Guided Thoughts
-                if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && allGuidedThoughts[guidedThoughtsNext] != undefined && ((totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'firstGuidedThoughtMin' ) )) || (totalMins == parseInt( localStorage.getItem( 'firstGuidedThoughtMin' ) ) && veryFirstThoughtDisplayed != true)) ) {
+                if ( guidedThoughtsActive && (!$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && allGuidedThoughts[guidedThoughtsNext] != undefined && ((totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'firstGuidedThoughtMin' ) )) || (totalMins == parseInt( localStorage.getItem( 'firstGuidedThoughtMin' ) ) && veryFirstThoughtDisplayed != true))) ) {
                     veryFirstThoughtDisplayed = true;
                     localStorage.setItem( 'firstGuidedThoughtMin', totalMins );
                     minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
@@ -2369,7 +2387,7 @@ $( document ).ready( function () {
                 }
 
                 if ( displayedAbsoluteTruthIndex.length <= 0 ) {
-                    if ( allGuidedThoughts.length > 0 ) {
+                    if ( allGuidedThoughts.length > 0 && guidedThoughtsActive ) {
                         allGuidedThoughts.forEach( function ( item ) {
                             tempItem = [];
                             tempItem['text'] = item;

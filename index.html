@@ -634,52 +634,57 @@
 
                             <div id="guidedThoughtsSettings" class="row mt-3">
                                 <div class="col">
-                                    <h1>Guided thoughts</h1>
-                                    <h3>Will display given texts from time to time </h3>
-                                    <label class="form-check-label me-2" for="guidedThought1">#1</label>
-                                    <input class="guidedThoughtsTextInput" type="text" id="guidedThought1"
-                                           name="guidedThought1"
-                                           value="" maxlength="200" autocomplete="off" spellcheck="false"> </br>
-
-                                    <label class="form-check-label me-2" for="guidedThought1">#2</label>
-                                    <input class="guidedThoughtsTextInput" type="text" id="guidedThought2"
-                                           name="guidedThought2"
-                                           value="" maxlength="200" autocomplete="off" spellcheck="false"> </br>
-
-                                    <label class="form-check-label me-2" for="guidedThought1">#3</label>
-                                    <input class="guidedThoughtsTextInput" type="text" id="guidedThought3"
-                                           name="guidedThought3"
-                                           value="" maxlength="200" autocomplete="off" spellcheck="false"> </br>
-
+                                    <h1>Guided thoughts <span id="clearReminders"> (clear all)</span></h1>
                                     <div class="options form-check form-switch mt-2 mt-3">
-                                        <label class="form-check-label" for="guidedThoughtsShrineSectionOnly">Show
-                                            thoughts only in Shrine section</label>
-                                        <span id="clearReminders"> (clear all)</span>
+                                        <label class="form-check-label" for="guidedThoughtsActive"><h3>Will display given texts from time to time </h3></label>
                                         <input class="form-check-input" type="checkbox"
-                                               id="guidedThoughtsShrineSectionOnly" checked="checked">
+                                               id="guidedThoughtsActive" checked="checked">
                                     </div>
 
-                                    <span id="guidedThoughtTimingContainer" class="hidden">
-                                        <label class="firstGuidedThoughtMinLabel form-check-label me-2"
-                                               for="firstGuidedThoughtMin">Minutes till first thought appears at
-                                            all</label>
-                                        <input type="number" class="guidedThoughtMinutes" id="firstGuidedThoughtMin" name="firstGuidedThoughtMin"
-                                               value="70" min="0" max="600">
-                                        <label class="guidedThoughtMinutesLabel form-check-label me-2"
-                                               for="guidedThoughtMinMinutes">Min minutes till next thought
-                                            appears</label>
-                                        <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMinMinutes"
-                                               name="guidedThoughtMinMinutes"
-                                               value="5" min="1" max="60"> </br>
+                                    <span id="guidedThoughtTextContainer">
+                                        <label class="form-check-label me-2" for="guidedThought1">#1</label>
+                                        <input class="guidedThoughtsTextInput" type="text" id="guidedThought1"
+                                               name="guidedThought1"
+                                               value="" maxlength="200" autocomplete="off" spellcheck="false"> </br>
 
-                                        <label class="guidedThoughtMinutesLabel form-check-label me-2"
-                                               for="guidedThoughtMaxMinutes">Max minutes till next thought
-                                            appears</label>
-                                        <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMaxMinutes"
-                                               name="guidedThoughtMaxMinutes"
-                                               value="12" min="1" max="60">
+                                        <label class="form-check-label me-2" for="guidedThought1">#2</label>
+                                        <input class="guidedThoughtsTextInput" type="text" id="guidedThought2"
+                                               name="guidedThought2"
+                                               value="" maxlength="200" autocomplete="off" spellcheck="false"> </br>
+
+                                        <label class="form-check-label me-2" for="guidedThought1">#3</label>
+                                        <input class="guidedThoughtsTextInput" type="text" id="guidedThought3"
+                                               name="guidedThought3"
+                                               value="" maxlength="200" autocomplete="off" spellcheck="false"> </br>
+
+                                        <div class="options form-check form-switch mt-2 mt-3">
+                                            <label class="form-check-label" for="guidedThoughtsShrineSectionOnly">Show
+                                                thoughts only in Shrine section</label>
+                                            <input class="form-check-input" type="checkbox"
+                                                   id="guidedThoughtsShrineSectionOnly" checked="checked">
+                                        </div>
+
+                                        <span id="guidedThoughtTimingContainer" class="hidden">
+                                            <label class="firstGuidedThoughtMinLabel form-check-label me-2"
+                                                   for="firstGuidedThoughtMin">Minutes till first thought appears at
+                                                all</label>
+                                            <input type="number" class="guidedThoughtMinutes" id="firstGuidedThoughtMin" name="firstGuidedThoughtMin"
+                                                   value="70" min="0" max="600">
+                                            <label class="guidedThoughtMinutesLabel form-check-label me-2"
+                                                   for="guidedThoughtMinMinutes">Min minutes till next thought
+                                                appears</label>
+                                            <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMinMinutes"
+                                                   name="guidedThoughtMinMinutes"
+                                                   value="5" min="1" max="60"> </br>
+
+                                            <label class="guidedThoughtMinutesLabel form-check-label me-2"
+                                                   for="guidedThoughtMaxMinutes">Max minutes till next thought
+                                                appears</label>
+                                            <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMaxMinutes"
+                                                   name="guidedThoughtMaxMinutes"
+                                                   value="12" min="1" max="60">
+                                        </span>
                                     </span>
-
                                 </div>
                             </div>
                         </div>
