@@ -1600,8 +1600,21 @@ video::-webkit-media-controls-fullscreen-button {
     transform: translateX(-50%);
 }
 
-#meditationSymbolMeaning {
+#meditationSymbolInfoContainer {
     display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 100px;
+    opacity: 0;
+    padding: 20px;
+    z-index: 10;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#meditationSymbolInfoContainer:hover {
+    opacity: 1;
 }
 
 #ensoImageShrine, #globalEnsoImage {

@@ -652,6 +652,7 @@ $( document ).ready( function () {
                 screensaverSecondsIdle = 0;
                 stopShrineDisco();
                 stopPlaybackVideodrome();
+                hideMeditationSymbol();
                 showVideostreamFavoriteItemDeleteSymbol = false;
                 $( '.videostreamFavoriteItemDeleteSymbol' ).hide();
                 $( '#unlockDeleteVideodromeFavorites' ).show();
@@ -2260,11 +2261,13 @@ $( document ).ready( function () {
             function showMeditationSymbol() {
                 setNextMeditationSymbol();
                 $( '#meditationSymbol' ).show();
+                $( '#meditationSymbolInfoContainer' ).show();
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0' );
             }
 
             function hideMeditationSymbol() {
                 $( '#meditationSymbol' ).hide();
+                $( '#meditationSymbolInfoContainer' ).hide();
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
             }
 
@@ -2278,7 +2281,18 @@ $( document ).ready( function () {
                 }
                 alreadySelectedMeditationSymbols.push( randomNumber );
                 $( '#meditationSymbol' ).attr( 'src', config['meditationSymbols'][randomNumber]['image'] );
+
+                $( '#meditationSymbolFilename' ).html();
+                $( '#meditationSymbolLabel' ).html();
+                $( '#meditationSymbolMeaning' ).html();
+                $( '#meditationSymbolMeaning_second_order' ).html();
+                $( '#meditationSymbolEmotion' ).html();
+
+                $( '#meditationSymbolFilename' ).html( config['meditationSymbols'][randomNumber]['image'] );
+                $( '#meditationSymbolLabel' ).html( config['meditationSymbols'][randomNumber]['label'] );
                 $( '#meditationSymbolMeaning' ).html( config['meditationSymbols'][randomNumber]['meaning'] );
+                $( '#meditationSymbolMeaning_second_order' ).html( config['meditationSymbols'][randomNumber]['meaning_second_order'] );
+                $( '#meditationSymbolEmotion' ).html( config['meditationSymbols'][randomNumber]['emotion'] );
             }
 
             function setNextOuijaYesNoAnswer() {

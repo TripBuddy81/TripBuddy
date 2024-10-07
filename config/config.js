@@ -1520,6 +1520,7 @@ var config = {
                     'image'               : './media/symbols/15.png',
                     'label'               : 'Pollux und Castor',
                     'meaning'             : 'Pollux war der Sage nach unsterblich, da er der Sohn des Göttervaters Zeus war, Castor dagegen hatte einen menschlichen Vater und zählte daher zu den Sterblichen. Die beiden Brüder waren große Helden und trennten sich niemals voneinander.',
+                    'meaning_second_order': 'Das unsterbliche ist dein Bewusstsein. Das sterbliche deine körperliche Hülle. Beide werden bis in die Ewigkeit hinein zusammen bleiben.'
                 },
                 {
                     'image'  : './media/symbols/16.png',
