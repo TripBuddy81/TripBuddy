@@ -43,6 +43,7 @@ $( document ).ready( function () {
             window.guidedThoughtsActive = true;
             window.allGuidedThoughts = [];
             window.guidedThoughtsNext = 0;
+            window.guidedThoughtPrefilTarget = 1;
             window.activeTruthTagLabel = '';
             window.timer = '';
             window.imageSlideshowInterval = undefined;
@@ -557,12 +558,8 @@ $( document ).ready( function () {
                 $( '#topupCheckbox3' ).prop( 'checked', false );
                 $( '#orderPizzaCheckbox' ).prop( 'checked', false );
 
-                $( '#guidedThought1' ).val( '' );
-                $( '#guidedThought2' ).val( '' );
-                $( '#guidedThought3' ).val( '' );
-                localStorage.setItem( 'guidedThought1', '' );
-                localStorage.setItem( 'guidedThought2', '' );
-                localStorage.setItem( 'guidedThought3', '' );
+                $( '#guidedThoughtsActive' ).prop( 'checked', false );
+                $( '#guidedThoughtsActive' ).trigger( 'change' );
                 guidedThoughtPrefilTarget = 1;
 
                 while ( allGuidedThoughts.length ) {
@@ -1148,6 +1145,9 @@ $( document ).ready( function () {
                 if ( $( '#guidedThoughtsActive' ).is( ':checked' ) ) {
                     $( '#guidedThoughtTextContainer' ).show();
                     guidedThoughtsActive = true;
+                    if ( totalMins > 0 ) {
+                        $( '#firstGuidedThoughtMin' ).val( totalMins );
+                    }
                 } else {
                     $( '#guidedThoughtTextContainer' ).hide();
                     guidedThoughtsActive = false;
@@ -1158,7 +1158,6 @@ $( document ).ready( function () {
                 absoluteTruthsUpdate();
             } );
 
-            guidedThoughtPrefilTarget = 1;
             $( '.reminderSuggestion' ).click( function () {
                 $( '#guidedThought' + guidedThoughtPrefilTarget ).val( $( this ).html() );
                 $( '#guidedThought' + guidedThoughtPrefilTarget ).trigger( 'change' );
