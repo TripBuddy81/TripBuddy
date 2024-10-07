@@ -494,7 +494,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover, .mindJourneyCharSelect:hover 
     position: fixed;
     top: 135px;
     left: 0px;
-    height: 180px;
+    min-height: 180px;
     width: 100%;
     z-index: 100;
     text-align: center;
@@ -512,7 +512,7 @@ a.menuItem:hover, .menuItem:hover, #menu li:hover, .mindJourneyCharSelect:hover 
 
 .guidedThoughtsText {
     position: relative;
-    top: 20px;
+    padding: 20px;
     font-size: 100px;
     font-family: sans-serif;
     z-index: 25;

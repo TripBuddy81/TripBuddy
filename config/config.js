@@ -208,6 +208,10 @@ var config = {
                 {
                     'id'   : '32N71aqSB1j5skwhEi2hmL',
                     'label': 'Rain & Thunder II'
+                },
+                {
+                    'id'   : '5RRMw198XOFsMCJzv58rqd',
+                    'label': 'I am a Dagger'
                 }
             ],
             'trackSelectionPlaylists': [
@@ -1477,9 +1481,9 @@ var config = {
                     'meaning': ''
                 },
                 {
-                    'image'  : './media/symbols/15.png',
-                    'label'  : 'Pollux und Castor',
-                    'meaning': 'Pollux war der Sage nach unsterblich, da er der Sohn des Göttervaters Zeus war, Castor dagegen hatte einen menschlichen Vater und zählte daher zu den Sterblichen. Die beiden Brüder waren große Helden und trennten sich niemals voneinander. -> Das unsterbliche ist dein Bewusstsein. Das sterbliche deine körperliche Hülle. Beide werden bis in die Ewigkeit hinein zusammen bleiben.'
+                    'image'               : './media/symbols/15.png',
+                    'label'               : 'Pollux und Castor',
+                    'meaning'             : 'Pollux war der Sage nach unsterblich, da er der Sohn des Göttervaters Zeus war, Castor dagegen hatte einen menschlichen Vater und zählte daher zu den Sterblichen. Die beiden Brüder waren große Helden und trennten sich niemals voneinander.',
                 },
                 {
                     'image'  : './media/symbols/16.png',
