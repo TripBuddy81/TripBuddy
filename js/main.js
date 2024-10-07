@@ -1128,10 +1128,12 @@ $( document ).ready( function () {
 
             $( '.guidedThoughtMinutes' ).change( function () {
                 localStorage.setItem( $( this ).attr( 'id' ), jQuery.trim( $( this ).val() ) );
+                minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
             } );
 
             $( '#firstGuidedThoughtMin' ).change( function () {
                 localStorage.setItem( 'minutesCountAtLastDisplayedThought', jQuery.trim( $( this ).val() ) );
+                minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
             } );
 
             $( '#guidedThoughtsShrineSectionOnly' ).change( function () {
