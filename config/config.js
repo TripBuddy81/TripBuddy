@@ -634,6 +634,14 @@ var config = {
                     'tags'   : 'meditative'
                 },
                 {
+                    'videoId': 'V4f_1_r80RY',
+                    'tags'   : 'meditative nature'
+                },
+                {
+                    'videoId': 'bb9ZTbYGRdc',
+                    'tags'   : 'meditative nature'
+                },
+                {
                     'videoId': 't_S_cN2re4g',
                     'tags'   : 'nature'
                 },
@@ -838,10 +846,22 @@ var config = {
                     'label'  : 'What If Physics IS NOT Describing Reality?'
                 },
                 {
+                    'videoId': '43vuOpJY46s',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Roger Penrose - Quantum Physics of Consciousness'
+                },
+                {
+                    'videoId': '5aMaCpH-tWI',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Bernard Carr - Physics of Consciousness'
+                },
+                {
                     'videoId': 'RIin9sOMzIg',
                     'mute'   : false,
                     'tags'   : 'thinker',
-                    'label'  : 'Psychedelic Realizations summary (watch only sober)'
+                    'label'  : 'Psychedelic Realizations summary (trigger warning!)'
                 },
                 {
                     'videoId': 'zNHDTvqbUm4',
@@ -944,6 +964,18 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'Life is not complicated'
+                },
+                {
+                    'videoId': '3zh_fZIZccQ',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Alan Watts thought exercise'
+                },
+                {
+                    'videoId': '7EKdTGUwo1o',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Act as If You are Not Living In Illusion'
                 },
                 {
                     'videoId': 'zOM7M-GNi2Q',

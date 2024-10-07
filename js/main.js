@@ -3366,7 +3366,7 @@ $( document ).ready( function () {
 
                 videodromeTaggingSaveInterval = setTimeout( function () {
                     itemToStore = '{\'file\':\'' + videodromeTaggingVideo + '\',\'tag\':\'' + videodromeTaggingAppliedTags + '\'},'
-                    videoTaggingCache['items'].unshift( itemToStore );
+                    videoTaggingCache['items'].push( itemToStore );
                     localStorage.setItem( 'videoTaggingCache', JSON.stringify( videoTaggingCache['items'] ) );
 
                     videodromeTaggingSaveInterval = '';
