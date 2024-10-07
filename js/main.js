@@ -430,39 +430,41 @@ $( document ).ready( function () {
             // Init airmouse and reassign some buttons
             // Right button for context menu is e.which == 0 -> is handled in contextmenu section
             document.onkeydown = function ( e ) {
-                switch ( e.which ) {
-                    case 37: // left
-                        if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
-                            spotifyPause();
-                            e.preventDefault();
-                        }
-                        break;
-                    case 38: // up
-                        if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
-                            $( '#startPrivatePictureSlideshow' ).trigger( 'click' );
-                            e.preventDefault();
-                        }
-                        break;
-                    case 39: // right
-                        if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
-                            playNextYoutubeVideoOrSpotifyTrack();
-                            e.preventDefault();
-                        }
-                        break;
-                    case 40: // down
-                        if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
-                            if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
-                                $( '#showShrineSection' ).trigger( 'click' );
-                                $( '#mainMenu' ).attr( 'style', 'opacity:0' );
-                                $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                if ( !$( '#preFlightChecklist,.keyboard-input-field' ).is( ':visible' ) ) {
+                    switch ( e.which ) {
+                        case 37: // left
+                            if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
+                                spotifyPause();
+                                e.preventDefault();
                             }
-                            startDiscoMode();
-                            nextDiscoMode();
-                            e.preventDefault();
-                        }
-                        break;
-                    default:
-                        return;
+                            break;
+                        case 38: // up
+                            if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
+                                $( '#startPrivatePictureSlideshow' ).trigger( 'click' );
+                                e.preventDefault();
+                            }
+                            break;
+                        case 39: // right
+                            if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
+                                playNextYoutubeVideoOrSpotifyTrack();
+                                e.preventDefault();
+                            }
+                            break;
+                        case 40: // down
+                            if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
+                                if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
+                                    $( '#showShrineSection' ).trigger( 'click' );
+                                    $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                                    $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                                }
+                                startDiscoMode();
+                                nextDiscoMode();
+                                e.preventDefault();
+                            }
+                            break;
+                        default:
+                            return;
+                    }
                 }
             };
 
