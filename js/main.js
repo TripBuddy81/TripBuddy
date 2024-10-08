@@ -3308,6 +3308,10 @@ $( document ).ready( function () {
                     $( '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).css( 'cursor', 'none' );
                     $( '.videoMenuOverlay' ).hide();
                 }, 1000 );
+
+                if ( $( this ).hasClass( 'videodromeFullscreen' ) ) {
+                    $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+                }
                 $( '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                 $( '.videoMenuOverlay' ).show();
 
@@ -3491,13 +3495,12 @@ $( document ).ready( function () {
             $( document ).on( 'click', '.videoDromeFrame', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
+                $( '.videoDromeFrame' ).removeAttr( 'controls' );
                 if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
-                    $( this ).removeAttr( 'controls' );
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
                     $( '.videodromeRefreshContainer' ).show();
                 } else {
-                    $( this ).prop( 'controls', 'controls' );
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
                     $( '.videodromeRefreshContainer' ).hide();
@@ -3508,6 +3511,9 @@ $( document ).ready( function () {
 
             $( document ).on( 'wheel', '.videodromeVideoContainer', function ( event ) {
                 event.preventDefault();
+                if ( $( this ).hasClass( 'videodromeFullscreen' ) ) {
+                    $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+                }
                 if ( event.originalEvent.deltaY > 0 ) { // going down
                     $( this ).find( '.localVideo' )[0].currentTime = $( this ).find( '.localVideo' )[0].currentTime - 30;
                 } else { // going up
@@ -3528,6 +3534,9 @@ $( document ).ready( function () {
             $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
                 event.preventDefault();
                 timeSkipDuration = 30;
+                if ( $( this ).hasClass( 'videodromeFullscreen' ) ) {
+                    $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+                }
                 if ( $( '.videoTaggingButton' ).is( ':visible' ) ) {
                     timeSkipDuration = 5;
                 }
