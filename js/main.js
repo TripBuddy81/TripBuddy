@@ -2147,7 +2147,7 @@ $( document ).ready( function () {
                 enableFullscreen();
             } );
 
-            $( '#particles-js,#shrineSettingsContainer' ).on( 'wheel', function ( event ) {
+            $( '#particles-js,#shrineSettingsContainer,#meditationSymbolInfoContainer' ).on( 'wheel', function ( event ) {
                 stopScreensaver();
                 enableFullscreen();
                 clearInterval( absoluteTruthsTimer );
