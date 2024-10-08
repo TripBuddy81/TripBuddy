@@ -2282,13 +2282,13 @@ $( document ).ready( function () {
                 alreadySelectedMeditationSymbols.push( randomNumber );
                 $( '#meditationSymbol' ).attr( 'src', config['meditationSymbols'][randomNumber]['image'] );
 
-                $( '#meditationSymbolFilename' ).html();
-                $( '#meditationSymbolLabel' ).html();
-                $( '#meditationSymbolMeaning' ).html();
-                $( '#meditationSymbolMeaning_second_order' ).html();
-                $( '#meditationSymbolEmotion' ).html();
+                $( '#meditationSymbolFilename' ).html( '' );
+                $( '#meditationSymbolLabel' ).html( '' );
+                $( '#meditationSymbolMeaning' ).html( '' );
+                $( '#meditationSymbolMeaning_second_order' ).html( '' );
+                $( '#meditationSymbolEmotion' ).html( '' );
 
-                $( '#meditationSymbolFilename' ).html( " (" + config['meditationSymbols'][randomNumber]['image'].replace( /\.\/.*symbols\//,  '') + ")" );
+                $( '#meditationSymbolFilename' ).html( ' (' + config['meditationSymbols'][randomNumber]['image'].replace( /\.\/.*symbols\//, '' ) + ')' );
                 $( '#meditationSymbolLabel' ).html( config['meditationSymbols'][randomNumber]['label'] );
                 $( '#meditationSymbolMeaning' ).html( config['meditationSymbols'][randomNumber]['meaning'] );
                 $( '#meditationSymbolMeaning_second_order' ).html( config['meditationSymbols'][randomNumber]['meaning_second_order'] );
@@ -3917,7 +3917,7 @@ $( document ).ready( function () {
                             tempFilename = $( this ).attr( 'href' );
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                             } else if ( tempFilename != '/' ) {
-                                var fileExtensions = ['mkv', 'mp4', 'mov'];
+                                var fileExtensions = ['mkv', 'mp4', 'mov', 'm4v'];
                                 if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), fileExtensions ) > -1 ) {
                                     externalFiles.push( url + tempFilename );
                                 }
@@ -3951,7 +3951,7 @@ $( document ).ready( function () {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( selectableVideodromeFilesFromTagAndFolders, function ( val ) {
                     let localFilename = document.createElement( 'div' );
-                    localFilename.innerHTML = decodeURI( selectableVideodromeFilesFromTagAndFolders[val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
+                    localFilename.innerHTML = decodeURI( selectableVideodromeFilesFromTagAndFolders[val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.m4v.*/, '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
                     localFilename.setAttribute( 'src', selectableVideodromeFilesFromTagAndFolders[val] );
                     localFilename.classList.add( 'localFilename' );
                     document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localFilename );
@@ -4003,7 +4003,7 @@ $( document ).ready( function () {
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
                     try {
-                        $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) ) );
+                        $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.m4v.*/, '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) ) );
                     } catch ( e ) {
                     }
                 } else {
@@ -4700,7 +4700,7 @@ $( document ).ready( function () {
                             if ( $( this ).html() != 'Parent Directory' ) {
                                 tempFilename = $( this ).attr( 'href' );
                                 if ( tempFilename.indexOf( '/' ) == -1 && tempFilename != '/' ) {
-                                    externalMusicVideos[url + tempFilename] = decodeURIComponent( url.replace( config['externalRootDirs']['musicVideosRootDir'], '' ) + tempFilename.replace( '/', '' ).replace( '\.mp4', '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ) );
+                                    externalMusicVideos[url + tempFilename] = decodeURIComponent( url.replace( config['externalRootDirs']['musicVideosRootDir'], '' ) + tempFilename.replace( '/', '' ).replace( '\.mp4', '' ).replace( /\.m4v.*/, '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ) );
                                 }
                             }
                         } );
@@ -4892,7 +4892,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+              /*  toggleXXXVisible();*/
 
                 /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/

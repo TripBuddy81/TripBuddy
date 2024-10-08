@@ -208,10 +208,6 @@ var config = {
                 {
                     'id'   : '32N71aqSB1j5skwhEi2hmL',
                     'label': 'Rain & Thunder II'
-                },
-                {
-                    'id'   : '5RRMw198XOFsMCJzv58rqd',
-                    'label': 'I am a Dagger'
                 }
             ],
             'trackSelectionPlaylists': [
@@ -876,7 +872,7 @@ var config = {
                     'label'  : 'The Neuroscience of Creativity and Perception'
                 },
                 {
-                    'videoId': '2NP0jYGPXc4',
+                    'videoId': 'qpLNRNO72X4',
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'Right where it belongs - NIN'
@@ -1106,7 +1102,7 @@ var config = {
                 {
                     'videoId': '3O61I0pNPg8',
                     'mute'   : false,
-                    'tags'   : 'wisdom',
+                    'tags'   : 'thinker',
                     'label'  : 'The great free will debate'
                 },
                 {
