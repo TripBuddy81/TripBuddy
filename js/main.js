@@ -412,7 +412,7 @@ $( document ).ready( function () {
                     return false;
                 } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) || $( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) ) {
                     if ( config['pornMap'] != undefined ) {
-                        $( e.target ).removeAttr( 'controls' );
+                        $( '.videoDromeFrame' ).removeAttr( 'controls' );
                         $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                         $( '.videodromeFullscreenMenuContainer' ).hide();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
