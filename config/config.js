@@ -451,7 +451,7 @@ var config = {
                     'startSeconds': '90'
                 },
                 {
-                    'videoId'     : 'qFhn46vy2Kc',
+                    'videoId'     : '5FC_kS3AmyM',
                     'tags'        : 'trippy-2D',
                     'startSeconds': '1'
                 },
@@ -461,7 +461,12 @@ var config = {
                     'startSeconds': '409'
                 },
                 {
-                    'videoId'     : '5HpnCpS_BDg',
+                    'videoId'     : '1exehudMxeM',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '1'
+                },
+                {
+                    'videoId'     : 'rzKsGIazEsc',
                     'tags'        : 'trippy-2D',
                     'startSeconds': '1'
                 },
