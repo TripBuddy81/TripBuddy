@@ -854,6 +854,20 @@ var config = {
                     'label'  : 'Bernard Carr - Physics of Consciousness'
                 },
                 {
+                    'videoId': 'RCSSgxV9qNw',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : '1/137 - One of the Greatest Unsolved Problems In Physics',
+                    'startSeconds': '3'
+                },
+                {
+                    'videoId': 'c1nYtX-NUsc',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Is Our World Broken?',
+                    'startSeconds': '10'
+                },
+                {
                     'videoId': 'RIin9sOMzIg',
                     'mute'   : false,
                     'tags'   : 'thinker',
@@ -936,6 +950,12 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'The Mystery of falling in love'
+                },
+                {
+                    'videoId': 'sRt8VhjxTsw',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Alan Watts on Death'
                 },
                 {
                     'videoId': 'pFH804qrIOU',
@@ -1671,8 +1691,13 @@ var config = {
                     'meaning': 'Du kannst das Helle auf der dunklen Seite sein und damit das Übergewicht für das Licht sein! Du bist die weiße Stelle auf der schwarzen Seite.'
                 },
                 {
+                    'image'  : './media/symbols/50.png',
+                    'label'  : 'Mac-10',
+                    'meaning': ''
+                },
+                {
                     'image'  : './media/symbols/51.png',
-                    'label'  : '',
+                    'label'  : 'geschlossene Version von 52.png (Spirit Entität)',
                     'meaning': ''
                 },
                 {
