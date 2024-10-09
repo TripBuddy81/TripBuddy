@@ -861,6 +861,13 @@ var config = {
                     'startSeconds': '3'
                 },
                 {
+                    'videoId': '-L2aPbEU4Kc',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'The Three Levels of Religion',
+                    'startSeconds': '17'
+                },
+                {
                     'videoId': 'c1nYtX-NUsc',
                     'mute'   : false,
                     'tags'   : 'thinker',
