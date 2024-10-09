@@ -1499,8 +1499,9 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/07.png',
-                    'label'  : 'Curved space - Pringles',
-                    'meaning': 'Gekrümmter Raum'
+                    'label'  : 'Wellenartiger Raum - Aether',
+                    'meaning': 'Aus diesem entsteht der physische Raum!',
+                    'meaning_second_order': 'Dieser Raum ist irgendwie mit 13 (Philosopher\'s Stone) verbunden. (13 + 7 => 137)'
                 },
                 {
                     'image'  : './media/symbols/08.png',
@@ -1529,8 +1530,9 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/13.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Philosopher\'s Stone',
+                    'meaning': 'Das ist mein Magnum Opus! Die Suche nach dem Philosopher\'s Stone!',
+                    'meaning_second_order': 'Aus dem Körper heraus, dringe ich in den Aether ein, verbinde ich mich mit dem Universum, erhalte ich Erleuchtung, mit der ich mein Magnum Opus baue, um den Philosopher\'s Stone zu finden!'
                 },
                 {
                     'image'               : './media/symbols/15.png',
@@ -1633,7 +1635,7 @@ var config = {
                 {
                     'image'  : './media/symbols/37.png',
                     'label'  : 'Negation / Nein',
-                    'meaning': ''
+                    'meaning': 'Signal vom Universum oder Außerirdischen?'
                 },
                 {
                     'image'  : './media/symbols/38.png',
