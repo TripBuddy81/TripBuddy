@@ -2539,8 +2539,13 @@ $( document ).ready( function () {
             }
 
             $( '.noisegeneratorLink' ).on( 'mousedown', document, function ( e ) {
+                $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
+                $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
+                $( this ).addClass( 'spotifyPlaylistActive' );
+
                 // on middle mouse button just open in new tab
                 if ( e.which == 2 ) {
+                    spotifyPause();
                     window.open( $( this ).attr( 'href' ), '_blank' );
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                 }
@@ -2626,15 +2631,15 @@ $( document ).ready( function () {
                 } );
 
                 $( '.spotifyPlaylistItem' ).on( 'mousedown', document, function ( e ) {
-                    $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
-
                     // on middle mouse button put playlist into queue
                     if ( e.which == 2 ) {
+                        $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
                         $( '[data-spotify-id="' + $( this ).attr( 'data-spotify-id' ) + '"]' ).addClass( 'spotifyPlaylistQueed' );
                         e.preventDefault();
                         nextPlaylistToPlay = $( this ).attr( 'data-spotify-id' );
                         $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     } else if ( e.which == 1 ) {
+                        $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
                         $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
                         $( '[data-spotify-id="' + $( this ).attr( 'data-spotify-id' ) + '"]' ).addClass( 'spotifyPlaylistActive' );
                         nextPlaylistToPlay = '';
@@ -2684,6 +2689,7 @@ $( document ).ready( function () {
                     if ( externalSoundTabOpened ) {
                         externalSoundTabOpened = false;
                         window.open( './tabCloser.html', 'externalSoundTab' );
+                        $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
                     }
                 } );
 

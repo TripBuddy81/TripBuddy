@@ -232,7 +232,9 @@ function spotifyPause() {
         document.querySelector( 'iframe[src*="spotify.com/embed"]' ).contentWindow.postMessage( {command: 'pause'}, '*' );
     } catch ( e ) {
     }
+    $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
     spotifySongRadioQueue = '';
+    nextPlaylistToPlay = '';
     callApi( 'PUT', PAUSE, null, handleApiResponse );
 }
 
