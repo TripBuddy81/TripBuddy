@@ -80,7 +80,7 @@ $( document ).ready( function () {
             window.youtubeIntitalSearchTerm = 'goa festival';
             window.directYoutubePlayerLoaded = false;
             window.lastPlayedDirectYoutubePlayerId = '';
-            window.lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
+            window.lastPlayedDirectYoutubePlayerVideoIsKnowledge = false;
             window.lastSelectedAutocompleteItem = 0;
             window.currentAutocompleteItem = 0;
             window.allVideosLoaded = false;
@@ -1551,7 +1551,7 @@ $( document ).ready( function () {
                         break;
                     case YT.PlayerState.ENDED:
                         directYoutubePlayerState = 'ended';
-                        if ( !lastPlayedDirectYoutubePlayerVideoIsWisdom ) {
+                        if ( !lastPlayedDirectYoutubePlayerVideoIsKnowledge ) {
                             directYoutubePlayer.playVideo(); // normal videos are repeated
                         } else {
                             stopAllActions(); // Wisdom videos are stopped at the end and we change to the screensaver
@@ -1696,15 +1696,15 @@ $( document ).ready( function () {
                         startSeconds = $( clickedElement ).attr( 'startSeconds' );
                     }
 
-                    if ( lastPlayedDirectYoutubePlayerId != $( clickedElement ).attr( 'videoId' ) || lastPlayedDirectYoutubePlayerVideoIsWisdom ) {
+                    if ( lastPlayedDirectYoutubePlayerId != $( clickedElement ).attr( 'videoId' ) || lastPlayedDirectYoutubePlayerVideoIsKnowledge ) {
                         directYoutubePlayer.loadVideoById( $( clickedElement ).attr( 'videoId' ), startSeconds );
                     }
                     lastPlayedDirectYoutubePlayerId = $( clickedElement ).attr( 'videoId' );
 
-                    if ( $( clickedElement ).closest( '.videoContainer' ).hasClass( 'wisdom' ) ) {
-                        lastPlayedDirectYoutubePlayerVideoIsWisdom = true;
+                    if ( $( clickedElement ).closest( '.videoContainer' ).is( '.thinker,.wisdom,.shaman' ) ) {
+                        lastPlayedDirectYoutubePlayerVideoIsKnowledge = true;
                     } else {
-                        lastPlayedDirectYoutubePlayerVideoIsWisdom = false;
+                        lastPlayedDirectYoutubePlayerVideoIsKnowledge = false;
                     }
 
                     directYoutubePlayer.playVideo();
@@ -4901,7 +4901,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-               /* toggleXXXVisible();*/
+                /* toggleXXXVisible();*/
 
                 /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
