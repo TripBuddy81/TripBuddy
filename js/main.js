@@ -2630,13 +2630,13 @@ $( document ).ready( function () {
 
                     // on middle mouse button put playlist into queue
                     if ( e.which == 2 ) {
-                        $( this ).addClass( 'spotifyPlaylistQueed' );
+                        $( '[data-spotify-id="' + $( this ).attr( 'data-spotify-id' ) + '"]' ).addClass( 'spotifyPlaylistQueed' );
                         e.preventDefault();
                         nextPlaylistToPlay = $( this ).attr( 'data-spotify-id' );
                         $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     } else if ( e.which == 1 ) {
                         $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
-                        $( this ).addClass( 'spotifyPlaylistActive' );
+                        $( '[data-spotify-id="' + $( this ).attr( 'data-spotify-id' ) + '"]' ).addClass( 'spotifyPlaylistActive' );
                         nextPlaylistToPlay = '';
                         $( '#spotifyPlaylists' ).html( '...' );
                         openSpotifyApp();

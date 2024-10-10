@@ -297,7 +297,7 @@ function handleCurrentlyPlayingResponse() {
             spotifyHasBeenPlayingBeforePause = false;
         } else if ( nextPlaylistToPlay != '' && spotifyPreviousProgressMs >= data['progress_ms'] ) {
             $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
-            $( '.spotifyPlaylistQueed' ).addClass( 'spotifyPlaylistActive' );
+            $( '[data-spotify-id="' + $( '.spotifyPlaylistQueed' ).attr( 'data-spotify-id' ) + '"]' ).addClass( 'spotifyPlaylistActive' );
             $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
             spotifyPlay( nextPlaylistToPlay );
             nextPlaylistToPlay = '';
