@@ -1501,8 +1501,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/05.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'You are captured - You are free! Lyrics von Melt Motif - Mine',
+                    'meaning': 'You can choose! You can choose!'
                 },
                 {
                     'image'  : './media/symbols/06.png',
@@ -1554,8 +1554,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/16.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Malstrom',
+                    'meaning': 'Tiefer und tiefer'
                 },
                 {
                     'image'  : './media/symbols/18.png',
@@ -1621,8 +1621,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/32.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Spiel des Lebens - Gamepad',
+                    'meaning': 'Es ist doch alles nicht so schlimm! Sie das Leben als Spiel an! Es geht darum das Leben zu erleben, nicht den höchsten Highscore zu haben!'
                 },
                 {
                     'image'  : './media/symbols/33.png',
