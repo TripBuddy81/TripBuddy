@@ -296,6 +296,9 @@ function handleCurrentlyPlayingResponse() {
             spotifyPause();
             spotifyHasBeenPlayingBeforePause = false;
         } else if ( nextPlaylistToPlay != '' && spotifyPreviousProgressMs >= data['progress_ms'] ) {
+            $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
+            $( '.spotifyPlaylistQueed' ).addClass( 'spotifyPlaylistActive' );
+            $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
             spotifyPlay( nextPlaylistToPlay );
             nextPlaylistToPlay = '';
         } else if ( spotifySongRadioQueue != '' && spotifyPreviousProgressMs >= data['progress_ms'] ) {

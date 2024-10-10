@@ -2626,12 +2626,18 @@ $( document ).ready( function () {
                 } );
 
                 $( '.spotifyPlaylistItem' ).on( 'mousedown', document, function ( e ) {
+                    $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
+
                     // on middle mouse button put playlist into queue
                     if ( e.which == 2 ) {
+                        $( this ).addClass( 'spotifyPlaylistQueed' );
                         e.preventDefault();
                         nextPlaylistToPlay = $( this ).attr( 'data-spotify-id' );
                         $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     } else if ( e.which == 1 ) {
+                        $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
+                        $( this ).addClass( 'spotifyPlaylistActive' );
+                        nextPlaylistToPlay = '';
                         $( '#spotifyPlaylists' ).html( '...' );
                         openSpotifyApp();
                         markYoutubeAsActiveAudioSource( false );

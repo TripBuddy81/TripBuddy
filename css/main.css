@@ -993,6 +993,15 @@ option {
     color: white;
 }
 
+.spotifyPlaylistActive {
+    text-decoration: underline;
+}
+
+.spotifyPlaylistQueed {
+    text-decoration: dotted;
+    text-decoration-line: underline;
+}
+
 .spotifyCurrentlyPlayingContainer {
     margin-right: -7px;
     height: 75px;
@@ -1793,7 +1802,6 @@ video::-webkit-media-controls-fullscreen-button {
     border-radius: calc(2 * var(--borderWidth));
     z-index: -1;
     background-size: 300% 300%;
-
 }
 
 @keyframes animatedgradient {
