@@ -667,7 +667,7 @@ var config = {
                 {
                     'videoId'     : 'z5JdoygbFCE',
                     'tags'        : 'breathing',
-                    'mute'   : 'mixed',
+                    'mute'        : 'mixed',
                     'startSeconds': '38'
                 },
                 {
@@ -859,24 +859,24 @@ var config = {
                     'label'  : 'Bernard Carr - Physics of Consciousness'
                 },
                 {
-                    'videoId': 'RCSSgxV9qNw',
-                    'mute'   : false,
-                    'tags'   : 'thinker',
-                    'label'  : '1/137 - One of the Greatest Unsolved Problems In Physics',
+                    'videoId'     : 'RCSSgxV9qNw',
+                    'mute'        : false,
+                    'tags'        : 'thinker',
+                    'label'       : '1/137 - One of the Greatest Unsolved Problems In Physics',
                     'startSeconds': '3'
                 },
                 {
-                    'videoId': '-L2aPbEU4Kc',
-                    'mute'   : false,
-                    'tags'   : 'thinker',
-                    'label'  : 'The Three Levels of Religion',
+                    'videoId'     : '-L2aPbEU4Kc',
+                    'mute'        : false,
+                    'tags'        : 'thinker',
+                    'label'       : 'The Three Levels of Religion',
                     'startSeconds': '17'
                 },
                 {
-                    'videoId': 'c1nYtX-NUsc',
-                    'mute'   : false,
-                    'tags'   : 'thinker',
-                    'label'  : 'Is Our World Broken?',
+                    'videoId'     : 'c1nYtX-NUsc',
+                    'mute'        : false,
+                    'tags'        : 'thinker',
+                    'label'       : 'Is Our World Broken?',
                     'startSeconds': '10'
                 },
                 {
@@ -1510,9 +1510,9 @@ var config = {
                     'meaning': ''
                 },
                 {
-                    'image'  : './media/symbols/07.png',
-                    'label'  : 'Wellenartiger Raum - Aether',
-                    'meaning': 'Aus diesem entsteht der physische Raum!',
+                    'image'               : './media/symbols/07.png',
+                    'label'               : 'Wellenartiger Raum - Aether',
+                    'meaning'             : 'Aus diesem entsteht der physische Raum!',
                     'meaning_second_order': 'Dieser Raum ist irgendwie mit 13 (Philosopher\'s Stone) verbunden. (13 + 7 => 137)'
                 },
                 {
@@ -1541,9 +1541,9 @@ var config = {
                     'meaning': ''
                 },
                 {
-                    'image'  : './media/symbols/13.png',
-                    'label'  : 'Philosopher\'s Stone',
-                    'meaning': 'Das ist mein Magnum Opus! Die Suche nach dem Philosopher\'s Stone!',
+                    'image'               : './media/symbols/13.png',
+                    'label'               : 'Philosopher\'s Stone',
+                    'meaning'             : 'Das ist mein Magnum Opus! Die Suche nach dem Philosopher\'s Stone!',
                     'meaning_second_order': 'Aus dem Körper heraus, dringe ich in den Aether ein, verbinde ich mich mit dem Universum, erhalte ich Erleuchtung, mit der ich mein Magnum Opus baue, um den Philosopher\'s Stone zu finden!'
                 },
                 {
@@ -1715,9 +1715,10 @@ var config = {
                     'meaning': ''
                 },
                 {
-                    'image'  : './media/symbols/52.png',
-                    'label'  : 'Entität/Spirit',
-                    'meaning': 'Nicht böse. Weiblich. Neugierig'
+                    'image'               : './media/symbols/52.png',
+                    'label'               : 'Entität/Spirit',
+                    'meaning'             : 'Nicht böse. Weiblich. Neugierig.',
+                    'meaning_second_order': 'Ein kleiner Wirbelwind, der böse Gedanken dir entreißt und mitnimmt.'
                 },
                 {
                     'image'  : './media/symbols/53.png',
@@ -1729,11 +1730,11 @@ var config = {
                     'label'  : '137',
                     'meaning': 'Es beschreibt die formale "Summe" der wichtigsten und zentralsten Stellschrauben unseres Universums. Ist das die Hausnummer unseres Universums?'
                 },
-                /*                {
-                                    'image'  : './media/symbols/55.png',
-                                    'label' : '',
+                {
+                    'image'  : './media/symbols/55.png',
+                    'label'  : 'Mögliche Nachricht. Aber könnte auch wirklich ein Hirnfurz gewesen sein!',
                     'meaning': ''
-                                },*/
+                },
                 {
                     'image'  : './media/symbols/56.png',
                     'label'  : 'Space marine',
