@@ -640,9 +640,6 @@ $( document ).ready( function () {
                     $( this ).removeClass( 'videoContainerFullscreen' );
                 } );
 
-                if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
-                    document.elementFromPoint( 0, 0 ).click();
-                }
                 $( '.displayedFullscreenImage' ).trigger( 'click' );
 
                 $( '.iconAlternating' ).each( function () {
