@@ -643,6 +643,7 @@ $( document ).ready( function () {
                 if ( document.elementFromPoint( 0, 0 ).nodeName == 'IMG' ) {
                     document.elementFromPoint( 0, 0 ).click();
                 }
+                $( '.displayedFullscreenImage' ).trigger( 'click' );
 
                 $( '.iconAlternating' ).each( function () {
                     $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
@@ -1912,8 +1913,7 @@ $( document ).ready( function () {
             Intense( document.querySelectorAll( '.fullscreenImage' ) );
 
             $( '.fullscreenImage' ).click( function ( event ) {
-                var clickedImageSrc = $( this ).attr( 'src' );
-                lastDisplayedImage = clickedImageSrc;
+                lastDisplayedImage = $( this ).attr( 'src' );
                 enableFullscreen();
                 blockScreenSaver = true;
             } );
