@@ -1661,8 +1661,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/40.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Tetraeder/Pyramide',
+                    'meaning': 'Illustration von Naturgesetz - Onelab'
                 },
                 {
                     'image'  : './media/symbols/41.png',
