@@ -2635,6 +2635,8 @@ $( document ).ready( function () {
                         e.preventDefault();
                         nextPlaylistToPlay = $( this ).attr( 'data-spotify-id' );
                         $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
+                        $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
+                        $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
                     } else if ( e.which == 1 ) {
                         $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
                         $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
