@@ -2663,8 +2663,9 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videodromeTagSelectPrivateFlag {
-    float: right;
+    float: left;
     font-size: 35px;
+    padding-left: 9px;
 }
 
 #videoTaggingContainer {
@@ -2687,10 +2688,14 @@ video::-webkit-media-controls-fullscreen-button {
     padding-top: 15px;
     padding-bottom: 15px;
     position: absolute;
-    bottom: 85px;
+    bottom: 55px;
     margin-left: -22px;
     width: 100%;
     padding-right: 26px;
+}
+
+#pornMapTagListEmotions, #pornMapTagListChars {
+    text-align: center;
 }
 
 #videodromeBottomToolbarSearchOptions {

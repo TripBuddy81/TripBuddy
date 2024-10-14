@@ -636,7 +636,8 @@
                                 <div class="col">
                                     <h1>Guided thoughts <span id="clearReminders"> (clear all)</span></h1>
                                     <div class="options form-check form-switch mt-2 mt-3">
-                                        <label class="form-check-label" for="guidedThoughtsActive"><h3>Will display given texts from time to time </h3></label>
+                                        <label class="form-check-label" for="guidedThoughtsActive"><h3>Will display
+                                            given texts from time to time </h3></label>
                                         <input class="form-check-input" type="checkbox"
                                                id="guidedThoughtsActive" checked="checked">
                                     </div>
@@ -668,19 +669,22 @@
                                             <label class="firstGuidedThoughtMinLabel form-check-label me-2"
                                                    for="firstGuidedThoughtMin">Minutes till first thought appears at
                                                 all</label>
-                                            <input type="number" class="guidedThoughtMinutes" id="firstGuidedThoughtMin" name="firstGuidedThoughtMin"
+                                            <input type="number" class="guidedThoughtMinutes" id="firstGuidedThoughtMin"
+                                                   name="firstGuidedThoughtMin"
                                                    value="70" min="0" max="600">
                                             <label class="guidedThoughtMinutesLabel form-check-label me-2"
                                                    for="guidedThoughtMinMinutes">Min minutes till next thought
                                                 appears</label>
-                                            <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMinMinutes"
+                                            <input type="number" class="guidedThoughtMinutes"
+                                                   id="guidedThoughtMinMinutes"
                                                    name="guidedThoughtMinMinutes"
                                                    value="5" min="1" max="60"> </br>
 
                                             <label class="guidedThoughtMinutesLabel form-check-label me-2"
                                                    for="guidedThoughtMaxMinutes">Max minutes till next thought
                                                 appears</label>
-                                            <input type="number" class="guidedThoughtMinutes" id="guidedThoughtMaxMinutes"
+                                            <input type="number" class="guidedThoughtMinutes"
+                                                   id="guidedThoughtMaxMinutes"
                                                    name="guidedThoughtMaxMinutes"
                                                    value="12" min="1" max="60">
                                         </span>
@@ -1032,25 +1036,29 @@
             </div>
 
             <div class="videodromeVideoContainer videoDromeVideo1">
-                <video class="videoDromeFrame localVideo" muted="" loop="" controls="controls" controlslist="nofullscreen" preload="none">
+                <video class="videoDromeFrame localVideo" muted="" loop="" controls="controls"
+                       controlslist="nofullscreen" preload="none">
                     <source class="videoSource cursorNone"
                             src="" type="video/mp4">
                 </video>
             </div>
             <div class="videodromeVideoContainer videoDromeVideo2">
-                <video class="videoDromeFrame localVideo" muted="" loop="" controls="controls" controlslist="nofullscreen" preload="none">
+                <video class="videoDromeFrame localVideo" muted="" loop="" controls="controls"
+                       controlslist="nofullscreen" preload="none">
                     <source class="videoSource cursorNone"
                             src="" type="video/mp4">
                 </video>
             </div>
             <div class="videodromeVideoContainer videoDromeVideo3">
-                <video class="videoDromeFrame localVideo" muted="" loop="" controls="controls" controlslist="nofullscreen" preload="none">
+                <video class="videoDromeFrame localVideo" muted="" loop="" controls="controls"
+                       controlslist="nofullscreen" preload="none">
                     <source class="videoSource cursorNone"
                             src="" type="video/mp4">
                 </video>
             </div>
             <div class="videodromeVideoContainer videoDromeVideo4">
-                <video class="videoDromeFrame localVideo" muted="" loop="" controls="controls" controlslist="nofullscreen" preload="none">
+                <video class="videoDromeFrame localVideo" muted="" loop="" controls="controls"
+                       controlslist="nofullscreen" preload="none">
                     <source class="videoSource cursorNone"
                             src="" type="video/mp4">
                 </video>
@@ -1162,8 +1170,8 @@
             </span>
         </div>
 
-<!--        <div id="videodromeBottomToolbarTrigger">
-        </div>-->
+        <!--        <div id="videodromeBottomToolbarTrigger">
+                </div>-->
         <div id="videodromeLeftToolbarTrigger">
         </div>
         <div id="videodromeBottomToolbar">
@@ -1174,7 +1182,7 @@
                 </div>
             </div>
             <div id="pornMapTagList" class="row mb-3">
-                <div class="col">
+                <div id="pornMapTagListChars" class="col-12">
                     <img id="deselectAllVideodromeTags" class="iconAlternating cursorAction" src="./assets/x.png">
                     <div data-pornMapTag="General"
                          class="cursorAction videodromeTagSelect videodromeTagActive">General</div>
@@ -1182,9 +1190,16 @@
                     <div data-pornMapTag="{{selectableTag}}"
                          class="cursorAction videodromeTagSelect">{{selectableTag}}</div>
                     {{/pornMapTagList.chars}}
+                </div>
+                <div id="pornMapTagListEmotions" class="col-12">
+                    {{#pornMapTagList.emotions}}
+                    <div data-pornMapTag="{{selectableTag}}"
+                         class="cursorAction videodromeTagSelect">{{selectableTag}}</div>
+                    {{/pornMapTagList.emotions}}
                     <div class="cursorAction showPrivateContent videodromeTagSelectPrivateFlag">private</div>
                     <div class="cursorAction privatefilter hidePrivateContent videodromePrivateTagActive videodromeTagSelectPrivateFlag">private</div>
                 </div>
+
             </div>
             <div id="videodromeBottomToolbarSearchOptions" class="row">
                 <div class="col">
