@@ -4050,6 +4050,10 @@ $( document ).ready( function () {
                             break;
                         }
                     }
+
+                    // after first init of videos with "general", deactivate general tag
+                    $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
+                    loadActiveVideodromeTagsIntoList();
                     displayAllActiveLocalFilenames();
                 } else {
                     $( '.toggleLocalStreamIcon' ).hide();
@@ -4912,7 +4916,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                 toggleXXXVisible();
+                toggleXXXVisible();
 
                 /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
