@@ -1564,7 +1564,7 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/19.png',
-                    'label'  : '',
+                    'label'  : 'Entität - Schlaues Kerlchen und glaube möchte mir helfen.',
                     'meaning': ''
                 },
                 {
@@ -1575,7 +1575,8 @@ var config = {
                 {
                     'image'  : './media/symbols/21.png',
                     'label'  : 'Black Triskeles',
-                    'meaning': '???'
+                    'meaning': 'Dreifaltigkeit - PBS - Physiker, Biologe, Spiritueller',
+                    'meaning_second_order': 'Das Universum, der Mensch, der gemeinsame Traum.',
                 },
                 {
                     'image'  : './media/symbols/22.png',
@@ -1604,8 +1605,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/28.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Krückenkreuz/Hammerkreuz',
+                    'meaning': 'Es ist irrelevant!'
                 },
                 {
                     'image'  : './media/symbols/30.png',

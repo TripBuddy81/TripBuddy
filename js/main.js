@@ -4033,6 +4033,9 @@ $( document ).ready( function () {
 
             function initVideodrome() {
                 if ( config['pornMap'] != undefined ) {
+                    $( '.videodromeLocalFolderActive' ).removeClass( 'videodromeLocalFolderActive' );
+                    $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
+                    $( '.videodromeFirstActiveTag' ).addClass( 'videodromeTagActive' );
                     loadActiveVideodromeTagsIntoList();
                     getAllExternalPornDirs( config['externalRootDirs']['pornRootDir'] );
                     var videosToShow = [];
