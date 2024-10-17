@@ -1522,8 +1522,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/09.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'Spirale',
+                    'meaning': 'Folge weiter dem rabbit hole. Gehe tiefer und tiefer.'
                 },
                 {
                     'image'  : './media/symbols/10.png',
@@ -1708,7 +1708,7 @@ var config = {
                 {
                     'image'  : './media/symbols/50.png',
                     'label'  : 'Mac-10',
-                    'meaning': ''
+                    'meaning': 'Frieden'
                 },
                 {
                     'image'  : './media/symbols/51.png',
