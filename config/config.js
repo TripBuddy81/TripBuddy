@@ -431,11 +431,6 @@ var config = {
                     'startSeconds': '7'
                 },
                 {
-                    'videoId'     : 'lkVt0HLPqQU',
-                    'tags'        : 'trippy-2D',
-                    'startSeconds': '7'
-                },
-                {
                     'videoId'     : 'ju7DeIpH9hA',
                     'tags'        : 'trippy-2D',
                     'startSeconds': '7'
@@ -451,22 +446,12 @@ var config = {
                     'startSeconds': '90'
                 },
                 {
-                    'videoId'     : '5FC_kS3AmyM',
-                    'tags'        : 'trippy-2D',
-                    'startSeconds': '1'
-                },
-                {
                     'videoId'     : 'FhV36CDR42U',
                     'tags'        : 'trippy-2D',
                     'startSeconds': '409'
                 },
                 {
                     'videoId'     : '1exehudMxeM',
-                    'tags'        : 'trippy-2D',
-                    'startSeconds': '1'
-                },
-                {
-                    'videoId'     : 'rzKsGIazEsc',
                     'tags'        : 'trippy-2D',
                     'startSeconds': '1'
                 },
