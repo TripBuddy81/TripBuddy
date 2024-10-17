@@ -1511,9 +1511,10 @@ var config = {
                 },
                 {
                     'image'               : './media/symbols/07.png',
-                    'label'               : 'Wellenartiger Raum - Aether',
-                    'meaning'             : 'Aus diesem entsteht der physische Raum!',
-                    'meaning_second_order': 'Dieser Raum ist irgendwie mit 13 (Philosopher\'s Stone) verbunden. (13 + 7 => 137)'
+                    'label'               : 'Wellenartiger Raum',
+                    'meaning'             : 'Aus diesem wellenartigen Raum entsteht der physische Raum!',
+                    'meaning_second_order': 'Das ist eine Entität mit der ich zusammen den Philosopher Stone suche.',
+                    'emotion'             : 'DAS STIMMT HIER ALLES NOCH NICHT! There is more to this as it seems! Message #8 nochmal anschauen'
                 },
                 {
                     'image'  : './media/symbols/08.png',
@@ -1573,10 +1574,10 @@ var config = {
                     'meaning': 'The upward-pointing triangle symbolizes the divinity of the creator, while the downward-pointing triangle represents mankind. True power is achieved when a man is connected with his creator.'
                 },
                 {
-                    'image'  : './media/symbols/21.png',
-                    'label'  : 'Black Triskeles',
-                    'meaning': 'Dreifaltigkeit - PBS - Physiker, Biologe, Spiritueller',
-                    'meaning_second_order': 'Das Universum, der Mensch, der gemeinsame Traum.',
+                    'image'               : './media/symbols/21.png',
+                    'label'               : 'Black Triskeles',
+                    'meaning'             : 'Dreifaltigkeit - PBS - Physiker, Biologe, Spiritueller',
+                    'meaning_second_order': 'Das Universum, der Mensch, der gemeinsame Traum.'
                 },
                 {
                     'image'  : './media/symbols/22.png',
@@ -1590,7 +1591,7 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/25.png',
-                    'label'  : '',
+                    'label'  : 'Krupp-Ringe',
                     'meaning': ''
                 },
                 {
@@ -1648,7 +1649,8 @@ var config = {
                 {
                     'image'  : './media/symbols/37.png',
                     'label'  : 'Negation / Nein',
-                    'meaning': 'Signal vom Universum oder Außerirdischen?'
+                    'meaning': 'Signal vom Universum oder Außerirdischen?',
+                    'emotion': 'invers'
                 },
                 {
                     'image'  : './media/symbols/38.png',
@@ -1692,12 +1694,12 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/47.png',
-                    'label'  : '',
+                    'label'  : 'Freundliches Gesicht - Smiley',
                     'meaning': ''
                 },
                 {
                     'image'  : './media/symbols/48.png',
-                    'label'  : '',
+                    'label'  : 'Pyramide',
                     'meaning': ''
                 },
                 {
@@ -1712,8 +1714,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/51.png',
-                    'label'  : 'geschlossene Version von 52.png (Spirit Entität)',
-                    'meaning': ''
+                    'label'  : 'Lehrmeister - Spirit/Entität',
+                    'meaning': 'Der Weg ist das Ziel. Ich muss selbst die Erkenntnisse machen. Ich kann nicht alles vorgekaut bekommen. Ich muss selbst alle Schlüsse ziehen!'
                 },
                 {
                     'image'               : './media/symbols/52.png',
