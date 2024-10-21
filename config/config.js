@@ -1518,8 +1518,8 @@ var config = {
                 },
                 {
                     'image'  : './media/symbols/11.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'label'  : 'auswärtsdrehende Spirale',
+                    'meaning': 'unwind'
                 },
                 {
                     'image'  : './media/symbols/12.png',
