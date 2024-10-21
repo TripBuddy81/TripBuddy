@@ -1469,264 +1469,154 @@ var config = {
             ],
             'meditationSymbols'      : [
                 {
-                    'image'  : './media/symbols/01.png',
-                    'label'  : 'Ansuz Rune',
-                    'emotion': 'Ehrlichkeit',
-                    'meaning': 'Ansuz verkörpert auch die Kommunikation mit den Göttern selbst. Die Rune soll dabei helfen die Botschaften besser zu verstehen die wir von den Göttern, der feinstofflichen Welt, Krafttieren oder von wem auch immer erhalten.'
+                    'image': './media/symbols/01.png'
                 },
                 {
-                    'image'  : './media/symbols/02.png',
-                    'label'  : 'Hand der Fatima',
-                    'meaning': 'Dschinn ist eine Sammelbezeichnung für mehr oder weniger gute oder böse Geister, die zwar nicht besiegt, aber durch Abwehrzauber gebannt werden können.'
+                    'image': './media/symbols/02.png'
                 },
                 {
-                    'image'  : './media/symbols/03.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/03.png'
                 },
                 {
-                    'image'  : './media/symbols/05.png',
-                    'label'  : 'You are captured - You are free! Lyrics von Melt Motif - Mine',
-                    'meaning': 'You can choose! You can choose!'
+                    'image': './media/symbols/05.png'
                 },
                 {
-                    'image'  : './media/symbols/06.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/06.png'
                 },
                 {
-                    'image'               : './media/symbols/07.png',
-                    'label'               : 'Wellenartiger Raum',
-                    'meaning'             : 'Aus diesem wellenartigen Raum entsteht der physische Raum!',
-                    'meaning_second_order': 'Das ist eine Entität mit der ich zusammen den Philosopher Stone suche.',
-                    'emotion'             : 'DAS STIMMT HIER ALLES NOCH NICHT! There is more to this as it seems! Message #8 nochmal anschauen'
+                    'image': './media/symbols/07.png'
                 },
                 {
-                    'image'  : './media/symbols/08.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/08.png'
                 },
                 {
-                    'image'  : './media/symbols/09.png',
-                    'label'  : 'Spirale',
-                    'meaning': 'Folge weiter dem rabbit hole. Gehe tiefer und tiefer.'
+                    'image': './media/symbols/09.png'
                 },
                 {
-                    'image'  : './media/symbols/10.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/10.png'
                 },
                 {
-                    'image'  : './media/symbols/11.png',
-                    'label'  : 'auswärtsdrehende Spirale',
-                    'meaning': 'unwind'
+                    'image': './media/symbols/11.png'
                 },
                 {
-                    'image'  : './media/symbols/12.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/12.png'
                 },
                 {
-                    'image'               : './media/symbols/13.png',
-                    'label'               : 'Philosopher\'s Stone',
-                    'meaning'             : 'Das ist mein Magnum Opus! Die Suche nach dem Philosopher\'s Stone!',
-                    'meaning_second_order': 'Aus dem Körper heraus, dringe ich in den Aether ein, verbinde ich mich mit dem Universum, erhalte ich Erleuchtung, mit der ich mein Magnum Opus baue, um den Philosopher\'s Stone zu finden!'
+                    'image': './media/symbols/13.png'
                 },
                 {
-                    'image'               : './media/symbols/15.png',
-                    'label'               : 'Pollux und Castor',
-                    'meaning'             : 'Pollux war der Sage nach unsterblich, da er der Sohn des Göttervaters Zeus war, Castor dagegen hatte einen menschlichen Vater und zählte daher zu den Sterblichen. Die beiden Brüder waren große Helden und trennten sich niemals voneinander.',
-                    'meaning_second_order': 'Das unsterbliche ist dein Bewusstsein. Das sterbliche deine körperliche Hülle. Beide werden bis in die Ewigkeit hinein zusammen bleiben.'
+                    'image': './media/symbols/15.png'
                 },
                 {
-                    'image'  : './media/symbols/16.png',
-                    'label'  : 'Malstrom',
-                    'meaning': 'Tiefer und tiefer'
+                    'image': './media/symbols/16.png'
                 },
                 {
-                    'image'  : './media/symbols/18.png',
-                    'label'  : 'Quantenschaum',
-                    'meaning': 'Aus jeder Blase steigen neue Blasen empor. Das Universum ist wirklich unendlich!'
+                    'image': './media/symbols/18.png'
                 },
                 {
-                    'image'  : './media/symbols/19.png',
-                    'label'  : 'Entität - Schlaues Kerlchen und glaube möchte mir helfen.',
-                    'meaning': ''
+                    'image': './media/symbols/19.png'
                 },
                 {
-                    'image'  : './media/symbols/20.png',
-                    'label'  : 'Star of David',
-                    'meaning': 'The upward-pointing triangle symbolizes the divinity of the creator, while the downward-pointing triangle represents mankind. True power is achieved when a man is connected with his creator.'
+                    'image': './media/symbols/20.png'
                 },
                 {
-                    'image'               : './media/symbols/21.png',
-                    'label'               : 'Black Triskeles',
-                    'meaning'             : 'Dreifaltigkeit - PBS - Physiker, Biologe, Spiritueller',
-                    'meaning_second_order': 'Das Universum, der Mensch, der gemeinsame Traum.'
+                    'image': './media/symbols/21.png'
                 },
                 {
-                    'image'  : './media/symbols/22.png',
-                    'label'  : 'Zwei Koi Fische',
-                    'meaning': 'Liebe, Hingabe und Unterstützung'
+                    'image': './media/symbols/22.png'
                 },
                 {
-                    'image'  : './media/symbols/23.png',
-                    'label'  : 'nicht die offizielle Bedeutung!',
-                    'meaning': 'Die Hand Gottes, die das gesamte Universum in seinen Händen hält.'
+                    'image': './media/symbols/23.png'
                 },
                 {
-                    'image'  : './media/symbols/25.png',
-                    'label'  : 'Krupp-Ringe',
-                    'meaning': ''
+                    'image': './media/symbols/25.png'
                 },
                 {
-                    'image'  : './media/symbols/26.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/26.png'
                 },
                 {
-                    'image'  : './media/symbols/27.png',
-                    'label'  : 'Hand der Fatima',
-                    'meaning': ''
+                    'image': './media/symbols/27.png'
                 },
                 {
-                    'image'  : './media/symbols/28.png',
-                    'label'  : 'Krückenkreuz/Hammerkreuz',
-                    'meaning': 'Es ist irrelevant!'
+                    'image': './media/symbols/28.png'
                 },
                 {
-                    'image'  : './media/symbols/30.png',
-                    'label'  : 'Einheit!',
-                    'meaning': 'Einheit mit allem!'
+                    'image': './media/symbols/30.png'
                 },
                 {
-                    'image'               : './media/symbols/31.png',
-                    'label'               : 'Der magische Kompass der Wikinger',
-                    'meaning'             : 'Ein Symbol, das verwendet wurde, um zu verhindern, dass man sich verirrt',
-                    'meaning_second_order': 'Du brauchst deine Freunde und Familie in deinem Leben!',
-                    'emotion'             : 'tribal,verbundenheit'
+                    'image': './media/symbols/31.png'
                 },
                 {
-                    'image'  : './media/symbols/32.png',
-                    'label'  : 'Spiel des Lebens - Gamepad',
-                    'meaning': 'Es ist doch alles nicht so schlimm! Sie das Leben als Spiel an! Es geht darum das Leben zu erleben, nicht den höchsten Highscore zu haben!'
+                    'image': './media/symbols/32.png'
                 },
                 {
-                    'image'  : './media/symbols/33.png',
-                    'label'  : 'Dualismus',
-                    'meaning': 'Um das eine sein zu können, muss es das andere geben!'
+                    'image': './media/symbols/33.png'
                 },
                 {
-                    'image'  : './media/symbols/34.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/34.png'
                 },
                 {
-                    'image'  : './media/symbols/35.png',
-                    'label'  : 'Geist / Lemur',
-                    'meaning': 'Entität - Geist?'
+                    'image': './media/symbols/35.png'
                 },
                 {
-                    'image'  : './media/symbols/36.png',
-                    'label'  : 'Omega/Gott',
-                    'meaning': 'Der Sprung des Glaubens!'
+                    'image': './media/symbols/36.png'
                 },
                 {
-                    'image'  : './media/symbols/37.png',
-                    'label'  : 'Negation / Nein',
-                    'meaning': 'Signal vom Universum oder Außerirdischen?',
-                    'emotion': 'invers'
+                    'image': './media/symbols/37.png'
                 },
                 {
-                    'image'  : './media/symbols/38.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/38.png'
                 },
                 {
-                    'image'  : './media/symbols/39.png',
-                    'label'  : 'Natur/Leben',
-                    'meaning': ''
+                    'image': './media/symbols/39.png'
                 },
                 {
-                    'image'  : './media/symbols/40.png',
-                    'label'  : 'Tetraeder/Pyramide',
-                    'meaning': 'Illustration von Naturgesetz - Onelab'
+                    'image': './media/symbols/40.png'
                 },
                 {
-                    'image'  : './media/symbols/41.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/41.png'
                 },
                 {
-                    'image'  : './media/symbols/42.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/42.png'
                 },
                 {
-                    'image'  : './media/symbols/43.png',
-                    'label'  : 'Natur',
-                    'meaning': 'Geh häufiger raus in die Natur! Lebe nicht nur in deinem Kopf!'
+                    'image': './media/symbols/43.png'
                 },
                 {
-                    'image'  : './media/symbols/45.png',
-                    'label'  : 'Dämonin',
-                    'meaning': 'Entität - weiblich - böse - nicht göttlich - Trickster'
+                    'image': './media/symbols/45.png'
                 },
                 {
-                    'image'  : './media/symbols/46.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/46.png'
                 },
                 {
-                    'image'  : './media/symbols/47.png',
-                    'label'  : 'Freundliches Gesicht - Smiley',
-                    'meaning': ''
+                    'image': './media/symbols/47.png'
                 },
                 {
-                    'image'  : './media/symbols/48.png',
-                    'label'  : 'Pyramide',
-                    'meaning': ''
+                    'image': './media/symbols/48.png'
                 },
                 {
-                    'image'  : './media/symbols/49.png',
-                    'label'  : 'Biased flip of coin',
-                    'meaning': 'Du kannst das Helle auf der dunklen Seite sein und damit das Übergewicht für das Licht sein! Du bist die weiße Stelle auf der schwarzen Seite.'
+                    'image': './media/symbols/49.png'
                 },
                 {
-                    'image'  : './media/symbols/50.png',
-                    'label'  : 'Mac-10',
-                    'meaning': 'Frieden'
+                    'image': './media/symbols/50.png'
                 },
                 {
-                    'image'  : './media/symbols/51.png',
-                    'label'  : 'Lehrmeister - Spirit/Entität',
-                    'meaning': 'Der Weg ist das Ziel. Ich muss selbst die Erkenntnisse machen. Ich kann nicht alles vorgekaut bekommen. Ich muss selbst alle Schlüsse ziehen!'
+                    'image': './media/symbols/51.png'
                 },
                 {
-                    'image'               : './media/symbols/52.png',
-                    'label'               : 'Entität/Spirit',
-                    'meaning'             : 'Nicht böse. Weiblich. Neugierig.',
-                    'meaning_second_order': 'Ein kleiner Wirbelwind, der böse Gedanken dir entreißt und mitnimmt.'
+                    'image': './media/symbols/52.png'
                 },
                 {
-                    'image'  : './media/symbols/53.png',
-                    'label'  : '',
-                    'meaning': ''
+                    'image': './media/symbols/53.png'
                 },
                 {
-                    'image'  : './media/symbols/54.png',
-                    'label'  : '137',
-                    'meaning': 'Es beschreibt die formale "Summe" der wichtigsten und zentralsten Stellschrauben unseres Universums. Ist das die Hausnummer unseres Universums?'
+                    'image': './media/symbols/54.png'
                 },
                 {
-                    'image'  : './media/symbols/55.png',
-                    'label'  : 'Mögliche Nachricht. Aber könnte auch wirklich ein Hirnfurz gewesen sein!',
-                    'meaning': ''
+                    'image': './media/symbols/55.png'
                 },
                 {
-                    'image'  : './media/symbols/56.png',
-                    'label'  : 'Space marine',
-                    'meaning': ''
+                    'image': './media/symbols/56.png'
                 }
             ],
             'searchEngines'          : [
