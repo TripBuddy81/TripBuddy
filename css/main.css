@@ -607,7 +607,7 @@ li, .options, .form-check-label {
 }
 
 #shroomsAndWeedLiftOff {
-    background: linear-gradient(to right, #7597f8, #7b81ff, #48ff56, #08aa32);
+    background: linear-gradient(to right, #7597f8, #7b81ff, #48ff56, #00d336);
     margin-right: 10px;
 }
 
@@ -615,6 +615,12 @@ li, .options, .form-check-label {
     background: linear-gradient(to right, #59ff84, #24d651, #00d336);
     position: absolute;
     right: 280px;
+}
+
+#wineOnlyLiftOff {
+    background: linear-gradient(to right, #e66767, #db0000);
+    position: absolute;
+    right: 412px;
 }
 
 .liftOff:hover {
@@ -2577,6 +2583,11 @@ video::-webkit-media-controls-fullscreen-button {
 .mindJourneySceneCol > div {
     margin-right: -10px;
     padding: 0;
+}
+
+.mindJourneyPlaylistCol {
+    overflow-y: clip;
+    height: 79vH;
 }
 
 .mindJourneyElement {

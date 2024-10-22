@@ -975,9 +975,11 @@ $( document ).ready( function () {
 
                 if ( $( this ).attr( 'id' ) == 'shroomsAndWeedLiftOff' ) {
                     $( '#WeedOnlyProgressGraph' ).remove();
-                } else {
+                } else if ( $( this ).attr( 'id' ) == 'weedOnlyLiftOff' ) {
                     $( '#timerMinutes' ).addClass( 'timerMinutesWeedOnly' );
                     $( '#shroomsPlusWeedProgressGraph' ).remove();
+                } else {
+                    $( '#progressGraphContainer' ).empty();
                 }
 
                 if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
@@ -4957,7 +4959,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+               /* toggleXXXVisible();*/
 
                 /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
