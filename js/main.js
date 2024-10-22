@@ -64,6 +64,8 @@ $( document ).ready( function () {
             window.xxxVisible = false;
             window.privateVisible = false;
             window.externalPornDirs = {};
+            window.externalPornFiles = [];
+            window.externalPornFilesTemp = [];
             window.slideshowJustStarted = false;
             window.lastActiveBackgroundGradientKeyFrame = 1;
             window.textShrinkFrameSeed = 1;
@@ -106,6 +108,8 @@ $( document ).ready( function () {
             window.videoJSHubUrls = [];
             window.videoJSSingleVideoUrls = [];
             window.activeVideoJSPlayer = 'videoJSPlayer1';
+            window.allowedVideoFileExtensions = ['mkv', 'mp4', 'mov', 'm4v'];
+            window.allowedImageFileExtensions = ['jpeg', 'jpg'];
             window.videoJSPlayer = '';
             window.activePageCrawls = 0;
             window.superShuffleModeActive = false;
@@ -3564,16 +3568,26 @@ $( document ).ready( function () {
                 if ( config['pornMap'] != undefined && config['pornMap'].length > 0 ) {
                     target = $( this ).attr( 'target' );
 
-                    randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
-                    while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
-                        randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
-                        if ( alreadySelectedVideosVideodrome.length >= selectableVideodromeFilesFromTagAndFolders.length - 1 ) {
-                            alreadySelectedVideosVideodrome = [];
+                    if ( superShuffleModeActive ) {
+                        if ( externalPornFilesTemp.length <= 0 ) {
+                            externalPornFilesTemp = externalPornFiles;
                         }
-                    }
-                    alreadySelectedVideosVideodrome.push( randomNumber );
+                        randomNumber = Math.floor( Math.random() * (parseInt( externalPornFilesTemp.length )) );
+                        $( '.' + target ).find( '.videoSource' ).attr( 'src', externalPornFilesTemp[randomNumber] + '#t=60' );
+                        externalPornFilesTemp.splice( randomNumber, 1 );
+                    } else {
+                        randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
+                        while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
+                            randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
+                            if ( alreadySelectedVideosVideodrome.length >= selectableVideodromeFilesFromTagAndFolders.length - 1 ) {
+                                alreadySelectedVideosVideodrome = [];
+                            }
+                        }
+                        alreadySelectedVideosVideodrome.push( randomNumber );
 
-                    $( '.' + target ).find( '.videoSource' ).attr( 'src', selectableVideodromeFilesFromTagAndFolders[randomNumber] );
+                        $( '.' + target ).find( '.videoSource' ).attr( 'src', selectableVideodromeFilesFromTagAndFolders[randomNumber] );
+                    }
+
                     $( '.' + target ).find( '.localVideo' )[0].load();
                     $( '.' + target ).find( '.localVideo' )[0].play();
                 }
@@ -3654,7 +3668,7 @@ $( document ).ready( function () {
             } );
 
             $( '#toggleSuperShuffleMode' ).click( function () {
-                toggleSuperShuffleMode()
+                toggleSuperShuffleMode();
             } );
 
             function toggleSuperShuffleMode() {
@@ -3910,6 +3924,8 @@ $( document ).ready( function () {
                                 if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                                     externalPornDirs[url + tempFilename] = decodeURIComponent( tempFilename.replace( '/', '' ) );
                                     getAllExternalPornDirs( url + tempFilename );
+                                } else if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), allowedVideoFileExtensions ) > -1 ) {
+                                    externalPornFiles.push( url + tempFilename );
                                 }
                             }
                         } );
@@ -3952,8 +3968,7 @@ $( document ).ready( function () {
                             tempFilename = $( this ).attr( 'href' );
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                             } else if ( tempFilename != '/' ) {
-                                var fileExtensions = ['mkv', 'mp4', 'mov', 'm4v'];
-                                if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), fileExtensions ) > -1 ) {
+                                if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), allowedVideoFileExtensions ) > -1 ) {
                                     externalFiles.push( url + tempFilename );
                                 }
                             }
@@ -4631,8 +4646,7 @@ $( document ).ready( function () {
                             tempFilename = $( this ).attr( 'href' );
                             if ( tempFilename.indexOf( '/' ) >= 0 && tempFilename != '/' ) {
                             } else if ( tempFilename != '/' ) {
-                                var fileExtensions = ['jpeg', 'jpg'];
-                                if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), fileExtensions ) > -1 ) {
+                                if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), allowedImageFileExtensions ) > -1 ) {
                                     privatePictureDirContainer['images'].push( privatePictureDirContainer['dirPath'] + tempFilename );
                                 }
                             }
