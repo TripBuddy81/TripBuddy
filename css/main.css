@@ -1976,7 +1976,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videodromeRefreshContainer {
     position: fixed;
-    width: 10vW;
+    width: 16vW;
     height: 15vH;
     top: 43vH;
     left: 45vW;
@@ -1995,9 +1995,16 @@ video::-webkit-media-controls-fullscreen-button {
     position: absolute;
 }
 
+#toggleSuperShuffleMode {
+    top: 41px;
+    left: 180px;
+    height: 65px;
+    position: absolute;
+}
+
 #refreshVideoDromeVideo1 {
     top: 10px;
-    right: 15px;
+    left: 105px;
 }
 
 #refreshVideoDromeVideo2, #videodromeStreamRefreshVideo {
@@ -2011,7 +2018,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #refreshVideoDromeVideo3 {
     bottom: 10px;
-    right: 15px;
+    left: 105px;
 }
 
 #refreshVideoDromeVideo4 {

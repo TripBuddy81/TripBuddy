@@ -108,6 +108,7 @@ $( document ).ready( function () {
             window.activeVideoJSPlayer = 'videoJSPlayer1';
             window.videoJSPlayer = '';
             window.activePageCrawls = 0;
+            window.superShuffleModeActive = false;
             window.videoJSLoadAfterFind = true;
             window.lastUsedVideoStreamSearchUrl = createSearchUrl();
             window.rightMouseButtonClickCounter = 0;
@@ -1428,7 +1429,7 @@ $( document ).ready( function () {
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
                     initVideodrome();
                 } else {
-                    $('#deselectAllVideodromeTags').trigger('click');
+                    $( '#deselectAllVideodromeTags' ).trigger( 'click' );
                     $( '.XXX' ).hide();
                     $( '#showPornZapper' ).hide();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
@@ -3652,6 +3653,19 @@ $( document ).ready( function () {
                 videodromeStreamRefreshVideo();
             } );
 
+            $( '#toggleSuperShuffleMode' ).click( function () {
+                toggleSuperShuffleMode()
+            } );
+
+            function toggleSuperShuffleMode() {
+                superShuffleModeActive = !superShuffleModeActive;
+                if ( superShuffleModeActive ) {
+                    $( '#toggleSuperShuffleMode' ).attr( 'src', './assets/shuffle_active.png' );
+                } else {
+                    $( '#toggleSuperShuffleMode' ).attr( 'src', './assets/shuffle_inactive.png' );
+                }
+            }
+
             $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
 
@@ -4920,7 +4934,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                /*toggleXXXVisible();*/
+                toggleXXXVisible();
 
                 /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
