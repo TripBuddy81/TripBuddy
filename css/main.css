@@ -1976,7 +1976,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videodromeRefreshContainer {
     position: fixed;
-    width: 16vW;
+    width: 10vW;
     height: 15vH;
     top: 43vH;
     left: 45vW;
