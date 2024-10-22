@@ -365,11 +365,11 @@ $( document ).ready( function () {
 
                 // Stop current action or show playlist selection if nothing else is going on right now
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
-                if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) || $( '#videodromeBottomToolbar' ).is( ':visible' ) ) {
+                if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) || $( '#videodromeLeftToolbar' ).is( ':visible' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
-                    $( '#videodromeBottomToolbar' ).hide();
+                    $( '#videodromeLeftToolbar' ).hide();
                 } else if ( $( '.modal' ).is( ':visible' ) ) {
                     $( '.modal' ).modal( 'hide' );
                 } else if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
@@ -669,7 +669,7 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videodromeFullscreenMenuContainer' ).hide();
                 $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
-                $( '#videodromeBottomToolbar' ).hide();
+                $( '#videodromeLeftToolbar' ).hide();
                 $( '.videodromeRefreshContainer' ).show();
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
                 $( '.vjs-control-bar' ).css( 'display', 'none' );
@@ -3711,8 +3711,8 @@ $( document ).ready( function () {
                 videodromeStreamRefreshVideo();
             } );
 
-            $( document ).on( 'mouseenter', '#videodromeBottomToolbarTrigger,#videodromeLeftToolbarTrigger', function ( event ) {
-                $( '#videodromeBottomToolbar' ).toggle();
+            $( document ).on( 'mouseenter', '#videodromeLeftToolbarTrigger,#videodromeLeftToolbarTrigger', function ( event ) {
+                $( '#videodromeLeftToolbar' ).toggle();
             } );
 
             $( document ).on( 'wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeStreamRefreshVideo', function ( event ) {
@@ -3872,7 +3872,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.externalPornDir', function ( event ) {
-                superShuffleModeActive = false;
                 if ( $( this ).hasClass( 'videodromeLocalFolderActive' ) ) {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );
@@ -3880,10 +3879,10 @@ $( document ).ready( function () {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).addClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'add' );
                 }
+                checkVideodromeTagActive();
             } );
 
             $( document ).on( 'click', '#deselectAllVideodromeTags', function ( event ) {
-                superShuffleModeActive = true;
                 $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
@@ -3891,13 +3890,14 @@ $( document ).ready( function () {
                 } );
                 loadActiveVideodromeTagsIntoList();
                 displayAllActiveLocalFilenames();
+                checkVideodromeTagActive();
             } );
 
             $( '.videodromeTagSelect' ).click( function ( e ) {
-                superShuffleModeActive = false;
                 $( '[data-pornmaptag|=\'' + $( this ).attr( 'data-pornmaptag' ) + '\']' ).toggleClass( 'videodromeTagActive' );
                 loadActiveVideodromeTagsIntoList();
                 displayAllActiveLocalFilenames();
+                checkVideodromeTagActive();
             } );
 
             $( '.showPrivateContent' ).click( function ( e ) {
@@ -4090,7 +4090,6 @@ $( document ).ready( function () {
                     displayAllActiveLocalFilenames();
                 } else {
                     $( '.toggleLocalStreamIcon' ).hide();
-                    $( '#videodromeBottomToolbarTrigger' ).remove();
                     $( '#videodromeLeftToolbarTrigger' ).remove();
                 }
 
@@ -4476,6 +4475,16 @@ $( document ).ready( function () {
                     playVideoJSStream( activeVideoJSPlayer );
                 }
                 updateVideodromeFullscreenInfo();
+            }
+
+            function checkVideodromeTagActive() {
+                if ( $( '.videodromeLocalFolderActive' ).length == 0 && $( '.videodromeTagActive' ).length == 0 ) {
+                    superShuffleModeActive = true;
+                    $( '#deselectAllVideodromeTags' ).attr( 'style', 'opacity:0.1' );
+                } else {
+                    superShuffleModeActive = false;
+                    $( '#deselectAllVideodromeTags' ).attr( 'style', 'opacity:1' );
+                }
             }
 
             // END Videodrome section
