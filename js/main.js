@@ -112,7 +112,7 @@ $( document ).ready( function () {
             window.allowedImageFileExtensions = ['jpeg', 'jpg'];
             window.videoJSPlayer = '';
             window.activePageCrawls = 0;
-            window.superShuffleModeActive = false;
+            window.superShuffleModeActive = true;
             window.videoJSLoadAfterFind = true;
             window.lastUsedVideoStreamSearchUrl = createSearchUrl();
             window.rightMouseButtonClickCounter = 0;
@@ -3671,15 +3671,6 @@ $( document ).ready( function () {
                 toggleSuperShuffleMode();
             } );
 
-            function toggleSuperShuffleMode() {
-                superShuffleModeActive = !superShuffleModeActive;
-                if ( superShuffleModeActive ) {
-                    $( '#toggleSuperShuffleMode' ).attr( 'src', './assets/shuffle_active.png' );
-                } else {
-                    $( '#toggleSuperShuffleMode' ).attr( 'src', './assets/shuffle_inactive.png' );
-                }
-            }
-
             $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
 
@@ -3875,6 +3866,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.externalPornDir', function ( event ) {
+                deactivateSuperShuffleMode();
                 if ( $( this ).hasClass( 'videodromeLocalFolderActive' ) ) {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );
@@ -3885,6 +3877,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#deselectAllVideodromeTags', function ( event ) {
+                activateSuperShuffleMode();
                 $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
@@ -3895,6 +3888,7 @@ $( document ).ready( function () {
             } );
 
             $( '.videodromeTagSelect' ).click( function ( e ) {
+                deactivateSuperShuffleMode();
                 $( '[data-pornmaptag|=\'' + $( this ).attr( 'data-pornmaptag' ) + '\']' ).toggleClass( 'videodromeTagActive' );
                 loadActiveVideodromeTagsIntoList();
                 displayAllActiveLocalFilenames();
@@ -4476,6 +4470,25 @@ $( document ).ready( function () {
                     playVideoJSStream( activeVideoJSPlayer );
                 }
                 updateVideodromeFullscreenInfo();
+            }
+
+            function toggleSuperShuffleMode() {
+                superShuffleModeActive = !superShuffleModeActive;
+                if ( superShuffleModeActive ) {
+                    $( '#toggleSuperShuffleMode' ).attr( 'src', './assets/shuffle_active.png' );
+                } else {
+                    $( '#toggleSuperShuffleMode' ).attr( 'src', './assets/shuffle_inactive.png' );
+                }
+            }
+
+            function deactivateSuperShuffleMode() {
+                superShuffleModeActive = false;
+                $( '#toggleSuperShuffleMode' ).attr( 'src', './assets/shuffle_inactive.png' );
+            }
+
+            function activateSuperShuffleMode() {
+                superShuffleModeActive = true;
+                $( '#toggleSuperShuffleMode' ).attr( 'src', './assets/shuffle_active.png' );
             }
 
             // END Videodrome section
