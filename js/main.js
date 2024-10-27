@@ -3394,7 +3394,7 @@ $( document ).ready( function () {
 
                 if ( videodromeTaggingSaveInterval == '' || videodromeTaggingSaveInterval == undefined ) {
                     $( '.videodromeFullscreen' ).each( function () {
-                        videodromeTaggingVideo = $( this ).find( '.videoSource' ).attr( 'src' ).replace( /#t=.*/, '#t=' + Math.floor( $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime ) );
+                        videodromeTaggingVideo = $( this ).find( '.videoSource' ).attr( 'src' ).replace( '\'', '\\\'' ).replace( /#t=.*/, '#t=' + Math.floor( $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime ) );
                     } );
                     videodromeTaggingAppliedTags = $( this ).html();
                 } else {
@@ -4959,7 +4959,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-               /* toggleXXXVisible();*/
+                /* toggleXXXVisible();*/
 
                 /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
