@@ -548,6 +548,24 @@ var config = {
                     'startSeconds': '30'
                 },
                 {
+                    'videoId'     : 'zofBinqC2F4',
+                    'tags'        : 'meditative nature',
+                    'mute'        : 'mixed',
+                    'startSeconds': '30'
+                },
+                {
+                    'videoId'     : '1t7g690boao',
+                    'tags'        : 'meditative nature',
+                    'mute'        : 'mixed',
+                    'startSeconds': '30'
+                },
+                {
+                    'videoId'     : 'z8GtS4JDEfI',
+                    'tags'        : 'meditative nature',
+                    'mute'        : 'mixed',
+                    'startSeconds': '35'
+                },
+                {
                     'videoId': '1PiXGku9QpI',
                     'tags'   : 'trippy-2D'
                 },
