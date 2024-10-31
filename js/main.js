@@ -4011,10 +4011,14 @@ $( document ).ready( function () {
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( selectableVideodromeFilesFromTagAndFolders, function ( val ) {
                     let localFilename = document.createElement( 'div' );
-                    localFilename.innerHTML = decodeURI( selectableVideodromeFilesFromTagAndFolders[val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.m4v.*/, '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
-                    localFilename.setAttribute( 'src', selectableVideodromeFilesFromTagAndFolders[val] );
-                    localFilename.classList.add( 'localFilename' );
-                    document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localFilename );
+                    try {
+                        localFilename.innerHTML = decodeURI( selectableVideodromeFilesFromTagAndFolders[val].replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.m4v.*/, '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ).replace( /\.\/media\/xxx\//, '' ).replace( /\.\//, '' ).replace( /.*\//, '' ) );
+                        localFilename.setAttribute( 'src', selectableVideodromeFilesFromTagAndFolders[val] );
+                        localFilename.classList.add( 'localFilename' );
+                        document.getElementById( 'videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).appendChild( localFilename );
+                    } catch ( e ) {
+                        throw 'FILENAME PARSING ERROR: ' + selectableVideodromeFilesFromTagAndFolders[val];
+                    }
                 } );
                 alreadySelectedVideosVideodrome = [];
             }
