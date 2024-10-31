@@ -2516,6 +2516,12 @@ $( document ).ready( function () {
                 $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
                 $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
                 stopAllActions( false );
+
+                // Reset id if JS error has been detected and displayed
+                if ( $( this ).attr( 'id' ) == 'errorDetectedMessage' ) {
+                    $( this ).attr( 'id', 'spotifyPlaylists' );
+                    $( this ).html( 'Select Playlist' );
+                }
             } );
 
             $( '.spotifyPlaylistItem,.currentTrackAction' ).click( function () {
