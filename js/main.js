@@ -152,12 +152,14 @@ $( document ).ready( function () {
             const urlParams = new URLSearchParams( window.location.search );
 
             // Merge optionalConfig with global config
-            Object.assign( config, optionalConfig );
-            if ( optionalConfig['imagesXXX'] != undefined ) {
-                config['images'] = config['images'].concat( optionalConfig['imagesXXX'] );
-            }
-            if ( optionalConfig['absoluteTruthsXXX'] != undefined ) {
-                config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
+            if ( typeof optionalConfig !== 'undefined' ) {
+                Object.assign( config, optionalConfig );
+                if ( optionalConfig['imagesXXX'] != undefined ) {
+                    config['images'] = config['images'].concat( optionalConfig['imagesXXX'] );
+                }
+                if ( optionalConfig['absoluteTruthsXXX'] != undefined ) {
+                    config['absoluteTruths'] = config['absoluteTruths'].concat( optionalConfig['absoluteTruthsXXX'] );
+                }
             }
 
             // Handlebar renderer and helper functions - takes combined config within config/config.js
