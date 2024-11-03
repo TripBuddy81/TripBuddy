@@ -2622,7 +2622,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #incantationProcessDisplay {
     padding-top: 35px;
-    padding-bottom: 25px;
+    padding-bottom: 0px;
     font-size: 50px;
     font-weight: bold;
     min-height: 50px;

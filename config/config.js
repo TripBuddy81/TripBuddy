@@ -1669,7 +1669,16 @@ var config = {
                 },
                 {
                     'image': './media/symbols/56.png'
-                }
+                },
+                {
+                    'image'  : './media/symbols/57.png',
+                },
+                {
+                    'image'  : './media/symbols/58.png',
+                },
+                {
+                    'image'  : './media/symbols/59.png',
+                },
             ],
             'searchEngines'          : [
                 {
