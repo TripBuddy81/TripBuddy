@@ -216,10 +216,15 @@ function handleNextApiResponse() {
 }
 
 function shuffle( shuffle = true, async = true ) {
+    deviceId = $( '#devices' ).find( ':selected' ).val();
+    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' || $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'überall' ) ) {
+        deviceId = $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val();
+    }
+
     if ( shuffle ) {
-        callApi( 'PUT', SHUFFLE + '?state=true', null, handleApiResponse, async );
+        callApi( 'PUT', SHUFFLE + '?state=true&device_id=' + deviceId, null, handleApiResponse, async );
     } else {
-        callApi( 'PUT', SHUFFLE + '?state=false', null, handleApiResponse, async );
+        callApi( 'PUT', SHUFFLE + '?state=false&device_id=' + deviceId, null, handleApiResponse, async );
     }
 }
 
