@@ -229,7 +229,12 @@ function shuffle( shuffle = true, async = true ) {
 }
 
 function repeat( state = 'context' ) {
-    callApi( 'PUT', REPEAT + '?state=' + state, null, handleApiResponse );
+    deviceId = $( '#devices' ).find( ':selected' ).val();
+    if ( $( '#devices' ).find( ':selected' ).val() == 'undefined' || $( '#devices' ).find( ':selected' ).text().toLowerCase().includes( 'überall' ) ) {
+        deviceId = $( '#devices option:contains("' + config['spotifyMainPlayerName'] + '")' ).val();
+    }
+
+    callApi( 'PUT', REPEAT + '?state=' + state + '&device_id=' + deviceId, null, handleApiResponse );
 }
 
 function spotifyPause() {
