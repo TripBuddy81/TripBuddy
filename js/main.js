@@ -374,8 +374,9 @@ $( document ).ready( function () {
                     $( '#videodromeLeftToolbar' ).hide();
                 } else if ( $( '.modal' ).is( ':visible' ) ) {
                     $( '.modal' ).modal( 'hide' );
-                } else if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
+                } else if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && ($( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ))) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
+                    $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                     $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                     $( '#shrineSettingsContainer' ).removeClass( 'visible' );
                 } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
@@ -2133,7 +2134,7 @@ $( document ).ready( function () {
                             $( '#shrineSettingsContainer' ).addClass( 'visible' );
                         }
                     }, function () {
-                        if ( $( '#shrine' ).is( ':visible' ) && !$( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
+                        if ( $( '#shrine' ).is( ':visible' ) && !$( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) && !$( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ) {
                             $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                         }
                         $( '#shrineSettingsContainer' ).removeClass( 'visible' );
@@ -4985,7 +4986,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                 toggleXXXVisible();
+                /* toggleXXXVisible();*/
 
                 /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
