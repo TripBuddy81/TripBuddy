@@ -1615,7 +1615,7 @@ video::-webkit-media-controls-fullscreen-button {
     transform: translateX(-50%);
 }
 
-#meditationSymbolInfoContainer {
+.meditationSymbolInfoContainer {
     display: none;
     position: absolute;
     bottom: 0;
@@ -1623,14 +1623,14 @@ video::-webkit-media-controls-fullscreen-button {
     min-height: 100px;
     opacity: 0;
     padding: 20px;
-    z-index: 10;
+    z-index: 50;
     font-size: 25px;
     font-weight: bold;
     background: #0000004a;
     color: white;
 }
 
-#meditationSymbolInfoContainer:hover {
+.meditationSymbolInfoContainer:hover {
     opacity: 1;
 }
 

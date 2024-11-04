@@ -682,6 +682,7 @@ $( document ).ready( function () {
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1.0' );
                 $( '#OuijaYesNo' ).hide();
                 $( '#meditationSymbol' ).hide();
+                $( '.meditationSymbolInfoContainer' ).hide();
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
@@ -2154,7 +2155,7 @@ $( document ).ready( function () {
                 enableFullscreen();
             } );
 
-            $( '#particles-js,#shrineSettingsContainer,#meditationSymbolInfoContainer' ).on( 'wheel', function ( event ) {
+            $( '#particles-js,#shrineSettingsContainer,.meditationSymbolInfoContainer' ).on( 'wheel', function ( event ) {
                 stopScreensaver();
                 enableFullscreen();
                 clearInterval( absoluteTruthsTimer );
@@ -2268,13 +2269,13 @@ $( document ).ready( function () {
             function showMeditationSymbol() {
                 setNextMeditationSymbol();
                 $( '#meditationSymbol' ).show();
-                $( '#meditationSymbolInfoContainer' ).show();
+                $( '.meditationSymbolInfoContainer' ).show();
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0' );
             }
 
             function hideMeditationSymbol() {
                 $( '#meditationSymbol' ).hide();
-                $( '#meditationSymbolInfoContainer' ).hide();
+                $( '.meditationSymbolInfoContainer' ).hide();
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
             }
 
@@ -2363,6 +2364,7 @@ $( document ).ready( function () {
                 $( '#particles-js' ).css( 'animation', 'strobo2 0ms steps(1,end) infinite' );
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 $( '#videodrome' ).css( 'opacity', '1' );
+                $( '.meditationSymbolInfoContainer' ).hide();
             }
 
             function triggerStrobo() {
@@ -2621,8 +2623,8 @@ $( document ).ready( function () {
             // Uses integrated Spotify player if succesfully logged in
             if ( localStorage.getItem( 'access_token' ) != null ) {
                 refreshAccessToken();
-                shuffle();
-                repeat();
+/*                shuffle();
+                repeat();*/
                 setInterval( refreshAccessToken, 60000 );
                 setInterval( refreshDevices, 3000 );
                 setInterval( currentlyPlaying, 1000 );
@@ -3372,6 +3374,12 @@ $( document ).ready( function () {
                 if ( !shrineDiscoActive ) {
                     toggleTransparentStrobo();
                 }
+
+                if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
+                    $( '.meditationSymbolInfoContainer' ).show();
+                } else {
+                    $( '.meditationSymbolInfoContainer' ).hide();
+                }
             } );
 
             $( '#toggleTransperentStroboOracleSymbol' ).on( 'wheel', function ( event ) {
@@ -3381,6 +3389,12 @@ $( document ).ready( function () {
                     toggleTransparentStrobo();
                 }
                 setNextMeditationSymbol();
+
+                if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
+                    $( '.meditationSymbolInfoContainer' ).show();
+                } else {
+                    $( '.meditationSymbolInfoContainer' ).hide();
+                }
             } );
 
             $( '.toggleQuickSelectGlobalMenuIcon' ).click( function () {
@@ -4971,7 +4985,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                /* toggleXXXVisible();*/
+                 toggleXXXVisible();
 
                 /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
