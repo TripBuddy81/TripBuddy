@@ -1175,6 +1175,12 @@ var config = {
                     'label'  : 'The great free will debate'
                 },
                 {
+                    'videoId': 'suuA3QGUPis',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Is the universe alive?'
+                },
+                {
                     'videoId': 'Ikyx6t1VQEU',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -1269,8 +1275,37 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'shaman',
                     'label'  : 'Exploring the Astral plane'
-                }
-
+                },
+                {
+                    'videoId': 'K_1DSvZVi_s',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Is the Omega Point Coming?'
+                },
+                {
+                    'videoId': 'avLf90XDh0A',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'More Is Happening Than You Realize'
+                },
+                {
+                    'videoId': 'hl7ZXG4v-_c',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'The Next Phase of Human Existence'
+                },
+                {
+                    'videoId': 'OCmDyoerZ7o',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Beyond the Veil'
+                },
+                {
+                    'videoId': 'WEL1MuOgDWs',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'You walk the path one step at a time'
+                },
             ],
             'selectableImageTags'    : [
                 {'selectableTag': 'trippy'},
