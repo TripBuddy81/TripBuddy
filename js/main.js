@@ -243,9 +243,10 @@ $( document ).ready( function () {
                 }
             } );
 
+            // Show or hide some sections depending on local settings
+            $( '#quickSelectGlobalMenuPlaylistSectionIcon' ).show();
+            $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).show();
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
-                $( '#quickSelectGlobalMenuPlaylistSectionIcon' ).show();
-                $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).show();
                 $( '#quickSelectGlobalMenuIncantationSectionIcon' ).show();
             }
 

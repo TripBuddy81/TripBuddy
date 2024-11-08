@@ -1305,7 +1305,7 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'shaman',
                     'label'  : 'You walk the path one step at a time'
-                },
+                }
             ],
             'selectableImageTags'    : [
                 {'selectableTag': 'trippy'},
@@ -1554,7 +1554,222 @@ var config = {
                     'tags' : 'space'
                 }
             ],
-            'meditationSymbols'      : [
+            'mindJourney'            :
+                    {
+                        'charList' :
+                                [
+                                    {
+                                        'label'      : 'Einheit',
+                                        'image'      : 'metatron.png',
+                                        'triggerWord': 'Wholeness!'
+                                    },
+                                    {
+                                        'label'      : 'Schamane',
+                                        'image'      : 'shaman.png',
+                                        'triggerWord': 'The universe speaks to you!'
+                                    },
+                                    {
+                                        'label'      : 'Philosoph',
+                                        'image'      : 'phi.png',
+                                        'triggerWord': 'Discover and heal!'
+                                    },
+                                    {
+                                        'label'      : 'Reisender',
+                                        'image'      : 'wind.png',
+                                        'triggerWord': 'Enjoy your life!'
+                                    },
+                                    {
+                                        'label'      : 'Tier',
+                                        'image'      : 'wolf.png',
+                                        'triggerWord': 'Go play!!!'
+                                    },
+                                    {
+                                        'label'      : 'Kind',
+                                        'image'      : 'toy.png',
+                                        'triggerWord': 'Remember where you came from!'
+                                    },
+                                    {
+                                        'label'      : 'Kapitän',
+                                        'image'      : 'helm.png',
+                                        'triggerWord': 'Take the wheel!'
+                                    }
+                                ],
+                        'scenes'   :
+                                [
+                                    {
+                                        'label': 'Binaural Waves',
+                                        'tag'  : 'Philosoph,Schamane,Einheit'
+                                    },
+                                    {
+                                        'label': 'Gateway Project',
+                                        'tag'  : 'Schamane'
+                                    },
+                                    {
+                                        'label': 'In Dunkelheit meditieren',
+                                        'tag'  : 'Philosoph,Schamane,Kapitän,Kind'
+                                    },
+                                    {
+                                        'label': 'Mit Lisa reden',
+                                        'tag'  : 'Philosoph,Schamane'
+                                    },
+                                    {
+                                        'label': 'Orakel befragen',
+                                        'tag'  : 'Philosoph,Schamane'
+                                    },
+                                    {
+                                        'label': '4D-Hopf-Space anschauen',
+                                        'tag'  : 'Philosoph,Schamane'
+                                    },
+                                    {
+                                        'label': 'Strobo-Party',
+                                        'tag'  : 'Tier,Reisender'
+                                    },
+                                    {
+                                        'label': 'Porno schauen',
+                                        'tag'  : 'Tier,Reisender'
+                                    },
+                                    {
+                                        'label': 'Tanzen',
+                                        'tag'  : 'Tier,Reisender'
+                                    },
+                                    {
+                                        'label': 'In den Spiegel schauen',
+                                        'tag'  : 'Kind,Reisender,Philosoph'
+                                    },
+                                    {
+                                        'label': 'Perspektivwechsel',
+                                        'tag'  : 'Tier,Philosoph'
+                                    },
+                                    {
+                                        'label': 'In deinen Körper hinein atmen',
+                                        'tag'  : 'Kapitän,Philosoph'
+                                    },
+                                    {
+                                        'label': 'Sufi-Breathing',
+                                        'tag'  : 'Kapitän,Philosoph,Schamane'
+                                    },
+                                    {
+                                        'label': 'Von der Musik massieren lassen',
+                                        'tag'  : 'Reisender,Tier,Philosoph'
+                                    },
+                                    {
+                                        'label': 'Meditatives Video & Soundscape',
+                                        'tag'  : 'Kapitän,Philosoph'
+                                    },
+                                    {
+                                        'label': 'Trippy Video & Bilder',
+                                        'tag'  : 'Reisender'
+                                    },
+                                    {
+                                        'label': 'Sushi-Party',
+                                        'tag'  : 'Kapitän,Kind'
+                                    },
+                                    {
+                                        'label': 'Film & Serie (mit Gläschen Wein)',
+                                        'tag'  : 'Reisender,Kapitän'
+                                    },
+                                    {
+                                        'label': 'Fluids malen',
+                                        'tag'  : 'Reisender,Kapitän,Einheit'
+                                    }
+                                ],
+                        'playlists':
+                                [
+                                    {
+                                        'label': 'Einheit',
+                                        'tag'  : 'Einheit,Tier,Schamane,Philosoph',
+                                        'id'   : 'spotify:playlist:7GX1TQ05XN0gdwQDP2nFyY'
+                                    },
+                                    {
+                                        'label': 'Schamane - Astral plane',
+                                        'tag'  : 'Schamane,Philosoph',
+                                        'id'   : 'spotify:playlist:2blH7w7YSlcrse4nF1G5pI'
+                                    },
+                                    {
+                                        'label': 'Schamane - Nature',
+                                        'tag'  : 'Schamane,Einheit',
+                                        'id'   : 'spotify:playlist:0eYj5jyyNSKKtXFTOyFsK6'
+                                    },
+                                    {
+                                        'label': 'Schamane - Tribe',
+                                        'tag'  : 'Schamane,Tier',
+                                        'id'   : 'spotify:playlist:0yz54YQR2V52YkFfCCfZGX'
+                                    },
+                                    {
+                                        'label': 'Schamane - Anima & Animus',
+                                        'tag'  : 'Schamane,Philosoph,Tier',
+                                        'id'   : 'spotify:playlist:22zLM80oOL5cDfdnvgnAcv'
+                                    },
+                                    {
+                                        'label': 'Meditation',
+                                        'tag'  : 'Philosoph,Kapitän,Kind',
+                                        'id'   : 'spotify:playlist:08dReIUXjXFtHaMsULjYMc'
+                                    },
+                                    {
+                                        'label': 'Level IV',
+                                        'tag'  : 'Philosoph,Reisender,Tier,Kind,Kapitän',
+                                        'id'   : 'spotify:playlist:0ySoMLvwy6MBsc4uTmJ7DM'
+                                    },
+                                    {
+                                        'label': 'Vibe & Dance',
+                                        'tag'  : 'Philosoph,Tier,Reisender',
+                                        'id'   : 'spotify:playlist:0o4bOWzj5JRiuStG4KlIeo'
+                                    },
+                                    {
+                                        'label': 'Clubbing',
+                                        'tag'  : 'Kapitän,Reisender,Tier',
+                                        'id'   : '296HPIXtWgirFdhia3dFL9'
+                                    },
+                                    {
+                                        'label': 'Reisender',
+                                        'tag'  : 'Schamane,Reisender',
+                                        'id'   : 'spotify:playlist:6npX1CjOfMfHF87CwozeyB'
+                                    },
+                                    {
+                                        'label': 'Tier',
+                                        'tag'  : 'Tier,Reisender,Philosoph,Einheit',
+                                        'id'   : 'spotify:playlist:4GyvDqKADXiWIkxsyw4jAU'
+                                    },
+                                    {
+                                        'label': 'Psychedelic Rock',
+                                        'tag'  : 'Philosoph,Reisender,Kind,Kapitän',
+                                        'id'   : 'spotify:playlist:1J2Q32HV4PbVhlhNTensBV'
+                                    },
+                                    {
+                                        'label': 'Kind - Emotionen',
+                                        'tag'  : 'Kind',
+                                        'id'   : 'spotify:playlist:4Vjr9krYkS9PgQljhJKrms'
+                                    },
+                                    {
+                                        'label': 'Kind - Memories',
+                                        'tag'  : 'Kind',
+                                        'id'   : 'spotify:playlist:4nPOXnjPcLuiLsGy2uqpNH'
+                                    },
+                                    {
+                                        'label': 'Kapitän',
+                                        'tag'  : 'Kapitän,Reisender',
+                                        'id'   : 'spotify:playlist:1DCVRM7fGjaoJN0FVsIoZh'
+                                    },
+                                    {
+                                        'label': 'Gentle',
+                                        'tag'  : 'Kapitän,Kind,Reisender',
+                                        'id'   : 'spotify:playlist:500qX6nylxJREdp0VrPrvA'
+                                    },
+                                    {
+                                        'label': 'Minimal',
+                                        'tag'  : 'Kapitän,Reisender',
+                                        'id'   : 'spotify:playlist:0iMHT0jtNr8lmVyw3DSEIH'
+                                    },
+                                    {
+                                        'label' : 'Dagger',
+                                        'repeat': false,
+                                        'tag'   : 'Kapitän',
+                                        'id'    : 'spotify:track:5RRMw198XOFsMCJzv58rqd'
+                                    }
+                                ]
+                    }
+            ,
+            'meditationSymbols'  : [
                 {
                     'image': './media/symbols/01.png'
                 },
@@ -1706,16 +1921,16 @@ var config = {
                     'image': './media/symbols/56.png'
                 },
                 {
-                    'image'  : './media/symbols/57.png',
+                    'image': './media/symbols/57.png'
                 },
                 {
-                    'image'  : './media/symbols/58.png',
+                    'image': './media/symbols/58.png'
                 },
                 {
-                    'image'  : './media/symbols/59.png',
-                },
+                    'image': './media/symbols/59.png'
+                }
             ],
-            'searchEngines'          : [
+            'searchEngines'      : [
                 {
                     'searchLink': 'https://www.google.de/search?q=##searchTerm##',
                     'link'      : 'https://www.google.de/',
@@ -1723,7 +1938,7 @@ var config = {
                     'tag'       : ''
                 }
             ],
-            'shrine'                 : {
+            'shrine'             : {
                 'shrineColors'       : [
                     {
                         'value': '#FFFFFF'
@@ -1750,7 +1965,7 @@ var config = {
                             'min': '45'
                         }
             },
-            'gameLinks'              :
+            'gameLinks'          :
                     [
                         {
                             'link': 'libs/fluidmaster/',
@@ -1778,7 +1993,7 @@ var config = {
                             'name': 'Vacuum Rage'
                         }
                     ],
-            'menuLinks'              :
+            'menuLinks'          :
                     [
                         {
                             'link': 'https://www.youtube.com/playlist?list=PLcrVuDwOKu1eoYdyQxZAW7zA1gzO1GTEk',
@@ -1821,9 +2036,9 @@ var config = {
                             'name': 'The meaning of Enso'
                         }
                     ],
-            'mageAIFavoritesLink'    :
+            'mageAIFavoritesLink':
                     '',
-            'absoluteTruths'         :
+            'absoluteTruths'     :
                     [
                         {
                             'text': 'Depression is the past, Anxiety is the future & Peace is the present',
