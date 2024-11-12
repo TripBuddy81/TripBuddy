@@ -1311,10 +1311,7 @@ var config = {
                 {'selectableTag': 'trippy'},
                 {'selectableTag': 'nature'},
                 {'selectableTag': 'space'},
-                {
-                    'selectableTag': 'shaman',
-                    'class'        : 'XXX'
-                }
+                {'selectableTag': 'shaman'}
             ],
             'images'                 : [
                 {
