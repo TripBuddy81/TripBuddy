@@ -1016,8 +1016,9 @@ $( document ).ready( function () {
                 // after liftoff the screensaver takes longer to start
                 screensaverStartAfterSeconds = 60;
 
-                // Mind Journey is default view in globalMenu
+                // Default view changes once journey started
                 $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
+                $( '#shamanfilter.imageFilterBtn' ).trigger( 'click' );
             } );
 
             $( '#preFlightChecklist' ).on( 'hidden.bs.modal', function () {
