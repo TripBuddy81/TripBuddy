@@ -1310,7 +1310,11 @@ var config = {
             'selectableImageTags'    : [
                 {'selectableTag': 'trippy'},
                 {'selectableTag': 'nature'},
-                {'selectableTag': 'space'}
+                {'selectableTag': 'space'},
+                {
+                    'selectableTag': 'shaman',
+                    'class'        : 'XXX'
+                }
             ],
             'images'                 : [
                 {
@@ -1552,6 +1556,18 @@ var config = {
                 {
                     'image': './media/images/77.jpg',
                     'tags' : 'space'
+                },
+                {
+                    'image': './media/entities/501.jpg',
+                    'tags' : 'shaman'
+                },
+                {
+                    'image': './media/entities/502.jpg',
+                    'tags' : 'shaman'
+                },
+                {
+                    'image': './media/entities/503.jpg',
+                    'tags' : 'shaman'
                 }
             ],
             'mindJourney'            :
