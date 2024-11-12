@@ -2635,8 +2635,6 @@ $( document ).ready( function () {
             // Uses integrated Spotify player if succesfully logged in
             if ( localStorage.getItem( 'access_token' ) != null ) {
                 refreshAccessToken();
-                /*                shuffle();
-                                repeat();*/
                 setInterval( refreshAccessToken, 60000 );
                 setInterval( refreshDevices, 3000 );
                 setInterval( currentlyPlaying, 1000 );
