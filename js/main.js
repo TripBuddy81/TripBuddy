@@ -86,6 +86,7 @@ $( document ).ready( function () {
             window.lastSelectedAutocompleteItem = 0;
             window.currentAutocompleteItem = 0;
             window.allVideosLoaded = false;
+            window.guidedThoughtsActiveOnLoadSettingApplied = false;
             window.videodromeFavorites = {'items': []};
             window.mainYoutubePlayerIsActiveSoundSource = false;
             window.screensaverSecondsIdle = 0;
@@ -246,7 +247,7 @@ $( document ).ready( function () {
             // Show or hide some sections depending on local settings
             $( '#quickSelectGlobalMenuPlaylistSectionIcon' ).show();
             $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).show();
-            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
+            if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['globalMenuIncantationSection'] != undefined && config['localSettingsOverwrite']['globalMenuIncantationSection'] ) {
                 $( '#quickSelectGlobalMenuIncantationSectionIcon' ).show();
             }
 
@@ -375,7 +376,7 @@ $( document ).ready( function () {
                     $( '#videodromeLeftToolbar' ).hide();
                 } else if ( $( '.modal' ).is( ':visible' ) ) {
                     $( '.modal' ).modal( 'hide' );
-                } else if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && ($( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ))) {
+                } else if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && ($( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' )) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                     $( '#mainMenu' ).attr( 'style', 'opacity:0' );
@@ -930,6 +931,14 @@ $( document ).ready( function () {
             $( '#launchText' ).click( function ( e ) {
                 enableFullscreen();
                 stopAllActions();
+
+                // Disable guided thoughts checkbox depending on local settings
+                if ( !guidedThoughtsActiveOnLoadSettingApplied && config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['guidedThoughtsActiveOnLoad'] != undefined && !config['localSettingsOverwrite']['guidedThoughtsActiveOnLoad'] ) {
+                    $( '#guidedThoughtsActive' ).prop( 'checked', false );
+                    $( '#guidedThoughtsActive' ).trigger( 'change' );
+                    guidedThoughtsActiveOnLoadSettingApplied = true;
+                }
+
                 if ( $( '#topupCheckbox1' ).is( ':checked' ) ) {
                     localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
                 } else {
@@ -1008,9 +1017,7 @@ $( document ).ready( function () {
                 screensaverStartAfterSeconds = 60;
 
                 // Mind Journey is default view in globalMenu
-                if ( xxxVisible && config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] != undefined && config['localSettingsOverwrite']['showShamanMenues'] ) {
-                    $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
-                }
+                $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
             } );
 
             $( '#preFlightChecklist' ).on( 'hidden.bs.modal', function () {
@@ -1020,14 +1027,16 @@ $( document ).ready( function () {
                 }
                 displayedAbsoluteTruthIndex = [];
 
-                if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
-                }
-                if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
-                }
-                if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
+                if ( guidedThoughtsActive ) {
+                    if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
+                        allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
+                    }
+                    if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
+                        allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
+                    }
+                    if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
+                        allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
+                    }
                 }
             } )
 
@@ -2625,8 +2634,8 @@ $( document ).ready( function () {
             // Uses integrated Spotify player if succesfully logged in
             if ( localStorage.getItem( 'access_token' ) != null ) {
                 refreshAccessToken();
-/*                shuffle();
-                repeat();*/
+                /*                shuffle();
+                                repeat();*/
                 setInterval( refreshAccessToken, 60000 );
                 setInterval( refreshDevices, 3000 );
                 setInterval( currentlyPlaying, 1000 );
