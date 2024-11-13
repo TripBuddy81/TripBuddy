@@ -773,7 +773,7 @@
                         </div>
 
                         {{#if mute 'mixed'}}
-                        <img class="videoHasSound" src="./assets/sound.png">
+                        <img class="videoHasSound videoHasSoundYoutube" src="./assets/sound.png">
                         {{else}}
                         {{/if}}
                     </div>
@@ -782,6 +782,11 @@
 
                 {{#videosLocal}}
                 <div class="videoContainer {{tags}} col-3">
+                    {{#if mute 'mixed'}}
+                    <img class="videoHasSound videoHasSoundLocal" src="./assets/sound.png">
+                    {{else}}
+                    {{/if}}
+
                     <div class="iFrameContainer">
                         <video class="videoFrame localVideo" muted loop controlsList="nofullscreen" preload="none">
                             <source class="videoSource" src="NOLOAD{{videoLink}}" type="video/mp4">

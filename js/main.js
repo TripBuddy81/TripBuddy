@@ -1666,7 +1666,7 @@ $( document ).ready( function () {
                 $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
             } );
 
-            $( '.videoHasSound' ).click( function ( event ) {
+            $( '.videoHasSoundYoutube' ).click( function ( event ) {
                 playYoutubeVideo( $( this ).closest( '.iFrameContainer' ).find( '.youtubeVideo ' ), true );
             } );
 
@@ -1757,6 +1757,7 @@ $( document ).ready( function () {
 
                 try {
                     $( this ).closest( '.iFrameContainer' ).find( '.localVideo' )[0].play();
+                    $( this ).closest( '.iFrameContainer' ).find( '.localVideo' )[0].muted = true;
                     $( this ).closest( '.iFrameContainer' ).find( '.localVideo' ).prop( 'controls', 'controls' );
                 } catch ( e ) {
                 }
@@ -1770,6 +1771,11 @@ $( document ).ready( function () {
                 colorfulBorder.classList.add( 'colorfulBorder' );
                 colorfulBorder.classList.add( 'lastPlayedVideo' );
                 $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
+            } );
+
+            $( '.videoHasSoundLocal' ).click( function ( event ) {
+                $( this ).next( '.iFrameContainer' ).find( '.localVideoOverlay' ).trigger( 'click' );
+                $( this ).next( '.iFrameContainer' ).find( '.localVideo' )[0].muted = false;
             } );
 
             $( document ).on( 'wheel', '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2', function ( event ) {
