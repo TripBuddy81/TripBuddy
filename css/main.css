@@ -1410,15 +1410,6 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: auto !important;
 }
 
-#MageAIExternalPage {
-    height: 110vh;
-    margin-left: -16px;
-    width: 100.2vW;
-    top: -210px;
-    position: relative;
-    margin-bottom: -220px;
-}
-
 #pizzaTimerContainer {
     display: none;
     position: absolute;

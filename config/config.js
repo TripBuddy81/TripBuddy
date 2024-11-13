@@ -2049,8 +2049,6 @@ var config = {
                             'name': 'The meaning of Enso'
                         }
                     ],
-            'mageAIFavoritesLink':
-                    '',
             'absoluteTruths'     :
                     [
                         {

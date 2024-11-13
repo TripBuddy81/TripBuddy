@@ -1833,8 +1833,6 @@ $( document ).ready( function () {
                         if ( !$( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) &&
                                 !$( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) &&
                                 !$( '#applicationSettingsMenu' ).hasClass( 'menuTransition' ) &&
-                                $( '.MageAIfilter.imageFilterActive' ).length == 0 &&
-                                $( '.MageAIFavorites.imageFilterActive' ).length == 0 &&
                                 (screensaverSecondsIdle >= screensaverStartAfterSeconds || force) &&
                                 !screensaverActive && !blockScreenSaver &&
                                 !$( '#menuClose' ).prop( 'checked' ) ) {
@@ -2031,23 +2029,6 @@ $( document ).ready( function () {
             } );
             $( '#slideshowInterval' ).change( function ( event ) {
                 localStorage.setItem( 'imageSlideshowIntervalLength', $( '#slideshowInterval' ).val() * 1000 );
-            } );
-
-            $( '#MageAIExternalPage' ).mousemove( function ( event ) {
-                $( '#mainMenu' ).attr( 'style', 'opacity:0' );
-                $( '#imageTags' ).hide();
-            } );
-
-            $( '.MageAIFavorites' ).click( function () {
-                $( '.MageAIfilter' ).trigger( 'click' );
-                $( '.MageAIfilter' ).removeClass( 'imageFilterActive' );
-                $( this ).addClass( 'imageFilterActive' );
-                $( '#MageAIExternalPage' ).attr( 'src', config['mageAIFavoritesLink'] );
-            } );
-
-            $( '.MageAIfilter' ).click( function () {
-                defaultTarget = 'https://www.mage.space/';
-                $( '#MageAIExternalPage' ).attr( 'src', defaultTarget );
             } );
 
             function nextRandomImageInSlideshow() {
