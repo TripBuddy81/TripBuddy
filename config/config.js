@@ -1941,6 +1941,9 @@ var config = {
                 },
                 {
                     'image': './media/symbols/59.png'
+                },
+                {
+                    'image': './media/symbols/60.png'
                 }
             ],
             'searchEngines'      : [
