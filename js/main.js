@@ -3371,6 +3371,7 @@ $( document ).ready( function () {
 
             $( '.toggleLocalStreamIcon' ).click( function () {
                 toggleLocalStreamVideo();
+                displayAllActiveLocalFilenames();
             } );
 
             $( '.toggleTransparentStrobo' ).click( function () {

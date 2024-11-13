@@ -2729,3 +2729,7 @@ video::-webkit-media-controls-fullscreen-button {
     padding-right: 16px;
     margin-top: 15px;
 }
+
+#videoTaggingCache {
+    overflow: hidden;
+}
