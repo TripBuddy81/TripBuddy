@@ -3558,6 +3558,7 @@ $( document ).ready( function () {
                 }
 
                 updateVideodromeFullscreenInfo();
+                displayAllActiveLocalFilenames();
             } );
 
             $( document ).on( 'wheel', '.videodromeVideoContainer', function ( event ) {
@@ -4044,6 +4045,13 @@ $( document ).ready( function () {
                         throw 'FILENAME PARSING ERROR: ' + selectableVideodromeFilesFromTagAndFolders[val];
                     }
                 } );
+
+                if ( selectableVideodromeFilesFromTagAndFolders.length > 0 ) {
+                    $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).show();
+                } else {
+                    $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).hide();
+                }
+
                 alreadySelectedVideosVideodrome = [];
             }
 
