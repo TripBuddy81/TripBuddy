@@ -413,6 +413,11 @@ var config = {
                     'playbackrate': '0.8'
                 },
                 {
+                    'videoId'     : '8Are9dDbW24',
+                    'tags'        : 'space',
+                    'startSeconds': '2'
+                },
+                {
                     'videoId'     : 'OZ8qYubLRWM',
                     'tags'        : 'space',
                     'startSeconds': '62'
@@ -584,6 +589,11 @@ var config = {
                     'tags'   : 'trippy-2D'
                 },
                 {
+                    'videoId': 'ubFq-wV3Eic',
+                    'tags'   : 'trippy-2D',
+                    'mute'   : 'mixed'
+                },
+                {
                     'videoId': 'M45c6WiZ2tc',
                     'tags'   : 'trippy-3D'
                 },
@@ -734,6 +744,11 @@ var config = {
                 },
                 {
                     'videoId': 'CqaAs_3azSs',
+                    'mute'   : 'mixed',
+                    'tags'   : 'music'
+                },
+                {
+                    'videoId': 'dIOrwETjHaQ',
                     'mute'   : 'mixed',
                     'tags'   : 'music'
                 },
@@ -894,6 +909,12 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'thinker',
                     'label'  : 'Bernard Carr - Physics of Consciousness'
+                },
+                {
+                    'videoId': 'NrKeamGfj9A',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Does the Universe Dream?'
                 },
                 {
                     'videoId'     : 'RCSSgxV9qNw',
@@ -1287,6 +1308,18 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'shaman',
                     'label'  : 'More Is Happening Than You Realize'
+                },
+                {
+                    'videoId': 'Lxh82ZcMYpQ',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Meaning of "As Above, So Below"'
+                },
+                {
+                    'videoId': 'bkNiFKdNfjg',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'A Law So Powerful, Even the Awakened Fear Breaking It'
                 },
                 {
                     'videoId': 'hl7ZXG4v-_c',
@@ -1782,7 +1815,7 @@ var config = {
                                 ]
                     }
             ,
-            'meditationSymbols'  : [
+            'meditationSymbols': [
                 {
                     'image': './media/symbols/01.png'
                 },
@@ -1946,7 +1979,7 @@ var config = {
                     'image': './media/symbols/60.png'
                 }
             ],
-            'searchEngines'      : [
+            'searchEngines'    : [
                 {
                     'searchLink': 'https://www.google.de/search?q=##searchTerm##',
                     'link'      : 'https://www.google.de/',
@@ -1954,7 +1987,7 @@ var config = {
                     'tag'       : ''
                 }
             ],
-            'shrine'             : {
+            'shrine'           : {
                 'shrineColors'       : [
                     {
                         'value': '#FFFFFF'
@@ -1981,7 +2014,7 @@ var config = {
                             'min': '45'
                         }
             },
-            'gameLinks'          :
+            'gameLinks'        :
                     [
                         {
                             'link': 'libs/fluidmaster/',
@@ -2009,7 +2042,7 @@ var config = {
                             'name': 'Vacuum Rage'
                         }
                     ],
-            'menuLinks'          :
+            'menuLinks'        :
                     [
                         {
                             'link': 'https://www.youtube.com/playlist?list=PLcrVuDwOKu1eoYdyQxZAW7zA1gzO1GTEk',
@@ -2052,7 +2085,7 @@ var config = {
                             'name': 'The meaning of Enso'
                         }
                     ],
-            'absoluteTruths'     :
+            'absoluteTruths'   :
                     [
                         {
                             'text': 'Depression is the past, Anxiety is the future & Peace is the present',
