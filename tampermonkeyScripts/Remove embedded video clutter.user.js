@@ -21,14 +21,9 @@
 
     function modifyIframe() {
         try {
-            document.getElementsByClassName("ytp-right-controls")[0].remove();
+           // document.getElementsByClassName("ytp-right-controls")[0].remove();
         } catch(e) {
         }
-
-/*        try {
-            document.getElementsByClassName("ytp-volume-panel")[0].remove();
-        } catch(e) {
-        }*/
 
         try {
             document.getElementsByClassName("fp-embed")[0].remove();
@@ -104,6 +99,12 @@
             document.getElementsByClassName("xv-logo")[0].remove();
         } catch(e) {
         }
+
+        try {
+            document.getElementsByClassName("ytp-iv-player-content")[0].remove();
+        } catch(e) {
+        }
+
     }
 
 
