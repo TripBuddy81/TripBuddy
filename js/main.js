@@ -4034,7 +4034,7 @@ $( document ).ready( function () {
                     }
                 } );
 
-                if ( selectableVideodromeFilesFromTagAndFolders.length > 0 ) {
+                if ( selectableVideodromeFilesFromTagAndFolders.length > 0 && $( '.videodromeFullscreen' )[0]) {
                     $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).show();
                 } else {
                     $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).hide();
