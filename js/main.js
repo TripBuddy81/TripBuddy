@@ -4924,7 +4924,7 @@ $( document ).ready( function () {
             $( document ).on( 'wheel', document, function ( event ) {
                 if ( $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) && $( '#quickSelectGlobalMenuMindJourney' ).is( ':visible' ) ) {
                     if ( mindJourneyCharNumberActive == '' ) {
-                        mindJourneyCharNumberActive = $( '.mindJourneyCharSelectContainer' ).length; // last char
+                        mindJourneyCharNumberActive = 4; // "Reisender"
                     } else if ( event.originalEvent.deltaY > 0 ) { // going down
                         mindJourneyCharNumberActive = mindJourneyCharNumberActive + 1;
                         if ( mindJourneyCharNumberActive > $( '.mindJourneyCharSelectContainer' ).length ) {
