@@ -694,6 +694,10 @@ var config = {
                     'tags'   : 'nature'
                 },
                 {
+                    'videoId': 'EI-bIfC4rVM',
+                    'tags'   : 'trippy-2D'
+                },
+                {
                     'videoId': 'XICnl77dchU',
                     'tags'   : 'trippy-2D'
                 },
