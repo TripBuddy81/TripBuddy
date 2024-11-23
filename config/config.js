@@ -1524,6 +1524,10 @@ var config = {
                     'tags' : 'space'
                 },
                 {
+                    'image': './media/images/83.jpg',
+                    'tags' : 'space'
+                },
+                {
                     'image': './media/images/1.jpg',
                     'tags' : 'space'
                 },
@@ -1585,10 +1589,6 @@ var config = {
                 },
                 {
                     'image': './media/images/76.jpg',
-                    'tags' : 'space'
-                },
-                {
-                    'image': './media/images/77.jpg',
                     'tags' : 'space'
                 },
                 {
