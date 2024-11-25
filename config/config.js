@@ -208,7 +208,15 @@ var config = {
                 {
                     'id'   : '32N71aqSB1j5skwhEi2hmL',
                     'label': 'Rain & Thunder II'
-                }
+                },
+                {
+                    'id'   : '2yXMgy1h9R3vgs5XWS4sSW',
+                    'label': 'Cosmic Consciousness'
+                },
+                {
+                    'id'   : '40tzbR4NAy31YYtkwpLe2g',
+                    'label': 'Heartbeat'
+                },
             ],
             'trackSelectionPlaylists': [
                 {
@@ -678,7 +686,7 @@ var config = {
                     'startSeconds': '17'
                 },
                 {
-                    'videoId': 'tI2ucenn6hM',
+                    'videoId': 'xRssykraFAA',
                     'tags'   : 'meditative'
                 },
                 {
@@ -865,7 +873,10 @@ var config = {
                     'videoId': 'ZcfDzE3FCt4',
                     'tags'   : 'nsfw'
                 },
-
+                {
+                    'videoId': 'o8aiw2fU15U',
+                    'tags'   : 'nsfw weird'
+                },
                 {
                     'videoId': '0-9OgDlL-wQ',
                     'mute'   : false,
@@ -913,6 +924,12 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'thinker',
                     'label'  : 'Bernard Carr - Physics of Consciousness'
+                },
+                {
+                    'videoId': 'm-18S3qO7jo',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Every Philosophy Described'
                 },
                 {
                     'videoId': 'NrKeamGfj9A',
@@ -1110,6 +1127,12 @@ var config = {
                     'label'  : 'Inner voice'
                 },
                 {
+                    'videoId': '4CaSXEEqKBU',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'things I no longer believe in'
+                },
+                {
                     'videoId': 'h6fcK_fRYaI',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -1204,6 +1227,12 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'thinker',
                     'label'  : 'Is the universe alive?'
+                },
+                {
+                    'videoId': '8ePu81ssU4M',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'The “afterlife” according to Einstein'
                 },
                 {
                     'videoId': 'Ikyx6t1VQEU',
@@ -1342,7 +1371,37 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'shaman',
                     'label'  : 'You walk the path one step at a time'
-                }
+                },
+                {
+                    'videoId': 'PvuVXu2ImPE',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'The Universe Has One Simple Demand'
+                },
+                {
+                    'videoId': 'XTpReFWwxYs',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Is Our Universe A Hologram?'
+                },
+                {
+                    'videoId': 'V78aUVlmv3c',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Cheat codes to life'
+                },
+                {
+                    'videoId': '5lSk2BziHMc',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Control Your Life'
+                },
+                {
+                    'videoId': 'Em3XplqnoF4',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'David Lynch explains Transcendental Meditation'
+                },
             ],
             'selectableImageTags'    : [
                 {'selectableTag': 'space'},
