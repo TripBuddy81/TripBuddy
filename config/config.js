@@ -1345,9 +1345,9 @@ var config = {
                 }
             ],
             'selectableImageTags'    : [
-                {'selectableTag': 'trippy'},
-                {'selectableTag': 'nature'},
                 {'selectableTag': 'space'},
+                {'selectableTag': 'nature'},
+                {'selectableTag': 'trippy'},
                 {'selectableTag': 'shaman'}
             ],
             'images'                 : [
@@ -1525,6 +1525,10 @@ var config = {
                 },
                 {
                     'image': './media/images/83.jpg',
+                    'tags' : 'space'
+                },
+                {
+                    'image': './media/images/84.jpg',
                     'tags' : 'space'
                 },
                 {

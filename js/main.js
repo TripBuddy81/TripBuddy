@@ -33,6 +33,7 @@ $( document ).ready( function () {
             window.populateTrackSelectionInterval = '';
             window.populateTrackSelectionData = {};
             window.blockScreenSaver = false;
+            window.moveTimerShrine = '';
             window.externalSoundTabOpened = false;
             window.pizzaTimerStart = '';
             window.isFullScreen = false;
@@ -1441,6 +1442,14 @@ $( document ).ready( function () {
                 rightMouseClicked = false;
             } );
 
+            $( '#activateHiddenMenue' ).on( 'mousemove', function () {
+                clearTimeout( moveTimerShrine );
+                moveTimerShrine = setTimeout( function () {
+                    $( '#activateHiddenMenue' ).css( 'cursor', 'none' );
+                }, 1000 );
+                $( '#activateHiddenMenue' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+            } );
+
             function toggleXXXVisible() {
                 xxxVisible = !xxxVisible;
 
@@ -2140,7 +2149,6 @@ $( document ).ready( function () {
             );
 
             // Show cursor when moving mouse
-            var moveTimerShrine;
             $( '#particles-js' ).on( 'mousemove', function () {
                 clearTimeout( moveTimerShrine );
                 moveTimerShrine = setTimeout( function () {
@@ -4034,7 +4042,7 @@ $( document ).ready( function () {
                     }
                 } );
 
-                if ( selectableVideodromeFilesFromTagAndFolders.length > 0 && $( '.videodromeFullscreen' )[0]) {
+                if ( selectableVideodromeFilesFromTagAndFolders.length > 0 && $( '.videodromeFullscreen' )[0] ) {
                     $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).show();
                 } else {
                     $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).hide();
