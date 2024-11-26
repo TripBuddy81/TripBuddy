@@ -216,7 +216,7 @@ var config = {
                 {
                     'id'   : '40tzbR4NAy31YYtkwpLe2g',
                     'label': 'Heartbeat'
-                },
+                }
             ],
             'trackSelectionPlaylists': [
                 {
@@ -875,6 +875,7 @@ var config = {
                 },
                 {
                     'videoId': 'o8aiw2fU15U',
+                    'mute'   : 'mixed',
                     'tags'   : 'nsfw weird'
                 },
                 {
@@ -1401,7 +1402,7 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'shaman',
                     'label'  : 'David Lynch explains Transcendental Meditation'
-                },
+                }
             ],
             'selectableImageTags'    : [
                 {'selectableTag': 'space'},
