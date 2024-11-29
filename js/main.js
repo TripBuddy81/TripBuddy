@@ -2535,17 +2535,6 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '.spotifyPlaylistItem,.currentTrackAction' ).click( function () {
-                $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
-                $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
-                $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
-                $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
-                if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
-                    $( '#mainMenu' ).attr( 'style', 'opacity:0' );
-                    $( '#shrineSettingsContainer' ).removeClass( 'visible' );
-                }
-            } );
-
             $( '#spotifyLogin' ).click( function ( e ) {
                 requestAuthorization();
             } );
@@ -2561,6 +2550,11 @@ $( document ).ready( function () {
             }
 
             $( '.noisegeneratorLink' ).on( 'mousedown', document, function ( e ) {
+                if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
+                    $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                    $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                }
+
                 $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
                 $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
                 $( this ).addClass( 'spotifyPlaylistActive' );
@@ -2650,7 +2644,12 @@ $( document ).ready( function () {
                     $( this ).hide();
                 } );
 
-                $( '.spotifyPlaylistItem' ).on( 'mousedown', document, function ( e ) {
+                $( '.spotifyPlaylistItem,.currentTrackAction' ).on( 'mousedown', document, function ( e ) {
+                    if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
+                        $( '#mainMenu' ).attr( 'style', 'opacity:0' );
+                        $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                    }
+
                     // on middle mouse button put playlist into queue
                     if ( e.which == 2 ) {
                         $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
@@ -2661,6 +2660,10 @@ $( document ).ready( function () {
                         $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                         $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
                     } else if ( e.which == 1 ) {
+                        $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
+                        $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
+                        $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
+                        $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
                         $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
                         $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
                         $( '[data-spotify-id="' + $( this ).attr( 'data-spotify-id' ) + '"]' ).addClass( 'spotifyPlaylistActive' );
