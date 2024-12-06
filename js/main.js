@@ -2085,6 +2085,7 @@ $( document ).ready( function () {
 
                 if ( !showParticles ) {
                     showParticles = true;
+                    activeParticlesConfig++;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                 } else {
                     showParticles = false;
@@ -2092,25 +2093,33 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite,#shrineDiscoMode,#shrineDiscoModeWhite' ).on( 'wheel', function ( event ) {
-                showParticles = true;
-                $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
+            $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite' ).on( 'wheel', function ( event ) {
+                toggleParticleSettings();
+            } );
+
+            $( '#shrineDiscoMode,#shrineDiscoModeWhite' ).on( 'wheel', function ( event ) {
+                toggleParticleSettings();
+                startDiscoMode();
+            } );
+
+            function toggleParticleSettings() {
+
                 activeParticlesConfig++;
                 activeParticlesConfig = activeParticlesConfig % 2;
-
                 window.pJSDom[0].pJS.fn.vendors.destroypJS();
-                window["pJSDom"] = [];
+                window['pJSDom'] = [];
+                showParticles = true;
+                $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
 
                 switch ( activeParticlesConfig ) {
                     case 0:
-                        particlesInit1();
-                        break;
-                    case 1:
                         particlesInit2();
                         break;
-                    default:
+                    case 1:
+                        particlesInit1();
+                        break;
                 }
-            } );
+            }
 
             $( '.shrineSetBGColor' ).click( function ( event ) {
                 enableFullscreen();
@@ -2386,6 +2395,7 @@ $( document ).ready( function () {
                 clearTimeout( shrineStroboChangeTimer );
                 shrineDiscoActive = false;
                 showParticles = false;
+                activeParticlesConfig = 0;
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
                 $( '.shrineColorfulBackground' ).trigger( 'click' );
                 stroboSpeed = 0;
