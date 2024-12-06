@@ -41,6 +41,7 @@ $( document ).ready( function () {
             window.minutesTillNextThought = 0;
             window.showParticles = false;
             window.showParticlesFirstTime = true;
+            window.activeParticlesConfig = 0;
             window.guidedThoughtsActive = true;
             window.allGuidedThoughts = [];
             window.guidedThoughtsNext = 0;
@@ -831,7 +832,7 @@ $( document ).ready( function () {
 
                 if ( showParticlesFirstTime ) {
                     showParticlesFirstTime = false;
-                    particlesInit();
+                    particlesInit1();
                 }
 
                 if ( typeof absoluteTruthsTimer !== 'undefined' ) {
@@ -2081,12 +2082,33 @@ $( document ).ready( function () {
 
             $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite' ).click( function ( event ) {
                 enableFullscreen();
+
                 if ( !showParticles ) {
                     showParticles = true;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                 } else {
                     showParticles = false;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
+                }
+            } );
+
+            $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite' ).on( 'wheel', function ( event ) {
+                showParticles = true;
+                $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
+                activeParticlesConfig++;
+                activeParticlesConfig = activeParticlesConfig % 2;
+
+                window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                window["pJSDom"] = [];
+
+                switch ( activeParticlesConfig ) {
+                    case 0:
+                        particlesInit1();
+                        break;
+                    case 1:
+                        particlesInit2();
+                        break;
+                    default:
                 }
             } );
 
@@ -3506,7 +3528,7 @@ $( document ).ready( function () {
 
                     if ( showParticlesFirstTime ) {
                         showParticlesFirstTime = false;
-                        particlesInit();
+                        particlesInit1();
                     }
                     startDiscoMode();
                     nextDiscoMode();
