@@ -661,6 +661,7 @@ $( document ).ready( function () {
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
                 stopShrineDisco();
+                activeParticlesConfig = 0;
                 stopPlaybackVideodrome();
                 hideMeditationSymbol();
                 showVideostreamFavoriteItemDeleteSymbol = false;
@@ -2375,7 +2376,6 @@ $( document ).ready( function () {
                 clearTimeout( shrineStroboChangeTimer );
                 shrineDiscoActive = false;
                 showParticles = false;
-                activeParticlesConfig = 0;
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
                 $( '.shrineColorfulBackground' ).trigger( 'click' );
                 stroboSpeed = 0;
