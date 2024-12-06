@@ -2092,7 +2092,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite' ).on( 'wheel', function ( event ) {
+            $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite,#shrineDiscoMode,#shrineDiscoModeWhite' ).on( 'wheel', function ( event ) {
                 showParticles = true;
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                 activeParticlesConfig++;

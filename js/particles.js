@@ -163,7 +163,7 @@ function particlesInit2( showParticles = true ) {
                     'line_linked': {
                         'enable'  : true,
                         'distance': 150,
-                        'color'   : '#ffffff',
+                        'color'   : '#000000',
                         'opacity' : 0.4,
                         'width'   : 1
                     },
