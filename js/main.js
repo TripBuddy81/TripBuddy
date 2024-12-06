@@ -2085,7 +2085,6 @@ $( document ).ready( function () {
 
                 if ( !showParticles ) {
                     showParticles = true;
-                    activeParticlesConfig++;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                 } else {
                     showParticles = false;
@@ -2101,25 +2100,6 @@ $( document ).ready( function () {
                 toggleParticleSettings();
                 startDiscoMode();
             } );
-
-            function toggleParticleSettings() {
-
-                activeParticlesConfig++;
-                activeParticlesConfig = activeParticlesConfig % 2;
-                window.pJSDom[0].pJS.fn.vendors.destroypJS();
-                window['pJSDom'] = [];
-                showParticles = true;
-                $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
-
-                switch ( activeParticlesConfig ) {
-                    case 0:
-                        particlesInit2();
-                        break;
-                    case 1:
-                        particlesInit1();
-                        break;
-                }
-            }
 
             $( '.shrineSetBGColor' ).click( function ( event ) {
                 enableFullscreen();
@@ -2404,6 +2384,24 @@ $( document ).ready( function () {
                 $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 $( '#videodrome' ).css( 'opacity', '1' );
                 $( '.meditationSymbolInfoContainer' ).hide();
+            }
+
+            function toggleParticleSettings() {
+                activeParticlesConfig++;
+                activeParticlesConfig = activeParticlesConfig % 2;
+                window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                window['pJSDom'] = [];
+                showParticles = true;
+                $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
+
+                switch ( activeParticlesConfig ) {
+                    case 0:
+                        particlesInit2();
+                        break;
+                    case 1:
+                        particlesInit1();
+                        break;
+                }
             }
 
             function triggerStrobo() {
