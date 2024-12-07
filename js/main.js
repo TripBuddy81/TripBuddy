@@ -88,7 +88,7 @@ $( document ).ready( function () {
             window.lastSelectedAutocompleteItem = 0;
             window.currentAutocompleteItem = 0;
             window.allVideosLoaded = false;
-            window.guidedThoughtsActiveOnLoadSettingApplied = false;
+            window.guidedThoughtsActiveOnLoadSettingApplied = true;
             window.videodromeFavorites = {'items': []};
             window.mainYoutubePlayerIsActiveSoundSource = false;
             window.screensaverSecondsIdle = 0;
@@ -104,7 +104,7 @@ $( document ).ready( function () {
             window.shrineColorChangeTimer = '';
             window.shrineStroboChangeTimer = '';
             window.shrineDiscoActive = false;
-            window.playingRandomWisdom = false;
+            window.playingRandomVideoFromCategory = false;
             window.selectedVideoStreamService = 'XV';
             window.videodromeFullscreenMenuHideInterval = '';
             window.videodromeVideoJSControlbarHideInterval = '';
@@ -331,6 +331,17 @@ $( document ).ready( function () {
             // Init gradient background
             refreshGradientBackground();
 
+            // Prefill guided thoughts
+            if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
+                allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
+            }
+            if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
+                allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
+            }
+            if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
+                allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
+            }
+
             function refreshGradientBackground() {
                 lastActiveBackgroundGradientKeyFrame = (lastActiveBackgroundGradientKeyFrame + 1) % 2;
 
@@ -515,47 +526,6 @@ $( document ).ready( function () {
                 $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
             } );
 
-            // Add four wisdom videos to queue at random and start playing
-            $( '#playRandomWisdom' ).click( function ( e ) {
-                playingRandomWisdom = true;
-                $( '#showSearchSection' ).trigger( 'click' );
-
-                var allWisdomVideoIds = [];
-                $( '.videoContainer.wisdom' ).each( function () {
-                    allWisdomVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) );
-                } );
-                shuffleArray( allWisdomVideoIds );
-
-                youtubeCurrentQueue = [];
-                videosInQueue = 0;
-                allWisdomVideoIds.forEach( function ( videoId ) {
-                    if ( videosInQueue >= 4 ) {
-                        return;
-                    }
-                    videoToQueue = {
-                        'id'         : videoId,
-                        'img'        : 'https://img.youtube.com/vi/' + videoId + '/0.jpg',
-                        'description': '',
-                        'duration'   : ''
-                    };
-
-                    youtubeCurrentQueue.push( videoToQueue );
-                    videosInQueue++;
-                } );
-
-                $( '.mainSearchResultVideoOverlay' ).trigger( 'click' );
-
-                videoItem = youtubeCurrentQueue.shift();
-                spotifyPause();
-                mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
-                markYoutubeAsActiveAudioSource( true );
-                mainSearchResultYoutubePlayer.unMute();
-                mainSearchResultYoutubePlayer.setVolume( 100 );
-                mainSearchResultYoutubePlayer.playVideo();
-
-                displayYoutubeQueue();
-            } );
-
             // Disable all future reminders and guided thoughts
             $( '#disableAllReminders' ).click( function ( e ) {
                 $( '.guidedThoughtsContainer' ).hide();
@@ -570,13 +540,8 @@ $( document ).ready( function () {
                 $( '#topupCheckbox3' ).prop( 'checked', false );
                 $( '#orderPizzaCheckbox' ).prop( 'checked', false );
 
-                $( '#guidedThoughtsActive' ).prop( 'checked', false );
-                $( '#guidedThoughtsActive' ).trigger( 'change' );
                 guidedThoughtPrefilTarget = 1;
 
-                while ( allGuidedThoughts.length ) {
-                    allGuidedThoughts.pop();
-                }
                 displayedAbsoluteTruthIndex = [];
             } );
 
@@ -901,6 +866,7 @@ $( document ).ready( function () {
                 stopAllActions();
                 checkPrivateVisible();
                 hideScreensaverEnso();
+                clearYoutubeQueue();
                 refreshGradientBackground();
             } );
 
@@ -934,13 +900,6 @@ $( document ).ready( function () {
             $( '#launchText' ).click( function ( e ) {
                 enableFullscreen();
                 stopAllActions();
-
-                // Disable guided thoughts checkbox depending on local settings
-                if ( !guidedThoughtsActiveOnLoadSettingApplied && config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['guidedThoughtsActiveOnLoad'] != undefined && !config['localSettingsOverwrite']['guidedThoughtsActiveOnLoad'] ) {
-                    $( '#guidedThoughtsActive' ).prop( 'checked', false );
-                    $( '#guidedThoughtsActive' ).trigger( 'change' );
-                    guidedThoughtsActiveOnLoadSettingApplied = true;
-                }
 
                 if ( $( '#topupCheckbox1' ).is( ':checked' ) ) {
                     localStorage.setItem( 'topupReminderInMinutes1', $( '#topupReminderInMinutes1' ).val() );
@@ -999,15 +958,6 @@ $( document ).ready( function () {
                     $( '#progressGraphContainer' ).empty();
                 }
 
-                if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
-                }
-                if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
-                }
-                if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
-                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
-                }
                 displayedAbsoluteTruthIndex = [];
 
                 minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
@@ -1031,16 +981,14 @@ $( document ).ready( function () {
                 }
                 displayedAbsoluteTruthIndex = [];
 
-                if ( guidedThoughtsActive ) {
-                    if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
-                        allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
-                    }
-                    if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
-                        allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
-                    }
-                    if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
-                        allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
-                    }
+                if ( localStorage.getItem( 'guidedThought1' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought1' ) );
+                }
+                if ( localStorage.getItem( 'guidedThought2' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought2' ) );
+                }
+                if ( localStorage.getItem( 'guidedThought3' ) != '' ) {
+                    allGuidedThoughts.push( localStorage.getItem( 'guidedThought3' ) );
                 }
             } )
 
@@ -1165,23 +1113,6 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#guidedThoughtsActive' ).change( function () {
-                if ( $( '#guidedThoughtsActive' ).is( ':checked' ) ) {
-                    $( '#guidedThoughtTextContainer' ).show();
-                    guidedThoughtsActive = true;
-                    if ( totalMins > 0 ) {
-                        $( '#firstGuidedThoughtMin' ).val( totalMins );
-                    }
-                } else {
-                    $( '#guidedThoughtTextContainer' ).hide();
-                    guidedThoughtsActive = false;
-                }
-                veryFirstThoughtDisplayed = false;
-                localStorage.setItem( 'firstGuidedThoughtMin', totalMins );
-                minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
-                absoluteTruthsUpdate();
-            } );
-
             $( '.reminderSuggestion' ).click( function () {
                 $( '#guidedThought' + guidedThoughtPrefilTarget ).val( $( this ).html() );
                 $( '#guidedThought' + guidedThoughtPrefilTarget ).trigger( 'change' );
@@ -1191,6 +1122,7 @@ $( document ).ready( function () {
                     guidedThoughtPrefilTarget = 1;
                 }
             } );
+
             $( '#clearReminders' ).click( function () {
                 $( '#guidedThought1' ).val( '' );
                 $( '#guidedThought2' ).val( '' );
@@ -1383,7 +1315,7 @@ $( document ).ready( function () {
                 }
 
                 // Guided Thoughts
-                if ( guidedThoughtsActive && (!$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && allGuidedThoughts[guidedThoughtsNext] != undefined && ((totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'firstGuidedThoughtMin' ) )) || (totalMins == parseInt( localStorage.getItem( 'firstGuidedThoughtMin' ) ) && veryFirstThoughtDisplayed != true))) ) {
+                if ( (!$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && allGuidedThoughts[guidedThoughtsNext] != undefined && ((totalMins == minutesTillNextThought + parseInt( localStorage.getItem( 'firstGuidedThoughtMin' ) )) || (totalMins == parseInt( localStorage.getItem( 'firstGuidedThoughtMin' ) ) && veryFirstThoughtDisplayed != true))) ) {
                     veryFirstThoughtDisplayed = true;
                     localStorage.setItem( 'firstGuidedThoughtMin', totalMins );
                     minutesTillNextThought = randomIntFromInterval( localStorage.getItem( 'guidedThoughtMinMinutes' ), localStorage.getItem( 'guidedThoughtMaxMinutes' ) );
@@ -1647,21 +1579,55 @@ $( document ).ready( function () {
                 checkPrivateVisible();
             } );
 
+            // Add videos from the clicked category to queue at random and start playing
+            $( '.videoFilterBtn' ).dblclick( function ( e ) {
+                category = $( this ).attr( 'id' ).replace( 'filter', '' );
+
+                playingRandomVideoFromCategory = true;
+                $( '#showSearchSection' ).trigger( 'click' );
+
+                var allSelectedVideoIds = [];
+                $( '.videoContainer.' + category ).each( function () {
+                    allSelectedVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) );
+                } );
+                shuffleArray( allSelectedVideoIds );
+
+                youtubeCurrentQueue = [];
+                videosInQueue = 0;
+                allSelectedVideoIds.forEach( function ( videoId ) {
+                    if ( videoId != undefined ) {
+                        videoToQueue = {
+                            'id'         : videoId,
+                            'img'        : 'https://img.youtube.com/vi/' + videoId + '/0.jpg',
+                            'description': '',
+                            'duration'   : ''
+                        };
+                        youtubeCurrentQueue.push( videoToQueue );
+                        videosInQueue++;
+                    }
+                } );
+
+                $( '.mainSearchResultVideoOverlay' ).trigger( 'click' );
+                videoItem = youtubeCurrentQueue.shift();
+                mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
+
+                if ( ['thinker', 'wisdom', 'shaman'].indexOf( category ) > -1 ) {
+                    spotifyPause();
+                    markYoutubeAsActiveAudioSource( true );
+                    mainSearchResultYoutubePlayer.unMute();
+                    mainSearchResultYoutubePlayer.setVolume( 100 );
+                } else {
+                    markYoutubeAsActiveAudioSource( false );
+                    mainSearchResultYoutubePlayer.mute();
+                }
+
+                mainSearchResultYoutubePlayer.playVideo();
+                displayYoutubeQueue();
+            } );
+
             // Double clicking videos main button reloads all videos
             $( '#showVideoSection' ).dblclick( function ( e ) {
                 loadVideos();
-            } );
-
-            // Reload videos of given tag if double clicking on video tag
-            $( '.videoFilterBtn' ).dblclick( function ( e ) {
-                $( videoTagList ).each( function () {
-                    if ( typeof $( this ).find( '.videoSource' ).attr( 'src' ) != 'undefined' ) {
-                        $( this ).find( '.videoSource' ).attr( 'src', $( this ).find( '.videoSource' ).attr( 'src' ).replace( /NOLOAD/, '' ) );
-                    }
-                } );
-                $( '.localVideo' ).each( function () {
-                    this.load();
-                } );
             } );
 
             // Play clicked youtube video and place a colorful border on preview image
@@ -1680,6 +1646,15 @@ $( document ).ready( function () {
             $( '.videoHasSoundYoutube' ).click( function ( event ) {
                 playYoutubeVideo( $( this ).closest( '.iFrameContainer' ).find( '.youtubeVideo ' ), true );
             } );
+
+            function clearYoutubeQueue() {
+                youtubeCurrentQueue = [];
+                try {
+                    mainSearchResultYoutubePlayer.pauseVideo();
+                } catch ( e ) {
+                }
+                displayYoutubeQueue();
+            }
 
             function loadVideos() {
                 $( '.videoSource' ).each( function () {
@@ -2083,7 +2058,6 @@ $( document ).ready( function () {
 
             $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite' ).click( function ( event ) {
                 enableFullscreen();
-
                 if ( !showParticles ) {
                     showParticles = true;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
@@ -2106,12 +2080,12 @@ $( document ).ready( function () {
                 enableFullscreen();
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
-                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineOracleWhite' ).show();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineOracle' ).hide();
+                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleThinkerWhite' ).show();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineOracle,#toggleGospel,#toggleThinker' ).hide();
                 if ( xxxVisible ) {
-                    $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite' ).show();
+                    $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#toggleGospelWhite' ).show();
                 } else {
-                    $( '#toggleRelationships,#toggleRelationshipsWhite' ).hide();
+                    $( '#toggleRelationships,#toggleRelationshipsWhite,#toggleGospel' ).hide();
                 }
                 $( '#shrineSetBGBlack' ).hide();
                 $( '.shrineSetBGColorful' ).attr( 'style', 'display: inline' );
@@ -2119,10 +2093,10 @@ $( document ).ready( function () {
 
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
-                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineOuijaWhite,#shrineOracleWhite' ).hide();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#shrineOuija,#shrineOracle' ).show();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleGospelWhite,#toggleThinkerWhite' ).hide();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#shrineOuija,#shrineOracle,#toggleThinker' ).show();
                 if ( xxxVisible ) {
-                    $( '#toggleRelationships,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).show();
+                    $( '#toggleRelationships,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#toggleGospel' ).show();
                 } else {
                     $( '#toggleRelationships,#toggleRelationshipsWhite,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).hide();
                 }
@@ -2204,7 +2178,19 @@ $( document ).ready( function () {
                 hideMeditationSymbol();
 
                 absoluteTruthsUpdate( 'default' );
-                $( '#absoluteTruthsOverlay' ).toggle();
+                $( '#absoluteTruthsOverlay' ).show();
+            } );
+
+            $( '#toggleGospel,#toggleGospelWhite' ).click( function ( event ) {
+                enableFullscreen();
+
+                toggleRelationships( 'hide' );
+                hideOuijaYesNo();
+                $( '#absoluteTruthsOverlay' ).hide();
+                hideMeditationSymbol();
+
+                absoluteTruthsUpdate( 'gospel' );
+                $( '#absoluteTruthsOverlay' ).show();
             } );
 
             $( '#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthInwardsWhite' ).click( function ( e ) {
@@ -2226,6 +2212,18 @@ $( document ).ready( function () {
                 hideMeditationSymbol();
 
                 absoluteTruthsUpdate( 'outro' );
+                $( '#absoluteTruthsOverlay' ).show();
+            } );
+
+            $( '#toggleThinker,#toggleThinkerWhite' ).click( function ( event ) {
+                enableFullscreen();
+
+                toggleRelationships( 'hide' );
+                hideOuijaYesNo();
+                $( '#absoluteTruthsOverlay' ).hide();
+                hideMeditationSymbol();
+
+                absoluteTruthsUpdate( 'thinker' );
                 $( '#absoluteTruthsOverlay' ).show();
             } );
 
@@ -2446,18 +2444,25 @@ $( document ).ready( function () {
                 }
 
                 if ( displayedAbsoluteTruthIndex.length <= 0 ) {
-                    if ( allGuidedThoughts.length > 0 && guidedThoughtsActive ) {
+                    if ( allGuidedThoughts.length > 0 && activeTruthTagLabel == 'thinker' ) {
                         allGuidedThoughts.forEach( function ( item ) {
                             tempItem = [];
                             tempItem['text'] = item;
                             tempItem['tag'] = 'guided';
                             displayedAbsoluteTruthIndex.push( tempItem );
                         } );
+                    } else if ( allGuidedThoughts.length == 0 && activeTruthTagLabel == 'thinker' ) {
+                        tempItem = [];
+                        tempItem['text'] = 'No guided thought configured';
+                        tempItem['tag'] = 'guided';
+                        displayedAbsoluteTruthIndex.push( tempItem );
                     } else {
                         config['absoluteTruths'].forEach( function ( item ) {
                             if ( xxxVisible && activeTruthTagLabel == 'intro' && item['tag'].indexOf( 'intro' ) >= 0 ) {
                                 displayedAbsoluteTruthIndex.push( item );
                             } else if ( xxxVisible && activeTruthTagLabel == 'outro' && item['tag'].indexOf( 'outro' ) >= 0 ) {
+                                displayedAbsoluteTruthIndex.push( item );
+                            } else if ( xxxVisible && activeTruthTagLabel == 'gospel' && item['tag'].indexOf( 'gospel' ) >= 0 ) {
                                 displayedAbsoluteTruthIndex.push( item );
                             } else if ( xxxVisible && activeTruthTagLabel == '' && item['tag'].indexOf( 'XXX' ) >= 0 ) {
                                 displayedAbsoluteTruthIndex.push( item );
@@ -2471,22 +2476,24 @@ $( document ).ready( function () {
                 nextTruth = displayedAbsoluteTruthIndex.pop();
 
                 $( '#absoluteTruthsOverlayText' ).fadeOut( fadeoutDuration, function () {
-                    $( '#absoluteTruthsOverlayText' ).html( nextTruth['text'] );
+                    if ( nextTruth != undefined && nextTruth['text'] != undefined ) {
+                        $( '#absoluteTruthsOverlayText' ).html( nextTruth['text'] );
 
-                    length = nextTruth['text'].length;
-                    if ( length < 100 ) {
-                        document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
-                    } else if ( length < 200 ) {
-                        document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '95px';
-                    } else if ( length < 300 ) {
-                        document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '82px';
-                    } else {
-                        document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '67px';
+                        length = nextTruth['text'].length;
+                        if ( length < 100 ) {
+                            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '110px';
+                        } else if ( length < 200 ) {
+                            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '95px';
+                        } else if ( length < 300 ) {
+                            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '82px';
+                        } else {
+                            document.getElementById( 'absoluteTruthsOverlayText' ).style.fontSize = '67px';
+                        }
+
+                        $( '#absoluteTruthsOverlayText' ).fadeIn( 1500 );
+                        $( '#absoluteTruthsOverlayContainer' ).css( 'animation', 'textShrink' + textShrinkFrameSeed + ' ' + absoluteTruthsTimerDuration + 'ms linear infinite' );
+                        textShrinkFrameSeed = (textShrinkFrameSeed + 1) % 2;
                     }
-
-                    $( '#absoluteTruthsOverlayText' ).fadeIn( 1500 );
-                    $( '#absoluteTruthsOverlayContainer' ).css( 'animation', 'textShrink' + textShrinkFrameSeed + ' ' + absoluteTruthsTimerDuration + 'ms linear infinite' );
-                    textShrinkFrameSeed = (textShrinkFrameSeed + 1) % 2;
                 } );
             }
 
@@ -2674,7 +2681,16 @@ $( document ).ready( function () {
                     $( this ).hide();
                 } );
 
-                $( '.spotifyPlaylistItem,.currentTrackAction' ).on( 'mousedown', document, function ( e ) {
+                $( document ).on( 'click', '.currentTrackAction', function ( e ) {
+                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
+                    $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                    $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
+                    $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
+                } );
+
+                $( '.spotifyPlaylistItem' ).on( 'mousedown', document, function ( e ) {
                     if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
                         $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                         $( '#shrineSettingsContainer' ).removeClass( 'visible' );
@@ -3239,8 +3255,8 @@ $( document ).ready( function () {
 
             function playNextYoutubeVideoOrSpotifyTrack() {
                 if ( youtubeCurrentQueue.length == 0 || externalSoundTabOpened ) {
-                    if ( $( '#mainSearchResultYoutubeContainer' ).hasClass( 'videoContainerFullscreen' ) && playingRandomWisdom ) {
-                        playingRandomWisdom = false;
+                    if ( $( '#mainSearchResultYoutubeContainer' ).hasClass( 'videoContainerFullscreen' ) && playingRandomVideoFromCategory ) {
+                        playingRandomVideoFromCategory = false;
                         $( '#showShrineSection' ).trigger( 'click' );
                         $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                         $( '#shrineSettingsContainer' ).removeClass( 'visible' );

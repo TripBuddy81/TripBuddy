@@ -1032,7 +1032,7 @@ option {
 }
 
 .stopAfterTrack {
-    right: 157px;
+    right: 100px;
 }
 
 .spotifyCurrentlyPlayingTrack, .settingsHeading {
@@ -1161,7 +1161,7 @@ option {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 550px;
+    width: 645px;
     opacity: 0;
     z-index: 6;
 }
@@ -1194,7 +1194,8 @@ option {
 #shrineOuija, #shrineOuijaWhite,
 #shrineOracle, #shrineOracleWhite,
 #toggleRelationships, #toggleRelationshipsWhite,
-#toggleAbsoluteThruth, #toggleAbsoluteThruthWhite {
+#toggleAbsoluteThruth, #toggleAbsoluteThruthWhite,
+#toggleThinker, #toggleThinkerWhite {
     height: 52px;
     margin-left: 15px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
@@ -1208,18 +1209,24 @@ option {
     display: none;
 }
 
-#toggleAbsoluteThruthInwards, #toggleAbsoluteThruthOutwards, #toggleAbsoluteThruthInwardsWhite, #toggleAbsoluteThruthOutwardsWhite {
+#toggleAbsoluteThruthInwards, #toggleAbsoluteThruthInwardsWhite,
+#toggleAbsoluteThruthOutwards, #toggleAbsoluteThruthOutwardsWhite,
+#toggleGospel, #toggleGospelWhite {
     height: 55px;
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     display: block;
     margin-top: 12px;
 }
 
+#toggleGospel, #toggleGospelWhite {
+    height: 42px;
+}
+
 #toggleAbsoluteThruthWhite, #shrineParticlesSwitchWhite, #shrineDiscoModeWhite, #toggleRelationshipsWhite {
     display: none;
 }
 
-#toggleAbsoluteThruthInwardsWhite, #toggleAbsoluteThruthOutwardsWhite {
+#toggleAbsoluteThruthInwardsWhite, #toggleAbsoluteThruthOutwardsWhite, #toggleGospelWhite {
     display: block;
 }
 
