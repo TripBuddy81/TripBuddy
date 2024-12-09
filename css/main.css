@@ -121,6 +121,10 @@ a:link, a:visited, a:active, a:hover, p {
     opacity: 0;
 }
 
+.hideInBackground {
+    z-index: -99 !important;
+}
+
 .visible {
     opacity: 1 !important;
 }

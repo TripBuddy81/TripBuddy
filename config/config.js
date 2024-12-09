@@ -507,6 +507,11 @@ var config = {
                     'startSeconds': '7'
                 },
                 {
+                    'videoId'     : 'QLQNsoZqlcc',
+                    'tags'        : 'trippy-2D',
+                    'startSeconds': '7'
+                },
+                {
                     'videoId'     : '6fsaVxXYya8',
                     'tags'        : 'trippy-2D',
                     'startSeconds': '7'
@@ -681,6 +686,10 @@ var config = {
                     'startSeconds': '300'
                 },
                 {
+                    'videoId'     : '8QvChwfThZo',
+                    'tags'        : 'slideshow space'
+                },
+                {
                     'videoId'     : 'miqbNFmbN2Q',
                     'tags'        : 'meditative nature',
                     'startSeconds': '17'
@@ -796,6 +805,11 @@ var config = {
                 },
                 {
                     'videoId': 'KtXphUrwQtA',
+                    'mute'   : 'mixed',
+                    'tags'   : 'music'
+                },
+                {
+                    'videoId': 'z9jdHif6hmY',
                     'mute'   : 'mixed',
                     'tags'   : 'music'
                 },
@@ -976,6 +990,18 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'thinker',
                     'label'  : 'The Neuroscience of Creativity and Perception'
+                },
+                {
+                    'videoId': 'JkhuMvFQWz4',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Coxeter discusses the math behind Escher\'s circle limit'
+                },
+                {
+                    'videoId': '4ExtHUPnb4E',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Sacred Geometry'
                 },
                 {
                     'videoId': 'qpLNRNO72X4',
@@ -1320,6 +1346,12 @@ var config = {
                     'label'  : 'On the Ego'
                 },
                 {
+                    'videoId': 'mJMO0i-xsbc',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Building your own prison'
+                },
+                {
                     'videoId': 'NJMKuswemhc',
                     'mute'   : false,
                     'tags'   : 'shaman',
@@ -1398,11 +1430,35 @@ var config = {
                     'label'  : 'Control Your Life'
                 },
                 {
-                    'videoId': 'Em3XplqnoF4',
+                    'videoId': 'bwavvODGUXE',
                     'mute'   : false,
                     'tags'   : 'shaman',
-                    'label'  : 'David Lynch explains Transcendental Meditation'
-                }
+                    'label'  : 'On Non-Duality'
+                },
+                {
+                    'videoId': 'Q82MFr6Ll9M',
+                    'mute'   : false,
+                    'tags'   : 'widsom',
+                    'label'  : 'The Role of the Trickster'
+                },
+                {
+                    'videoId': 'at7nQZ_YiNw',
+                    'mute'   : false,
+                    'tags'   : 'widsom',
+                    'label'  : 'Non-Duality will and won\'t change your life'
+                },
+                {
+                    'videoId': 'vf1etlfrXmY',
+                    'mute'   : false,
+                    'tags'   : 'widsom',
+                    'label'  : 'What the Enso Really Means'
+                },
+                {
+                    'videoId': '4ur3l2GKWzk',
+                    'mute'   : false,
+                    'tags'   : 'widsom',
+                    'label'  : 'David Lynch on Depression and Art'
+                },
             ],
             'selectableImageTags'    : [
                 {'selectableTag': 'space'},
@@ -2086,11 +2142,17 @@ var config = {
                     [
                         {
                             'link': 'libs/fluidmaster/',
+                            'blockMenue': true,
                             'name': 'Fluids'
                         },
                         {
                             'link': 'https://philogb.github.io/page/hopf/#',
                             'name': 'Hopf'
+                        },
+                        {
+                            'link'      : 'https://www.falstad.com/ripple/Ripple.html',
+                            'blockMenue': true,
+                            'name'      : 'Ripple Tank'
                         },
                         {
                             'link': 'https://games.poki.com/458768/74b97156-f40b-11e9-859c-c6053849a814?tag=pg-v3.90.1&site_id=3&iso_lang=en&country=SE&poki_url=https://poki.com/en/g/sushi-party-io&categories=4,9,53,64,96,750,929,1120,1140,1143,1147,1156,1159&special_condition=landing',

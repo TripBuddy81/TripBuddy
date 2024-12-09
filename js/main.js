@@ -630,6 +630,8 @@ $( document ).ready( function () {
                 stopPlaybackVideodrome();
                 hideMeditationSymbol();
                 showVideostreamFavoriteItemDeleteSymbol = false;
+                $( '.hideInBackground' ).removeClass( 'hideInBackground' );
+                $( '.modal' ).modal( 'hide' );
                 $( '.videostreamFavoriteItemDeleteSymbol' ).hide();
                 $( '#unlockDeleteVideodromeFavorites' ).show();
                 $( '#lockDeleteVideodromeFavorites' ).hide();
@@ -2526,6 +2528,11 @@ $( document ).ready( function () {
                 } else {
                     $( '.VRGames' ).hide();
                     $( '#gamesFrame' ).show();
+                }
+
+                if ( $( this ).attr( 'blockMenue' ) == 'true' ) {
+                    $( '#mainMenu' ).addClass('hideInBackground');
+                    $( '#gamesLinks' ).addClass('hideInBackground');
                 }
 
                 enableFullscreen();
