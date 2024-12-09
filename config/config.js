@@ -2101,7 +2101,10 @@ var config = {
                 },
                 {
                     'image': './media/symbols/60.png'
-                }
+                },
+                {
+                    'image': './media/symbols/61.png'
+                },
             ],
             'searchEngines'    : [
                 {
