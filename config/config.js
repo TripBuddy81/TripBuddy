@@ -63,16 +63,8 @@ var config = {
                         'id'   : '7vZWEAsniWYK15n4FPj8zt'
                     },
                     {
-                        'label': 'Lofi favorites',
-                        'id'   : '4ktxEZYVOky9D6eBKrmZ4g'
-                    },
-                    {
                         'label': 'Garden Chill',
                         'id'   : '5eg7oGQAKZZUrhsT7AnGVg'
-                    },
-                    {
-                        'label': 'Bake & Chill',
-                        'id'   : '6MVDihZohGpTl03Oxn7jNB'
                     },
                     {
                         'label': 'Sona Jobarteh',
@@ -560,22 +552,21 @@ var config = {
                     'mute'   : 'mixed'
                 },
                 {
-                    'videoId'     : 'kz69ijqlZfk',
+                    'videoId'     : 'ryK-bSrPCm8',
                     'tags'        : 'meditative',
                     'mute'        : 'mixed',
-                    'startSeconds': '30'
-                },
-                {
-                    'videoId'     : 'zofBinqC2F4',
-                    'tags'        : 'meditative nature',
-                    'mute'        : 'mixed',
-                    'startSeconds': '30'
+                    'startSeconds': '420'
                 },
                 {
                     'videoId'     : '1t7g690boao',
                     'tags'        : 'meditative nature',
                     'mute'        : 'mixed',
                     'startSeconds': '30'
+                },
+                {
+                    'videoId'     : 'eHxbMa2RVTQ',
+                    'tags'        : 'meditative nature',
+                    'startSeconds': '2'
                 },
                 {
                     'videoId'     : 'z8GtS4JDEfI',
