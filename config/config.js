@@ -1153,7 +1153,7 @@ var config = {
                 {
                     'videoId': 'h6fcK_fRYaI',
                     'mute'   : false,
-                    'tags'   : 'wisdom',
+                    'tags'   : 'shaman',
                     'label'  : 'The egg'
                 },
                 {
