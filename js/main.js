@@ -2068,14 +2068,9 @@ $(document).ready(function () {
                 $('.particles-js-canvas-el').attr('style', 'opacity:0');
             }
         });
-
+        
         $('#shrineParticlesSwitch,#shrineParticlesSwitchWhite').on('wheel', function (event) {
             toggleParticleSettings();
-        });
-
-        $('#shrineDiscoMode,#shrineDiscoModeWhite').on('wheel', function (event) {
-            toggleParticleSettings();
-            startDiscoMode();
         });
 
         $('.shrineSetBGColor').click(function (event) {
@@ -2150,7 +2145,7 @@ $(document).ready(function () {
             enableFullscreen();
         });
 
-        $('#particles-js,#shrineSettingsContainer,.meditationSymbolInfoContainer').on('wheel', function (event) {
+        $('#particles-js,.meditationSymbolInfoContainer').on('wheel', function (event) {
             stopScreensaver();
             enableFullscreen();
             clearInterval(absoluteTruthsTimer);
