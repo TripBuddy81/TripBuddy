@@ -2068,7 +2068,7 @@ $(document).ready(function () {
                 $('.particles-js-canvas-el').attr('style', 'opacity:0');
             }
         });
-        
+
         $('#shrineParticlesSwitch,#shrineParticlesSwitchWhite').on('wheel', function (event) {
             toggleParticleSettings();
         });

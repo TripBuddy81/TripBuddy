@@ -208,7 +208,11 @@ var config = {
                 {
                     'id'   : '40tzbR4NAy31YYtkwpLe2g',
                     'label': 'Heartbeat'
-                }
+                },
+                {
+                    'id'   : '3pAvqZSlRKXEnwslqmmXty',
+                    'label': '528 Hz'
+                },
             ],
             'trackSelectionPlaylists': [
                 {
@@ -368,6 +372,10 @@ var config = {
                 },
                 {
                     'videoId': '-eO43qWUu6I',
+                    'tags'   : 'trippy-3D'
+                },
+                {
+                    'videoId': 'fo3mKzovN8o',
                     'tags'   : 'trippy-3D'
                 },
                 {
@@ -712,6 +720,33 @@ var config = {
                 {
                     'videoId': 'S7TUe5w6RHo',
                     'tags'   : 'meditative'
+                },
+                {
+                    'videoId'     : 'ebOgSq_YJUw',
+                    'tags'        : 'space',
+                    'startSeconds': '1'
+                },
+                {
+                    'videoId'     : '_rTtMJw2lr8',
+                    'tags'        : 'space',
+                    'startSeconds': '1'
+                },
+                {
+                    'videoId'     : 'FG0fTKAqZ5g',
+                    'tags'        : 'space',
+                    'startSeconds': '12'
+                },
+                {
+                    'videoId'     : '7WAWY-DktT0',
+                    'tags'        : 'space',
+                    'mute'        : 'mixed',
+                    'startSeconds': '8'
+                },
+
+                {
+                    'videoId'     : 'AmrrSfiMxGA',
+                    'tags'        : 'space',
+                    'startSeconds': '1'
                 },
                 {
                     'videoId'     : 'jNyvfvDFFPk',
