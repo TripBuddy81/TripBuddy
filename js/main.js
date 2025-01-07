@@ -632,7 +632,6 @@ $(document).ready(function () {
             blockScreenSaver = false;
             screensaverSecondsIdle = 0;
             stopShrineDisco();
-            activeParticlesConfig = 0;
             stopPlaybackVideodrome();
             hideMeditationSymbol();
             showVideostreamFavoriteItemDeleteSymbol = false;
@@ -2409,10 +2408,10 @@ $(document).ready(function () {
 
             switch (activeParticlesConfig) {
                 case 0:
-                    particlesInit2();
+                    particlesInit1();
                     break;
                 case 1:
-                    particlesInit1();
+                    particlesInit2();
                     break;
             }
         }
