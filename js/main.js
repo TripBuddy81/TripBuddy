@@ -2780,6 +2780,7 @@ $(document).ready(function () {
 
             $('#next').click(function () {
                 openSpotifyApp();
+                stopAfterTrack = false;
                 playNextYoutubeVideoOrSpotifyTrack();
             });
 
