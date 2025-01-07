@@ -1738,15 +1738,15 @@ var config = {
                     'tags' : 'space'
                 },
                 {
-                    'image': './media/entities/501.jpg',
+                    'image': './media/shaman/501.jpg',
                     'tags' : 'shaman'
                 },
                 {
-                    'image': './media/entities/502.jpg',
+                    'image': './media/shaman/502.jpg',
                     'tags' : 'shaman'
                 },
                 {
-                    'image': './media/entities/503.jpg',
+                    'image': './media/shaman/503.jpg',
                     'tags' : 'shaman'
                 }
             ],
