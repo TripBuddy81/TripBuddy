@@ -332,17 +332,17 @@ $(document).ready(function () {
         refreshGradientBackground();
 
         // Prefill guided thoughts
-        if (localStorage.getItem('guidedThought1') != '' || localStorage.getItem('guidedThought1') == undefined) {
+        if (localStorage.getItem('guidedThought1') != '' && localStorage.getItem('guidedThought1') != null) {
             allGuidedThoughts.push(localStorage.getItem('guidedThought1'));
         } else {
             localStorage.setItem('guidedThought1', '');
         }
-        if (localStorage.getItem('guidedThought2') != '' || localStorage.getItem('guidedThought1') == undefined) {
+        if (localStorage.getItem('guidedThought2') != '' && localStorage.getItem('guidedThought2') != null) {
             allGuidedThoughts.push(localStorage.getItem('guidedThought2'));
         } else {
             localStorage.setItem('guidedThought2', '');
         }
-        if (localStorage.getItem('guidedThought3') != '' || localStorage.getItem('guidedThought1') == undefined) {
+        if (localStorage.getItem('guidedThought3') != '' && localStorage.getItem('guidedThought3') != null) {
             allGuidedThoughts.push(localStorage.getItem('guidedThought3'));
         } else {
             localStorage.setItem('guidedThought3', '');
