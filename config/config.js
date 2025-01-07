@@ -39,6 +39,14 @@ var config = {
             'playlists'              : {
                 'green': [
                     {
+                        'label': 'Das Göttliche',
+                        'id': '6QTZpiK8tgT5w1eIv4vLQX'
+                    },
+                    {
+                        'label': 'Sound of the Universe',
+                        'id': '4XsNTa9DzDoapKBTMlKwdy'
+                    },
+                    {
                         'label': 'Gentle',
                         'id'   : '500qX6nylxJREdp0VrPrvA'
                     },
