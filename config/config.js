@@ -143,13 +143,13 @@ var config = {
                     {
                         'label': 'Lucid Planet',
                         'id'   : '3SgSFL3J8lrmbDkUoUh46m'
-                    },
-                    {
-                        'label': 'Tool',
-                        'id'   : '54c657PnbEgWUJt7biWHtO'
                     }
                 ],
                 'red'  : [
+                    {
+                        'label': 'Tool',
+                        'id'   : '54c657PnbEgWUJt7biWHtO'
+                    },
                     {
                         'label': 'Melodic Noise',
                         'id'   : '7xkCTcJWJGTR9VhM0nvvKa'
