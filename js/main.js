@@ -2443,17 +2443,20 @@ $(document).ready(function () {
         function absoluteTruthsUpdate(selectedTruthTagLabel = '') {
             fadeoutDuration = 1500;
             $('#absoluteTruthsOverlayText').html('');
-
+            console.info("test1", selectedTruthTagLabel);
             if (selectedTruthTagLabel != '' && selectedTruthTagLabel != 'default') {
                 activeTruthTagLabel = selectedTruthTagLabel;
                 displayedAbsoluteTruthIndex = [];
+                console.info("test1");
             } else if (selectedTruthTagLabel == 'default') {
                 activeTruthTagLabel = '';
                 displayedAbsoluteTruthIndex = [];
             }
-
+            console.info("test2", displayedAbsoluteTruthIndex);
             if (displayedAbsoluteTruthIndex.length <= 0) {
+                console.info("test3", allGuidedThoughts);
                 if (allGuidedThoughts.length > 0 && activeTruthTagLabel == 'thinker') {
+                    console.info("test4");
                     allGuidedThoughts.forEach(function (item) {
                         tempItem = [];
                         tempItem['text'] = item;
