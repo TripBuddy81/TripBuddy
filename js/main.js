@@ -3268,7 +3268,7 @@ $(document).ready(function () {
         }
 
         function playNextYoutubeVideoOrSpotifyTrack() {
-            if (youtubeCurrentQueue.length == 0 || externalSoundTabOpened) {
+            if (youtubeCurrentQueue.length == 0 || (externalSoundTabOpened && !playingRandomVideoFromCategory)) {
                 if ($('#mainSearchResultYoutubeContainer').hasClass('videoContainerFullscreen') && playingRandomVideoFromCategory) {
                     playingRandomVideoFromCategory = false;
                     $('#showShrineSection').trigger('click');
@@ -3306,7 +3306,7 @@ $(document).ready(function () {
                 displayYoutubeQueue();
             }
 
-            if (externalSoundTabOpened) {
+            if (externalSoundTabOpened && !playingRandomVideoFromCategory) {
                 externalSoundTabOpened = false;
                 window.open('./tabCloser.html', 'externalSoundTab');
             }
