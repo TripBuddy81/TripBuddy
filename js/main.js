@@ -135,7 +135,7 @@ $( document ).ready( function () {
             window.privatePictureSlideshowTimer = '';
             window.privatePictureSlideshowImagesToShowPerFolder = 10;
             window.privatePictureSlideshowDurationPerImage = 8000;
-            window.privatePictureSlideshowEnabled = true;
+            window.privatePictureSlideshowEnabled = false;
             window.privatePictureSlideshowNextDirActiveThread = false;
             window.externalMusicVideos = {};
             window.alreadySelectedMusicVideos = [];

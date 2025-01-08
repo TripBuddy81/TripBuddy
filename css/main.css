@@ -2480,6 +2480,7 @@ video::-webkit-media-controls-fullscreen-button {
     margin-left: 0px;
     margin-bottom: 10px;
     float: right;
+    display: none;
 }
 
 #privatePictureToggleSlideshowTimerInactive {
@@ -2489,7 +2490,6 @@ video::-webkit-media-controls-fullscreen-button {
     margin-left: 0px;
     margin-bottom: 10px;
     float: right;
-    display: none;
 }
 
 #musicVideos {
