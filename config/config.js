@@ -40,11 +40,11 @@ var config = {
                 'green': [
                     {
                         'label': 'Das Göttliche',
-                        'id': '6QTZpiK8tgT5w1eIv4vLQX'
+                        'id'   : '6QTZpiK8tgT5w1eIv4vLQX'
                     },
                     {
                         'label': 'Sound of the Universe',
-                        'id': '4XsNTa9DzDoapKBTMlKwdy'
+                        'id'   : '4XsNTa9DzDoapKBTMlKwdy'
                     },
                     {
                         'label': 'Gentle',
@@ -220,7 +220,7 @@ var config = {
                 {
                     'id'   : '3pAvqZSlRKXEnwslqmmXty',
                     'label': '528 Hz'
-                },
+                }
             ],
             'trackSelectionPlaylists': [
                 {
@@ -693,8 +693,8 @@ var config = {
                     'startSeconds': '300'
                 },
                 {
-                    'videoId'     : '8QvChwfThZo',
-                    'tags'        : 'slideshow space'
+                    'videoId': '8QvChwfThZo',
+                    'tags'   : 'slideshow space'
                 },
                 {
                     'videoId'     : 'miqbNFmbN2Q',
@@ -1492,7 +1492,7 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'widsom',
                     'label'  : 'David Lynch on Depression and Art'
-                },
+                }
             ],
             'selectableImageTags'    : [
                 {'selectableTag': 'space'},
@@ -2134,7 +2134,7 @@ var config = {
                 },
                 {
                     'image': './media/symbols/61.png'
-                },
+                }
             ],
             'searchEngines'    : [
                 {
@@ -2174,9 +2174,9 @@ var config = {
             'gameLinks'        :
                     [
                         {
-                            'link': 'libs/fluidmaster/',
+                            'link'      : 'libs/fluidmaster/',
                             'blockMenue': true,
-                            'name': 'Fluids'
+                            'name'      : 'Fluids'
                         },
                         {
                             'link': 'https://philogb.github.io/page/hopf/#',
