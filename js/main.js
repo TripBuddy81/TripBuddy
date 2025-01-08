@@ -64,7 +64,6 @@ $( document ).ready( function () {
             window.totalMins = 0;
             window.veryFirstThoughtDisplayed = false;
             window.xxxVisible = false;
-            window.privateVisible = false;
             window.externalPornDirs = {};
             window.externalPornFiles = [];
             window.externalPornFilesTemp = [];
@@ -873,7 +872,6 @@ $( document ).ready( function () {
 
                 enableFullscreen();
                 stopAllActions();
-                checkPrivateVisible();
                 hideScreensaverEnso();
                 clearYoutubeQueue();
                 refreshGradientBackground();
@@ -1406,7 +1404,6 @@ $( document ).ready( function () {
                     $( '.XXX' ).hide();
                     $( '#showPornZapper' ).hide();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
-                    privateVisible = false;
                     getAllExternalPornDirs( config['externalRootDirs']['pornRootDir'] );
                 }
 
@@ -1427,42 +1424,6 @@ $( document ).ready( function () {
                 stopAllActions();
                 displayedAbsoluteTruthIndex = [];
                 absoluteTruthsUpdate();
-                checkPrivateVisible();
-            }
-
-            function checkPrivateVisible() {
-                if ( !xxxVisible || !privateVisible ) {
-                    $( '.private' ).hide();
-                    $( '.privatefilter' ).hide();
-                }
-                if ( !xxxVisible ) {
-                    $( '.showPrivateContent' ).hide();
-                    $( '.XXX' ).hide();
-                }
-                if ( privateVisible ) {
-                    $( '.private' ).hide();
-                    if ( $( '#videos' ).is( ':visible' ) ) {
-                        if ( videoTagList == '.XXX' ) {
-                            $( '.private' ).show();
-                        } else {
-                            $( '.private' ).hide();
-                        }
-                    }
-                    if ( $( '#images' ).is( ':visible' ) ) {
-                        if ( imageTagList == '.private' ) {
-                            $( '.private' ).show();
-                        } else {
-                            $( '.private' ).hide();
-                        }
-                    }
-                    $( '.privatefilter' ).show();
-                    $( '.showPrivateContent' ).hide();
-                } else {
-                    $( '.private' ).hide();
-                    if ( xxxVisible ) {
-                        $( '.showPrivateContent' ).show();
-                    }
-                }
             }
 
             // Hidden Section End
@@ -1584,8 +1545,6 @@ $( document ).ready( function () {
                         this.load();
                     } );
                 }
-
-                checkPrivateVisible();
             } );
 
             // Add videos from the clicked category to queue at random and start playing
@@ -2259,7 +2218,6 @@ $( document ).ready( function () {
                     $( '#ensoImageShrineContainer' ).hide();
                 }
             } );
-
 
             $( '#shrineOuija,#shrineOuijaWhite' ).on( 'wheel click', function ( event ) {
                 enableFullscreen();
@@ -4010,20 +3968,6 @@ $( document ).ready( function () {
                 checkVideodromeTagActive();
             } );
 
-            $( '.showPrivateContent' ).click( function ( e ) {
-                privateVisible = true;
-                checkPrivateVisible();
-                loadActiveVideodromeTagsIntoList();
-                displayAllActiveLocalFilenames();
-            } );
-
-            $( '.hidePrivateContent' ).click( function ( e ) {
-                privateVisible = false;
-                checkPrivateVisible();
-                loadActiveVideodromeTagsIntoList();
-                displayAllActiveLocalFilenames();
-            } );
-
             function loadLocalVideoIntoTargetWindow( targets ) {
                 if ( superShuffleModeActive ) {
                     if ( externalPornFilesTemp.length <= 0 ) {
@@ -4260,9 +4204,7 @@ $( document ).ready( function () {
                     tag = $( this ).attr( 'data-pornMapTag' );
                     $.each( config['pornMap'], function ( index, val ) {
                         if ( val.tag.indexOf( tag ) >= 0 ) {
-                            if ( val.tag.indexOf( 'private' ) < 0 || (val.tag.indexOf( 'private' ) >= 0 && privateVisible) ) {
-                                tempObject[val.file] = val.tag;
-                            }
+                            tempObject[val.file] = val.tag;
                         }
                     } );
                 } );

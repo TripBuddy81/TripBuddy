@@ -790,7 +790,7 @@ li, .options, .form-check-label {
     min-height: 55px;
 }
 
-#videodromeIcon, #pizzaTimerIcon, #disableReminderIcon, #showPrivateContentIcon, #playRandomWisdomIcon, #displayAllVideosIcon {
+#videodromeIcon, #pizzaTimerIcon, #disableReminderIcon, #playRandomWisdomIcon, #displayAllVideosIcon {
     height: 40px;
     position: relative;
     top: -2px;
@@ -820,18 +820,6 @@ li, .options, .form-check-label {
     margin-left: 5px;
     margin-right: 20px;
     height: 45px;
-}
-
-#showPrivateContentIcon {
-    margin-left: 6px;
-    margin-right: 28px;
-    height: 44px;
-}
-
-#showPrivateContentIcon2 {
-    margin-left: 5px;
-    margin-right: 21px;
-    height: 44px;
 }
 
 #showPornContent {
@@ -2146,7 +2134,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-weight: 700;
 }
 
-.videoJSStreamModelname:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover, .lastSearchTerm:hover, .videodromeTagSelect:hover, .videodromeTagSelectPrivateFlag:hover {
+.videoJSStreamModelname:hover, .videoJSSearchURL:hover, .videodromeLocalVideoMenuItem:hover, .lastSearchTerm:hover, .videodromeTagSelect:hover {
     color: white;
 }
 
@@ -2157,7 +2145,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 25px;
 }
 
-.videodromeLocalVideoMenuItem, .videodromeTagSelect, .videodromeTagSelectPrivateFlag {
+.videodromeLocalVideoMenuItem, .videodromeTagSelect {
     font-weight: 700;
     padding-left: 15px;
     padding-top: 5px;
@@ -2696,12 +2684,6 @@ video::-webkit-media-controls-fullscreen-button {
 .videodromeTagSelect {
     font-size: 35px;
     margin-right: 15px;
-}
-
-.videodromeTagSelectPrivateFlag {
-    float: left;
-    font-size: 35px;
-    padding-left: 9px;
 }
 
 #videoTaggingContainer {
