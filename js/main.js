@@ -116,7 +116,7 @@ $( document ).ready( function () {
             window.videoJSPlayer = '';
             window.activePageCrawls = 0;
             window.superShuffleModeActive = true;
-            window.videodromeLoadMode = "1";
+            window.videodromeLoadMode = '1';
             window.videoJSLoadAfterFind = true;
             window.lastUsedVideoStreamSearchUrl = createSearchUrl();
             window.rightMouseButtonClickCounter = 0;
@@ -632,7 +632,7 @@ $( document ).ready( function () {
 
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
-                videodromeLoadMode = "1";
+                videodromeLoadMode = '1';
                 stopShrineDisco();
                 stopPlaybackVideodrome();
                 hideMeditationSymbol();
@@ -3668,13 +3668,13 @@ $( document ).ready( function () {
 
             $( '.videodromeRefreshLocalVideo' ).click( function () {
                 videodromeLoadModeMapping = {
-                    "2": {
+                    '2': {
                         'videoDromeVideo1': 'videoDromeVideo4',
                         'videoDromeVideo2': 'videoDromeVideo3',
                         'videoDromeVideo3': 'videoDromeVideo2',
                         'videoDromeVideo4': 'videoDromeVideo1'
                     },
-                    "3": {
+                    '3': {
                         'videoDromeVideo1': 'videoDromeVideo3',
                         'videoDromeVideo2': 'videoDromeVideo4',
                         'videoDromeVideo3': 'videoDromeVideo1',
@@ -3686,11 +3686,11 @@ $( document ).ready( function () {
                     target = $( this ).attr( 'target' );
 
                     switch ( videodromeLoadMode ) {
-                        case "1":
+                        case '1':
                             loadLocalVideoIntoTargetWindow( [target] );
                             break;
-                        case "2":
-                        case "3":
+                        case '2':
+                        case '3':
                             loadLocalVideoIntoTargetWindow( [target, videodromeLoadModeMapping[videodromeLoadMode][target]] );
                             break;
                     }
@@ -4874,7 +4874,7 @@ $( document ).ready( function () {
                 initMusicVideos( config['externalRootDirs']['musicVideosRootDir'] );
             } );
 
-            $( '#musicVideoPlayer' ).click( function ( e ) {
+            $( '#musicVideoPlayer,#musicVideos' ).click( function ( e ) {
                 setNextMusicVideo();
             } );
 
@@ -4898,7 +4898,7 @@ $( document ).ready( function () {
                 setNextMusicVideo( $( this ).attr( 'src' ), $( this ).html() );
             } );
 
-            document.getElementById( 'musicVideoPlayer' ).addEventListener( 'ended', musicVideoPlayerVideoHasEnded, false );
+            document.getElementById( 'musicVideoPlayer' ).addEventListener( 'ended', setNextMusicVideo, false );
 
             function showMusicVideoOverlay() {
                 clearTimeout( moveTimerMusicVideoOverlay );
@@ -4906,10 +4906,6 @@ $( document ).ready( function () {
                     $( '#musicVideoOverlay' ).hide();
                 }, 2000 );
                 $( '#musicVideoOverlay' ).show();
-            }
-
-            function musicVideoPlayerVideoHasEnded( e ) {
-                setNextMusicVideo();
             }
 
             function initMusicVideos( url ) {
@@ -5112,7 +5108,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+                // toggleXXXVisible();
 
                 /* $( '#showShrineSection' ).trigger( 'click' );*/
                 /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
