@@ -2266,14 +2266,9 @@ $( document ).ready( function () {
                 toggleRelationships( 'hide' );
                 hideMeditationSymbol();
                 $( '#absoluteTruthsOverlay' ).hide();
+                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
+                $( '#OuijaYesNo' ).show();
 
-                if ( $( '#OuijaYesNo' ).is( ':visible' ) ) {
-                    $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1' );
-                    $( '#OuijaYesNo' ).hide();
-                } else {
-                    $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
-                    $( '#OuijaYesNo' ).show();
-                }
                 setNextOuijaYesNoAnswer();
             } );
 
@@ -2283,12 +2278,7 @@ $( document ).ready( function () {
                 toggleRelationships( 'hide' );
                 hideOuijaYesNo();
                 $( '#absoluteTruthsOverlay' ).hide();
-
-                if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
-                    hideMeditationSymbol();
-                } else {
-                    showMeditationSymbol();
-                }
+                showMeditationSymbol();
             } );
 
             function hideOuijaYesNo() {
