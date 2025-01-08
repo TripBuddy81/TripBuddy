@@ -2242,6 +2242,12 @@ video::-webkit-media-controls-fullscreen-button {
 
 #toggleTransperentStroboOracleSymbol {
     height: 55px;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.videodromeLoadModeSelect {
+    height: 55px;
     margin-right: 10px;
     margin-left: 10px;
 }

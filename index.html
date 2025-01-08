@@ -809,7 +809,8 @@
     <div id="images" class="mt-3 mb-3">
         <div id="imageTags" class="sticky sharedBackground">
             {{#selectableImageTags}}
-            <div id="{{selectableTag}}filter" class="{{selectableTag}}filter {{class}} imageFilterBtn btn btn-primary me-2">
+            <div id="{{selectableTag}}filter"
+                 class="{{selectableTag}}filter {{class}} imageFilterBtn btn btn-primary me-2">
                 {{selectableTag}}
             </div>
             {{/selectableImageTags}}
@@ -922,7 +923,8 @@
             </div>
 
             {{#gameLinks}}
-            <div data="{{link}}" blockMenue="{{blockMenue}}" iframeClass="{{class}}" class="gameLink btn btn-primary me-2">
+            <div data="{{link}}" blockMenue="{{blockMenue}}" iframeClass="{{class}}"
+                 class="gameLink btn btn-primary me-2">
                 {{name}}
             </div>
             {{/gameLinks}}
@@ -1152,6 +1154,14 @@
                      src="./assets/sparkle.png">
                 <img id="toggleTransperentStroboOracleSymbol" class="iconAlternating cursorAction"
                      src="./assets/oracle.png">
+                <span id="videodromeLoadModeSelectContainer">
+                    <img data-videodromeLoadMode="1" class="videodromeLoadModeSelect iconAlternating cursorAction"
+                         src="./assets/videodromeMode1.png">
+                    <img data-videodromeLoadMode="2" class="videodromeLoadModeSelect iconAlternating cursorAction"
+                         src="./assets/videodromeMode2.png">
+                    <img data-videodromeLoadMode="3" class="videodromeLoadModeSelect iconAlternating cursorAction"
+                         src="./assets/videodromeMode3.png">
+                </span>
             </span>
 
             <span id="videoTaggingContainer">
