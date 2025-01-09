@@ -3735,7 +3735,7 @@ $( document ).ready( function () {
             } );
 
             $( '#refreshVideoDromeVideoAll' ).click( function () {
-                if (videodromeLoadMode == "1") {
+                if ( videodromeLoadMode == '1' ) {
                     $( '#refreshVideoDromeVideo1' ).trigger( 'click' );
                     $( '#refreshVideoDromeVideo2' ).trigger( 'click' );
                     $( '#refreshVideoDromeVideo3' ).trigger( 'click' );
@@ -3807,7 +3807,7 @@ $( document ).ready( function () {
                 }, 2000 );
             } );
 
-            $( document ).on( 'mousemove', '#videodromeGlobalActionContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuVideoJSContainerExtraOptions', function ( event ) {
+            $( document ).on( 'mouseenter', '#videodromeGlobalActionContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuVideoJSContainerExtraOptions', function ( event ) {
                 event.preventDefault();
 
                 $( '.video-js' ).removeClass( 'vjs-user-inactive' );
@@ -3819,6 +3819,7 @@ $( document ).ready( function () {
 
                 if ( $( '#videodromeFullscreenMenuLocalVideoContainer' ).is( ':visible' ) ) {
                     $( '#videoTaggingContainer' ).show();
+                    checkIfCurrentVideoAlreadyTagged();
                     $( '#videodromeLoadModeSelectContainer' ).hide();
                 }
 
@@ -3971,6 +3972,21 @@ $( document ).ready( function () {
                 displayAllActiveLocalFilenames();
                 checkVideodromeTagActive();
             } );
+
+            function checkIfCurrentVideoAlreadyTagged() {
+                $( '.videoTaggingButtonActive' ).removeClass( 'videoTaggingButtonActive' );
+                currentVideo = $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( 'pornRoot\/', '' ).replace( /\..*/, '' ).replaceAll( '/', '%2F' ).replaceAll( ' ', '' ).replaceAll( '\'', '' ).replaceAll( '%20', '' );
+                $.each( config['pornMap'], function ( index, val ) {
+                    potentialTarget = val.file.replace( 'pornRoot\/', '' ).replace( /\..*/, '' ).replaceAll( '/', '%2F' ).replaceAll( ' ', '' ).replaceAll( '\'', '' ).replaceAll( '%20', '' );
+                    if ( potentialTarget.indexOf( currentVideo ) >= 0 ) {
+                        tags = val.tag.split( ',' );
+                        $.each( tags, function ( i ) {
+                            $( '.videoTag' + tags[i] ).addClass( 'videoTaggingButtonActive' );
+                        } );
+                        return;
+                    }
+                } );
+            }
 
             function loadLocalVideoIntoTargetWindow( targets ) {
                 if ( superShuffleModeActive ) {

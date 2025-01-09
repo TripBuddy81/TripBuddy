@@ -2693,6 +2693,12 @@ video::-webkit-media-controls-fullscreen-button {
     line-height: 27px;
 }
 
+.videoTaggingButtonActive {
+    font-weight: bold;
+    color: white;
+    pointer-events: none;
+}
+
 .videoTaggingButton:hover {
     color: white;
 }
