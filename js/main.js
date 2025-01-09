@@ -3735,11 +3735,15 @@ $( document ).ready( function () {
             } );
 
             $( '#refreshVideoDromeVideoAll' ).click( function () {
-                $( '#refreshVideoDromeVideo1' ).trigger( 'click' );
-                $( '#refreshVideoDromeVideo2' ).trigger( 'click' );
-                $( '#refreshVideoDromeVideo3' ).trigger( 'click' );
-                $( '#refreshVideoDromeVideo4' ).trigger( 'click' );
-
+                if (videodromeLoadMode == "1") {
+                    $( '#refreshVideoDromeVideo1' ).trigger( 'click' );
+                    $( '#refreshVideoDromeVideo2' ).trigger( 'click' );
+                    $( '#refreshVideoDromeVideo3' ).trigger( 'click' );
+                    $( '#refreshVideoDromeVideo4' ).trigger( 'click' );
+                } else {
+                    $( '#refreshVideoDromeVideo1' ).trigger( 'click' );
+                    $( '#refreshVideoDromeVideo2' ).trigger( 'click' );
+                }
                 videodromeStreamRefreshVideo();
             } );
 
