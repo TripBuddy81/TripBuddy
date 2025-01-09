@@ -5071,12 +5071,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 // toggleXXXVisible();
 
-                /* $( '#showShrineSection' ).trigger( 'click' );*/
-                /*   $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );*/
-
-                /*      $( '#videodromeUI' ).show();
-                      $( '#videoTaggingContainer' ).show();*/
-
+                // $( '#showShrineSection' ).trigger( 'click' );
             }
         }
 );
