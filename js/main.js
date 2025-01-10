@@ -2670,6 +2670,7 @@ $( document ).ready( function () {
                 } );
 
                 $( '.spotifyPlaylistItem' ).on( 'mousedown', document, function ( e ) {
+                    stopAfterTrack = false;
                     if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
                         $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                         $( '#shrineSettingsContainer' ).removeClass( 'visible' );
