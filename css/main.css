@@ -1957,7 +1957,7 @@ video::-webkit-media-controls-fullscreen-button {
     bottom: 0vH;
     left: 0vW;
     opacity: 0;
-    z-index: 55;
+    z-index: 75;
 }
 
 #videodromeLeftToolbarTrigger {
@@ -1967,7 +1967,7 @@ video::-webkit-media-controls-fullscreen-button {
     bottom: 0vH;
     left: 0vW;
     opacity: 0;
-    z-index: 55;
+    z-index: 75;
 }
 
 .videodromeRefreshContainer {
