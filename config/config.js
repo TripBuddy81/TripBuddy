@@ -683,6 +683,12 @@ var config = {
                     'startSeconds': '50'
                 },
                 {
+                    'videoId'     : 'Ycx0YpxOkG8',
+                    'tags'        : 'meditative nature',
+                    'startSeconds': '10'
+                },
+
+                {
                     'videoId'     : 'yDiD8F9ItX0',
                     'tags'        : 'meditative space',
                     'startSeconds': '80'
@@ -711,6 +717,10 @@ var config = {
                 },
                 {
                     'videoId': 'bb9ZTbYGRdc',
+                    'tags'   : 'meditative nature'
+                },
+                {
+                    'videoId': 'NtsJ5m6C7dU',
                     'tags'   : 'meditative nature'
                 },
                 {
@@ -750,11 +760,20 @@ var config = {
                     'mute'        : 'mixed',
                     'startSeconds': '8'
                 },
-
                 {
                     'videoId'     : 'AmrrSfiMxGA',
                     'tags'        : 'space',
                     'startSeconds': '1'
+                },
+                {
+                    'videoId'     : 'n8kbhDTbfwE',
+                    'tags'        : 'space',
+                    'startSeconds': '0'
+                },
+                {
+                    'videoId'     : 'J22hKd8SZp8',
+                    'tags'        : 'space',
+                    'startSeconds': '0'
                 },
                 {
                     'videoId'     : 'jNyvfvDFFPk',
@@ -1068,6 +1087,12 @@ var config = {
                     'label'  : 'The lie we live'
                 },
                 {
+                    'videoId': 'OXBwUrgE-kI',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'How To Be Fully Alive Now'
+                },
+                {
                     'videoId': 'rBpaUICxEhk',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -1102,6 +1127,12 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'The Mystery of falling in love'
+                },
+                {
+                    'videoId': 'CyWhIh3i1IY',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Keep your mouth shut ones you know this'
                 },
                 {
                     'videoId': 'sRt8VhjxTsw',
@@ -1176,16 +1207,28 @@ var config = {
                     'label'  : 'The Truth'
                 },
                 {
+                    'videoId': 'W8ogr8CAm6g',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Once You Understand This.. Everything Changes'
+                },
+                {
                     'videoId': 'rHRJJlKTSc4',
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'The Illusion of Control'
                 },
                 {
-                    'videoId': 'j_ECHg1FPwg',
+                    'videoId': 'uz0isvW_zZU',
                     'mute'   : false,
                     'tags'   : 'wisdom',
-                    'label'  : 'Inner voice'
+                    'label'  : 'Don\'t Waste Your Life'
+                },
+                {
+                    'videoId': 'oVpmpaD9hfs',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The Matrix was real after all...'
                 },
                 {
                     'videoId': '4CaSXEEqKBU',
@@ -1284,10 +1327,22 @@ var config = {
                     'label'  : 'The great free will debate'
                 },
                 {
+                    'videoId': 'jxe3Helh2Ks',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Physicists Claim They Solved Schrödinger\'s Cat Problem'
+                },
+                {
                     'videoId': 'suuA3QGUPis',
                     'mute'   : false,
                     'tags'   : 'thinker',
                     'label'  : 'Is the universe alive?'
+                },
+                {
+                    'videoId': 'hCwR1ztUXtU',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Erwin Schrödinger - "Do Electrons Think?"'
                 },
                 {
                     'videoId': '8ePu81ssU4M',
@@ -1386,6 +1441,12 @@ var config = {
                     'label'  : 'Building your own prison'
                 },
                 {
+                    'videoId': 't8CNhakfB7c',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'To be an artist is to be dysfunctional'
+                },
+                {
                     'videoId': 'NJMKuswemhc',
                     'mute'   : false,
                     'tags'   : 'shaman',
@@ -1462,6 +1523,12 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'shaman',
                     'label'  : 'Control Your Life'
+                },
+                {
+                    'videoId': 'vbdhbliI1BM',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'The Illusion of the Phantom Identity'
                 },
                 {
                     'videoId': 'bwavvODGUXE',
