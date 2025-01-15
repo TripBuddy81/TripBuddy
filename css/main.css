@@ -2218,7 +2218,7 @@ video::-webkit-media-controls-fullscreen-button {
     background: linear-gradient(to right, #6fba82, #1098ad, #5073b8, #ef4e7b, #f37055);
     border-radius: 5px;
     opacity: 0;
-    z-index: 15;
+    z-index: 75;
     width: 101%;
     padding: 15px 15px;
     padding-right: 455px;
@@ -2696,7 +2696,6 @@ video::-webkit-media-controls-fullscreen-button {
 .videoTaggingButtonActive {
     font-weight: bold;
     color: white;
-    pointer-events: none;
 }
 
 .videoTaggingButton:hover {

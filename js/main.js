@@ -392,7 +392,7 @@ $( document ).ready( function () {
                 if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) || $( '#videodromeLeftToolbar' ).is( ':visible' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
-                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
                     $( '#videodromeLeftToolbar' ).hide();
                 } else if ( $( '.modal' ).is( ':visible' ) ) {
                     $( '.modal' ).modal( 'hide' );
@@ -2664,7 +2664,7 @@ $( document ).ready( function () {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
-                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
                     $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
                     $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
                 } );
@@ -2684,12 +2684,12 @@ $( document ).ready( function () {
                         nextPlaylistToPlay = $( this ).attr( 'data-spotify-id' );
                         $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                         $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
-                        $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                        $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
                     } else if ( e.which == 1 ) {
                         $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                         $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                         $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
-                        $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                        $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
                         $( '.spotifyPlaylistQueed' ).removeClass( 'spotifyPlaylistQueed' );
                         $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
                         $( '[data-spotify-id="' + $( this ).attr( 'data-spotify-id' ) + '"]' ).addClass( 'spotifyPlaylistActive' );
@@ -3860,7 +3860,7 @@ $( document ).ready( function () {
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '65' );
                 } else {
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
-                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '15' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
                     $( '#videoTaggingContainer' ).hide();
                     $( '#videodromeLoadModeSelectContainer' ).show();
                 }
