@@ -4861,6 +4861,10 @@ $( document ).ready( function () {
                 setNextMusicVideo();
             } );
 
+            $( '#musicVideoPlayer' ).on( 'ended', function () {
+                setNextMusicVideo();
+            } );
+
             $( document ).on( 'mousemove', '#musicVideos', function () {
                 showMusicVideoOverlay();
             } );
@@ -4880,8 +4884,6 @@ $( document ).ready( function () {
             $( document ).on( 'click', '.musicVideoFilename', function () {
                 setNextMusicVideo( $( this ).attr( 'src' ), $( this ).html() );
             } );
-
-            document.getElementById( 'musicVideoPlayer' ).addEventListener( 'ended', setNextMusicVideo, false );
 
             function showMusicVideoOverlay() {
                 clearTimeout( moveTimerMusicVideoOverlay );
