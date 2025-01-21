@@ -2735,6 +2735,16 @@ video::-webkit-media-controls-fullscreen-button {
     margin-top: 15px;
 }
 
+#selectAllVideodromeTags {
+    opacity: 1;
+    height: 40px;
+    float: left;
+    padding-left: 10px;
+    padding-right: 16px;
+    margin-top: 15px;
+}
+
+
 #videoTaggingCache {
     overflow: hidden;
 }

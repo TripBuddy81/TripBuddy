@@ -3989,6 +3989,18 @@ $( document ).ready( function () {
                 checkVideodromeTagActive();
             } );
 
+            $( document ).on( 'click', '#selectAllVideodromeTags', function ( event ) {
+                $( '.videodromeTagSelect' ).addClass( 'videodromeTagActive' );
+                $( '[data-pornmaptag=General]' ).removeClass( 'videodromeTagActive' );
+                $( '.videodromeLocalFolderActive' ).each( function () {
+                    $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
+                    processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );
+                } );
+                loadActiveVideodromeTagsIntoList();
+                displayAllActiveLocalFilenames();
+                checkVideodromeTagActive();
+            } );
+
             $( '.videodromeTagSelect' ).click( function ( e ) {
                 $( '[data-pornmaptag|=\'' + $( this ).attr( 'data-pornmaptag' ) + '\']' ).toggleClass( 'videodromeTagActive' );
                 loadActiveVideodromeTagsIntoList();
