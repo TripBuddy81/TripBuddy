@@ -1548,17 +1548,49 @@ $( document ).ready( function () {
                 }
             } );
 
-            // Add videos from the clicked category to queue at random and start playing
+            // Add videos from the clicked category to queue at random and starts playing
             $( '.videoFilterBtn' ).dblclick( function ( e ) {
-                category = $( this ).attr( 'id' ).replace( 'filter', '' );
+                playAllVideosFromCategory( $( this ).attr( 'id' ).replace( 'filter', '' ) );
+            } );
 
+            // Double clicking videos main button queues all videos and starts playing
+            $( '#showVideoSection' ).dblclick( function ( e ) {
+                playAllVideosFromCategory();
+            } );
+
+            // Play clicked youtube video and place a colorful border on preview image
+            $( '.youtubeVideo' ).click( function ( event ) {
+                playYoutubeVideo( this );
+
+                $( '.lastPlayedVideo' ).each( function () {
+                    $( this ).remove();
+                } );
+                colorfulBorder = document.createElement( 'div' );
+                colorfulBorder.classList.add( 'colorfulBorder' );
+                colorfulBorder.classList.add( 'lastPlayedVideo' );
+                $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
+            } );
+
+            $( '.videoHasSoundYoutube' ).click( function ( event ) {
+                playYoutubeVideo( $( this ).closest( '.iFrameContainer' ).find( '.youtubeVideo ' ), true );
+            } );
+
+            function playAllVideosFromCategory( category = '' ) {
                 playingRandomVideoFromCategory = true;
                 $( '#showSearchSection' ).trigger( 'click' );
 
                 var allSelectedVideoIds = [];
-                $( '.videoContainer.' + category ).each( function () {
-                    allSelectedVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) );
-                } );
+
+                if ( category != '' ) {
+                    $( '.videoContainer.' + category ).each( function () {
+                        allSelectedVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) );
+                    } );
+                } else {
+                    $( '.videoContainer' ).each( function () {
+                        allSelectedVideoIds.push( $( this ).find( '.videoSource' ).attr( 'videoid' ) );
+                    } );
+                }
+
                 shuffleArray( allSelectedVideoIds );
 
                 youtubeCurrentQueue = [];
@@ -1592,29 +1624,7 @@ $( document ).ready( function () {
 
                 mainSearchResultYoutubePlayer.playVideo();
                 displayYoutubeQueue();
-            } );
-
-            // Double clicking videos main button reloads all videos
-            $( '#showVideoSection' ).dblclick( function ( e ) {
-                loadVideos();
-            } );
-
-            // Play clicked youtube video and place a colorful border on preview image
-            $( '.youtubeVideo' ).click( function ( event ) {
-                playYoutubeVideo( this );
-
-                $( '.lastPlayedVideo' ).each( function () {
-                    $( this ).remove();
-                } );
-                colorfulBorder = document.createElement( 'div' );
-                colorfulBorder.classList.add( 'colorfulBorder' );
-                colorfulBorder.classList.add( 'lastPlayedVideo' );
-                $( this ).closest( '.videoContainer ' )[0].appendChild( colorfulBorder );
-            } );
-
-            $( '.videoHasSoundYoutube' ).click( function ( event ) {
-                playYoutubeVideo( $( this ).closest( '.iFrameContainer' ).find( '.youtubeVideo ' ), true );
-            } );
+            }
 
             function clearYoutubeQueue() {
                 youtubeCurrentQueue = [];
