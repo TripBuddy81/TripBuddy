@@ -2293,6 +2293,7 @@ $( document ).ready( function () {
             }
 
             function setNextOuijaYesNoAnswer() {
+                $( '.OuijaYesNoSymbol' ).addClass( 'OuijaRefreshAnimation' );
                 randomValue = Math.floor( Math.random() * 3 );
 
                 switch ( randomValue ) {
@@ -2312,6 +2313,10 @@ $( document ).ready( function () {
                         $( '#OuijaYes' ).hide();
                         break;
                 }
+
+                setTimeout( function () {
+                    $( '.OuijaYesNoSymbol' ).removeClass( 'OuijaRefreshAnimation' );
+                }, 700 );
             }
 
             function toggleRelationships( modeForced = '' ) {
