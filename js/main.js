@@ -2057,9 +2057,9 @@ $( document ).ready( function () {
                 $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleThinkerWhite' ).show();
                 $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineOracle,#toggleGospel,#toggleThinker' ).hide();
                 if ( xxxVisible ) {
-                    $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#toggleGospelWhite' ).show();
+                    $( '#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#toggleGospelWhite' ).show();
                 } else {
-                    $( '#toggleRelationships,#toggleRelationshipsWhite,#toggleGospel' ).hide();
+                    $( '#toggleGospel' ).hide();
                 }
                 $( '#shrineSetBGBlack' ).hide();
                 $( '.shrineSetBGColorful' ).attr( 'style', 'display: inline' );
@@ -2070,9 +2070,9 @@ $( document ).ready( function () {
                 $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleGospelWhite,#toggleThinkerWhite' ).hide();
                 $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#shrineOuija,#shrineOracle,#toggleThinker' ).show();
                 if ( xxxVisible ) {
-                    $( '#toggleRelationships,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#toggleGospel' ).show();
+                    $( '#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#toggleGospel' ).show();
                 } else {
-                    $( '#toggleRelationships,#toggleRelationshipsWhite,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).hide();
+                    $( '#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards' ).hide();
                 }
                 $( '#shrineSetBGBlack' ).show();
                 $( '.shrineSetBGColorful' ).hide();
@@ -2320,7 +2320,7 @@ $( document ).ready( function () {
             }
 
             function toggleRelationships( modeForced = '' ) {
-                if ( xxxVisible && modeForced !== 'hide' ) {
+                if ( modeForced !== 'hide' ) {
                     if ( $( '#relationships' ).is( ':visible' ) ) {
                         $( '#relationships' ).hide();
                         $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1.0' );
