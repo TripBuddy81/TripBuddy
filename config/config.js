@@ -1815,7 +1815,31 @@ var config = {
                 {
                     'image': './media/shaman/503.jpg',
                     'tags' : 'shaman'
-                }
+                },
+                {
+                    'image': './media/shaman/601.jpeg',
+                    'tags' : 'shaman'
+                },
+                {
+                    'image': './media/shaman/602.jpg',
+                    'tags' : 'shaman'
+                },
+                {
+                    'image': './media/shaman/603.jpeg',
+                    'tags' : 'shaman'
+                },
+                {
+                    'image': './media/shaman/604.gif',
+                    'tags' : 'shaman'
+                },
+                {
+                    'image': './media/shaman/605.jpg',
+                    'tags' : 'shaman'
+                },
+                {
+                    'image': './media/shaman/606.jpg',
+                    'tags' : 'shaman'
+                },
             ],
             'mindJourney'            :
                     {
