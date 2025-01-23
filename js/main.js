@@ -1418,8 +1418,9 @@ $( document ).ready( function () {
                     } );
                 }
 
-                $( '.imageFilterBtn.imageFilterActive' ).each( function () {
+                $( '.imageFilterBtn' ).each( function () {
                     $( this ).trigger( 'click' );
+                    return false;
                 } );
 
                 stopAllActions();
