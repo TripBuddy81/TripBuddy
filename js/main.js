@@ -589,6 +589,17 @@ $( document ).ready( function () {
                 event.stopPropagation();
             } )
 
+            // Set icon to white and make it no longer clickable until some other related icon is clicked
+            function setIconActive( e ) {
+                $( '.iconActive' ).each( function () {
+                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
+                    $( this ).removeClass( 'iconActive' );
+                } );
+
+                $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '.png', '_white.png' ) );
+                $( e.target ).addClass( 'iconActive' );
+            }
+
             // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
             function stopAllActions( hidePlaylistSelection = true, hideQuickTrackSelection = true ) {
                 $( '.spotifyTrackContainer' ).show();
@@ -627,12 +638,13 @@ $( document ).ready( function () {
                 $( '.displayedFullscreenImage' ).trigger( 'click' );
 
                 $( '.iconAlternating' ).each( function () {
-                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
+                    if ( !$( this ).hasClass( 'iconActive' ) ) {
+                        $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
+                    }
                 } );
 
                 blockScreenSaver = false;
                 screensaverSecondsIdle = 0;
-                videodromeLoadMode = '1';
                 stopShrineDisco();
                 stopPlaybackVideodrome();
                 hideMeditationSymbol();
@@ -3685,13 +3697,17 @@ $( document ).ready( function () {
                 }
             }
 
-            $( '.videodromeLoadModeSelect' ).click( function () {
+            $( '.videodromeLoadModeSelect' ).click( function ( e ) {
                 videodromeLoadModeRandom = false;
                 videodromeLoadMode = $( this ).attr( 'data-videodromeLoadMode' );
+
+                setIconActive( e );
             } );
 
-            $( '#videodromeLoadModeRandom' ).click( function () {
+            $( '#videodromeLoadModeRandom' ).click( function ( e ) {
                 videodromeLoadModeRandom = true;
+
+                setIconActive( e );
             } );
 
             $( '.videoJSSearchURL' ).click( function () {

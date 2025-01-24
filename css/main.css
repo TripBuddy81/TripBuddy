@@ -214,6 +214,10 @@ p {
     font-size: xx-large;
 }
 
+.iconActive {
+    pointer-events: none;
+}
+
 #showVideoSection, #showImageSection, #showShrineSection, #showGamesSection, #showSearchSection, #showPornZapper {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     height: 65px;
@@ -2231,7 +2235,7 @@ video::-webkit-media-controls-fullscreen-button {
 #toggleTransperentStroboOracleSymbol {
     height: 55px;
     margin-right: 20px;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .videodromeLoadModeSelect, #videodromeLoadModeRandom {
