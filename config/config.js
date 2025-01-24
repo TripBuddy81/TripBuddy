@@ -163,11 +163,7 @@ var config = {
                         'id'   : '7xkCTcJWJGTR9VhM0nvvKa'
                     },
                     {
-                        'label': 'Electro I - mixed',
-                        'id'   : '0ZigR4WogVGwftQA7GAMhu'
-                    },
-                    {
-                        'label': 'Electro II - vibe & dance',
+                        'label': 'Electro Vibe',
                         'id'   : '0o4bOWzj5JRiuStG4KlIeo'
                     },
                     {
@@ -1838,6 +1834,10 @@ var config = {
                 },
                 {
                     'image': './media/shaman/606.jpg',
+                    'tags' : 'shaman'
+                },
+                {
+                    'image': './media/shaman/607.jpg',
                     'tags' : 'shaman'
                 },
             ],
