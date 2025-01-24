@@ -3449,6 +3449,9 @@ $( document ).ready( function () {
             } );
 
             $( '.toggleTransparentStrobo' ).on( 'wheel', function ( event ) {
+                if ( !shrineDiscoActive ) {
+                    toggleTransparentStrobo( $( this ).attr( 'data-transparency' ) );
+                }
                 toggleParticleSettings();
             } );
 
