@@ -3646,6 +3646,10 @@ $( document ).ready( function () {
             } );
 
             function loadVideoDromeOneWindowRefresh( target, usedVideodromeLoadMode = videodromeLoadMode ) {
+                if ( videodromeLoadModeRandom ) {
+                    usedVideodromeLoadMode = randomIntFromInterval( 1, 4 ).toString();
+                }
+
                 if ( config['pornMap'] != undefined && config['pornMap'].length > 0 ) {
                     videodromeLoadModeMapping = {
                         '2': {
