@@ -856,7 +856,6 @@ $( document ).ready( function () {
                 }, 500 );
             } );
             $( '#showPornZapper' ).click( function () {
-                $( '#showVideoSection' ).trigger( 'click' );
                 $( '#ensoImageShrineContainer' ).hide();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
@@ -4299,7 +4298,7 @@ $( document ).ready( function () {
 
                 videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
                 outputPHFavorites();
-                getNextVideoStreamUrl( true, lastUsedVideoStreamSearchUrl );
+                // getNextVideoStreamUrl( true, lastUsedVideoStreamSearchUrl );
             }
 
             function loadActiveVideodromeTagsIntoList() {
