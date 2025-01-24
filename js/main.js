@@ -40,7 +40,6 @@ $( document ).ready( function () {
             window.lastDisplayedImage = config['images'][0]['image'];
             window.minutesTillNextThought = 0;
             window.showParticles = false;
-            window.showParticlesFirstTime = true;
             window.activeParticlesConfig = 0;
             window.guidedThoughtsActive = true;
             window.allGuidedThoughts = [];
@@ -817,11 +816,6 @@ $( document ).ready( function () {
                 $( '#shrineSettingsContainer' ).addClass( 'visible' );
                 $( '#mainMenu' ).attr( 'style', 'opacity:1' );
 
-                if ( showParticlesFirstTime ) {
-                    showParticlesFirstTime = false;
-                    particlesInit1();
-                }
-
                 if ( typeof absoluteTruthsTimer !== 'undefined' ) {
                     clearInterval( absoluteTruthsTimer );
                 }
@@ -873,6 +867,7 @@ $( document ).ready( function () {
                 $( '.video-js' ).removeClass( 'vjs-user-active' );
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
                 $( '.vjs-control-bar' ).css( 'display', 'none' );
+                destroyParticles();
                 forcePlaybackVideodrome();
                 videodromePlayInterval = setInterval( forcePlaybackVideodrome, 1000 );
             } );
@@ -2050,6 +2045,11 @@ $( document ).ready( function () {
 
             $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite' ).click( function ( event ) {
                 enableFullscreen();
+
+                if ( window.pJSDom[0] == undefined ) {
+                    particlesInit1();
+                }
+
                 if ( !showParticles ) {
                     showParticles = true;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
@@ -2389,8 +2389,12 @@ $( document ).ready( function () {
             function toggleParticleSettings() {
                 activeParticlesConfig++;
                 activeParticlesConfig = activeParticlesConfig % 2;
-                window.pJSDom[0].pJS.fn.vendors.destroypJS();
-                window['pJSDom'] = [];
+                try {
+                    window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                    window['pJSDom'] = [];
+                } catch ( e ) {
+                }
+
                 showParticles = true;
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
 
@@ -2401,6 +2405,14 @@ $( document ).ready( function () {
                     case 1:
                         particlesInit2();
                         break;
+                }
+            }
+
+            function destroyParticles() {
+                try {
+                    window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                    window['pJSDom'] = [];
+                } catch ( e ) {
                 }
             }
 
@@ -3431,6 +3443,10 @@ $( document ).ready( function () {
                 toggleTransparentStrobo( $( this ).attr( 'data-transparency' ) );
             } );
 
+            $( '.toggleTransparentStrobo' ).on( 'wheel', function ( event ) {
+                toggleParticleSettings();
+            } );
+
             $( '#toggleTransperentStroboOracleSymbol' ).click( function () {
                 $( '#meditationSymbol' ).hide();
                 $( '#ensoImageShrineContainer' ).toggle();
@@ -3559,10 +3575,10 @@ $( document ).ready( function () {
                     $( '#search' ).hide();
                     $( '#mainMenu' ).attr( 'style', 'opacity:0' );
 
-                    if ( showParticlesFirstTime ) {
-                        showParticlesFirstTime = false;
+                    if ( window.pJSDom[0] == undefined ) {
                         particlesInit1();
                     }
+
                     startDiscoMode();
                     nextDiscoMode();
 
