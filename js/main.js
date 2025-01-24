@@ -400,8 +400,13 @@ $( document ).ready( function () {
                     $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                     $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                     $( '#shrineSettingsContainer' ).removeClass( 'visible' );
+                } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#meditationSymbol' ).is( ':visible' ) ) {
+                    $( '#meditationSymbol' ).hide();
+                    $( '.meditationSymbolInfoContainer' ).hide();
                 } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
                     stopShrineDisco();
+                    $( '#meditationSymbol' ).hide();
+                    $( '.meditationSymbolInfoContainer' ).hide();
                 } else if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' ) && !$( '#musicVideos' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||
@@ -3448,18 +3453,10 @@ $( document ).ready( function () {
             } );
 
             $( '#toggleTransperentStroboOracleSymbol' ).click( function () {
-                $( '#meditationSymbol' ).hide();
-                $( '#ensoImageShrineContainer' ).toggle();
-
                 if ( !shrineDiscoActive ) {
                     toggleTransparentStrobo();
                 }
-
-                if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
-                    $( '.meditationSymbolInfoContainer' ).show();
-                } else {
-                    $( '.meditationSymbolInfoContainer' ).hide();
-                }
+                showMeditationSymbol();
             } );
 
             $( '#toggleTransperentStroboOracleSymbol' ).on( 'wheel', function ( event ) {
