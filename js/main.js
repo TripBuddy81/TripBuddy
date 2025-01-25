@@ -856,6 +856,7 @@ $( document ).ready( function () {
                 }, 500 );
             } );
             $( '#showPornZapper' ).click( function () {
+                $( '#showShrineSection' ).trigger( 'click' );
                 $( '#ensoImageShrineContainer' ).hide();
                 blockScreenSaver = true;
                 $( '#videodrome' ).show();
