@@ -3655,33 +3655,49 @@ $( document ).ready( function () {
 
             $( document ).on( 'wheel', '.videodromeVideoContainer', function ( event ) {
                 event.preventDefault();
+                $( '.videoDromeFrame' ).unbind( 'seeking' );
+                setTimeout( function () {
+                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+                }, 100 );
+
                 if ( $( this ).hasClass( 'videodromeFullscreen' ) ) {
                     $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
                 }
-                if ( event.originalEvent.deltaY > 0 ) { // going down
-                    $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
-                        $( this )[0].currentTime = $( this )[0].currentTime - 30;
-                    } );
-                } else { // going up
-                    $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
-                        $( this )[0].currentTime = $( this )[0].currentTime + 30;
-                    } );
-                }
+
+                originalTime = '';
+                $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
+                    if ( originalTime == '' ) {
+                        originalTime = $( this )[0].currentTime;
+                    }
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        $( this )[0].currentTime = originalTime - 30;
+                    } else { // going up
+                        $( this )[0].currentTime = originalTime + 30;
+                    }
+                } );
                 renderHack();
             } );
 
             $( document ).on( 'wheel', '.videodromeRefreshLocalVideo', function ( event ) {
                 event.preventDefault();
+                $( '.videoDromeFrame' ).unbind( 'seeking' );
+                setTimeout( function () {
+                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+                }, 100 );
+
                 target = $( this ).attr( 'target' );
-                if ( event.originalEvent.deltaY > 0 ) { // going down
-                    $( '[src="' + $( '.' + target ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
-                        $( this )[0].currentTime = $( this )[0].currentTime - 30;
-                    } );
-                } else { // going up
-                    $( '[src="' + $( '.' + target ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
-                        $( this )[0].currentTime = $( this )[0].currentTime + 30;
-                    } );
-                }
+
+                originalTime = '';
+                $( '[src="' + $( '.' + target ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
+                    if ( originalTime == '' ) {
+                        originalTime = $( this )[0].currentTime;
+                    }
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        $( this )[0].currentTime = originalTime - 30;
+                    } else { // going up
+                        $( this )[0].currentTime = originalTime + 30;
+                    }
+                } );
                 renderHack();
             } );
 
@@ -3702,8 +3718,27 @@ $( document ).ready( function () {
             } );
 
             $( '.videodromeRefreshLocalVideo' ).click( function () {
+                $( '.videoDromeFrame' ).unbind( 'seeking' );
+                setTimeout( function () {
+                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+                }, 100 );
                 loadVideoDromeOneWindowRefresh( $( this ).attr( 'target' ) );
             } );
+
+            $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+
+            function syncTimeOfLinkedVideoContainer( e ) {
+                $( '.videoDromeFrame' ).unbind( 'seeking' );
+                setTimeout( function () {
+                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+                }, 100 );
+
+                toBeSyncedTime = $( this )[0].currentTime;
+
+                $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
+                    $( this )[0].currentTime = toBeSyncedTime;
+                } );
+            }
 
             // Force repainting of viewport. Speeds up video playback.
             function renderHack() {
