@@ -1786,7 +1786,6 @@ $( document ).ready( function () {
                     } else { // going up
                         $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime = $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime + 30;
                     }
-                    renderHack();
                 }
                 if ( $( '#directYoutubePlayer' ).is( ':visible' ) ) { // youtube direct player
                     if ( event.originalEvent.deltaY > 0 ) { // going down
@@ -3690,9 +3689,13 @@ $( document ).ready( function () {
                 event.preventDefault();
                 target = $( this ).attr( 'target' );
                 if ( event.originalEvent.deltaY > 0 ) { // going down
-                    $( '.' + target ).find( '.videoDromeFrame' )[0].currentTime = $( '.' + target ).find( '.videoDromeFrame' )[0].currentTime - 30;
+                    $( '[src="' + $( '.' + target ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
+                        $( this )[0].currentTime = $( this )[0].currentTime - 30;
+                    } );
                 } else { // going up
-                    $( '.' + target ).find( '.videoDromeFrame' )[0].currentTime = $( '.' + target ).find( '.videoDromeFrame' )[0].currentTime + 30;
+                    $( '[src="' + $( '.' + target ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
+                        $( this )[0].currentTime = $( this )[0].currentTime + 30;
+                    } );
                 }
                 renderHack();
             } );
