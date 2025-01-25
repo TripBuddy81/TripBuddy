@@ -3673,9 +3673,9 @@ $( document ).ready( function () {
                 loadVideoDromeOneWindowRefresh( $( this ).attr( 'target' ) );
             } );
 
-            function loadVideoDromeOneWindowRefresh( target, usedVideodromeLoadMode = videodromeLoadMode ) {
+            function loadVideoDromeOneWindowRefresh( target ) {
                 if ( videodromeLoadModeRandom ) {
-                    usedVideodromeLoadMode = randomIntFromInterval( 1, 4 ).toString();
+                    videodromeLoadMode = randomIntFromInterval( 1, 4 ).toString();
                 }
 
                 if ( config['pornMap'] != undefined && config['pornMap'].length > 0 ) {
@@ -3700,14 +3700,14 @@ $( document ).ready( function () {
                         }
                     }
 
-                    switch ( usedVideodromeLoadMode ) {
+                    switch ( videodromeLoadMode ) {
                         case '1':
                             loadLocalVideoIntoTargetWindow( [target] );
                             break;
                         case '2':
                         case '3':
                         case '4':
-                            loadLocalVideoIntoTargetWindow( [target, videodromeLoadModeMapping[usedVideodromeLoadMode][target]] );
+                            loadLocalVideoIntoTargetWindow( [target, videodromeLoadModeMapping[videodromeLoadMode][target]] );
                             break;
                     }
                 }
@@ -3802,22 +3802,21 @@ $( document ).ready( function () {
             } );
 
             $( '#refreshVideoDromeVideoAll' ).click( function () {
-                usedVideodromeLoadMode = videodromeLoadMode;
                 if ( videodromeLoadModeRandom ) {
-                    usedVideodromeLoadMode = randomIntFromInterval( 1, 4 ).toString();
+                    videodromeLoadMode = randomIntFromInterval( 1, 4 ).toString();
                 }
 
                 if ( videodromeLoadMode == '1' || videodromeLoadModeRandom ) {
-                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo1', usedVideodromeLoadMode );
-                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo2', usedVideodromeLoadMode );
-                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo3', usedVideodromeLoadMode );
-                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo4', usedVideodromeLoadMode );
+                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo1' );
+                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo2' );
+                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo3' );
+                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo4' );
                 } else if ( videodromeLoadMode < 4 ) {
-                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo1', usedVideodromeLoadMode );
-                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo2', usedVideodromeLoadMode );
+                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo1' );
+                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo2' );
                 } else if ( videodromeLoadMode == 4 ) {
-                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo1', usedVideodromeLoadMode );
-                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo3', usedVideodromeLoadMode );
+                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo1' );
+                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo3' );
                 }
                 videodromeStreamRefreshVideo();
             } );
