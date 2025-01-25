@@ -148,6 +148,28 @@ $( document ).ready( function () {
             window.videodromeTaggingVideo = '';
             window.videodromeLoadModeRandom = false;
             window.mindJourneyIncantationNumberActive = 0;
+            window.renderHackInterval = '';
+
+            window.videodromeLoadModeMapping = {
+                '2': {
+                    'videoDromeVideo1': 'videoDromeVideo4',
+                    'videoDromeVideo2': 'videoDromeVideo3',
+                    'videoDromeVideo3': 'videoDromeVideo2',
+                    'videoDromeVideo4': 'videoDromeVideo1'
+                },
+                '3': {
+                    'videoDromeVideo1': 'videoDromeVideo3',
+                    'videoDromeVideo2': 'videoDromeVideo4',
+                    'videoDromeVideo3': 'videoDromeVideo1',
+                    'videoDromeVideo4': 'videoDromeVideo2'
+                },
+                '4': {
+                    'videoDromeVideo1': 'videoDromeVideo2',
+                    'videoDromeVideo2': 'videoDromeVideo1',
+                    'videoDromeVideo3': 'videoDromeVideo4',
+                    'videoDromeVideo4': 'videoDromeVideo3'
+                }
+            }
 
             spotifyHistory['items'] = JSON.parse( localStorage.getItem( 'spotifyHistory' ) ) || [];
             videoTaggingCache['items'] = JSON.parse( localStorage.getItem( 'videoTaggingCache' ) ) || [];
@@ -1764,6 +1786,7 @@ $( document ).ready( function () {
                     } else { // going up
                         $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime = $( this ).closest( '.iFrameContainer' ).find( '.videoFrame' )[0].currentTime + 30;
                     }
+                    renderHack();
                 }
                 if ( $( '#directYoutubePlayer' ).is( ':visible' ) ) { // youtube direct player
                     if ( event.originalEvent.deltaY > 0 ) { // going down
@@ -3637,11 +3660,31 @@ $( document ).ready( function () {
                     $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
                 }
                 if ( event.originalEvent.deltaY > 0 ) { // going down
-                    $( this ).find( '.localVideo' )[0].currentTime = $( this ).find( '.localVideo' )[0].currentTime - 30;
+                    $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
+                        $( this )[0].currentTime = $( this )[0].currentTime - 30;
+                    } );
                 } else { // going up
-                    $( this ).find( '.localVideo' )[0].currentTime = $( this ).find( '.localVideo' )[0].currentTime + 30;
+                    $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
+                        $( this )[0].currentTime = $( this )[0].currentTime + 30;
+                    } );
                 }
+                renderHack();
             } );
+
+
+            // Force repainting of viewport. Speeds up video playback.
+            function renderHack() {
+                if ( $( '.videodromeVideoContainer' ).hasClass( 'videodromeVideoContainerRenderHack' ) ) {
+                    $( '.videodromeVideoContainer' ).removeClass( 'videodromeVideoContainerRenderHack' );
+                } else {
+                    $( '.videodromeVideoContainer' ).addClass( 'videodromeVideoContainerRenderHack' );
+                }
+
+                clearInterval( renderHackInterval );
+                renderHackInterval = setTimeout( function () {
+                    $( '.videodromeVideoContainer' ).removeClass( 'videodromeVideoContainerRenderHack' );
+                }, 100 );
+            }
 
             $( document ).on( 'wheel', '.videodromeRefreshLocalVideo', function ( event ) {
                 event.preventDefault();
@@ -3651,6 +3694,7 @@ $( document ).ready( function () {
                 } else { // going up
                     $( '.' + target ).find( '.videoDromeFrame' )[0].currentTime = $( '.' + target ).find( '.videoDromeFrame' )[0].currentTime + 30;
                 }
+                renderHack();
             } );
 
             $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
@@ -3679,27 +3723,6 @@ $( document ).ready( function () {
                 }
 
                 if ( config['pornMap'] != undefined && config['pornMap'].length > 0 ) {
-                    videodromeLoadModeMapping = {
-                        '2': {
-                            'videoDromeVideo1': 'videoDromeVideo4',
-                            'videoDromeVideo2': 'videoDromeVideo3',
-                            'videoDromeVideo3': 'videoDromeVideo2',
-                            'videoDromeVideo4': 'videoDromeVideo1'
-                        },
-                        '3': {
-                            'videoDromeVideo1': 'videoDromeVideo3',
-                            'videoDromeVideo2': 'videoDromeVideo4',
-                            'videoDromeVideo3': 'videoDromeVideo1',
-                            'videoDromeVideo4': 'videoDromeVideo2'
-                        },
-                        '4': {
-                            'videoDromeVideo1': 'videoDromeVideo2',
-                            'videoDromeVideo2': 'videoDromeVideo1',
-                            'videoDromeVideo3': 'videoDromeVideo4',
-                            'videoDromeVideo4': 'videoDromeVideo3'
-                        }
-                    }
-
                     switch ( videodromeLoadMode ) {
                         case '1':
                             loadLocalVideoIntoTargetWindow( [target] );
@@ -5156,7 +5179,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                // toggleXXXVisible();
+                toggleXXXVisible();
 
                 // $( '#showShrineSection' ).trigger( 'click' );
             }

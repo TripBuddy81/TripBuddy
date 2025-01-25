@@ -1942,6 +1942,10 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
+.videodromeVideoContainerRenderHack {
+    height: 49.9vH;
+}
+
 #videodromeLeftToolbar {
     position: fixed;
     width: 100.2vW;
