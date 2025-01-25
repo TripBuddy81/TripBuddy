@@ -3670,21 +3670,6 @@ $( document ).ready( function () {
                 renderHack();
             } );
 
-
-            // Force repainting of viewport. Speeds up video playback.
-            function renderHack() {
-                if ( $( '.videodromeVideoContainer' ).hasClass( 'videodromeVideoContainerRenderHack' ) ) {
-                    $( '.videodromeVideoContainer' ).removeClass( 'videodromeVideoContainerRenderHack' );
-                } else {
-                    $( '.videodromeVideoContainer' ).addClass( 'videodromeVideoContainerRenderHack' );
-                }
-
-                clearInterval( renderHackInterval );
-                renderHackInterval = setTimeout( function () {
-                    $( '.videodromeVideoContainer' ).removeClass( 'videodromeVideoContainerRenderHack' );
-                }, 100 );
-            }
-
             $( document ).on( 'wheel', '.videodromeRefreshLocalVideo', function ( event ) {
                 event.preventDefault();
                 target = $( this ).attr( 'target' );
@@ -3719,6 +3704,20 @@ $( document ).ready( function () {
             $( '.videodromeRefreshLocalVideo' ).click( function () {
                 loadVideoDromeOneWindowRefresh( $( this ).attr( 'target' ) );
             } );
+
+            // Force repainting of viewport. Speeds up video playback.
+            function renderHack() {
+                if ( $( '.videodromeVideoContainer' ).hasClass( 'videodromeVideoContainerRenderHack' ) ) {
+                    $( '.videodromeVideoContainer' ).removeClass( 'videodromeVideoContainerRenderHack' );
+                } else {
+                    $( '.videodromeVideoContainer' ).addClass( 'videodromeVideoContainerRenderHack' );
+                }
+
+                clearInterval( renderHackInterval );
+                renderHackInterval = setTimeout( function () {
+                    $( '.videodromeVideoContainer' ).removeClass( 'videodromeVideoContainerRenderHack' );
+                }, 100 );
+            }
 
             function loadVideoDromeOneWindowRefresh( target ) {
                 if ( videodromeLoadModeRandom ) {
