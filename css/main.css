@@ -2236,6 +2236,12 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
+#videoDromeRandomVideoContainerSwitcher {
+    height: 55px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
 #toggleTransperentStroboOracleSymbol {
     height: 55px;
     margin-right: 20px;
