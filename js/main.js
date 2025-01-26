@@ -3682,6 +3682,18 @@ $( document ).ready( function () {
                 } );
             } );
 
+            $( document ).on( 'wheel', '#refreshVideoDromeVideoAll', function ( event ) {
+                event.preventDefault();
+
+                $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenTemp' );
+                clearInterval( videoSeekFullscreenInterval );
+                videoSeekFullscreenInterval = setTimeout( function () {
+                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                }, videoSeekFullscreenDuration );
+            } );
+
             $( document ).on( 'wheel', '.videodromeRefreshLocalVideo', function ( event ) {
                 event.preventDefault();
                 $( '.videoDromeFrame' ).unbind( 'seeking' );
