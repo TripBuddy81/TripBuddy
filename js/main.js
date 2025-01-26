@@ -415,6 +415,7 @@ $( document ).ready( function () {
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
                 if ( $( '.videodromeFullscreenTemp' )[0] || $( '.videodromeFullscreenSwitcher' )[0] ) {
                     clearInterval( videoDromeRandomVideoContainerSwitcherInterval );
+                    videoDromeRandomVideoContainerSwitcherInterval = '';
                     $( '.videodromeFullscreenSwitcher' ).removeClass( 'videodromeFullscreenSwitcher' );
                     $( '.videodromeFullscreenTemp ' ).removeClass( 'videodromeFullscreenTemp' );
                     $( '.videoDromeFrame' ).removeAttr( 'controls' );
@@ -3755,12 +3756,17 @@ $( document ).ready( function () {
                 $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenSwitcher' );
                 videoDromeRandomVideoContainerSwitcherDuration = randomIntFromInterval( 1000, 6000 );
 
-                videoDromeRandomVideoContainerSwitcherInterval = setInterval( function () {
-                    $( '.videodromeFullscreenSwitcher' ).removeClass( 'videodromeFullscreenSwitcher' );
-                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                    $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenSwitcher' );
-                    videoDromeRandomVideoContainerSwitcherDuration = randomIntFromInterval( 1000, 6000 );
-                }, videoDromeRandomVideoContainerSwitcherDuration );
+                if ( videoDromeRandomVideoContainerSwitcherInterval == '' ) {
+                    clearInterval( videoDromeRandomVideoContainerSwitcherInterval );
+                    videoDromeRandomVideoContainerSwitcherInterval = setInterval( function () {
+                        $( '.videodromeFullscreenSwitcher' ).removeClass( 'videodromeFullscreenSwitcher' );
+                        $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                        $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenSwitcher' );
+                        videoDromeRandomVideoContainerSwitcherDuration = randomIntFromInterval( 1000, 6000 );
+                    }, videoDromeRandomVideoContainerSwitcherDuration );
+                } else {
+                    $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
+                }
             } );
 
             $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
