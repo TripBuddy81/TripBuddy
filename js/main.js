@@ -148,7 +148,8 @@ $( document ).ready( function () {
             window.videodromeTaggingVideo = '';
             window.videodromeLoadModeRandom = false;
             window.mindJourneyIncantationNumberActive = 0;
-            window.renderHackInterval = '';
+            window.videoSeekFullscreenInterval = '';
+            window.videoSeekFullscreenDuration = 1500;
 
             window.videodromeLoadModeMapping = {
                 '2': {
@@ -3660,9 +3661,13 @@ $( document ).ready( function () {
                     $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
                 }, 100 );
 
-                if ( $( this ).hasClass( 'videodromeFullscreen' ) ) {
-                    $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
-                }
+                clearInterval( videoSeekFullscreenInterval );
+                $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+                $( this ).addClass( 'videodromeFullscreenTemp' );
+                videoSeekFullscreenInterval = setTimeout( function () {
+                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                }, videoSeekFullscreenDuration );
 
                 originalTime = '';
                 $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
@@ -3675,7 +3680,6 @@ $( document ).ready( function () {
                         $( this )[0].currentTime = originalTime + 30;
                     }
                 } );
-                renderHack();
             } );
 
             $( document ).on( 'wheel', '.videodromeRefreshLocalVideo', function ( event ) {
@@ -3686,6 +3690,14 @@ $( document ).ready( function () {
                 }, 100 );
 
                 target = $( this ).attr( 'target' );
+
+                $( '.' + target ).addClass( 'videodromeFullscreenTemp' );
+                $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+                clearInterval( videoSeekFullscreenInterval );
+                videoSeekFullscreenInterval = setTimeout( function () {
+                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                }, videoSeekFullscreenDuration );
 
                 originalTime = '';
                 $( '[src="' + $( '.' + target ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
@@ -3698,7 +3710,6 @@ $( document ).ready( function () {
                         $( this )[0].currentTime = originalTime + 30;
                     }
                 } );
-                renderHack();
             } );
 
             $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
@@ -3738,20 +3749,6 @@ $( document ).ready( function () {
                 $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
                     $( this )[0].currentTime = toBeSyncedTime;
                 } );
-            }
-
-            // Force repainting of viewport. Speeds up video playback.
-            function renderHack() {
-                if ( $( '.videodromeVideoContainer' ).hasClass( 'videodromeVideoContainerRenderHack' ) ) {
-                    $( '.videodromeVideoContainer' ).removeClass( 'videodromeVideoContainerRenderHack' );
-                } else {
-                    $( '.videodromeVideoContainer' ).addClass( 'videodromeVideoContainerRenderHack' );
-                }
-
-                clearInterval( renderHackInterval );
-                renderHackInterval = setTimeout( function () {
-                    $( '.videodromeVideoContainer' ).removeClass( 'videodromeVideoContainerRenderHack' );
-                }, 100 );
             }
 
             function loadVideoDromeOneWindowRefresh( target ) {
