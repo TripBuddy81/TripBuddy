@@ -2180,7 +2180,7 @@ video::-webkit-media-controls-fullscreen-button {
     font-size: 25px;
 }
 
-.videodromeFullscreen, .videodromeFullscreenTemp {
+.videodromeFullscreen, .videodromeFullscreenTemp, .videodromeFullscreenSwitcher {
     width: 100vW;
     height: 100vH;
     position: fixed;
