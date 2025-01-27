@@ -150,8 +150,8 @@ $( document ).ready( function () {
             window.mindJourneyIncantationNumberActive = 0;
             window.videoSeekFullscreenInterval = '';
             window.videoSeekFullscreenDuration = 1500;
-            window.videoDromeRandomVideoContainerSwitcherInterval = '';
-            window.videoDromeRandomVideoContainerSwitcherDuration = '';
+            window.videoDromeDirectorInterval = '';
+            window.videoDromeDirectorDuration = '';
 
             window.videodromeLoadModeMapping = {
                 '2': {
@@ -414,11 +414,7 @@ $( document ).ready( function () {
                 // Stop current action or show playlist selection if nothing else is going on right now
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
                 if ( $( '.videodromeFullscreenTemp' )[0] || $( '.videodromeFullscreenSwitcher' )[0] ) {
-                    clearInterval( videoDromeRandomVideoContainerSwitcherInterval );
-                    videoDromeRandomVideoContainerSwitcherInterval = '';
-                    $( '.videodromeFullscreenSwitcher' ).removeClass( 'videodromeFullscreenSwitcher' );
-                    $( '.videodromeFullscreenTemp ' ).removeClass( 'videodromeFullscreenTemp' );
-                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                    stopDirectorMode();
                 } else if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) || $( '#videodromeLeftToolbar' ).is( ':visible' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
@@ -696,6 +692,8 @@ $( document ).ready( function () {
                 $( '.localVideoOverlay' ).show();
                 $( '.mainSearchResultVideoOverlay' ).show();
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                $( '.videodromeFullscreenSwitcher' ).removeClass( 'videodromeFullscreenSwitcher' );
                 $( '.videodromeFullscreenMenuContainer' ).hide();
                 $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                 $( '#videodromeLeftToolbar' ).hide();
@@ -3647,10 +3645,11 @@ $( document ).ready( function () {
                 e.preventDefault();
                 e.stopPropagation();
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
+                if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) || $( this ).parent().hasClass( 'videodromeFullscreenSwitcher' ) ) {
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
                     $( '.videodromeRefreshContainer' ).show();
+                    stopDirectorMode();
                 } else {
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
@@ -3750,24 +3749,6 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( document ).on( 'click', '#videoDromeRandomVideoContainerSwitcher', function ( e ) {
-                e.preventDefault();
-                $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenSwitcher' );
-                videoDromeRandomVideoContainerSwitcherDuration = randomIntFromInterval( 1000, 45000 );
-
-                if ( videoDromeRandomVideoContainerSwitcherInterval == '' ) {
-                    clearInterval( videoDromeRandomVideoContainerSwitcherInterval );
-                    videoDromeRandomVideoContainerSwitcherInterval = setInterval( function () {
-                        $( '.videodromeFullscreenSwitcher' ).removeClass( 'videodromeFullscreenSwitcher' );
-                        $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                        $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenSwitcher' );
-                        videoDromeRandomVideoContainerSwitcherDuration = randomIntFromInterval( 5000, 45000 );
-                    }, videoDromeRandomVideoContainerSwitcherDuration );
-                } else {
-                    $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
-                }
-            } );
-
             $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
                 event.preventDefault();
                 timeSkipDuration = 30;
@@ -3791,6 +3772,39 @@ $( document ).ready( function () {
                 }, 100 );
                 loadVideoDromeOneWindowRefresh( $( this ).attr( 'target' ) );
             } );
+
+            // VideoDrome Director mode section
+            // Enters a mode in which videos are switched automatically
+            $( document ).on( 'click', '#videoDromeDirectorStartStandard', function ( e ) {
+                e.preventDefault();
+                $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenSwitcher' );
+                videoDromeDirectorDuration = randomIntFromInterval( 1000, 45000 );
+
+                if ( videoDromeDirectorInterval == '' ) {
+                    clearInterval( videoDromeDirectorInterval );
+                    videoDromeDirectorInterval = setInterval( function () {
+                        $( '.videodromeFullscreenSwitcher' ).removeClass( 'videodromeFullscreenSwitcher' );
+                        $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                        $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenSwitcher' );
+                        videoDromeDirectorDuration = randomIntFromInterval( 5000, 45000 );
+                    }, videoDromeDirectorDuration );
+                } else {
+                    $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
+                }
+            } );
+
+            // $( '.videodromeFullscreenSwitcher' ).click( function () {
+            //     stopDirectorMode();
+            // } );
+
+            function stopDirectorMode() {
+                clearInterval( videoDromeDirectorInterval );
+                videoDromeDirectorInterval = '';
+                $( '.videodromeFullscreenSwitcher' ).removeClass( 'videodromeFullscreenSwitcher' );
+                $( '.videodromeFullscreenTemp ' ).removeClass( 'videodromeFullscreenTemp' );
+                $( '.videoDromeFrame' ).removeAttr( 'controls' );
+            }
+
 
             $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
 
