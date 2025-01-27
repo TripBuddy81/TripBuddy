@@ -1924,6 +1924,10 @@ var config = {
                                         'tag'  : 'Kind,Reisender,Philosoph'
                                     },
                                     {
+                                        'label': 'Beobachte den Moment',
+                                        'tag'  : 'Kapitän,Kind,Reisender,Philosoph'
+                                    },
+                                    {
                                         'label': 'Perspektivwechsel',
                                         'tag'  : 'Tier,Philosoph'
                                     },
@@ -2009,7 +2013,7 @@ var config = {
                                     },
                                     {
                                         'label': 'Reisender',
-                                        'tag'  : 'Schamane,Reisender',
+                                        'tag'  : 'Tier,Schamane,Reisender',
                                         'id'   : 'spotify:playlist:6npX1CjOfMfHF87CwozeyB'
                                     },
                                     {

@@ -1018,7 +1018,7 @@ $( document ).ready( function () {
                 $( '.menuvisibleAfterStarted' ).show();
 
                 // after liftoff the screensaver takes longer to start
-                screensaverStartAfterSeconds = 60;
+                screensaverStartAfterSeconds = 300;
 
                 // Default view changes once journey started
                 $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
@@ -3754,7 +3754,7 @@ $( document ).ready( function () {
             $( document ).on( 'click', '#videoDromeRandomVideoContainerSwitcher', function ( e ) {
                 e.preventDefault();
                 $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenSwitcher' );
-                videoDromeRandomVideoContainerSwitcherDuration = randomIntFromInterval( 1000, 6000 );
+                videoDromeRandomVideoContainerSwitcherDuration = randomIntFromInterval( 1000, 45000 );
 
                 if ( videoDromeRandomVideoContainerSwitcherInterval == '' ) {
                     clearInterval( videoDromeRandomVideoContainerSwitcherInterval );
@@ -3762,7 +3762,7 @@ $( document ).ready( function () {
                         $( '.videodromeFullscreenSwitcher' ).removeClass( 'videodromeFullscreenSwitcher' );
                         $( '.videoDromeFrame' ).removeAttr( 'controls' );
                         $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenSwitcher' );
-                        videoDromeRandomVideoContainerSwitcherDuration = randomIntFromInterval( 1000, 6000 );
+                        videoDromeRandomVideoContainerSwitcherDuration = randomIntFromInterval( 5000, 45000 );
                     }, videoDromeRandomVideoContainerSwitcherDuration );
                 } else {
                     $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
@@ -5270,7 +5270,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                // toggleXXXVisible();
+                toggleXXXVisible();
 
                 // $( '#showShrineSection' ).trigger( 'click' );
             }
