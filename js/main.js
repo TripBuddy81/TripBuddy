@@ -4008,6 +4008,7 @@ $( document ).ready( function () {
                     $( '#videoTaggingContainer' ).show();
                     checkIfCurrentVideoAlreadyTagged();
                     $( '#videodromeLoadModeSelectContainer' ).hide();
+                    $( '#videodromeDirectorModeContainer' ).hide();
                 }
 
                 clearTimeout( videodromeVideoJSControlbarHideInterval );
@@ -4027,6 +4028,7 @@ $( document ).ready( function () {
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
                     $( '#videoTaggingContainer' ).hide();
                     $( '#videodromeLoadModeSelectContainer' ).show();
+                    $( '#videodromeDirectorModeContainer' ).show();
                 }
             } );
 
