@@ -1379,7 +1379,6 @@ $( document ).ready( function () {
             }
 
             function showTimedRecommendation( recommendationText ) {
-                stopAllActions();
                 $( '#timedRecommendation' ).modal( 'show' );
                 $( '#topupRecommendation' ).html( recommendationText );
                 $( '#topupRecommendation' ).show();
