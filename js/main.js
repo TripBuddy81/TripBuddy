@@ -151,6 +151,8 @@ $( document ).ready( function () {
             window.videoSeekFullscreenInterval = '';
             window.videoSeekFullscreenDuration = 1500;
             window.videoDromeDirectorInterval = '';
+            window.videoDromeDirectorDurationMin = 1000;
+            window.videoDromeDirectorDurationMax = 45000;
             window.videoDromeDirectorDuration = '';
             window.videoDromeDirectorModeActive = false;
             window.moveTimerVideodrome = '';
@@ -3585,6 +3587,7 @@ $( document ).ready( function () {
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
                 if ( $( this ).parent().hasClass( 'videodromeFullscreenTemp' ) ) {
                     $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                    stopDirectorMode();
                 } else if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
@@ -3606,7 +3609,7 @@ $( document ).ready( function () {
                 seekWithinLocalVideo( event, $( this ).attr( 'target' ) );
             } );
 
-            // Seeking within video using the video tagging button (Timeinterval is much smaller) or the fullscreen reload button.
+            // Seeking within video using the video tagging button (time interval is much smaller) or the fullscreen reload button.
             $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
                 event.preventDefault();
                 timeSkipDuration = 30;
@@ -3649,7 +3652,6 @@ $( document ).ready( function () {
             //     }
             // } );
 
-
             $( '.videodromeRefreshLocalVideo' ).click( function () {
                 $( '.videoDromeFrame' ).unbind( 'seeking' );
                 setTimeout( function () {
@@ -3661,13 +3663,11 @@ $( document ).ready( function () {
             $( '.videodromeLoadModeSelect' ).click( function ( e ) {
                 videodromeLoadModeRandom = false;
                 videodromeLoadMode = $( this ).attr( 'data-videodromeLoadMode' );
-
                 setIconActive( e );
             } );
 
             $( '#videodromeLoadModeRandom' ).click( function ( e ) {
                 videodromeLoadModeRandom = true;
-
                 setIconActive( e );
             } );
 
@@ -4008,28 +4008,45 @@ $( document ).ready( function () {
 
             // VideoDrome Director mode section
             // Enters a mode in which videos are switched automatically
+
+            // TODO
+            // reset load mode to default 1 on start
+            // change timings - random, slow, fast,
+            // change currently running video with some new video (jump to next video already loaded and replace current one)
+            // reload all videos
+            // pause director mode (stay with current video)
+            // resume director mode
+            // manually skip to next video ??
+            // allow seeking via menu
+            // after ending director mode, return to normal view
+            // show fullscreen menu for video (tagging etc) and hide the other stuff
+
             $( document ).on( 'click', '#videoDromeDirectorStartStandard', function ( e ) {
                 e.preventDefault();
-                videoDromeDirectorModeActive = true;
-                $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
-                videoDromeDirectorDuration = randomIntFromInterval( 1000, 45000 );
+                startDirectorMode();
+            } );
 
+            function startDirectorMode() {
+                $( '#defaultLoadMode' ).trigger( 'click' );
+                videoDromeDirectorModeActive = true;
+
+                
+
+
+                // if not running, start director mode
                 if ( videoDromeDirectorInterval == '' ) {
                     clearInterval( videoDromeDirectorInterval );
+                    $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
+                    videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
                     videoDromeDirectorInterval = setInterval( function () {
                         $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                         $( '.videoDromeFrame' ).removeAttr( 'controls' );
                         $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
-                        videoDromeDirectorDuration = randomIntFromInterval( 1000, 45000 );
                     }, videoDromeDirectorDuration );
-                } else {
+                } else { // otherwise reload all videos instead
                     $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
                 }
-            } );
-
-            // $( '.videodromeFullscreen' ).click( function () {
-            //     stopDirectorMode();
-            // } );
+            }
 
             function stopDirectorMode() {
                 clearInterval( videoDromeDirectorInterval );
