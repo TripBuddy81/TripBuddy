@@ -158,7 +158,7 @@ $( document ).ready( function () {
             window.videoDromeDirectorDuration = '';
             window.videoDromeDirectorModeActive = false;
             window.moveTimerVideodrome = '';
-
+            window.videoDromeDirectorLastDisplayedTarget = '';
 
             window.videodromeLoadModeMapping = {
                 '2': {
@@ -1391,8 +1391,12 @@ $( document ).ready( function () {
                 $( '#topupRecommendation' ).show();
             }
 
-            function randomIntFromInterval( min, max ) {
-                return Math.floor( Math.random() * (parseInt( max ) - parseInt( min ) + 1) + parseInt( min ) )
+            function randomIntFromInterval( min, max, exlusionList = [] ) {
+                selectedValue = Math.floor( Math.random() * (parseInt( max ) - parseInt( min ) + 1) + parseInt( min ) );
+                if ( jQuery.inArray( selectedValue, exlusionList ) !== -1 ) {
+                    randomIntFromInterval( min, max, exlusionList );
+                }
+                return selectedValue;
             }
 
             function updateprogressGraphColor( color ) {
@@ -4047,6 +4051,8 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
                 e.preventDefault();
+
+
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadAllVideos', function ( e ) {
@@ -4090,6 +4096,7 @@ $( document ).ready( function () {
                 setDirectorModeInterval();
             } );
 
+
             function startDirectorMode() {
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 videoDromeDirectorModeActive = true;
@@ -4102,6 +4109,9 @@ $( document ).ready( function () {
                 // if not running, start director mode
                 if ( videoDromeDirectorInterval == '' ) {
                     clearInterval( videoDromeDirectorInterval );
+                    videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4 );
+                    $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
+
                     setDirectorModeInterval();
                 } else { // otherwise reload all videos instead
                     $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
@@ -4113,7 +4123,9 @@ $( document ).ready( function () {
                 videoDromeDirectorInterval = setInterval( function () {
                     $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                     $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                    $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
+
+                    videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
+                    $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
                 }, videoDromeDirectorDuration );
             }
 
