@@ -631,14 +631,14 @@ $( document ).ready( function () {
             } )
 
             // Set icon to white and make it no longer clickable until some other related icon is clicked
-            function setIconActive( e ) {
-                $( '.iconActive' ).each( function () {
+            function setIconActive( e, targetClass ) {
+                $( '.' + targetClass ).each( function () {
+                    $( this ).removeClass( targetClass );
                     $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
-                    $( this ).removeClass( 'iconActive' );
                 } );
 
                 $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '.png', '_white.png' ) );
-                $( e.target ).addClass( 'iconActive' );
+                $( e.target ).addClass( targetClass );
             }
 
             // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
@@ -679,7 +679,7 @@ $( document ).ready( function () {
                 $( '.displayedFullscreenImage' ).trigger( 'click' );
 
                 $( '.iconAlternating' ).each( function () {
-                    if ( !$( this ).hasClass( 'iconActive' ) ) {
+                    if ( !$( this ).hasClass( 'loadModeIconActive' ) && !$( this ).hasClass( 'directorTimingIconActive' ) ) {
                         $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
                     }
                 } );
@@ -3665,12 +3665,12 @@ $( document ).ready( function () {
             $( '.videodromeLoadModeSelect' ).click( function ( e ) {
                 videodromeLoadModeRandom = false;
                 videodromeLoadMode = $( this ).attr( 'data-videodromeLoadMode' );
-                setIconActive( e );
+                setIconActive( e, 'loadModeIconActive' );
             } );
 
             $( '#videodromeLoadModeRandom' ).click( function ( e ) {
                 videodromeLoadModeRandom = true;
-                setIconActive( e );
+                setIconActive( e, 'loadModeIconActive' );
             } );
 
             $( '.videoJSSearchURL' ).click( function () {
@@ -4060,8 +4060,9 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorStayWithCurrentVideo' ).show();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
-                videoDromeDirectorDurationMin = 15000;
+                videoDromeDirectorDurationMin = 6000;
                 videoDromeDirectorDurationMax = 25000;
+                setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
             } );
 
@@ -4071,8 +4072,9 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorStayWithCurrentVideo' ).show();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
-                videoDromeDirectorDurationMin = 100;
-                videoDromeDirectorDurationMax = 100;
+                videoDromeDirectorDurationMin = videoDromeDirectorDurationMinDefault;
+                videoDromeDirectorDurationMax = videoDromeDirectorDurationMaxDefault;
+                setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
             } );
 
@@ -4083,9 +4085,11 @@ $( document ).ready( function () {
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = 1000;
-                videoDromeDirectorDurationMax = 2000;
+                videoDromeDirectorDurationMax = 2500;
+                setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
             } );
+
 
             function startDirectorMode() {
                 $( '#defaultLoadMode' ).trigger( 'click' );
