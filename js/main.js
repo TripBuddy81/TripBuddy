@@ -151,8 +151,10 @@ $( document ).ready( function () {
             window.videoSeekFullscreenInterval = '';
             window.videoSeekFullscreenDuration = 1500;
             window.videoDromeDirectorInterval = '';
-            window.videoDromeDirectorDurationMin = 1000;
-            window.videoDromeDirectorDurationMax = 45000;
+            window.videoDromeDirectorDurationMinDefault = 1000;
+            window.videoDromeDirectorDurationMaxDefault = 45000;
+            window.videoDromeDirectorDurationMin = '';
+            window.videoDromeDirectorDurationMax = '';
             window.videoDromeDirectorDuration = '';
             window.videoDromeDirectorModeActive = false;
             window.moveTimerVideodrome = '';
@@ -4026,26 +4028,92 @@ $( document ).ready( function () {
                 startDirectorMode();
             } );
 
+            $( document ).on( 'click', '#videodromeDirectorStayWithCurrentVideo', function ( e ) {
+                e.preventDefault();
+                $( '#videodromeDirectorResume' ).show();
+                $( '#videodromeDirectorStayWithCurrentVideo' ).hide();
+
+                clearInterval( videoDromeDirectorInterval );
+                videoDromeDirectorInterval = '';
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorResume', function ( e ) {
+                e.preventDefault();
+                $( '#videodromeDirectorResume' ).hide();
+                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
+
+                setDirectorModeInterval();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
+                e.preventDefault();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorReloadAllVideos', function ( e ) {
+                e.preventDefault();
+                $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorTimingsSlow', function ( e ) {
+                e.preventDefault();
+                $( '#videodromeDirectorResume' ).hide();
+                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
+                clearInterval( videoDromeDirectorInterval );
+                videoDromeDirectorInterval = '';
+                videoDromeDirectorDurationMin = 15000;
+                videoDromeDirectorDurationMax = 25000;
+                setDirectorModeInterval();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorTimingsRandom', function ( e ) {
+                e.preventDefault();
+                $( '#videodromeDirectorResume' ).hide();
+                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
+                clearInterval( videoDromeDirectorInterval );
+                videoDromeDirectorInterval = '';
+                videoDromeDirectorDurationMin = 100;
+                videoDromeDirectorDurationMax = 100;
+                setDirectorModeInterval();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorTimingsFast', function ( e ) {
+                e.preventDefault();
+                $( '#videodromeDirectorResume' ).hide();
+                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
+                clearInterval( videoDromeDirectorInterval );
+                videoDromeDirectorInterval = '';
+                videoDromeDirectorDurationMin = 1000;
+                videoDromeDirectorDurationMax = 2000;
+                setDirectorModeInterval();
+            } );
+
             function startDirectorMode() {
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 videoDromeDirectorModeActive = true;
                 $( '.videodromeRefreshContainer' ).hide();
                 $( '.videodromeDirectorControlContainer' ).show();
 
+                videoDromeDirectorDurationMin = videoDromeDirectorDurationMinDefault;
+                videoDromeDirectorDurationMax = videoDromeDirectorDurationMaxDefault;
 
                 // if not running, start director mode
                 if ( videoDromeDirectorInterval == '' ) {
                     clearInterval( videoDromeDirectorInterval );
                     $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
-                    videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
-                    videoDromeDirectorInterval = setInterval( function () {
-                        $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                        $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                        $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
-                    }, videoDromeDirectorDuration );
+
+                    setDirectorModeInterval();
                 } else { // otherwise reload all videos instead
                     $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
                 }
+            }
+
+            function setDirectorModeInterval() {
+                videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
+                videoDromeDirectorInterval = setInterval( function () {
+                    $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                    $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
+                }, videoDromeDirectorDuration );
             }
 
             function stopDirectorMode() {
@@ -4056,6 +4124,8 @@ $( document ).ready( function () {
                 videoDromeDirectorModeActive = false;
                 $( '.videodromeRefreshContainer' ).show();
                 $( '.videodromeDirectorControlContainer' ).hide();
+                $( '#videodromeDirectorResume' ).hide();
+                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
             }
 
             function seekWithinLocalVideo( event, targetVideoFrame, timeSkipDuration = 30 ) {

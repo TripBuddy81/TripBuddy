@@ -2069,24 +2069,24 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodromeDirectorReloadCurrentVideo {
     top: 10px;
-    left: 90px;
+    left: 94px;
     height: 55px;
 }
 
 #videodromeDirectorReloadAllVideos {
     top: 7px;
-    left: 163px;
-    height: 59px;
-}
-
-#videodromeDirectorTimingsRandom {
-    bottom: 10px;
-    left: 23px;
+    left: 166px;
+    height: 57px;
 }
 
 #videodromeDirectorTimingsSlow {
     bottom: 10px;
-    left: 88px;
+    left: 19px;
+}
+
+#videodromeDirectorTimingsRandom {
+    bottom: 10px;
+    left: 100px;
 }
 
 #videodromeDirectorTimingsFast {
