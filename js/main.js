@@ -284,6 +284,9 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['globalMenuIncantationSection'] != undefined && config['localSettingsOverwrite']['globalMenuIncantationSection'] ) {
                 $( '#quickSelectGlobalMenuIncantationSectionIcon' ).show();
             }
+            if ( config['relationships'] == undefined) {
+                $( '#toggleRelationships' ).remove();
+            }
 
             // Save stream favorites to a downloadable text file
             $( '#saveStreamFavoritesToFile' ).click( function () {
@@ -4021,7 +4024,7 @@ $( document ).ready( function () {
             // manually skip to next video ??
             // allow seeking within menu
             // show fullscreen menu for video (tagging, filename display) and hide the other stuff
-            // automatically change video after x seconds for something completly new (shuffle symbol)
+            // automatically change video after x seconds for something completly new (shuffle symbol) (if not visible)
             // "resume" displays next video immediality
             // seeking in video "pauses" ???
             // hide menu on mouse still
@@ -5368,7 +5371,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+                // toggleXXXVisible();
 
                 // $( '#showShrineSection' ).trigger( 'click' );
             }
