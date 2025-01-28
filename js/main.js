@@ -3598,62 +3598,9 @@ $( document ).ready( function () {
             } );
 
             // Seeking within local video - Syncs videos with same content and also makes video fullscreen for a short time to allow for smooth display of content
-            $( document ).on( 'wheel', '.videodromeVideoContainer', function ( event ) {
+            $( document ).on( 'wheel', '.videodromeVideoContainer,.videodromeRefreshLocalVideo', function ( event ) {
                 event.preventDefault();
-                $( '.videoDromeFrame' ).unbind( 'seeking' );
-                setTimeout( function () {
-                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
-                }, 100 );
-
-                clearInterval( videoSeekFullscreenInterval );
-                $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
-                $( this ).addClass( 'videodromeFullscreenTemp' );
-                videoSeekFullscreenInterval = setTimeout( function () {
-                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
-                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                }, videoSeekFullscreenDuration );
-
-                originalTime = '';
-                $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
-                    if ( originalTime == '' ) {
-                        originalTime = $( this )[0].currentTime;
-                    }
-                    if ( event.originalEvent.deltaY > 0 ) { // going down
-                        $( this )[0].currentTime = originalTime - 30;
-                    } else { // going up
-                        $( this )[0].currentTime = originalTime + 30;
-                    }
-                } );
-            } );
-
-            $( document ).on( 'wheel', '.videodromeRefreshLocalVideo', function ( event ) {
-                event.preventDefault();
-                $( '.videoDromeFrame' ).unbind( 'seeking' );
-                setTimeout( function () {
-                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
-                }, 100 );
-
-                target = $( this ).attr( 'target' );
-
-                $( '.' + target ).addClass( 'videodromeFullscreenTemp' );
-                $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
-                clearInterval( videoSeekFullscreenInterval );
-                videoSeekFullscreenInterval = setTimeout( function () {
-                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
-                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                }, videoSeekFullscreenDuration );
-
-                originalTime = '';
-                $( '[src="' + $( '.' + target ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
-                    if ( originalTime == '' ) {
-                        originalTime = $( this )[0].currentTime;
-                    }
-                    if ( event.originalEvent.deltaY > 0 ) { // going down
-                        $( this )[0].currentTime = originalTime - 30;
-                    } else { // going up
-                        $( this )[0].currentTime = originalTime + 30;
-                    }
-                } );
+                seekWithinLocalVideo( event, $( this ).attr( 'target' ) );
             } );
 
             $( document ).on( 'wheel', '#refreshVideoDromeVideoAll', function ( event ) {
@@ -3735,6 +3682,33 @@ $( document ).ready( function () {
             // $( '.videodromeFullscreen' ).click( function () {
             //     stopDirectorMode();
             // } );
+
+            function seekWithinLocalVideo( event, targetVideoFrame ) {
+                $( '.videoDromeFrame' ).unbind( 'seeking' );
+                setTimeout( function () {
+                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+                }, 100 );
+
+                $( '.' + targetVideoFrame ).addClass( 'videodromeFullscreenTemp' );
+                $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+                clearInterval( videoSeekFullscreenInterval );
+                videoSeekFullscreenInterval = setTimeout( function () {
+                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                }, videoSeekFullscreenDuration );
+
+                originalTime = '';
+                $( '[src="' + $( '.' + targetVideoFrame ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
+                    if ( originalTime == '' ) {
+                        originalTime = $( this )[0].currentTime;
+                    }
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        $( this )[0].currentTime = originalTime - 30;
+                    } else { // going up
+                        $( this )[0].currentTime = originalTime + 30;
+                    }
+                } );
+            }
 
             function stopDirectorMode() {
                 clearInterval( videoDromeDirectorInterval );
