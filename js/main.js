@@ -4016,16 +4016,16 @@ $( document ).ready( function () {
             // Enters a mode in which videos are switched automatically
 
             // TODO
-            // reset load mode to default 1 on start
-            // change timings - random, slow, fast,
+            // change timings - random, slow, fast, VIA PLUS MINUS ???
             // change currently running video with some new video (jump to next video already loaded and replace current one)
-            // reload all videos
-            // pause director mode (stay with current video)
-            // resume director mode
             // manually skip to next video ??
-            // allow seeking via menu
-            // after ending director mode, return to normal view
-            // show fullscreen menu for video (tagging etc) and hide the other stuff
+            // allow seeking within menu
+            // show fullscreen menu for video (tagging, filename display) and hide the other stuff
+            // automatically change video after x seconds for something completly new (shuffle symbol)
+            // "resume" displays next video immediality
+            // seeking in video "pauses" ???
+            // hide menu on mouse still
+
 
             $( document ).on( 'click', '#videoDromeDirectorStartStandard', function ( e ) {
                 e.preventDefault();
@@ -4102,13 +4102,12 @@ $( document ).ready( function () {
                 videoDromeDirectorModeActive = true;
                 $( '.videodromeRefreshContainer' ).hide();
                 $( '.videodromeDirectorControlContainer' ).show();
-
+                videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4 );
                 $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
 
                 // if not running, start director mode
                 if ( videoDromeDirectorInterval == '' ) {
                     clearInterval( videoDromeDirectorInterval );
-                    videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4 );
                     setDirectorModeInterval();
                 } else { // otherwise reload all videos instead
                     $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
@@ -4121,6 +4120,7 @@ $( document ).ready( function () {
                     $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                     $( '.videoDromeFrame' ).removeAttr( 'controls' );
 
+                    videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
                     videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
                     $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
                 }, videoDromeDirectorDuration );
