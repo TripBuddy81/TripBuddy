@@ -3443,6 +3443,7 @@ $( document ).ready( function () {
             // ******************************************
             // #7 - Videodrome section
             $( '#switchStreamingService' ).html( selectedVideoStreamService );
+            $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
 
             // On Mousemmove within videodrome show timer, mouse, videoplay overlay
             $( document ).on( 'mousemove', '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api,.vjs-control-bar', function () {
@@ -3582,7 +3583,9 @@ $( document ).ready( function () {
                 e.preventDefault();
                 e.stopPropagation();
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
+                if ( $( this ).parent().hasClass( 'videodromeFullscreenTemp' ) ) {
+                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                } else if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
                     $( '.videodromeRefreshContainer' ).show();
@@ -3603,7 +3606,7 @@ $( document ).ready( function () {
                 seekWithinLocalVideo( event, $( this ).attr( 'target' ) );
             } );
 
-            // Seeking within video using the video tagging button. Timeinterval is much smaller.
+            // Seeking within video using the video tagging button (Timeinterval is much smaller) or the fullscreen reload button.
             $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
                 event.preventDefault();
                 timeSkipDuration = 30;
@@ -3654,100 +3657,6 @@ $( document ).ready( function () {
                 }, 100 );
                 loadVideoDromeOneWindowRefresh( $( this ).attr( 'target' ) );
             } );
-
-            // VideoDrome Director mode section
-            // Enters a mode in which videos are switched automatically
-            $( document ).on( 'click', '#videoDromeDirectorStartStandard', function ( e ) {
-                e.preventDefault();
-                videoDromeDirectorModeActive = true;
-                $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
-                videoDromeDirectorDuration = randomIntFromInterval( 1000, 45000 );
-
-                if ( videoDromeDirectorInterval == '' ) {
-                    clearInterval( videoDromeDirectorInterval );
-                    videoDromeDirectorInterval = setInterval( function () {
-                        $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                        $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                        $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
-                        videoDromeDirectorDuration = randomIntFromInterval( 1000, 45000 );
-                    }, videoDromeDirectorDuration );
-                } else {
-                    $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
-                }
-            } );
-
-            // $( '.videodromeFullscreen' ).click( function () {
-            //     stopDirectorMode();
-            // } );
-
-            function seekWithinLocalVideo( event, targetVideoFrame, timeSkipDuration = 30 ) {
-                $( '.videoDromeFrame' ).unbind( 'seeking' );
-                setTimeout( function () {
-                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
-                }, 100 );
-
-                $( '.' + targetVideoFrame ).addClass( 'videodromeFullscreenTemp' );
-                $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
-                clearInterval( videoSeekFullscreenInterval );
-                videoSeekFullscreenInterval = setTimeout( function () {
-                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
-                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                }, videoSeekFullscreenDuration );
-
-                originalTime = '';
-                $( '[src="' + $( '.' + targetVideoFrame ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
-                    if ( originalTime == '' ) {
-                        originalTime = $( this )[0].currentTime;
-                    }
-                    if ( event.originalEvent.deltaY > 0 ) { // going down
-                        $( this )[0].currentTime = originalTime - timeSkipDuration;
-                    } else { // going up
-                        $( this )[0].currentTime = originalTime + timeSkipDuration;
-                    }
-                } );
-            }
-
-            function stopDirectorMode() {
-                clearInterval( videoDromeDirectorInterval );
-                videoDromeDirectorInterval = '';
-                $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                videoDromeDirectorModeActive = false;
-            }
-
-            $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
-
-            function syncTimeOfLinkedVideoContainer( e ) {
-                $( '.videoDromeFrame' ).unbind( 'seeking' );
-                setTimeout( function () {
-                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
-                }, 100 );
-
-                toBeSyncedTime = $( this )[0].currentTime;
-
-                $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
-                    $( this )[0].currentTime = toBeSyncedTime;
-                } );
-            }
-
-            function loadVideoDromeOneWindowRefresh( target ) {
-                if ( videodromeLoadModeRandom ) {
-                    videodromeLoadMode = randomIntFromInterval( 1, 4 ).toString();
-                }
-
-                if ( config['pornMap'] != undefined && config['pornMap'].length > 0 ) {
-                    switch ( videodromeLoadMode ) {
-                        case '1':
-                            loadLocalVideoIntoTargetWindow( [target] );
-                            break;
-                        case '2':
-                        case '3':
-                        case '4':
-                            loadLocalVideoIntoTargetWindow( [target, videodromeLoadModeMapping[videodromeLoadMode][target]] );
-                            break;
-                    }
-                }
-            }
 
             $( '.videodromeLoadModeSelect' ).click( function ( e ) {
                 videodromeLoadModeRandom = false;
@@ -4096,6 +4005,101 @@ $( document ).ready( function () {
                 displayAllActiveLocalFilenames();
                 checkVideodromeTagActive();
             } );
+
+            // VideoDrome Director mode section
+            // Enters a mode in which videos are switched automatically
+            $( document ).on( 'click', '#videoDromeDirectorStartStandard', function ( e ) {
+                e.preventDefault();
+                videoDromeDirectorModeActive = true;
+                $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
+                videoDromeDirectorDuration = randomIntFromInterval( 1000, 45000 );
+
+                if ( videoDromeDirectorInterval == '' ) {
+                    clearInterval( videoDromeDirectorInterval );
+                    videoDromeDirectorInterval = setInterval( function () {
+                        $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                        $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                        $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
+                        videoDromeDirectorDuration = randomIntFromInterval( 1000, 45000 );
+                    }, videoDromeDirectorDuration );
+                } else {
+                    $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
+                }
+            } );
+
+            // $( '.videodromeFullscreen' ).click( function () {
+            //     stopDirectorMode();
+            // } );
+
+            function stopDirectorMode() {
+                clearInterval( videoDromeDirectorInterval );
+                videoDromeDirectorInterval = '';
+                $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                videoDromeDirectorModeActive = false;
+            }
+
+            function seekWithinLocalVideo( event, targetVideoFrame, timeSkipDuration = 30 ) {
+                $( '.videoDromeFrame' ).unbind( 'seeking' );
+                setTimeout( function () {
+                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+                }, 100 );
+
+                if ( !$( '.videodromeFullscreen' )[0] ) {
+                    $( '.' + targetVideoFrame ).addClass( 'videodromeFullscreenTemp' );
+                }
+
+                $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+                clearInterval( videoSeekFullscreenInterval );
+                videoSeekFullscreenInterval = setTimeout( function () {
+                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                }, videoSeekFullscreenDuration );
+
+                originalTime = '';
+                $( '[src="' + $( '.' + targetVideoFrame ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
+                    if ( originalTime == '' ) {
+                        originalTime = $( this )[0].currentTime;
+                    }
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        $( this )[0].currentTime = originalTime - timeSkipDuration;
+                    } else { // going up
+                        $( this )[0].currentTime = originalTime + timeSkipDuration;
+                    }
+                } );
+            }
+
+            function syncTimeOfLinkedVideoContainer( e ) {
+                $( '.videoDromeFrame' ).unbind( 'seeking' );
+                setTimeout( function () {
+                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+                }, 100 );
+
+                toBeSyncedTime = $( this )[0].currentTime;
+
+                $( '[src="' + $( this ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
+                    $( this )[0].currentTime = toBeSyncedTime;
+                } );
+            }
+
+            function loadVideoDromeOneWindowRefresh( target ) {
+                if ( videodromeLoadModeRandom ) {
+                    videodromeLoadMode = randomIntFromInterval( 1, 4 ).toString();
+                }
+
+                if ( config['pornMap'] != undefined && config['pornMap'].length > 0 ) {
+                    switch ( videodromeLoadMode ) {
+                        case '1':
+                            loadLocalVideoIntoTargetWindow( [target] );
+                            break;
+                        case '2':
+                        case '3':
+                        case '4':
+                            loadLocalVideoIntoTargetWindow( [target, videodromeLoadModeMapping[videodromeLoadMode][target]] );
+                            break;
+                    }
+                }
+            }
 
             function checkIfCurrentVideoAlreadyTagged() {
                 $( '.videoTaggingButtonActive' ).removeClass( 'videoTaggingButtonActive' );
