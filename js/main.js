@@ -4060,8 +4060,8 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorStayWithCurrentVideo' ).show();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
-                videoDromeDirectorDurationMin = 6000;
-                videoDromeDirectorDurationMax = 25000;
+                videoDromeDirectorDurationMin = 7000;
+                videoDromeDirectorDurationMax = 20000;
                 setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
             } );
@@ -4090,7 +4090,6 @@ $( document ).ready( function () {
                 setDirectorModeInterval();
             } );
 
-
             function startDirectorMode() {
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 videoDromeDirectorModeActive = true;
@@ -4103,8 +4102,6 @@ $( document ).ready( function () {
                 // if not running, start director mode
                 if ( videoDromeDirectorInterval == '' ) {
                     clearInterval( videoDromeDirectorInterval );
-                    $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreen' );
-
                     setDirectorModeInterval();
                 } else { // otherwise reload all videos instead
                     $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
