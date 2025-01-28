@@ -4029,8 +4029,8 @@ $( document ).ready( function () {
             function startDirectorMode() {
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 videoDromeDirectorModeActive = true;
-
-                
+                $( '.videodromeRefreshContainer' ).hide();
+                $( '.videodromeDirectorControlContainer' ).show();
 
 
                 // if not running, start director mode
@@ -4054,6 +4054,8 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
                 videoDromeDirectorModeActive = false;
+                $( '.videodromeRefreshContainer' ).show();
+                $( '.videodromeDirectorControlContainer' ).hide();
             }
 
             function seekWithinLocalVideo( event, targetVideoFrame, timeSkipDuration = 30 ) {
