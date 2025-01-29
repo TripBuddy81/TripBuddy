@@ -284,7 +284,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['globalMenuIncantationSection'] != undefined && config['localSettingsOverwrite']['globalMenuIncantationSection'] ) {
                 $( '#quickSelectGlobalMenuIncantationSectionIcon' ).show();
             }
-            if ( config['relationships'] == undefined) {
+            if ( config['relationships'] == undefined ) {
                 $( '#toggleRelationships' ).remove();
             }
 
@@ -574,7 +574,9 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseout', '.iconAlternating', function () {
-                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
+                if ( !$( this ).hasClass( 'loadModeIconActive' ) && !$( this ).hasClass( 'directorTimingIconActive' ) ) {
+                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
+                }
             } );
 
             // Disable all future reminders and guided thoughts
@@ -640,7 +642,9 @@ $( document ).ready( function () {
                     $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
                 } );
 
-                $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '.png', '_white.png' ) );
+                if ( $( e.target ).attr( 'src' ).indexOf('_white.png' ) <= 0 ) {
+                    $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '.png', '_white.png' ) );
+                }
                 $( e.target ).addClass( targetClass );
             }
 
@@ -4020,6 +4024,7 @@ $( document ).ready( function () {
 
             // TODO
             // change timings - random, slow, fast, VIA PLUS MINUS ???
+            // RANGE INPUT with Min Max as Duration
             // change currently running video with some new video (jump to next video already loaded and replace current one)
             // manually skip to next video ??
             // allow seeking within menu
@@ -4028,7 +4033,7 @@ $( document ).ready( function () {
             // "resume" displays next video immediality
             // seeking in video "pauses" ???
             // hide menu on mouse still
-
+            // include streaming window if in front OR make sure streaming window is not visible
 
             $( document ).on( 'click', '#videoDromeDirectorStartStandard', function ( e ) {
                 e.preventDefault();
@@ -5371,7 +5376,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                // toggleXXXVisible();
+                toggleXXXVisible();
 
                 // $( '#showShrineSection' ).trigger( 'click' );
             }
