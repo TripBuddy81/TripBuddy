@@ -151,7 +151,7 @@ $( document ).ready( function () {
             window.videoSeekFullscreenInterval = '';
             window.videoSeekFullscreenDuration = 1500;
             window.videoDromeDirectorInterval = '';
-            window.videoDromeDirectorDurationMinDefault = 1000;
+            window.videoDromeDirectorDurationMinDefault = 1500;
             window.videoDromeDirectorDurationMaxDefault = 25000;
             window.videoDromeDirectorDurationMin = videoDromeDirectorDurationMinDefault;
             window.videoDromeDirectorDurationMax = videoDromeDirectorDurationMaxDefault;
