@@ -4450,6 +4450,8 @@ $( document ).ready( function () {
                 } else {
                     $( '.toggleLocalStreamIcon' ).hide();
                     $( '#videodromeLeftToolbarTrigger' ).remove();
+                    $( '#videodromeLoadModeSelectContainer' ).remove();
+                    $( '#videoDromeDirectorStartStandard' ).remove();
                 }
 
                 videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
