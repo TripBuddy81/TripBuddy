@@ -428,6 +428,8 @@ $( document ).ready( function () {
                 if ( $( '.videodromeFullscreenTemp' )[0] ) {
                     $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
                     $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                } else if ( $( '.modal' ).is( ':visible' ) ) {
+                    $( '.modal' ).modal( 'hide' );
                 } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#meditationSymbol' ).is( ':visible' ) ) {
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
@@ -435,15 +437,13 @@ $( document ).ready( function () {
                     stopShrineDisco();
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
-                } else if ( videoDromeDirectorModeActive ) {
-                    stopDirectorMode();
                 } else if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) || $( '#videodromeLeftToolbar' ).is( ':visible' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
                     $( '#videodromeLeftToolbar' ).hide();
-                } else if ( $( '.modal' ).is( ':visible' ) ) {
-                    $( '.modal' ).modal( 'hide' );
+                } else if ( videoDromeDirectorModeActive ) {
+                    stopDirectorMode();
                 } else if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && ($( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' )) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
@@ -4023,14 +4023,10 @@ $( document ).ready( function () {
             // RANGE INPUT with Min Max as Duration
             // change currently running video with some new video (jump to next video already loaded and replace current one)
             // manually skip to next video ??
-            // allow seeking within menu
-            // show fullscreen menu for video (tagging, filename display) and hide the other stuff
             // automatically change video after x seconds for something completly new (shuffle symbol) (if not visible)
             // "resume" displays next video immediality
-            // seeking in video "pauses" ???
-            // pause on mouse move
-            // hide menu on mouse still
             // include streaming window if in front OR make sure streaming window is not visible
+            // count how often every video has been displayed and replace after threshold reached?!
 
             $( document ).on( 'click', '#videoDromeDirectorStartStandard', function ( e ) {
                 e.preventDefault();
