@@ -3779,25 +3779,25 @@ $( document ).ready( function () {
                 videodromeStreamRefreshVideo();
             } );
 
-            $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
+            $( document ).on( 'mousemove', '.videodromeRefreshContainer,.videodromeDirectorControlContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
 
-                $( '.videodromeRefreshContainer' ).css( 'opacity', '1' );
-                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer,.videodromeDirectorControlContainer' ).css( 'opacity', '1' );
+                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer,.videodromeDirectorControlContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
 
                 videodromeFullscreenMenuHideInterval = setTimeout( function () {
-                    $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeRefreshContainer' ).css( 'cursor', 'none' );
-                    $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
+                    $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeRefreshContainer,.videodromeDirectorControlContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'none' );
+                    $( '.videodromeRefreshContainer,.videodromeDirectorControlContainer' ).css( 'opacity', '0' );
                 }, 1000 );
             } );
 
-            $( document ).on( 'mouseleave', '.videodromeRefreshContainer', function () {
+            $( document ).on( 'mouseleave', '.videodromeRefreshContainer,.videodromeDirectorControlContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
 
-                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
+                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer,.videodromeDirectorControlContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer,.videodromeDirectorControlContainer' ).css( 'opacity', '0' );
             } );
 
             $( document ).on( 'mouseenter', '.videodromeFullscreenMenuContainer', function ( event ) {
