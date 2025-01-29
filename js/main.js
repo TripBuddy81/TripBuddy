@@ -4096,7 +4096,7 @@ $( document ).ready( function () {
                 setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
             } );
-            
+
             function startDirectorMode() {
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 videoDromeDirectorModeActive = true;
@@ -4139,6 +4139,7 @@ $( document ).ready( function () {
                 $( '.videodromeDirectorControlContainer' ).hide();
                 $( '#videodromeDirectorResume' ).hide();
                 $( '#videodromeDirectorStayWithCurrentVideo' ).show();
+                $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
             }
 
             function seekWithinLocalVideo( event, targetVideoFrame, timeSkipDuration = 30 ) {
