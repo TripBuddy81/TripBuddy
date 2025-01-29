@@ -159,6 +159,8 @@ $( document ).ready( function () {
             window.videoDromeDirectorModeActive = false;
             window.moveTimerVideodrome = '';
             window.videoDromeDirectorLastDisplayedTarget = '';
+            window.directorModeTemporaryPause = false;
+            window.directorModeTemporaryPauseInterval = '';
 
             window.videodromeLoadModeMapping = {
                 '2': {
@@ -426,7 +428,7 @@ $( document ).ready( function () {
                 if ( $( '.videodromeFullscreenTemp' )[0] ) {
                     $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
                     $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                }  else if ( $( '#videodrome' ).is( ':visible' ) && $( '#meditationSymbol' ).is( ':visible' ) ) {
+                } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#meditationSymbol' ).is( ':visible' ) ) {
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
                 } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
@@ -4026,6 +4028,7 @@ $( document ).ready( function () {
             // automatically change video after x seconds for something completly new (shuffle symbol) (if not visible)
             // "resume" displays next video immediality
             // seeking in video "pauses" ???
+            // pause on mouse move
             // hide menu on mouse still
             // include streaming window if in front OR make sure streaming window is not visible
 
@@ -4097,6 +4100,14 @@ $( document ).ready( function () {
                 setDirectorModeInterval();
             } );
 
+            $( document ).on( 'mousemove wheel', '.videodromeFullscreen,.videodromeDirectorControlContainer,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
+                directorModeTemporaryPause = true;
+                clearInterval( directorModeTemporaryPauseInterval );
+                directorModeTemporaryPauseInterval = setInterval( function () {
+                    directorModeTemporaryPause = false;
+                }, 1500 );
+            } );
+
             function startDirectorMode() {
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 videoDromeDirectorModeActive = true;
@@ -4118,15 +4129,19 @@ $( document ).ready( function () {
             function setDirectorModeInterval() {
                 videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
                 videoDromeDirectorInterval = setInterval( function () {
-                    $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
-
                     videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
-                    videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
-                    $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
-
-                    updateVideodromeFullscreenInfo();
+                    if ( !directorModeTemporaryPause ) {
+                        setDirectorModeDisplayTarget();
+                    }
                 }, videoDromeDirectorDuration );
+            }
+
+            function setDirectorModeDisplayTarget() {
+                $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
+                $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
+                updateVideodromeFullscreenInfo();
             }
 
             function stopDirectorMode() {
