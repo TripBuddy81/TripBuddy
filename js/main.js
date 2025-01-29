@@ -3623,7 +3623,7 @@ $( document ).ready( function () {
             } );
 
             // Seeking within video using the video tagging button (time interval is much smaller) or the fullscreen reload button.
-            $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
+            $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer,.videodromeDirectorControlContainer', function ( event ) {
                 event.preventDefault();
                 timeSkipDuration = 30;
                 if ( $( '.videoTaggingButton' ).is( ':visible' ) ) {
@@ -3632,38 +3632,32 @@ $( document ).ready( function () {
                 seekWithinLocalVideo( event, $( '.videodromeFullscreen' ).attr( 'target' ), timeSkipDuration );
             } );
 
-            // TODO REMOVE OR REWRITE
-            // // Seeking within local video via the reload all button. If a video is in fullscreen this is used for seeking. If not in fullscreen all videos are used for seeking
-            // $( document ).on( 'wheel', '#refreshVideoDromeVideoAll', function ( event ) {
-            //     event.preventDefault();
-            //     $( '.videoDromeFrame' ).removeAttr( 'controls' );
-            //
-            //     if ( $( '.videodromeFullscreen' )[0] ) {
-            //         $( '.videoDromeFrame' ).unbind( 'seeking' );
-            //         setTimeout( function () {
-            //             $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
-            //         }, 100 );
-            //
-            //         originalTime = '';
-            //         $( '[src="' + $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) + '"]' ).parent().each( function () {
-            //             if ( originalTime == '' ) {
-            //                 originalTime = $( this )[0].currentTime;
-            //             }
-            //             if ( event.originalEvent.deltaY > 0 ) { // going down
-            //                 $( this )[0].currentTime = originalTime - 30;
-            //             } else { // going up
-            //                 $( this )[0].currentTime = originalTime + 30;
-            //             }
-            //         } );
-            //     } else {
-            //         $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
-            //         $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenTemp' );
-            //         clearInterval( videoSeekFullscreenInterval );
-            //         videoSeekFullscreenInterval = setTimeout( function () {
-            //             $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
-            //         }, videoSeekFullscreenDuration );
-            //     }
-            // } );
+            // Seeking within all local videos simultaneously via the reload all button.
+            $( document ).on( 'wheel', '#refreshVideoDromeVideoAll', function ( event ) {
+                event.preventDefault();
+                clearInterval( videoSeekFullscreenInterval );
+                $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+                if ( !$( '.videodromeFullscreenTemp' )[0] ) {
+                    $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenTemp' );
+                }
+                videoSeekFullscreenInterval = setTimeout( function () {
+                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                }, videoSeekFullscreenDuration );
+
+                $( '.videoDromeFrame' ).unbind( 'seeking' );
+                setTimeout( function () {
+                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+                }, 100 );
+
+                $( '.videoDromeFrame' ).each( function () {
+                    if ( event.originalEvent.deltaY > 0 ) { // going down
+                        $( this )[0].currentTime = $( this )[0].currentTime - 30;
+                    } else { // going up
+                        $( this )[0].currentTime = $( this )[0].currentTime + 30;
+                    }
+                } );
+            } );
 
             $( '.videodromeRefreshLocalVideo' ).click( function () {
                 $( '.videoDromeFrame' ).unbind( 'seeking' );
