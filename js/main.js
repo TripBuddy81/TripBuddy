@@ -642,7 +642,7 @@ $( document ).ready( function () {
                     $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
                 } );
 
-                if ( $( e.target ).attr( 'src' ).indexOf('_white.png' ) <= 0 ) {
+                if ( $( e.target ).attr( 'src' ).indexOf( '_white.png' ) <= 0 ) {
                     $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '.png', '_white.png' ) );
                 }
                 $( e.target ).addClass( targetClass );
@@ -4059,8 +4059,7 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
                 e.preventDefault();
-
-
+                loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadAllVideos', function ( e ) {
