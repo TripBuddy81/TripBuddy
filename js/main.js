@@ -4096,8 +4096,7 @@ $( document ).ready( function () {
                 setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
             } );
-
-
+            
             function startDirectorMode() {
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 videoDromeDirectorModeActive = true;
@@ -4105,6 +4104,7 @@ $( document ).ready( function () {
                 $( '.videodromeDirectorControlContainer' ).show();
                 videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4 );
                 $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
+                $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
 
                 // if not running, start director mode
                 if ( videoDromeDirectorInterval == '' ) {
@@ -4124,6 +4124,8 @@ $( document ).ready( function () {
                     videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
                     videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
                     $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
+
+                    updateVideodromeFullscreenInfo();
                 }, videoDromeDirectorDuration );
             }
 
