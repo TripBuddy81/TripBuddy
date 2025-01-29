@@ -426,6 +426,13 @@ $( document ).ready( function () {
                 if ( $( '.videodromeFullscreenTemp' )[0] ) {
                     $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
                     $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                }  else if ( $( '#videodrome' ).is( ':visible' ) && $( '#meditationSymbol' ).is( ':visible' ) ) {
+                    $( '#meditationSymbol' ).hide();
+                    $( '.meditationSymbolInfoContainer' ).hide();
+                } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
+                    stopShrineDisco();
+                    $( '#meditationSymbol' ).hide();
+                    $( '.meditationSymbolInfoContainer' ).hide();
                 } else if ( videoDromeDirectorModeActive ) {
                     stopDirectorMode();
                 } else if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) || $( '#videodromeLeftToolbar' ).is( ':visible' ) ) {
@@ -440,13 +447,6 @@ $( document ).ready( function () {
                     $( '#quickTrackSelectionMenu' ).removeClass( 'menuTransition' );
                     $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                     $( '#shrineSettingsContainer' ).removeClass( 'visible' );
-                } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#meditationSymbol' ).is( ':visible' ) ) {
-                    $( '#meditationSymbol' ).hide();
-                    $( '.meditationSymbolInfoContainer' ).hide();
-                } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
-                    stopShrineDisco();
-                    $( '#meditationSymbol' ).hide();
-                    $( '.meditationSymbolInfoContainer' ).hide();
                 } else if ( ($( e.target ).attr( 'id' ) != 'activateHiddenMenue' && $( e.target ).attr( 'type' ) != 'text' && !$( e.target ).parent().hasClass( 'videodromeFullscreen' ) && !$( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) && !$( '#privatePictureSlideshow' ).is( ':visible' ) && !$( '#musicVideos' ).is( ':visible' )) || e.which == 0 ) {
                     if ( $( '#menuClose' ).prop( 'checked' ) ||
                             $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' ) ||

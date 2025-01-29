@@ -2105,7 +2105,7 @@ video::-webkit-media-controls-fullscreen-button {
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     display: none;
     opacity: 0;
-    z-index: 85;
+    z-index: 35;
 }
 
 #videodromeFullscreenMenuVideoJSContainerExtraOptions, #videodromeFullscreenMenuLocalVideoContainerExtraOptions, #musicVideoOverlayFileSelect {
@@ -2118,7 +2118,7 @@ video::-webkit-media-controls-fullscreen-button {
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     display: block;
     opacity: 0;
-    z-index: 35;
+    z-index: 85;
     overflow-y: auto;
     overflow-x: hidden;
 }
