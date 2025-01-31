@@ -2387,7 +2387,8 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 #pluginExplanation1 {
-    width: 100%;
+    max-width: 100%;
+    height: 300px;
 }
 
 .externalPornDirImage {
