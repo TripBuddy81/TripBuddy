@@ -2122,7 +2122,7 @@ $( document ).ready( function () {
                 enableFullscreen();
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
-                $( '#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleThinkerWhite' ).show();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleThinkerWhite' ).show();
                 $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineOracle,#toggleGospel,#toggleThinker' ).hide();
                 if ( xxxVisible ) {
                     $( '#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#toggleGospelWhite' ).show();
