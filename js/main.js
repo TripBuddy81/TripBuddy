@@ -2282,6 +2282,11 @@ $( document ).ready( function () {
                 if ( shrineDiscoActive ) {
                     stopShrineDisco();
                 } else {
+                    if ( window.pJSDom[0] == undefined ) {
+                        particlesInit1();
+                    }
+                    showParticles = true;
+                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                     startDiscoMode();
                     nextDiscoMode();
                 }
@@ -2413,8 +2418,6 @@ $( document ).ready( function () {
 
             function startDiscoMode() {
                 shrineDiscoActive = true;
-                showParticles = true;
-                $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
             }
 
             function nextDiscoMode() {
