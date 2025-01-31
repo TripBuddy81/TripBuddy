@@ -288,6 +288,7 @@ $( document ).ready( function () {
             }
             if ( config['relationships'] == undefined ) {
                 $( '#toggleRelationships' ).remove();
+                $( '#toggleRelationshipsWhite' ).remove();
             }
 
             // Save stream favorites to a downloadable text file
