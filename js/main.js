@@ -4126,11 +4126,8 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
 
                 // if not running, start director mode
-                if ( videoDromeDirectorInterval == '' && !$('.videodromeDirectorStayWithCurrentVideo').hasClass('directorTimingIconActive') ) {
-                    clearInterval( videoDromeDirectorInterval );
+                if ( !$( '#videodromeDirectorStayWithCurrentVideo' ).hasClass( 'directorTimingIconActive' ) ) {
                     setDirectorModeInterval();
-                } else { // otherwise reload all videos instead
-                    $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
                 }
             }
 
