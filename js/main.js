@@ -653,14 +653,6 @@ $( document ).ready( function () {
                 $( e.target ).addClass( targetClass );
             }
 
-            // Reset icons of given class to default setting
-            function resetIconsToDefault( targetClass ) {
-                $( '.' + targetClass ).each( function () {
-                    $( this ).removeClass( targetClass );
-                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
-                } );
-            }
-
             // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
             function stopAllActions( hidePlaylistSelection = true, hideQuickTrackSelection = true ) {
                 $( '.spotifyTrackContainer' ).show();
