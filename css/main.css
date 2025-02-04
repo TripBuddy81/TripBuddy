@@ -1996,10 +1996,10 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videodromeDirectorControlContainer {
     position: fixed;
-    width: 14vW;
+    width: 18vW;
     height: 20vH;
     top: 41vH;
-    left: 43vW;
+    left: 41vW;
     opacity: 0;
     z-index: 25;
     display: none;
@@ -2056,47 +2056,41 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100px;
 }
 
-#videodromeDirectorStayWithCurrentVideo {
+#videodromeDirectorShuffleActivate, #videodromeDirectorShuffleDeactivate {
     top: 10px;
-    left: 18px;
-}
-
-#videodromeDirectorResume {
-    top: 10px;
-    left: 18px;
-    display: none;
+    left: 19px;
 }
 
 #videodromeDirectorReloadCurrentVideo {
     top: 10px;
-    left: 94px;
+    left: 130px;
     height: 55px;
 }
 
 #videodromeDirectorReloadAllVideos {
     top: 7px;
-    left: 166px;
+    left: 230px;
     height: 57px;
+}
+
+#videodromeDirectorStayWithCurrentVideo {
+    bottom: 10px;
+    left: 19px;
 }
 
 #videodromeDirectorTimingsSlow {
     bottom: 10px;
-    left: 19px;
+    left: 90px;
 }
 
 #videodromeDirectorTimingsRandom {
     bottom: 10px;
-    left: 100px;
+    left: 167px;
 }
 
 #videodromeDirectorTimingsFast {
     bottom: 10px;
-    left: 163px;
-}
-
-#videodromeDirectorShuffleActivate, #videodromeDirectorShuffleDeactivate {
-    bottom: 70px;
-    left: 19px;
+    left: 230px;
 }
 
 #videodromeDirectorShuffleDeactivate {

@@ -4049,16 +4049,9 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '#videodromeDirectorStayWithCurrentVideo', function ( e ) {
                 e.preventDefault();
-                $( '#videodromeDirectorResume' ).show();
-                $( '#videodromeDirectorStayWithCurrentVideo' ).hide();
-                resetIconsToDefault( 'directorTimingIconActive' );
+                setIconActive( e, 'directorTimingIconActive' );
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
-            } );
-
-            $( document ).on( 'click', '#videodromeDirectorResume', function ( e ) {
-                e.preventDefault();
-                setDirectorModeInterval();
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
@@ -4133,7 +4126,7 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
 
                 // if not running, start director mode
-                if ( videoDromeDirectorInterval == '' ) {
+                if ( videoDromeDirectorInterval == '' && !$('.videodromeDirectorStayWithCurrentVideo').hasClass('directorTimingIconActive') ) {
                     clearInterval( videoDromeDirectorInterval );
                     setDirectorModeInterval();
                 } else { // otherwise reload all videos instead
@@ -4142,8 +4135,6 @@ $( document ).ready( function () {
             }
 
             function setDirectorModeInterval() {
-                $( '#videodromeDirectorResume' ).hide();
-                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
                 videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = setInterval( function () {
@@ -4178,15 +4169,13 @@ $( document ).ready( function () {
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 directorModeShuffleMode = false;
+                videoDromeDirectorModeActive = false;
                 $( '#videodromeDirectorShuffleActivate' ).show();
                 $( '#videodromeDirectorShuffleDeactivate' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                videoDromeDirectorModeActive = false;
                 $( '.videodromeRefreshContainer' ).show();
                 $( '.videodromeDirectorControlContainer' ).hide();
-                $( '#videodromeDirectorResume' ).hide();
-                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
                 $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
             }
 
