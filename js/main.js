@@ -161,6 +161,7 @@ $( document ).ready( function () {
             window.videoDromeDirectorLastDisplayedTarget = '';
             window.directorModeTemporaryPause = false;
             window.directorModeShuffleMode = false;
+            window.directorModeShufflePropability = 50;
             window.directorModeTemporaryPauseInterval = '';
             window.directorModePlayHistory = {};
 
@@ -4152,13 +4153,15 @@ $( document ).ready( function () {
                 $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
                 updateVideodromeFullscreenInfo();
 
-                shuffleThreshold = 2;
+                shuffleThreshold = 1;
                 // check if currently display video has been shown often enough and replace it with a new one if necessary
                 if ( directorModeShuffleMode && directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] != undefined && directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] >= shuffleThreshold ) {
-                    directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] = 0;
-                    loadVideoDromeOneWindowRefresh( previousTarget );
+                    if ( directorModeShufflePropability >= randomIntFromInterval( 0, 100 ) ) {
+                        directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] = 0;
+                        loadVideoDromeOneWindowRefresh( previousTarget );
+                    } else {
+                    }
                 }
-
                 directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] = directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] ? directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] + 1 : 1;
             }
 
