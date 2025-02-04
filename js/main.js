@@ -4034,26 +4034,11 @@ $( document ).ready( function () {
             // include streaming window if in front OR make sure streaming window is not visible
             // count how often every video has been displayed and replace after threshold reached?!
 
+            // SHow director mode settings if manual fullscreen of video ??? (but no interval start?)
+
             $( document ).on( 'click', '#videoDromeDirectorStartStandard', function ( e ) {
                 e.preventDefault();
                 startDirectorMode();
-            } );
-
-            $( document ).on( 'click', '#videodromeDirectorStayWithCurrentVideo', function ( e ) {
-                e.preventDefault();
-                setIconActive( e, 'directorTimingIconActive' );
-                clearInterval( videoDromeDirectorInterval );
-                videoDromeDirectorInterval = '';
-            } );
-
-            $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
-                e.preventDefault();
-                loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
-            } );
-
-            $( document ).on( 'click', '#videodromeDirectorReloadAllVideos', function ( e ) {
-                e.preventDefault();
-                $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
             } );
 
             $( document ).on( 'click', '#videodromeDirectorShuffleActivate', function ( e ) {
@@ -4068,6 +4053,29 @@ $( document ).ready( function () {
                 directorModeShuffleMode = false;
                 $( '#videodromeDirectorShuffleActivate' ).show();
                 $( '#videodromeDirectorShuffleDeactivate' ).hide();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorNextVideo', function ( e ) {
+                e.preventDefault();
+                setDirectorModeDisplayTarget();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
+                e.preventDefault();
+                loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorReloadAllVideos', function ( e ) {
+                e.preventDefault();
+                $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
+            } );
+
+
+            $( document ).on( 'click', '#videodromeDirectorStayWithCurrentVideo', function ( e ) {
+                e.preventDefault();
+                setIconActive( e, 'directorTimingIconActive' );
+                clearInterval( videoDromeDirectorInterval );
+                videoDromeDirectorInterval = '';
             } );
 
             $( document ).on( 'click', '#videodromeDirectorTimingsSlow', function ( e ) {

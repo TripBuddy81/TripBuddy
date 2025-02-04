@@ -2061,9 +2061,15 @@ video::-webkit-media-controls-fullscreen-button {
     left: 19px;
 }
 
+#videodromeDirectorNextVideo {
+    top: 13px;
+    left: 96px;
+    height: 45px;
+}
+
 #videodromeDirectorReloadCurrentVideo {
     top: 10px;
-    left: 130px;
+    left: 162px;
     height: 55px;
 }
 
