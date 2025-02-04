@@ -4913,7 +4913,8 @@ $( document ).ready( function () {
                     if ( window.pJSDom[0] == undefined ) {
                         particlesInit1();
                     }
-
+                    showParticles = true;
+                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                     startDiscoMode();
                     nextDiscoMode();
 
