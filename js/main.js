@@ -151,7 +151,7 @@ $( document ).ready( function () {
             window.videoSeekFullscreenInterval = '';
             window.videoSeekFullscreenDuration = 1500;
             window.videoDromeDirectorInterval = '';
-            window.videoDromeDirectorDurationMinDefault = 1500;
+            window.videoDromeDirectorDurationMinDefault = 2000;
             window.videoDromeDirectorDurationMaxDefault = 25000;
             window.videoDromeDirectorDurationMin = videoDromeDirectorDurationMinDefault;
             window.videoDromeDirectorDurationMax = videoDromeDirectorDurationMaxDefault;
@@ -160,7 +160,9 @@ $( document ).ready( function () {
             window.moveTimerVideodrome = '';
             window.videoDromeDirectorLastDisplayedTarget = '';
             window.directorModeTemporaryPause = false;
+            window.directorModeShuffleMode = false;
             window.directorModeTemporaryPauseInterval = '';
+            window.directorModePlayHistory = {};
 
             window.videodromeLoadModeMapping = {
                 '2': {
@@ -649,6 +651,14 @@ $( document ).ready( function () {
                     $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '.png', '_white.png' ) );
                 }
                 $( e.target ).addClass( targetClass );
+            }
+
+            // Reset icons of given class to default setting
+            function resetIconsToDefault( targetClass ) {
+                $( '.' + targetClass ).each( function () {
+                    $( this ).removeClass( targetClass );
+                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
+                } );
             }
 
             // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
@@ -4041,35 +4051,38 @@ $( document ).ready( function () {
                 e.preventDefault();
                 $( '#videodromeDirectorResume' ).show();
                 $( '#videodromeDirectorStayWithCurrentVideo' ).hide();
-
+                resetIconsToDefault( 'directorTimingIconActive' );
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
             } );
 
             $( document ).on( 'click', '#videodromeDirectorResume', function ( e ) {
                 e.preventDefault();
-                $( '#videodromeDirectorResume' ).hide();
-                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
-
                 setDirectorModeInterval();
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
                 e.preventDefault();
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
-                setDirectorModeInterval();
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadAllVideos', function ( e ) {
                 e.preventDefault();
                 $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
-                setDirectorModeInterval();
             } );
 
-            $( document ).on( 'click', '#videodromeDirectorShuffle', function ( e ) {
+            $( document ).on( 'click', '#videodromeDirectorShuffleActivate', function ( e ) {
                 e.preventDefault();
-                // $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
-                setDirectorModeInterval();
+                directorModeShuffleMode = true;
+                $( '#videodromeDirectorShuffleActivate' ).hide();
+                $( '#videodromeDirectorShuffleDeactivate' ).show();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorShuffleDeactivate', function ( e ) {
+                e.preventDefault();
+                directorModeShuffleMode = false;
+                $( '#videodromeDirectorShuffleActivate' ).show();
+                $( '#videodromeDirectorShuffleDeactivate' ).hide();
             } );
 
             $( document ).on( 'click', '#videodromeDirectorTimingsSlow', function ( e ) {
@@ -4097,7 +4110,7 @@ $( document ).ready( function () {
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = 1000;
-                videoDromeDirectorDurationMax = 2500;
+                videoDromeDirectorDurationMax = 3000;
                 setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
             } );
@@ -4132,6 +4145,7 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorResume' ).hide();
                 $( '#videodromeDirectorStayWithCurrentVideo' ).show();
                 videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
+                clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = setInterval( function () {
                     videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
                     if ( !directorModeTemporaryPause ) {
@@ -4141,16 +4155,31 @@ $( document ).ready( function () {
             }
 
             function setDirectorModeDisplayTarget() {
+                previousTarget = $( '.videodromeFullscreen' ).attr( 'target' );
+
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
+
                 videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
                 $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
                 updateVideodromeFullscreenInfo();
+
+                shuffleThreshold = 2;
+                // check if currently display video has been shown often enough and replace it with a new one if necessary
+                if ( directorModeShuffleMode && directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] != undefined && directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] >= shuffleThreshold ) {
+                    directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] = 0;
+                    loadVideoDromeOneWindowRefresh( previousTarget );
+                }
+
+                directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] = directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] ? directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] + 1 : 1;
             }
 
             function stopDirectorMode() {
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
+                directorModeShuffleMode = false;
+                $( '#videodromeDirectorShuffleActivate' ).show();
+                $( '#videodromeDirectorShuffleDeactivate' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
                 videoDromeDirectorModeActive = false;
@@ -4504,6 +4533,8 @@ $( document ).ready( function () {
                 } );
 
                 clearInterval( videodromePlayInterval );
+                videodromePlayInterval = '';
+                stopDirectorMode();
             }
 
             function outputPHFavorites() {

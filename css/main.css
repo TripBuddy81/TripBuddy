@@ -2094,9 +2094,13 @@ video::-webkit-media-controls-fullscreen-button {
     left: 163px;
 }
 
-#videodromeDirectorShuffle {
+#videodromeDirectorShuffleActivate, #videodromeDirectorShuffleDeactivate {
     bottom: 70px;
     left: 19px;
+}
+
+#videodromeDirectorShuffleDeactivate {
+    display: none;
 }
 
 #videodromeFullscreenMenuVideoJSContainer, #videodromeFullscreenMenuLocalVideoContainer {
