@@ -1997,8 +1997,8 @@ video::-webkit-media-controls-fullscreen-button {
 .videodromeDirectorControlContainer {
     position: fixed;
     width: 14vW;
-    height: 15vH;
-    top: 43vH;
+    height: 20vH;
+    top: 41vH;
     left: 43vW;
     opacity: 0;
     z-index: 25;
@@ -2094,6 +2094,10 @@ video::-webkit-media-controls-fullscreen-button {
     left: 163px;
 }
 
+#videodromeDirectorShuffle {
+    bottom: 70px;
+    left: 19px;
+}
 
 #videodromeFullscreenMenuVideoJSContainer, #videodromeFullscreenMenuLocalVideoContainer {
     position: fixed;

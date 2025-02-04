@@ -4057,17 +4057,23 @@ $( document ).ready( function () {
             $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
                 e.preventDefault();
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
+                setDirectorModeInterval();
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadAllVideos', function ( e ) {
                 e.preventDefault();
                 $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
+                setDirectorModeInterval();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorShuffle', function ( e ) {
+                e.preventDefault();
+                // $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
+                setDirectorModeInterval();
             } );
 
             $( document ).on( 'click', '#videodromeDirectorTimingsSlow', function ( e ) {
                 e.preventDefault();
-                $( '#videodromeDirectorResume' ).hide();
-                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = 7000;
@@ -4078,8 +4084,6 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '#videodromeDirectorTimingsRandom', function ( e ) {
                 e.preventDefault();
-                $( '#videodromeDirectorResume' ).hide();
-                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = videoDromeDirectorDurationMinDefault;
@@ -4090,8 +4094,6 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '#videodromeDirectorTimingsFast', function ( e ) {
                 e.preventDefault();
-                $( '#videodromeDirectorResume' ).hide();
-                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = 1000;
@@ -4127,6 +4129,8 @@ $( document ).ready( function () {
             }
 
             function setDirectorModeInterval() {
+                $( '#videodromeDirectorResume' ).hide();
+                $( '#videodromeDirectorStayWithCurrentVideo' ).show();
                 videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
                 videoDromeDirectorInterval = setInterval( function () {
                     videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
