@@ -4028,13 +4028,8 @@ $( document ).ready( function () {
             // TODO
             // change timings - random, slow, fast, VIA PLUS MINUS ???
             // RANGE INPUT with Min Max as Duration
-            // change currently running video with some new video (jump to next video already loaded and replace current one)
-            // manually skip to next video ??
-            // automatically change video after x seconds for something completly new (shuffle symbol) (if not visible)
-            // "resume" displays next video immediality
             // include streaming window if in front OR make sure streaming window is not visible
-            // count how often every video has been displayed and replace after threshold reached?!
-
+            // directorModePlayHistory NOT needed!?
             // SHow director mode settings if manual fullscreen of video ??? (but no interval start?)
 
             $( document ).on( 'click', '#videoDromeDirectorStartStandard', function ( e ) {
