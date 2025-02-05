@@ -3749,18 +3749,22 @@ $( document ).ready( function () {
                 $( '.vjs-control-bar' ).css( 'display', 'none' );
             } );
 
-            $( document ).on( 'mouseenter', '.refreshVideoDromeVideoFullscreenIcon', function () {
+            $( document ).on( 'mousemove', '.refreshVideoDromeVideoFullscreenIcon,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
                 videodromeFullscreenMenuHideInterval = setTimeout( function () {
-                    $( '.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'none' );
+                    $( '.refreshVideoDromeVideoFullscreenContainer,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'none' );
                     $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
-                }, 1000 );
+                }, 1500 );
+                $( '.refreshVideoDromeVideoFullscreenContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
             } );
 
-            $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon', function () {
+            $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon,#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuLocalVideoContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
-                $( '.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'opacity', '1' );
+                $( '.refreshVideoDromeVideoFullscreenContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
             } );
 
             $( '#refreshVideoDromeVideoAll' ).click( function () {
@@ -4068,22 +4072,22 @@ $( document ).ready( function () {
                 videoDromeDirectorModeActive = false;
             } );
 
-            $( document ).on( 'click', '#videodromeDirectorTimingsSlow', function ( e ) {
-                e.preventDefault();
-                clearInterval( videoDromeDirectorInterval );
-                videoDromeDirectorInterval = '';
-                videoDromeDirectorDurationMin = 7000;
-                videoDromeDirectorDurationMax = 20000;
-                setIconActive( e, 'directorTimingIconActive' );
-                setDirectorModeInterval();
-            } );
-
             $( document ).on( 'click', '#videodromeDirectorTimingsRandom', function ( e ) {
                 e.preventDefault();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = videoDromeDirectorDurationMinDefault;
                 videoDromeDirectorDurationMax = videoDromeDirectorDurationMaxDefault;
+                setIconActive( e, 'directorTimingIconActive' );
+                setDirectorModeInterval();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorTimingsSlow', function ( e ) {
+                e.preventDefault();
+                clearInterval( videoDromeDirectorInterval );
+                videoDromeDirectorInterval = '';
+                videoDromeDirectorDurationMin = 7000;
+                videoDromeDirectorDurationMax = 35000;
                 setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
             } );
@@ -4118,11 +4122,15 @@ $( document ).ready( function () {
                 }, videoDromeDirectorDuration );
             }
 
-            function setDirectorModeDisplayTarget() {
+            function setDirectorModeDisplayTarget( currentTarget = '' ) {
                 previousTarget = $( '.videodromeFullscreen' ).attr( 'target' );
 
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
+
+                if ( videoDromeDirectorLastDisplayedTarget == '' ) {
+                    videoDromeDirectorLastDisplayedTarget = previousTarget.replace( /videoDromeVideo/, '' );
+                }
 
                 videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
                 $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
@@ -4141,7 +4149,7 @@ $( document ).ready( function () {
             }
 
             function stopDirectorMode() {
-                $('#videodromeDirectorStayWithCurrentVideo').trigger( 'click' );
+                $( '#videodromeDirectorStayWithCurrentVideo' ).trigger( 'click' );
                 directorModeShuffleMode = false;
                 videoDromeDirectorModeActive = false;
                 $( '#videodromeDirectorShuffleActivate' ).show();

@@ -2310,6 +2310,18 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 5;
 }
 
+#videodromeDirectorTimingsRandom {
+    padding-left: 7px;
+}
+
+#videodromeDirectorTimingsSlow {
+    padding-left: 7px;
+}
+
+#videodromeDirectorTimingsFast {
+    padding-left: 3px;
+}
+
 .videoJSFavoriteContainer {
     position: relative;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
