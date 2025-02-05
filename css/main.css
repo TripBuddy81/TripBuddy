@@ -1952,7 +1952,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100vH;
     bottom: 0vH;
     right: -0.2vW;
-    z-index: 50;
+    z-index: 90;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     padding: 10px 0px 10px 19px;
     display: none;
@@ -1975,7 +1975,7 @@ video::-webkit-media-controls-fullscreen-button {
     bottom: 0vH;
     left: 0vW;
     opacity: 0;
-    z-index: 75;
+    z-index: 95;
 }
 
 .videodromeRefreshContainer {
@@ -1994,24 +1994,7 @@ video::-webkit-media-controls-fullscreen-button {
     border-radius: 5px;
 }
 
-.videodromeDirectorControlContainer {
-    position: fixed;
-    width: 18vW;
-    height: 20vH;
-    top: 41vH;
-    left: 41vW;
-    opacity: 0;
-    z-index: 25;
-    display: none;
-}
-
-.videodromeDirectorControlContainer:hover {
-    opacity: 1;
-    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-    border-radius: 5px;
-}
-
-.videodromeRefreshLocalVideo, .videodromeStreamRefreshVideo, #refreshVideoDromeVideoAll, #refreshVideoDromeStreamVideoAll, .videodromeDirectorControlContainerIcon {
+.videodromeRefreshLocalVideo, .videodromeStreamRefreshVideo, #refreshVideoDromeVideoAll, #refreshVideoDromeStreamVideoAll {
     height: 50px;
     position: absolute;
 }
@@ -2056,52 +2039,21 @@ video::-webkit-media-controls-fullscreen-button {
     height: 100px;
 }
 
-#videodromeDirectorShuffleActivate, #videodromeDirectorShuffleDeactivate {
-    top: 10px;
-    left: 19px;
+.videodromeDirectorControlContainerIcon {
+    height: 50px;
+    float: left;
+    margin-right: 25px;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #videodromeDirectorNextVideo {
-    top: 13px;
-    left: 96px;
     height: 45px;
-}
-
-#videodromeDirectorReloadCurrentVideo {
-    top: 10px;
-    left: 162px;
-    height: 55px;
-}
-
-#videodromeDirectorReloadAllVideos {
-    top: 7px;
-    left: 230px;
-    height: 57px;
-}
-
-#videodromeDirectorStayWithCurrentVideo {
-    bottom: 10px;
-    left: 19px;
-}
-
-#videodromeDirectorTimingsSlow {
-    bottom: 10px;
-    left: 90px;
-}
-
-#videodromeDirectorTimingsRandom {
-    bottom: 10px;
-    left: 167px;
-}
-
-#videodromeDirectorTimingsFast {
-    bottom: 10px;
-    left: 230px;
 }
 
 #videodromeDirectorShuffleDeactivate {
     display: none;
 }
+
 
 #videodromeFullscreenMenuVideoJSContainer, #videodromeFullscreenMenuLocalVideoContainer {
     position: fixed;
@@ -2300,12 +2252,6 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
-#videoDromeDirectorStartStandard {
-    height: 55px;
-    margin-right: 20px;
-    margin-left: 35px;
-}
-
 #toggleTransperentStroboOracleSymbol {
     height: 55px;
     margin-right: 20px;
@@ -2340,9 +2286,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .refreshVideoDromeVideoFullscreenContainer {
-    -ms-flex: 0 0 110px;
-    flex: 0 0 110px;
-    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
+    width: 375px;
 }
 
 .videoDromeVideoFullscreenSubActions {

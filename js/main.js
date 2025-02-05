@@ -161,7 +161,7 @@ $( document ).ready( function () {
             window.videoDromeDirectorLastDisplayedTarget = '';
             window.directorModeTemporaryPause = false;
             window.directorModeShuffleMode = false;
-            window.directorModeShufflePropability = 50;
+            window.directorModeShufflePropability = 33;
             window.directorModeTemporaryPauseInterval = '';
             window.directorModePlayHistory = {};
 
@@ -3632,7 +3632,7 @@ $( document ).ready( function () {
             } );
 
             // Seeking within video using the video tagging button (time interval is much smaller) or the fullscreen reload button.
-            $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer,.videodromeDirectorControlContainer', function ( event ) {
+            $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
                 event.preventDefault();
                 timeSkipDuration = 30;
                 if ( $( '.videoTaggingButton' ).is( ':visible' ) ) {
@@ -3782,25 +3782,25 @@ $( document ).ready( function () {
                 videodromeStreamRefreshVideo();
             } );
 
-            $( document ).on( 'mousemove', '.videodromeRefreshContainer,.videodromeDirectorControlContainer', function () {
+            $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
 
-                $( '.videodromeRefreshContainer,.videodromeDirectorControlContainer' ).css( 'opacity', '1' );
-                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer,.videodromeDirectorControlContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'opacity', '1' );
+                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
 
                 videodromeFullscreenMenuHideInterval = setTimeout( function () {
-                    $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeRefreshContainer,.videodromeDirectorControlContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'none' );
-                    $( '.videodromeRefreshContainer,.videodromeDirectorControlContainer' ).css( 'opacity', '0' );
+                    $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeRefreshContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'none' );
+                    $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
                 }, 1000 );
             } );
 
-            $( document ).on( 'mouseleave', '.videodromeRefreshContainer,.videodromeDirectorControlContainer', function () {
+            $( document ).on( 'mouseleave', '.videodromeRefreshContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
 
-                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer,.videodromeDirectorControlContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer,.videodromeDirectorControlContainer' ).css( 'opacity', '0' );
+                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
             } );
 
             $( document ).on( 'mouseenter', '.videodromeFullscreenMenuContainer', function ( event ) {
@@ -3856,7 +3856,6 @@ $( document ).ready( function () {
                     $( '#videoTaggingContainer' ).show();
                     checkIfCurrentVideoAlreadyTagged();
                     $( '#videodromeLoadModeSelectContainer' ).hide();
-                    $( '#videodromeDirectorModeContainer' ).hide();
                 }
 
                 clearTimeout( videodromeVideoJSControlbarHideInterval );
@@ -3876,7 +3875,6 @@ $( document ).ready( function () {
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
                     $( '#videoTaggingContainer' ).hide();
                     $( '#videodromeLoadModeSelectContainer' ).show();
-                    $( '#videodromeDirectorModeContainer' ).show();
                 }
             } );
 
@@ -4066,7 +4064,6 @@ $( document ).ready( function () {
                 $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
             } );
 
-
             $( document ).on( 'click', '#videodromeDirectorStayWithCurrentVideo', function ( e ) {
                 e.preventDefault();
                 setIconActive( e, 'directorTimingIconActive' );
@@ -4099,12 +4096,12 @@ $( document ).ready( function () {
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = 1000;
-                videoDromeDirectorDurationMax = 3000;
+                videoDromeDirectorDurationMax = 7000;
                 setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
             } );
 
-            $( document ).on( 'mousemove wheel', '.videodromeFullscreen,.videodromeDirectorControlContainer,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
+            $( document ).on( 'mousemove wheel', '.videodromeFullscreen,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
                 directorModeTemporaryPause = true;
                 clearInterval( directorModeTemporaryPauseInterval );
                 directorModeTemporaryPauseInterval = setInterval( function () {
@@ -4115,8 +4112,8 @@ $( document ).ready( function () {
             function startDirectorMode() {
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 videoDromeDirectorModeActive = true;
+
                 $( '.videodromeRefreshContainer' ).hide();
-                $( '.videodromeDirectorControlContainer' ).show();
                 videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4 );
                 $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
                 $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
@@ -4170,7 +4167,6 @@ $( document ).ready( function () {
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
                 $( '.videodromeRefreshContainer' ).show();
-                $( '.videodromeDirectorControlContainer' ).hide();
                 $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
             }
 
@@ -4472,7 +4468,7 @@ $( document ).ready( function () {
                     $( '.toggleLocalStreamIcon' ).hide();
                     $( '#videodromeLeftToolbarTrigger' ).remove();
                     $( '#videodromeLoadModeSelectContainer' ).remove();
-                    $( '#videoDromeDirectorStartStandard' ).remove();
+                    $( '.videodromeDirectorControlContainerIcon' ).remove();
                 }
 
                 videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];

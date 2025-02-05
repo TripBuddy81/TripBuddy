@@ -1060,15 +1060,40 @@
     <span id="videodromeUI">
         <div id="videodromeFullscreenMenuLocalVideoContainer"
              class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
-            <div class="row mt-3">
-                <div class="col-2 me-5 refreshVideoDromeVideoFullscreenContainer">
-                    <img class="iconAlternating refreshVideoDromeVideoFullscreenIcon"
-                         src="./assets/refresh.png">
+            <div class="row">
+                <div class="col-6 refreshVideoDromeVideoFullscreenContainer">
+                    <div class="row">
+                        <div class="col">
+                            <img id="videodromeDirectorNextVideo" class="iconAlternating videodromeDirectorControlContainerIcon"
+                                 src="./assets/forward.png">
+                            <img id="videodromeDirectorReloadCurrentVideo" class="iconAlternating videodromeDirectorControlContainerIcon"
+                                 src="./assets/replaceVideo.png">
+                            <img id="videodromeDirectorShuffleActivate" class="iconAlternating videodromeDirectorControlContainerIcon"
+                                 src="./assets/shuffle_active.png">
+                            <img id="videodromeDirectorShuffleDeactivate" class="iconAlternating videodromeDirectorControlContainerIcon"
+                                 src="./assets/shuffle_inactive.png">
+                            <img id="videodromeDirectorReloadAllVideos" class="iconAlternating videodromeDirectorControlContainerIcon"
+                                 src="./assets/refresh.png">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <img id="videodromeDirectorStayWithCurrentVideo" class="iconAlternating videodromeDirectorControlContainerIcon directorTimingIconActive"
+                                 src="./assets/pause2_white.png">
+                            <img id="videodromeDirectorTimingsSlow" class="iconAlternating videodromeDirectorControlContainerIcon"
+                                 src="./assets/timingsSlow.png">
+                            <img id="videodromeDirectorTimingsRandom" class="iconAlternating videodromeDirectorControlContainerIcon"
+                                 src="./assets/timingsRandom.png">
+                            <img id="videodromeDirectorTimingsFast" class="iconAlternating videodromeDirectorControlContainerIcon"
+                                 src="./assets/timingsFast.png">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-10 videodromeFullscreenFilename">
+                <div class="col-6 videodromeFullscreenFilename">
                 </div>
             </div>
         </div>
+
         <div id="videodromeFullscreenMenuLocalVideoContainerExtraOptions"
              class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
         </div>
@@ -1152,10 +1177,6 @@
                          src="./assets/videodromeMode4.png">
                     <img id="videodromeLoadModeRandom" class="iconAlternating cursorAction"
                          src="./assets/videodromeModeRandom.png">
-                </span>
-                <span id="videodromeDirectorModeContainer">
-                    <img id="videoDromeDirectorStartStandard" class="iconAlternating cursorAction"
-                         src="./assets/director.png">
                 </span>
             </span>
 
@@ -1243,28 +1264,6 @@
             <img id="refreshVideoDromeVideoAll" class="iconAlternating"
                  src="./assets/refresh.png">
         </div>
-
-        <div class="videodromeDirectorControlContainer">
-            <img id="videodromeDirectorShuffleActivate" class="iconAlternating videodromeDirectorControlContainerIcon"
-                 src="./assets/shuffle_active.png">
-            <img id="videodromeDirectorShuffleDeactivate" class="iconAlternating videodromeDirectorControlContainerIcon"
-                 src="./assets/shuffle_inactive.png">
-            <img id="videodromeDirectorNextVideo" class="iconAlternating videodromeDirectorControlContainerIcon"
-                 src="./assets/forward.png">
-            <img id="videodromeDirectorReloadCurrentVideo" class="iconAlternating videodromeDirectorControlContainerIcon"
-                 src="./assets/replaceVideo.png">
-            <img id="videodromeDirectorReloadAllVideos" class="iconAlternating videodromeDirectorControlContainerIcon"
-                 src="./assets/refresh.png">
-            <img id="videodromeDirectorStayWithCurrentVideo" class="iconAlternating videodromeDirectorControlContainerIcon"
-                 src="./assets/pause2.png">
-            <img id="videodromeDirectorTimingsSlow" class="iconAlternating videodromeDirectorControlContainerIcon"
-                 src="./assets/timingsSlow.png">
-            <img id="videodromeDirectorTimingsRandom" class="iconAlternating videodromeDirectorControlContainerIcon directorTimingIconActive"
-                 src="./assets/timingsRandom_white.png">
-            <img id="videodromeDirectorTimingsFast" class="iconAlternating videodromeDirectorControlContainerIcon"
-                 src="./assets/timingsFast.png">
-        </div>
-
     </span>
 
     <div id="privatePictureSlideshow">
