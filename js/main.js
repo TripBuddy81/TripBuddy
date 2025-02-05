@@ -4237,6 +4237,22 @@ $( document ).ready( function () {
                 } );
             }
 
+            // TODO Seek to random time in video
+            // Only for videos without explizit time value
+            // max value - some margin
+            // check if smaller 60 seconds?
+            // use percentages? min 20% max 80% ???
+            // make compatible with seeking within two identical videos
+            // $( '.videoDromeFrame' ).on( 'loadeddata', function ( e ) {
+            //     if ( this.readyState >= 3 ) {
+            //         duration = Math.floor( $( this )[0].duration );
+            //
+            //         $( this )[0].currentTime = randomIntFromInterval( 60, duration );
+            //
+            //         console.info( duration );
+            //     }
+            // } );
+
             function loadLocalVideoIntoTargetWindow( targets ) {
                 if ( superShuffleModeActive ) {
                     if ( externalPornFilesTemp.length <= 0 ) {
