@@ -1995,7 +1995,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videodromeRefreshLocalVideo, .videodromeStreamRefreshVideo, #refreshVideoDromeVideoAll, #refreshVideoDromeStreamVideoAll {
-    height: 50px;
+    height: 45px;
     position: absolute;
 }
 

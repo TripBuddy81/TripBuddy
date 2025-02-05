@@ -3619,6 +3619,7 @@ $( document ).ready( function () {
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
                     $( '.videodromeRefreshContainer' ).hide();
+                    $( '#defaultLoadMode' ).trigger( 'click' );
                 }
 
                 updateVideodromeFullscreenInfo();
@@ -4030,11 +4031,6 @@ $( document ).ready( function () {
             // directorModePlayHistory NOT needed!?
             // SHow director mode settings if manual fullscreen of video ??? (but no interval start?)
 
-            $( document ).on( 'click', '#videoDromeDirectorStartStandard', function ( e ) {
-                e.preventDefault();
-                startDirectorMode();
-            } );
-
             $( document ).on( 'click', '#videodromeDirectorShuffleActivate', function ( e ) {
                 e.preventDefault();
                 directorModeShuffleMode = true;
@@ -4069,6 +4065,7 @@ $( document ).ready( function () {
                 setIconActive( e, 'directorTimingIconActive' );
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
+                videoDromeDirectorModeActive = false;
             } );
 
             $( document ).on( 'click', '#videodromeDirectorTimingsSlow', function ( e ) {
@@ -4109,22 +4106,8 @@ $( document ).ready( function () {
                 }, 1500 );
             } );
 
-            function startDirectorMode() {
-                $( '#defaultLoadMode' ).trigger( 'click' );
-                videoDromeDirectorModeActive = true;
-
-                $( '.videodromeRefreshContainer' ).hide();
-                videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4 );
-                $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
-                $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
-
-                // if not running, start director mode
-                if ( !$( '#videodromeDirectorStayWithCurrentVideo' ).hasClass( 'directorTimingIconActive' ) ) {
-                    setDirectorModeInterval();
-                }
-            }
-
             function setDirectorModeInterval() {
+                videoDromeDirectorModeActive = true;
                 videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = setInterval( function () {
@@ -4158,8 +4141,7 @@ $( document ).ready( function () {
             }
 
             function stopDirectorMode() {
-                clearInterval( videoDromeDirectorInterval );
-                videoDromeDirectorInterval = '';
+                $('#videodromeDirectorStayWithCurrentVideo').trigger( 'click' );
                 directorModeShuffleMode = false;
                 videoDromeDirectorModeActive = false;
                 $( '#videodromeDirectorShuffleActivate' ).show();
