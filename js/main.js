@@ -3752,18 +3752,18 @@ $( document ).ready( function () {
             $( document ).on( 'mousemove', '.refreshVideoDromeVideoFullscreenIcon,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
                 videodromeFullscreenMenuHideInterval = setTimeout( function () {
-                    $( '.refreshVideoDromeVideoFullscreenContainer,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'none' );
+                    $( '.refreshVideoDromeVideoFullscreenIcon,.refreshVideoDromeVideoFullscreenContainer,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'none' );
                     $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                 }, 1500 );
-                $( '.refreshVideoDromeVideoFullscreenContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '.refreshVideoDromeVideoFullscreenIcon,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '#videodromeFullscreenMenuLocalVideoContainer,.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
                 $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
             } );
 
             $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon,#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuLocalVideoContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
-                $( '.refreshVideoDromeVideoFullscreenContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '.refreshVideoDromeVideoFullscreenIcon,.refreshVideoDromeVideoFullscreenContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '#videodromeFullscreenMenuLocalVideoContainer,.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
                 $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
             } );
 
@@ -5411,7 +5411,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+                // toggleXXXVisible();
 
                 // $( '#showShrineSection' ).trigger( 'click' );
             }
