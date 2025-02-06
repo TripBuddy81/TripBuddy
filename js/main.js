@@ -4032,7 +4032,6 @@ $( document ).ready( function () {
             // RANGE INPUT with Min Max as Duration
             // include streaming window if in front OR make sure streaming window is not visible
             // directorModePlayHistory NOT needed!?
-            // SHow director mode settings if manual fullscreen of video ??? (but no interval start?)
 
             $( document ).on( 'click', '#videodromeDirectorShuffleActivate', function ( e ) {
                 e.preventDefault();
@@ -4140,16 +4139,12 @@ $( document ).ready( function () {
                 $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
                 updateVideodromeFullscreenInfo();
 
-                shuffleThreshold = 1;
                 // check if currently display video has been shown often enough and replace it with a new one if necessary
-                if ( directorModeShuffleMode && directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] != undefined && directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] >= shuffleThreshold ) {
+                if ( directorModeShuffleMode ) {
                     if ( directorModeShufflePropability >= randomIntFromInterval( 0, 100 ) ) {
-                        directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] = 0;
                         loadVideoDromeOneWindowRefresh( previousTarget );
-                    } else {
                     }
                 }
-                directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] = directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] ? directorModePlayHistory[videoDromeDirectorLastDisplayedTarget] + 1 : 1;
             }
 
             function stopDirectorMode() {
