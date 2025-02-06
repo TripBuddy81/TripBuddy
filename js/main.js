@@ -4122,7 +4122,7 @@ $( document ).ready( function () {
                 }, videoDromeDirectorDuration );
             }
 
-            function setDirectorModeDisplayTarget( currentTarget = '' ) {
+            function setDirectorModeDisplayTarget( ) {
                 previousTarget = $( '.videodromeFullscreen' ).attr( 'target' );
 
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
@@ -5411,7 +5411,7 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                // toggleXXXVisible();
+                toggleXXXVisible();
 
                 // $( '#showShrineSection' ).trigger( 'click' );
             }
