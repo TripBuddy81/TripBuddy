@@ -497,6 +497,7 @@ $( document ).ready( function () {
                         $( '.videodromeFullscreenMenuContainer' ).hide();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                         $( '.videodromeRefreshContainer' ).show();
+                        stopDirectorMode();
                     } else {
                         stopAllActions();
                     }
