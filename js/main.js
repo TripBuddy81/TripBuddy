@@ -3606,7 +3606,6 @@ $( document ).ready( function () {
             $( document ).on( 'click', '.videoDromeFrame', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
-                $( '.videoDromeFrame' ).removeAttr( 'controls' );
                 if ( $( this ).parent().hasClass( 'videodromeFullscreenTemp' ) ) {
                     $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
                     stopDirectorMode();
@@ -3767,6 +3766,27 @@ $( document ).ready( function () {
                 $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
             } );
 
+            $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
+                clearTimeout( videodromeFullscreenMenuHideInterval );
+
+                $( '.videodromeRefreshContainer' ).css( 'opacity', '1' );
+                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+
+                videodromeFullscreenMenuHideInterval = setTimeout( function () {
+                    $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeRefreshContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'none' );
+                    $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
+                }, 1500 );
+            } );
+
+            $( document ).on( 'mouseleave', '.videodromeRefreshContainer', function () {
+                clearTimeout( videodromeFullscreenMenuHideInterval );
+
+                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
+            } );
+
             $( '#refreshVideoDromeVideoAll' ).click( function () {
                 if ( videodromeLoadModeRandom ) {
                     videodromeLoadMode = randomIntFromInterval( 1, 4 ).toString();
@@ -3785,27 +3805,6 @@ $( document ).ready( function () {
                     loadVideoDromeOneWindowRefresh( 'videoDromeVideo3' );
                 }
                 videodromeStreamRefreshVideo();
-            } );
-
-            $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
-                clearTimeout( videodromeFullscreenMenuHideInterval );
-
-                $( '.videodromeRefreshContainer' ).css( 'opacity', '1' );
-                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
-
-                videodromeFullscreenMenuHideInterval = setTimeout( function () {
-                    $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeRefreshContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'none' );
-                    $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
-                }, 1000 );
-            } );
-
-            $( document ).on( 'mouseleave', '.videodromeRefreshContainer', function () {
-                clearTimeout( videodromeFullscreenMenuHideInterval );
-
-                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
             } );
 
             $( document ).on( 'mouseenter', '.videodromeFullscreenMenuContainer', function ( event ) {
@@ -4122,11 +4121,10 @@ $( document ).ready( function () {
                 }, videoDromeDirectorDuration );
             }
 
-            function setDirectorModeDisplayTarget( ) {
+            function setDirectorModeDisplayTarget() {
                 previousTarget = $( '.videodromeFullscreen' ).attr( 'target' );
 
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                $( '.videoDromeFrame' ).removeAttr( 'controls' );
 
                 if ( videoDromeDirectorLastDisplayedTarget == '' ) {
                     videoDromeDirectorLastDisplayedTarget = previousTarget.replace( /videoDromeVideo/, '' );
