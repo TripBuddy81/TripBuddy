@@ -4262,18 +4262,14 @@ $( document ).ready( function () {
                         duration = Math.floor( $( this )[0].duration );
                         targetTime = randomIntFromInterval( Math.floor( duration * 0.05 ), Math.floor( duration * 0.8 ) );
 
-                        if ( videodromeLoadMode > 1 ) {
-                            if ( touchedSources[source] == undefined ) {
-                                $( this )[0].currentTime = targetTime;
-                                touchedSources[source] = targetTime;
-                            } else {
-                                $( '[src="' + source + '"]' ).parent().each( function () {
-                                    $( this )[0].currentTime = touchedSources[source];
-                                } );
-                                touchedSources = {};
-                            }
-                        } else {
+                        if ( touchedSources[source] == undefined ) {
                             $( this )[0].currentTime = targetTime;
+                            touchedSources[source] = targetTime;
+                        } else {
+                            $( '[src="' + source + '"]' ).parent().each( function () {
+                                $( this )[0].currentTime = touchedSources[source];
+                            } );
+                            touchedSources = {};
                         }
                     }
                 }
