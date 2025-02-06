@@ -4026,13 +4026,9 @@ $( document ).ready( function () {
 
             // VideoDrome Director mode section
             // Enters a mode in which videos are switched automatically
-
             // TODO
             // change timings - random, slow, fast, VIA PLUS MINUS ???
-            // RANGE INPUT with Min Max as Duration
             // include streaming window if in front OR make sure streaming window is not visible
-            // directorModePlayHistory NOT needed!?
-
             $( document ).on( 'click', '#videodromeDirectorShuffleActivate', function ( e ) {
                 e.preventDefault();
                 directorModeShuffleMode = true;
