@@ -4046,17 +4046,26 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '#videodromeDirectorNextVideo', function ( e ) {
                 e.preventDefault();
+                if ( videoDromeDirectorInterval != '' ) {
+                    setDirectorModeInterval();
+                }
                 setDirectorModeDisplayTarget();
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
                 e.preventDefault();
+                if ( videoDromeDirectorInterval != '' ) {
+                    setDirectorModeInterval();
+                }
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadAllVideos', function ( e ) {
                 e.preventDefault();
+                if ( videoDromeDirectorInterval != '' ) {
+                    setDirectorModeInterval();
+                }
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
             } );
@@ -4102,7 +4111,7 @@ $( document ).ready( function () {
                 setDirectorModeInterval();
             } );
 
-            $( document ).on( 'mousemove wheel', '.videodromeFullscreen,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
+            $( document ).on( 'mousemove wheel click', '.videodromeFullscreen,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
                 directorModeTemporaryPause = true;
                 clearInterval( directorModeTemporaryPauseInterval );
                 directorModeTemporaryPauseInterval = setInterval( function () {
@@ -4118,6 +4127,13 @@ $( document ).ready( function () {
                     videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
                     if ( !directorModeTemporaryPause ) {
                         setDirectorModeDisplayTarget();
+                    } else {
+                        clearInterval( videoDromeDirectorInterval );
+                        videoDromeDirectorInterval = setInterval( function () {
+                            if ( !directorModeTemporaryPause ) {
+                                setDirectorModeDisplayTarget();
+                            }
+                        }, 1500 );
                     }
                 }, videoDromeDirectorDuration );
             }
