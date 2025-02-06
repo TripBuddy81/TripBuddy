@@ -1061,7 +1061,7 @@
         <div id="videodromeFullscreenMenuLocalVideoContainer"
              class="videodromeFullscreenMenuContainer videodromeFullscreenMenuLocalVideoJSContainer">
             <div class="row">
-                <div class="col-6 refreshVideoDromeVideoFullscreenContainer">
+                <div class="col-5 refreshVideoDromeVideoFullscreenContainer">
                     <div class="row">
                         <div class="col">
                             <img id="videodromeDirectorNextVideo" class="iconAlternating videodromeDirectorControlContainerIcon"
@@ -1089,7 +1089,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 videodromeFullscreenFilename">
+                <div class="col-1">
+                    <div class="row">
+                        <div class="col">
+                            <img class="deselectAllVideodromeTags deselectAllVideodromeTags2 iconAlternating cursorAction" src="./assets/x.png">
+                            <img class="selectAllVideodromeTags selectAllVideodromeTags2 iconAlternating cursorAction" src="./assets/sumAll.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 videodromeFullscreenFilename videodromeFullscreenLocalFilename cursorAction">
                 </div>
             </div>
         </div>
@@ -1205,8 +1213,8 @@
             </div>
             <div id="pornMapTagList" class="row mb-3">
                 <div id="pornMapTagListChars" class="col-12">
-                    <img id="deselectAllVideodromeTags" class="iconAlternating cursorAction" src="./assets/x.png">
-                    <img id="selectAllVideodromeTags" class="iconAlternating cursorAction" src="./assets/sumAll.png">
+                    <img class="deselectAllVideodromeTags iconAlternating cursorAction" src="./assets/x.png">
+                    <img class="selectAllVideodromeTags iconAlternating cursorAction" src="./assets/sumAll.png">
                     <div data-pornMapTag="General"
                          class="cursorAction videodromeTagSelect videodromeFirstActiveTag">General</div>
                     {{#pornMapTagList.chars}}

@@ -1468,7 +1468,7 @@ $( document ).ready( function () {
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
                     initVideodrome();
                 } else {
-                    $( '#deselectAllVideodromeTags' ).trigger( 'click' );
+                    $( '.deselectAllVideodromeTags' ).trigger( 'click' );
                     $( '.XXX' ).hide();
                     $( '#showPornZapper' ).hide();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
@@ -3932,6 +3932,17 @@ $( document ).ready( function () {
                 }
             } );
 
+            $( document ).on( 'click', '.videodromeFullscreenLocalFilename', function ( event ) {
+                filename = $( this ).html();
+                folderName = filename.match( /(.*?)\// );
+
+                if ( folderName != undefined && folderName[1] != undefined ) {
+                    folderNameString = folderName[1].replaceAll( ' ', '' ).replaceAll( '-', '' );
+                    $( '.deselectAllVideodromeTags' ).trigger( 'click' );
+                    $( '[diridentifier="' + folderNameString + '"]' ).trigger( 'click' );
+                }
+            } );
+
             $( document ).on( 'mousedown', '.videoJSFavorite', function ( e ) {
                 // on middle mouse button just open in new tab
                 if ( e.which == 2 ) {
@@ -3994,7 +4005,7 @@ $( document ).ready( function () {
                 checkVideodromeTagActive();
             } );
 
-            $( document ).on( 'click', '#deselectAllVideodromeTags', function ( event ) {
+            $( document ).on( 'click', '.deselectAllVideodromeTags', function ( event ) {
                 $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
@@ -4005,7 +4016,7 @@ $( document ).ready( function () {
                 checkVideodromeTagActive();
             } );
 
-            $( document ).on( 'click', '#selectAllVideodromeTags', function ( event ) {
+            $( document ).on( 'click', '.selectAllVideodromeTags', function ( event ) {
                 $( '.videodromeTagSelect' ).addClass( 'videodromeTagActive' );
                 $( '[data-pornmaptag=General]' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
@@ -4886,10 +4897,10 @@ $( document ).ready( function () {
             function checkVideodromeTagActive() {
                 if ( $( '.videodromeLocalFolderActive' ).length == 0 && $( '.videodromeTagActive' ).length == 0 ) {
                     superShuffleModeActive = true;
-                    $( '#deselectAllVideodromeTags' ).attr( 'style', 'opacity:0.1' );
+                    $( '.deselectAllVideodromeTags' ).attr( 'style', 'opacity:0.1' );
                 } else {
                     superShuffleModeActive = false;
-                    $( '#deselectAllVideodromeTags' ).attr( 'style', 'opacity:1' );
+                    $( '.deselectAllVideodromeTags' ).attr( 'style', 'opacity:1' );
                 }
             }
 
