@@ -2179,7 +2179,8 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videodromeLocalFolderActive, .videodromeLocalFolderActive:hover,
 .videodromeTagActive, .videodromeTagActive:hover,
-.videodromePrivateTagActive, .videodromePrivateTagActive:hover {
+.videodromePrivateTagActive, .videodromePrivateTagActive:hover,
+.videodromeFullscreenLocalFilenameFolderActive {
     color: #c9ff80;
 }
 

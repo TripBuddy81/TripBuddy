@@ -3944,6 +3944,7 @@ $( document ).ready( function () {
                 } else {
                     $( '[data-pornmaptag="General"]' ).trigger( 'click' );
                 }
+                $( this ).addClass( 'videodromeFullscreenLocalFilenameFolderActive' );
             } );
 
             $( document ).on( 'mousedown', '.videoJSFavorite', function ( e ) {
@@ -4009,6 +4010,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.deselectAllVideodromeTags', function ( event ) {
+                $( '.videodromeFullscreenLocalFilenameFolderActive' ).removeClass( 'videodromeFullscreenLocalFilenameFolderActive' );
                 $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
@@ -4020,6 +4022,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.selectAllVideodromeTags', function ( event ) {
+                $( '.videodromeFullscreenLocalFilenameFolderActive' ).removeClass( 'videodromeFullscreenLocalFilenameFolderActive' );
                 $( '.videodromeTagSelect' ).addClass( 'videodromeTagActive' );
                 $( '[data-pornmaptag=General]' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
