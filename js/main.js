@@ -3748,20 +3748,20 @@ $( document ).ready( function () {
                 $( '.vjs-control-bar' ).css( 'display', 'none' );
             } );
 
-            $( document ).on( 'mousemove', '.refreshVideoDromeVideoFullscreenIcon,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer', function () {
+            $( document ).on( 'mousemove', '.refreshVideoDromeVideoFullscreenIcon,.videoDromeVideoFullscreenMenuItem,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
                 videodromeFullscreenMenuHideInterval = setTimeout( function () {
-                    $( '.refreshVideoDromeVideoFullscreenIcon,.refreshVideoDromeVideoFullscreenContainer,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'none' );
+                    $( '.refreshVideoDromeVideoFullscreenIcon,.videoDromeVideoFullscreenMenuItem,.refreshVideoDromeVideoFullscreenContainer,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'none' );
                     $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                 }, 1500 );
-                $( '.refreshVideoDromeVideoFullscreenIcon,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.refreshVideoDromeVideoFullscreenIcon,.videoDromeVideoFullscreenMenuItem,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                 $( '#videodromeFullscreenMenuLocalVideoContainer,.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
                 $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
             } );
 
-            $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon,#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuLocalVideoContainer', function () {
+            $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon,.videoDromeVideoFullscreenMenuItem,#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuLocalVideoContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
-                $( '.refreshVideoDromeVideoFullscreenIcon,.refreshVideoDromeVideoFullscreenContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.refreshVideoDromeVideoFullscreenIcon,.videoDromeVideoFullscreenMenuItem,.refreshVideoDromeVideoFullscreenContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
                 $( '#videodromeFullscreenMenuLocalVideoContainer,.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
                 $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
             } );
@@ -3936,10 +3936,13 @@ $( document ).ready( function () {
                 filename = $( this ).html();
                 folderName = filename.match( /(.*?)\// );
 
+                $( '.deselectAllVideodromeTags' ).trigger( 'click' );
+
                 if ( folderName != undefined && folderName[1] != undefined ) {
                     folderNameString = folderName[1].replaceAll( ' ', '' ).replaceAll( '-', '' );
-                    $( '.deselectAllVideodromeTags' ).trigger( 'click' );
                     $( '[diridentifier="' + folderNameString + '"]' ).trigger( 'click' );
+                } else {
+                    $( '[data-pornmaptag="General"]' ).trigger( 'click' );
                 }
             } );
 

@@ -2279,8 +2279,12 @@ video::-webkit-media-controls-fullscreen-button {
     margin-left: -15px;
 }
 
-.refreshVideoDromeVideoFullscreenContainer {
+.videoDromeVideoFullscreenMenuSubSection1 {
     width: 350px;
+}
+
+.videoDromeVideoFullscreenMenuSubSection2 {
+    width: 150px;
 }
 
 .videoDromeVideoFullscreenSubActions {
@@ -2773,12 +2777,10 @@ video::-webkit-media-controls-fullscreen-button {
 .deselectAllVideodromeTags2 {
     height: 50px;
     float: left;
+    padding-left: 0;
     padding-right: 20px;
-}
-
-.selectAllVideodromeTags2 {
-    height: 50px;
-    float: left;
+    margin-top: 0;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
 }
 
 .selectAllVideodromeTags {
@@ -2787,6 +2789,19 @@ video::-webkit-media-controls-fullscreen-button {
     padding-left: 25px;
     padding-right: 0px;
     margin-top: 15px;
+}
+
+.selectAllVideodromeTags2 {
+    height: 50px;
+    float: left;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+}
+
+.videodromeFullscreenLocalFilename {
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
 }
 
 #videoTaggingCache {
