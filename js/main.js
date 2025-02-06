@@ -3618,7 +3618,6 @@ $( document ).ready( function () {
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
                     $( '.videodromeRefreshContainer' ).hide();
-                    $( '#defaultLoadMode' ).trigger( 'click' );
                 }
 
                 updateVideodromeFullscreenInfo();
@@ -3722,7 +3721,7 @@ $( document ).ready( function () {
                                 externalPornFilesTemp = externalPornFiles;
                             }
                             randomNumber = Math.floor( Math.random() * (parseInt( externalPornFilesTemp.length )) );
-                            $( target ).find( '.videoSource' ).attr( 'src', externalPornFilesTemp[randomNumber] + '#t=60' );
+                            $( target ).find( '.videoSource' ).attr( 'src', externalPornFilesTemp[randomNumber] );
                             externalPornFilesTemp.splice( randomNumber, 1 );
                         } else {
                             randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
@@ -4037,6 +4036,7 @@ $( document ).ready( function () {
             $( document ).on( 'click', '#videodromeDirectorShuffleActivate', function ( e ) {
                 e.preventDefault();
                 directorModeShuffleMode = true;
+                $( '#defaultLoadMode' ).trigger( 'click' );
                 $( '#videodromeDirectorShuffleActivate' ).hide();
                 $( '#videodromeDirectorShuffleDeactivate' ).show();
             } );
@@ -4055,11 +4055,13 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
                 e.preventDefault();
+                $( '#defaultLoadMode' ).trigger( 'click' );
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadAllVideos', function ( e ) {
                 e.preventDefault();
+                $( '#defaultLoadMode' ).trigger( 'click' );
                 $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
             } );
 
@@ -4078,6 +4080,7 @@ $( document ).ready( function () {
                 videoDromeDirectorDurationMin = videoDromeDirectorDurationMinDefault;
                 videoDromeDirectorDurationMax = videoDromeDirectorDurationMaxDefault;
                 setIconActive( e, 'directorTimingIconActive' );
+                $( '#defaultLoadMode' ).trigger( 'click' );
                 setDirectorModeInterval();
             } );
 
@@ -4088,6 +4091,7 @@ $( document ).ready( function () {
                 videoDromeDirectorDurationMin = 7000;
                 videoDromeDirectorDurationMax = 35000;
                 setIconActive( e, 'directorTimingIconActive' );
+                $( '#defaultLoadMode' ).trigger( 'click' );
                 setDirectorModeInterval();
             } );
 
@@ -4096,8 +4100,9 @@ $( document ).ready( function () {
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = 1000;
-                videoDromeDirectorDurationMax = 7000;
+                videoDromeDirectorDurationMax = 3000;
                 setIconActive( e, 'directorTimingIconActive' );
+                $( '#defaultLoadMode' ).trigger( 'click' );
                 setDirectorModeInterval();
             } );
 
@@ -4235,21 +4240,36 @@ $( document ).ready( function () {
                 } );
             }
 
-            // TODO Seek to random time in video
-            // Only for videos without explizit time value
-            // max value - some margin
-            // check if smaller 60 seconds?
-            // use percentages? min 20% max 80% ???
-            // make compatible with seeking within two identical videos
-            // $( '.videoDromeFrame' ).on( 'loadeddata', function ( e ) {
-            //     if ( this.readyState >= 3 ) {
-            //         duration = Math.floor( $( this )[0].duration );
-            //
-            //         $( this )[0].currentTime = randomIntFromInterval( 60, duration );
-            //
-            //         console.info( duration );
-            //     }
-            // } );
+            // Seek to random time in video if video has not been assigned an explicit start time
+            touchedSources = {};
+            $( '.videoDromeFrame' ).on( 'loadeddata', function ( e ) {
+                if ( this.readyState >= 3 ) {
+                    $( '.videoDromeFrame' ).unbind( 'seeking' );
+                    setTimeout( function () {
+                        $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+                    }, 100 );
+
+                    source = $( this ).find( '.videoSource' ).attr( 'src' );
+                    if ( source != undefined && source.indexOf( '#t=' ) < 0 ) {
+                        duration = Math.floor( $( this )[0].duration );
+                        targetTime = randomIntFromInterval( Math.floor( duration * 0.05 ), Math.floor( duration * 0.8 ) );
+
+                        if ( videodromeLoadMode > 1 ) {
+                            if ( touchedSources[source] == undefined ) {
+                                $( this )[0].currentTime = targetTime;
+                                touchedSources[source] = targetTime;
+                            } else {
+                                $( '[src="' + source + '"]' ).parent().each( function () {
+                                    $( this )[0].currentTime = touchedSources[source];
+                                } );
+                                touchedSources = {};
+                            }
+                        } else {
+                            $( this )[0].currentTime = targetTime;
+                        }
+                    }
+                }
+            } );
 
             function loadLocalVideoIntoTargetWindow( targets ) {
                 if ( superShuffleModeActive ) {
@@ -4259,7 +4279,7 @@ $( document ).ready( function () {
                     randomNumber = Math.floor( Math.random() * (parseInt( externalPornFilesTemp.length )) );
 
                     targets.forEach( function ( target ) {
-                        $( '.' + target ).find( '.videoSource' ).attr( 'src', externalPornFilesTemp[randomNumber] + '#t=60' );
+                        $( '.' + target ).find( '.videoSource' ).attr( 'src', externalPornFilesTemp[randomNumber] );
                     } );
 
                     externalPornFilesTemp.splice( randomNumber, 1 );
@@ -4345,11 +4365,11 @@ $( document ).ready( function () {
 
                         if ( mode == 'add' ) {
                             externalFiles.forEach( function ( url ) {
-                                selectableVideodromeFilesFromFolders.push( url + '#t=60' );
+                                selectableVideodromeFilesFromFolders.push( url );
                             } );
                         } else {
                             externalFiles.forEach( function ( url ) {
-                                selectableVideodromeFilesFromFolders.splice( $.inArray( url + '#t=60', selectableVideodromeFilesFromFolders ), 1 );
+                                selectableVideodromeFilesFromFolders.splice( $.inArray( url, selectableVideodromeFilesFromFolders ), 1 );
                             } );
                         }
 
