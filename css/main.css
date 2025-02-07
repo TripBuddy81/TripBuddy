@@ -2179,9 +2179,15 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videodromeLocalFolderActive, .videodromeLocalFolderActive:hover,
 .videodromeTagActive, .videodromeTagActive:hover,
-.videodromePrivateTagActive, .videodromePrivateTagActive:hover,
-.videodromeFullscreenLocalFilenameFolderActive {
+.videodromePrivateTagActive, .videodromePrivateTagActive:hover {
     color: #c9ff80;
+}
+
+#videodromeActiveTag {
+    color: #c9ff80;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 25px;
 }
 
 .videoJSStreamModelname, .lastSearchTerm {

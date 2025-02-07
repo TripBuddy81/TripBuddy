@@ -3939,10 +3939,11 @@ $( document ).ready( function () {
                 if ( folderName != undefined && folderName[1] != undefined ) {
                     folderNameString = folderName[1].replaceAll( ' ', '' ).replaceAll( '-', '' );
                     $( '[diridentifier="' + folderNameString + '"]' ).trigger( 'click' );
+                    $('#videodromeActiveTag').html( folderNameString );
                 } else {
                     $( '[data-pornmaptag="General"]' ).trigger( 'click' );
+                    $('#videodromeActiveTag').html( "General" );
                 }
-                $( this ).addClass( 'videodromeFullscreenLocalFilenameFolderActive' );
             } );
 
             $( document ).on( 'mousedown', '.videoJSFavorite', function ( e ) {
@@ -3997,6 +3998,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.externalPornDir', function ( event ) {
+                $( '#videodromeActiveTag' ).html('');
                 if ( $( this ).hasClass( 'videodromeLocalFolderActive' ) ) {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );
@@ -4008,7 +4010,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#deselectAllVideodromeTags,#deselectAllVideodromeTags2', function ( event ) {
-                $( '.videodromeFullscreenLocalFilenameFolderActive' ).removeClass( 'videodromeFullscreenLocalFilenameFolderActive' );
+                $( '#videodromeActiveTag' ).html('');
                 $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
@@ -4020,7 +4022,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#selectAllVideodromeTags,#selectAllVideodromeTags2', function ( event ) {
-                $( '.videodromeFullscreenLocalFilenameFolderActive' ).removeClass( 'videodromeFullscreenLocalFilenameFolderActive' );
+                $( '#videodromeActiveTag' ).html('');
                 $( '.videodromeTagSelect' ).addClass( 'videodromeTagActive' );
                 $( '[data-pornmaptag=General]' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
@@ -4065,6 +4067,7 @@ $( document ).ready( function () {
                     setDirectorModeInterval();
                 }
                 setDirectorModeDisplayTarget();
+                updateVideodromeFullscreenInfo();
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
@@ -4164,7 +4167,6 @@ $( document ).ready( function () {
 
                 videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
                 $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
-                updateVideodromeFullscreenInfo();
 
                 // check if currently display video has been shown often enough and replace it with a new one if necessary
                 if ( directorModeShuffleMode ) {
@@ -4172,6 +4174,7 @@ $( document ).ready( function () {
                         loadVideoDromeOneWindowRefresh( previousTarget );
                     }
                 }
+                updateVideodromeFullscreenInfo();
             }
 
             function stopDirectorMode() {
@@ -4320,6 +4323,7 @@ $( document ).ready( function () {
                     $( '.' + target ).find( '.localVideo' )[0].load();
                     $( '.' + target ).find( '.localVideo' )[0].play();
                 } );
+                updateVideodromeFullscreenInfo();
             }
 
             function getAllExternalPornDirs( url ) {
