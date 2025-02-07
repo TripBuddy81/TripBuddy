@@ -1468,7 +1468,7 @@ $( document ).ready( function () {
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotifyDevil.png' );
                     initVideodrome();
                 } else {
-                    $( '.deselectAllVideodromeTags' ).trigger( 'click' );
+                    $( '#deselectAllVideodromeTags' ).trigger( 'click' );
                     $( '.XXX' ).hide();
                     $( '#showPornZapper' ).hide();
                     $( '#spotifyIcon' ).attr( 'src', './assets/spotify.png' );
@@ -3748,23 +3748,23 @@ $( document ).ready( function () {
                 $( '.vjs-control-bar' ).css( 'display', 'none' );
             } );
 
-            $( document ).on( 'mousemove', '.refreshVideoDromeVideoFullscreenIcon,.videoDromeVideoFullscreenMenuItem,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer', function () {
-                clearTimeout( videodromeFullscreenMenuHideInterval );
-                videodromeFullscreenMenuHideInterval = setTimeout( function () {
-                    $( '.refreshVideoDromeVideoFullscreenIcon,.videoDromeVideoFullscreenMenuItem,.refreshVideoDromeVideoFullscreenContainer,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'none' );
-                    $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
-                }, 1500 );
-                $( '.refreshVideoDromeVideoFullscreenIcon,.videoDromeVideoFullscreenMenuItem,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '#videodromeFullscreenMenuLocalVideoContainer,.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
-                $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
-            } );
-
-            $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon,.videoDromeVideoFullscreenMenuItem,#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuLocalVideoContainer', function () {
-                clearTimeout( videodromeFullscreenMenuHideInterval );
-                $( '.refreshVideoDromeVideoFullscreenIcon,.videoDromeVideoFullscreenMenuItem,.refreshVideoDromeVideoFullscreenContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '#videodromeFullscreenMenuLocalVideoContainer,.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
-                $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
-            } );
+            // $( document ).on( 'mousemove', '.refreshVideoDromeVideoFullscreenIcon,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer', function () {
+            //     clearTimeout( videodromeFullscreenMenuHideInterval );
+            //     videodromeFullscreenMenuHideInterval = setTimeout( function () {
+            //         $( '.refreshVideoDromeVideoFullscreenIcon,.refreshVideoDromeVideoFullscreenContainer,.videodromeDirectorControlContainerIcon,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'none' );
+            //         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+            //     }, 1500 );
+            //     $( '.refreshVideoDromeVideoFullscreenIcon,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+            //     $( '#videodromeFullscreenMenuLocalVideoContainer,.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+            //     $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
+            // } );
+            //
+            // $( document ).on( 'mouseleave', '.refreshVideoDromeVideoFullscreenIcon,#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuLocalVideoContainer', function () {
+            //     clearTimeout( videodromeFullscreenMenuHideInterval );
+            //     $( '.refreshVideoDromeVideoFullscreenIcon,.refreshVideoDromeVideoFullscreenContainer,#videodromeFullscreenMenuLocalVideoContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+            //     $( '#videodromeFullscreenMenuLocalVideoContainer,.refreshVideoDromeVideoFullscreenContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+            //     $( '#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuLocalVideoContainer,.videodromeDirectorControlContainerIcon' ).css( 'opacity', '1' );
+            // } );
 
             $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
@@ -3936,7 +3936,7 @@ $( document ).ready( function () {
                 filename = $( this ).html();
                 folderName = filename.match( /(.*?)\// );
 
-                $( '.deselectAllVideodromeTags' ).trigger( 'click' );
+                $( '#deselectAllVideodromeTags' ).trigger( 'click' );
 
                 if ( folderName != undefined && folderName[1] != undefined ) {
                     folderNameString = folderName[1].replaceAll( ' ', '' ).replaceAll( '-', '' );
@@ -4009,7 +4009,7 @@ $( document ).ready( function () {
                 checkVideodromeTagActive();
             } );
 
-            $( document ).on( 'click', '.deselectAllVideodromeTags', function ( event ) {
+            $( document ).on( 'click', '#deselectAllVideodromeTags,#deselectAllVideodromeTags2', function ( event ) {
                 $( '.videodromeFullscreenLocalFilenameFolderActive' ).removeClass( 'videodromeFullscreenLocalFilenameFolderActive' );
                 $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
@@ -4021,7 +4021,7 @@ $( document ).ready( function () {
                 checkVideodromeTagActive();
             } );
 
-            $( document ).on( 'click', '.selectAllVideodromeTags', function ( event ) {
+            $( document ).on( 'click', '#selectAllVideodromeTags,#selectAllVideodromeTags2', function ( event ) {
                 $( '.videodromeFullscreenLocalFilenameFolderActive' ).removeClass( 'videodromeFullscreenLocalFilenameFolderActive' );
                 $( '.videodromeTagSelect' ).addClass( 'videodromeTagActive' );
                 $( '[data-pornmaptag=General]' ).removeClass( 'videodromeTagActive' );
@@ -4903,10 +4903,10 @@ $( document ).ready( function () {
             function checkVideodromeTagActive() {
                 if ( $( '.videodromeLocalFolderActive' ).length == 0 && $( '.videodromeTagActive' ).length == 0 ) {
                     superShuffleModeActive = true;
-                    $( '.deselectAllVideodromeTags' ).attr( 'style', 'opacity:0.1' );
+                    $( '#deselectAllVideodromeTags,#deselectAllVideodromeTags2' ).attr( 'style', 'opacity:0.1' );
                 } else {
                     superShuffleModeActive = false;
-                    $( '.deselectAllVideodromeTags' ).attr( 'style', 'opacity:1' );
+                    $( '#deselectAllVideodromeTags,#deselectAllVideodromeTags2' ).attr( 'style', 'opacity:1' );
                 }
             }
 

@@ -2766,7 +2766,7 @@ video::-webkit-media-controls-fullscreen-button {
     bottom: 15px;
 }
 
-.deselectAllVideodromeTags {
+#deselectAllVideodromeTags {
     opacity: 0.1;
     height: 40px;
     float: left;
@@ -2775,7 +2775,8 @@ video::-webkit-media-controls-fullscreen-button {
     margin-top: 15px;
 }
 
-.deselectAllVideodromeTags2 {
+#deselectAllVideodromeTags2 {
+    opacity: 0.1;
     height: 50px;
     float: left;
     padding-left: 0;
@@ -2784,7 +2785,7 @@ video::-webkit-media-controls-fullscreen-button {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
 }
 
-.selectAllVideodromeTags {
+#selectAllVideodromeTags {
     height: 40px;
     float: left;
     padding-left: 25px;
@@ -2792,7 +2793,7 @@ video::-webkit-media-controls-fullscreen-button {
     margin-top: 15px;
 }
 
-.selectAllVideodromeTags2 {
+#selectAllVideodromeTags2 {
     height: 50px;
     float: left;
     padding-left: 0;
