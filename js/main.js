@@ -3935,15 +3935,16 @@ $( document ).ready( function () {
                 folderName = filename.match( /(.*?)\// );
 
                 $( '#deselectAllVideodromeTags' ).trigger( 'click' );
-
-                if ( folderName != undefined && folderName[1] != undefined ) {
-                    folderNameString = folderName[1].replaceAll( ' ', '' ).replaceAll( '-', '' );
-                    $( '[diridentifier="' + folderNameString + '"]' ).trigger( 'click' );
-                    $('#videodromeActiveTag').html( folderNameString );
-                } else {
-                    $( '[data-pornmaptag="General"]' ).trigger( 'click' );
-                    $('#videodromeActiveTag').html( "General" );
-                }
+                setTimeout( function () {
+                    if ( folderName != undefined && folderName[1] != undefined ) {
+                        folderNameString = folderName[1].replaceAll( ' ', '' ).replaceAll( '-', '' );
+                        $( '[diridentifier="' + folderNameString + '"]' ).trigger( 'click' );
+                        $('#videodromeActiveTag').html( folderNameString );
+                    } else {
+                        $( '[data-pornmaptag="General"]' ).trigger( 'click' );
+                        $('#videodromeActiveTag').html( "General" );
+                    }
+                }, 100 );
             } );
 
             $( document ).on( 'mousedown', '.videoJSFavorite', function ( e ) {
