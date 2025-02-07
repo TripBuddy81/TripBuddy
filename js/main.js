@@ -4146,11 +4146,13 @@ $( document ).ready( function () {
                     videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
                     if ( !directorModeTemporaryPause ) {
                         setDirectorModeDisplayTarget();
+                        setDirectorModeInterval();
                     } else {
                         clearInterval( videoDromeDirectorInterval );
                         videoDromeDirectorInterval = setInterval( function () {
                             if ( !directorModeTemporaryPause ) {
                                 setDirectorModeDisplayTarget();
+                                setDirectorModeInterval();
                             }
                         }, 1500 );
                     }
