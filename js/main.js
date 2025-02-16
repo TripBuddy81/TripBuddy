@@ -4123,8 +4123,8 @@ $( document ).ready( function () {
                 e.preventDefault();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
-                videoDromeDirectorDurationMin = 1000;
-                videoDromeDirectorDurationMax = 3000;
+                videoDromeDirectorDurationMin = 1800;
+                videoDromeDirectorDurationMax = 3800;
                 setIconActive( e, 'directorTimingIconActive' );
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 setDirectorModeInterval();
@@ -5455,9 +5455,12 @@ $( document ).ready( function () {
 
             // For debug only
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
-                toggleXXXVisible();
+                // $('#activateHiddenMenue').remove();
+
+                // toggleXXXVisible();
 
                 // $( '#showShrineSection' ).trigger( 'click' );
+
             }
         }
 );
