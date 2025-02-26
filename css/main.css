@@ -2049,7 +2049,7 @@ video::-webkit-media-controls-fullscreen-button {
 .videodromeDirectorControlContainerIcon {
     height: 50px;
     float: left;
-    margin-right: 25px;
+    margin-right: 24px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
@@ -2601,7 +2601,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 53px;
     top: 11px;
     position: absolute;
-    left: 90px;
+    left: 105px;
     display: none;
 }
 
@@ -2609,7 +2609,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 53px;
     top: 11px;
     position: absolute;
-    left: 180px;
+    left: 205px;
     display: none;
 }
 
