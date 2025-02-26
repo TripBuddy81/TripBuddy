@@ -2077,9 +2077,9 @@ video::-webkit-media-controls-fullscreen-button {
 #videodromeFullscreenMenuVideoJSContainerExtraOptions, #videodromeFullscreenMenuLocalVideoContainerExtraOptions, #musicVideoOverlayFileSelect {
     position: fixed;
     width: 25vW;
-    height: 92vH;
+    height: 805px;
     padding: 25px;
-    top: 0px;
+    top: 80px;
     right: 0px;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     display: block;
