@@ -501,6 +501,7 @@ $( document ).ready( function () {
                         $( '.videodromeFullscreenMenuContainer' ).hide();
                         $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                         $( '.videodromeRefreshContainer' ).show();
+                        $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).removeAttr( 'controls' );
                         stopDirectorMode();
                     } else {
                         stopAllActions();
@@ -727,6 +728,7 @@ $( document ).ready( function () {
                 $( '.videodromeRefreshContainer' ).show();
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
                 $( '.vjs-control-bar' ).css( 'display', 'none' );
+                $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).removeAttr( 'controls' );
                 $( '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2' ).hide();
                 $( '#absoluteTruthsOverlay' ).hide();
                 $( '#relationships' ).hide();
@@ -3582,6 +3584,7 @@ $( document ).ready( function () {
                         stopAllActions();
                     }
                 } else {
+                    $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).prop( 'controls', 'controls' );
                     $( '.video-js' ).removeClass( 'vjs-user-inactive' );
                     $( '.video-js' ).addClass( 'vjs-user-active' );
                     $( '.vjs-control-bar' ).css( 'display', 'flex' );
