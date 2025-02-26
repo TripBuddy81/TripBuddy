@@ -2262,6 +2262,12 @@ video::-webkit-media-controls-fullscreen-button {
     opacity: 1;
 }
 
+#videodromeOuija {
+    height: 52px;
+    margin-left: 15px;
+    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+}
+
 #toggleTransperentStroboOracleSymbol {
     height: 55px;
     margin-right: 20px;
@@ -2453,7 +2459,7 @@ video::-webkit-media-controls-fullscreen-button {
     width: 100%;
     height: 100%;
     text-align: center;
-    z-index: 3;
+    z-index: 15;
     display: none;
     pointer-events: none;
 }

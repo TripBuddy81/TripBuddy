@@ -439,6 +439,8 @@ $( document ).ready( function () {
                 } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#meditationSymbol' ).is( ':visible' ) ) {
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
+                } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#OuijaYesNo' ).is( ':visible' ) ) {
+                    $( '#OuijaYesNo' ).hide();
                 } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
                     stopShrineDisco();
                     $( '#meditationSymbol' ).hide();
@@ -2310,7 +2312,7 @@ $( document ).ready( function () {
                 }
             } );
 
-            $( '#shrineOuija,#shrineOuijaWhite' ).on( 'wheel click', function ( event ) {
+            $( '#shrineOuija,#shrineOuijaWhite,#videodromeOuija' ).on( 'wheel click', function ( event ) {
                 enableFullscreen();
                 toggleRelationships( 'hide' );
                 hideMeditationSymbol();
@@ -3517,26 +3519,14 @@ $( document ).ready( function () {
                 toggleParticleSettings();
             } );
 
-            $( '#toggleTransperentStroboOracleSymbol' ).click( function () {
+            $( '#toggleTransperentStroboOracleSymbol' ).on( 'click wheel', function ( event ) {
                 if ( !shrineDiscoActive ) {
                     toggleTransparentStrobo();
                 }
+                toggleRelationships( 'hide' );
+                hideOuijaYesNo();
+                $( '#absoluteTruthsOverlay' ).hide();
                 showMeditationSymbol();
-            } );
-
-            $( '#toggleTransperentStroboOracleSymbol' ).on( 'wheel', function ( event ) {
-                $( '#meditationSymbol' ).show();
-                $( '#ensoImageShrineContainer' ).hide();
-                if ( !shrineDiscoActive ) {
-                    toggleTransparentStrobo();
-                }
-                setNextMeditationSymbol();
-
-                if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
-                    $( '.meditationSymbolInfoContainer' ).show();
-                } else {
-                    $( '.meditationSymbolInfoContainer' ).hide();
-                }
             } );
 
             $( '.toggleQuickSelectGlobalMenuIcon' ).click( function () {
