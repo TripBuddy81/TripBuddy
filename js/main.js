@@ -1877,7 +1877,7 @@ $( document ).ready( function () {
                                 !$( '#menuClose' ).prop( 'checked' ) ) {
                             screensaverActive = true;
                             showScreensaverEnso();
-                            $( 'body,#menu,.videoSource,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                            $( 'body,#menu,.videoSource,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,.fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
                                 $( this ).addClass( 'cursorNone' );
                             } );
                             $( '#quickSelectGlobalMenuContainer' ).addClass( 'invisible' );
@@ -1902,7 +1902,7 @@ $( document ).ready( function () {
                 if ( screensaverActive ) {
                     screensaverActive = false;
                     hideScreensaverEnso();
-                    $( 'body,#menu,.videoSource,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,#fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
+                    $( 'body,#menu,.videoSource,.fullscreenImage,#switchDesktopPhone,.youtubeVideo,.spotifyPlaylistItem,#spotifyPlaylists,#launchSymbol,.fullscreenIcon,#burgerContainer,.mainSectionBtn,#menuClose,.videoFilterBtn,.playerIcon,#menu,#devices' ).each( function () {
                         $( this ).removeClass( 'cursorNone' );
                     } );
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'invisible' );
@@ -5457,7 +5457,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 // $('#activateHiddenMenue').remove();  
 
-                // toggleXXXVisible();
+                toggleXXXVisible();
 
                 // $( '#showShrineSection' ).trigger( 'click' );
 

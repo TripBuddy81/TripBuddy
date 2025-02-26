@@ -733,7 +733,7 @@ li, .options, .form-check-label {
     --color: rgba(0, 0, 0, 0.2);
 }
 
-#fullscreenIcon, .playerIcon, #switchDesktopPhone {
+.fullscreenIcon, .playerIcon, #switchDesktopPhone {
     height: 45px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     position: relative;
@@ -804,6 +804,13 @@ li, .options, .form-check-label {
 #videodromeIcon {
     margin-right: 16px;
     margin-left: 6px;
+}
+
+#videodromeUIFullscreenIcon {
+    position: absolute;
+    right: 15px;
+    top: 0px;
+    height: 55px;
 }
 
 .startVideoDrome {
