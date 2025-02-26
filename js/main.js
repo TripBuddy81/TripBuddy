@@ -544,7 +544,7 @@ $( document ).ready( function () {
                                     $( '#mainMenu' ).attr( 'style', 'opacity:0' );
                                     $( '#shrineSettingsContainer' ).removeClass( 'visible' );
                                 }
-                                startDiscoMode();
+                                shrineDiscoActive = true;
                                 nextDiscoMode();
                                 e.preventDefault();
                             }
@@ -2296,7 +2296,7 @@ $( document ).ready( function () {
                     }
                     showParticles = true;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
-                    startDiscoMode();
+                    shrineDiscoActive = true;
                     nextDiscoMode();
                 }
                 if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
@@ -2305,7 +2305,7 @@ $( document ).ready( function () {
             } );
 
             $( '#shrineDiscoMode,#shrineDiscoModeWhite' ).on( 'wheel', function ( event ) {
-                startDiscoMode();
+                shrineDiscoActive = true;
                 nextDiscoMode();
                 if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
                     $( '#ensoImageShrineContainer' ).hide();
@@ -2423,10 +2423,6 @@ $( document ).ready( function () {
                 } else {
                     $( '#ensoImageShrine' ).css( 'animation', 'stroboEnso 0ms steps(1,end) infinite' );
                 }
-            }
-
-            function startDiscoMode() {
-                shrineDiscoActive = true;
             }
 
             function nextDiscoMode() {
@@ -3509,6 +3505,7 @@ $( document ).ready( function () {
             } );
 
             $( '.toggleTransparentStrobo' ).click( function () {
+                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0' );
                 toggleTransparentStrobo( $( this ).attr( 'data-transparency' ) );
             } );
 
@@ -3523,6 +3520,7 @@ $( document ).ready( function () {
                 if ( !shrineDiscoActive ) {
                     toggleTransparentStrobo();
                 }
+
                 toggleRelationships( 'hide' );
                 hideOuijaYesNo();
                 $( '#absoluteTruthsOverlay' ).hide();
@@ -4972,7 +4970,7 @@ $( document ).ready( function () {
                     }
                     showParticles = true;
                     $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
-                    startDiscoMode();
+                    shrineDiscoActive = true;
                     nextDiscoMode();
 
                     $( '#videodrome' ).css( 'opacity', transparency );
