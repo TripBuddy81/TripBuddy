@@ -429,7 +429,9 @@ $( document ).ready( function () {
 
                 // Stop current action or show playlist selection if nothing else is going on right now
                 // e.which == 0 => this is the semi functional right button on an air mouse... This does not provide the correct target.
-                if ( $( '.videodromeFullscreenTemp' )[0] ) {
+                if ( $( '.keyboard-cancel-button' ).is( ':visible' ) ) {
+                    $( '.keyboard-cancel-button' ).trigger( 'click' );
+                } else if ( $( '.videodromeFullscreenTemp' )[0] ) {
                     $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
                     $( '.videoDromeFrame' ).removeAttr( 'controls' );
                 } else if ( $( '.modal' ).is( ':visible' ) ) {
