@@ -2057,7 +2057,7 @@ video::-webkit-media-controls-fullscreen-button {
     height: 45px;
 }
 
-#videodromeDirectorShuffleDeactivate {
+#videodromeDirectorShuffleDeactivate, #videodromeDirectorLockVideoDeactivate {
     display: none;
 }
 
@@ -2302,7 +2302,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .videoDromeVideoFullscreenMenuSubSection1 {
-    width: 350px;
+    width: 420px;
 }
 
 .videoDromeVideoFullscreenMenuSubSection2 {
@@ -2825,6 +2825,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videodromeFullscreenLocalFilename {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    max-height: 120px;
 }
 
 #videoTaggingCache {

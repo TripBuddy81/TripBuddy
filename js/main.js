@@ -927,7 +927,7 @@ $( document ).ready( function () {
                     } else if ( $( '#videoJSPlayer2_html5_api' ).is( ':visible' ) ) {
                         $( '#videoJSPlayer2_html5_api' ).trigger( 'click' );
                     }
-                    $('.refreshVideoDromeVideoFullscreenIcon').trigger( 'click' );
+                    $( '.refreshVideoDromeVideoFullscreenIcon' ).trigger( 'click' );
                 }
                 $( '.video-js' ).removeClass( 'vjs-user-active' );
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
@@ -3933,10 +3933,10 @@ $( document ).ready( function () {
                     if ( folderName != undefined && folderName[1] != undefined ) {
                         folderNameString = folderName[1].replaceAll( ' ', '' ).replaceAll( '-', '' );
                         $( '[diridentifier="' + folderNameString + '"]' ).trigger( 'click' );
-                        $('#videodromeActiveTag').html( folderNameString );
+                        $( '#videodromeActiveTag' ).html( folderNameString );
                     } else {
                         $( '[data-pornmaptag="General"]' ).trigger( 'click' );
-                        $('#videodromeActiveTag').html( "General" );
+                        $( '#videodromeActiveTag' ).html( 'General' );
                     }
                 }, 100 );
             } );
@@ -3993,7 +3993,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.externalPornDir', function ( event ) {
-                $( '#videodromeActiveTag' ).html('');
+                $( '#videodromeActiveTag' ).html( '' );
                 if ( $( this ).hasClass( 'videodromeLocalFolderActive' ) ) {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );
@@ -4005,7 +4005,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#deselectAllVideodromeTags,#deselectAllVideodromeTags2', function ( event ) {
-                $( '#videodromeActiveTag' ).html('');
+                $( '#videodromeActiveTag' ).html( '' );
                 $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
@@ -4017,7 +4017,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#selectAllVideodromeTags,#selectAllVideodromeTags2', function ( event ) {
-                $( '#videodromeActiveTag' ).html('');
+                $( '#videodromeActiveTag' ).html( '' );
                 $( '.videodromeTagSelect' ).addClass( 'videodromeTagActive' );
                 $( '[data-pornmaptag=General]' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
@@ -4038,9 +4038,6 @@ $( document ).ready( function () {
 
             // VideoDrome Director mode section
             // Enters a mode in which videos are switched automatically
-            // TODO
-            // change timings - random, slow, fast, VIA PLUS MINUS ???
-            // include streaming window if in front OR make sure streaming window is not visible
             $( document ).on( 'click', '#videodromeDirectorShuffleActivate', function ( e ) {
                 e.preventDefault();
                 directorModeShuffleMode = true;
@@ -4054,6 +4051,20 @@ $( document ).ready( function () {
                 directorModeShuffleMode = false;
                 $( '#videodromeDirectorShuffleActivate' ).show();
                 $( '#videodromeDirectorShuffleDeactivate' ).hide();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorLockVideoActivate', function ( e ) {
+                e.preventDefault();
+                $( '#videodromeDirectorLockVideoActivate' ).hide();
+                $( '#videodromeDirectorLockVideoDeactivate' ).show();
+                $( '.videodromeFullscreen' ).addClass( 'videoLocked' );
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorLockVideoDeactivate', function ( e ) {
+                e.preventDefault();
+                $( '#videodromeDirectorLockVideoActivate' ).show();
+                $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
             } );
 
             $( document ).on( 'click', '#videodromeDirectorNextVideo', function ( e ) {
@@ -4070,6 +4081,9 @@ $( document ).ready( function () {
                 if ( videoDromeDirectorInterval != '' ) {
                     setDirectorModeInterval();
                 }
+                $( '#videodromeDirectorLockVideoActivate' ).show();
+                $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
@@ -4156,6 +4170,10 @@ $( document ).ready( function () {
             function setDirectorModeDisplayTarget() {
                 previousTarget = $( '.videodromeFullscreen' ).attr( 'target' );
 
+                videoLocked = false;
+                if ( $( '.videodromeFullscreen' ).hasClass( 'videoLocked' ) ) {
+                    videoLocked = true;
+                }
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
 
                 if ( videoDromeDirectorLastDisplayedTarget == '' ) {
@@ -4166,7 +4184,7 @@ $( document ).ready( function () {
                 $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
 
                 // check if currently display video has been shown often enough and replace it with a new one if necessary
-                if ( directorModeShuffleMode ) {
+                if ( directorModeShuffleMode && !videoLocked ) {
                     if ( directorModeShufflePropability >= randomIntFromInterval( 0, 100 ) ) {
                         loadVideoDromeOneWindowRefresh( previousTarget );
                     }
@@ -4180,6 +4198,11 @@ $( document ).ready( function () {
                 videoDromeDirectorModeActive = false;
                 $( '#videodromeDirectorShuffleActivate' ).show();
                 $( '#videodromeDirectorShuffleDeactivate' ).hide();
+
+                $( '#videodromeDirectorLockVideoActivate' ).show();
+                $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                $( '.videoLocked' ).removeClass( 'videoLocked' );
+
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
                 $( '.videodromeRefreshContainer' ).show();
@@ -4298,7 +4321,9 @@ $( document ).ready( function () {
                     randomNumber = Math.floor( Math.random() * (parseInt( externalPornFilesTemp.length )) );
 
                     targets.forEach( function ( target ) {
-                        $( '.' + target ).find( '.videoSource' ).attr( 'src', externalPornFilesTemp[randomNumber] );
+                        if ( !$( '.' + target ).hasClass( 'videoLocked' ) ) {
+                            $( '.' + target ).find( '.videoSource' ).attr( 'src', externalPornFilesTemp[randomNumber] );
+                        }
                     } );
 
                     externalPornFilesTemp.splice( randomNumber, 1 );
@@ -4313,12 +4338,16 @@ $( document ).ready( function () {
                     alreadySelectedVideosVideodrome.push( randomNumber );
 
                     targets.forEach( function ( target ) {
-                        $( '.' + target ).find( '.videoSource' ).attr( 'src', selectableVideodromeFilesFromTagAndFolders[randomNumber] );
+                        if ( !$( '.' + target ).hasClass( 'videoLocked' ) ) {
+                            $( '.' + target ).find( '.videoSource' ).attr( 'src', selectableVideodromeFilesFromTagAndFolders[randomNumber] );
+                        }
                     } );
                 }
                 targets.forEach( function ( target ) {
-                    $( '.' + target ).find( '.localVideo' )[0].load();
-                    $( '.' + target ).find( '.localVideo' )[0].play();
+                    if ( !$( '.' + target ).hasClass( 'videoLocked' ) ) {
+                        $( '.' + target ).find( '.localVideo' )[0].load();
+                        $( '.' + target ).find( '.localVideo' )[0].play();
+                    }
                 } );
                 updateVideodromeFullscreenInfo();
             }
@@ -4472,6 +4501,14 @@ $( document ).ready( function () {
                         }
                     } );
                 } else if ( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ) != '' ) {
+                    if ( $( '.videodromeFullscreen' ).hasClass( 'videoLocked' ) ) {
+                        $( '#videodromeDirectorLockVideoActivate' ).hide();
+                        $( '#videodromeDirectorLockVideoDeactivate' ).show();
+                    } else {
+                        $( '#videodromeDirectorLockVideoActivate' ).show();
+                        $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                    }
+
                     try {
                         $( '.videodromeFullscreenFilename' ).html( decodeURI( $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( /\.\/media\/xxx\/videos\//, '' ).replace( /\.mp4.*/, '' ).replace( /\.m4v.*/, '' ).replace( /\.mov.*/, '' ).replace( /\.mkv.*/, '' ).replace( config['externalRootDirs']['pornRootDir'], '' ) ) );
                     } catch ( e ) {
