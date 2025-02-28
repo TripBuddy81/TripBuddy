@@ -445,11 +445,12 @@ $( document ).ready( function () {
                     stopShrineDisco();
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
-                } else if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) || $( '#videodromeLeftToolbar' ).is( ':visible' ) ) {
+                } else if ( $( '#videodromeLeftToolbar' ).is( ':visible' ) ) {
+                    $( '#videodromeLeftToolbar' ).hide();
+                } else if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
-                    $( '#videodromeLeftToolbar' ).hide();
                 } else if ( videoDromeDirectorModeActive ) {
                     stopDirectorMode();
                 } else if ( $( '#showShrineSection' ).hasClass( 'mainSectionActive' ) && ($( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) || $( '#quickTrackSelectionMenu' ).hasClass( 'menuTransition' )) ) {
