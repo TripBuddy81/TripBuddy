@@ -39,6 +39,10 @@ var config = {
             'playlists'              : {
                 'green': [
                     {
+                        'label': 'Gateway Experience',
+                        'id'   : '37wWZLPOQnblXLCsAL4X8K'
+                    },
+                    {
                         'label': 'Das Göttliche',
                         'id'   : '6QTZpiK8tgT5w1eIv4vLQX'
                     },

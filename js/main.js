@@ -4306,7 +4306,7 @@ $( document ).ready( function () {
                     randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
                     while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
                         randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
-                        if ( alreadySelectedVideosVideodrome.length >= selectableVideodromeFilesFromTagAndFolders.length - 1 ) {
+                        if ( alreadySelectedVideosVideodrome.length > selectableVideodromeFilesFromTagAndFolders.length - 1 ) {
                             alreadySelectedVideosVideodrome = [];
                         }
                     }
