@@ -3749,13 +3749,13 @@ $( document ).ready( function () {
                     $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                 }, 1500 );
                 $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '#videodromeFullscreenMenuLocalVideoContainer' ).css( 'opacity', '1' );
+                $( '#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuVideoJSContainer' ).css( 'opacity', '1' );
             } );
 
             $( document ).on( 'mouseleave', '.videodromeDirectorControlToBeHiddenIcon', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
                 $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '#videodromeFullscreenMenuLocalVideoContainer' ).css( 'opacity', '1' );
+                $( '#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuVideoJSContainer' ).css( 'opacity', '1' );
             } );
 
             $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
@@ -5488,7 +5488,7 @@ $( document ).ready( function () {
             if ( config['localSettingsOverwrite'] != undefined && config['localSettingsOverwrite']['debugMode'] != undefined && config['localSettingsOverwrite']['debugMode'] ) {
                 // $('#activateHiddenMenue').remove();  
 
-                toggleXXXVisible();
+                // toggleXXXVisible();
 
                 // $( '#showShrineSection' ).trigger( 'click' );
 
