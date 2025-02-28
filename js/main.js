@@ -926,6 +926,7 @@ $( document ).ready( function () {
                     } else if ( $( '#videoJSPlayer2_html5_api' ).is( ':visible' ) ) {
                         $( '#videoJSPlayer2_html5_api' ).trigger( 'click' );
                     }
+                    $('.refreshVideoDromeVideoFullscreenIcon').trigger( 'click' );
                 }
                 $( '.video-js' ).removeClass( 'vjs-user-active' );
                 $( '.video-js' ).addClass( 'vjs-user-inactive' );
