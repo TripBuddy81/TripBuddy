@@ -191,35 +191,43 @@ var config = {
             'singleTracks'           : [
                 {
                     'id'   : '5e5Y2BHQazqBahFMXObzzU',
-                    'label': 'Om Namah Shivaya'
+                    'label': 'Om Namah Shivaya',
+                    'repeat': false
                 },
                 {
                     'id'   : '5RJrRNe2vcBI4zGMPGYrCy',
-                    'label': 'So Ham'
+                    'label': 'So Ham',
+                    'repeat': false
                 },
                 {
                     'id'   : '0vSa11w4WE7HHCdMwoVayz',
-                    'label': 'Shivo Ham'
+                    'label': 'Shivo Ham',
+                    'repeat': false
                 },
                 {
                     'id'   : '0ovMU36BOg3UqBekaTQEER',
-                    'label': 'Rain & Thunder I'
+                    'label': 'Rain & Thunder I',
+                    'repeat': true
                 },
                 {
                     'id'   : '32N71aqSB1j5skwhEi2hmL',
-                    'label': 'Rain & Thunder II'
+                    'label': 'Rain & Thunder II',
+                    'repeat': true
                 },
                 {
                     'id'   : '2yXMgy1h9R3vgs5XWS4sSW',
-                    'label': 'Cosmic Consciousness'
+                    'label': 'Cosmic Consciousness',
+                    'repeat': true
                 },
                 {
                     'id'   : '40tzbR4NAy31YYtkwpLe2g',
-                    'label': 'Heartbeat'
+                    'label': 'Heartbeat',
+                    'repeat': true
                 },
                 {
                     'id'   : '3pAvqZSlRKXEnwslqmmXty',
-                    'label': '528 Hz'
+                    'label': '528 Hz',
+                    'repeat': true
                 }
             ],
             'trackSelectionPlaylists': [

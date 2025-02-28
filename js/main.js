@@ -2808,20 +2808,19 @@ $( document ).ready( function () {
                         } catch ( e ) {
                         }
 
-                        // Playlist Selection
-                        if ( $( this ).hasClass( 'spotifyPlaylist' ) ) {
-                            if ( $( this ).attr( 'shuffle' ) == 'false' ) {
-                                shuffle( false, false );
-                            } else {
-                                shuffle();
-                            }
-                            if ( $( this ).attr( 'repeat' ) == 'false' ) {
-                                repeat( 'off' );
-                            } else {
-                                repeat();
-                            }
-                        } else { // Single Track Selection
+                        if ( $( this ).attr( 'shuffle' ) == 'false' ) {
+                            shuffle( false, false );
+                        } else {
+                            shuffle();
+                        }
+                        if ( $( this ).attr( 'repeat' ) == 'false' ) {
                             repeat( 'off' );
+                        } else {
+                            repeat();
+                        }
+
+                        // Single Track Selection
+                        if ( $( this ).hasClass( 'spotifySingleTrack' ) ) {
                             spotifyHasBeenPlayingBeforePause = false;
                         }
 
