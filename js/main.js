@@ -3988,6 +3988,9 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.localFilename', function ( event ) {
+                $( '#videodromeDirectorLockVideoActivate' ).show();
+                $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src', $( this ).attr( 'src' ) );
                 $( '.videodromeFullscreen' ).find( '.localVideo' )[0].load();
             } );
@@ -4105,23 +4108,23 @@ $( document ).ready( function () {
                 videoDromeDirectorModeActive = false;
             } );
 
-            $( document ).on( 'click', '#videodromeDirectorTimingsRandom', function ( e ) {
-                e.preventDefault();
-                clearInterval( videoDromeDirectorInterval );
-                videoDromeDirectorInterval = '';
-                videoDromeDirectorDurationMin = videoDromeDirectorDurationMinDefault;
-                videoDromeDirectorDurationMax = videoDromeDirectorDurationMaxDefault;
-                setIconActive( e, 'directorTimingIconActive' );
-                $( '#defaultLoadMode' ).trigger( 'click' );
-                setDirectorModeInterval();
-            } );
-
             $( document ).on( 'click', '#videodromeDirectorTimingsSlow', function ( e ) {
                 e.preventDefault();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = 7000;
                 videoDromeDirectorDurationMax = 35000;
+                setIconActive( e, 'directorTimingIconActive' );
+                $( '#defaultLoadMode' ).trigger( 'click' );
+                setDirectorModeInterval();
+            } );
+
+            $( document ).on( 'click', '#videodromeDirectorTimingsRandom', function ( e ) {
+                e.preventDefault();
+                clearInterval( videoDromeDirectorInterval );
+                videoDromeDirectorInterval = '';
+                videoDromeDirectorDurationMin = videoDromeDirectorDurationMinDefault;
+                videoDromeDirectorDurationMax = videoDromeDirectorDurationMaxDefault;
                 setIconActive( e, 'directorTimingIconActive' );
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 setDirectorModeInterval();

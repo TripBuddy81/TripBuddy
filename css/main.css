@@ -2824,6 +2824,7 @@ video::-webkit-media-controls-fullscreen-button {
 .videodromeFullscreenLocalFilename {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     max-height: 120px;
+    margin-top: -12px;
 }
 
 #videoTaggingCache {
