@@ -214,10 +214,6 @@ p {
     font-size: xx-large;
 }
 
-.loadModeIconActive, .directorTimingIconActive {
-    pointer-events: none;
-}
-
 #showVideoSection, #showImageSection, #showShrineSection, #showGamesSection, #showSearchSection, #showPornZapper {
     cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
     height: 65px;

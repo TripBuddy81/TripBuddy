@@ -583,7 +583,9 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseover', '.iconAlternating', function () {
-                $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '.png', '_white.png' ) );
+                if ( !$( this ).hasClass( 'loadModeIconActive' ) && !$( this ).hasClass( 'directorTimingIconActive' ) ) {
+                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '.png', '_white.png' ) );
+                }
             } );
 
             $( document ).on( 'mouseout', '.iconAlternating', function () {
@@ -652,11 +654,13 @@ $( document ).ready( function () {
             function setIconActive( e, targetClass ) {
                 $( '.' + targetClass ).each( function () {
                     $( this ).removeClass( targetClass );
+                    $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_active.png', '.png' ) );
                     $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
                 } );
 
-                if ( $( e.target ).attr( 'src' ).indexOf( '_white.png' ) <= 0 ) {
-                    $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '.png', '_white.png' ) );
+                if ( $( e.target ).attr( 'src' ).indexOf( '_active.png' ) <= 0 ) {
+                    $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '_white.png', '.png' ) );
+                    $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '.png', '_active.png' ) );
                 }
                 $( e.target ).addClass( targetClass );
             }
@@ -4096,6 +4100,9 @@ $( document ).ready( function () {
                 if ( videoDromeDirectorInterval != '' ) {
                     setDirectorModeInterval();
                 }
+                $( '#videodromeDirectorLockVideoActivate' ).show();
+                $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
             } );
