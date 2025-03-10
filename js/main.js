@@ -4072,6 +4072,8 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
+                $( '#defaultLoadMode' ).trigger( 'click' );
+                loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
 
             $( document ).on( 'click', '#videodromeDirectorNextVideo', function ( e ) {
