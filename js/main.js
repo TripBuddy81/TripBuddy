@@ -3554,7 +3554,8 @@ $( document ).ready( function () {
 
                 if ( videodromeTaggingSaveInterval == '' || videodromeTaggingSaveInterval == undefined ) {
                     $( '.videodromeFullscreen' ).each( function () {
-                        videodromeTaggingVideo = $( this ).find( '.videoSource' ).attr( 'src' ).replace( '\'', '\\\'' ).replace( /#t=.*/, '#t=' + Math.floor( $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime ) );
+                        videodromeTaggingVideo = $( this ).find( '.videoSource' ).attr( 'src' ).replace( '\'', '\\\'' ).replace( /#t=.*/, '' ) ;
+                        videodromeTaggingVideo += '#t=' + Math.floor( $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime );
                     } );
                     videodromeTaggingAppliedTags = $( this ).html();
                 } else {
