@@ -4399,7 +4399,7 @@ $( document ).ready( function () {
                     let nodeFolder = document.createElement( 'span' );
                     nodeFolder.classList.add( 'externalPornDir' );
                     nodeFolder.classList.add( 'videodromeLocalVideoMenuItem' );
-                    nodeFolder.setAttribute( 'dirIdentifier', displayName.replaceAll( ' ', '' ).replaceAll( '-', '' ) );
+                    nodeFolder.setAttribute( 'dirIdentifier', displayName.replaceAll( ' ', '' ).replaceAll( '-', '' ).replaceAll( '&', '' )  );
                     nodeFolder.setAttribute( 'externalPornDirUrl', url );
 
                     nodeFolder.append( nodeImage );
