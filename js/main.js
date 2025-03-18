@@ -1866,7 +1866,7 @@ $( document ).ready( function () {
 
             // Show cursor when moving mouse
             var moveTimerFullscreenVideoOverlay;
-            $( document ).on( 'mousemove', '.videoMenuOverlayFullscreen, .videoMenuOverlayFullscreen2,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function () {
+            $( document ).on( 'mousemove', '.videoMenuOverlayFullscreen,#videodromeGlobalActionContainer,.videoMenuOverlayFullscreen2,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function () {
                 clearTimeout( moveTimerFullscreenVideoOverlay );
                 moveTimerFullscreenVideoOverlay = setTimeout( function () {
                     $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
