@@ -190,43 +190,43 @@ var config = {
             },
             'singleTracks'           : [
                 {
-                    'id'   : '5e5Y2BHQazqBahFMXObzzU',
-                    'label': 'Om Namah Shivaya',
+                    'id'    : '5e5Y2BHQazqBahFMXObzzU',
+                    'label' : 'Om Namah Shivaya',
                     'repeat': false
                 },
                 {
-                    'id'   : '5RJrRNe2vcBI4zGMPGYrCy',
-                    'label': 'So Ham',
+                    'id'    : '5RJrRNe2vcBI4zGMPGYrCy',
+                    'label' : 'So Ham',
                     'repeat': false
                 },
                 {
-                    'id'   : '0vSa11w4WE7HHCdMwoVayz',
-                    'label': 'Shivo Ham',
+                    'id'    : '0vSa11w4WE7HHCdMwoVayz',
+                    'label' : 'Shivo Ham',
                     'repeat': false
                 },
                 {
-                    'id'   : '0ovMU36BOg3UqBekaTQEER',
-                    'label': 'Rain & Thunder I',
+                    'id'    : '0ovMU36BOg3UqBekaTQEER',
+                    'label' : 'Rain & Thunder I',
                     'repeat': true
                 },
                 {
-                    'id'   : '32N71aqSB1j5skwhEi2hmL',
-                    'label': 'Rain & Thunder II',
+                    'id'    : '32N71aqSB1j5skwhEi2hmL',
+                    'label' : 'Rain & Thunder II',
                     'repeat': true
                 },
                 {
-                    'id'   : '2yXMgy1h9R3vgs5XWS4sSW',
-                    'label': 'Cosmic Consciousness',
+                    'id'    : '2yXMgy1h9R3vgs5XWS4sSW',
+                    'label' : 'Cosmic Consciousness',
                     'repeat': true
                 },
                 {
-                    'id'   : '40tzbR4NAy31YYtkwpLe2g',
-                    'label': 'Heartbeat',
+                    'id'    : '40tzbR4NAy31YYtkwpLe2g',
+                    'label' : 'Heartbeat',
                     'repeat': true
                 },
                 {
-                    'id'   : '3pAvqZSlRKXEnwslqmmXty',
-                    'label': '528 Hz',
+                    'id'    : '3pAvqZSlRKXEnwslqmmXty',
+                    'label' : '528 Hz',
                     'repeat': true
                 }
             ],
@@ -529,8 +529,8 @@ var config = {
                     'startSeconds': '7'
                 },
                 {
-                    'videoId'     : 'H4PgyKxHYcc',
-                    'tags'        : 'trippy-2D'
+                    'videoId': 'H4PgyKxHYcc',
+                    'tags'   : 'trippy-2D'
                 },
                 {
                     'videoId': 'hXD8itTKdY0',
@@ -701,8 +701,9 @@ var config = {
                     'startSeconds': '10'
                 },
                 {
-                    'videoId'     : 'OMtjlaDEMdI',
-                    'tags'        : 'trippy-2D meditative'
+                    'videoId': 'OMtjlaDEMdI',
+                    'mute'   : 'mixed',
+                    'tags'   : 'trippy-2D meditative'
                 },
                 {
                     'videoId'     : 'yDiD8F9ItX0',
@@ -1915,7 +1916,7 @@ var config = {
                 {
                     'image': './media/shaman/607.jpg',
                     'tags' : 'shaman'
-                },
+                }
             ],
             'mindJourney'            :
                     {
