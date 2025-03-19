@@ -529,6 +529,10 @@ var config = {
                     'startSeconds': '7'
                 },
                 {
+                    'videoId'     : 'H4PgyKxHYcc',
+                    'tags'        : 'trippy-2D'
+                },
+                {
                     'videoId': 'hXD8itTKdY0',
                     'tags'   : 'nature'
                 },
@@ -691,7 +695,15 @@ var config = {
                     'tags'        : 'meditative nature',
                     'startSeconds': '10'
                 },
-
+                {
+                    'videoId'     : 'If_RqCOtWZ8',
+                    'tags'        : 'meditative',
+                    'startSeconds': '10'
+                },
+                {
+                    'videoId'     : 'OMtjlaDEMdI',
+                    'tags'        : 'trippy-2D meditative'
+                },
                 {
                     'videoId'     : 'yDiD8F9ItX0',
                     'tags'        : 'meditative space',
@@ -938,6 +950,10 @@ var config = {
                 },
                 {
                     'videoId': 'fUWYgdmNscg',
+                    'tags'   : 'weird'
+                },
+                {
+                    'videoId': 'MsVR_YoM54g',
                     'tags'   : 'weird'
                 },
                 {
@@ -1355,6 +1371,12 @@ var config = {
                     'label'  : 'The “afterlife” according to Einstein'
                 },
                 {
+                    'videoId': 'x703Rz5o6hA',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Hopf Fibration'
+                },
+                {
                     'videoId': 'Ikyx6t1VQEU',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -1451,10 +1473,16 @@ var config = {
                     'label'  : 'To be an artist is to be dysfunctional'
                 },
                 {
-                    'videoId': 'NJMKuswemhc',
+                    'videoId': 'PW5R0XhBQM8',
                     'mute'   : false,
-                    'tags'   : 'shaman',
-                    'label'  : 'Sage Terence McKenna showing us the big picture'
+                    'tags'   : 'wisdom',
+                    'label'  : 'The Man Who Solved Enlightenment - Krishnamurti'
+                },
+                {
+                    'videoId': 'mwyBMxad-vU',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Dr. K\'s Approach To Meditation'
                 },
                 {
                     'videoId': 'UeeMOGvKS64',
@@ -1539,6 +1567,42 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'shaman',
                     'label'  : 'On Non-Duality'
+                },
+                {
+                    'videoId': 'P8kK36m8B-U',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Who Is The Mind Talking To?'
+                },
+                {
+                    'videoId': 'nPNU_J4n6gA',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'For Those Who Didn\'t get the Joke'
+                },
+                {
+                    'videoId': 'B7kEqftHSCk',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'The Innocence Of Our Minds'
+                },
+                {
+                    'videoId': 'a4qgA1qR-G0',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Manifestation'
+                },
+                {
+                    'videoId': '7N_NNVeKat8',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Game theory can explain humanity’s biggest problem'
+                },
+                {
+                    'videoId': '-aGkL7RCXO0',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Idea Could Explain the Laws of Nature'
                 },
                 {
                     'videoId': 'Q82MFr6Ll9M',
