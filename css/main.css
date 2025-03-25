@@ -215,7 +215,7 @@ p {
 }
 
 #showVideoSection, #showImageSection, #showShrineSection, #showGamesSection, #showSearchSection, #showPornZapper {
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     height: 65px;
     margin-top: 3px;
     margin-right: 20px;
@@ -879,7 +879,7 @@ li, .options, .form-check-label {
     top: 8px;
     width: 275px !important;
     background: transparent;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     border: none;
     font-weight: bold;
     padding: 0;
@@ -1197,7 +1197,7 @@ option {
 #toggleThinker, #toggleThinkerWhite {
     height: 52px;
     margin-left: 15px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     margin-top: -29px;
 }
 
@@ -1212,7 +1212,7 @@ option {
 #toggleAbsoluteThruthOutwards, #toggleAbsoluteThruthOutwardsWhite,
 #toggleGospel, #toggleGospelWhite {
     height: 55px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     display: block;
     margin-top: 12px;
 }
@@ -1327,7 +1327,7 @@ video::-webkit-media-controls-fullscreen-button {
     right: 10px;
     bottom: 10px;
     z-index: 5;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     position: absolute;
     width: 45px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -1751,7 +1751,7 @@ video::-webkit-media-controls-fullscreen-button {
 #showYoutubePlayedHistory {
     height: 40px;
     opacity: 0.5;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     position: relative;
     right: 20px;
     top: -2px;
@@ -1759,7 +1759,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #switchAudioSource {
     height: 40px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     position: relative;
     right: -6px;
     top: 0px;
@@ -2176,7 +2176,7 @@ video::-webkit-media-controls-fullscreen-button {
     padding-left: 15px;
     padding-top: 5px;
     font-size: 25px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     display: inline-table;
 }
 
@@ -2264,7 +2264,7 @@ video::-webkit-media-controls-fullscreen-button {
 #videodromeOuija {
     height: 52px;
     margin-left: 15px;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #toggleTransperentStroboOracleSymbol {
@@ -2367,7 +2367,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .localFilename, .musicVideoFilename {
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     padding-bottom: 10px;
     font-weight: 700;
     overflow-x: hidden;
@@ -2453,7 +2453,7 @@ video::-webkit-media-controls-fullscreen-button {
     -webkit-text-fill-color: transparent;
     display: table-cell;
     vertical-align: middle;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer !important;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     transition: all 0.5s ease;
 }
 
@@ -2810,7 +2810,7 @@ video::-webkit-media-controls-fullscreen-button {
     padding-left: 0;
     padding-right: 20px;
     margin-top: 0;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 #selectAllVideodromeTags {
@@ -2827,11 +2827,11 @@ video::-webkit-media-controls-fullscreen-button {
     padding-left: 0;
     padding-right: 0;
     margin-top: 0;
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
 .videodromeFullscreenLocalFilename {
-    cursor: url(../assets/rainbow-gradient-pointer-32x32.png), pointer;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
     max-height: 120px;
     margin-top: -12px;
 }
