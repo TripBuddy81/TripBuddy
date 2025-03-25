@@ -751,7 +751,7 @@ $( document ).ready( function () {
                 hideScreensaverEnso();
                 stopScreensaver();
 
-                $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '#particles-js' ).css( 'cursor', 'url(assets/rainbow-gradient-cursor-1-32x32.png), auto' );
 
                 if ( hidePlaylistSelection ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
@@ -1468,7 +1468,7 @@ $( document ).ready( function () {
                 moveTimerShrine = setTimeout( function () {
                     $( '#activateHiddenMenue' ).css( 'cursor', 'none' );
                 }, 1000 );
-                $( '#activateHiddenMenue' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '#activateHiddenMenue' ).css( 'cursor', 'url(assets/rainbow-gradient-cursor-1-32x32.png), auto' );
             } );
 
             function toggleXXXVisible() {
@@ -1872,7 +1872,7 @@ $( document ).ready( function () {
                     $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
                     $( '.videoMenuOverlay' ).hide();
                 }, 1000 );
-                $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
                 $( '.videoMenuOverlay' ).show();
             } );
 
@@ -1998,7 +1998,7 @@ $( document ).ready( function () {
                         $( '.displayedFullscreenImage' ).css( 'cursor', 'none' );
                     }, 1000 );
                     $( '.videoMenuOverlay' ).show();
-                    $( '.displayedFullscreenImage' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                    $( '.displayedFullscreenImage' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
                 }
             } );
 
@@ -2199,7 +2199,7 @@ $( document ).ready( function () {
                 moveTimerShrine = setTimeout( function () {
                     $( '#particles-js' ).css( 'cursor', 'none' );
                 }, 1000 );
-                $( '#particles-js' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '#particles-js' ).css( 'cursor', 'url(assets/rainbow-gradient-cursor-1-32x32.png), auto' );
             } );
 
             // Generic click on shrine section - no button clicked - action depends on currently active sub tool, e.g. shaman view or meditation symbol
@@ -3488,7 +3488,7 @@ $( document ).ready( function () {
                 if ( $( this ).hasClass( 'videodromeFullscreen' ) ) {
                     $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
                 }
-                $( '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
                 $( '.videoMenuOverlay' ).show();
 
                 if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
@@ -3554,7 +3554,7 @@ $( document ).ready( function () {
 
                 if ( videodromeTaggingSaveInterval == '' || videodromeTaggingSaveInterval == undefined ) {
                     $( '.videodromeFullscreen' ).each( function () {
-                        videodromeTaggingVideo = $( this ).find( '.videoSource' ).attr( 'src' ).replace( '\'', '\\\'' ).replace( /#t=.*/, '' ) ;
+                        videodromeTaggingVideo = $( this ).find( '.videoSource' ).attr( 'src' ).replace( '\'', '\\\'' ).replace( /#t=.*/, '' );
                         videodromeTaggingVideo += '#t=' + Math.floor( $( '.videodromeFullscreen' ).find( '.localVideo' )[0].currentTime );
                     } );
                     videodromeTaggingAppliedTags = $( this ).html();
@@ -3753,13 +3753,13 @@ $( document ).ready( function () {
                     $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'none' );
                     $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
                 }, 1500 );
-                $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
                 $( '#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuVideoJSContainer' ).css( 'opacity', '1' );
             } );
 
             $( document ).on( 'mouseleave', '.videodromeDirectorControlToBeHiddenIcon', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
-                $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
                 $( '#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuVideoJSContainer' ).css( 'opacity', '1' );
             } );
 
@@ -3767,8 +3767,8 @@ $( document ).ready( function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
 
                 $( '.videodromeRefreshContainer' ).css( 'opacity', '1' );
-                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(assets/rainbow-gradient-cursor-1-32x32.png), auto' );
 
                 videodromeFullscreenMenuHideInterval = setTimeout( function () {
                     $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeRefreshContainer,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'none' );
@@ -3779,8 +3779,8 @@ $( document ).ready( function () {
             $( document ).on( 'mouseleave', '.videodromeRefreshContainer', function () {
                 clearTimeout( videodromeFullscreenMenuHideInterval );
 
-                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
-                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-cursor-1-32x32.png\'), auto' );
+                $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
+                $( '.videodromeRefreshContainer' ).css( 'cursor', 'url(assets/rainbow-gradient-cursor-1-32x32.png), auto' );
                 $( '.videodromeRefreshContainer' ).css( 'opacity', '0' );
             } );
 
@@ -4400,7 +4400,7 @@ $( document ).ready( function () {
                     let nodeFolder = document.createElement( 'span' );
                     nodeFolder.classList.add( 'externalPornDir' );
                     nodeFolder.classList.add( 'videodromeLocalVideoMenuItem' );
-                    nodeFolder.setAttribute( 'dirIdentifier', displayName.replaceAll( ' ', '' ).replaceAll( '-', '' ).replaceAll( '&', '' )  );
+                    nodeFolder.setAttribute( 'dirIdentifier', displayName.replaceAll( ' ', '' ).replaceAll( '-', '' ).replaceAll( '&', '' ) );
                     nodeFolder.setAttribute( 'externalPornDirUrl', url );
 
                     nodeFolder.append( nodeImage );
@@ -5103,7 +5103,7 @@ $( document ).ready( function () {
                 clearInterval( privatePictureSlideshowTimer );
                 $( '.videoMenuOverlay' ).show();
                 $( '#privatePictureSlideshowOverlay' ).attr( 'style', 'opacity:1' );
-                $( '#privatePictureSlideshow' ).css( 'cursor', 'url(\'../assets/rainbow-gradient-pointer-32x32.png\'), auto' );
+                $( '#privatePictureSlideshow' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
             } );
 
             $( document ).on( 'mouseleave', '#privatePictureSlideshowOverlay', function () {
