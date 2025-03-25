@@ -1027,6 +1027,12 @@ var config = {
                     'label'  : 'Does the Universe Dream?'
                 },
                 {
+                    'videoId': 'zuKr3TZhTho',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Read first comment after watching!'
+                },
+                {
                     'videoId'     : 'RCSSgxV9qNw',
                     'mute'        : false,
                     'tags'        : 'thinker',
