@@ -2833,7 +2833,7 @@ $( document ).ready( function () {
 
                         if ( externalSoundTabOpened ) {
                             externalSoundTabOpened = false;
-                            window.open( './tabCloser.html', 'externalSoundTab' );
+                            window.open( './misc/tabCloser.html', 'externalSoundTab' );
                         }
                     }
                 } );
@@ -2849,7 +2849,7 @@ $( document ).ready( function () {
 
                     if ( externalSoundTabOpened ) {
                         externalSoundTabOpened = false;
-                        window.open( './tabCloser.html', 'externalSoundTab' );
+                        window.open( './misc/tabCloser.html', 'externalSoundTab' );
                         $( '.spotifyPlaylistActive' ).removeClass( 'spotifyPlaylistActive' );
                     }
                 } );
@@ -2936,7 +2936,7 @@ $( document ).ready( function () {
 
                                             if ( externalSoundTabOpened ) {
                                                 externalSoundTabOpened = false;
-                                                window.open( './tabCloser.html', 'externalSoundTab' );
+                                                window.open( './misc/tabCloser.html', 'externalSoundTab' );
                                             }
                                         } );
                                     } )
@@ -3083,7 +3083,7 @@ $( document ).ready( function () {
                 }
                 if ( externalSoundTabOpened ) {
                     externalSoundTabOpened = false;
-                    window.open( './tabCloser.html', 'externalSoundTab' );
+                    window.open( './misc/tabCloser.html', 'externalSoundTab' );
                 }
             } );
 
@@ -3385,7 +3385,7 @@ $( document ).ready( function () {
 
                 if ( externalSoundTabOpened && !playingRandomVideoFromCategory ) {
                     externalSoundTabOpened = false;
-                    window.open( './tabCloser.html', 'externalSoundTab' );
+                    window.open( './misc/tabCloser.html', 'externalSoundTab' );
                 }
             }
 
