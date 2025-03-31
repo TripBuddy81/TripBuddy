@@ -1804,6 +1804,11 @@ $( document ).ready( function () {
                     $( this ).closest( '.iFrameContainer' ).find( '.localVideo' )[0].play();
                     $( this ).closest( '.iFrameContainer' ).find( '.localVideo' )[0].muted = true;
                     $( this ).closest( '.iFrameContainer' ).find( '.localVideo' ).prop( 'controls', 'controls' );
+
+                    clearInterval( videoSeekFullscreenInterval );
+                    videoSeekFullscreenInterval = setTimeout( function () {
+                        $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                    }, videoSeekFullscreenDuration );
                 } catch ( e ) {
                 }
                 $( '.localVideoOverlay' ).hide();
@@ -3487,6 +3492,11 @@ $( document ).ready( function () {
 
                 if ( $( this ).hasClass( 'videodromeFullscreen' ) ) {
                     $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+
+                    clearInterval( videoSeekFullscreenInterval );
+                    videoSeekFullscreenInterval = setTimeout( function () {
+                        $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                    }, videoSeekFullscreenDuration );
                 }
                 $( '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
                 $( '.videoMenuOverlay' ).show();
