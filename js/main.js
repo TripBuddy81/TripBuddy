@@ -3941,12 +3941,12 @@ $( document ).ready( function () {
 
             $( document ).on( 'click', '.videodromeFullscreenLocalFilename', function ( event ) {
                 filename = $( this ).html();
-                folderName = filename.match( /(.*?)\// );
+                folderName = filename.match( /[^\/]+(?=\/[^\/]+\\?$)/ );
 
                 $( '#deselectAllVideodromeTags' ).trigger( 'click' );
                 setTimeout( function () {
-                    if ( folderName != undefined && folderName[1] != undefined ) {
-                        folderNameString = folderName[1].replaceAll( ' ', '' ).replaceAll( '-', '' );
+                    if ( folderName != undefined && folderName[0] != undefined ) {
+                        folderNameString = folderName[0].replaceAll( ' ', '' ).replaceAll( '-', '' );
                         $( '[diridentifier="' + folderNameString + '"]' ).trigger( 'click' );
                         $( '#videodromeActiveTag' ).html( folderNameString );
                     } else {
