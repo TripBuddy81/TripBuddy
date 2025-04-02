@@ -164,6 +164,7 @@ $( document ).ready( function () {
             window.directorModeShufflePropability = 33;
             window.directorModeTemporaryPauseInterval = '';
             window.directorModePlayHistory = {};
+            window.genericShortTermTempVariable = false;
 
             window.videodromeLoadModeMapping = {
                 '2': {
@@ -3757,20 +3758,27 @@ $( document ).ready( function () {
                 $( '.vjs-control-bar' ).css( 'display', 'none' );
             } );
 
-            $( document ).on( 'mousemove', '.videodromeDirectorControlToBeHiddenIcon', function () {
+            $( document ).on( 'mousemove click', '.videodromeDirectorControlToBeHiddenIcon', function ( e ) {
+                genericShortTermTempVariable = false;
+                if ( e.type == 'click' ) {
+                    genericShortTermTempVariable = true;
+                }
                 clearTimeout( videodromeFullscreenMenuHideInterval );
                 videodromeFullscreenMenuHideInterval = setTimeout( function () {
                     $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'none' );
                     $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                    genericShortTermTempVariable = false;
                 }, 1500 );
                 $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
                 $( '#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuVideoJSContainer' ).css( 'opacity', '1' );
             } );
 
             $( document ).on( 'mouseleave', '.videodromeDirectorControlToBeHiddenIcon', function () {
-                clearTimeout( videodromeFullscreenMenuHideInterval );
-                $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
-                $( '#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuVideoJSContainer' ).css( 'opacity', '1' );
+                if ( !genericShortTermTempVariable ) {
+                    clearTimeout( videodromeFullscreenMenuHideInterval );
+                    $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
+                    $( '#videodromeFullscreenMenuLocalVideoContainer,#videodromeFullscreenMenuVideoJSContainer' ).css( 'opacity', '1' );
+                }
             } );
 
             $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
