@@ -4140,8 +4140,8 @@ $( document ).ready( function () {
                 e.preventDefault();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
-                videoDromeDirectorDurationMin = 7000;
-                videoDromeDirectorDurationMax = 35000;
+                videoDromeDirectorDurationMin = 1800;
+                videoDromeDirectorDurationMax = 7000;
                 setIconActive( e, 'directorTimingIconActive' );
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 setDirectorModeInterval();

@@ -1974,8 +1974,8 @@ video::-webkit-media-controls-fullscreen-button {
 #videodromeLeftToolbarTrigger {
     position: fixed;
     width: 1px;
-    height: 92vH;
-    bottom: 0vH;
+    height: 68vH;
+    top: 0vH;
     left: 0vW;
     opacity: 0;
     z-index: 95;
