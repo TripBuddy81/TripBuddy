@@ -521,9 +521,6 @@ $( document ).ready( function () {
             // Right button for context menu is e.which == 0 -> is handled in contextmenu section
             document.onkeydown = function ( e ) {
                 if ( !$( '#preFlightChecklist,.keyboard-input-field' ).is( ':visible' ) ) {
-
-                    console.info( e.which );
-
                     switch ( e.which ) {
                         case 32: // Space
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
@@ -577,7 +574,7 @@ $( document ).ready( function () {
                             }
                             break;
                         case 88: // X
-                            if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                            if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
                                 e.preventDefault();
                             }
