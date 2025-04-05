@@ -4020,10 +4020,10 @@ $( document ).ready( function () {
                     if ( folderName != undefined && folderName[0] != undefined ) {
                         folderNameString = folderName[0].replaceAll( ' ', '' ).replaceAll( '-', '' );
                         $( '[diridentifier="' + folderNameString + '"]' ).trigger( 'click' );
-                        $( '#videodromeActiveTag' ).html( folderNameString );
+                        $( '#videodromeActiveFolders' ).html( folderNameString );
                     } else {
                         $( '[data-pornmaptag="General"]' ).trigger( 'click' );
-                        $( '#videodromeActiveTag' ).html( 'General' );
+                        $( '#videodromeActiveFolders' ).html( 'General' );
                     }
                 }, 100 );
             } );
@@ -4083,7 +4083,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.externalPornDir', function ( event ) {
-                $( '#videodromeActiveTag' ).html( '' );
                 if ( $( this ).hasClass( 'videodromeLocalFolderActive' ) ) {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );
@@ -4091,11 +4090,12 @@ $( document ).ready( function () {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).addClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'add' );
                 }
+                updateActiveFoldersDisplay();
                 checkVideodromeTagActive();
             } );
 
             $( document ).on( 'click', '#deselectAllVideodromeTags,#deselectAllVideodromeTags2', function ( event ) {
-                $( '#videodromeActiveTag' ).html( '' );
+                $( '#videodromeActiveFolders' ).html( '' );
                 $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
@@ -4107,7 +4107,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#selectAllVideodromeTags,#selectAllVideodromeTags2', function ( event ) {
-                $( '#videodromeActiveTag' ).html( '' );
+                $( '#videodromeActiveFolders' ).html( '' );
                 $( '.videodromeTagSelect' ).addClass( 'videodromeTagActive' );
                 $( '[data-pornmaptag=General]' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
