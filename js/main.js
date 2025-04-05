@@ -4300,11 +4300,6 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
                 $( '.videoLocked' ).removeClass( 'videoLocked' );
-
-                $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                $( '.videodromeRefreshContainer' ).show();
-                $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
             }
 
             function seekWithinLocalVideo( event, targetVideoFrame, timeSkipDuration = 30 ) {
