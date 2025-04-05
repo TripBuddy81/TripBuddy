@@ -2321,10 +2321,6 @@ video::-webkit-media-controls-fullscreen-button {
     margin-left: 7px;
 }
 
-.videodromeDirectorStayWithCurrentVideo {
-    margin-left: 3px;
-}
-
 .videostreamFavoriteItemDeleteSymbol {
     display: none;
 }

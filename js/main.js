@@ -716,11 +716,19 @@ $( document ).ready( function () {
                     $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
                 } );
 
-                if ( $( e.target ).attr( 'src' ).indexOf( '_active.png' ) <= 0 ) {
-                    $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '_white.png', '.png' ) );
-                    $( e.target ).attr( 'src', $( e.target ).attr( 'src' ).replace( '.png', '_active.png' ) );
-                }
-                $( e.target ).addClass( targetClass );
+                classList = $( e.target ).attr( 'class' ).split( /\s+/ );
+
+                var selector = classList.map( function ( className ) {
+                    return '.' + className;
+                } ).join( '' );
+
+                $( selector ).each( function () {
+                    if ( $( this ).attr( 'src' ).indexOf( '_active.png' ) <= 0 ) {
+                        $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '_white.png', '.png' ) );
+                        $( this ).attr( 'src', $( this ).attr( 'src' ).replace( '.png', '_active.png' ) );
+                    }
+                    $( this ).addClass( targetClass );
+                } );
             }
 
             // Stops all and everything. Exits Videos, stops disco mode, resets to default etc.
@@ -4276,8 +4284,8 @@ $( document ).ready( function () {
                 }
                 // Overview mode
                 else {
-                    videoDromeDisplayTarget = randomIntFromInterval( 1, 4 );
-                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo' + videoDromeDisplayTarget.toString() );
+                    videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
+                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() );
                 }
             }
 
