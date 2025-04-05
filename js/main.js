@@ -529,9 +529,8 @@ $( document ).ready( function () {
                             }
                             break;
                         case 67: // C
-                            if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                $( '#videodromeDirectorStayWithCurrentVideo' ).trigger( 'click' );
-                                e.preventDefault();
+                            if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                                $( '.videodromeDirectorStayWithCurrentVideo' ).trigger( 'click' );
                             }
                             break;
                         case 86: // V
@@ -546,20 +545,20 @@ $( document ).ready( function () {
                             }
                             break;
                         case 66: // B
-                            if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                $( '#videodromeDirectorTimingsRandom' ).trigger( 'click' );
+                            if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                                $( '.videodromeDirectorTimingsRandom' ).trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
                         case 78: // N
-                            if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                $( '#videodromeDirectorTimingsSlow' ).trigger( 'click' );
+                            if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                                $( '.videodromeDirectorTimingsSlow' ).trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
                         case 77: // M
-                            if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                $( '#videodromeDirectorTimingsFast' ).trigger( 'click' );
+                            if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                                $( '.videodromeDirectorTimingsFast' ).trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
@@ -574,7 +573,7 @@ $( document ).ready( function () {
                             }
                             break;
                         case 88: // X
-                            if ( $( '#videodrome' ).is( ':visible' ) ) {
+                            if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
                                 e.preventDefault();
                             }
@@ -3675,14 +3674,13 @@ $( document ).ready( function () {
             $( document ).on( 'click', '.videoDromeFrame', function ( e ) {
                 e.preventDefault();
                 e.stopPropagation();
+                stopDirectorMode();
                 if ( $( this ).parent().hasClass( 'videodromeFullscreenTemp' ) ) {
                     $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
-                    stopDirectorMode();
                 } else if ( $( this ).parent().hasClass( 'videodromeFullscreen' ) ) {
                     $( this ).parent().removeClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).hide();
                     $( '.videodromeRefreshContainer' ).show();
-                    stopDirectorMode();
                 } else {
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
@@ -4125,7 +4123,6 @@ $( document ).ready( function () {
             $( document ).on( 'click', '#videodromeDirectorShuffleActivate', function ( e ) {
                 e.preventDefault();
                 directorModeShuffleMode = true;
-                $( '#defaultLoadMode' ).trigger( 'click' );
                 $( '#videodromeDirectorShuffleActivate' ).hide();
                 $( '#videodromeDirectorShuffleDeactivate' ).show();
             } );
@@ -4149,7 +4146,6 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
-                $( '#defaultLoadMode' ).trigger( 'click' );
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
 
@@ -4170,7 +4166,6 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
-                $( '#defaultLoadMode' ).trigger( 'click' );
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
 
@@ -4182,11 +4177,10 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
-                $( '#defaultLoadMode' ).trigger( 'click' );
                 $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
             } );
 
-            $( document ).on( 'click', '#videodromeDirectorStayWithCurrentVideo', function ( e ) {
+            $( document ).on( 'click', '.videodromeDirectorStayWithCurrentVideo', function ( e ) {
                 e.preventDefault();
                 setIconActive( e, 'directorTimingIconActive' );
                 clearInterval( videoDromeDirectorInterval );
@@ -4194,36 +4188,33 @@ $( document ).ready( function () {
                 videoDromeDirectorModeActive = false;
             } );
 
-            $( document ).on( 'click', '#videodromeDirectorTimingsSlow', function ( e ) {
-                e.preventDefault();
-                clearInterval( videoDromeDirectorInterval );
-                videoDromeDirectorInterval = '';
-                videoDromeDirectorDurationMin = 1800;
-                videoDromeDirectorDurationMax = 7000;
-                setIconActive( e, 'directorTimingIconActive' );
-                $( '#defaultLoadMode' ).trigger( 'click' );
-                setDirectorModeInterval();
-            } );
-
-            $( document ).on( 'click', '#videodromeDirectorTimingsRandom', function ( e ) {
+            $( document ).on( 'click', '.videodromeDirectorTimingsRandom', function ( e ) {
                 e.preventDefault();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = videoDromeDirectorDurationMinDefault;
                 videoDromeDirectorDurationMax = videoDromeDirectorDurationMaxDefault;
                 setIconActive( e, 'directorTimingIconActive' );
-                $( '#defaultLoadMode' ).trigger( 'click' );
                 setDirectorModeInterval();
             } );
 
-            $( document ).on( 'click', '#videodromeDirectorTimingsFast', function ( e ) {
+            $( document ).on( 'click', '.videodromeDirectorTimingsSlow', function ( e ) {
+                e.preventDefault();
+                clearInterval( videoDromeDirectorInterval );
+                videoDromeDirectorInterval = '';
+                videoDromeDirectorDurationMin = 1800;
+                videoDromeDirectorDurationMax = 7000;
+                setIconActive( e, 'directorTimingIconActive' );
+                setDirectorModeInterval();
+            } );
+
+            $( document ).on( 'click', '.videodromeDirectorTimingsFast', function ( e ) {
                 e.preventDefault();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorDurationMin = 1800;
                 videoDromeDirectorDurationMax = 3800;
                 setIconActive( e, 'directorTimingIconActive' );
-                $( '#defaultLoadMode' ).trigger( 'click' );
                 setDirectorModeInterval();
             } );
 
@@ -4257,32 +4248,42 @@ $( document ).ready( function () {
             }
 
             function setDirectorModeDisplayTarget() {
-                previousTarget = $( '.videodromeFullscreen' ).attr( 'target' );
+                // Director mode in one video only fullscreen
+                if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                    $( '#defaultLoadMode' ).trigger( 'click' );
+                    previousTarget = $( '.videodromeFullscreen' ).attr( 'target' );
 
-                videoLocked = false;
-                if ( $( '.videodromeFullscreen' ).hasClass( 'videoLocked' ) ) {
-                    videoLocked = true;
-                }
-                $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-
-                if ( videoDromeDirectorLastDisplayedTarget == '' ) {
-                    videoDromeDirectorLastDisplayedTarget = previousTarget.replace( /videoDromeVideo/, '' );
-                }
-
-                videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
-                $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
-
-                // check if currently display video has been shown often enough and replace it with a new one if necessary
-                if ( directorModeShuffleMode && !videoLocked ) {
-                    if ( directorModeShufflePropability >= randomIntFromInterval( 0, 100 ) ) {
-                        loadVideoDromeOneWindowRefresh( previousTarget );
+                    videoLocked = false;
+                    if ( $( '.videodromeFullscreen' ).hasClass( 'videoLocked' ) ) {
+                        videoLocked = true;
                     }
+                    $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+
+                    if ( videoDromeDirectorLastDisplayedTarget == '' ) {
+                        videoDromeDirectorLastDisplayedTarget = previousTarget.replace( /videoDromeVideo/, '' );
+                    }
+
+                    videoDromeDirectorLastDisplayedTarget = randomIntFromInterval( 1, 4, [videoDromeDirectorLastDisplayedTarget] );
+                    $( '.videoDromeVideo' + videoDromeDirectorLastDisplayedTarget.toString() ).addClass( 'videodromeFullscreen' );
+
+                    // check if currently display video has been shown often enough and replace it with a new one if necessary
+                    if ( directorModeShuffleMode && !videoLocked ) {
+                        if ( directorModeShufflePropability >= randomIntFromInterval( 0, 100 ) ) {
+                            loadVideoDromeOneWindowRefresh( previousTarget );
+                        }
+                    }
+                    updateVideodromeFullscreenInfo();
                 }
-                updateVideodromeFullscreenInfo();
+                // Overview mode
+                else {
+                    videoDromeDisplayTarget = randomIntFromInterval( 1, 4 );
+                    loadVideoDromeOneWindowRefresh( 'videoDromeVideo' + videoDromeDisplayTarget.toString() );
+                }
             }
 
             function stopDirectorMode() {
-                $( '#videodromeDirectorStayWithCurrentVideo' ).trigger( 'click' );
+                $( '.videodromeDirectorStayWithCurrentVideo' ).trigger( 'click' );
+                $( '#defaultLoadMode' ).trigger( 'click' );
                 directorModeShuffleMode = false;
                 videoDromeDirectorModeActive = false;
                 $( '#videodromeDirectorShuffleActivate' ).show();

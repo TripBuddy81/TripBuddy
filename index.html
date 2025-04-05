@@ -99,7 +99,8 @@
                         <a class="menuItem" href="{{link}}" target=_blank>{{name}}</a>
                     </li>
                     {{/menuLinks}}
-                    <div class="menuItem"><a class="menuItem" href="misc/help.html" target="_blank">Help & Info</a></div>
+                    <div class="menuItem"><a class="menuItem" href="misc/help.html" target="_blank">Help & Info</a>
+                    </div>
                 </ul>
             </div>
         </div>
@@ -359,7 +360,8 @@
             </div>
             <div class="col">
                 {{#singleTracks}}
-                <div class="spotifyPlaylistItem spotifySingleTrack" shuffle="{{shuffle}}" repeat="{{repeat}}" data-spotify-id="spotify:track:{{id}}">{{label}}
+                <div class="spotifyPlaylistItem spotifySingleTrack" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                     data-spotify-id="spotify:track:{{id}}">{{label}}
                 </div>
                 {{/singleTracks}}
             </div>
@@ -447,8 +449,8 @@
                 <div class="spotifyCurrentlyPlayingTrack currentTrackAction" data-spotify-id=''></div>
                 <img class="stopAfterTrack currentTrackAction invisible cursorAction"
                      src="./assets/stopTrack.png">
-<!--                <img class="createSongRadio currentTrackAction invisible cursorAction"-->
-<!--                     src="./assets/song_radio.png">-->
+                <!--                <img class="createSongRadio currentTrackAction invisible cursorAction"-->
+                <!--                     src="./assets/song_radio.png">-->
                 <img class="addToFavorites currentTrackAction invisible cursorAction"
                      src="./assets/add_to_favorites.png">
                 <div class="menuTopBorder"></div>
@@ -545,7 +547,8 @@
                                 allow
                                 CORS PLUGIN</a>
                             <br><br>
-                            Enable it and set the following option: (change "localhost" with address shown in your browser, e.g. "https://tripbuddy.vercel.app/")<br>
+                            Enable it and set the following option: (change "localhost" with address shown in your
+                            browser, e.g. "https://tripbuddy.vercel.app/")<br>
                             <img id="pluginExplanation1"
                                  src="./assets/pluginExplanation1.png">
                             <br><br>
@@ -1066,21 +1069,26 @@
                     <div class="row">
                         <div class="col">
                             <span class="videodromeDirectorControlContainer">
-                                <img id="videodromeDirectorNextVideo" class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                                <img id="videodromeDirectorNextVideo"
+                                     class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
                                      src="./assets/forward.png">
                             </span>
                             <span class="videodromeDirectorControlContainer">
-                                <img id="videodromeDirectorReloadCurrentVideo" class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                                <img id="videodromeDirectorReloadCurrentVideo"
+                                     class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
                                      src="./assets/refresh.png">
                             </span>
                             <span class="videodromeDirectorControlContainer">
-                                <img id="videodromeDirectorReloadAllVideos" class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                                <img id="videodromeDirectorReloadAllVideos"
+                                     class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
                                      src="./assets/refresh_all.png">
                             </span>
                             <span class="videodromeDirectorControlContainer">
-                                <img id="videodromeDirectorShuffleActivate" class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                                <img id="videodromeDirectorShuffleActivate"
+                                     class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
                                      src="./assets/shuffle2.png">
-                                <img id="videodromeDirectorShuffleDeactivate" class="videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                                <img id="videodromeDirectorShuffleDeactivate"
+                                     class="videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
                                      src="./assets/shuffle2_active.png">
                             </span>
                         </div>
@@ -1088,25 +1096,27 @@
                     <div class="row mt-3">
                         <div class="col ">
                             <span class="videodromeDirectorControlContainer">
-                                <img id="videodromeDirectorStayWithCurrentVideo" class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon directorTimingIconActive"
+                                <img class="videodromeDirectorStayWithCurrentVideo iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon directorTimingIconActive"
                                      src="./assets/pause2_active.png">
                             </span>
                             <span class="videodromeDirectorControlContainer">
-                                <img id="videodromeDirectorLockVideoActivate" class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                                <img id="videodromeDirectorLockVideoActivate"
+                                     class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
                                      src="./assets/lock.png">
-                                <img id="videodromeDirectorLockVideoDeactivate" class="videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                                <img id="videodromeDirectorLockVideoDeactivate"
+                                     class="videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
                                      src="./assets/lock_active.png">
                             </span>
                             <span class="videodromeDirectorControlContainer">
-                                <img id="videodromeDirectorTimingsRandom" class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                                <img class="videodromeDirectorTimingsRandom iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
                                      src="./assets/timingsRandom.png">
                             </span>
                             <span class="videodromeDirectorControlContainer">
-                                <img id="videodromeDirectorTimingsSlow" class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                                <img class="videodromeDirectorTimingsSlow iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
                                      src="./assets/timingsSlow.png">
                             </span>
                             <span class="videodromeDirectorControlContainer">
-                                <img id="videodromeDirectorTimingsFast" class="iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                                <img class="videodromeDirectorTimingsFast iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
                                      src="./assets/timingsFast.png">
                             </span>
                         </div>
@@ -1208,7 +1218,8 @@
                 <img id="toggleTransperentStroboOracleSymbol" class="iconAlternating cursorAction"
                      src="./assets/oracle.png">
                 <span id="videodromeLoadModeSelectContainer">
-                    <img data-videodromeLoadMode="1" id="defaultLoadMode" class="videodromeLoadModeSelect loadModeIconActive iconAlternating cursorAction"
+                    <img data-videodromeLoadMode="1" id="defaultLoadMode"
+                         class="videodromeLoadModeSelect loadModeIconActive iconAlternating cursorAction"
                          src="./assets/videodromeMode1_active.png">
                     <img data-videodromeLoadMode="2" class="videodromeLoadModeSelect iconAlternating cursorAction"
                          src="./assets/videodromeMode2.png">
@@ -1218,6 +1229,23 @@
                          src="./assets/videodromeMode4.png">
                     <img id="videodromeLoadModeRandom" class="iconAlternating cursorAction"
                          src="./assets/videodromeModeRandom.png">
+
+                    <span class="ms-3 videodromeOverviewControlContainer">
+                        <img class="videodromeDirectorStayWithCurrentVideo iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon directorTimingIconActive"
+                             src="./assets/pause2_active.png">
+                    </span>
+                    <span class="videodromeOverviewControlContainer">
+                        <img class="videodromeDirectorTimingsRandom iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                             src="./assets/timingsRandom.png">
+                    </span>
+                    <span class="videodromeOverviewControlContainer">
+                        <img class="videodromeDirectorTimingsSlow iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                             src="./assets/timingsSlow.png">
+                    </span>
+                    <span class="videodromeOverviewControlContainer">
+                        <img class="videodromeDirectorTimingsFast iconAlternating videodromeDirectorControlContainerIcon videodromeDirectorControlToBeHiddenIcon"
+                             src="./assets/timingsFast.png">
+                    </span>
                 </span>
             </span>
 
@@ -1234,7 +1262,9 @@
                 </span>
             </span>
 
-            <img id="videodromeUIFullscreenIcon" class="fullscreenIcon iconAlternating toggleFullscreen float-end me-3 mt-3" src="./assets/disableFullscreen.png">
+            <img id="videodromeUIFullscreenIcon"
+                 class="fullscreenIcon iconAlternating toggleFullscreen float-end me-3 mt-3"
+                 src="./assets/disableFullscreen.png">
         </div>
 
         <div id="videodromeLeftToolbarTrigger">

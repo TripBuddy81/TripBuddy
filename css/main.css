@@ -2048,9 +2048,13 @@ video::-webkit-media-controls-fullscreen-button {
     display: inline-block;
 }
 
+.videodromeOverviewControlContainer {
+    min-width: 53px;
+    margin-right: 15px;
+}
+
 .videodromeDirectorControlContainerIcon {
     height: 50px;
-    float: left;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
@@ -2317,7 +2321,7 @@ video::-webkit-media-controls-fullscreen-button {
     margin-left: 7px;
 }
 
-#videodromeDirectorStayWithCurrentVideo {
+.videodromeDirectorStayWithCurrentVideo {
     margin-left: 3px;
 }
 
@@ -2337,15 +2341,15 @@ video::-webkit-media-controls-fullscreen-button {
     z-index: 5;
 }
 
-#videodromeDirectorTimingsRandom {
+.videodromeDirectorTimingsRandom {
     padding-left: 10px;
 }
 
-#videodromeDirectorTimingsSlow {
+.videodromeDirectorTimingsSlow {
     padding-left: 5px;
 }
 
-#videodromeDirectorTimingsFast {
+.videodromeDirectorTimingsFast {
     padding-left: 3px;
 }
 
