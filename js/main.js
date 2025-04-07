@@ -4227,12 +4227,17 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mousemove wheel click', '.videodromeFullscreen,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
+                pauseDirectorModeTemporarily();
+            } );
+
+            // TODO does not work for reload ... needs more work
+            function pauseDirectorModeTemporarily() {
                 directorModeTemporaryPause = true;
                 clearInterval( directorModeTemporaryPauseInterval );
                 directorModeTemporaryPauseInterval = setInterval( function () {
                     directorModeTemporaryPause = false;
                 }, 1500 );
-            } );
+            }
 
             function setDirectorModeInterval() {
                 videoDromeDirectorModeActive = true;
