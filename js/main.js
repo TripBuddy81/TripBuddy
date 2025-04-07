@@ -5029,6 +5029,14 @@ $( document ).ready( function () {
                 updateVideodromeFullscreenInfo();
             }
 
+            function updateActiveFoldersDisplay() {
+                activeFolders = '';
+                $( '.videodromeLocalFolderActive' ).each( function () {
+                    activeFolders += $( this ).attr( 'diridentifier' ) + ' ';
+                } );
+                $( '#videodromeActiveFolders' ).html( activeFolders );
+            }
+
             function checkVideodromeTagActive() {
                 if ( $( '.videodromeLocalFolderActive' ).length == 0 && $( '.videodromeTagActive' ).length == 0 ) {
                     superShuffleModeActive = true;
