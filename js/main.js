@@ -3693,6 +3693,7 @@ $( document ).ready( function () {
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
                     $( '.videodromeRefreshContainer' ).hide();
                 }
+                $( '.videoDromeFrame' ).removeAttr( 'controls' );
 
                 updateVideodromeFullscreenInfo();
                 displayAllActiveLocalFilenames();
