@@ -64,8 +64,7 @@ $( document ).ready( function () {
             window.veryFirstThoughtDisplayed = false;
             window.xxxVisible = false;
             window.externalPornDirs = {};
-            window.externalPornFiles = [];
-            window.externalPornFilesTemp = [];
+            window.externalPornFilesByDir = [];
             window.slideshowJustStarted = false;
             window.lastActiveBackgroundGradientKeyFrame = 1;
             window.textShrinkFrameSeed = 1;
@@ -3792,12 +3791,8 @@ $( document ).ready( function () {
                         videodromeStreamRefreshVideo();
                     } else {
                         if ( superShuffleModeActive ) {
-                            if ( externalPornFilesTemp.length <= 0 ) {
-                                externalPornFilesTemp = externalPornFiles;
-                            }
-                            randomNumber = Math.floor( Math.random() * (parseInt( externalPornFilesTemp.length )) );
-                            $( target ).find( '.videoSource' ).attr( 'src', externalPornFilesTemp[randomNumber] );
-                            externalPornFilesTemp.splice( randomNumber, 1 );
+                            randomVideo = getRandomVideo();
+                            $( target ).find( '.videoSource' ).attr( 'src', randomVideo );
                         } else {
                             randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
                             while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
@@ -4412,18 +4407,13 @@ $( document ).ready( function () {
 
             function loadLocalVideoIntoTargetWindow( targets ) {
                 if ( superShuffleModeActive ) {
-                    if ( externalPornFilesTemp.length <= 0 ) {
-                        externalPornFilesTemp = externalPornFiles;
-                    }
-                    randomNumber = Math.floor( Math.random() * (parseInt( externalPornFilesTemp.length )) );
+                    randomVideo = getRandomVideo();
 
                     targets.forEach( function ( target ) {
                         if ( !$( '.' + target ).hasClass( 'videoLocked' ) ) {
-                            $( '.' + target ).find( '.videoSource' ).attr( 'src', externalPornFilesTemp[randomNumber] );
+                            $( '.' + target ).find( '.videoSource' ).attr( 'src', randomVideo );
                         }
                     } );
-
-                    externalPornFilesTemp.splice( randomNumber, 1 );
                 } else {
                     randomNumber = Math.floor( Math.random() * (parseInt( selectableVideodromeFilesFromTagAndFolders.length )) );
                     while ( alreadySelectedVideosVideodrome.indexOf( randomNumber ) !== -1 ) {
@@ -4449,6 +4439,15 @@ $( document ).ready( function () {
                 updateVideodromeFullscreenInfo();
             }
 
+            function getRandomVideo() {
+                allDirs = Object.keys( externalPornFilesByDir );
+                randomDirContents = externalPornFilesByDir[allDirs[Math.floor( allDirs.length * Math.random() )]];
+                randomDirKeys = Object.keys( randomDirContents );
+                randomVideoFromDir = randomDirContents[randomDirKeys[Math.floor( randomDirKeys.length * Math.random() )]];
+
+                return randomVideoFromDir;
+            }
+
             function getAllExternalPornDirs( url ) {
                 $.ajax( {
                     url    : url,
@@ -4460,7 +4459,12 @@ $( document ).ready( function () {
                                     externalPornDirs[url + tempFilename] = decodeURIComponent( tempFilename.replace( '/', '' ) );
                                     getAllExternalPornDirs( url + tempFilename );
                                 } else if ( $.inArray( tempFilename.split( '.' ).pop().toLowerCase(), allowedVideoFileExtensions ) > -1 ) {
-                                    externalPornFiles.push( url + tempFilename );
+                                    if ( externalPornFilesByDir[url] != undefined ) {
+                                        externalPornFilesByDir[url].push( url + tempFilename );
+                                    } else {
+                                        externalPornFilesByDir[url] = []
+                                        externalPornFilesByDir[url].push( url + tempFilename );
+                                    }
                                 }
                             }
                         } );
