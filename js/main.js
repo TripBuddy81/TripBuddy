@@ -4226,11 +4226,10 @@ $( document ).ready( function () {
                 setDirectorModeInterval();
             } );
 
-            $( document ).on( 'mousemove wheel click', '.videodromeFullscreen,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
+            $( document ).on( 'mousemove wheel click', '.videoDromeFrame,.videodromeRefreshLocalVideo,.videodromeFullscreen,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
                 pauseDirectorModeTemporarily();
             } );
 
-            // TODO does not work for reload ... needs more work
             function pauseDirectorModeTemporarily() {
                 directorModeTemporaryPause = true;
                 clearInterval( directorModeTemporaryPauseInterval );
