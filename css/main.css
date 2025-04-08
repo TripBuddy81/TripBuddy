@@ -2839,3 +2839,7 @@ video::-webkit-media-controls-fullscreen-button {
 #videoTaggingCache {
     overflow: hidden;
 }
+
+.vjs-control-bar {
+    display: none !important;
+}
