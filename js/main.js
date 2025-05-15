@@ -520,7 +520,7 @@ $( document ).ready( function () {
             // Right button for context menu is e.which == 0 -> is handled in contextmenu section
             document.onkeydown = function ( e ) {
                 if ( !$( '#preFlightChecklist,.keyboard-input-field' ).is( ':visible' ) ) {
-                    // console.info(e.which);
+                    console.info( e.which );
                     switch ( e.which ) {
                         case 17: // Strg
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
@@ -582,6 +582,46 @@ $( document ).ready( function () {
                             break;
                         case 88: // X
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                                $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
+                                e.preventDefault();
+                            }
+                            break;
+
+                        case 49: // 1
+                            if ( $( '#videodrome' ).is( ':visible' ) ) {
+                                if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                                    $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
+                                }
+                                $( '.videodromeDirectorTimingsRandom' ).trigger( 'click' );
+                                if ( $( '#videodromeDirectorShuffleActivate' ).is( ':visible' ) ) {
+                                    $( '#videodromeDirectorShuffleActivate' ).trigger( 'click' );
+                                }
+                                $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
+                                e.preventDefault();
+                            }
+                            break;
+                        case 50: // 2
+                            if ( $( '#videodrome' ).is( ':visible' ) ) {
+                                if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                                    $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
+                                }
+                                $( '.videodromeDirectorTimingsSlow' ).trigger( 'click' );
+                                if ( $( '#videodromeDirectorShuffleActivate' ).is( ':visible' ) ) {
+                                    $( '#videodromeDirectorShuffleActivate' ).trigger( 'click' );
+                                }
+                                $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
+                                e.preventDefault();
+                            }
+                            break;
+                        case 51: // 3
+                            if ( $( '#videodrome' ).is( ':visible' ) ) {
+                                if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                                    $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
+                                }
+                                $( '.videodromeDirectorTimingsFast' ).trigger( 'click' );
+                                if ( $( '#videodromeDirectorShuffleActivate' ).is( ':visible' ) ) {
+                                    $( '#videodromeDirectorShuffleActivate' ).trigger( 'click' );
+                                }
                                 $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
                                 e.preventDefault();
                             }
