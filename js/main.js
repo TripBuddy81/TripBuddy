@@ -3556,7 +3556,6 @@ $( document ).ready( function () {
 
             // On Mousemmove within videodrome show timer, mouse, videoplay overlay
             $( document ).on( 'mousemove', '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function () {
-                // console.info("test1");
                 clearTimeout( moveTimerVideodrome );
                 moveTimerVideodrome = setTimeout( function () {
                     $( '.videodromeVideoContainer,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).css( 'cursor', 'none' );
@@ -3587,24 +3586,20 @@ $( document ).ready( function () {
             } );
 
             $( '.enablePornContent' ).click( function () {
-                console.info("test2");
                 $( '#pornContentInfo' ).modal( 'show' );
             } );
 
             $( '.toggleLocalStreamIcon' ).click( function () {
-                console.info("test3");
                 toggleLocalStreamVideo();
                 displayAllActiveLocalFilenames();
             } );
 
             $( '.toggleTransparentStrobo' ).click( function () {
-                console.info("test4");
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0' );
                 toggleTransparentStrobo( $( this ).attr( 'data-transparency' ) );
             } );
 
             $( '.toggleTransparentStrobo' ).on( 'wheel', function ( event ) {
-                console.info("test5");
                 if ( !shrineDiscoActive ) {
                     toggleTransparentStrobo( $( this ).attr( 'data-transparency' ) );
                 }
@@ -3612,7 +3607,6 @@ $( document ).ready( function () {
             } );
 
             $( '#toggleTransperentStroboOracleSymbol' ).on( 'click wheel', function ( event ) {
-                console.info("test5");
                 if ( !shrineDiscoActive ) {
                     toggleTransparentStrobo();
                 }
@@ -3624,25 +3618,21 @@ $( document ).ready( function () {
             } );
 
             $( '.toggleQuickSelectGlobalMenuIcon' ).click( function () {
-                console.info("test6");
                 $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
                 $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
             } );
 
             $( '.toggleQuickSelectGlobalMenuIcon' ).on( 'mouseenter', function ( event ) {
-                console.info("test7");
                 $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
                 $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
             } );
 
             $( '.toggleTransparentStrobo,.toggleLocalStreamIcon,#toggleTransperentStroboOracleSymbol' ).click( function () {
-                console.info("test8");
                 $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' )
             } );
 
             // Save clicked tags to local storage, to be extracted to config manually later on
             $( '.videoTaggingButton' ).click( function () {
-                console.info("test9");
                 clearTimeout( videodromeTaggingSaveInterval );
 
                 if ( videodromeTaggingSaveInterval == '' || videodromeTaggingSaveInterval == undefined ) {
@@ -3669,7 +3659,6 @@ $( document ).ready( function () {
 
             // VideoJS / Online streaming video Window
             $( document ).on( 'click', '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function ( e ) {
-                console.info("test10");
                 e.preventDefault();
                 e.stopPropagation();
                 if ( $( '#videoJSPlayer1,#videoJSPlayer2' ).hasClass( 'videodromeFullscreen' ) ) {
@@ -3696,7 +3685,6 @@ $( document ).ready( function () {
             // Local Video Window
             // Toggle between small and fullscreen mode of local video
             $( document ).on( 'click', '.videoDromeFrame', function ( e ) {
-                console.info("test11");
                 e.preventDefault();
                 e.stopPropagation();
                 stopDirectorMode();
@@ -3719,14 +3707,12 @@ $( document ).ready( function () {
 
             // Seeking within local video - Syncs videos with same content and also makes video fullscreen for a short time to allow for smooth display of content
             $( document ).on( 'wheel', '.videodromeVideoContainer,.videodromeRefreshLocalVideo', function ( event ) {
-                console.info("test12");
                 event.preventDefault();
                 seekWithinLocalVideo( event, $( this ).attr( 'target' ) );
             } );
 
             // Seeking within video using the video tagging button (time interval is much smaller) or the fullscreen reload button.
             $( document ).on( 'wheel', '#videodromeFullscreenMenuLocalVideoContainer,#videoTaggingContainer', function ( event ) {
-                console.info("test13");
                 event.preventDefault();
                 timeSkipDuration = 30;
                 if ( $( '.videoTaggingButton' ).is( ':visible' ) ) {
@@ -3737,7 +3723,6 @@ $( document ).ready( function () {
 
             // Seeking within all local videos simultaneously via the reload all button.
             $( document ).on( 'wheel', '#refreshVideoDromeVideoAll', function ( event ) {
-                console.info("test14");
                 event.preventDefault();
                 clearInterval( videoSeekFullscreenInterval );
                 $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
@@ -3764,7 +3749,6 @@ $( document ).ready( function () {
             } );
 
             $( '.videodromeRefreshLocalVideo' ).click( function () {
-                console.info("test15");
                 $( '.videoDromeFrame' ).unbind( 'seeking' );
                 setTimeout( function () {
                     $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
@@ -3773,20 +3757,17 @@ $( document ).ready( function () {
             } );
 
             $( '.videodromeLoadModeSelect' ).click( function ( e ) {
-                console.info("test16");
                 videodromeLoadModeRandom = false;
                 videodromeLoadMode = $( this ).attr( 'data-videodromeLoadMode' );
                 setIconActive( e, 'loadModeIconActive' );
             } );
 
             $( '#videodromeLoadModeRandom' ).click( function ( e ) {
-                console.info("test17");
                 videodromeLoadModeRandom = true;
                 setIconActive( e, 'loadModeIconActive' );
             } );
 
             $( '.videoJSSearchURL' ).click( function () {
-                console.info("test18");
                 if ( $( this ).attr( 'videoJSSearchURL' ).indexOf( 'pornhub' ) >= 0 ) {
                     selectedVideoStreamService = 'PH';
                 } else {
@@ -3797,7 +3778,6 @@ $( document ).ready( function () {
             } );
 
             $( '.searchLink' ).on( 'mousedown', document, function ( e ) {
-                console.info("test19");
                 e.preventDefault();
                 e.stopPropagation();
                 if ( $( '.searchInput' ).val() != '' ) {
@@ -3808,7 +3788,6 @@ $( document ).ready( function () {
             } );
 
             $( '.refreshVideoDromeVideoFullscreenIcon' ).click( function () {
-                console.info("test20");
                 target = '';
                 $( '.videodromeFullscreen' ).each( function () {
                     target = this;
@@ -3845,7 +3824,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mousemove click', '.videodromeDirectorControlToBeHiddenIcon', function ( e ) {
-                console.info("test21");
                 trueMouseClickDetected = false;
 
                 if ( e.type == 'click' && e.originalEvent != undefined ) { // true click event detection
@@ -3865,7 +3843,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseleave', '.videodromeDirectorControlToBeHiddenIcon', function () {
-                console.info("test22");
                 if ( !trueMouseClickDetected ) {
                     clearTimeout( videodromeFullscreenMenuHideInterval );
                     $( '.videodromeDirectorControlToBeHiddenIcon' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
@@ -3874,7 +3851,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mousemove', '.videodromeRefreshContainer', function () {
-                console.info("test23");
                 clearTimeout( videodromeFullscreenMenuHideInterval );
 
                 $( '.videodromeRefreshContainer' ).css( 'opacity', '1' );
@@ -3888,7 +3864,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseleave', '.videodromeRefreshContainer', function () {
-                console.info("test24");
                 clearTimeout( videodromeFullscreenMenuHideInterval );
 
                 $( '.videodromeRefreshLocalVideo,.videodromeStreamRefreshVideo,#refreshVideoDromeVideoAll,.videodromeDirectorControlContainerIcon' ).css( 'cursor', 'url(assets/rainbow-gradient-pointer-32x32.png), auto' );
@@ -3897,7 +3872,6 @@ $( document ).ready( function () {
             } );
 
             $( '#refreshVideoDromeVideoAll' ).click( function () {
-                console.info("test25");
                 if ( videodromeLoadModeRandom ) {
                     videodromeLoadMode = randomIntFromInterval( 1, 4 ).toString();
                 }
@@ -3918,28 +3892,23 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseenter', '.videodromeFullscreenMenuContainer', function ( event ) {
-                console.info("test25");
                 $( this ).css( 'opacity', '1' );
                 updateVideodromeFullscreenInfo();
             } );
 
             $( document ).on( 'mouseleave', '.videodromeFullscreenMenuContainer', function ( event ) {
-                console.info("test26");
                 $( this ).css( 'opacity', '0' );
             } );
 
             $( '.videodromeStreamRefreshVideo' ).click( function () {
-                console.info("test27");
                 videodromeStreamRefreshVideo();
             } );
 
             $( document ).on( 'mouseenter', '#videodromeLeftToolbarTrigger,#videodromeLeftToolbarTrigger', function ( event ) {
-                console.info("test28");
                 $( '#videodromeLeftToolbar' ).toggle();
             } );
 
             $( document ).on( 'wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeStreamRefreshVideo', function ( event ) {
-                console.info("test29");
                 event.preventDefault();
                 if ( event.originalEvent.deltaY > 0 ) { // going down
                     videoJSPlayer.currentTime( videoJSPlayer.currentTime() - 30 );
@@ -3957,7 +3926,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseenter', '#videodromeGlobalActionContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeFullscreenMenuVideoJSContainerExtraOptions', function ( event ) {
-                console.info("test30");
                 event.preventDefault();
 
                 $( '.video-js' ).removeClass( 'vjs-user-inactive' );
@@ -3977,7 +3945,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseleave', '#videodromeGlobalActionContainer', function ( event ) {
-                console.info("test31");
                 if ( $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '1' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '65' );
@@ -3990,18 +3957,15 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#videodromeFullscreenSearchInput', function ( event ) {
-                console.info("test33");
                 $( '*[data-trigger-keyboard]' ).trigger( 'click' );
             } );
 
             $( document ).on( 'click', '.videoJSStreamModelname', function ( event ) {
-                console.info("test34");
                 lastUsedVideoStreamSearchUrl = $( this ).attr( 'modellink' );
                 getNextVideoStreamUrl( true, lastUsedVideoStreamSearchUrl );
             } );
 
             $( document ).on( 'click', '#videodromeFullscreenAddToFavorites', function ( event ) {
-                console.info("test34");
                 if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
@@ -4019,19 +3983,16 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videodromeFullscreenDownloadVideoLink,.videodromeFullscreenDownloadVideoIcon ', function ( event ) {
-                console.info("test35");
                 navigator.clipboard.writeText( $( '.videodromeFullscreenDownloadVideoLink' ).attr( 'videoUrl' ) );
             } );
 
             $( document ).on( 'click', '#videodromeFullscreenResetSearch', function ( event ) {
-                console.info("test36");
                 $( '.searchInput' ).val( '' );
                 lastUsedVideoStreamSearchUrl = createSearchUrl();
                 getNextVideoStreamUrl( true, lastUsedVideoStreamSearchUrl );
             } );
 
             $( document ).on( 'mouseup', '.videodromeFullscreenFilename', function ( event ) {
-                console.info("test37");
                 if ( window.getSelection ) {
                     selectedText = window.getSelection().toString();
                     navigator.clipboard.writeText( selectedText );
@@ -4042,7 +4003,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videodromeFullscreenLocalFilename', function ( event ) {
-                console.info("test38");
                 filename = $( this ).html();
                 folderName = filename.match( /[^\/]+(?=\/[^\/]+\\?$)/ );
 
@@ -4060,7 +4020,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mousedown', '.videoJSFavorite', function ( e ) {
-                console.info("test39");
                 // on middle mouse button just open in new tab
                 if ( e.which == 2 ) {
                     window.open( $( this ).attr( 'data-videoPageUrl' ), '_blank' );
@@ -4076,7 +4035,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videostreamFavoriteItemDeleteSymbol', function ( e ) {
-                console.info("test40");
                 e.preventDefault();
                 e.stopPropagation();
                 removeItemFromStreamFavorites( $( this ).parent().find( '.videoJSFavorite' ).attr( 'src' ) );
@@ -4084,7 +4042,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#unlockDeleteVideodromeFavorites', function ( event ) {
-                console.info("test41");
                 $( '.videostreamFavoriteItemDeleteSymbol' ).show();
                 showVideostreamFavoriteItemDeleteSymbol = true;
                 $( '#unlockDeleteVideodromeFavorites' ).hide();
@@ -4092,7 +4049,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#lockDeleteVideodromeFavorites', function ( event ) {
-                console.info("test42");
                 $( '.videostreamFavoriteItemDeleteSymbol' ).hide();
                 showVideostreamFavoriteItemDeleteSymbol = false;
                 $( '#lockDeleteVideodromeFavorites' ).hide();
@@ -4100,7 +4056,6 @@ $( document ).ready( function () {
             } );
 
             $( '#switchStreamingService' ).click( function ( e ) {
-                console.info("test43");
                 if ( $( '#switchStreamingService' ).html() == 'PH' ) {
                     selectedVideoStreamService = 'XV';
                 } else {
@@ -4111,7 +4066,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.localFilename', function ( event ) {
-                console.info("test44");
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
@@ -4120,7 +4074,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.externalPornDir', function ( event ) {
-                console.info("test45");
                 if ( $( this ).hasClass( 'videodromeLocalFolderActive' ) ) {
                     $( '[diridentifier=' + $( this ).attr( 'diridentifier' ) + ']' ).removeClass( 'videodromeLocalFolderActive' );
                     processExternalFiles( $( this ).attr( 'externalPornDirUrl' ), 'remove' );
@@ -4133,7 +4086,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#deselectAllVideodromeTags,#deselectAllVideodromeTags2', function ( event ) {
-                console.info("test46");
                 $( '#videodromeActiveFolders' ).html( '' );
                 $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
                 $( '.videodromeLocalFolderActive' ).each( function () {
@@ -4146,7 +4098,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#selectAllVideodromeTags,#selectAllVideodromeTags2', function ( event ) {
-                console.info("test47");
                 $( '#videodromeActiveFolders' ).html( '' );
                 $( '.videodromeTagSelect' ).addClass( 'videodromeTagActive' );
                 $( '[data-pornmaptag=General]' ).removeClass( 'videodromeTagActive' );
@@ -4160,7 +4111,6 @@ $( document ).ready( function () {
             } );
 
             $( '.videodromeTagSelect' ).click( function ( e ) {
-                console.info("test48");
                 $( '[data-pornmaptag|=\'' + $( this ).attr( 'data-pornmaptag' ) + '\']' ).toggleClass( 'videodromeTagActive' );
                 loadActiveVideodromeTagsIntoList();
                 displayAllActiveLocalFilenames();
@@ -4170,7 +4120,6 @@ $( document ).ready( function () {
             // VideoDrome Director mode section
             // Enters a mode in which videos are switched automatically
             $( document ).on( 'click', '#videodromeDirectorShuffleActivate', function ( e ) {
-                console.info("test49");
                 e.preventDefault();
                 directorModeShuffleMode = true;
                 $( '#videodromeDirectorShuffleActivate' ).hide();
@@ -4178,7 +4127,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#videodromeDirectorShuffleDeactivate', function ( e ) {
-                console.info("test50");
                 e.preventDefault();
                 directorModeShuffleMode = false;
                 $( '#videodromeDirectorShuffleActivate' ).show();
@@ -4186,7 +4134,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#videodromeDirectorLockVideoActivate', function ( e ) {
-                console.info("test51");
                 e.preventDefault();
                 $( '#videodromeDirectorLockVideoActivate' ).hide();
                 $( '#videodromeDirectorLockVideoDeactivate' ).show();
@@ -4194,7 +4141,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#videodromeDirectorLockVideoDeactivate', function ( e ) {
-                console.info("test52");
                 e.preventDefault();
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
@@ -4203,7 +4149,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#videodromeDirectorNextVideo', function ( e ) {
-                console.info("test53");
                 e.preventDefault();
                 if ( videoDromeDirectorInterval != '' ) {
                     setDirectorModeInterval();
@@ -4213,7 +4158,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadCurrentVideo', function ( e ) {
-                console.info("test54");
                 e.preventDefault();
                 if ( videoDromeDirectorInterval != '' ) {
                     setDirectorModeInterval();
@@ -4225,7 +4169,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '#videodromeDirectorReloadAllVideos', function ( e ) {
-                console.info("test55");
                 e.preventDefault();
                 if ( videoDromeDirectorInterval != '' ) {
                     setDirectorModeInterval();
@@ -4237,7 +4180,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videodromeDirectorStayWithCurrentVideo', function ( e ) {
-                console.info("test56");
                 e.preventDefault();
                 setIconActive( e, 'directorTimingIconActive' );
                 clearInterval( videoDromeDirectorInterval );
@@ -4246,7 +4188,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videodromeDirectorTimingsRandom', function ( e ) {
-                console.info("test57");
                 e.preventDefault();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
@@ -4257,7 +4198,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videodromeDirectorTimingsSlow', function ( e ) {
-                console.info("test58");
                 e.preventDefault();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
@@ -4268,7 +4208,6 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'click', '.videodromeDirectorTimingsFast', function ( e ) {
-                console.info("test59");
                 e.preventDefault();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
@@ -4279,12 +4218,10 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mousemove wheel click', '.videoDromeFrame,.videodromeRefreshLocalVideo,.videodromeFullscreen,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
-                // console.info("test60");
                 pauseDirectorModeTemporarily();
             } );
 
             function pauseDirectorModeTemporarily() {
-                // console.info("func1");
                 directorModeTemporaryPause = true;
                 clearInterval( directorModeTemporaryPauseInterval );
                 directorModeTemporaryPauseInterval = setInterval( function () {
@@ -4293,7 +4230,6 @@ $( document ).ready( function () {
             }
 
             function setDirectorModeInterval() {
-                console.info("func2");
                 videoDromeDirectorModeActive = true;
                 videoDromeDirectorDuration = randomIntFromInterval( videoDromeDirectorDurationMin, videoDromeDirectorDurationMax );
 
@@ -4316,7 +4252,6 @@ $( document ).ready( function () {
             }
 
             function setDirectorModeDisplayTarget() {
-                console.info("func3");
                 // Director mode in one video only fullscreen
                 if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                     $( '#defaultLoadMode' ).trigger( 'click' );
@@ -4351,7 +4286,6 @@ $( document ).ready( function () {
             }
 
             function stopDirectorMode() {
-                console.info("func4");
                 $( '.videodromeDirectorStayWithCurrentVideo' ).trigger( 'click' );
                 $( '#defaultLoadMode' ).trigger( 'click' );
                 directorModeShuffleMode = false;
@@ -4365,7 +4299,6 @@ $( document ).ready( function () {
             }
 
             function seekWithinLocalVideo( event, targetVideoFrame, timeSkipDuration = 30 ) {
-                console.info("func5");
                 $( '.videoDromeFrame' ).unbind( 'seeking' );
                 setTimeout( function () {
                     $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
@@ -4396,7 +4329,6 @@ $( document ).ready( function () {
             }
 
             function syncTimeOfLinkedVideoContainer( e ) {
-                console.info("func6");
                 $( '.videoDromeFrame' ).unbind( 'seeking' );
                 setTimeout( function () {
                     $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
@@ -4410,7 +4342,6 @@ $( document ).ready( function () {
             }
 
             function loadVideoDromeOneWindowRefresh( target ) {
-                console.info("func7");
                 if ( videodromeLoadModeRandom ) {
                     videodromeLoadMode = randomIntFromInterval( 1, 4 ).toString();
                 }
@@ -4430,7 +4361,6 @@ $( document ).ready( function () {
             }
 
             function checkIfCurrentVideoAlreadyTagged() {
-                console.info("func8");
                 $( '.videoTaggingButtonActive' ).removeClass( 'videoTaggingButtonActive' );
                 currentVideo = $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src' ).replace( 'pornRoot\/', '' ).replace( /\..*/, '' ).replaceAll( '/', '%2F' ).replaceAll( ' ', '' ).replaceAll( '\'', '' ).replaceAll( '%20', '' );
                 $.each( config['pornMap'], function ( index, val ) {
@@ -4448,7 +4378,6 @@ $( document ).ready( function () {
             // Seek to random time in video if video has not been assigned an explicit start time
             touchedSources = {};
             $( '.videoDromeFrame' ).on( 'loadeddata', function ( e ) {
-                console.info("func9");
                 if ( this.readyState >= 3 ) {
                     $( '.videoDromeFrame' ).unbind( 'seeking' );
                     setTimeout( function () {
@@ -4474,7 +4403,6 @@ $( document ).ready( function () {
             } );
 
             function loadLocalVideoIntoTargetWindow( targets ) {
-                console.info("func10");
                 if ( superShuffleModeActive ) {
                     randomVideo = getRandomVideo();
 
@@ -4509,7 +4437,6 @@ $( document ).ready( function () {
             }
 
             function getRandomVideo() {
-                console.info("func11");
                 allDirs = Object.keys( externalPornFilesByDir );
                 randomDirContents = externalPornFilesByDir[allDirs[Math.floor( allDirs.length * Math.random() )]];
                 randomDirKeys = Object.keys( randomDirContents );
@@ -4519,7 +4446,6 @@ $( document ).ready( function () {
             }
 
             function getAllExternalPornDirs( url ) {
-                console.info("func12");
                 $.ajax( {
                     url    : url,
                     success: function ( data ) {
@@ -4545,7 +4471,6 @@ $( document ).ready( function () {
             }
 
             function displayExternalPornDirs() {
-                console.info("func13");
                 $( '.externalVideoDirSelection' ).empty();
                 $.each( externalPornDirs, function ( url, displayName ) {
                     let nodeImage = document.createElement( 'img' );
@@ -4570,7 +4495,6 @@ $( document ).ready( function () {
             }
 
             function processExternalFiles( url, mode ) {
-                console.info("func14");
                 externalFiles = [];
                 alreadySelectedVideosVideodrome = [];
                 $.ajax( {
@@ -4610,7 +4534,6 @@ $( document ).ready( function () {
             }
 
             function displayAllActiveLocalFilenames() {
-                console.info("func15");
                 $( '#videodromeFullscreenMenuLocalVideoContainerExtraOptions' ).empty();
                 $.each( selectableVideodromeFilesFromTagAndFolders, function ( val ) {
                     let localFilename = document.createElement( 'div' );
@@ -4634,7 +4557,6 @@ $( document ).ready( function () {
             }
 
             function removeItemFromStreamFavorites( identifier ) {
-                console.info("func16");
                 tempVideodromeFavorites = {'items': []};
                 $.each( videodromeFavorites['items'], function ( key, value ) {
                     if ( value['videoPagePosterUrl'] != identifier ) {
@@ -4646,7 +4568,6 @@ $( document ).ready( function () {
             }
 
             function updateVideodromeFullscreenInfo() {
-                console.info("func17");
                 if ( $( '.videodromeFullscreen' ).parent().hasClass( 'videodromeStreamVideoContainer' ) ) {
                     $( '.videodromeFullscreen' ).each( function () {
                         if ( $( this ).is( ':visible' ) ) {
@@ -4696,7 +4617,6 @@ $( document ).ready( function () {
             }
 
             function initVideodrome() {
-                console.info("func18");
                 if ( config['pornMap'] != undefined ) {
                     $( '.videodromeLocalFolderActive' ).removeClass( 'videodromeLocalFolderActive' );
                     $( '.videodromeTagActive' ).removeClass( 'videodromeTagActive' );
@@ -4736,7 +4656,6 @@ $( document ).ready( function () {
             }
 
             function loadActiveVideodromeTagsIntoList() {
-                console.info("func19");
                 selectableVideodromeFilesFromTags = [];
                 selectableVideodromeFilesFromTagAndFolders = [];
                 tempObject = [];
@@ -4759,14 +4678,12 @@ $( document ).ready( function () {
             }
 
             function forcePlaybackVideodrome() {
-                console.info("func20");
                 $( '#videodromeContainer .localVideo' ).each( function () {
                     $( this )[0].play();
                 } );
             }
 
             function stopPlaybackVideodrome() {
-                console.info("func21");
                 blockScreenSaver = false;
                 $( '#videodrome' ).hide();
                 $( '#videodromeUI' ).hide();
@@ -4780,7 +4697,6 @@ $( document ).ready( function () {
             }
 
             function outputPHFavorites() {
-                console.info("func22");
                 $( '#videodromeFavorites' ).empty();
                 var favorites = '';
                 $.each( videodromeFavorites['items'], function ( key, value ) {
@@ -4807,7 +4723,6 @@ $( document ).ready( function () {
             }
 
             function getNextVideoStreamUrl( newSearch = false, searchUrl = createSearchUrl(), retry = true, isSingleVideoPage = false ) {
-                console.info("func23");
                 if ( newSearch ) {
                     videoJSHubUrls = [];
                     videoJSSingleVideoUrls = [];
@@ -5048,7 +4963,6 @@ $( document ).ready( function () {
             }
 
             function createSearchUrl( searchTerm = '', retry = true ) {
-                console.info("func24");
                 switch ( selectedVideoStreamService ) {
                     case 'XV':
                         searchUrl = 'https://www.xvideos.com/tags/q:1080P/random/' + randomIntFromInterval( 1, 50 );
@@ -5076,7 +4990,6 @@ $( document ).ready( function () {
             }
 
             function playVideoJSStream( playerId ) {
-                console.info("func25");
                 videoJSPlayer = videojs( document.querySelector( '#' + playerId ) );
                 videoJSPlayer.play();
                 videoJSPlayer.currentTime( 90 );
@@ -5086,7 +4999,6 @@ $( document ).ready( function () {
             }
 
             function loadNextVideoJSStream( playerId ) {
-                console.info("func26");
                 if ( videoJSSingleVideoUrls.length >= 1 ) {
                     var singleVideoObject = videoJSSingleVideoUrls.pop();
                     $( '#' + playerId ).parent().attr( 'data-videoTitel', singleVideoObject['videoTitel'] );
@@ -5106,7 +5018,6 @@ $( document ).ready( function () {
             }
 
             function videodromeStreamRefreshVideo() {
-                console.info("func27");
                 if ( activeVideoJSPlayer == 'videoJSPlayer1' ) {
                     loadNextVideoJSStream( 'videoJSPlayer1' );
                     activeVideoJSPlayer = 'videoJSPlayer2';
@@ -5124,7 +5035,6 @@ $( document ).ready( function () {
             }
 
             function updateActiveFoldersDisplay() {
-                console.info("func28");
                 activeFolders = '';
                 $( '.videodromeLocalFolderActive' ).each( function () {
                     activeFolders += $( this ).attr( 'diridentifier' ) + ' ';
@@ -5133,7 +5043,6 @@ $( document ).ready( function () {
             }
 
             function checkVideodromeTagActive() {
-                console.info("func29");
                 if ( $( '.videodromeLocalFolderActive' ).length == 0 && $( '.videodromeTagActive' ).length == 0 ) {
                     superShuffleModeActive = true;
                     $( '#deselectAllVideodromeTags,#deselectAllVideodromeTags2' ).attr( 'style', 'opacity:0.1' );
@@ -5144,7 +5053,6 @@ $( document ).ready( function () {
             }
 
             function toggleLocalStreamVideo() {
-                console.info("func30");
                 if ( $( '.videodromeFullscreen' )[0] && $( '#videoJSPlayer1,#videoJSPlayer2' ).is( ':visible' ) ) {
                     $( '.video-js' ).removeClass( 'videodromeFullscreen' );
                     $( '.videoDromeVideo2' ).addClass( 'videodromeFullscreen' );
@@ -5190,7 +5098,6 @@ $( document ).ready( function () {
             }
 
             function toggleTransparentStrobo( transparency = '0.2' ) {
-                console.info("func31");
                 if ( transparency == $( '#videodrome' ).css( 'opacity' ) ) {
                     stopShrineDisco();
                 } else {
