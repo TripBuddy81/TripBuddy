@@ -531,6 +531,9 @@ $( document ).ready( function () {
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '#videodromeDirectorReloadCurrentVideo' ).trigger( 'click' );
                                 e.preventDefault();
+                            } else if ( $( '.localVideo' ).is( ':visible' ) ) {
+                                $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
+                                e.preventDefault();
                             }
                             break;
                         case 67: // C
