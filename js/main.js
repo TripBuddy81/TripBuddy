@@ -497,12 +497,7 @@ $( document ).ready( function () {
                     return false;
                 } else if ( $( e.target ).parent().hasClass( 'videodromeFullscreen' ) || $( '.videodromeFullscreenMenuContainer' ).is( ':visible' ) ) {
                     if ( config['pornMap'] != undefined ) {
-                        $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                        $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
-                        $( '.videodromeFullscreenMenuContainer' ).hide();
-                        $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
-                        $( '.videodromeRefreshContainer' ).show();
-                        $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).removeAttr( 'controls' );
+                        stopVideodromeFullscreen();
                         stopDirectorMode();
                     } else {
                         stopAllActions();
@@ -588,6 +583,12 @@ $( document ).ready( function () {
                             break;
 
                         case 49: // 1
+                            if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                                stopVideodromeFullscreen();
+                                stopDirectorMode();
+                            }
+                            break;
+                        case 50: // 2
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                     $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
@@ -600,7 +601,7 @@ $( document ).ready( function () {
                                 e.preventDefault();
                             }
                             break;
-                        case 50: // 2
+                        case 51: // 3
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                     $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
@@ -613,7 +614,7 @@ $( document ).ready( function () {
                                 e.preventDefault();
                             }
                             break;
-                        case 51: // 3
+                        case 52: // 4
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                     $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
@@ -626,6 +627,14 @@ $( document ).ready( function () {
                                 e.preventDefault();
                             }
                             break;
+                        case 220: // ^
+                            if ( $( '#videodrome' ).is( ':visible' ) ) {
+                                $( '.videoDromeFrame' ).each( function () {
+                                    $(this)[0].currentTime = $(this)[0].currentTime + 30;
+                                } );
+                            }
+                            break;
+
 
                         case 37: // left
                             if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
@@ -4336,6 +4345,15 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
                 $( '.videoLocked' ).removeClass( 'videoLocked' );
+            }
+
+            function stopVideodromeFullscreen() {
+                $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
+                $( '.videodromeFullscreenMenuContainer' ).hide();
+                $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
+                $( '.videodromeRefreshContainer' ).show();
+                $( '#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api' ).removeAttr( 'controls' );
             }
 
             function seekWithinLocalVideo( event, targetVideoFrame, timeSkipDuration = 30 ) {
