@@ -581,6 +581,8 @@ $( document ).ready( function () {
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 stopVideodromeFullscreen();
                                 stopDirectorMode();
+                            } else if ( xxxVisible ) {
+                                $( '#showPornZapper' ).trigger( 'click' );
                             }
                             break;
                         case 50: // 2  - Director mode random
@@ -594,6 +596,8 @@ $( document ).ready( function () {
                                 }
                                 $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
                                 e.preventDefault();
+                            } else if ( xxxVisible ) {
+                                $( '#showPornZapper' ).trigger( 'click' );
                             }
                             break;
                         case 51: // 3 - Director mode slow
@@ -607,6 +611,8 @@ $( document ).ready( function () {
                                 }
                                 $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
                                 e.preventDefault();
+                            } else if ( xxxVisible ) {
+                                $( '#showPornZapper' ).trigger( 'click' );
                             }
                             break;
                         case 52: // 4 - Director mode fast
@@ -620,6 +626,8 @@ $( document ).ready( function () {
                                 }
                                 $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
                                 e.preventDefault();
+                            } else if ( xxxVisible ) {
+                                $( '#showPornZapper' ).trigger( 'click' );
                             }
                             break;
                         case 17: // STRG - Forward
