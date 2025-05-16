@@ -517,12 +517,7 @@ $( document ).ready( function () {
                 if ( !$( '#preFlightChecklist,.keyboard-input-field' ).is( ':visible' ) ) {
                     console.info( e.which );
                     switch ( e.which ) {
-                        case 17: // Strg
-                            if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                $( '#videodromeDirectorNextVideo' ).trigger( 'click' );
-                            }
-                            break;
-                        case 32: // Space
+                        case 32: // Space - reload current video
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '#videodromeDirectorReloadCurrentVideo' ).trigger( 'click' );
                                 e.preventDefault();
@@ -531,12 +526,12 @@ $( document ).ready( function () {
                                 e.preventDefault();
                             }
                             break;
-                        case 67: // C
+                        case 67: // C - stay with current video
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '.videodromeDirectorStayWithCurrentVideo' ).trigger( 'click' );
                             }
                             break;
-                        case 86: // V
+                        case 86: // V - lock/unlock video
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 if ( $( '.videodromeFullscreen' ).hasClass( 'videoLocked' ) ) {
                                     $( '#videodromeDirectorLockVideoDeactivate' ).trigger( 'click' );
@@ -547,25 +542,25 @@ $( document ).ready( function () {
                                 e.preventDefault();
                             }
                             break;
-                        case 66: // B
+                        case 66: // B - timing random
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '.videodromeDirectorTimingsRandom' ).trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
-                        case 78: // N
+                        case 78: // N - timing slow
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '.videodromeDirectorTimingsSlow' ).trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
-                        case 77: // M
+                        case 77: // M - timing fast
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '.videodromeDirectorTimingsFast' ).trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
-                        case 89: // Y
+                        case 89: // Y - shuffle on/off
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 if ( $( '#videodromeDirectorShuffleDeactivate' ).is( ':visible' ) ) {
                                     $( '#videodromeDirectorShuffleDeactivate' ).trigger( 'click' );
@@ -575,20 +570,20 @@ $( document ).ready( function () {
                                 e.preventDefault();
                             }
                             break;
-                        case 88: // X
+                        case 88: // X - reload all videos
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
 
-                        case 49: // 1
+                        case 49: // 1 - return to videodrome overview
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 stopVideodromeFullscreen();
                                 stopDirectorMode();
                             }
                             break;
-                        case 50: // 2
+                        case 50: // 2  - Director mode random
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                     $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
@@ -601,7 +596,7 @@ $( document ).ready( function () {
                                 e.preventDefault();
                             }
                             break;
-                        case 51: // 3
+                        case 51: // 3 - Director mode slow
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                     $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
@@ -614,7 +609,7 @@ $( document ).ready( function () {
                                 e.preventDefault();
                             }
                             break;
-                        case 52: // 4
+                        case 52: // 4 - Director mode fast
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                     $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
@@ -627,34 +622,42 @@ $( document ).ready( function () {
                                 e.preventDefault();
                             }
                             break;
-                        case 220: // ^
+                        case 17: // STRG - Forward
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
+                                if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
+                                    triggerVideodromeFullscreenTemp();
+                                }
+
                                 $( '.videoDromeFrame' ).each( function () {
-                                    $(this)[0].currentTime = $(this)[0].currentTime + 30;
+                                    $( this )[0].currentTime = $( this )[0].currentTime + 30;
                                 } );
                             }
                             break;
+                        case 220: // ^ - Clear all selected tags/video folders
+                            if ( $( '#videodrome' ).is( ':visible' ) ) {
+                                $( '#deselectAllVideodromeTags' ).trigger( 'click' );
+                            }
+                            break;
 
-
-                        case 37: // left
+                        case 37: // left - Spotify pause
                             if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
                                 spotifyPause();
                                 e.preventDefault();
                             }
                             break;
-                        case 38: // up
+                        case 38: // up - slideshow
                             if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
                                 $( '#startPrivatePictureSlideshow' ).trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
-                        case 39: // right
+                        case 39: // right - next track
                             if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
                                 playNextYoutubeVideoOrSpotifyTrack();
                                 e.preventDefault();
                             }
                             break;
-                        case 40: // down
+                        case 40: // down - start disco
                             if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
                                 if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
                                     $( '#showShrineSection' ).trigger( 'click' );
@@ -3773,20 +3776,8 @@ $( document ).ready( function () {
             // Seeking within all local videos simultaneously via the reload all button.
             $( document ).on( 'wheel', '#refreshVideoDromeVideoAll', function ( event ) {
                 event.preventDefault();
-                clearInterval( videoSeekFullscreenInterval );
-                $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
-                if ( !$( '.videodromeFullscreenTemp' )[0] ) {
-                    $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenTemp' );
-                }
-                videoSeekFullscreenInterval = setTimeout( function () {
-                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
-                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
-                }, videoSeekFullscreenDuration );
 
-                $( '.videoDromeFrame' ).unbind( 'seeking' );
-                setTimeout( function () {
-                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
-                }, 100 );
+                triggerVideodromeFullscreenTemp();
 
                 $( '.videoDromeFrame' ).each( function () {
                     if ( event.originalEvent.deltaY > 0 ) { // going down
@@ -4269,6 +4260,23 @@ $( document ).ready( function () {
             $( document ).on( 'mousemove wheel click', '.videoDromeFrame,.videodromeRefreshLocalVideo,.videodromeFullscreen,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
                 pauseDirectorModeTemporarily();
             } );
+
+            function triggerVideodromeFullscreenTemp() {
+                clearInterval( videoSeekFullscreenInterval );
+                $( '.videoDromeFrame' ).prop( 'controls', 'controls' );
+                if ( !$( '.videodromeFullscreenTemp' )[0] ) {
+                    $( '.videoDromeVideo' + randomIntFromInterval( 1, 4 ).toString() ).addClass( 'videodromeFullscreenTemp' );
+                }
+                videoSeekFullscreenInterval = setTimeout( function () {
+                    $( '.videodromeFullscreenTemp' ).removeClass( 'videodromeFullscreenTemp' );
+                    $( '.videoDromeFrame' ).removeAttr( 'controls' );
+                }, videoSeekFullscreenDuration );
+
+                $( '.videoDromeFrame' ).unbind( 'seeking' );
+                setTimeout( function () {
+                    $( '.videoDromeFrame' ).bind( 'seeking', syncTimeOfLinkedVideoContainer );
+                }, 100 );
+            }
 
             function pauseDirectorModeTemporarily() {
                 directorModeTemporaryPause = true;
