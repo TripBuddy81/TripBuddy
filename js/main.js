@@ -3758,6 +3758,7 @@ $( document ).ready( function () {
                     $( this ).parent().addClass( 'videodromeFullscreen' );
                     $( '.videodromeFullscreenMenuLocalVideoJSContainer' ).show();
                     $( '.videodromeRefreshContainer' ).hide();
+                    clearTimeout( videodromeFullscreenMenuHideInterval );
                 }
                 $( '.videoDromeFrame' ).removeAttr( 'controls' );
 
