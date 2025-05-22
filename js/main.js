@@ -528,7 +528,7 @@ $( document ).ready( function () {
                             break;
                         case 67: // C - stay with current video
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                $( '.videodromeDirectorStayWithCurrentVideo' ).trigger( 'click' );
+                                $( '.videodromeDirectorStayWithCurrentVideo' ).first().trigger( 'click' );
                             }
                             break;
                         case 86: // V - lock/unlock video
@@ -544,19 +544,19 @@ $( document ).ready( function () {
                             break;
                         case 66: // B - timing random
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                $( '.videodromeDirectorTimingsRandom' ).trigger( 'click' );
+                                $( '.videodromeDirectorTimingsRandom' ).first().trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
                         case 78: // N - timing slow
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                $( '.videodromeDirectorTimingsSlow' ).trigger( 'click' );
+                                $( '.videodromeDirectorTimingsSlow' ).first().trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
                         case 77: // M - timing fast
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                $( '.videodromeDirectorTimingsFast' ).trigger( 'click' );
+                                $( '.videodromeDirectorTimingsFast' ).first().trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
@@ -572,7 +572,7 @@ $( document ).ready( function () {
                             break;
                         case 88: // X - reload all videos
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
+                                $( '#videodromeDirectorReloadAllVideos' ).first().trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
@@ -588,7 +588,7 @@ $( document ).ready( function () {
                         case 50: // 2  - Director mode random
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                    $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
+                                    $( '.videoDromeFrame.localVideo' ).first().trigger( 'click' );
                                 }
                                 $( '.videodromeDirectorTimingsRandom' ).trigger( 'click' );
                                 if ( $( '#videodromeDirectorShuffleActivate' ).is( ':visible' ) ) {
@@ -603,9 +603,9 @@ $( document ).ready( function () {
                         case 51: // 3 - Director mode slow
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                    $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
+                                    $( '.videoDromeFrame.localVideo' ).first().trigger( 'click' );
                                 }
-                                $( '.videodromeDirectorTimingsSlow' ).trigger( 'click' );
+                                $( '.videodromeDirectorTimingsSlow' ).first().trigger( 'click' );
                                 if ( $( '#videodromeDirectorShuffleActivate' ).is( ':visible' ) ) {
                                     $( '#videodromeDirectorShuffleActivate' ).trigger( 'click' );
                                 }
@@ -618,9 +618,9 @@ $( document ).ready( function () {
                         case 52: // 4 - Director mode fast
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
-                                    $( '.videoDromeFrame.localVideo' ).trigger( 'click' );
+                                    $( '.videoDromeFrame.localVideo' ).first().trigger( 'click' );
                                 }
-                                $( '.videodromeDirectorTimingsFast' ).trigger( 'click' );
+                                $( '.videodromeDirectorTimingsFast' ).first().trigger( 'click' );
                                 if ( $( '#videodromeDirectorShuffleActivate' ).is( ':visible' ) ) {
                                     $( '#videodromeDirectorShuffleActivate' ).trigger( 'click' );
                                 }
@@ -834,7 +834,7 @@ $( document ).ready( function () {
                     $( this ).removeClass( 'videoContainerFullscreen' );
                 } );
 
-                $( '.displayedFullscreenImage' ).trigger( 'click' );
+                $( '.displayedFullscreenImage' ).first().trigger( 'click' );
 
                 $( '.iconAlternating' ).each( function () {
                     if ( !$( this ).hasClass( 'loadModeIconActive' ) && !$( this ).hasClass( 'directorTimingIconActive' ) ) {
@@ -1820,7 +1820,7 @@ $( document ).ready( function () {
                     }
                 } );
 
-                $( '.mainSearchResultVideoOverlay' ).trigger( 'click' );
+                $( '.mainSearchResultVideoOverlay' ).first().trigger( 'click' );
                 videoItem = youtubeCurrentQueue.shift();
                 mainSearchResultYoutubePlayer.loadVideoById( videoItem.id );
 
