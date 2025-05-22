@@ -803,8 +803,8 @@ li, .options, .form-check-label {
 }
 
 #videodromeUIFullscreenIcon {
-    position: absolute;
-    right: 15px;
+    position: fixed;
+    right: 0px;
     top: 0px;
     height: 55px;
 }
@@ -2256,7 +2256,7 @@ video::-webkit-media-controls-fullscreen-button {
     border-radius: 5px;
     opacity: 0;
     z-index: 75;
-    width: 101%;
+    width: 102%;
     padding: 15px 15px;
     padding-right: 455px;
 }
@@ -2293,6 +2293,12 @@ video::-webkit-media-controls-fullscreen-button {
     height: 55px;
     margin-right: 15px;
     margin-left: 10px;
+}
+
+.videodromeDirectorHorizontalFlip {
+    height: 55px;
+    margin-right: 0px;
+    margin-left: 15px;
 }
 
 .toggleQuickSelectGlobalMenuIcon {
@@ -2842,4 +2848,8 @@ video::-webkit-media-controls-fullscreen-button {
 
 .vjs-control-bar {
     display: none !important;
+}
+
+.horizontal_flip {
+    transform: rotateY(180deg);
 }

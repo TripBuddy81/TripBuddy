@@ -164,6 +164,8 @@ $( document ).ready( function () {
             window.directorModeTemporaryPauseInterval = '';
             window.directorModePlayHistory = {};
             window.trueMouseClickDetected = false;
+            window.videoDromeDirectorVerticalFlipInterval = '';
+            window.videoDromeDirectorVerticalFlipIntervalActive = false;
 
             window.videodromeLoadModeMapping = {
                 '2': {
@@ -441,10 +443,12 @@ $( document ).ready( function () {
                     $( '.meditationSymbolInfoContainer' ).hide();
                 } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#OuijaYesNo' ).is( ':visible' ) ) {
                     $( '#OuijaYesNo' ).hide();
-                } else if ( $( '#videodrome' ).is( ':visible' ) && shrineDiscoActive ) {
+                } else if ( $( '#videodrome' ).is( ':visible' ) && (shrineDiscoActive || videoDromeDirectorVerticalFlipIntervalActive) ) {
                     stopShrineDisco();
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
+                    clearInterval( videoDromeDirectorVerticalFlipInterval );
+                    videoDromeDirectorVerticalFlipIntervalActive = false;
                 } else if ( $( '#videodromeLeftToolbar' ).is( ':visible' ) ) {
                     $( '#videodromeLeftToolbar' ).hide();
                 } else if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) ) {
@@ -879,6 +883,8 @@ $( document ).ready( function () {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
                 clearInterval( preFlightCheckListAnimationTimer );
+                clearInterval( videoDromeDirectorVerticalFlipInterval );
+                videoDromeDirectorVerticalFlipIntervalActive = false;
                 stopPrivatePictureSlideshow();
                 stopMusicVideos();
                 hideScreensaverEnso();
@@ -3982,6 +3988,8 @@ $( document ).ready( function () {
 
                 if ( $( '#videodromeFullscreenMenuLocalVideoContainer' ).is( ':visible' ) ) {
                     $( '#videoTaggingContainer' ).show();
+                    $( '.videodromeDirectorHorizontalFlip' ).show();
+
                     checkIfCurrentVideoAlreadyTagged();
                     $( '#videodromeLoadModeSelectContainer' ).hide();
                 }
@@ -4001,6 +4009,7 @@ $( document ).ready( function () {
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
                     $( '#videoTaggingContainer' ).hide();
+                    $( '.videodromeDirectorHorizontalFlip' ).hide();
                     $( '#videodromeLoadModeSelectContainer' ).show();
                 }
             } );
@@ -4265,6 +4274,19 @@ $( document ).ready( function () {
                 videoDromeDirectorDurationMax = 3800;
                 setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
+            } );
+
+            $( document ).on( 'click', '.videodromeDirectorHorizontalFlip', function ( e ) {
+                e.preventDefault();
+                clearInterval( videoDromeDirectorVerticalFlipInterval );
+                if ( !videoDromeDirectorVerticalFlipIntervalActive ) {
+                    videoDromeDirectorVerticalFlipInterval = setInterval( function () {
+                        $( '.videodromeFullscreen' ).toggleClass( 'horizontal_flip' );
+                    }, 100 );
+                    videoDromeDirectorVerticalFlipIntervalActive = true;
+                } else {
+                    videoDromeDirectorVerticalFlipIntervalActive = false;
+                }
             } );
 
             $( document ).on( 'mousemove wheel click', '.videoDromeFrame,.videodromeRefreshLocalVideo,.videodromeFullscreen,#videodromeFullscreenMenuLocalVideoContainer,#videodromeGlobalActionContainer,#videodromeFullscreenMenuLocalVideoContainerExtraOptions', function () {
