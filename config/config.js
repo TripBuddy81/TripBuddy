@@ -537,6 +537,15 @@ var config = {
                     'tags'   : 'nature'
                 },
                 {
+                    'videoId': 'alN1ePd2mrg',
+                    'tags'   : 'nature',
+                    'startSeconds': '30'
+                },
+                {
+                    'videoId': '4kRzwJXaeIM',
+                    'tags'   : 'nature'
+                },
+                {
                     'videoId'     : '683p4Ubg2NU',
                     'tags'        : 'nature',
                     'startSeconds': '14'
@@ -563,6 +572,12 @@ var config = {
                     'videoId'     : 'vmGDO0eU1n0',
                     'tags'        : 'meditative',
                     'startSeconds': '14700'
+                },
+                {
+                    'videoId'     : 'AHP_Ta8yvJ8',
+                    'tags'        : 'meditative',
+                    'mute'        : 'mixed',
+                    'startSeconds': '130'
                 },
                 {
                     'videoId'     : 'x53TkyA78qI',
@@ -884,6 +899,11 @@ var config = {
                     'tags'   : 'music'
                 },
                 {
+                    'videoId': 'g39Upk8JTvE',
+                    'mute'   : false,
+                    'tags'   : 'music'
+                },
+                {
                     'videoId'     : '5I69DCxYbBg',
                     'tags'        : 'slideshow',
                     'startSeconds': '35'
@@ -1161,24 +1181,24 @@ var config = {
                     'tags'   : 'wisdom',
                     'label'  : 'Keep your mouth shut ones you know this'
                 },
-                {
-                    'videoId': 'sRt8VhjxTsw',
-                    'mute'   : false,
-                    'tags'   : 'wisdom',
-                    'label'  : 'Alan Watts on Death'
-                },
+                // {
+                //     'videoId': 'sRt8VhjxTsw',
+                //     'mute'   : false,
+                //     'tags'   : 'wisdom',
+                //     'label'  : 'Alan Watts on Death'
+                // },
                 {
                     'videoId': 'pFH804qrIOU',
                     'mute'   : false,
                     'tags'   : 'wisdom',
                     'label'  : 'What is Nirvana?'
                 },
-                {
-                    'videoId': 'Ikl8onEAE8Y',
-                    'mute'   : false,
-                    'tags'   : 'wisdom',
-                    'label'  : 'The four noble truths'
-                },
+                // {
+                //     'videoId': 'Ikl8onEAE8Y',
+                //     'mute'   : false,
+                //     'tags'   : 'wisdom',
+                //     'label'  : 'The four noble truths'
+                // },
                 {
                     'videoId': '4f5yF8GeCG4',
                     'mute'   : false,
@@ -1197,12 +1217,12 @@ var config = {
                     'tags'   : 'wisdom',
                     'label'  : 'Alan Watts thought exercise'
                 },
-                {
-                    'videoId': '7EKdTGUwo1o',
-                    'mute'   : false,
-                    'tags'   : 'wisdom',
-                    'label'  : 'Act as If You are Not Living In Illusion'
-                },
+                // {
+                //     'videoId': '7EKdTGUwo1o',
+                //     'mute'   : false,
+                //     'tags'   : 'wisdom',
+                //     'label'  : 'Act as If You are Not Living In Illusion'
+                // },
                 {
                     'videoId': 'zOM7M-GNi2Q',
                     'mute'   : false,
@@ -1480,6 +1500,12 @@ var config = {
                     'label'  : 'To be an artist is to be dysfunctional'
                 },
                 {
+                    'videoId': 'PLPId_awRvc',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'What People Feel When You Decide to Walk Away'
+                },
+                {
                     'videoId': 'PW5R0XhBQM8',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -1594,10 +1620,34 @@ var config = {
                     'label'  : 'The Innocence Of Our Minds'
                 },
                 {
+                    'videoId': 'z5muF0cuu1Q',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Reality Is a Simulation And Belief Is the Code Running It'
+                },
+                {
                     'videoId': 'a4qgA1qR-G0',
                     'mute'   : false,
                     'tags'   : 'shaman',
                     'label'  : 'Manifestation'
+                },
+                {
+                    'videoId': '_C-iaFjYT-c',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Why you have no motivation left after awakening'
+                },
+                {
+                    'videoId': 'DlaSZH7yNL0',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'If You\'re Experiencing This, The Universe is Purifying You'
+                },
+                {
+                    'videoId': 'RwuS0VSFeOQ',
+                    'mute'   : false,
+                    'tags'   : 'shaman',
+                    'label'  : 'Master these 4 codes'
                 },
                 {
                     'videoId': '7N_NNVeKat8',
