@@ -3472,16 +3472,19 @@ $( document ).ready( function () {
                     }
                 } );
 
-                if ( getVideoDurationsFromYoutubeResult != '' ) {
-                    getVideoDurationsFromYoutubeResult.items.forEach( function ( item ) {
-                        duration = convertYoutubeTime( item.contentDetails.duration );
-                        let videoDuration = document.createElement( 'span' );
-                        videoDuration.innerHTML = duration;
-                        videoDuration.classList.add( 'youtubeItemDuration' );
-                        if ( document.getElementById( item.id ) !== null ) {
-                            document.getElementById( item.id ).appendChild( videoDuration );
-                        }
-                    } );
+                try {
+                    if ( getVideoDurationsFromYoutubeResult != '' ) {
+                        getVideoDurationsFromYoutubeResult.items.forEach( function ( item ) {
+                            duration = convertYoutubeTime( item.contentDetails.duration );
+                            let videoDuration = document.createElement( 'span' );
+                            videoDuration.innerHTML = duration;
+                            videoDuration.classList.add( 'youtubeItemDuration' );
+                            if ( document.getElementById( item.id ) !== null ) {
+                                document.getElementById( item.id ).appendChild( videoDuration );
+                            }
+                        } );
+                    }
+                } catch ( e ) {
                 }
 
                 $( '#youtubeResults' ).animate( {scrollTop: 0}, 'fast' );

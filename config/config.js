@@ -493,6 +493,10 @@ var config = {
                     'tags'   : 'trippy-2D'
                 },
                 {
+                    'videoId': 'zxIcydL7wwY',
+                    'tags'   : 'trippy-2D'
+                },
+                {
                     'videoId': 'IK7nBOLYzdE',
                     'tags'   : 'trippy-2D'
                 },
@@ -770,6 +774,11 @@ var config = {
                 {
                     'videoId': 'S7TUe5w6RHo',
                     'tags'   : 'meditative'
+                },
+                {
+                    'videoId'     : '1d_76OqDvNU',
+                    'tags'        : 'meditative',
+                    'startSeconds': '1332'
                 },
                 {
                     'videoId'     : 'ebOgSq_YJUw',
