@@ -2592,6 +2592,7 @@ $( document ).ready( function () {
                 clearTimeout( shrineStroboChangeTimer );
                 shrineDiscoActive = false;
                 showParticles = false;
+                activeParticlesConfig = 0;
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
                 $( '.shrineColorfulBackground' ).trigger( 'click' );
                 stroboSpeed = 0;
@@ -2604,7 +2605,7 @@ $( document ).ready( function () {
 
             function toggleParticleSettings() {
                 activeParticlesConfig++;
-                activeParticlesConfig = activeParticlesConfig % 2;
+                activeParticlesConfig = activeParticlesConfig % 3;
                 try {
                     window.pJSDom[0].pJS.fn.vendors.destroypJS();
                     window['pJSDom'] = [];
@@ -2613,12 +2614,15 @@ $( document ).ready( function () {
 
                 showParticles = true;
                 $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
-
                 switch ( activeParticlesConfig ) {
                     case 0:
-                        particlesInit1();
+                        // do nothing
                         break;
                     case 1:
+                        particlesInit1();
+                        break;
+                    case 2:
+
                         particlesInit2();
                         break;
                 }

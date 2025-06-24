@@ -364,6 +364,11 @@
                      data-spotify-id="spotify:track:{{id}}">{{label}}
                 </div>
                 {{/singleTracks}}
+                {{#playlists.purple}}
+                <div class="spotifyPlaylistItem spotifyPlaylist" shuffle="{{shuffle}}" repeat="{{repeat}}"
+                     data-spotify-id="spotify:playlist:{{id}}">{{label}}
+                </div>
+                {{/playlists.purple}}
             </div>
             <div class="col">
                 {{#playlists.green}}

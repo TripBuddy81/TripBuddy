@@ -37,7 +37,7 @@ var config = {
                 {'checklistItem': 'Backpack for outside? (Water, Tissues, something to eat)'}
             ],
             'playlists'              : {
-                'green': [
+                'green' : [
                     {
                         'label': 'Gateway Experience',
                         'id'   : '37wWZLPOQnblXLCsAL4X8K'
@@ -59,8 +59,8 @@ var config = {
                         'id'   : '4ILChY5F4Hn08ikt0rfHhW'
                     },
                     {
-                        'label': 'Binaural Waves',
-                        'id'   : '6wQ07R92xkvztkwjhxUup3'
+                        'label': 'Travis Lake',
+                        'id'   : '1ihlK3EdNpcgnizq0jnCDl'
                     },
                     {
                         'label': 'Meditation',
@@ -77,14 +77,6 @@ var config = {
                     {
                         'label': 'Garden Chill',
                         'id'   : '5eg7oGQAKZZUrhsT7AnGVg'
-                    },
-                    {
-                        'label': 'Sona Jobarteh',
-                        'id'   : '48GgqE46ekf3yoZquxqdXq'
-                    },
-                    {
-                        'label': 'Hermanos Gutiérrez',
-                        'id'   : '5pQUmaKxS0DXaVc7I4La0o'
                     },
                     {
                         'label': 'Happy vibes',
@@ -111,7 +103,7 @@ var config = {
                         'id'   : '1z2HVIgmaCbPmro2oprLf5'
                     }
                 ],
-                'blue' : [
+                'blue'  : [
                     {
                         'label': 'Celtic',
                         'id'   : '7IMTMDqc2NIzovRgtC1Imq'
@@ -157,7 +149,7 @@ var config = {
                         'id'   : '3SgSFL3J8lrmbDkUoUh46m'
                     }
                 ],
-                'red'  : [
+                'red'   : [
                     {
                         'label': 'Tool',
                         'id'   : '54c657PnbEgWUJt7biWHtO'
@@ -222,11 +214,6 @@ var config = {
                 {
                     'id'    : '40tzbR4NAy31YYtkwpLe2g',
                     'label' : 'Heartbeat',
-                    'repeat': true
-                },
-                {
-                    'id'    : '3pAvqZSlRKXEnwslqmmXty',
-                    'label' : '528 Hz',
                     'repeat': true
                 }
             ],
@@ -545,8 +532,8 @@ var config = {
                     'tags'   : 'nature'
                 },
                 {
-                    'videoId': 'alN1ePd2mrg',
-                    'tags'   : 'nature',
+                    'videoId'     : 'alN1ePd2mrg',
+                    'tags'        : 'nature',
                     'startSeconds': '30'
                 },
                 {
