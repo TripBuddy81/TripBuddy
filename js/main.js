@@ -449,6 +449,7 @@ $( document ).ready( function () {
                     $( '.meditationSymbolInfoContainer' ).hide();
                     clearInterval( videoDromeDirectorVerticalFlipInterval );
                     videoDromeDirectorVerticalFlipIntervalActive = false;
+                    $( '.videodromeFullscreen' ).removeClass( 'horizontal_flip' );
                 } else if ( $( '#videodromeLeftToolbar' ).is( ':visible' ) ) {
                     $( '#videodromeLeftToolbar' ).hide();
                 } else if ( ($( '#videodrome' ).is( ':visible' ) && $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' )) ) {
@@ -879,6 +880,7 @@ $( document ).ready( function () {
                 $( '#OuijaYesNo' ).hide();
                 $( '#meditationSymbol' ).hide();
                 $( '.meditationSymbolInfoContainer' ).hide();
+                $( '.videodromeFullscreen' ).removeClass( 'horizontal_flip' );
                 if ( mainYoutubePlayerIsActiveSoundSource ) {
                     $( '#mainYoutubePlayerActiveSoundBorder' ).addClass( 'colorfulBorder' );
                 }
@@ -2009,7 +2011,7 @@ $( document ).ready( function () {
 
             // Show cursor when moving mouse
             var moveTimerFullscreenVideoOverlay;
-            $( document ).on( 'mousemove', '.videoMenuOverlayFullscreen,#videodromeGlobalActionContainer,.videoMenuOverlayFullscreen2,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function () {
+            $( document ).on( 'mousemove', '.videoMenuOverlayFullscreen,#quickSelectGlobalMenuContainer,#videodromeGlobalActionContainer,.videoMenuOverlayFullscreen2,#videoJSPlayer1_html5_api,#videoJSPlayer2_html5_api', function () {
                 clearTimeout( moveTimerFullscreenVideoOverlay );
                 moveTimerFullscreenVideoOverlay = setTimeout( function () {
                     $( '.videoMenuOverlayFullscreen' ).css( 'cursor', 'none' );
@@ -3691,11 +3693,6 @@ $( document ).ready( function () {
                 $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
             } );
 
-            $( '.toggleQuickSelectGlobalMenuIcon' ).on( 'mouseenter', function ( event ) {
-                $( '#quickSelectGlobalMenuContainer' ).toggleClass( 'menuTransition' );
-                $( '#quickSelectGlobalMenuContainer' ).animate( {scrollTop: 0}, 'fast' );
-            } );
-
             $( '.toggleTransparentStrobo,.toggleLocalStreamIcon,#toggleTransperentStroboOracleSymbol' ).click( function () {
                 $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' )
             } );
@@ -3963,7 +3960,13 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseenter', '#videodromeLeftToolbarTrigger,#videodromeLeftToolbarTrigger', function ( event ) {
-                $( '#videodromeLeftToolbar' ).toggle();
+                if ( $( '#quickSelectGlobalMenuContainer').hasClass( 'menuTransition' ) ) {
+                    $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
+                    $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
+                } else {
+                    $( '#videodromeLeftToolbar' ).toggle();
+                }
             } );
 
             $( document ).on( 'wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeStreamRefreshVideo', function ( event ) {
@@ -4289,6 +4292,7 @@ $( document ).ready( function () {
                     videoDromeDirectorVerticalFlipIntervalActive = true;
                 } else {
                     videoDromeDirectorVerticalFlipIntervalActive = false;
+                    $( '.videodromeFullscreen' ).removeClass( 'horizontal_flip' );
                 }
             } );
 

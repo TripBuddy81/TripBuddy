@@ -242,43 +242,47 @@ var config = {
             ],
             'noiseGenerators'        : [
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php?l=00003629363252290019&title=Japanese%20Garden&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php?l=00003629363252290019&title=Japanese%20Garden',
                     'label': 'Japanese Garden'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/fireNoiseGenerator.php?l=34535554606668615142&title=Fireplace&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/fireNoiseGenerator.php?l=34535554606668615142&title=Fireplace',
                     'label': 'Fireplace'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/customRainOnWindow.php?l=71635719310031564932&title=Cosy%20Rain&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/customRainOnWindow.php?l=71635719310031564932&title=Cosy%20Rain',
                     'label': 'Cosy Rain'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/windSeaRainNoiseGenerator.php?l=66605957006500500000&a=1&am=s&title=Irish%20Coast&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/windSeaRainNoiseGenerator.php?l=66605957006500500000&a=1&am=s&title=Irish%20Coast',
                     'label': 'Irish Cost'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/custom.php?l=38693070703128273118&a=1&am=s&m=SLEEPINGDRAGON0~SPACESHIP0~SLEEPINGDRAGON1~SPACESHIP1~SPACESHIP2~SLEEPINGDRAGON3~SLEEPINGDRAGON4~SLEEPINGDRAGON6~SLEEPINGDRAGON7~SLEEPINGDRAGON8&title=Warp%20Dragon&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/seaOrganSoundscapeGenerator.php?l=61000000000000000061&a=1&am=s&title=Sea%20Organ',
+                    'label': 'Sea Organ'
+                },
+                {
+                    'link' : 'https://mynoise.net/NoiseMachines/custom.php?l=38693070703128273118&a=1&am=s&m=SLEEPINGDRAGON0~SPACESHIP0~SLEEPINGDRAGON1~SPACESHIP1~SPACESHIP2~SLEEPINGDRAGON3~SLEEPINGDRAGON4~SLEEPINGDRAGON6~SLEEPINGDRAGON7~SLEEPINGDRAGON8&title=Warp%20Dragon',
                     'label': 'Warp Dragon'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/singingBowlsDroneGenerator.php?l=65572957003130563500&a=1&am=s&title=Singing%20Bowls&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/singingBowlsDroneGenerator.php?l=65572957003130563500&a=1&am=s&title=Singing%20Bowls',
                     'label': 'Singing Bowls'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/gregorianChoirGenerator.php?l=00320058005800580000&title=Gregorian%20Voices&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/gregorianChoirGenerator.php?l=00320058005800580000&title=Gregorian%20Voices',
                     'label': 'Gregorian Voices'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/riikkaVocalSoundscape.php?l=00003136554139295658&title=Oak%20Song&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/riikkaVocalSoundscape.php?l=00003136554139295658&title=Oak%20Song',
                     'label': 'Oak Song'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/magicVoicesGenerator.php?l=56430058005556570000&a=1&am=s&m=DEEPCHANT0~ELGREY0~HUUCHANT0~DUDUK1~HUUCHANT1~DEEPCHANT2~ZARINA3~HIMALAYANVOICES6~ENLIA7~ENLIA8&title=Healing%20Voices&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/magicVoicesGenerator.php?l=56430058005556570000&a=1&am=s&m=DEEPCHANT0~ELGREY0~HUUCHANT0~DUDUK1~HUUCHANT1~DEEPCHANT2~ZARINA3~HIMALAYANVOICES6~ENLIA7~ENLIA8&title=Healing%20Voices',
                     'label': 'Healing Voices'
                 },
                 {
-                    'link' : 'https://mynoise.net/NoiseMachines/imagoLatensVocalSoundscape.php?l=39393939390000475556&a=1&am=s&title=Into%20Light&c=1',
+                    'link' : 'https://mynoise.net/NoiseMachines/imagoLatensVocalSoundscape.php?l=39393939390000475556&a=1&am=s&title=Into%20Light',
                     'label': 'Into the light'
                 }
             ],
@@ -2114,9 +2118,14 @@ var config = {
                                         'id'   : 'spotify:playlist:7GX1TQ05XN0gdwQDP2nFyY'
                                     },
                                     {
-                                        'label': 'Schamane - Astral plane',
+                                        'label': 'Schamane - Alpha',
                                         'tag'  : 'Schamane,Philosoph',
                                         'id'   : 'spotify:playlist:2blH7w7YSlcrse4nF1G5pI'
+                                    },
+                                    {
+                                        'label': 'Schamane - Theta',
+                                        'tag'  : 'Schamane,Philosoph',
+                                        'id'   : 'spotify:playlist:0x6ije6j8zeU6BYMdgjGNH'
                                     },
                                     {
                                         'label': 'Schamane - Nature',
