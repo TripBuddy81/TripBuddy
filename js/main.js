@@ -441,6 +441,12 @@ $( document ).ready( function () {
                 } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#meditationSymbol' ).is( ':visible' ) ) {
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
+                } else if ( shrineDiscoActive && ( $( '#meditationSymbol' ).is( ':visible' ) || $( '#OuijaYesNo' ).is( ':visible' ) ) ) {
+                    $( '#meditationSymbol' ).hide();
+                    $( '.meditationSymbolInfoContainer' ).hide();
+                    $( '#OuijaYesNo' ).hide();
+                    $( '#ensoImageShrineContainer' ).show();
+                    $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1.0' );
                 } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#OuijaYesNo' ).is( ':visible' ) ) {
                     $( '#OuijaYesNo' ).hide();
                 } else if ( $( '#videodrome' ).is( ':visible' ) && (shrineDiscoActive || videoDromeDirectorVerticalFlipIntervalActive) ) {
