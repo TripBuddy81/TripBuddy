@@ -678,11 +678,6 @@ var config = {
                     'startSeconds': '30'
                 },
                 {
-                    'videoId'     : 'yl_ZLBwa4cA',
-                    'tags'        : 'space',
-                    'startSeconds': '30'
-                },
-                {
                     'videoId'     : 'zj7kdnWVOxc',
                     'tags'        : 'nature',
                     'startSeconds': '60'
@@ -993,11 +988,6 @@ var config = {
                 {
                     'videoId': 'ZcfDzE3FCt4',
                     'tags'   : 'nsfw'
-                },
-                {
-                    'videoId': 'o8aiw2fU15U',
-                    'mute'   : 'mixed',
-                    'tags'   : 'nsfw weird'
                 },
                 {
                     'videoId': '0-9OgDlL-wQ',
@@ -1409,12 +1399,6 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'thinker',
                     'label'  : 'The “afterlife” according to Einstein'
-                },
-                {
-                    'videoId': 'x703Rz5o6hA',
-                    'mute'   : false,
-                    'tags'   : 'thinker',
-                    'label'  : 'Hopf Fibration'
                 },
                 {
                     'videoId': 'Ikyx6t1VQEU',
