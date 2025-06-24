@@ -2260,32 +2260,12 @@ $( document ).ready( function () {
             // #3 - Shrine section
             absoluteTruthsTimer = setInterval( absoluteTruthsUpdate, absoluteTruthsTimerDuration );
 
-            $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite' ).click( function ( event ) {
-                enableFullscreen();
-
-                if ( window.pJSDom[0] == undefined ) {
-                    particlesInit1();
-                }
-
-                if ( !showParticles ) {
-                    showParticles = true;
-                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
-                } else {
-                    showParticles = false;
-                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:0' );
-                }
-            } );
-
-            $( '#shrineParticlesSwitch,#shrineParticlesSwitchWhite' ).on( 'wheel', function ( event ) {
-                toggleParticleSettings();
-            } );
-
             $( '.shrineSetBGColor' ).click( function ( event ) {
                 enableFullscreen();
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
-                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleThinkerWhite' ).show();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineOracle,#toggleGospel,#toggleThinker' ).hide();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleThinkerWhite' ).show();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineOracle,#toggleGospel,#toggleThinker' ).hide();
                 if ( xxxVisible ) {
                     $( '#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#toggleGospelWhite' ).show();
                 } else {
@@ -2297,8 +2277,8 @@ $( document ).ready( function () {
 
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
-                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineParticlesSwitchWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleGospelWhite,#toggleThinkerWhite' ).hide();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineParticlesSwitch,#shrineDiscoMode,#shrineOuija,#shrineOracle,#toggleThinker' ).show();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleGospelWhite,#toggleThinkerWhite' ).hide();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineDiscoMode,#shrineOuija,#shrineOracle,#toggleThinker' ).show();
                 if ( xxxVisible ) {
                     $( '#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#toggleGospel' ).show();
                 } else {
@@ -2444,13 +2424,9 @@ $( document ).ready( function () {
                 if ( shrineDiscoActive ) {
                     stopShrineDisco();
                 } else {
-                    if ( window.pJSDom[0] == undefined ) {
-                        particlesInit1();
-                    }
-                    showParticles = true;
-                    $( '.particles-js-canvas-el' ).attr( 'style', 'opacity:1' );
                     shrineDiscoActive = true;
                     nextDiscoMode();
+                    toggleParticleSettings();
                 }
                 if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
                     $( '#ensoImageShrineContainer' ).hide();
@@ -2458,11 +2434,14 @@ $( document ).ready( function () {
             } );
 
             $( '#shrineDiscoMode,#shrineDiscoModeWhite' ).on( 'wheel', function ( event ) {
-                shrineDiscoActive = true;
-                nextDiscoMode();
                 if ( $( '#meditationSymbol' ).is( ':visible' ) ) {
                     $( '#ensoImageShrineContainer' ).hide();
                 }
+
+                if ( !shrineDiscoActive ) {
+                    toggleTransparentStrobo( $( this ).attr( 'data-transparency' ) );
+                }
+                toggleParticleSettings();
             } );
 
             $( '#shrineOuija,#shrineOuijaWhite,#videodromeOuija' ).on( 'wheel click', function ( event ) {

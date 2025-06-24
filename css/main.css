@@ -1188,7 +1188,6 @@ option {
     display: none;
 }
 
-#shrineParticlesSwitch, #shrineParticlesSwitchWhite,
 #shrineDiscoMode, #shrineDiscoModeWhite,
 #shrineOuija, #shrineOuijaWhite,
 #shrineOracle, #shrineOracleWhite,
@@ -1221,7 +1220,7 @@ option {
     height: 42px;
 }
 
-#toggleAbsoluteThruthWhite, #shrineParticlesSwitchWhite, #shrineDiscoModeWhite, #toggleRelationshipsWhite {
+#toggleAbsoluteThruthWhite, #shrineDiscoModeWhite, #toggleRelationshipsWhite {
     display: none;
 }
 
