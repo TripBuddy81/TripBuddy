@@ -2255,7 +2255,7 @@ video::-webkit-media-controls-fullscreen-button {
     border-radius: 5px;
     opacity: 0;
     z-index: 75;
-    width: 102%;
+    width: 105%;
     padding: 15px 15px;
     padding-right: 455px;
 }
@@ -2298,15 +2298,16 @@ video::-webkit-media-controls-fullscreen-button {
     height: 55px;
     margin-right: 0px;
     margin-left: 15px;
+    display: none;
 }
 
 .toggleQuickSelectGlobalMenuIcon {
     height: 70px;
-    margin-right: 5px;
+    margin-right: 20px;
     padding-left: 20px;
     padding-top: 15px;
     margin-top: -15px;
-    margin-left: -15px;
+    margin-left: -10px;
 }
 
 .videoDromeVideoFullscreenMenuSubSection1 {
