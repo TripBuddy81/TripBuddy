@@ -59,10 +59,6 @@ var config = {
                         'id'   : '4ILChY5F4Hn08ikt0rfHhW'
                     },
                     {
-                        'label': 'Travis Lake',
-                        'id'   : '1ihlK3EdNpcgnizq0jnCDl'
-                    },
-                    {
                         'label': 'Meditation',
                         'id'   : '08dReIUXjXFtHaMsULjYMc'
                     },
