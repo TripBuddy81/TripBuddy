@@ -4381,6 +4381,9 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
                 $( '.videoLocked' ).removeClass( 'videoLocked' );
+
+                $( '.videodromeFullscreenMenuContainer' ).hide();
+                $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
             }
 
             function stopVideodromeFullscreen() {
