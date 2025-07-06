@@ -2266,7 +2266,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 #videodromeOuija {
     height: 52px;
-    margin-left: 15px;
+    margin-left: 20px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
 }
 
