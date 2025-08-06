@@ -1200,7 +1200,6 @@ $( document ).ready( function () {
                 screensaverStartAfterSeconds = 300;
 
                 // Default view changes once journey started
-                $( '#quickSelectGlobalMenuMindJourneySectionIcon' ).trigger( 'click' );
                 $( '#shamanfilter.imageFilterBtn' ).trigger( 'click' );
             } );
 
@@ -4255,8 +4254,8 @@ $( document ).ready( function () {
                 e.preventDefault();
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
-                videoDromeDirectorDurationMin = 1800;
-                videoDromeDirectorDurationMax = 7000;
+                videoDromeDirectorDurationMin = 12000;
+                videoDromeDirectorDurationMax = 25000;
                 setIconActive( e, 'directorTimingIconActive' );
                 setDirectorModeInterval();
             } );
