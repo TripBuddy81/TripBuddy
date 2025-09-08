@@ -37,7 +37,7 @@ var config = {
                 {'checklistItem': 'Backpack for outside? (Water, Tissues, something to eat)'}
             ],
             'playlists'              : {
-                'green' : [
+                'green': [
                     {
                         'label': 'Gateway Experience',
                         'id'   : '37wWZLPOQnblXLCsAL4X8K'
@@ -99,7 +99,7 @@ var config = {
                         'id'   : '1z2HVIgmaCbPmro2oprLf5'
                     }
                 ],
-                'blue'  : [
+                'blue' : [
                     {
                         'label': 'Celtic',
                         'id'   : '7IMTMDqc2NIzovRgtC1Imq'
@@ -145,7 +145,7 @@ var config = {
                         'id'   : '3SgSFL3J8lrmbDkUoUh46m'
                     }
                 ],
-                'red'   : [
+                'red'  : [
                     {
                         'label': 'Tool',
                         'id'   : '54c657PnbEgWUJt7biWHtO'
@@ -224,6 +224,10 @@ var config = {
                 }
             ],
             'noiseGenerators'        : [
+                {
+                    'link' : 'https://mynoise.net/NoiseMachines/whiteRainNoiseGenerator.php?l=61565247423733292622&a=1&am=s&title=White%20Rain',
+                    'label': 'Brown Noise'
+                },
                 {
                     'link' : 'https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php?l=00003629363252290019&title=Japanese%20Garden',
                     'label': 'Japanese Garden'
@@ -652,6 +656,14 @@ var config = {
                     'tags'   : 'trippy-3D'
                 },
                 {
+                    'videoId': 'bvHiobhVfnw',
+                    'tags'   : 'trippy-3D'
+                },
+                {
+                    'videoId': 'qIm2Il4z-qE',
+                    'tags'   : 'trippy-3D'
+                },
+                {
                     'videoId': '_eLeUBSqfcM',
                     'tags'   : 'space'
                 },
@@ -747,6 +759,10 @@ var config = {
                 },
                 {
                     'videoId': 'EI-bIfC4rVM',
+                    'tags'   : 'trippy-2D'
+                },
+                {
+                    'videoId': '2sz0mI_6tLQ',
                     'tags'   : 'trippy-2D'
                 },
                 {
