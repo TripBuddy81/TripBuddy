@@ -79,6 +79,10 @@ var config = {
                         'id'   : '7wpTPSiCjLX6gffU5wHTEn'
                     },
                     {
+                        'label': 'Modern psychedelia',
+                        'id'   : '2BFYcT6vxWOFQmImTdYVwN'
+                    },
+                    {
                         'label': 'Soultrip',
                         'id'   : '0N1qMBk7vfvADy2odM1iG1'
                     },
@@ -165,6 +169,10 @@ var config = {
                     {
                         'label': 'Psy-Trance',
                         'id'   : '7juOWIZaBBism1Y2Eux9JM'
+                    },
+                    {
+                        'label': 'Boom',
+                        'id'   : '7b8WZik94jJLzTKycoSVre'
                     },
                     {
                         'label': 'Wonderland',
