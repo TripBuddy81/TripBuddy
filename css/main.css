@@ -2861,7 +2861,7 @@ video::-webkit-media-controls-fullscreen-button {
     right: 10px;
     width: 10px;
     height: 10px;
-    background-color: #0f5132;
+    background-color: #ff0000;
     display: none;
 }
 
@@ -2872,6 +2872,6 @@ video::-webkit-media-controls-fullscreen-button {
     right: 0px;
     width: 10px;
     height: 10px;
-    background-color: #6a1a21;
+    background-color: #058cff;
     display: none;
 }

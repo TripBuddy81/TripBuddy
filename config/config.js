@@ -241,6 +241,10 @@ var config = {
                     'label': 'Japanese Garden'
                 },
                 {
+                    'link' : 'https://mynoise.net/NoiseMachines/autumnWalkSoundscapeGenerator.php?l=50505000505050505050&a=1&am=s&title=Autumn%20Walk',
+                    'label': 'In the woods'
+                },
+                {
                     'link' : 'https://mynoise.net/NoiseMachines/fireNoiseGenerator.php?l=34535554606668615142&title=Fireplace',
                     'label': 'Fireplace'
                 },
