@@ -2853,3 +2853,14 @@ video::-webkit-media-controls-fullscreen-button {
 .horizontal_flip {
     transform: rotateY(180deg);
 }
+
+#mouseInactive {
+    position: fixed;
+    z-index: 1000;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #0f5132;
+    display: none;
+}

@@ -252,6 +252,18 @@ $( document ).ready( function () {
                 stopScreensaver();
             } );
 
+            // show/hide mouse inactive indicator
+            mouseInactiveTimer = setInterval( showMouseInactive, 3000 );
+            $( document ).on( 'click mousemove wheel', function ( e ) {
+                $('#mouseInactive').hide();
+                clearInterval(mouseInactiveTimer);
+                mouseInactiveTimer = setInterval( showMouseInactive, 3600000 );
+            } );
+
+            function showMouseInactive() {
+                $('#mouseInactive').show();
+            }
+
             // Firefox does not want to play along
             if ( navigator.userAgent.indexOf( 'Firefox' ) > -1 ) {
                 documentReady = true;
@@ -526,7 +538,7 @@ $( document ).ready( function () {
             // Right button for context menu is e.which == 0 -> is handled in contextmenu section
             document.onkeydown = function ( e ) {
                 if ( !$( '#preFlightChecklist,.keyboard-input-field' ).is( ':visible' ) ) {
-                    console.info( e.which );
+                    // console.info( e.which );
                     switch ( e.which ) {
                         case 32: // Space - reload current video
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
