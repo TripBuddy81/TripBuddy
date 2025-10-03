@@ -255,13 +255,13 @@ $( document ).ready( function () {
             // show/hide mouse inactive indicator
             mouseInactiveTimer = setInterval( showMouseInactive, 3000 );
             $( document ).on( 'click mousemove wheel', function ( e ) {
-                $('#mouseInactive').hide();
-                clearInterval(mouseInactiveTimer);
-                mouseInactiveTimer = setInterval( showMouseInactive, 3600000 );
+                $( '#mouseInactive' ).hide();
+                clearInterval( mouseInactiveTimer );
+                mouseInactiveTimer = setInterval( showMouseInactive, 545000 );
             } );
 
             function showMouseInactive() {
-                $('#mouseInactive').show();
+                $( '#mouseInactive' ).show();
             }
 
             // Firefox does not want to play along
@@ -453,7 +453,7 @@ $( document ).ready( function () {
                 } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#meditationSymbol' ).is( ':visible' ) ) {
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
-                } else if ( shrineDiscoActive && ( $( '#meditationSymbol' ).is( ':visible' ) || $( '#OuijaYesNo' ).is( ':visible' ) ) ) {
+                } else if ( shrineDiscoActive && ($( '#meditationSymbol' ).is( ':visible' ) || $( '#OuijaYesNo' ).is( ':visible' )) ) {
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
                     $( '#OuijaYesNo' ).hide();
@@ -3960,7 +3960,7 @@ $( document ).ready( function () {
             } );
 
             $( document ).on( 'mouseenter', '#videodromeLeftToolbarTrigger,#videodromeLeftToolbarTrigger', function ( event ) {
-                if ( $( '#quickSelectGlobalMenuContainer').hasClass( 'menuTransition' ) ) {
+                if ( $( '#quickSelectGlobalMenuContainer' ).hasClass( 'menuTransition' ) ) {
                     $( '#quickSelectGlobalMenuContainer' ).removeClass( 'menuTransition' );
                     $( '#videodromeGlobalActionContainer' ).css( 'opacity', '' );
                     $( '#videodromeGlobalActionContainer' ).css( 'z-index', '75' );
@@ -4250,6 +4250,7 @@ $( document ).ready( function () {
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorModeActive = false;
+                $( '#timerActive' ).hide();
             } );
 
             $( document ).on( 'click', '.videodromeDirectorTimingsRandom', function ( e ) {
@@ -4345,6 +4346,7 @@ $( document ).ready( function () {
                         }, 1500 );
                     }
                 }, videoDromeDirectorDuration );
+                $( '#timerActive' ).show();
             }
 
             function setDirectorModeDisplayTarget() {
@@ -4393,7 +4395,6 @@ $( document ).ready( function () {
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
                 $( '.videoLocked' ).removeClass( 'videoLocked' );
 
-                $( '.videodromeFullscreenMenuContainer' ).hide();
                 $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
             }
 
