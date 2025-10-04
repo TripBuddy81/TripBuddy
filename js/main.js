@@ -4250,7 +4250,7 @@ $( document ).ready( function () {
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorModeActive = false;
-                $( '#timerActive' ).hide();
+                $( '#videodromeDirectorActive' ).hide();
             } );
 
             $( document ).on( 'click', '.videodromeDirectorTimingsRandom', function ( e ) {
@@ -4346,7 +4346,7 @@ $( document ).ready( function () {
                         }, 1500 );
                     }
                 }, videoDromeDirectorDuration );
-                $( '#timerActive' ).show();
+                $( '#videodromeDirectorActive' ).show();
             }
 
             function setDirectorModeDisplayTarget() {
