@@ -257,6 +257,10 @@ var config = {
                     'label': 'Irish Cost'
                 },
                 {
+                    'link' : 'https://mynoise.net/NoiseMachines/customShade.php?l=52525245394552525252&a=1&am=s&title=Shade',
+                    'label': 'Shade'
+                },
+                {
                     'link' : 'https://mynoise.net/NoiseMachines/seaOrganSoundscapeGenerator.php?l=61000000000000000061&a=1&am=s&title=Sea%20Organ',
                     'label': 'Sea Organ'
                 },
