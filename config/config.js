@@ -882,6 +882,11 @@ var config = {
                     'tags'   : 'music'
                 },
                 {
+                    'videoId': 'pzdvidK-w4k',
+                    'mute'   : 'mixed',
+                    'tags'   : 'music'
+                },
+                {
                     'videoId': '123Z5KLLiO8',
                     'mute'   : 'mixed',
                     'tags'   : 'music'
@@ -1672,6 +1677,18 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'thinker',
                     'label'  : 'Idea Could Explain the Laws of Nature'
+                },
+                {
+                    'videoId': '7WhRJV_bAiE',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Voyage into the world of atoms'
+                },
+                {
+                    'videoId': '7Hk9jct2ozY',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'DNA animation'
                 },
                 {
                     'videoId': 'Q82MFr6Ll9M',
