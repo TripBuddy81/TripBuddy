@@ -2856,7 +2856,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .mouseInactive, .videodromeDirectorActive, .videodromeDirectorVideoLocked {
-    position: fixed;
+    position: absolute;
     z-index: 2001;
     bottom: 0px;
     right: 2px;

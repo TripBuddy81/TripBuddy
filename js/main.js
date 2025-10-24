@@ -4756,6 +4756,7 @@ $( document ).ready( function () {
 
                 videodromeFavorites['items'] = JSON.parse( localStorage.getItem( 'videodromeFavorites' ) ) || [];
                 outputPHFavorites();
+
                 // getNextVideoStreamUrl( true, lastUsedVideoStreamSearchUrl );
             }
 
