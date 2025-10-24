@@ -542,7 +542,7 @@ $( document ).ready( function () {
             // Right button for context menu is e.which == 0 -> is handled in contextmenu section
             document.onkeydown = function ( e ) {
                 if ( !$( '#preFlightChecklist,.keyboard-input-field' ).is( ':visible' ) ) {
-                    console.info( e.which );
+                    // console.info( e.which );
                     switch ( e.which ) {
                         case 32: // Space - reload current video
                         case 40: // down button
@@ -616,6 +616,7 @@ $( document ).ready( function () {
                             break;
                         case 50: // 2  - Director mode random
                         case 38:
+                            e.preventDefault();
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                     $( '.videoDromeFrame.localVideo' ).first().trigger( 'click' );
@@ -625,7 +626,6 @@ $( document ).ready( function () {
                                     $( '#videodromeDirectorShuffleActivate' ).trigger( 'click' );
                                 }
                                 $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
-                                e.preventDefault();
                             } else if ( xxxVisible ) {
                                 $( '#showPornZapper' ).trigger( 'click' );
                             }
