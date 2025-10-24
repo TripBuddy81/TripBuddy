@@ -538,14 +538,12 @@ $( document ).ready( function () {
             // Right button for context menu is e.which == 0 -> is handled in contextmenu section
             document.onkeydown = function ( e ) {
                 if ( !$( '#preFlightChecklist,.keyboard-input-field' ).is( ':visible' ) ) {
-                    // console.info( e.which );
+                    console.info( e.which );
                     switch ( e.which ) {
                         case 32: // Space - reload current video
+                        case 40:
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '#videodromeDirectorReloadCurrentVideo' ).trigger( 'click' );
-                                e.preventDefault();
-                            } else if ( $( '.localVideo' ).is( ':visible' ) ) {
-                                $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
@@ -555,6 +553,7 @@ $( document ).ready( function () {
                             }
                             break;
                         case 86: // V - lock/unlock video
+                        case 37:
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 if ( $( '.videodromeFullscreen' ).hasClass( 'videoLocked' ) ) {
                                     $( '#videodromeDirectorLockVideoDeactivate' ).trigger( 'click' );
@@ -609,6 +608,7 @@ $( document ).ready( function () {
                             }
                             break;
                         case 50: // 2  - Director mode random
+                        case 38:
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                     $( '.videoDromeFrame.localVideo' ).first().trigger( 'click' );
@@ -669,34 +669,9 @@ $( document ).ready( function () {
                                 $( '#deselectAllVideodromeTags' ).trigger( 'click' );
                             }
                             break;
-
-                        case 37: // left - Spotify pause
-                            if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
-                                spotifyPause();
-                                e.preventDefault();
-                            }
-                            break;
-                        case 38: // up - slideshow
-                            if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
-                                $( '#startPrivatePictureSlideshow' ).trigger( 'click' );
-                                e.preventDefault();
-                            }
-                            break;
                         case 39: // right - next track
                             if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
                                 playNextYoutubeVideoOrSpotifyTrack();
-                                e.preventDefault();
-                            }
-                            break;
-                        case 40: // down - start disco
-                            if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
-                                if ( !$( '#showShrineSection' ).hasClass( 'mainSectionActive' ) ) {
-                                    $( '#showShrineSection' ).trigger( 'click' );
-                                    $( '#mainMenu' ).attr( 'style', 'opacity:0' );
-                                    $( '#shrineSettingsContainer' ).removeClass( 'visible' );
-                                }
-                                shrineDiscoActive = true;
-                                nextDiscoMode();
                                 e.preventDefault();
                             }
                             break;
