@@ -422,6 +422,10 @@ $( document ).ready( function () {
 
             // Right click / right mouse button click config
             $( document ).bind( 'contextmenu', function ( e ) {
+                rightMouseButtonAction( e );
+            } );
+
+            function rightMouseButtonAction( e ) {
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -532,7 +536,7 @@ $( document ).ready( function () {
                 } else { // block default right click behaviour
                     return false;
                 }
-            } );
+            }
 
             // Init airmouse and reassign some buttons
             // Right button for context menu is e.which == 0 -> is handled in contextmenu section
@@ -541,9 +545,12 @@ $( document ).ready( function () {
                     console.info( e.which );
                     switch ( e.which ) {
                         case 32: // Space - reload current video
-                        case 40:
+                        case 40: // down button
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '#videodromeDirectorReloadCurrentVideo' ).trigger( 'click' );
+                                e.preventDefault();
+                            } else if ( $( '.localVideo' ).is( ':visible' ) ) {
+                                $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
@@ -553,7 +560,7 @@ $( document ).ready( function () {
                             }
                             break;
                         case 86: // V - lock/unlock video
-                        case 37:
+                        case 37: // left button
                             if ( $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 if ( $( '.videodromeFullscreen' ).hasClass( 'videoLocked' ) ) {
                                     $( '#videodromeDirectorLockVideoDeactivate' ).trigger( 'click' );
@@ -669,11 +676,13 @@ $( document ).ready( function () {
                                 $( '#deselectAllVideodromeTags' ).trigger( 'click' );
                             }
                             break;
-                        case 39: // right - next track
-                            if ( !$( '#notesOverlay' ).is( ':visible' ) ) {
-                                playNextYoutubeVideoOrSpotifyTrack();
-                                e.preventDefault();
+                        case 39: // right button
+                            if ( $( '#videodrome' ).is( ':visible' ) ) {
+                                $( '#videodromeDirectorNextVideo' ).trigger( 'click' );
                             }
+                            break;
+                        case 166: // back button
+                            rightMouseButtonAction( e );
                             break;
                         default:
                             return;
@@ -4107,6 +4116,7 @@ $( document ).ready( function () {
             $( document ).on( 'click', '.localFilename', function ( event ) {
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                $( '#videodromeDirectorVideoLocked' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src', $( this ).attr( 'src' ) );
                 $( '.videodromeFullscreen' ).find( '.localVideo' )[0].load();
@@ -4177,6 +4187,7 @@ $( document ).ready( function () {
                 e.preventDefault();
                 $( '#videodromeDirectorLockVideoActivate' ).hide();
                 $( '#videodromeDirectorLockVideoDeactivate' ).show();
+                $( '#videodromeDirectorVideoLocked' ).show();
                 $( '.videodromeFullscreen' ).addClass( 'videoLocked' );
             } );
 
@@ -4184,6 +4195,7 @@ $( document ).ready( function () {
                 e.preventDefault();
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                $( '#videodromeDirectorVideoLocked' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
@@ -4204,6 +4216,7 @@ $( document ).ready( function () {
                 }
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                $( '#videodromeDirectorVideoLocked' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
@@ -4215,6 +4228,7 @@ $( document ).ready( function () {
                 }
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                $( '#videodromeDirectorVideoLocked' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
             } );
@@ -4368,6 +4382,7 @@ $( document ).ready( function () {
 
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                $( '#videodromeDirectorVideoLocked' ).hide();
                 $( '.videoLocked' ).removeClass( 'videoLocked' );
 
                 $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
@@ -4686,9 +4701,11 @@ $( document ).ready( function () {
                     if ( $( '.videodromeFullscreen' ).hasClass( 'videoLocked' ) ) {
                         $( '#videodromeDirectorLockVideoActivate' ).hide();
                         $( '#videodromeDirectorLockVideoDeactivate' ).show();
+                        $( '#videodromeDirectorVideoLocked' ).show();
                     } else {
                         $( '#videodromeDirectorLockVideoActivate' ).show();
                         $( '#videodromeDirectorLockVideoDeactivate' ).hide();
+                        $( '#videodromeDirectorVideoLocked' ).hide();
                     }
 
                     try {
