@@ -255,13 +255,13 @@ $( document ).ready( function () {
             // show/hide mouse inactive indicator
             mouseInactiveTimer = setInterval( showMouseInactive, 3000 );
             $( document ).on( 'click mousemove wheel', function ( e ) {
-                $( '#mouseInactive' ).hide();
+                $( '.mouseInactive' ).hide();
                 clearInterval( mouseInactiveTimer );
                 mouseInactiveTimer = setInterval( showMouseInactive, 545000 );
             } );
 
             function showMouseInactive() {
-                $( '#mouseInactive' ).show();
+                $( '.mouseInactive' ).show();
             }
 
             // Firefox does not want to play along
@@ -542,7 +542,7 @@ $( document ).ready( function () {
             // Right button for context menu is e.which == 0 -> is handled in contextmenu section
             document.onkeydown = function ( e ) {
                 if ( !$( '#preFlightChecklist,.keyboard-input-field' ).is( ':visible' ) ) {
-                    // console.info( e.which );
+                    console.info( e.which );
                     switch ( e.which ) {
                         case 32: // Space - reload current video
                         case 40: // down button
@@ -555,6 +555,7 @@ $( document ).ready( function () {
                             }
                             break;
                         case 67: // C - stay with current video
+                        case 8: // Del
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '.videodromeDirectorStayWithCurrentVideo' ).first().trigger( 'click' );
                             }
@@ -578,12 +579,14 @@ $( document ).ready( function () {
                             }
                             break;
                         case 78: // N - timing slow
+                        case 34: // page down
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '.videodromeDirectorTimingsSlow' ).first().trigger( 'click' );
                                 e.preventDefault();
                             }
                             break;
                         case 77: // M - timing fast
+                        case 33: // page up
                             if ( $( '#videodrome' ).is( ':visible' ) || $( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                 $( '.videodromeDirectorTimingsFast' ).first().trigger( 'click' );
                                 e.preventDefault();
@@ -631,6 +634,7 @@ $( document ).ready( function () {
                             }
                             break;
                         case 51: // 3 - Director mode slow
+                            e.preventDefault();
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                     $( '.videoDromeFrame.localVideo' ).first().trigger( 'click' );
@@ -640,12 +644,12 @@ $( document ).ready( function () {
                                     $( '#videodromeDirectorShuffleActivate' ).trigger( 'click' );
                                 }
                                 $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
-                                e.preventDefault();
                             } else if ( xxxVisible ) {
                                 $( '#showPornZapper' ).trigger( 'click' );
                             }
                             break;
                         case 52: // 4 - Director mode fast
+                            e.preventDefault();
                             if ( $( '#videodrome' ).is( ':visible' ) ) {
                                 if ( !$( '.videodromeFullscreen' ).is( ':visible' ) ) {
                                     $( '.videoDromeFrame.localVideo' ).first().trigger( 'click' );
@@ -655,7 +659,6 @@ $( document ).ready( function () {
                                     $( '#videodromeDirectorShuffleActivate' ).trigger( 'click' );
                                 }
                                 $( '#videodromeDirectorReloadAllVideos' ).trigger( 'click' );
-                                e.preventDefault();
                             } else if ( xxxVisible ) {
                                 $( '#showPornZapper' ).trigger( 'click' );
                             }
@@ -4116,7 +4119,7 @@ $( document ).ready( function () {
             $( document ).on( 'click', '.localFilename', function ( event ) {
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
-                $( '#videodromeDirectorVideoLocked' ).hide();
+                $( '.videodromeDirectorVideoLocked' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 $( '.videodromeFullscreen' ).find( '.videoSource' ).attr( 'src', $( this ).attr( 'src' ) );
                 $( '.videodromeFullscreen' ).find( '.localVideo' )[0].load();
@@ -4187,7 +4190,7 @@ $( document ).ready( function () {
                 e.preventDefault();
                 $( '#videodromeDirectorLockVideoActivate' ).hide();
                 $( '#videodromeDirectorLockVideoDeactivate' ).show();
-                $( '#videodromeDirectorVideoLocked' ).show();
+                $( '.videodromeDirectorVideoLocked' ).show();
                 $( '.videodromeFullscreen' ).addClass( 'videoLocked' );
             } );
 
@@ -4195,7 +4198,7 @@ $( document ).ready( function () {
                 e.preventDefault();
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
-                $( '#videodromeDirectorVideoLocked' ).hide();
+                $( '.videodromeDirectorVideoLocked' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
@@ -4216,7 +4219,7 @@ $( document ).ready( function () {
                 }
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
-                $( '#videodromeDirectorVideoLocked' ).hide();
+                $( '.videodromeDirectorVideoLocked' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 loadVideoDromeOneWindowRefresh( $( '.videodromeFullscreen' ).attr( 'target' ) );
             } );
@@ -4228,7 +4231,7 @@ $( document ).ready( function () {
                 }
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
-                $( '#videodromeDirectorVideoLocked' ).hide();
+                $( '.videodromeDirectorVideoLocked' ).hide();
                 $( '.videodromeFullscreen' ).removeClass( 'videoLocked' );
                 $( '#refreshVideoDromeVideoAll' ).trigger( 'click' );
             } );
@@ -4239,7 +4242,7 @@ $( document ).ready( function () {
                 clearInterval( videoDromeDirectorInterval );
                 videoDromeDirectorInterval = '';
                 videoDromeDirectorModeActive = false;
-                $( '#videodromeDirectorActive' ).hide();
+                $( '.videodromeDirectorActive' ).hide();
             } );
 
             $( document ).on( 'click', '.videodromeDirectorTimingsRandom', function ( e ) {
@@ -4335,7 +4338,7 @@ $( document ).ready( function () {
                         }, 1500 );
                     }
                 }, videoDromeDirectorDuration );
-                $( '#videodromeDirectorActive' ).show();
+                $( '.videodromeDirectorActive' ).show();
             }
 
             function setDirectorModeDisplayTarget() {
@@ -4382,7 +4385,7 @@ $( document ).ready( function () {
 
                 $( '#videodromeDirectorLockVideoActivate' ).show();
                 $( '#videodromeDirectorLockVideoDeactivate' ).hide();
-                $( '#videodromeDirectorVideoLocked' ).hide();
+                $( '.videodromeDirectorVideoLocked' ).hide();
                 $( '.videoLocked' ).removeClass( 'videoLocked' );
 
                 $( '.videodromeFullscreenMenuContainer' ).css( 'opacity', '0' );
@@ -4701,11 +4704,11 @@ $( document ).ready( function () {
                     if ( $( '.videodromeFullscreen' ).hasClass( 'videoLocked' ) ) {
                         $( '#videodromeDirectorLockVideoActivate' ).hide();
                         $( '#videodromeDirectorLockVideoDeactivate' ).show();
-                        $( '#videodromeDirectorVideoLocked' ).show();
+                        $( '.videodromeDirectorVideoLocked' ).show();
                     } else {
                         $( '#videodromeDirectorLockVideoActivate' ).show();
                         $( '#videodromeDirectorLockVideoDeactivate' ).hide();
-                        $( '#videodromeDirectorVideoLocked' ).hide();
+                        $( '.videodromeDirectorVideoLocked' ).hide();
                     }
 
                     try {

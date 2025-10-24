@@ -2855,7 +2855,7 @@ video::-webkit-media-controls-fullscreen-button {
     transform: rotateY(180deg);
 }
 
-#mouseInactive, #videodromeDirectorActive, #videodromeDirectorVideoLocked {
+.mouseInactive, .videodromeDirectorActive, .videodromeDirectorVideoLocked {
     position: fixed;
     z-index: 2001;
     bottom: 0px;
@@ -2867,12 +2867,12 @@ video::-webkit-media-controls-fullscreen-button {
     border: 2px solid #ccc !important;
 }
 
-#videodromeDirectorActive {
+.videodromeDirectorActive {
     z-index: 2000;
     background-color: #058cff;
 }
 
-#videodromeDirectorVideoLocked {
+.videodromeDirectorVideoLocked {
     z-index: 2000;
     background-color: #c9ff80;
     right: 24px;
