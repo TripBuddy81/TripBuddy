@@ -163,6 +163,10 @@ var config = {
                         'id'   : '0o4bOWzj5JRiuStG4KlIeo'
                     },
                     {
+                        'label': 'Corruptor',
+                        'id'   : '4CB9VWv5kN7uQc1cBN2w8J'
+                    },
+                    {
                         'label': 'Progressive Psy',
                         'id'   : '5RYT8fTg6Pq9JrS0lcG12p'
                     },
