@@ -1527,6 +1527,24 @@ var config = {
                     'label'  : 'What People Feel When You Decide to Walk Away'
                 },
                 {
+                    'videoId': 'QvqOJ6zVh4c',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The Self Recursive Law That Rules All Systems'
+                },
+                {
+                    'videoId': 'B8log371ADA',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'How it felt to kill a man'
+                },
+                {
+                    'videoId': '2mY_YUUdRBk',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'The Existential Elk Theory'
+                },
+                {
                     'videoId': 'PW5R0XhBQM8',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -1717,7 +1735,37 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'widsom',
                     'label'  : 'David Lynch on Depression and Art'
-                }
+                },
+                {
+                    'videoId': 'BWYxRM__TBU',
+                    'mute'   : false,
+                    'tags'   : 'widsom',
+                    'label'  : 'The Most Terrifying Philosopher I’ve Encountered'
+                },
+                {
+                    'videoId': 'P5jEKs7AxVc',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Apoptosis'
+                },
+                {
+                    'videoId': '2YCgro6BV8U',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Organelles of a human cell'
+                },
+                {
+                    'videoId': 'Xe-83tBcxhs',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'DNA Break Repair'
+                },
+                {
+                    'videoId': 'aV-kI_ep1Rk',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Citric Acid Cycle'
+                },
             ],
             'selectableImageTags'    : [
                 {'selectableTag': 'space'},

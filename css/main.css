@@ -195,8 +195,9 @@ p {
 }
 
 .videoLabel {
-    position: relative;
-    top: 0px;
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
