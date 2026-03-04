@@ -188,6 +188,8 @@ p {
 .videoInfo {
     text-align: center;
     display: none;
+    bottom: -30px;
+    position: absolute;
 }
 
 .videoInfo > div {
@@ -1194,7 +1196,8 @@ option {
 #shrineOracle, #shrineOracleWhite,
 #toggleRelationships, #toggleRelationshipsWhite,
 #toggleAbsoluteThruth, #toggleAbsoluteThruthWhite,
-#toggleThinker, #toggleThinkerWhite {
+#toggleThinker, #toggleThinkerWhite,
+#toggleChat, #toggleChatWhite {
     height: 52px;
     margin-left: 15px;
     cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer;
@@ -2467,6 +2470,25 @@ video::-webkit-media-controls-fullscreen-button {
 
 .relationshipLevelPerson:hover {
     transform: scale(1.15);
+}
+
+#chatContainer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 3;
+    display: none;
+    top: 42vH;
+    font-size: 70px;
+}
+
+#chat {
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    display: table;
 }
 
 #OuijaYesNo {

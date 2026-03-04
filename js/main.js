@@ -457,10 +457,11 @@ $( document ).ready( function () {
                 } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#meditationSymbol' ).is( ':visible' ) ) {
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
-                } else if ( shrineDiscoActive && ($( '#meditationSymbol' ).is( ':visible' ) || $( '#OuijaYesNo' ).is( ':visible' )) ) {
+                } else if ( shrineDiscoActive && ($( '#meditationSymbol' ).is( ':visible' ) || $( '#OuijaYesNo' ).is( ':visible' ) || $( '#chatContainer' ).is( ':visible' )) ) {
                     $( '#meditationSymbol' ).hide();
                     $( '.meditationSymbolInfoContainer' ).hide();
                     $( '#OuijaYesNo' ).hide();
+                    $( '#chatContainer' ).hide();
                     $( '#ensoImageShrineContainer' ).show();
                     $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 1.0' );
                 } else if ( $( '#videodrome' ).is( ':visible' ) && $( '#OuijaYesNo' ).is( ':visible' ) ) {
@@ -499,6 +500,7 @@ $( document ).ready( function () {
                             $( '#absoluteTruthsOverlay' ).is( ':visible' ) ||
                             $( '#relationships' ).is( ':visible' ) ||
                             $( '#OuijaYesNo' ).is( ':visible' ) ||
+                            $( '#chatContainer' ).is( ':visible' ) ||
                             $( '#meditationSymbol' ).is( ':visible' ) ||
                             shrineDiscoActive ||
                             stroboSpeed > 0 ||
@@ -867,6 +869,7 @@ $( document ).ready( function () {
                 $( '#notesOverlay' ).modal( 'hide' );
                 $( '#directYoutubePlayer' ).hide();
                 $( '.videoMenuOverlay' ).hide();
+                $( '#chatContainer' ).hide();
                 $( '.localVideoOverlay' ).show();
                 $( '.mainSearchResultVideoOverlay' ).show();
                 $( '.videodromeFullscreen' ).removeClass( 'videodromeFullscreen' );
@@ -2268,8 +2271,8 @@ $( document ).ready( function () {
                 enableFullscreen();
                 $( '#shrine' ).css( 'background-color', $( this ).css( 'backgroundColor' ) );
                 $( '#shrine' ).removeClass( 'shrineColorfulBackground' );
-                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleThinkerWhite' ).show();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineOracle,#toggleGospel,#toggleThinker' ).hide();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineDiscoModeWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleThinkerWhite,#toggleChatWhite' ).show();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineDiscoMode,#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#shrineOuija,#shrineOracle,#toggleGospel,#toggleThinker,#toggleChat' ).hide();
                 if ( xxxVisible ) {
                     $( '#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#toggleGospelWhite' ).show();
                 } else {
@@ -2281,8 +2284,8 @@ $( document ).ready( function () {
 
             $( '.shrineSetBGColorful' ).click( function ( event ) {
                 $( '#shrine' ).addClass( 'shrineColorfulBackground' );
-                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleGospelWhite,#toggleThinkerWhite' ).hide();
-                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineDiscoMode,#shrineOuija,#shrineOracle,#toggleThinker' ).show();
+                $( '#toggleRelationshipsWhite,#toggleAbsoluteThruthWhite,#shrineDiscoModeWhite,#toggleAbsoluteThruthInwardsWhite,#toggleAbsoluteThruthOutwardsWhite,#shrineOuijaWhite,#shrineOracleWhite,#toggleGospelWhite,#toggleThinkerWhite,#toggleChatWhite' ).hide();
+                $( '#toggleRelationships,#toggleAbsoluteThruth,#shrineDiscoMode,#shrineOuija,#shrineOracle,#toggleThinker,#toggleChat' ).show();
                 if ( xxxVisible ) {
                     $( '#toggleAbsoluteThruthInwards,#toggleAbsoluteThruthOutwards,#toggleGospel' ).show();
                 } else {
@@ -2354,6 +2357,7 @@ $( document ).ready( function () {
                 hideOuijaYesNo();
                 hideMeditationSymbol();
                 $( '#absoluteTruthsOverlay' ).hide();
+                $( '#chatContainer' ).hide();
 
                 toggleRelationships();
             } );
@@ -2364,6 +2368,7 @@ $( document ).ready( function () {
                 toggleRelationships( 'hide' );
                 hideOuijaYesNo();
                 hideMeditationSymbol();
+                $( '#chatContainer' ).hide();
 
                 absoluteTruthsUpdate( 'default' );
                 $( '#absoluteTruthsOverlay' ).show();
@@ -2376,6 +2381,7 @@ $( document ).ready( function () {
                 hideOuijaYesNo();
                 $( '#absoluteTruthsOverlay' ).hide();
                 hideMeditationSymbol();
+                $( '#chatContainer' ).hide();
 
                 absoluteTruthsUpdate( 'gospel' );
                 $( '#absoluteTruthsOverlay' ).show();
@@ -2387,6 +2393,7 @@ $( document ).ready( function () {
                 toggleRelationships( 'hide' );
                 hideOuijaYesNo();
                 hideMeditationSymbol();
+                $( '#chatContainer' ).hide();
 
                 absoluteTruthsUpdate( 'intro' );
                 $( '#absoluteTruthsOverlay' ).show();
@@ -2398,6 +2405,7 @@ $( document ).ready( function () {
                 toggleRelationships( 'hide' );
                 hideOuijaYesNo();
                 hideMeditationSymbol();
+                $( '#chatContainer' ).hide();
 
                 absoluteTruthsUpdate( 'outro' );
                 $( '#absoluteTruthsOverlay' ).show();
@@ -2410,6 +2418,7 @@ $( document ).ready( function () {
                 hideOuijaYesNo();
                 $( '#absoluteTruthsOverlay' ).hide();
                 hideMeditationSymbol();
+                $( '#chatContainer' ).hide();
 
                 absoluteTruthsUpdate( 'thinker' );
                 $( '#absoluteTruthsOverlay' ).show();
@@ -2453,6 +2462,7 @@ $( document ).ready( function () {
                 toggleRelationships( 'hide' );
                 hideMeditationSymbol();
                 $( '#absoluteTruthsOverlay' ).hide();
+                $( '#chatContainer' ).hide();
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0.1' );
                 $( '#OuijaYesNo' ).show();
 
@@ -2465,7 +2475,19 @@ $( document ).ready( function () {
                 toggleRelationships( 'hide' );
                 hideOuijaYesNo();
                 $( '#absoluteTruthsOverlay' ).hide();
+                $( '#chatContainer' ).hide();
+
                 showMeditationSymbol();
+            } );
+
+            $( '#toggleChat,#toggleChatWhite' ).on( 'wheel click', function ( event ) {
+                enableFullscreen();
+
+                toggleRelationships( 'hide' );
+                hideOuijaYesNo();
+                $( '#absoluteTruthsOverlay' ).hide();
+
+                showChat();
             } );
 
             function hideOuijaYesNo() {
@@ -2478,6 +2500,14 @@ $( document ).ready( function () {
                 $( '#meditationSymbol' ).show();
                 $( '.meditationSymbolInfoContainer' ).show();
                 $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0' );
+            }
+
+            function showChat() {
+                $( '#meditationSymbol' ).hide();
+                $( '#ensoImageShrineContainer' ).attr( 'style', 'opacity: 0' );
+                $( '#chatContainer' ).show();
+
+
             }
 
             function hideMeditationSymbol() {
