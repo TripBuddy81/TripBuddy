@@ -2479,8 +2479,9 @@ video::-webkit-media-controls-fullscreen-button {
     text-align: center;
     z-index: 3;
     display: none;
-    top: 42vH;
-    font-size: 70px;
+    top: 34vH;
+    font-size: 95px;
+    font-weight: 600;
 }
 
 #chat {
