@@ -2520,7 +2520,7 @@ $(document).ready(function () {
             result = result.slice(0, half) + '\n' + result.slice(half);
             $('#chat').html(result);
 
-            colorOptions = ['red', 'green', 'black', 'blue'];
+            colorOptions = ['red', 'green', 'black', 'blue', 'white'];
             color = colorOptions[Math.floor(Math.random() * colorOptions.length)];
             $("#chat").css("color", color);
         }
