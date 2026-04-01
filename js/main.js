@@ -2326,12 +2326,12 @@ $(document).ready(function () {
         );
 
         // Show cursor when moving mouse
-        $('#particles-js').on('mousemove', function () {
+        $('#particles-js,#chatContainer').on('mousemove', function () {
             clearTimeout(moveTimerShrine);
             moveTimerShrine = setTimeout(function () {
-                $('#particles-js').css('cursor', 'none');
+                $('#particles-js,#chatContainer').css('cursor', 'none');
             }, 1000);
-            $('#particles-js').css('cursor', 'url(assets/rainbow-gradient-cursor-1-32x32.png), auto');
+            $('#particles-js,#chatContainer').css('cursor', 'url(assets/rainbow-gradient-cursor-1-32x32.png), auto');
         });
 
         // Generic click on shrine section - no button clicked - action depends on currently active sub tool, e.g. shaman view or meditation symbol
@@ -2339,7 +2339,7 @@ $(document).ready(function () {
             enableFullscreen();
         });
 
-        $('#particles-js,.meditationSymbolInfoContainer').on('wheel', function (event) {
+        $('#particles-js,.meditationSymbolInfoContainer,#chatContainer').on('wheel', function (event) {
             stopScreensaver();
             enableFullscreen();
             clearInterval(absoluteTruthsTimer);
@@ -2349,6 +2349,7 @@ $(document).ready(function () {
 
             setNextOuijaYesNoAnswer();
             setNextMeditationSymbol();
+            nextChat();
         });
 
         $('#toggleRelationships,#toggleRelationshipsWhite').on('wheel click', function (event) {
@@ -2507,6 +2508,10 @@ $(document).ready(function () {
             $('#ensoImageShrineContainer').attr('style', 'opacity: 0');
             $('#chatContainer').show();
 
+            nextChat();
+        }
+
+        function nextChat() {
             characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 !.?';
             length = Math.floor(Math.random() * 42) + 1;
 
