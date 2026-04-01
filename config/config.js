@@ -766,10 +766,6 @@ var config = {
                     'tags'   : 'meditative nature'
                 },
                 {
-                    'videoId': 'bb9ZTbYGRdc',
-                    'tags'   : 'meditative nature'
-                },
-                {
                     'videoId': 'NtsJ5m6C7dU',
                     'tags'   : 'meditative nature'
                 },
