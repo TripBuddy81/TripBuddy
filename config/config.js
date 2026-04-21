@@ -491,6 +491,14 @@ var config = {
                     'startSeconds': '409'
                 },
                 {
+                    'videoId'     : 'X5U86C4aXEc',
+                    'tags'        : 'trippy-2D'
+                },
+                {
+                    'videoId'     : 'hOgVAYpHPCc',
+                    'tags'        : 'trippy-2D'
+                },
+                {
                     'videoId'     : '1exehudMxeM',
                     'tags'        : 'trippy-2D',
                     'startSeconds': '1'
@@ -567,6 +575,11 @@ var config = {
                 },
                 {
                     'videoId'     : 'AKeUssuu3Is',
+                    'tags'        : 'nature',
+                    'startSeconds': '11'
+                },
+                {
+                    'videoId'     : 'bQmzk05I3nw',
                     'tags'        : 'nature',
                     'startSeconds': '11'
                 },
@@ -724,6 +737,11 @@ var config = {
                     'startSeconds': '50'
                 },
                 {
+                    'videoId'     : 'p-rakpAd3gE',
+                    'tags'        : 'meditative space',
+                    'startSeconds': '0'
+                },
+                {
                     'videoId'     : 'Ycx0YpxOkG8',
                     'tags'        : 'meditative nature',
                     'startSeconds': '10'
@@ -814,11 +832,6 @@ var config = {
                     'tags'        : 'space',
                     'mute'        : 'mixed',
                     'startSeconds': '8'
-                },
-                {
-                    'videoId'     : 'AmrrSfiMxGA',
-                    'tags'        : 'space',
-                    'startSeconds': '1'
                 },
                 {
                     'videoId'     : 'n8kbhDTbfwE',
@@ -1198,12 +1211,6 @@ var config = {
                     'tags'   : 'wisdom',
                     'label'  : 'The Mystery of falling in love'
                 },
-                {
-                    'videoId': 'CyWhIh3i1IY',
-                    'mute'   : false,
-                    'tags'   : 'wisdom',
-                    'label'  : 'Keep your mouth shut ones you know this'
-                },
                 // {
                 //     'videoId': 'sRt8VhjxTsw',
                 //     'mute'   : false,
@@ -1407,6 +1414,18 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'thinker',
                     'label'  : 'Is the universe alive?'
+                },
+                {
+                    'videoId': '5HgxcEEjQoA',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Quantum Consciousness'
+                },
+                {
+                    'videoId': 'uq1C6RoQN3U',
+                    'mute'   : false,
+                    'tags'   : 'thinker',
+                    'label'  : 'Highest levels of dimension'
                 },
                 {
                     'videoId': 'hCwR1ztUXtU',
@@ -1671,12 +1690,6 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'shaman',
                     'label'  : 'Why you have no motivation left after awakening'
-                },
-                {
-                    'videoId': 'DlaSZH7yNL0',
-                    'mute'   : false,
-                    'tags'   : 'shaman',
-                    'label'  : 'If You\'re Experiencing This, The Universe is Purifying You'
                 },
                 {
                     'videoId': 'RwuS0VSFeOQ',
