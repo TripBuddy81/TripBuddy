@@ -1347,10 +1347,10 @@ video::-webkit-media-controls-fullscreen-button {
 
 .videoMenuOverlayFullscreen {
     left: 0;
-    top: 0;
+    top: 40px;
     z-index: 20;
     width: 100%;
-    height: 94vh;
+    height: 73vh;
     cursor: none;
     position: fixed;
     display: none;
