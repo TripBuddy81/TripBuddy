@@ -521,7 +521,7 @@ $(document).ready(function () {
     // Right button for context menu is e.which == 0 -> is handled in contextmenu section
     document.onkeydown = function (e) {
         if (!$('#preFlightChecklist,.keyboard-input-field').is(':visible')) {
-            console.info(e.which);
+            // console.info(e.which);
             switch (e.which) {
                 case 32: // Space - reload current video
                 case 40: // down button
@@ -4505,6 +4505,7 @@ $(document).ready(function () {
                 randomNumber = Math.floor(Math.random() * (parseInt(selectableVideodromeFilesFromTagAndFolders.length)));
                 if (alreadySelectedVideosVideodrome.length > selectableVideodromeFilesFromTagAndFolders.length - 1) {
                     alreadySelectedVideosVideodrome = [];
+                    console.info("reset");
                 }
             }
             alreadySelectedVideosVideodrome.push(randomNumber);
