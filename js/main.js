@@ -451,7 +451,7 @@ $(document).ready(function () {
         } else if ($('#videodrome').is(':visible') && $('#meditationSymbol').is(':visible')) {
             $('#meditationSymbol').hide();
             $('.meditationSymbolInfoContainer').hide();
-        } else if (shrineDiscoActive && ($('#meditationSymbol').is(':visible') || $('#OuijaYesNo').is(':visible') || $('#chatContainer').is(':visible'))) {
+        } else if (!$('#ensoImageShrineContainer').is(':visible') || (shrineDiscoActive && ($('#OuijaYesNo').is(':visible') || $('#chatContainer').is(':visible')))) {
             $('#meditationSymbol').hide();
             $('.meditationSymbolInfoContainer').hide();
             $('#OuijaYesNo').hide();
@@ -2297,6 +2297,9 @@ $(document).ready(function () {
     // Generic click on shrine section - no button clicked - action depends on currently active sub tool, e.g. shaman view or meditation symbol
     $('#particles-js').click(function (e) {
         enableFullscreen();
+        if (!shrineDiscoActive && !($('#meditationSymbol').is(':visible') || $('#OuijaYesNo').is(':visible') || $('#chatContainer').is(':visible'))) {
+            $('#ensoImageShrineContainer').toggle();
+        }
     });
 
     $('#particles-js,.meditationSymbolInfoContainer,#chatContainer').on('wheel click', function (event) {
