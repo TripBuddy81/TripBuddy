@@ -501,6 +501,7 @@ $(document).ready(function () {
                 });
             return false;
         } else if ($(e.target).parent().hasClass('videodromeFullscreen') || $('.videodromeFullscreenMenuContainer').is(':visible')) {
+            $('.videodromeDirectorVideoAlreadyTagged').hide();
             if (config['pornMap'] != undefined) {
                 stopVideodromeFullscreen();
                 stopDirectorMode();
@@ -3732,6 +3733,7 @@ $(document).ready(function () {
             $('.videodromeFullscreenMenuLocalVideoJSContainer').show();
             $('.videodromeRefreshContainer').hide();
             clearTimeout(videodromeFullscreenMenuHideInterval);
+            checkIfCurrentVideoAlreadyTagged();
         }
         $('.videoDromeFrame').removeAttr('controls');
 
@@ -3962,9 +3964,8 @@ $(document).ready(function () {
         if ($('#videodromeFullscreenMenuLocalVideoContainer').is(':visible')) {
             $('#videoTaggingContainer').show();
             $('.videodromeDirectorHorizontalFlip').show();
-
-            checkIfCurrentVideoAlreadyTagged();
             $('#videodromeLoadModeSelectContainer').hide();
+            checkIfCurrentVideoAlreadyTagged();
         }
 
         clearTimeout(videodromeVideoJSControlbarHideInterval);
@@ -4367,7 +4368,7 @@ $(document).ready(function () {
         $('#videodromeDirectorLockVideoDeactivate').hide();
         $('.videodromeDirectorVideoLocked').hide();
         $('.videoLocked').removeClass('videoLocked');
-
+        $('.videodromeDirectorVideoAlreadyTagged').hide();
         $('.videodromeFullscreenMenuContainer').css('opacity', '0');
     }
 
@@ -4440,10 +4441,14 @@ $(document).ready(function () {
                     break;
             }
         }
+        if ($('#videodromeFullscreenMenuLocalVideoContainer').is(':visible')) {
+            checkIfCurrentVideoAlreadyTagged();
+        }
     }
 
     function checkIfCurrentVideoAlreadyTagged() {
         $('.videoTaggingButtonActive').removeClass('videoTaggingButtonActive');
+        $('.videodromeDirectorVideoAlreadyTagged').hide();
         currentVideo = $('.videodromeFullscreen').find('.videoSource').attr('src').replace('pornRoot\/', '').replace(/\..*/, '').replaceAll('/', '%2F').replaceAll(' ', '').replaceAll('\'', '').replaceAll('%20', '');
         $.each(config['pornMap'], function (index, val) {
             potentialTarget = val.file.replace('pornRoot\/', '').replace(/\..*/, '').replaceAll('/', '%2F').replaceAll(' ', '').replaceAll('\'', '').replaceAll('%20', '');
@@ -4452,6 +4457,7 @@ $(document).ready(function () {
                 $.each(tags, function (i) {
                     $('.videoTag' + tags[i]).addClass('videoTaggingButtonActive');
                 });
+                $('.videodromeDirectorVideoAlreadyTagged').show();
                 return;
             }
         });
