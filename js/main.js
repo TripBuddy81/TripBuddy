@@ -167,6 +167,7 @@ $(document).ready(function () {
     window.videoDromeDirectorVerticalFlipInterval = '';
     window.videoDromeDirectorVerticalFlipIntervalActive = false;
     window.chatInterval = '';
+    window.externalVideoDirSelectionContainerTopPosition = true;
 
     window.videodromeLoadModeMapping = {
         '2': {
@@ -3939,6 +3940,15 @@ $(document).ready(function () {
         } else {
             $('#videodromeLeftToolbar').toggle();
         }
+    });
+
+    $('#externalVideoDirSelectionContainerTopBottomFlipper').click(function () {
+        if (externalVideoDirSelectionContainerTopPosition) {
+            $('#externalVideoDirSelectionContainer').animate({scrollTop: $('.externalVideoDirSelection').height()}, 'fast');
+        } else {
+            $('#externalVideoDirSelectionContainer').animate({scrollTop: 0}, 'fast');
+        }
+        externalVideoDirSelectionContainerTopPosition = !externalVideoDirSelectionContainerTopPosition;
     });
 
     $(document).on('wheel', '.videodromeStreamVideoContainer,#videodromeFullscreenMenuVideoJSContainer,#videodromeStreamRefreshVideo', function (event) {
