@@ -4381,7 +4381,6 @@ $(document).ready(function () {
         $('#videodromeDirectorLockVideoDeactivate').hide();
         $('.videodromeDirectorVideoLocked').hide();
         $('.videoLocked').removeClass('videoLocked');
-        $('.videodromeDirectorVideoAlreadyTagged').hide();
         $('.videodromeFullscreenMenuContainer').css('opacity', '0');
     }
 
@@ -4462,18 +4461,22 @@ $(document).ready(function () {
     function checkIfCurrentVideoAlreadyTagged() {
         $('.videoTaggingButtonActive').removeClass('videoTaggingButtonActive');
         $('.videodromeDirectorVideoAlreadyTagged').hide();
-        currentVideo = $('.videodromeFullscreen').find('.videoSource').attr('src').replace('pornRoot\/', '').replace(/\..*/, '').replaceAll('/', '%2F').replaceAll(' ', '').replaceAll('\'', '').replaceAll('%20', '');
-        $.each(config['pornMap'], function (index, val) {
-            potentialTarget = val.file.replace('pornRoot\/', '').replace(/\..*/, '').replaceAll('/', '%2F').replaceAll(' ', '').replaceAll('\'', '').replaceAll('%20', '');
-            if (potentialTarget.indexOf(currentVideo) >= 0) {
-                tags = val.tag.split(',');
-                $.each(tags, function (i) {
-                    $('.videoTag' + tags[i]).addClass('videoTaggingButtonActive');
-                });
-                $('.videodromeDirectorVideoAlreadyTagged').show();
-                return;
-            }
-        });
+        try {
+            currentVideo = $('.videodromeFullscreen').find('.videoSource').attr('src').replace('pornRoot\/', '').replace(/\..*/, '').replaceAll('/', '%2F').replaceAll(' ', '').replaceAll('\'', '').replaceAll('%20', '');
+            $.each(config['pornMap'], function (index, val) {
+                potentialTarget = val.file.replace('pornRoot\/', '').replace(/\..*/, '').replaceAll('/', '%2F').replaceAll(' ', '').replaceAll('\'', '').replaceAll('%20', '');
+                if (potentialTarget.indexOf(currentVideo) >= 0) {
+                    tags = val.tag.split(',');
+                    $.each(tags, function (i) {
+                        $('.videoTag' + tags[i]).addClass('videoTaggingButtonActive');
+                    });
+                    $('.videodromeDirectorVideoAlreadyTagged').show();
+                    return;
+                }
+            });
+        } catch (e) {
+        }
+
     }
 
     // Seek to random time in video if video has not been assigned an explicit start time
@@ -4700,7 +4703,7 @@ $(document).ready(function () {
             });
         } else if ($('.videodromeFullscreen').find('.videoSource').attr('src') != '') {
             checkIfCurrentVideoAlreadyTagged();
-            
+
             if ($('.videodromeFullscreen').hasClass('videoLocked')) {
                 $('#videodromeDirectorLockVideoActivate').hide();
                 $('#videodromeDirectorLockVideoDeactivate').show();
