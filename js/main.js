@@ -4699,6 +4699,8 @@ $(document).ready(function () {
                 }
             });
         } else if ($('.videodromeFullscreen').find('.videoSource').attr('src') != '') {
+            checkIfCurrentVideoAlreadyTagged();
+            
             if ($('.videodromeFullscreen').hasClass('videoLocked')) {
                 $('#videodromeDirectorLockVideoActivate').hide();
                 $('#videodromeDirectorLockVideoDeactivate').show();
