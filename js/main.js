@@ -4521,7 +4521,6 @@ $(document).ready(function () {
                 randomNumber = Math.floor(Math.random() * (parseInt(selectableVideodromeFilesFromTagAndFolders.length)));
                 if (alreadySelectedVideosVideodrome.length > selectableVideodromeFilesFromTagAndFolders.length - 1) {
                     alreadySelectedVideosVideodrome = [];
-                    console.info("reset");
                 }
             }
             alreadySelectedVideosVideodrome.push(randomNumber);
