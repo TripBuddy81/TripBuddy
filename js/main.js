@@ -452,7 +452,7 @@ $(document).ready(function () {
         } else if ($('#videodrome').is(':visible') && $('#meditationSymbol').is(':visible')) {
             $('#meditationSymbol').hide();
             $('.meditationSymbolInfoContainer').hide();
-        } else if ((!$('#ensoImageShrineContainer').is(':visible') && $('#shrine').is(':visible')) || (shrineDiscoActive && ($('#OuijaYesNo').is(':visible') || $('#chatContainer').is(':visible')))) {
+        } else if ((!$('#ensoImageShrineContainer').is(':visible') && $('#shrine').is(':visible') && !$('#videodrome').is(':visible')) || (shrineDiscoActive && ($('#OuijaYesNo').is(':visible') || $('#chatContainer').is(':visible')))) {
             $('#meditationSymbol').hide();
             $('.meditationSymbolInfoContainer').hide();
             $('#OuijaYesNo').hide();
