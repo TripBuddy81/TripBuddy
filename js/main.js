@@ -65,6 +65,7 @@ $(document).ready(function () {
     window.xxxVisible = false;
     window.externalPornDirs = {};
     window.externalPornFilesByDir = [];
+    window.externalPornFilesAll = [];
     window.slideshowJustStarted = false;
     window.lastActiveBackgroundGradientKeyFrame = 1;
     window.textShrinkFrameSeed = 1;
@@ -168,6 +169,7 @@ $(document).ready(function () {
     window.videoDromeDirectorVerticalFlipIntervalActive = false;
     window.chatInterval = '';
     window.externalVideoDirSelectionContainerTopPosition = true;
+    window.randomDirectorySelect = false;
 
     window.videodromeLoadModeMapping = {
         '2': {
@@ -4541,10 +4543,16 @@ $(document).ready(function () {
     }
 
     function getRandomVideo() {
-        allDirs = Object.keys(externalPornFilesByDir);
-        randomDirContents = externalPornFilesByDir[allDirs[Math.floor(allDirs.length * Math.random())]];
-        randomDirKeys = Object.keys(randomDirContents);
-        randomVideoFromDir = randomDirContents[randomDirKeys[Math.floor(randomDirKeys.length * Math.random())]];
+        if (randomDirectorySelect) { // TODO currently never used. Flag is always false
+            // TODO remember already selected folders?
+            allDirs = Object.keys(externalPornFilesByDir);
+            randomDirContents = externalPornFilesByDir[allDirs[Math.floor(allDirs.length * Math.random())]];
+            randomDirKeys = Object.keys(randomDirContents);
+            randomVideoFromDir = randomDirContents[randomDirKeys[Math.floor(randomDirKeys.length * Math.random())]];
+        } else {
+            allFiles = Object.keys(externalPornFilesAll);
+            randomVideoFromDir = externalPornFilesAll[allFiles[Math.floor(allFiles.length * Math.random())]];
+        }
 
         return randomVideoFromDir;
     }
@@ -4565,6 +4573,7 @@ $(document).ready(function () {
                                 externalPornFilesByDir[url] = []
                                 externalPornFilesByDir[url].push(url + tempFilename);
                             }
+                            externalPornFilesAll.push(url + tempFilename);
                         }
                     }
                 });
