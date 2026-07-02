@@ -118,7 +118,7 @@ $(document).ready(function () {
     window.videoJSLoadAfterFind = true;
     window.lastUsedVideoStreamSearchUrl = createSearchUrl();
     window.rightMouseButtonClickCounter = 0;
-    window.mouseDisabled = false;
+    window.mouseAndKeyboardDisabled = false;
     window.mouseDisabledDuration = 20000;
     window.rightMouseButtonClickCounterInterval = '';
     window.mouseDisabledInterval = '';
@@ -372,8 +372,14 @@ $(document).ready(function () {
     });
 
     $(document).on('keydown', function (event) {
-        if (event.keyCode === 13 && $('.keyboard-accept-button').is(':visible')) {
-            $('.keyboard-accept-button').trigger('click');
+        if (!mouseAndKeyboardDisabled) {
+            if (event.keyCode === 13 && $('.keyboard-accept-button').is(':visible')) {
+                $('.keyboard-accept-button').trigger('click');
+            }
+        } else {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
         }
     });
 
@@ -426,7 +432,7 @@ $(document).ready(function () {
         e.preventDefault();
         e.stopPropagation();
 
-        if (mouseDisabled) {
+        if (mouseAndKeyboardDisabled) {
             return;
         }
 
@@ -438,7 +444,7 @@ $(document).ready(function () {
 
         // After clicking the right mouse button 5 times in sequence the mouse is deactivated for a certain time
         if (rightMouseButtonClickCounter >= 5) {
-            disableMouseActions();
+            disableMouseAndKeyboardActions();
             return;
         }
 
@@ -895,7 +901,7 @@ $(document).ready(function () {
         if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
             isFullScreen = false;
             stopAllActions();
-            enableMouseActions();
+            enableMouseAndKeyboardActions();
         }
     }
 
@@ -951,22 +957,22 @@ $(document).ready(function () {
         }
     }
 
-    function disableMouseActions() {
+    function disableMouseAndKeyboardActions() {
         $('#showShrineSection').trigger('click');
         $('#mainMenu').attr('style', 'opacity:0');
         $('#shrineSettingsContainer').removeClass('visible');
 
-        mouseDisabled = true;
+        mouseAndKeyboardDisabled = true;
         $('html').addClass('cursorDisabled');
 
         clearInterval(mouseDisabledInterval);
         mouseDisabledInterval = setTimeout(function () {
-            enableMouseActions();
+            enableMouseAndKeyboardActions();
         }, mouseDisabledDuration);
     }
 
-    function enableMouseActions() {
-        mouseDisabled = false;
+    function enableMouseAndKeyboardActions() {
+        mouseAndKeyboardDisabled = false;
         $('html').removeClass('cursorDisabled');
     }
 
