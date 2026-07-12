@@ -2873,7 +2873,7 @@ $(document).ready(function () {
         if (e.which == 2 && !$(event.target).hasClass('menuItem') && !$(event.target).hasClass('xxxLink') && !$(event.target).hasClass('searchLink') && !$(event.target).hasClass('noisegeneratorLink') && !$(event.target).hasClass('spotifyPlaylistItem') && !$(event.target).hasClass('playlistMenuCustomLink') && !$(event.target).hasClass('videoJSFavorite')) {
             e.preventDefault();
 
-            if (mouseDisabled) {
+            if (mouseAndKeyboardDisabled) {
                 return;
             }
 
