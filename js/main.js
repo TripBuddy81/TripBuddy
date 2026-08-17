@@ -3950,7 +3950,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#externalVideoDirSelectionContainerTopBottomFlipper').click(function () {
+    $('#externalVideoDirSelectionContainerTopBottomFlipper,.externalPornDirListUpDown').click(function () {
         if (externalVideoDirSelectionContainerTopPosition) {
             $('#externalVideoDirSelectionContainer').animate({scrollTop: $('.externalVideoDirSelection').height()}, 'fast');
         } else {
@@ -4138,6 +4138,10 @@ $(document).ready(function () {
         }
         updateActiveFoldersDisplay();
         checkVideodromeTagActive();
+    });
+
+    $(document).on('click', '.toggleExternalPornDirImage', function (event) {
+        $('.externalPornDirImage').toggle();
     });
 
     $(document).on('click', '#deselectAllVideodromeTags,#deselectAllVideodromeTags2', function (event) {

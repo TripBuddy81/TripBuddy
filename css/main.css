@@ -2393,11 +2393,17 @@ video::-webkit-media-controls-fullscreen-button {
     height: 300px;
 }
 
+.externalPornDir {
+    display: grid;
+    justify-content: center;
+}
+
 .externalPornDirImage {
-    width: 317px;
+    width: 500px;
     pointer-events: none;
     border-radius: 10px;
     outline: 5px solid #00000000;
+    display: none;
 }
 
 .externalPornDirName {
@@ -2405,6 +2411,24 @@ video::-webkit-media-controls-fullscreen-button {
     display: block;
     font-size: 20px;
     pointer-events: none;
+}
+
+#externalPornDirOptionContainer {
+    position: fixed;
+    display: block;
+    top: 15px;
+    left: 25px;
+    width: 30%;
+}
+
+.toggleExternalPornDirImage {
+    height: 45px;
+    padding-right: 15px;
+}
+
+.externalPornDirListUpDown {
+    height: 45px;
+    padding-right: 15px;
 }
 
 .videodromeLocalFolderActive > .externalPornDirImage {
