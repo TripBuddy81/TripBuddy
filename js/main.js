@@ -4126,6 +4126,7 @@ $(document).ready(function () {
         $('.videodromeFullscreen').find('.videoSource').attr('src', $(this).attr('src'));
         $('.videodromeFullscreen').find('.localVideo')[0].load();
         $('.videodromeFullscreen').find('.localVideo')[0].play();
+        checkIfCurrentVideoAlreadyTagged();
     });
 
     $(document).on('click', '.externalPornDir', function (event) {
