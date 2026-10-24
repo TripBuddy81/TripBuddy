@@ -423,6 +423,18 @@ $(document).ready(function () {
     // ***********************************
     // #0.1 - Global key bindings, Global misc functionalities
 
+    // Disable the mouse side buttons while the application is focused
+    $(document).bind('mousedown mouseup click auxclick', function (e) {
+        if (!document.hasFocus() || document.visibilityState === 'hidden') {
+            return;
+        }
+
+        if (e.button === 3 || e.button === 4 || e.which === 4 || e.which === 5) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+        }
+    });
+
     // Right click / right mouse button click config
     $(document).bind('contextmenu', function (e) {
         rightMouseButtonAction(e);
