@@ -831,18 +831,15 @@ $(document).ready(function () {
         });
 
         // Main Youtube search player
-        if ($('#mainSearchResultYoutubeContainer').hasClass('videoContainerFullscreen')) {
-
-        } else { // Direct youtube player
+        if (!$('#mainSearchResultYoutubeContainer').hasClass('videoContainerFullscreen')) {
+            // Direct youtube player
             try {
                 directYoutubePlayer.pauseVideo();
             } catch (e) {
             }
         }
 
-        $('.videoContainerFullscreen').each(function () {
-            $(this).removeClass('videoContainerFullscreen');
-        });
+        $('.videoContainerFullscreen').removeClass('videoContainerFullscreen');
 
         $('.displayedFullscreenImage').first().trigger('click');
 
@@ -863,9 +860,7 @@ $(document).ready(function () {
         $('.videostreamFavoriteItemDeleteSymbol').hide();
         $('#unlockDeleteVideodromeFavorites').show();
         $('#lockDeleteVideodromeFavorites').hide();
-        $('.modal').modal('hide');
         $('#notesOverlay').modal('hide');
-        $('#directYoutubePlayer').hide();
         $('.videoMenuOverlay').hide();
         $('#chatContainer').hide();
         $('.localVideoOverlay').show();
@@ -1001,30 +996,24 @@ $(document).ready(function () {
         $('#gamesLinks').show();
     }, function () {
     });
+
+    function showMainSection(sectionId) {
+        $('#videos, #images, #shrine, #games, #search').hide();
+        $(sectionId).show();
+    }
+
     $('#showVideoSection').click(function () {
-        $('#videos').show();
-        $('#images').hide();
-        $('#shrine').hide();
-        $('#games').hide();
-        $('#search').hide();
+        showMainSection('#videos');
     });
     $('#showImageSection').click(function () {
-        $('#videos').hide();
-        $('#images').show();
-        $('#shrine').hide();
-        $('#games').hide();
-        $('#search').hide();
+        showMainSection('#images');
 
         if (!imageSectionShown) {
             loadImages();
         }
     });
     $('#showShrineSection').click(function () {
-        $('#videos').hide();
-        $('#images').hide();
-        $('#shrine').show();
-        $('#games').hide();
-        $('#search').hide();
+        showMainSection('#shrine');
 
         $('#shrineSettingsContainer').addClass('visible');
         $('#mainMenu').attr('style', 'opacity:1');
@@ -1036,11 +1025,7 @@ $(document).ready(function () {
         absoluteTruthsUpdate();
     });
     $('#showGamesSection').click(function () {
-        $('#videos').hide();
-        $('#images').hide();
-        $('#shrine').hide();
-        $('#games').show();
-        $('#search').hide();
+        showMainSection('#games');
 
         if (!gameSectionShown) {
             $('.gameLink').each(function () {
@@ -1053,11 +1038,7 @@ $(document).ready(function () {
         }
     });
     $('#showSearchSection').click(function () {
-        $('#videos').hide();
-        $('#images').hide();
-        $('#shrine').hide();
-        $('#games').hide();
-        $('#search').show();
+        showMainSection('#search');
 
         setTimeout(function () {
             $('#mainSearchInput').focus();
