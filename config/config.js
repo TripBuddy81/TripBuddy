@@ -504,6 +504,24 @@ var config = {
                     'startSeconds': '1'
                 },
                 {
+                    'videoId': 'Zbx1O9172Ss',
+                    'tags'   : 'trippy-2D'
+                },
+                {
+                    'videoId': 'WDU1UXiUZhs',
+                    'tags'   : 'trippy-2D'
+                },
+                {
+                    'videoId': 'QxzU3FBy57k',
+                    'tags'   : 'trippy-2D'
+                },
+                {
+                    'videoId': 'zXTpASSd9xE',
+                    'mute'   : 'mixed',
+                    'tags'   : 'trippy-2D shaman',
+                    'startSeconds': '37'
+                },
+                {
                     'videoId': '5zY7AemnJpM',
                     'tags'   : 'trippy-2D'
                 },
@@ -584,6 +602,10 @@ var config = {
                     'startSeconds': '11'
                 },
                 {
+                    'videoId'     : '8VUNLRBinZ8',
+                    'tags'        : 'nature',
+                },
+                {
                     'videoId'     : 'Z3xkHmC-KQE',
                     'tags'        : 'nature',
                     'startSeconds': '11'
@@ -652,10 +674,6 @@ var config = {
                     'tags'   : 'trippy-2D'
                 },
                 {
-                    'videoId': 'bx-0YlFprqc',
-                    'tags'   : 'trippy-2D'
-                },
-                {
                     'videoId': 'JTbWeMQnJUE',
                     'tags'   : 'trippy-2D'
                 },
@@ -682,6 +700,10 @@ var config = {
                 },
                 {
                     'videoId': 'fzpi8ozG-pQ',
+                    'tags'   : 'trippy-3D'
+                },
+                {
+                    'videoId': 'OWa5rzEOumQ',
                     'tags'   : 'trippy-3D'
                 },
                 {
@@ -1518,6 +1540,12 @@ var config = {
                     'label'  : 'How to Find Your Soul'
                 },
                 {
+                    'videoId': 'u9cX14mvmqk',
+                    'mute'   : false,
+                    'tags'   : 'wisdom',
+                    'label'  : 'Stop Trusting Your Thoughts'
+                },
+                {
                     'videoId': 'dl25jrHfPhQ',
                     'mute'   : false,
                     'tags'   : 'wisdom',
@@ -1608,12 +1636,6 @@ var config = {
                     'label'  : 'The Next Phase of Human Existence'
                 },
                 {
-                    'videoId': 'OCmDyoerZ7o',
-                    'mute'   : false,
-                    'tags'   : 'shaman',
-                    'label'  : 'Beyond the Veil'
-                },
-                {
                     'videoId': 'WEL1MuOgDWs',
                     'mute'   : false,
                     'tags'   : 'shaman',
@@ -1690,12 +1712,6 @@ var config = {
                     'mute'   : false,
                     'tags'   : 'shaman',
                     'label'  : 'Why you have no motivation left after awakening'
-                },
-                {
-                    'videoId': 'RwuS0VSFeOQ',
-                    'mute'   : false,
-                    'tags'   : 'shaman',
-                    'label'  : 'Master these 4 codes'
                 },
                 {
                     'videoId': '7N_NNVeKat8',
