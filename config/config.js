@@ -2078,7 +2078,11 @@ var config = {
                 {
                     'image': './media/shaman/607.jpg',
                     'tags' : 'shaman'
-                }
+                },
+                {
+                    'image': './media/shaman/608.jpg',
+                    'tags' : 'shaman'
+                },
             ],
             'mindJourney'            :
                     {
