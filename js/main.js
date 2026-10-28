@@ -4055,7 +4055,7 @@ $(document).ready(function () {
         $('#deselectAllVideodromeTags').trigger('click');
         setTimeout(function () {
             if (folderName != undefined && folderName[0] != undefined) {
-                folderNameString = folderName[0].replaceAll(' ', '').replaceAll('-', '');
+                folderNameString = folderName[0].replaceAll(' ', '').replaceAll('-', '').replaceAll('&amp;', '');
                 $('[diridentifier="' + folderNameString + '"]').trigger('click');
                 $('#videodromeActiveFolders').html(folderNameString);
             } else {
