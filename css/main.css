@@ -2604,7 +2604,7 @@ video::-webkit-media-controls-fullscreen-button {
     overflow: hidden;
     z-index: 99;
     background: black;
-    cursor: none;
+    cursor: url('../assets/rainbow-gradient-pointer-32x32.png'), pointer !important;
     text-align: center;
     display: flex;
     align-items: center;
@@ -2620,7 +2620,7 @@ video::-webkit-media-controls-fullscreen-button {
     position: fixed;
     width: 100vW;
     padding: 16px 25px;
-    bottom: 0px;
+    bottom: 75px;
     left: 0px;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     display: none;
