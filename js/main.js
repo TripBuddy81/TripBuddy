@@ -4589,11 +4589,6 @@ $(document).ready(function () {
     function displayExternalPornDirs() {
         $('.externalVideoDirSelection').empty();
         $.each(externalPornDirs, function (url, displayName) {
-            let nodeImage = document.createElement('img');
-            nodeImage.classList.add('externalPornDirImage');
-            nodeImage.setAttribute('src', url + 'preview.jpg');
-            nodeImage.setAttribute('onerror', 'this.src=\'assets/preview_blank.jpg\'');
-
             let nodeName = document.createElement('span');
             nodeName.classList.add('externalPornDirName');
             nodeName.innerHTML = displayName;
@@ -4604,7 +4599,6 @@ $(document).ready(function () {
             nodeFolder.setAttribute('dirIdentifier', displayName.replaceAll(' ', '').replaceAll('-', '').replaceAll('&', ''));
             nodeFolder.setAttribute('externalPornDirUrl', url);
 
-            nodeFolder.append(nodeImage);
             nodeFolder.append(nodeName);
             $('.externalVideoDirSelection').append(nodeFolder);
         });

@@ -2398,14 +2398,6 @@ video::-webkit-media-controls-fullscreen-button {
     justify-content: center;
 }
 
-.externalPornDirImage {
-    width: 500px;
-    pointer-events: none;
-    border-radius: 10px;
-    outline: 5px solid #00000000;
-    display: none;
-}
-
 .externalPornDirName {
     text-align: center;
     display: block;
