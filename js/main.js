@@ -552,6 +552,8 @@ $(document).ready(function () {
                     } else if ($('.localVideo').is(':visible')) {
                         $('#refreshVideoDromeVideoAll').trigger('click');
                         e.preventDefault();
+                    } else if ($('#musicVideoPlayer').is(':visible')) {
+                        setNextMusicVideo();
                     }
                     break;
                 case 67: // C - stay with current video
